@@ -1,2 +1,2 @@
 # lunamix
-Your all-in-one school gaming tool!
+Your all-in-one school anticencorship tool!
