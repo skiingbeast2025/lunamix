@@ -1,11 +1,11 @@
 /**
- * Lunamix Core Engine - 100% Static Web Arcade
+ * Lunamix Core Engine - Unblocked Web Arcade
  * Features: InvisiProxy Constellation Canvas, Tab Cloak Engine, Panic Key Shield
  */
 
 const LUNAMIX_CLOAK_PRESETS = {
   default: {
-    title: 'Lunamix — The Ultimate Static Web Arcade',
+    title: 'Lunamix — The Ultimate Unblocked Web Arcade',
     favicon: './assets/logos/favicon.svg'
   },
   classroom: {

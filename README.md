@@ -8,7 +8,7 @@ Anti-Censorship & Privacy: Designed with bypass capabilities in mind, making it 
 
 Lightweight & Fast: Built using clean, modern HTML, CSS, and JavaScript for minimal loading times and smooth performance.
 
-Easy Deployment: Can be hosted on static hosting providers like Cloudflare Pages, Vercel, or GitHub Pages within seconds.
+Easy Deployment: Can be hosted for free on GitHub Pages, Cloudflare Pages, or Vercel within seconds.
 
 Responsive Design: Optimized for both desktop and mobile devices.
 
@@ -29,7 +29,7 @@ Run locally:
 Open index.html directly in your browser, or use a local server extension (like Live Server in VS Code) for the best experience.
 
 🌐 Deployment
-Lunamix is static-friendly and can be hosted anywhere for free:
+Lunamix runs anywhere without backend setup and can be hosted for free:
 
 Cloudflare Pages: Connect your GitHub repository to Cloudflare Pages for instant, lightning-fast global deployment.
 
