@@ -1,0 +1,13 @@
+{
+  "id": 1007,
+  "slug": "bumper-cars-soccer",
+  "name": "Bumper Cars Soccer",
+  "category": "sports",
+  "description": "Play Bumper Cars Soccer unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/strongdog4/img/bumper%20cars%20soccer.jpg",
+  "entrypoint": "https://iloveshorty.github.io/strongdog4/html/bumper%20cars%20soccer/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

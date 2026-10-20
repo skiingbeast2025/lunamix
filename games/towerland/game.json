@@ -1,0 +1,13 @@
+{
+  "id": 465,
+  "slug": "towerland",
+  "name": "Towerland",
+  "category": "other",
+  "description": "Play Towerland unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/strongdog2/img/towerland.jpg",
+  "entrypoint": "https://iloveshorty.github.io/strongdog2/html/towerland/gamereal/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

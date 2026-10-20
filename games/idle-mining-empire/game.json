@@ -1,0 +1,13 @@
+{
+  "id": 896,
+  "slug": "idle-mining-empire",
+  "name": "Idle Mining Empire",
+  "category": "other",
+  "description": "Play Idle Mining Empire unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/strongdog4/img/idle%20mining%20empire.jpg",
+  "entrypoint": "https://iloveshorty.github.io/strongdog4/html/idle%20mining%20empire/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

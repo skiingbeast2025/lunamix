@@ -1,0 +1,13 @@
+{
+  "id": 1053,
+  "slug": "age-of-war-2",
+  "name": "Age of War 2",
+  "category": "action",
+  "description": "Play Age of War 2 unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/strongdog4/img/age%20of%20war%202.jpg",
+  "entrypoint": "https://iloveshorty.github.io/strongdog4/html/age%20of%20war%202/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

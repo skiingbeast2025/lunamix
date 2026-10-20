@@ -1,0 +1,13 @@
+{
+  "id": 845,
+  "slug": "superbattles-2",
+  "name": "Superbattles 2",
+  "category": "action",
+  "description": "Play Superbattles 2 unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/strongdog3/img/super%20battles%202.jpg",
+  "entrypoint": "https://iloveshorty.github.io/strongdog3/html/superbattles%202/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

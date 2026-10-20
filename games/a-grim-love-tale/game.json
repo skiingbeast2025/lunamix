@@ -1,0 +1,13 @@
+{
+  "id": 314,
+  "slug": "a-grim-love-tale",
+  "name": "A Grim Love Tale",
+  "category": "other",
+  "description": "Play A Grim Love Tale unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/img/a%20grim%20love%20tale.jpg",
+  "entrypoint": "https://iloveshorty.github.io/html/a%20grim%20love%20tale/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

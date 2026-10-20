@@ -1,0 +1,13 @@
+{
+  "id": 627,
+  "slug": "westoon",
+  "name": "Westoon",
+  "category": "action",
+  "description": "Play Westoon unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/strongdog2/img/westoon.jpg",
+  "entrypoint": "https://iloveshorty.github.io/strongdog2/html/westoon/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

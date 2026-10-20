@@ -1,0 +1,13 @@
+{
+  "id": 450,
+  "slug": "blacken-slash-demo",
+  "name": "Blacken Slash Demo",
+  "category": "other",
+  "description": "Play Blacken Slash Demo unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/strongdog2/img/blacken%20slash.jpg",
+  "entrypoint": "https://iloveshorty.github.io/strongdog2/html/blacken%20slash%20demo/gamereal/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

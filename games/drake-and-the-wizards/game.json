@@ -1,0 +1,13 @@
+{
+  "id": 287,
+  "slug": "drake-and-the-wizards",
+  "name": "Drake and the Wizards",
+  "category": "adventure",
+  "description": "Play Drake and the Wizards unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/img/drakeandthewizards.jpg",
+  "entrypoint": "https://iloveshorty.github.io/swf/drakeandthewizards/game/base.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

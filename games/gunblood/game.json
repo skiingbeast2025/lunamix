@@ -1,0 +1,13 @@
+{
+  "id": 660,
+  "slug": "gunblood",
+  "name": "Gunblood",
+  "category": "action",
+  "description": "Play Gunblood unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/strongdog2/img/gunblood.jpg",
+  "entrypoint": "https://iloveshorty.github.io/strongdog2/swf/gunblood/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

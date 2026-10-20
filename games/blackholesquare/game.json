@@ -1,0 +1,13 @@
+{
+  "id": 194,
+  "slug": "blackholesquare",
+  "name": "Blackholesquare",
+  "category": "other",
+  "description": "Play Blackholesquare unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/img/BlackHoleSquare.png",
+  "entrypoint": "https://iloveshorty.github.io/html/blackholesquare/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

@@ -1,0 +1,13 @@
+{
+  "id": 824,
+  "slug": "worlds-hardest-game-3",
+  "name": "World's Hardest Game 3",
+  "category": "puzzle",
+  "description": "Play World's Hardest Game 3 unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/strongdog3/img/worlds%20hardest%20game%203.png",
+  "entrypoint": "https://iloveshorty.github.io/strongdog3/html/worlds%20hardest%20game%203/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

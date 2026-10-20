@@ -1,0 +1,13 @@
+{
+  "id": 802,
+  "slug": "aquaparkio",
+  "name": "Aquapark.io",
+  "category": "driving",
+  "description": "Play Aquapark.io unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/strongdog3/img/aquapark.io.jpg",
+  "entrypoint": "https://iloveshorty.github.io/strongdog3/html/aquapark.io/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

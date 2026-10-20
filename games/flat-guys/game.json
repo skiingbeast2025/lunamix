@@ -1,0 +1,13 @@
+{
+  "id": 7,
+  "slug": "flat-guys",
+  "name": "Flat Guys",
+  "category": "other",
+  "description": "Play Flat Guys unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/img/flatguys.png",
+  "entrypoint": "https://iloveshorty.github.io/html/flatguys/game/flatguys.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

@@ -1,0 +1,13 @@
+{
+  "id": 964,
+  "slug": "head-soccer",
+  "name": "Head Soccer",
+  "category": "sports",
+  "description": "Play Head Soccer unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/strongdog3/img/head%20soccer.jpg",
+  "entrypoint": "https://iloveshorty.github.io/strongdog3/html/head%20soccer/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

@@ -1,0 +1,13 @@
+{
+  "id": 846,
+  "slug": "superbike-heros",
+  "name": "Superbike Heros",
+  "category": "driving",
+  "description": "Play Superbike Heros unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/strongdog3/img/superbike%20heros.jpg",
+  "entrypoint": "https://iloveshorty.github.io/strongdog3/html/superbike%20heros/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

@@ -1,0 +1,13 @@
+{
+  "id": 343,
+  "slug": "cardinal-chains",
+  "name": "Cardinal Chains",
+  "category": "driving",
+  "description": "Play Cardinal Chains unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/img/cardinal%20chains.png",
+  "entrypoint": "https://iloveshorty.github.io/html/cardinal%20chains/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

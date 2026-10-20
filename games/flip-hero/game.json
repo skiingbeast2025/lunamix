@@ -1,0 +1,13 @@
+{
+  "id": 80,
+  "slug": "flip-hero",
+  "name": "Flip Hero",
+  "category": "other",
+  "description": "Play Flip Hero unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/img/fliphero.webp",
+  "entrypoint": "https://iloveshorty.github.io/html/fliphero/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

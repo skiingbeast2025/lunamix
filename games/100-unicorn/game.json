@@ -1,0 +1,13 @@
+{
+  "id": 132,
+  "slug": "100-unicorn",
+  "name": "$100 Unicorn",
+  "category": "other",
+  "description": "Play $100 Unicorn unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/img/100uc.png",
+  "entrypoint": "https://iloveshorty.github.io/html/100uc.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

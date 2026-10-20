@@ -1,0 +1,13 @@
+{
+  "id": 524,
+  "slug": "blocky-gun-paintball",
+  "name": "Blocky Gun Paintball",
+  "category": "action",
+  "description": "Play Blocky Gun Paintball unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.jfif",
+  "remoteIcon": "https://iloveshorty.github.io/strongdog2/img/blocky-gun-paintball-3.jfif",
+  "entrypoint": "https://iloveshorty.github.io/strongdog2/html/unity/u.html?g=blocky-gun-paintball-3",
+  "openInNewTab": false,
+  "isFeatured": true
+}

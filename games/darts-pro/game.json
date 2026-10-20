@@ -1,0 +1,13 @@
+{
+  "id": 1042,
+  "slug": "darts-pro",
+  "name": "Darts Pro",
+  "category": "sports",
+  "description": "Play Darts Pro unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/strongdog4/img/darts%20pro.jpg",
+  "entrypoint": "https://iloveshorty.github.io/strongdog4/html/darts%20pro/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

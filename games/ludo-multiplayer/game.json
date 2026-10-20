@@ -1,0 +1,13 @@
+{
+  "id": 903,
+  "slug": "ludo-multiplayer",
+  "name": "Ludo Multiplayer",
+  "category": "puzzle",
+  "description": "Play Ludo Multiplayer unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/strongdog4/img/ludo%20multiplayer.jpg",
+  "entrypoint": "https://iloveshorty.github.io/strongdog4/html/ludo%20multiplayer/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

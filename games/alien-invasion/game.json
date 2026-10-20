@@ -1,0 +1,13 @@
+{
+  "id": 200,
+  "slug": "alien-invasion",
+  "name": "Alien Invasion",
+  "category": "action",
+  "description": "Play Alien Invasion unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/img/alien.png",
+  "entrypoint": "https://iloveshorty.github.io/html/Alien%20Invasion/Alien%20Invasion/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

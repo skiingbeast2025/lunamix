@@ -1,0 +1,13 @@
+{
+  "id": 554,
+  "slug": "going-balls",
+  "name": "Going Balls",
+  "category": "platformer",
+  "description": "Play Going Balls unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/strongdog2/img/going%20balls.jfif",
+  "entrypoint": "https://iloveshorty.github.io/strongdog2/html/going%20balls/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

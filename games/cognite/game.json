@@ -1,0 +1,13 @@
+{
+  "id": 494,
+  "slug": "cognite",
+  "name": "Cognite",
+  "category": "other",
+  "description": "Play Cognite unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.jpg",
+  "remoteIcon": "https://iloveshorty.github.io/strongdog2/img/cognite.jpg",
+  "entrypoint": "https://iloveshorty.github.io/strongdog2/html/cognite/gamereal/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": true
+}

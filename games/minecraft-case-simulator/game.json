@@ -1,0 +1,13 @@
+{
+  "id": 693,
+  "slug": "minecraft-case-simulator",
+  "name": "Minecraft Case Simulator",
+  "category": "other",
+  "description": "Play Minecraft Case Simulator unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/strongdog3/img/minecraft%20case%20simulator.jpg",
+  "entrypoint": "https://iloveshorty.github.io/strongdog3/html/minecraft%20case%20simulator/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

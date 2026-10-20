@@ -1,0 +1,13 @@
+{
+  "id": 547,
+  "slug": "two-punk-racing",
+  "name": "Two Punk Racing",
+  "category": "driving",
+  "description": "Play Two Punk Racing unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/strongdog2/img/two-punk-racing.jfif",
+  "entrypoint": "https://iloveshorty.github.io/strongdog2/html/unity/u.html?g=two-punk-racing",
+  "openInNewTab": false,
+  "isFeatured": false
+}

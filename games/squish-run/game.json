@@ -1,0 +1,13 @@
+{
+  "id": 828,
+  "slug": "squish-run",
+  "name": "Squish Run",
+  "category": "platformer",
+  "description": "Play Squish Run unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/strongdog3/img/squish%20run.png",
+  "entrypoint": "https://iloveshorty.github.io/strongdog3/html/squish%20run/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

@@ -1,0 +1,13 @@
+{
+  "id": 714,
+  "slug": "antiban",
+  "name": "Antiban",
+  "category": "other",
+  "description": "Play Antiban unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/strongdog2/img/antiban.png",
+  "entrypoint": "https://iloveshorty.github.io/strongdog2/html/antiban/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

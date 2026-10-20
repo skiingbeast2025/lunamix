@@ -1,0 +1,13 @@
+{
+  "id": 904,
+  "slug": "mafia-wars",
+  "name": "Mafia Wars",
+  "category": "action",
+  "description": "Play Mafia Wars unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/strongdog4/img/mafia%20wars.jpg",
+  "entrypoint": "https://iloveshorty.github.io/strongdog4/html/mafia%20wars/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

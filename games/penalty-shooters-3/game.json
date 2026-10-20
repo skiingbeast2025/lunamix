@@ -1,0 +1,13 @@
+{
+  "id": 706,
+  "slug": "penalty-shooters-3",
+  "name": "Penalty Shooters 3",
+  "category": "sports",
+  "description": "Play Penalty Shooters 3 unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/strongdog3/img/penalty%20shooters%203.jpg",
+  "entrypoint": "https://iloveshorty.github.io/strongdog3/html/penalty%20shooters%203/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

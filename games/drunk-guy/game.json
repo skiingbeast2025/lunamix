@@ -1,0 +1,13 @@
+{
+  "id": 769,
+  "slug": "drunk-guy",
+  "name": "Drunk Guy",
+  "category": "platformer",
+  "description": "Play Drunk Guy unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/strongdog3/img/drunk%20guy.jpg",
+  "entrypoint": "https://iloveshorty.github.io/strongdog3/swf/drunk%20guy/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

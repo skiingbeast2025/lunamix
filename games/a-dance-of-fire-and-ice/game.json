@@ -1,0 +1,13 @@
+{
+  "id": 520,
+  "slug": "a-dance-of-fire-and-ice",
+  "name": "A Dance of Fire and Ice",
+  "category": "other",
+  "description": "Play A Dance of Fire and Ice unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.png",
+  "remoteIcon": "https://iloveshorty.github.io/strongdog2/img/adofai.png",
+  "entrypoint": "https://iloveshorty.github.io/strongdog2/html/unity/u.html?g=adofaiii4",
+  "openInNewTab": false,
+  "isFeatured": true
+}

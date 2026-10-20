@@ -1,0 +1,13 @@
+{
+  "id": 1039,
+  "slug": "curve-ball-3d",
+  "name": "Curve Ball 3D",
+  "category": "other",
+  "description": "Play Curve Ball 3D unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/strongdog4/img/curve%20ball%203d.jpg",
+  "entrypoint": "https://iloveshorty.github.io/strongdog4/html/curve%20ball%203d/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

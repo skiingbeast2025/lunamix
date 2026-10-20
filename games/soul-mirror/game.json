@@ -1,0 +1,13 @@
+{
+  "id": 364,
+  "slug": "soul-mirror",
+  "name": "Soul Mirror",
+  "category": "other",
+  "description": "Play Soul Mirror unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/img/soul%20mirror.jpg",
+  "entrypoint": "https://iloveshorty.github.io/html/soul%20mirror/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

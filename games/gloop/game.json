@@ -1,0 +1,13 @@
+{
+  "id": 399,
+  "slug": "gloop",
+  "name": "Gloop",
+  "category": "other",
+  "description": "Play Gloop unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/strongdog2/img/gloop.webp",
+  "entrypoint": "https://iloveshorty.github.io/strongdog2/html/gloop/gamereal/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

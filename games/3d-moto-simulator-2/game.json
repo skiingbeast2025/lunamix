@@ -1,0 +1,13 @@
+{
+  "id": 1046,
+  "slug": "3d-moto-simulator-2",
+  "name": "3D Moto Simulator 2",
+  "category": "driving",
+  "description": "Play 3D Moto Simulator 2 unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/strongdog4/img/3d%20moto%20simulator%202.jpg",
+  "entrypoint": "https://iloveshorty.github.io/strongdog4/html/3d%20moto%20simulator%202/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

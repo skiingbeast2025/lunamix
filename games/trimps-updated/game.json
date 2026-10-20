@@ -1,0 +1,13 @@
+{
+  "id": 1142,
+  "slug": "trimps-updated",
+  "name": "Trimps Updated",
+  "category": "other",
+  "description": "Play Trimps Updated unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/strongdog4/img/trimps%20updated.jpg",
+  "entrypoint": "https://iloveshorty.github.io/strongdog4/html/trimps%20updated/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

@@ -1,0 +1,13 @@
+{
+  "id": 3,
+  "slug": "pizza-challange",
+  "name": "Pizza Challange",
+  "category": "other",
+  "description": "Play Pizza Challange unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/img/pizzachallenge.png",
+  "entrypoint": "https://iloveshorty.github.io/html/pizzachallenge/game/pizzachallenge.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

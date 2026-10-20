@@ -1,0 +1,13 @@
+{
+  "id": 108,
+  "slug": "bloonstd-4",
+  "name": "Bloonstd 4",
+  "category": "action",
+  "description": "Play Bloonstd 4 unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/img/bloonstd4.webp",
+  "entrypoint": "https://iloveshorty.github.io/html/bloonstd4/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

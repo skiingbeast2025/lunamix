@@ -1,0 +1,13 @@
+{
+  "id": 740,
+  "slug": "red-vs-blue",
+  "name": "Red vs Blue",
+  "category": "puzzle",
+  "description": "Play Red vs Blue unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/strongdog3/img/Red%20vs%20Blue.png",
+  "entrypoint": "https://iloveshorty.github.io/strongdog3/html/Red%20vs%20Blue/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

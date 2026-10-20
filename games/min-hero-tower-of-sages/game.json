@@ -1,0 +1,13 @@
+{
+  "id": 214,
+  "slug": "min-hero-tower-of-sages",
+  "name": "Min Hero Tower of Sages",
+  "category": "other",
+  "description": "Play Min Hero Tower of Sages unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/img/minhero.jpeg",
+  "entrypoint": "https://iloveshorty.github.io/swf/minhero/game/base.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

@@ -1,0 +1,13 @@
+{
+  "id": 402,
+  "slug": "space-order-mine",
+  "name": "Space Order Mine",
+  "category": "other",
+  "description": "Play Space Order Mine unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/strongdog2/img/space%20order%20mine.jpg",
+  "entrypoint": "https://iloveshorty.github.io/strongdog2/html/space%20order%20mine/gamereal/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

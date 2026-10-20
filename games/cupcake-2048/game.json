@@ -1,0 +1,13 @@
+{
+  "id": 96,
+  "slug": "cupcake-2048",
+  "name": "Cupcake 2048",
+  "category": "puzzle",
+  "description": "Play Cupcake 2048 unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/img/cupcakes.webp",
+  "entrypoint": "https://iloveshorty.github.io/html/cupcakes/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

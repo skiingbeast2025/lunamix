@@ -1,0 +1,13 @@
+{
+  "id": 671,
+  "slug": "pacman-remake",
+  "name": "Pacman Remake",
+  "category": "retro",
+  "description": "Play Pacman Remake unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/strongdog3/img/pacman%20remake.png",
+  "entrypoint": "https://iloveshorty.github.io/strongdog3/html/pacman%20remake/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

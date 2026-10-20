@@ -1,0 +1,13 @@
+{
+  "id": 498,
+  "slug": "jetscout-boot-camp",
+  "name": "Jetscout Boot Camp",
+  "category": "other",
+  "description": "Play Jetscout Boot Camp unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/strongdog2/img/jetscout%20boot%20camp.png",
+  "entrypoint": "https://iloveshorty.github.io/strongdog2/html/jetscout%20boot%20camp/gamereal/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

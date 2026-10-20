@@ -1,0 +1,13 @@
+{
+  "id": 167,
+  "slug": "horse-master",
+  "name": "Horse Master",
+  "category": "other",
+  "description": "Play Horse Master unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/img/horse.png",
+  "entrypoint": "https://iloveshorty.github.io/html/hearse%20mster/-=HORSE%20MASTER=-%20The%20Game%20of%20Horse%20Mastery.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

@@ -1,0 +1,13 @@
+{
+  "id": 676,
+  "slug": "president-simulator",
+  "name": "President Simulator",
+  "category": "other",
+  "description": "Play President Simulator unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/strongdog3/img/president%20simulator.jpg",
+  "entrypoint": "https://iloveshorty.github.io/strongdog3/html/president%20simulator/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

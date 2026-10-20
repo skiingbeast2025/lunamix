@@ -1,0 +1,13 @@
+{
+  "id": 164,
+  "slug": "konnekt",
+  "name": "Konnekt",
+  "category": "other",
+  "description": "Play Konnekt unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.png",
+  "remoteIcon": "https://iloveshorty.github.io/img/cone.png",
+  "entrypoint": "https://iloveshorty.github.io/html/konnekt/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": true
+}

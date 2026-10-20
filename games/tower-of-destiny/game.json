@@ -1,0 +1,13 @@
+{
+  "id": 856,
+  "slug": "tower-of-destiny",
+  "name": "Tower of Destiny",
+  "category": "platformer",
+  "description": "Play Tower of Destiny unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/strongdog3/img/tower%20of%20destiny.jpg",
+  "entrypoint": "https://iloveshorty.github.io/strongdog3/html/tower%20of%20destiny/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

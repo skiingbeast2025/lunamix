@@ -1,0 +1,13 @@
+{
+  "id": 187,
+  "slug": "captain-callisto",
+  "name": "Captain Callisto",
+  "category": "other",
+  "description": "Play Captain Callisto unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/img/capain.png",
+  "entrypoint": "https://iloveshorty.github.io/html/captaincallisto/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

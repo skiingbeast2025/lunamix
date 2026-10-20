@@ -1,0 +1,13 @@
+{
+  "id": 784,
+  "slug": "deep-sleep",
+  "name": "Deep Sleep",
+  "category": "adventure",
+  "description": "Play Deep Sleep unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/strongdog3/img/deep%20sleep.jpg",
+  "entrypoint": "https://iloveshorty.github.io/strongdog3/swf/deep%20sleep/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

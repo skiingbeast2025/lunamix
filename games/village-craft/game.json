@@ -1,0 +1,13 @@
+{
+  "id": 816,
+  "slug": "village-craft",
+  "name": "Village Craft",
+  "category": "other",
+  "description": "Play Village Craft unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/strongdog3/img/village%20craft.jpg",
+  "entrypoint": "https://iloveshorty.github.io/strongdog3/html/village%20craft/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

@@ -1,0 +1,13 @@
+{
+  "id": 447,
+  "slug": "hall-of-palettes",
+  "name": "Hall of Palettes",
+  "category": "other",
+  "description": "Play Hall of Palettes unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/strongdog2/img/hall%20of%20palettes.png",
+  "entrypoint": "https://iloveshorty.github.io/strongdog2/html/hall%20of%20palettes/gamereal/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

@@ -1,0 +1,13 @@
+{
+  "id": 161,
+  "slug": "paper-minecraft",
+  "name": "Paper Minecraft",
+  "category": "adventure",
+  "description": "Play Paper Minecraft unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.png",
+  "remoteIcon": "https://iloveshorty.github.io/img/papermc.png",
+  "entrypoint": "https://iloveshorty.github.io/html/Paper%20Minecraft/game/Paper%20Minecraft.html",
+  "openInNewTab": false,
+  "isFeatured": true
+}

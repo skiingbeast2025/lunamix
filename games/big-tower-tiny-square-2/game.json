@@ -1,0 +1,13 @@
+{
+  "id": 715,
+  "slug": "big-tower-tiny-square-2",
+  "name": "Big Tower Tiny Square 2",
+  "category": "platformer",
+  "description": "Play Big Tower Tiny Square 2 unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/strongdog3/img/big%20tower%20tiny%20square%202.jpg",
+  "entrypoint": "https://iloveshorty.github.io/strongdog3/html/big%20tower%20tiny%20square%202/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

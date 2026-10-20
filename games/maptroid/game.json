@@ -1,0 +1,13 @@
+{
+  "id": 298,
+  "slug": "maptroid",
+  "name": "Maptroid",
+  "category": "other",
+  "description": "Play Maptroid unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/img/maptroid.jpg",
+  "entrypoint": "https://iloveshorty.github.io/html/maptroid/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

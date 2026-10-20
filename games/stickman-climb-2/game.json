@@ -1,0 +1,13 @@
+{
+  "id": 835,
+  "slug": "stickman-climb-2",
+  "name": "Stickman Climb 2",
+  "category": "platformer",
+  "description": "Play Stickman Climb 2 unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/strongdog3/img/stickman%20climb%202.jpg",
+  "entrypoint": "https://iloveshorty.github.io/strongdog3/html/stickman%20climb%202/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

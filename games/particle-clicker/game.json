@@ -1,0 +1,13 @@
+{
+  "id": 54,
+  "slug": "particle-clicker",
+  "name": "Particle Clicker",
+  "category": "other",
+  "description": "Play Particle Clicker unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/img/parclick.webp",
+  "entrypoint": "https://iloveshorty.github.io/html/particle-clicker/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

@@ -1,0 +1,13 @@
+{
+  "id": 614,
+  "slug": "bomber-royale",
+  "name": "Bomber Royale",
+  "category": "action",
+  "description": "Play Bomber Royale unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/strongdog2/img/bomber%20royale.jpg",
+  "entrypoint": "https://iloveshorty.github.io/strongdog2/html/bomber%20royale/game/bomber-royale-main/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

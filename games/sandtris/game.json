@@ -1,0 +1,13 @@
+{
+  "id": 732,
+  "slug": "sandtris",
+  "name": "Sandtris",
+  "category": "retro",
+  "description": "Play Sandtris unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/strongdog3/img/sandtris.jpg",
+  "entrypoint": "https://iloveshorty.github.io/strongdog3/html/sandtris/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

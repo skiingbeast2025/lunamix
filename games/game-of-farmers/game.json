@@ -1,0 +1,13 @@
+{
+  "id": 955,
+  "slug": "game-of-farmers",
+  "name": "Game of Farmers",
+  "category": "other",
+  "description": "Play Game of Farmers unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/strongdog3/img/game%20of%20farmers.jpg",
+  "entrypoint": "https://iloveshorty.github.io/strongdog3/html/game%20of%20farmers/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

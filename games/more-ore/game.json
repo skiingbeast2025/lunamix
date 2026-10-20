@@ -1,0 +1,13 @@
+{
+  "id": 1125,
+  "slug": "more-ore",
+  "name": "More Ore",
+  "category": "other",
+  "description": "Play More Ore unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/strongdog4/img/more%20ore.jpg",
+  "entrypoint": "https://iloveshorty.github.io/strongdog4/html/more%20ore/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

@@ -1,0 +1,13 @@
+{
+  "id": 839,
+  "slug": "stickman-school-run",
+  "name": "Stickman School Run",
+  "category": "platformer",
+  "description": "Play Stickman School Run unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/strongdog3/img/stickman%20school%20run.png",
+  "entrypoint": "https://iloveshorty.github.io/strongdog3/html/stickman%20school%20run/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

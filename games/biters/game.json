@@ -1,0 +1,13 @@
+{
+  "id": 112,
+  "slug": "biters",
+  "name": "Biters",
+  "category": "other",
+  "description": "Play Biters unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/img/biters.webp",
+  "entrypoint": "https://iloveshorty.github.io/html/biters-io/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

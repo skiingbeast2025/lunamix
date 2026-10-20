@@ -1,0 +1,13 @@
+{
+  "id": 372,
+  "slug": "hasty-shaman",
+  "name": "Hasty Shaman",
+  "category": "other",
+  "description": "Play Hasty Shaman unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/img/hasty%20shaman.png",
+  "entrypoint": "https://iloveshorty.github.io/html/hasty%20shaman/gamereal/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

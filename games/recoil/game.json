@@ -1,0 +1,13 @@
+{
+  "id": 868,
+  "slug": "recoil",
+  "name": "Recoil",
+  "category": "action",
+  "description": "Play Recoil unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/strongdog3/img/recoil.jpg",
+  "entrypoint": "https://iloveshorty.github.io/strongdog3/html/recoil/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

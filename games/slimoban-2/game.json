@@ -1,0 +1,13 @@
+{
+  "id": 514,
+  "slug": "slimoban-2",
+  "name": "Slimoban 2",
+  "category": "puzzle",
+  "description": "Play Slimoban 2 unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/strongdog2/img/slimoban%202.jpg",
+  "entrypoint": "https://iloveshorty.github.io/strongdog2/html/slimoban%202/gamereal/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

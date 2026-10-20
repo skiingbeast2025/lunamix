@@ -1,0 +1,13 @@
+{
+  "id": 578,
+  "slug": "spelunky",
+  "name": "Spelunky",
+  "category": "platformer",
+  "description": "Play Spelunky unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/strongdog2/img/spelunky.jfif",
+  "entrypoint": "https://iloveshorty.github.io/strongdog2/html/spelunky/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

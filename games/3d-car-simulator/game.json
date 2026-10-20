@@ -1,0 +1,13 @@
+{
+  "id": 1045,
+  "slug": "3d-car-simulator",
+  "name": "3D Car Simulator",
+  "category": "driving",
+  "description": "Play 3D Car Simulator unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/strongdog4/img/3d%20car%20simulator.jpg",
+  "entrypoint": "https://iloveshorty.github.io/strongdog4/html/3d%20car%20simulator/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

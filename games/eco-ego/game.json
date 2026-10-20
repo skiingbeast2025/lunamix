@@ -1,0 +1,13 @@
+{
+  "id": 785,
+  "slug": "eco-ego",
+  "name": "Eco Ego",
+  "category": "other",
+  "description": "Play Eco Ego unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.jpg",
+  "remoteIcon": "https://iloveshorty.github.io/strongdog3/img/eco%20ego.jpg",
+  "entrypoint": "https://iloveshorty.github.io/strongdog3/swf/eco%20ego/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": true
+}

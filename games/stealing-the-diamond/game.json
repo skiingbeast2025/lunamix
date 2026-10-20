@@ -1,0 +1,13 @@
+{
+  "id": 310,
+  "slug": "stealing-the-diamond",
+  "name": "Stealing the Diamond",
+  "category": "adventure",
+  "description": "Play Stealing the Diamond unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.jpg",
+  "remoteIcon": "https://iloveshorty.github.io/img/stealing%20the%20diamond.jpg",
+  "entrypoint": "https://iloveshorty.github.io/swf/stealing%20the%20diamond/game/base.html",
+  "openInNewTab": false,
+  "isFeatured": true
+}

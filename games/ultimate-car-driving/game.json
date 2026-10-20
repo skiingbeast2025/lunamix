@@ -1,0 +1,13 @@
+{
+  "id": 862,
+  "slug": "ultimate-car-driving",
+  "name": "Ultimate Car Driving",
+  "category": "driving",
+  "description": "Play Ultimate Car Driving unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/strongdog3/img/ultimate%20car%20driving.jpg",
+  "entrypoint": "https://iloveshorty.github.io/strongdog3/html/ultimate%20car%20driving/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

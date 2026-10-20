@@ -1,0 +1,13 @@
+{
+  "id": 439,
+  "slug": "strg-snek",
+  "name": "Strg Snek",
+  "category": "other",
+  "description": "Play Strg Snek unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/strongdog2/img/strg%20snek.png",
+  "entrypoint": "https://iloveshorty.github.io/strongdog2/html/strg%20snek/gamereal/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

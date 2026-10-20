@@ -1,0 +1,13 @@
+{
+  "id": 234,
+  "slug": "adventure-capitolists",
+  "name": "Adventure Capitolists",
+  "category": "adventure",
+  "description": "Play Adventure Capitolists unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/img/capitolist.jpeg",
+  "entrypoint": "https://iloveshorty.github.io/html/catpitolists/advcap.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

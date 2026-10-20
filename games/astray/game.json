@@ -1,0 +1,13 @@
+{
+  "id": 196,
+  "slug": "astray",
+  "name": "Astray",
+  "category": "other",
+  "description": "Play Astray unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/img/astray.png",
+  "entrypoint": "https://iloveshorty.github.io/html/astray/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

@@ -1,0 +1,13 @@
+{
+  "id": 792,
+  "slug": "sniper-assasin",
+  "name": "Sniper Assasin",
+  "category": "action",
+  "description": "Play Sniper Assasin unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/strongdog3/img/sniper%20assasin.jpg",
+  "entrypoint": "https://iloveshorty.github.io/strongdog3/swf/sniper%20assasin/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

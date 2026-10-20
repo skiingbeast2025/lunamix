@@ -1,0 +1,13 @@
+{
+  "id": 166,
+  "slug": "hextris",
+  "name": "Hextris",
+  "category": "puzzle",
+  "description": "Play Hextris unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/img/hex.png",
+  "entrypoint": "https://iloveshorty.github.io/html/hextris/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

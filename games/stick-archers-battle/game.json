@@ -1,0 +1,13 @@
+{
+  "id": 651,
+  "slug": "stick-archers-battle",
+  "name": "Stick Archers Battle",
+  "category": "action",
+  "description": "Play Stick Archers Battle unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/strongdog3/img/stick%20archers%20battle.jpg",
+  "entrypoint": "https://iloveshorty.github.io/strongdog3/html/stick%20archers%20battle/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

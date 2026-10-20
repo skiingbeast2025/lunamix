@@ -1,0 +1,13 @@
+{
+  "id": 1078,
+  "slug": "athletics-hero",
+  "name": "Athletics Hero",
+  "category": "sports",
+  "description": "Play Athletics Hero unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/strongdog4/img/athletics%20hero.jpg",
+  "entrypoint": "https://iloveshorty.github.io/strongdog4/html/athletics%20hero/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

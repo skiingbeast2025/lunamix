@@ -1,0 +1,13 @@
+{
+  "id": 1000,
+  "slug": "blocky-trials",
+  "name": "Blocky Trials",
+  "category": "driving",
+  "description": "Play Blocky Trials unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/strongdog4/img/blocky%20trials.jpg",
+  "entrypoint": "https://iloveshorty.github.io/strongdog4/html/blocky%20trials/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

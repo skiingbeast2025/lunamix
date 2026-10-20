@@ -1,0 +1,13 @@
+{
+  "id": 630,
+  "slug": "dark-tomb",
+  "name": "Dark Tomb",
+  "category": "adventure",
+  "description": "Play Dark Tomb unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/strongdog2/img/dark%20tomb.jpg",
+  "entrypoint": "https://iloveshorty.github.io/strongdog2/html/dark%20tomb/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

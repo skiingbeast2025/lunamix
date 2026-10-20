@@ -1,0 +1,13 @@
+{
+  "id": 262,
+  "slug": "papas-taco-mia",
+  "name": "Papas Taco Mia",
+  "category": "other",
+  "description": "Play Papas Taco Mia unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.jpg",
+  "remoteIcon": "https://iloveshorty.github.io/img/papataco.jpg",
+  "entrypoint": "https://iloveshorty.github.io/swf/papataco/game/base.html",
+  "openInNewTab": false,
+  "isFeatured": true
+}

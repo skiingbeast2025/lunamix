@@ -1,0 +1,13 @@
+{
+  "id": 319,
+  "slug": "ginogen-arena",
+  "name": "Ginogen Arena",
+  "category": "action",
+  "description": "Play Ginogen Arena unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/img/dinogen%20arena.webp",
+  "entrypoint": "https://iloveshorty.github.io/html/dinogen%20arena/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

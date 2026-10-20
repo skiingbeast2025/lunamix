@@ -1,0 +1,13 @@
+{
+  "id": 704,
+  "slug": "push-the-box",
+  "name": "Push the Box",
+  "category": "puzzle",
+  "description": "Play Push the Box unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.jpg",
+  "remoteIcon": "https://iloveshorty.github.io/strongdog3/img/push%20the%20box.jpg",
+  "entrypoint": "https://iloveshorty.github.io/strongdog3/html/push%20the%20box/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": true
+}

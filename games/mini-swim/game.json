@@ -1,0 +1,13 @@
+{
+  "id": 432,
+  "slug": "mini-swim",
+  "name": "Mini Swim",
+  "category": "other",
+  "description": "Play Mini Swim unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/strongdog2/img/mini%20swim.jpg",
+  "entrypoint": "https://iloveshorty.github.io/strongdog2/html/mini%20swim/gamereal/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

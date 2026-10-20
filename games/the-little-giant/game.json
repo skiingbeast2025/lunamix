@@ -1,0 +1,13 @@
+{
+  "id": 851,
+  "slug": "the-little-giant",
+  "name": "The Little Giant",
+  "category": "other",
+  "description": "Play The Little Giant unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/strongdog3/img/the%20little%20giant.jpg",
+  "entrypoint": "https://iloveshorty.github.io/strongdog3/html/the%20little%20giant/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

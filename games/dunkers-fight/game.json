@@ -1,0 +1,13 @@
+{
+  "id": 90,
+  "slug": "dunkers-fight",
+  "name": "Dunkers Fight",
+  "category": "sports",
+  "description": "Play Dunkers Fight unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/img/dunk.webp",
+  "entrypoint": "https://iloveshorty.github.io/html/dunkers-fight/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

@@ -1,0 +1,13 @@
+{
+  "id": 555,
+  "slug": "gravity-soccer",
+  "name": "Gravity Soccer",
+  "category": "sports",
+  "description": "Play Gravity Soccer unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/strongdog2/img/gravity%20soccer.jfif",
+  "entrypoint": "https://iloveshorty.github.io/strongdog2/html/gravity%20soccer/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

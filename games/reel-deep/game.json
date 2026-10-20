@@ -1,0 +1,13 @@
+{
+  "id": 460,
+  "slug": "reel-deep",
+  "name": "Reel Deep",
+  "category": "other",
+  "description": "Play Reel Deep unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/strongdog2/img/reel%20deep.webp",
+  "entrypoint": "https://iloveshorty.github.io/strongdog2/html/reel%20deep/gamereal/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

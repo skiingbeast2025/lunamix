@@ -1,0 +1,13 @@
+{
+  "id": 774,
+  "slug": "pokemon-unbound",
+  "name": "Pokemon Unbound",
+  "category": "adventure",
+  "description": "Play Pokemon Unbound unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/strongdog3/img/pokemon%20unbound.jpg",
+  "entrypoint": "https://iloveshorty.github.io/strongdog3/html/pokemon%20unbound/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

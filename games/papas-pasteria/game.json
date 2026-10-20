@@ -1,0 +1,13 @@
+{
+  "id": 266,
+  "slug": "papas-pasteria",
+  "name": "Papas Pasteria",
+  "category": "other",
+  "description": "Play Papas Pasteria unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/img/papaspasteria.jpg",
+  "entrypoint": "https://iloveshorty.github.io/swf/papapasteria/game/base.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

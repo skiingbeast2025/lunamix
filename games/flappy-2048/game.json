@@ -1,0 +1,13 @@
+{
+  "id": 176,
+  "slug": "flappy-2048",
+  "name": "Flappy 2048",
+  "category": "puzzle",
+  "description": "Play Flappy 2048 unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/img/flappy2048.png",
+  "entrypoint": "https://iloveshorty.github.io/html/flappy-2048/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

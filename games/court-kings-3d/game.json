@@ -1,0 +1,13 @@
+{
+  "id": 1032,
+  "slug": "court-kings-3d",
+  "name": "Court Kings 3D",
+  "category": "sports",
+  "description": "Play Court Kings 3D unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/strongdog4/img/court%20kings%203d.jpg",
+  "entrypoint": "https://iloveshorty.github.io/strongdog4/html/court%20kings%203d/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

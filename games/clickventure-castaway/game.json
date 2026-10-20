@@ -1,0 +1,13 @@
+{
+  "id": 347,
+  "slug": "clickventure-castaway",
+  "name": "Clickventure Castaway",
+  "category": "adventure",
+  "description": "Play Clickventure Castaway unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/img/clickventure%20castaway.jpg",
+  "entrypoint": "https://iloveshorty.github.io/html/clickventure%20castaway/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

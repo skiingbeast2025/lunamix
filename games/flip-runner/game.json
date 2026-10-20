@@ -1,0 +1,13 @@
+{
+  "id": 943,
+  "slug": "flip-runner",
+  "name": "Flip Runner",
+  "category": "platformer",
+  "description": "Play Flip Runner unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/strongdog4/img/flip%20runner.jpg",
+  "entrypoint": "https://iloveshorty.github.io/strongdog4/html/flip%20runner/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

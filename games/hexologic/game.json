@@ -1,0 +1,13 @@
+{
+  "id": 322,
+  "slug": "hexologic",
+  "name": "Hexologic",
+  "category": "puzzle",
+  "description": "Play Hexologic unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/img/hexlogic.jpg",
+  "entrypoint": "https://iloveshorty.github.io/html/hexologic/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

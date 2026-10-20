@@ -1,0 +1,13 @@
+{
+  "id": 351,
+  "slug": "dubstep-raven",
+  "name": "Dubstep Raven",
+  "category": "other",
+  "description": "Play Dubstep Raven unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/img/dubstep%20raven.png",
+  "entrypoint": "https://iloveshorty.github.io/html/dubstep%20raven/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

@@ -1,0 +1,13 @@
+{
+  "id": 1047,
+  "slug": "4x4-drive-offroad",
+  "name": "4x4 Drive Offroad",
+  "category": "driving",
+  "description": "Play 4x4 Drive Offroad unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/strongdog4/img/4x4%20drive%20offroad.jpg",
+  "entrypoint": "https://iloveshorty.github.io/strongdog4/html/4x4%20drive%20offroad/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

@@ -1,0 +1,13 @@
+{
+  "id": 342,
+  "slug": "bunnies-carrot",
+  "name": "Bunnies Carrot",
+  "category": "driving",
+  "description": "Play Bunnies Carrot unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/img/bunnies%20carrot.jpg",
+  "entrypoint": "https://iloveshorty.github.io/html/bunnies%20carrot/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

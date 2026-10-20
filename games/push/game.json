@@ -1,0 +1,13 @@
+{
+  "id": 363,
+  "slug": "push",
+  "name": "Push",
+  "category": "puzzle",
+  "description": "Play Push unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/img/push.jpg",
+  "entrypoint": "https://iloveshorty.github.io/html/push/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

@@ -1,0 +1,13 @@
+{
+  "id": 492,
+  "slug": "space-cowboy",
+  "name": "Space Cowboy",
+  "category": "other",
+  "description": "Play Space Cowboy unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/strongdog2/img/space%20cowboy.jpg",
+  "entrypoint": "https://iloveshorty.github.io/strongdog2/html/space%20cowboy/gamereal/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

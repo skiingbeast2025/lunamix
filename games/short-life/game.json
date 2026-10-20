@@ -1,0 +1,13 @@
+{
+  "id": 882,
+  "slug": "short-life",
+  "name": "Short Life",
+  "category": "platformer",
+  "description": "Play Short Life unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/strongdog3/img/short%20life.jpg",
+  "entrypoint": "https://iloveshorty.github.io/strongdog3/html/short%20life/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

@@ -1,0 +1,13 @@
+{
+  "id": 971,
+  "slug": "super-mario-world",
+  "name": "Super Mario World",
+  "category": "platformer",
+  "description": "Play Super Mario World unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/strongdog3/img/super%20mario%20world.jpg",
+  "entrypoint": "https://iloveshorty.github.io/strongdog3/html/super%20mario%20world/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

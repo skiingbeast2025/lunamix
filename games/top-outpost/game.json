@@ -1,0 +1,13 @@
+{
+  "id": 504,
+  "slug": "top-outpost",
+  "name": "Top Outpost",
+  "category": "other",
+  "description": "Play Top Outpost unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/strongdog2/img/top%20outpost.jpg",
+  "entrypoint": "https://iloveshorty.github.io/strongdog2/html/top%20outpost/gamereal/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

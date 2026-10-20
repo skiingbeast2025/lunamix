@@ -1,0 +1,13 @@
+{
+  "id": 177,
+  "slug": "evil-glich",
+  "name": "Evil Glich",
+  "category": "other",
+  "description": "Play Evil Glich unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.png",
+  "remoteIcon": "https://iloveshorty.github.io/img/EvilGlitch.png",
+  "entrypoint": "https://iloveshorty.github.io/html/evilglitch/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": true
+}

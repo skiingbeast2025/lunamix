@@ -1,0 +1,13 @@
+{
+  "id": 890,
+  "slug": "sling-drift",
+  "name": "Sling Drift",
+  "category": "driving",
+  "description": "Play Sling Drift unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/strongdog3/img/sling%20drift.jpg",
+  "entrypoint": "https://iloveshorty.github.io/strongdog3/html/sling%20drift/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

@@ -1,0 +1,13 @@
+{
+  "id": 186,
+  "slug": "chess",
+  "name": "Chess",
+  "category": "puzzle",
+  "description": "Play Chess unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/img/chess.png",
+  "entrypoint": "https://iloveshorty.github.io/html/chess/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

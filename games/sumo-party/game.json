@@ -1,0 +1,13 @@
+{
+  "id": 842,
+  "slug": "sumo-party",
+  "name": "Sumo Party",
+  "category": "action",
+  "description": "Play Sumo Party unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/strongdog3/img/sumo%20party.jpg",
+  "entrypoint": "https://iloveshorty.github.io/strongdog3/html/sumo%20party/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

@@ -1,0 +1,13 @@
+{
+  "id": 142,
+  "slug": "scratch-brawl-2",
+  "name": "Scratch Brawl 2",
+  "category": "action",
+  "description": "Play Scratch Brawl 2 unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.jpg",
+  "remoteIcon": "https://iloveshorty.github.io/img/scratchb.jpg",
+  "entrypoint": "https://iloveshorty.github.io/html/Scratch%20Brawl%202.html",
+  "openInNewTab": false,
+  "isFeatured": true
+}

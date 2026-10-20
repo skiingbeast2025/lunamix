@@ -1,0 +1,13 @@
+{
+  "id": 434,
+  "slug": "murder-is-game-over",
+  "name": "Murder Is Game Over",
+  "category": "other",
+  "description": "Play Murder Is Game Over unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/strongdog2/img/murder%20is%20game%20over.jpg",
+  "entrypoint": "https://iloveshorty.github.io/strongdog2/html/murder%20is%20game%20over/gamereal/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

@@ -1,0 +1,13 @@
+{
+  "id": 599,
+  "slug": "tag",
+  "name": "Tag",
+  "category": "other",
+  "description": "Play Tag unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.jpg",
+  "remoteIcon": "https://iloveshorty.github.io/strongdog2/img/tag.jpg",
+  "entrypoint": "https://iloveshorty.github.io/strongdog2/html/tag/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": true
+}

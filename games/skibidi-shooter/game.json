@@ -1,0 +1,13 @@
+{
+  "id": 886,
+  "slug": "skibidi-shooter",
+  "name": "Skibidi Shooter",
+  "category": "action",
+  "description": "Play Skibidi Shooter unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/strongdog3/img/skibidi%20shooter.jpg",
+  "entrypoint": "https://iloveshorty.github.io/strongdog3/html/skibidi%20shooter/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

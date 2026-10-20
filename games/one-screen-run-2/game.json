@@ -1,0 +1,13 @@
+{
+  "id": 509,
+  "slug": "one-screen-run-2",
+  "name": "One Screen Run 2",
+  "category": "platformer",
+  "description": "Play One Screen Run 2 unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/strongdog2/img/one%20screen%20run%202.png",
+  "entrypoint": "https://iloveshorty.github.io/strongdog2/html/one%20screen%20run%202/gamereal/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

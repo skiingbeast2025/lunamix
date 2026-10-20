@@ -1,0 +1,13 @@
+{
+  "id": 482,
+  "slug": "cursed-travels-the-shattered-labyrinth",
+  "name": "Cursed Travels the Shattered Labyrinth",
+  "category": "adventure",
+  "description": "Play Cursed Travels the Shattered Labyrinth unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/strongdog2/img/cursed%20travels%20the%20shattered%20labyrinth.png",
+  "entrypoint": "https://iloveshorty.github.io/strongdog2/html/cursed%20travels%20the%20shattered%20labyrinth/gamereal/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

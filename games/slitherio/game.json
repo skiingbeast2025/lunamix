@@ -1,0 +1,13 @@
+{
+  "id": 141,
+  "slug": "slitherio",
+  "name": "Slither.io",
+  "category": "action",
+  "description": "Play Slither.io unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/img/slither.png",
+  "entrypoint": "https://iloveshorty.github.io/html/slither.io%20v1.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

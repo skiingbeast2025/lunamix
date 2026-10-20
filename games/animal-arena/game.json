@@ -1,0 +1,13 @@
+{
+  "id": 1062,
+  "slug": "animal-arena",
+  "name": "Animal Arena",
+  "category": "action",
+  "description": "Play Animal Arena unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/strongdog4/img/animal%20arena.png",
+  "entrypoint": "https://iloveshorty.github.io/strongdog4/html/animal%20arena/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

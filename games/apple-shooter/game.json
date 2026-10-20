@@ -1,0 +1,13 @@
+{
+  "id": 801,
+  "slug": "apple-shooter",
+  "name": "Apple Shooter",
+  "category": "action",
+  "description": "Play Apple Shooter unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/strongdog3/img/apple%20shooter.jpg",
+  "entrypoint": "https://iloveshorty.github.io/strongdog3/html/apple%20shooter/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

@@ -1,0 +1,13 @@
+{
+  "id": 13,
+  "slug": "zoro",
+  "name": "Zoro",
+  "category": "other",
+  "description": "Play Zoro unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/img/zoro.webp",
+  "entrypoint": "https://iloveshorty.github.io/html/zoro/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

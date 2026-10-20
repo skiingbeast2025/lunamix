@@ -1,0 +1,13 @@
+{
+  "id": 754,
+  "slug": "death-by-ai",
+  "name": "Death by AI",
+  "category": "action",
+  "description": "Play Death by AI unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/strongdog3/img/death%20by%20ai.jpg",
+  "entrypoint": "https://iloveshorty.github.io/strongdog3/html/death%20by%20ai/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

@@ -1,0 +1,13 @@
+{
+  "id": 923,
+  "slug": "dino-bros",
+  "name": "Dino Bros",
+  "category": "platformer",
+  "description": "Play Dino Bros unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/strongdog3/img/dino%20bros.jpg",
+  "entrypoint": "https://iloveshorty.github.io/strongdog3/html/dino%20bros/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

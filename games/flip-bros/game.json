@@ -1,0 +1,13 @@
+{
+  "id": 942,
+  "slug": "flip-bros",
+  "name": "Flip Bros",
+  "category": "platformer",
+  "description": "Play Flip Bros unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/strongdog4/img/flip%20bros.jpg",
+  "entrypoint": "https://iloveshorty.github.io/strongdog4/html/flip%20bros/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

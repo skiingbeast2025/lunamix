@@ -1,0 +1,13 @@
+{
+  "id": 773,
+  "slug": "pokemon-emerald",
+  "name": "Pokemon Emerald",
+  "category": "adventure",
+  "description": "Play Pokemon Emerald unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/strongdog3/img/Pokemon%20Emerald.jpg",
+  "entrypoint": "https://iloveshorty.github.io/strongdog3/html/Pokemon%20Emerald/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

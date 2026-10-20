@@ -1,0 +1,13 @@
+{
+  "id": 309,
+  "slug": "infiltrating-the-airship",
+  "name": "Infiltrating the Airship",
+  "category": "adventure",
+  "description": "Play Infiltrating the Airship unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.jpg",
+  "remoteIcon": "https://iloveshorty.github.io/img/infiltrating%20the%20airship.jpg",
+  "entrypoint": "https://iloveshorty.github.io/swf/infiltrating%20the%20airship/game/base.html",
+  "openInNewTab": false,
+  "isFeatured": true
+}

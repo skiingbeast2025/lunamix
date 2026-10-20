@@ -1,0 +1,13 @@
+{
+  "id": 515,
+  "slug": "two-timin-towers",
+  "name": "Two Timin Towers",
+  "category": "other",
+  "description": "Play Two Timin Towers unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/strongdog2/img/two%20timin%20towers.jpg",
+  "entrypoint": "https://iloveshorty.github.io/strongdog2/html/two%20timin%20towers/gamereal/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

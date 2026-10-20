@@ -1,0 +1,13 @@
+{
+  "id": 825,
+  "slug": "wrassling",
+  "name": "Wrassling",
+  "category": "sports",
+  "description": "Play Wrassling unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.jpg",
+  "remoteIcon": "https://iloveshorty.github.io/strongdog3/img/wrassling.jpg",
+  "entrypoint": "https://iloveshorty.github.io/strongdog3/html/wrassling/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": true
+}

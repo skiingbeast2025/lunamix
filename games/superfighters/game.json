@@ -1,0 +1,13 @@
+{
+  "id": 580,
+  "slug": "superfighters",
+  "name": "Superfighters",
+  "category": "action",
+  "description": "Play Superfighters unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/strongdog2/img/superfighters.jfif",
+  "entrypoint": "https://iloveshorty.github.io/strongdog2/html/superfighters/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

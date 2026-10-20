@@ -1,0 +1,13 @@
+{
+  "id": 917,
+  "slug": "paper-fighter",
+  "name": "Paper Fighter",
+  "category": "action",
+  "description": "Play Paper Fighter unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/strongdog4/img/paper%20fighter.jpg",
+  "entrypoint": "https://iloveshorty.github.io/strongdog4/html/paper%20fighter/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

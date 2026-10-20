@@ -1,0 +1,13 @@
+{
+  "id": 162,
+  "slug": "minekahn",
+  "name": "Minekahn",
+  "category": "other",
+  "description": "Play Minekahn unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/img/khan.png",
+  "entrypoint": "https://iloveshorty.github.io/html/minekhan/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

@@ -1,0 +1,13 @@
+{
+  "id": 946,
+  "slug": "football-legends",
+  "name": "Football Legends",
+  "category": "sports",
+  "description": "Play Football Legends unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/strongdog4/img/football%20legends.jpg",
+  "entrypoint": "https://iloveshorty.github.io/strongdog4/html/football%20legends/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

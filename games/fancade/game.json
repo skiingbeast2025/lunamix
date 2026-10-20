@@ -1,0 +1,13 @@
+{
+  "id": 1087,
+  "slug": "fancade",
+  "name": "Fancade",
+  "category": "puzzle",
+  "description": "Play Fancade unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/strongdog4/img/fancade.jpg",
+  "entrypoint": "https://iloveshorty.github.io/strongdog4/html/fancade/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

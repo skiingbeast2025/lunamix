@@ -1,0 +1,13 @@
+{
+  "id": 326,
+  "slug": "rogue-fable-3",
+  "name": "Rogue Fable 3",
+  "category": "adventure",
+  "description": "Play Rogue Fable 3 unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/img/rogue%20fable.jpg",
+  "entrypoint": "https://iloveshorty.github.io/html/rogue%20fable/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

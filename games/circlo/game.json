@@ -1,0 +1,13 @@
+{
+  "id": 103,
+  "slug": "circlo",
+  "name": "Circlo",
+  "category": "platformer",
+  "description": "Play Circlo unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/img/circlo.webp",
+  "entrypoint": "https://iloveshorty.github.io/html/circlo/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

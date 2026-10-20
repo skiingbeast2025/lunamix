@@ -1,0 +1,13 @@
+{
+  "id": 949,
+  "slug": "fury-wars",
+  "name": "Fury Wars",
+  "category": "action",
+  "description": "Play Fury Wars unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/strongdog3/img/fury%20wars.jpg",
+  "entrypoint": "https://iloveshorty.github.io/strongdog3/html/fury%20wars/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

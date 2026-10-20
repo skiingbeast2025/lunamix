@@ -1,0 +1,13 @@
+{
+  "id": 675,
+  "slug": "sausage-flipping",
+  "name": "Sausage Flipping",
+  "category": "puzzle",
+  "description": "Play Sausage Flipping unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.jpg",
+  "remoteIcon": "https://iloveshorty.github.io/strongdog3/img/sausage%20flip.jpg",
+  "entrypoint": "https://iloveshorty.github.io/strongdog3/html/sausage%20flipping/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": true
+}

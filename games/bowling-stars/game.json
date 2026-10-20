@@ -1,0 +1,13 @@
+{
+  "id": 1002,
+  "slug": "bowling-stars",
+  "name": "Bowling Stars",
+  "category": "sports",
+  "description": "Play Bowling Stars unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/strongdog4/img/bowling%20stars.jpg",
+  "entrypoint": "https://iloveshorty.github.io/strongdog4/html/bowling%20stars/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

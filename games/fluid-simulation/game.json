@@ -1,0 +1,13 @@
+{
+  "id": 21,
+  "slug": "fluid-simulation",
+  "name": "Fluid Simulation",
+  "category": "other",
+  "description": "Play Fluid Simulation unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/img/webgl-fluid-simulation.webp",
+  "entrypoint": "https://iloveshorty.github.io/html/webgl-fluid-simulation/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

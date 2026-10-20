@@ -1,0 +1,13 @@
+{
+  "id": 686,
+  "slug": "running-fred",
+  "name": "Running Fred",
+  "category": "platformer",
+  "description": "Play Running Fred unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/strongdog3/img/running%20fred.jpg",
+  "entrypoint": "https://iloveshorty.github.io/strongdog3/html/running%20fred/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

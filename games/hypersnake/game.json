@@ -1,0 +1,13 @@
+{
+  "id": 894,
+  "slug": "hypersnake",
+  "name": "Hypersnake",
+  "category": "other",
+  "description": "Play Hypersnake unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/strongdog3/img/hypersnake.jpg",
+  "entrypoint": "https://iloveshorty.github.io/strongdog3/html/hypersnake/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

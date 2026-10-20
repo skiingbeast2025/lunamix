@@ -1,0 +1,13 @@
+{
+  "id": 736,
+  "slug": "money-movers",
+  "name": "Money Movers",
+  "category": "adventure",
+  "description": "Play Money Movers unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/strongdog3/img/money%20movers.jpg",
+  "entrypoint": "https://iloveshorty.github.io/strongdog3/html/money%20movers/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

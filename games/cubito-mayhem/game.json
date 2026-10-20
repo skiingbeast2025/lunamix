@@ -1,0 +1,13 @@
+{
+  "id": 1038,
+  "slug": "cubito-mayhem",
+  "name": "Cubito Mayhem",
+  "category": "action",
+  "description": "Play Cubito Mayhem unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/strongdog4/img/cubito%20mayhem.jpg",
+  "entrypoint": "https://iloveshorty.github.io/strongdog4/html/cubito%20mayhem/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

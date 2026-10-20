@@ -1,0 +1,13 @@
+{
+  "id": 16,
+  "slug": "x-trial-racing",
+  "name": "X Trial Racing",
+  "category": "driving",
+  "description": "Play X Trial Racing unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/img/xtr.webp",
+  "entrypoint": "https://iloveshorty.github.io/html/x-trial-racing/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

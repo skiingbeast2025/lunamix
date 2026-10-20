@@ -1,0 +1,13 @@
+{
+  "id": 603,
+  "slug": "conqio",
+  "name": "Conq.io",
+  "category": "action",
+  "description": "Play Conq.io unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/strongdog2/img/conq.io.jpg",
+  "entrypoint": "https://iloveshorty.github.io/strongdog2/html/conq.io/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

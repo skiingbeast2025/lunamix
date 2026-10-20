@@ -1,0 +1,13 @@
+{
+  "id": 702,
+  "slug": "free-kick-classic",
+  "name": "Free Kick Classic",
+  "category": "other",
+  "description": "Play Free Kick Classic unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/strongdog3/img/free%20kick%20classic.jpg",
+  "entrypoint": "https://iloveshorty.github.io/strongdog3/html/free%20kick%20classic/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

@@ -1,0 +1,13 @@
+{
+  "id": 1058,
+  "slug": "aliens-nest",
+  "name": "Aliens Nest",
+  "category": "retro",
+  "description": "Play Aliens Nest unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/strongdog4/img/aliens%20nest.jpg",
+  "entrypoint": "https://iloveshorty.github.io/strongdog4/html/aliens%20nest/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

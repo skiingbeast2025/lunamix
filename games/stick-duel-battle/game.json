@@ -1,0 +1,13 @@
+{
+  "id": 652,
+  "slug": "stick-duel-battle",
+  "name": "Stick Duel Battle",
+  "category": "action",
+  "description": "Play Stick Duel Battle unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/strongdog3/img/stick%20duel%20battle.jpg",
+  "entrypoint": "https://iloveshorty.github.io/strongdog3/html/stick%20duel%20battle/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

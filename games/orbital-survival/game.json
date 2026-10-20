@@ -1,0 +1,13 @@
+{
+  "id": 914,
+  "slug": "orbital-survival",
+  "name": "Orbital Survival",
+  "category": "action",
+  "description": "Play Orbital Survival unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/strongdog4/img/orbital%20survival.jpg",
+  "entrypoint": "https://iloveshorty.github.io/strongdog4/html/orbital%20survival/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

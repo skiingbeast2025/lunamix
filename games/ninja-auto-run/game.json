@@ -1,0 +1,13 @@
+{
+  "id": 435,
+  "slug": "ninja-auto-run",
+  "name": "Ninja Auto Run",
+  "category": "platformer",
+  "description": "Play Ninja Auto Run unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/strongdog2/img/ninja%20auto%20run.webp",
+  "entrypoint": "https://iloveshorty.github.io/strongdog2/html/ninja%20auto%20run/gamereal/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

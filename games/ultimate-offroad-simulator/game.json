@@ -1,0 +1,13 @@
+{
+  "id": 656,
+  "slug": "ultimate-offroad-simulator",
+  "name": "Ultimate Offroad Simulator",
+  "category": "driving",
+  "description": "Play Ultimate Offroad Simulator unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/strongdog2/img/ultimate%20offroad%20simulator.jpg",
+  "entrypoint": "https://iloveshorty.github.io/strongdog2/html/ultimate%20offroad%20simulator/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

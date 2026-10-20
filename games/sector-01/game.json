@@ -1,0 +1,13 @@
+{
+  "id": 442,
+  "slug": "sector-01",
+  "name": "Sector 01",
+  "category": "other",
+  "description": "Play Sector 01 unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/strongdog2/img/sector%2001.jpg",
+  "entrypoint": "https://iloveshorty.github.io/strongdog2/html/sector%2001/gamereal/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

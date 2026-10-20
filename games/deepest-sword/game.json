@@ -1,0 +1,13 @@
+{
+  "id": 379,
+  "slug": "deepest-sword",
+  "name": "Deepest Sword",
+  "category": "puzzle",
+  "description": "Play Deepest Sword unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/strongdog2/img/deepest%20sword.jpg",
+  "entrypoint": "https://iloveshorty.github.io/strongdog2/html/deepest%20sword/gamereal/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

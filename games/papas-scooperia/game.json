@@ -1,0 +1,13 @@
+{
+  "id": 264,
+  "slug": "papas-scooperia",
+  "name": "Papas Scooperia",
+  "category": "other",
+  "description": "Play Papas Scooperia unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.jpg",
+  "remoteIcon": "https://iloveshorty.github.io/img/papasscooperia.jpg",
+  "entrypoint": "https://iloveshorty.github.io/swf/papascooperia/game/base.html",
+  "openInNewTab": false,
+  "isFeatured": true
+}

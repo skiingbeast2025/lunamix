@@ -1,0 +1,13 @@
+{
+  "id": 53,
+  "slug": "picky-package",
+  "name": "Picky Package",
+  "category": "other",
+  "description": "Play Picky Package unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/img/pickyback.webp",
+  "entrypoint": "https://iloveshorty.github.io/html/picky-package/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

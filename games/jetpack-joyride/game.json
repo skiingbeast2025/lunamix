@@ -1,0 +1,13 @@
+{
+  "id": 69,
+  "slug": "jetpack-joyride",
+  "name": "Jetpack Joyride",
+  "category": "platformer",
+  "description": "Play Jetpack Joyride unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/img/jetpack-joyride.webp",
+  "entrypoint": "https://iloveshorty.github.io/html/jetpack-joyride/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

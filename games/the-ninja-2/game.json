@@ -1,0 +1,13 @@
+{
+  "id": 137,
+  "slug": "the-ninja-2",
+  "name": "The Ninja 2",
+  "category": "action",
+  "description": "Play The Ninja 2 unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/img/n2.png",
+  "entrypoint": "https://iloveshorty.github.io/html/The%20Ninja%202.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

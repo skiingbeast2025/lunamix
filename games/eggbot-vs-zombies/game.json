@@ -1,0 +1,13 @@
+{
+  "id": 935,
+  "slug": "eggbot-vs-zombies",
+  "name": "Eggbot vs Zombies",
+  "category": "action",
+  "description": "Play Eggbot vs Zombies unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/strongdog4/img/eggbot%20vs%20zombies.jpg",
+  "entrypoint": "https://iloveshorty.github.io/strongdog4/html/eggbot%20vs%20zombies/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

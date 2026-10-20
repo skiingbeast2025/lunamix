@@ -1,0 +1,13 @@
+{
+  "id": 682,
+  "slug": "money-rush",
+  "name": "Money Rush",
+  "category": "other",
+  "description": "Play Money Rush unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/strongdog3/img/money%20rush.jpg",
+  "entrypoint": "https://iloveshorty.github.io/strongdog3/html/money%20rush/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

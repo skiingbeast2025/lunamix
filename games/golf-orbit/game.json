@@ -1,0 +1,13 @@
+{
+  "id": 729,
+  "slug": "golf-orbit",
+  "name": "Golf Orbit",
+  "category": "sports",
+  "description": "Play Golf Orbit unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.jpg",
+  "remoteIcon": "https://iloveshorty.github.io/strongdog3/img/golf%20orbit.jpg",
+  "entrypoint": "https://iloveshorty.github.io/strongdog3/html/golf%20orbit/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": true
+}

@@ -1,0 +1,13 @@
+{
+  "id": 512,
+  "slug": "sheep",
+  "name": "Sheep",
+  "category": "other",
+  "description": "Play Sheep unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/strongdog2/img/sheep.png",
+  "entrypoint": "https://iloveshorty.github.io/strongdog2/html/sheep/gamereal/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

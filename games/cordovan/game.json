@@ -1,0 +1,13 @@
+{
+  "id": 423,
+  "slug": "cordovan",
+  "name": "Cordovan",
+  "category": "other",
+  "description": "Play Cordovan unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/strongdog2/img/cordovan.webp",
+  "entrypoint": "https://iloveshorty.github.io/strongdog2/html/cordovan/gamereal/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

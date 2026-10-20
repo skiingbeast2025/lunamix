@@ -1,0 +1,13 @@
+{
+  "id": 1016,
+  "slug": "car-rush",
+  "name": "Car Rush",
+  "category": "driving",
+  "description": "Play Car Rush unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/strongdog4/img/car%20rush.jpg",
+  "entrypoint": "https://iloveshorty.github.io/strongdog4/html/car%20rush/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

@@ -1,0 +1,13 @@
+{
+  "id": 468,
+  "slug": "drag-box",
+  "name": "Drag Box",
+  "category": "other",
+  "description": "Play Drag Box unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/strongdog2/img/drag%20box.jpg",
+  "entrypoint": "https://iloveshorty.github.io/strongdog2/html/drag%20box/gamereal/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

@@ -1,0 +1,13 @@
+{
+  "id": 945,
+  "slug": "foot-chinko",
+  "name": "Foot Chinko",
+  "category": "sports",
+  "description": "Play Foot Chinko unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/strongdog4/img/foot%20chinko.jpg",
+  "entrypoint": "https://iloveshorty.github.io/strongdog4/html/foot%20chinko/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

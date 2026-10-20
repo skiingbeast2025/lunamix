@@ -1,0 +1,13 @@
+{
+  "id": 612,
+  "slug": "badeggio",
+  "name": "Badegg.io",
+  "category": "action",
+  "description": "Play Badegg.io unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/strongdog2/img/badegg.io.jpg",
+  "entrypoint": "https://iloveshorty.github.io/strongdog2/html/badegg.io/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

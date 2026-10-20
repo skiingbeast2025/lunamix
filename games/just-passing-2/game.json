@@ -1,0 +1,13 @@
+{
+  "id": 608,
+  "slug": "just-passing-2",
+  "name": "Just Passing 2",
+  "category": "other",
+  "description": "Play Just Passing 2 unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/strongdog2/img/just%20passing%202.jpg",
+  "entrypoint": "https://iloveshorty.github.io/strongdog2/html/just%20passing%202/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

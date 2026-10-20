@@ -1,0 +1,13 @@
+{
+  "id": 412,
+  "slug": "magnet-master-redux",
+  "name": "Magnet Master Redux",
+  "category": "other",
+  "description": "Play Magnet Master Redux unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.jpg",
+  "remoteIcon": "https://iloveshorty.github.io/strongdog2/img/magnet%20master%20redux.jpg",
+  "entrypoint": "https://iloveshorty.github.io/strongdog2/html/magnet%20master%20redux/gamereal/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": true
+}

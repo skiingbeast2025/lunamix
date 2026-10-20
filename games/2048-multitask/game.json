@@ -1,0 +1,13 @@
+{
+  "id": 58,
+  "slug": "2048-multitask",
+  "name": "2048 Multitask",
+  "category": "puzzle",
+  "description": "Play 2048 Multitask unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/img/multit.webp",
+  "entrypoint": "https://iloveshorty.github.io/html/2048-multitask/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

@@ -1,0 +1,13 @@
+{
+  "id": 925,
+  "slug": "dreadhead-parkour",
+  "name": "Dreadhead Parkour",
+  "category": "platformer",
+  "description": "Play Dreadhead Parkour unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/strongdog4/img/dreadhead%20parkour.jpg",
+  "entrypoint": "https://iloveshorty.github.io/strongdog4/html/dreadhead%20parkour/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

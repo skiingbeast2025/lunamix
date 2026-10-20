@@ -1,0 +1,13 @@
+{
+  "id": 95,
+  "slug": "cyber-city-driver",
+  "name": "Cyber City Driver",
+  "category": "driving",
+  "description": "Play Cyber City Driver unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.webp",
+  "remoteIcon": "https://iloveshorty.github.io/img/cyber.webp",
+  "entrypoint": "https://iloveshorty.github.io/html/cyber-city-driver/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": true
+}

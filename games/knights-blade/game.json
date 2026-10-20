@@ -1,0 +1,13 @@
+{
+  "id": 429,
+  "slug": "knights-blade",
+  "name": "Knights Blade",
+  "category": "action",
+  "description": "Play Knights Blade unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/strongdog2/img/knights%20blade.webp",
+  "entrypoint": "https://iloveshorty.github.io/strongdog2/html/knights%20blade/gamereal/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

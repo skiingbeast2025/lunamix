@@ -1,0 +1,13 @@
+{
+  "id": 1101,
+  "slug": "blumgi-ball",
+  "name": "Blumgi Ball",
+  "category": "sports",
+  "description": "Play Blumgi Ball unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/strongdog4/img/blumgi%20ball.jpg",
+  "entrypoint": "https://iloveshorty.github.io/strongdog4/html/blumgi%20ball/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

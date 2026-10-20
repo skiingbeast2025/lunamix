@@ -1,0 +1,13 @@
+{
+  "id": 908,
+  "slug": "mob-city",
+  "name": "Mob City",
+  "category": "action",
+  "description": "Play Mob City unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/strongdog4/img/mob%20city.jpg",
+  "entrypoint": "https://iloveshorty.github.io/strongdog4/html/mob%20city/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

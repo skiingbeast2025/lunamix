@@ -1,0 +1,13 @@
+{
+  "id": 12,
+  "slug": "ledegnd-of-zelda-maker",
+  "name": "Ledegnd of Zelda Maker",
+  "category": "adventure",
+  "description": "Play Ledegnd of Zelda Maker unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/img/lozmaker.png",
+  "entrypoint": "https://iloveshorty.github.io/html/lozmaker/game/lozmaker.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

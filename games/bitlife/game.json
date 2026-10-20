@@ -1,0 +1,13 @@
+{
+  "id": 243,
+  "slug": "bitlife",
+  "name": "Bitlife",
+  "category": "other",
+  "description": "Play Bitlife unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.jpg",
+  "remoteIcon": "https://iloveshorty.github.io/img/bitlife.jpg",
+  "entrypoint": "https://iloveshorty.github.io/html/bitlife/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": true
+}

@@ -1,0 +1,13 @@
+{
+  "id": 710,
+  "slug": "cities-of-babylon",
+  "name": "Cities of Babylon",
+  "category": "other",
+  "description": "Play Cities of Babylon unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/strongdog2/img/cities%20of%20babylon.jpg",
+  "entrypoint": "https://iloveshorty.github.io/strongdog2/html/cities%20of%20babylon/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

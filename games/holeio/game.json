@@ -1,0 +1,13 @@
+{
+  "id": 296,
+  "slug": "holeio",
+  "name": "Hole.io",
+  "category": "action",
+  "description": "Play Hole.io unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/img/hole.io.jpg",
+  "entrypoint": "https://iloveshorty.github.io/html/hole.io/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

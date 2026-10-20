@@ -1,0 +1,13 @@
+{
+  "id": 224,
+  "slug": "big-ice-tower-tiny-square",
+  "name": "Big Ice Tower Tiny Square",
+  "category": "other",
+  "description": "Play Big Ice Tower Tiny Square unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.png",
+  "remoteIcon": "https://iloveshorty.github.io/img/bitts.png",
+  "entrypoint": "https://iloveshorty.github.io/html/bitts/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": true
+}

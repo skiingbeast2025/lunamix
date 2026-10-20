@@ -1,0 +1,13 @@
+{
+  "id": 1079,
+  "slug": "effing-worms-2",
+  "name": "Effing Worms 2",
+  "category": "action",
+  "description": "Play Effing Worms 2 unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/strongdog4/img/effing%20worms%202.jpg",
+  "entrypoint": "https://iloveshorty.github.io/strongdog4/swf/effing%20worms%202/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

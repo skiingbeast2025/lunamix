@@ -1,0 +1,13 @@
+{
+  "id": 341,
+  "slug": "aspiring-artist",
+  "name": "Aspiring Artist",
+  "category": "other",
+  "description": "Play Aspiring Artist unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.webp",
+  "remoteIcon": "https://iloveshorty.github.io/img/aspiring%20artist.webp",
+  "entrypoint": "https://iloveshorty.github.io/html/aspiring%20artist/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": true
+}

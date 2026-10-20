@@ -1,0 +1,13 @@
+{
+  "id": 386,
+  "slug": "un-evergreen",
+  "name": "Un Evergreen",
+  "category": "puzzle",
+  "description": "Play Un Evergreen unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/strongdog2/img/un%20evergreen.png",
+  "entrypoint": "https://iloveshorty.github.io/strongdog2/html/un%20evergreen/gamereal/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

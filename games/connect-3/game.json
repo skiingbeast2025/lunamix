@@ -1,0 +1,13 @@
+{
+  "id": 101,
+  "slug": "connect-3",
+  "name": "Connect 3",
+  "category": "puzzle",
+  "description": "Play Connect 3 unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.webp",
+  "remoteIcon": "https://iloveshorty.github.io/img/con3.webp",
+  "entrypoint": "https://iloveshorty.github.io/html/connect3/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": true
+}

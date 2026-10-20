@@ -1,0 +1,13 @@
+{
+  "id": 809,
+  "slug": "blocky-snakes",
+  "name": "Blocky Snakes",
+  "category": "action",
+  "description": "Play Blocky Snakes unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/strongdog3/img/blocky%20snakes.jpg",
+  "entrypoint": "https://iloveshorty.github.io/strongdog3/html/blocky%20snakes/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

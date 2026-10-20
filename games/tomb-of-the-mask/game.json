@@ -1,0 +1,13 @@
+{
+  "id": 545,
+  "slug": "tomb-of-the-mask",
+  "name": "Tomb of the Mask",
+  "category": "adventure",
+  "description": "Play Tomb of the Mask unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.png",
+  "remoteIcon": "https://iloveshorty.github.io/strongdog2/img/toumb-of-the-mask.png",
+  "entrypoint": "https://iloveshorty.github.io/strongdog2/html/unity/u.html?g=tomb-of-the-mask",
+  "openInNewTab": false,
+  "isFeatured": true
+}

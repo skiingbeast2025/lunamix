@@ -1,0 +1,13 @@
+{
+  "id": 397,
+  "slug": "toms-trial",
+  "name": "Toms Trial",
+  "category": "other",
+  "description": "Play Toms Trial unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/strongdog2/img/toms%20trial.jpg",
+  "entrypoint": "https://iloveshorty.github.io/strongdog2/html/toms%20trial/gamereal/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

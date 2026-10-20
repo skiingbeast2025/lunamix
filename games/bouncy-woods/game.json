@@ -1,0 +1,13 @@
+{
+  "id": 812,
+  "slug": "bouncy-woods",
+  "name": "Bouncy Woods",
+  "category": "platformer",
+  "description": "Play Bouncy Woods unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/strongdog3/img/bouncy%20woods.jpg",
+  "entrypoint": "https://iloveshorty.github.io/strongdog3/html/bouncy%20woods/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

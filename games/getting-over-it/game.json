@@ -1,0 +1,13 @@
+{
+  "id": 168,
+  "slug": "getting-over-it",
+  "name": "Getting Over It",
+  "category": "platformer",
+  "description": "Play Getting Over It unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/img/over.png",
+  "entrypoint": "https://iloveshorty.github.io/html/Getting%20Over%20It%20v1/game/Getting%20Over%20It%20v1.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

@@ -1,0 +1,13 @@
+{
+  "id": 1026,
+  "slug": "chicky-farm",
+  "name": "Chicky Farm",
+  "category": "other",
+  "description": "Play Chicky Farm unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/strongdog4/img/chicky%20farm.jpg",
+  "entrypoint": "https://iloveshorty.github.io/strongdog4/html/chicky%20farm/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

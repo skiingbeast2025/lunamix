@@ -1,0 +1,13 @@
+{
+  "id": 85,
+  "slug": "steal-this-election",
+  "name": "Steal This Election",
+  "category": "other",
+  "description": "Play Steal This Election unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/img/elec.webp",
+  "entrypoint": "https://iloveshorty.github.io/html/steal-this-election/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

@@ -1,0 +1,13 @@
+{
+  "id": 416,
+  "slug": "path-of-arrows",
+  "name": "Path of Arrows",
+  "category": "other",
+  "description": "Play Path of Arrows unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/strongdog2/img/path%20of%20arrows.jpg",
+  "entrypoint": "https://iloveshorty.github.io/strongdog2/html/path%20of%20arrows/gamereal/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

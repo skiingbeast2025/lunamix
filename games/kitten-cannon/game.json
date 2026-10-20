@@ -1,0 +1,13 @@
+{
+  "id": 66,
+  "slug": "kitten-cannon",
+  "name": "Kitten Cannon",
+  "category": "other",
+  "description": "Play Kitten Cannon unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/img/kittencannon.webp",
+  "entrypoint": "https://iloveshorty.github.io/html/kittencannon/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

@@ -1,0 +1,13 @@
+{
+  "id": 409,
+  "slug": "dispersal-vectors",
+  "name": "Dispersal Vectors",
+  "category": "other",
+  "description": "Play Dispersal Vectors unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/strongdog2/img/dispersal%20vectors.jpg",
+  "entrypoint": "https://iloveshorty.github.io/strongdog2/html/dispersal%20vectors/gamereal/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

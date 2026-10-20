@@ -1,0 +1,13 @@
+{
+  "id": 820,
+  "slug": "wizard-mike",
+  "name": "Wizard Mike",
+  "category": "other",
+  "description": "Play Wizard Mike unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/strongdog3/img/wizard%20mike.jpg",
+  "entrypoint": "https://iloveshorty.github.io/strongdog3/html/wizard%20mike/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

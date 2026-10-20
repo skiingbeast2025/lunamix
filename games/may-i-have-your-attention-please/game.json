@@ -1,0 +1,13 @@
+{
+  "id": 457,
+  "slug": "may-i-have-your-attention-please",
+  "name": "May I Have Your Attention, Please",
+  "category": "other",
+  "description": "Play May I Have Your Attention, Please unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/strongdog2/img/may%20i%20have%20your%20attention,%20please.png",
+  "entrypoint": "https://iloveshorty.github.io/strongdog2/html/may%20i%20have%20your%20attention,%20please/gamereal/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

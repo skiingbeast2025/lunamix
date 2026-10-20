@@ -1,0 +1,13 @@
+{
+  "id": 205,
+  "slug": "bob-the-robber-2",
+  "name": "Bob the Robber 2",
+  "category": "adventure",
+  "description": "Play Bob the Robber 2 unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/img/bob.jpeg",
+  "entrypoint": "https://iloveshorty.github.io/html/bob-the-robber-2/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

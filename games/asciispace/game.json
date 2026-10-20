@@ -1,0 +1,13 @@
+{
+  "id": 198,
+  "slug": "asciispace",
+  "name": "Asciispace",
+  "category": "other",
+  "description": "Play Asciispace unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.png",
+  "remoteIcon": "https://iloveshorty.github.io/img/asciispace.png",
+  "entrypoint": "https://iloveshorty.github.io/html/asciispace/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": true
+}

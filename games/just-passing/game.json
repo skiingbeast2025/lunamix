@@ -1,0 +1,13 @@
+{
+  "id": 355,
+  "slug": "just-passing",
+  "name": "Just Passing",
+  "category": "other",
+  "description": "Play Just Passing unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/img/just%20passing.png",
+  "entrypoint": "https://iloveshorty.github.io/html/just%20passing/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

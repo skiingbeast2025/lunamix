@@ -1,0 +1,13 @@
+{
+  "id": 493,
+  "slug": "white-pen-road",
+  "name": "White Pen Road",
+  "category": "other",
+  "description": "Play White Pen Road unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/strongdog2/img/white%20pen%20road.webp",
+  "entrypoint": "https://iloveshorty.github.io/strongdog2/html/white%20pen%20road/gamereal/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

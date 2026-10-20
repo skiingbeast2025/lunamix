@@ -1,0 +1,13 @@
+{
+  "id": 111,
+  "slug": "blocky-tower",
+  "name": "Blocky Tower",
+  "category": "other",
+  "description": "Play Blocky Tower unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/img/blocky.webp",
+  "entrypoint": "https://iloveshorty.github.io/html/blocky-tower/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

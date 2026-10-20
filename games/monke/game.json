@@ -1,0 +1,13 @@
+{
+  "id": 6,
+  "slug": "monke",
+  "name": "Monke",
+  "category": "other",
+  "description": "Play Monke unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/img/monke.png",
+  "entrypoint": "https://iloveshorty.github.io/html/monke/game/monke.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

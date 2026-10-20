@@ -1,0 +1,13 @@
+{
+  "id": 956,
+  "slug": "gangster-contract-mafia-wars",
+  "name": "Gangster Contract Mafia Wars",
+  "category": "retro",
+  "description": "Play Gangster Contract Mafia Wars unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/strongdog3/img/gangster%20contract%20mafia%20wars.jpg",
+  "entrypoint": "https://iloveshorty.github.io/strongdog3/html/gangster%20contract%20mafia%20wars/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

@@ -1,0 +1,13 @@
+{
+  "id": 261,
+  "slug": "papas-wingeria",
+  "name": "Papas Wingeria",
+  "category": "other",
+  "description": "Play Papas Wingeria unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/img/papawingeria.jpg",
+  "entrypoint": "https://iloveshorty.github.io/swf/papawingeria/game/base.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

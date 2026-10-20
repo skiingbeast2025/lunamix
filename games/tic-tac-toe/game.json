@@ -1,0 +1,13 @@
+{
+  "id": 35,
+  "slug": "tic-tac-toe",
+  "name": "Tic-tac-toe",
+  "category": "other",
+  "description": "Play Tic-tac-toe unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/img/toe.webp",
+  "entrypoint": "https://iloveshorty.github.io/html/tic-tac-toe/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

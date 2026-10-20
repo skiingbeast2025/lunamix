@@ -1,0 +1,13 @@
+{
+  "id": 637,
+  "slug": "super-pickleball-adventure",
+  "name": "Super Pickleball Adventure",
+  "category": "sports",
+  "description": "Play Super Pickleball Adventure unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/strongdog2/img/super%20pickleball%20adventure.png",
+  "entrypoint": "https://iloveshorty.github.io/strongdog2/html/super%20pickleball%20adventure/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

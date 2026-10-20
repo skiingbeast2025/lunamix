@@ -1,0 +1,13 @@
+{
+  "id": 705,
+  "slug": "pou",
+  "name": "Pou",
+  "category": "other",
+  "description": "Play Pou unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/strongdog3/img/pou.jpg",
+  "entrypoint": "https://iloveshorty.github.io/strongdog3/html/pou/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

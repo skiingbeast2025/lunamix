@@ -1,0 +1,13 @@
+{
+  "id": 212,
+  "slug": "shape-switcher",
+  "name": "Shape Switcher",
+  "category": "puzzle",
+  "description": "Play Shape Switcher unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/img/shapeswitcher.jpeg",
+  "entrypoint": "https://iloveshorty.github.io/swf/shapeswitch/game/base.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

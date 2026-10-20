@@ -1,0 +1,13 @@
+{
+  "id": 803,
+  "slug": "arcane-archer",
+  "name": "Arcane Archer",
+  "category": "action",
+  "description": "Play Arcane Archer unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/strongdog3/img/arcane%20archer.jpg",
+  "entrypoint": "https://iloveshorty.github.io/strongdog3/html/arcane%20archer/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

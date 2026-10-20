@@ -1,0 +1,13 @@
+{
+  "id": 677,
+  "slug": "cannon-basketball-2",
+  "name": "Cannon Basketball 2",
+  "category": "sports",
+  "description": "Play Cannon Basketball 2 unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/strongdog2/img/cannon%20basketball%202.jpg",
+  "entrypoint": "https://iloveshorty.github.io/strongdog2/html/cannon%20basketball%202/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

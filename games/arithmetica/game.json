@@ -1,0 +1,13 @@
+{
+  "id": 1072,
+  "slug": "arithmetica",
+  "name": "Arithmetica",
+  "category": "puzzle",
+  "description": "Play Arithmetica unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/strongdog4/img/arithmetica.jpg",
+  "entrypoint": "https://iloveshorty.github.io/strongdog4/html/arithmetica/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

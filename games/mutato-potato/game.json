@@ -1,0 +1,13 @@
+{
+  "id": 414,
+  "slug": "mutato-potato",
+  "name": "Mutato Potato",
+  "category": "other",
+  "description": "Play Mutato Potato unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/strongdog2/img/mutato%20potato.avif",
+  "entrypoint": "https://iloveshorty.github.io/strongdog2/html/mutato%20potato/gamereal/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

@@ -1,0 +1,13 @@
+{
+  "id": 525,
+  "slug": "call-of-ops-2",
+  "name": "Call of Ops 2",
+  "category": "action",
+  "description": "Play Call of Ops 2 unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/strongdog2/img/call-of-ops-2.jfif",
+  "entrypoint": "https://iloveshorty.github.io/strongdog2/html/unity/u.html?g=call-of-ops-2",
+  "openInNewTab": false,
+  "isFeatured": false
+}

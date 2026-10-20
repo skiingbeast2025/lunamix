@@ -1,0 +1,13 @@
+{
+  "id": 362,
+  "slug": "progress-knight",
+  "name": "Progress Knight",
+  "category": "other",
+  "description": "Play Progress Knight unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/img/progress%20knight.png",
+  "entrypoint": "https://iloveshorty.github.io/html/progress%20knight/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

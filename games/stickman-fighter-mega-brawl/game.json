@@ -1,0 +1,13 @@
+{
+  "id": 837,
+  "slug": "stickman-fighter-mega-brawl",
+  "name": "Stickman Fighter Mega Brawl",
+  "category": "action",
+  "description": "Play Stickman Fighter Mega Brawl unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/strongdog3/img/stickman%20fighter%20mega%20brawl.jpg",
+  "entrypoint": "https://iloveshorty.github.io/strongdog3/html/stickman%20fighter%20mega%20brawl/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

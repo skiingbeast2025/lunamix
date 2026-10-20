@@ -1,0 +1,13 @@
+{
+  "id": 378,
+  "slug": "sort-the-court",
+  "name": "Sort the Court",
+  "category": "other",
+  "description": "Play Sort the Court unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/strongdog2/img/sort%20the%20court.jpg",
+  "entrypoint": "https://iloveshorty.github.io/strongdog2/html/sort%20the%20court/gamereal/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

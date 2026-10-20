@@ -1,0 +1,13 @@
+{
+  "id": 374,
+  "slug": "pathfinder",
+  "name": "Pathfinder",
+  "category": "other",
+  "description": "Play Pathfinder unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/img/Screenshot%202024-07-09%20144933.png",
+  "entrypoint": "https://iloveshorty.github.io/html/pathfinder/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

@@ -1,0 +1,13 @@
+{
+  "id": 179,
+  "slug": "dinosaur",
+  "name": "Dinosaur",
+  "category": "other",
+  "description": "Play Dinosaur unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/img/dino.png",
+  "entrypoint": "https://iloveshorty.github.io/html/dinosaur/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

@@ -1,0 +1,13 @@
+{
+  "id": 366,
+  "slug": "the-dark-one",
+  "name": "The Dark One",
+  "category": "other",
+  "description": "Play The Dark One unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/img/the%20dark%20one.jpg",
+  "entrypoint": "https://iloveshorty.github.io/html/the%20dark%20one/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

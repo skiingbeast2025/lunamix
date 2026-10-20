@@ -1,0 +1,13 @@
+{
+  "id": 563,
+  "slug": "bumpyballio",
+  "name": "Bumpyball.io",
+  "category": "sports",
+  "description": "Play Bumpyball.io unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/strongdog2/img/bumpyball.io.jfif",
+  "entrypoint": "https://iloveshorty.github.io/strongdog2/html/bumpyball.io/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

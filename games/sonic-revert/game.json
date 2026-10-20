@@ -1,0 +1,13 @@
+{
+  "id": 541,
+  "slug": "sonic-revert",
+  "name": "Sonic Revert",
+  "category": "platformer",
+  "description": "Play Sonic Revert unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/strongdog2/img/sonic-revert.jfif",
+  "entrypoint": "https://iloveshorty.github.io/strongdog2/html/unity/u.html?g=sonic-revert",
+  "openInNewTab": false,
+  "isFeatured": false
+}

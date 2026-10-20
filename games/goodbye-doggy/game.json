@@ -1,0 +1,13 @@
+{
+  "id": 353,
+  "slug": "goodbye-doggy",
+  "name": "Goodbye Doggy",
+  "category": "other",
+  "description": "Play Goodbye Doggy unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/img/goodbye%20doggy.jpg",
+  "entrypoint": "https://iloveshorty.github.io/html/goodbye%20doggy/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

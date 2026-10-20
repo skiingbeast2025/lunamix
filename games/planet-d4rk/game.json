@@ -1,0 +1,13 @@
+{
+  "id": 459,
+  "slug": "planet-d4rk",
+  "name": "Planet D4rk",
+  "category": "other",
+  "description": "Play Planet D4rk unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/strongdog2/img/planet%20d4rk.png",
+  "entrypoint": "https://iloveshorty.github.io/strongdog2/html/planet%20d4rk/gamereal/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

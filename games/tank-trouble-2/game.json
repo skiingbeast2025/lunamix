@@ -1,0 +1,13 @@
+{
+  "id": 559,
+  "slug": "tank-trouble-2",
+  "name": "Tank Trouble 2",
+  "category": "action",
+  "description": "Play Tank Trouble 2 unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.png",
+  "remoteIcon": "https://iloveshorty.github.io/strongdog2/img/tank%20trouble%202.jfif",
+  "entrypoint": "https://iloveshorty.github.io/strongdog2/html/tank%20trouble%202/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": true
+}

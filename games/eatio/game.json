@@ -1,0 +1,13 @@
+{
+  "id": 89,
+  "slug": "eatio",
+  "name": "Eatio",
+  "category": "other",
+  "description": "Play Eatio unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.webp",
+  "remoteIcon": "https://iloveshorty.github.io/img/eatio.webp",
+  "entrypoint": "https://iloveshorty.github.io/html/eatio/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": true
+}

@@ -1,0 +1,13 @@
+{
+  "id": 889,
+  "slug": "slime-road",
+  "name": "Slime Road",
+  "category": "platformer",
+  "description": "Play Slime Road unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/strongdog3/img/slime%20road.jpg",
+  "entrypoint": "https://iloveshorty.github.io/strongdog3/html/slime%20road/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

@@ -1,0 +1,13 @@
+{
+  "id": 962,
+  "slug": "gun-mayhem-3",
+  "name": "Gun Mayhem 3",
+  "category": "action",
+  "description": "Play Gun Mayhem 3 unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/strongdog3/img/gun%20mayhem%203.jpg",
+  "entrypoint": "https://iloveshorty.github.io/strongdog3/html/gun%20mayhem%203/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

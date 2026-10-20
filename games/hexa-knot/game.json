@@ -1,0 +1,13 @@
+{
+  "id": 354,
+  "slug": "hexa-knot",
+  "name": "Hexa Knot",
+  "category": "puzzle",
+  "description": "Play Hexa Knot unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/img/hexa%20knot.png",
+  "entrypoint": "https://iloveshorty.github.io/html/hexa%20knot/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

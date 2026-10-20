@@ -1,0 +1,13 @@
+{
+  "id": 826,
+  "slug": "zeepkist-crash-2d",
+  "name": "Zeepkist Crash 2D",
+  "category": "driving",
+  "description": "Play Zeepkist Crash 2D unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/strongdog3/img/zeepkist%20crash%202d.jpg",
+  "entrypoint": "https://iloveshorty.github.io/strongdog3/html/zeepkist%20crash%202d/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

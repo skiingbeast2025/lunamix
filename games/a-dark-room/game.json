@@ -1,0 +1,13 @@
+{
+  "id": 202,
+  "slug": "a-dark-room",
+  "name": "A Dark Room",
+  "category": "adventure",
+  "description": "Play A Dark Room unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.png",
+  "remoteIcon": "https://iloveshorty.github.io/img/adarkroom.png",
+  "entrypoint": "https://iloveshorty.github.io/html/adarkroom/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": true
+}

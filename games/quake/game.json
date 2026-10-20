@@ -1,0 +1,13 @@
+{
+  "id": 575,
+  "slug": "quake",
+  "name": "Quake",
+  "category": "retro",
+  "description": "Play Quake unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/strongdog2/img/quake.jfif",
+  "entrypoint": "https://iloveshorty.github.io/strongdog2/html/quake/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

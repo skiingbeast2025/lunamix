@@ -1,0 +1,13 @@
+{
+  "id": 216,
+  "slug": "hot-dog-bush",
+  "name": "Hot Dog Bush",
+  "category": "driving",
+  "description": "Play Hot Dog Bush unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.jpeg",
+  "remoteIcon": "https://iloveshorty.github.io/img/hotdogbush.jpeg",
+  "entrypoint": "https://iloveshorty.github.io/swf/hotdogbush/game/base.html",
+  "openInNewTab": false,
+  "isFeatured": true
+}

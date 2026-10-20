@@ -1,0 +1,13 @@
+{
+  "id": 368,
+  "slug": "winter-gifts",
+  "name": "Winter Gifts",
+  "category": "other",
+  "description": "Play Winter Gifts unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/img/winter%20gifts.jpg",
+  "entrypoint": "https://iloveshorty.github.io/html/winter%20gifts/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

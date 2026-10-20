@@ -1,0 +1,13 @@
+{
+  "id": 1061,
+  "slug": "among-usio",
+  "name": "Among Us.io",
+  "category": "action",
+  "description": "Play Among Us.io unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/strongdog4/img/among%20us.io.jpg",
+  "entrypoint": "https://iloveshorty.github.io/strongdog4/html/among%20us.io/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

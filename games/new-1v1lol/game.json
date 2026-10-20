@@ -1,0 +1,13 @@
+{
+  "id": 748,
+  "slug": "new-1v1lol",
+  "name": "New 1v1.lol",
+  "category": "action",
+  "description": "Play New 1v1.lol unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/strongdog3/img/1v1.lol.jpg",
+  "entrypoint": "https://iloveshorty.github.io/strongdog3/html/new%201v1.lol/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

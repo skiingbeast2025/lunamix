@@ -1,0 +1,13 @@
+{
+  "id": 192,
+  "slug": "bounceback",
+  "name": "Bounceback",
+  "category": "platformer",
+  "description": "Play Bounceback unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/img/bounceback.png",
+  "entrypoint": "https://iloveshorty.github.io/html/bounceback/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

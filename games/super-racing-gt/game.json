@@ -1,0 +1,13 @@
+{
+  "id": 844,
+  "slug": "super-racing-gt",
+  "name": "Super Racing Gt",
+  "category": "driving",
+  "description": "Play Super Racing Gt unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/strongdog3/img/super%20racing%20gt.jpg",
+  "entrypoint": "https://iloveshorty.github.io/strongdog3/html/super%20racing%20gt/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

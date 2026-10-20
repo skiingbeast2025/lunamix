@@ -1,0 +1,13 @@
+{
+  "id": 1084,
+  "slug": "switchblade",
+  "name": "Switchblade",
+  "category": "action",
+  "description": "Play Switchblade unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/strongdog4/img/Switchblade.jpg",
+  "entrypoint": "https://iloveshorty.github.io/strongdog4/html/Switchblade/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

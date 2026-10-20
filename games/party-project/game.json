@@ -1,0 +1,13 @@
+{
+  "id": 573,
+  "slug": "party-project",
+  "name": "Party Project",
+  "category": "other",
+  "description": "Play Party Project unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/strongdog2/img/party%20project.jfif",
+  "entrypoint": "https://iloveshorty.github.io/strongdog2/html/party%20project/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

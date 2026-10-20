@@ -1,0 +1,13 @@
+{
+  "id": 865,
+  "slug": "puppet-master",
+  "name": "Puppet Master",
+  "category": "other",
+  "description": "Play Puppet Master unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/strongdog3/img/puppet%20master.jpg",
+  "entrypoint": "https://iloveshorty.github.io/strongdog3/html/puppet%20master/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

@@ -1,0 +1,13 @@
+{
+  "id": 528,
+  "slug": "cube-flip",
+  "name": "Cube Flip",
+  "category": "other",
+  "description": "Play Cube Flip unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/strongdog2/img/cube-flip.jfif",
+  "entrypoint": "https://iloveshorty.github.io/strongdog2/html/unity/u.html?g=cube-flip",
+  "openInNewTab": false,
+  "isFeatured": false
+}

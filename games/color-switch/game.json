@@ -1,0 +1,13 @@
+{
+  "id": 551,
+  "slug": "color-switch",
+  "name": "Color Switch",
+  "category": "platformer",
+  "description": "Play Color Switch unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/strongdog2/img/color%20switch.png",
+  "entrypoint": "https://iloveshorty.github.io/strongdog2/html/color%20switch/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

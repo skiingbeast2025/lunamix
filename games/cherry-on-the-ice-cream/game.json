@@ -1,0 +1,13 @@
+{
+  "id": 711,
+  "slug": "cherry-on-the-ice-cream",
+  "name": "Cherry on the Ice Cream",
+  "category": "other",
+  "description": "Play Cherry on the Ice Cream unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.jpg",
+  "remoteIcon": "https://iloveshorty.github.io/strongdog2/img/cherry%20on%20the%20ice%20cream.jpg",
+  "entrypoint": "https://iloveshorty.github.io/strongdog2/html/cherry%20on%20the%20ice%20cream/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": true
+}

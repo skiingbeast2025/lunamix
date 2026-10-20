@@ -1,0 +1,13 @@
+{
+  "id": 114,
+  "slug": "ballistic-chickens",
+  "name": "Ballistic Chickens",
+  "category": "other",
+  "description": "Play Ballistic Chickens unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/img/ballistic-chickens.webp",
+  "entrypoint": "https://iloveshorty.github.io/html/ballistic-chickens/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

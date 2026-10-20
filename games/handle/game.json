@@ -1,0 +1,13 @@
+{
+  "id": 410,
+  "slug": "handle",
+  "name": "Handle",
+  "category": "other",
+  "description": "Play Handle unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/strongdog2/img/handle.jpg",
+  "entrypoint": "https://iloveshorty.github.io/strongdog2/html/handle/gamereal/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

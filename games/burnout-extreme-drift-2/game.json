@@ -1,0 +1,13 @@
+{
+  "id": 1011,
+  "slug": "burnout-extreme-drift-2",
+  "name": "Burnout Extreme Drift 2",
+  "category": "driving",
+  "description": "Play Burnout Extreme Drift 2 unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.jpg",
+  "remoteIcon": "https://iloveshorty.github.io/strongdog4/img/burnout%20extreme%20drift%202.jpg",
+  "entrypoint": "https://iloveshorty.github.io/strongdog4/html/burnout%20extreme%20drift%202/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": true
+}

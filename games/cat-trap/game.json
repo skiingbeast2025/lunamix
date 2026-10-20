@@ -1,0 +1,13 @@
+{
+  "id": 1021,
+  "slug": "cat-trap",
+  "name": "Cat Trap",
+  "category": "puzzle",
+  "description": "Play Cat Trap unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/strongdog4/img/cat%20trap.png",
+  "entrypoint": "https://iloveshorty.github.io/strongdog4/html/cat%20trap/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

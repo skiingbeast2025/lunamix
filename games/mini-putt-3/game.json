@@ -1,0 +1,13 @@
+{
+  "id": 276,
+  "slug": "mini-putt-3",
+  "name": "Mini Putt 3",
+  "category": "sports",
+  "description": "Play Mini Putt 3 unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/img/miniputt3.jpg",
+  "entrypoint": "https://iloveshorty.github.io/swf/miniputt3/game/base.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

@@ -1,0 +1,13 @@
+{
+  "id": 1102,
+  "slug": "bolly-beat",
+  "name": "Bolly Beat",
+  "category": "other",
+  "description": "Play Bolly Beat unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/strongdog4/img/bolly%20beat.jpg",
+  "entrypoint": "https://iloveshorty.github.io/strongdog4/html/bolly%20beat/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

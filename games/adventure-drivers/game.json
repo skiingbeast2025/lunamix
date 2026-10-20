@@ -1,0 +1,13 @@
+{
+  "id": 560,
+  "slug": "adventure-drivers",
+  "name": "Adventure Drivers",
+  "category": "driving",
+  "description": "Play Adventure Drivers unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/strongdog2/img/adventure%20drivers.jfif",
+  "entrypoint": "https://iloveshorty.github.io/strongdog2/html/adventure%20drivers/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

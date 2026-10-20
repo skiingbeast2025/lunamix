@@ -1,0 +1,13 @@
+{
+  "id": 436,
+  "slug": "peeper-reaper",
+  "name": "Peeper Reaper",
+  "category": "other",
+  "description": "Play Peeper Reaper unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/strongdog2/img/peeper%20reaper.jpg",
+  "entrypoint": "https://iloveshorty.github.io/strongdog2/html/peeper%20reaper/gamereal/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

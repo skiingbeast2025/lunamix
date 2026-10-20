@@ -1,0 +1,13 @@
+{
+  "id": 907,
+  "slug": "minesweeper",
+  "name": "Minesweeper",
+  "category": "retro",
+  "description": "Play Minesweeper unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/strongdog4/img/minesweeper.png",
+  "entrypoint": "https://iloveshorty.github.io/strongdog4/html/minesweeper/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

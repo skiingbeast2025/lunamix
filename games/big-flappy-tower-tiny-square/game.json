@@ -1,0 +1,13 @@
+{
+  "id": 716,
+  "slug": "big-flappy-tower-tiny-square",
+  "name": "Big Flappy Tower Tiny Square",
+  "category": "platformer",
+  "description": "Play Big Flappy Tower Tiny Square unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/strongdog3/img/big%20flappy%20tower%20tiny%20square.jpg",
+  "entrypoint": "https://iloveshorty.github.io/strongdog3/html/big%20flappy%20tower%20tiny%20square/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

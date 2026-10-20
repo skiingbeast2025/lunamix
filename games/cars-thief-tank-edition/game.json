@@ -1,0 +1,13 @@
+{
+  "id": 1019,
+  "slug": "cars-thief-tank-edition",
+  "name": "Cars Thief Tank Edition",
+  "category": "driving",
+  "description": "Play Cars Thief Tank Edition unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/strongdog4/img/cars%20thief%20tank%20edition.jpg",
+  "entrypoint": "https://iloveshorty.github.io/strongdog4/html/cars%20thief%20tank%20edition/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

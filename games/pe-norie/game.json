@@ -1,0 +1,13 @@
+{
+  "id": 361,
+  "slug": "pe-norie",
+  "name": "Pe Norie",
+  "category": "other",
+  "description": "Play Pe Norie unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/img/pe%20norie.jpg",
+  "entrypoint": "https://iloveshorty.github.io/html/pe%20norie/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

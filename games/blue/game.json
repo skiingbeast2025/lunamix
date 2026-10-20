@@ -1,0 +1,13 @@
+{
+  "id": 316,
+  "slug": "blue",
+  "name": "Blue",
+  "category": "puzzle",
+  "description": "Play Blue unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/img/blue.png",
+  "entrypoint": "https://iloveshorty.github.io/html/blue/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

@@ -1,0 +1,13 @@
+{
+  "id": 32,
+  "slug": "tunnel-rush",
+  "name": "Tunnel Rush",
+  "category": "platformer",
+  "description": "Play Tunnel Rush unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/img/tunnelrush.webp",
+  "entrypoint": "https://iloveshorty.github.io/html/tunnelrush/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

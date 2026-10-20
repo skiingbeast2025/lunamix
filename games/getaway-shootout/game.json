@@ -1,0 +1,13 @@
+{
+  "id": 643,
+  "slug": "getaway-shootout",
+  "name": "Getaway Shootout",
+  "category": "action",
+  "description": "Play Getaway Shootout unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.jfif",
+  "remoteIcon": "https://iloveshorty.github.io/img/getaway-shootout.jfif",
+  "entrypoint": "https://iloveshorty.github.io/html/getaway%20shootout/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": true
+}

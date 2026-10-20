@@ -1,0 +1,13 @@
+{
+  "id": 105,
+  "slug": "browserquest",
+  "name": "Browserquest",
+  "category": "adventure",
+  "description": "Play Browserquest unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/img/BrowserQuest.webp",
+  "entrypoint": "https://iloveshorty.github.io/html/browserquest/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

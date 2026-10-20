@@ -1,0 +1,13 @@
+{
+  "id": 2,
+  "slug": "retro-speed",
+  "name": "Retro Speed",
+  "category": "driving",
+  "description": "Play Retro Speed unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/img/retro%20speed.png",
+  "entrypoint": "https://iloveshorty.github.io/html/retro%20speed/game/retro%20speed.html%20speed.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

@@ -1,0 +1,13 @@
+{
+  "id": 380,
+  "slug": "blasting-marbles",
+  "name": "Blasting Marbles",
+  "category": "other",
+  "description": "Play Blasting Marbles unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/strongdog2/img/blasting%20marbles.jpg",
+  "entrypoint": "https://iloveshorty.github.io/strongdog2/html/blasting%20marbles/gamereal/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

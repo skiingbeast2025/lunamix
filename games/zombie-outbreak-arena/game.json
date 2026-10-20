@@ -1,0 +1,13 @@
+{
+  "id": 827,
+  "slug": "zombie-outbreak-arena",
+  "name": "Zombie Outbreak Arena",
+  "category": "action",
+  "description": "Play Zombie Outbreak Arena unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/strongdog3/img/zombie%20outbreak%20arena.jpg",
+  "entrypoint": "https://iloveshorty.github.io/strongdog3/html/zombie%20outbreak%20arena/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

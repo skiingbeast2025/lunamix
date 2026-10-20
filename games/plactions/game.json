@@ -1,0 +1,13 @@
+{
+  "id": 920,
+  "slug": "plactions",
+  "name": "Plactions",
+  "category": "puzzle",
+  "description": "Play Plactions unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/strongdog4/img/plactions.png",
+  "entrypoint": "https://iloveshorty.github.io/strongdog4/html/plactions/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

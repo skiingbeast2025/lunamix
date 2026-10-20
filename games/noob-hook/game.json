@@ -1,0 +1,13 @@
+{
+  "id": 911,
+  "slug": "noob-hook",
+  "name": "Noob Hook",
+  "category": "platformer",
+  "description": "Play Noob Hook unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/strongdog4/img/noob%20hook.jpg",
+  "entrypoint": "https://iloveshorty.github.io/strongdog4/html/noob%20hook/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

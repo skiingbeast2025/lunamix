@@ -1,0 +1,13 @@
+{
+  "id": 574,
+  "slug": "pizza-tower",
+  "name": "Pizza Tower",
+  "category": "platformer",
+  "description": "Play Pizza Tower unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/strongdog2/img/pizza%20tower.jfif",
+  "entrypoint": "https://iloveshorty.github.io/strongdog2/html/pizza%20tower/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

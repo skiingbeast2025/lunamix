@@ -1,0 +1,13 @@
+{
+  "id": 63,
+  "slug": "moto-x3m-spooky",
+  "name": "Moto X3m Spooky",
+  "category": "driving",
+  "description": "Play Moto X3m Spooky unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/img/moto-spook.webp",
+  "entrypoint": "https://iloveshorty.github.io/html/motox3m-spooky/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

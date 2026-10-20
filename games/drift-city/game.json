@@ -1,0 +1,13 @@
+{
+  "id": 92,
+  "slug": "drift-city",
+  "name": "Drift City",
+  "category": "driving",
+  "description": "Play Drift City unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/img/driftc.webp",
+  "entrypoint": "https://iloveshorty.github.io/html/drift-city/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

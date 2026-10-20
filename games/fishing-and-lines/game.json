@@ -1,0 +1,13 @@
+{
+  "id": 719,
+  "slug": "fishing-and-lines",
+  "name": "Fishing and Lines",
+  "category": "retro",
+  "description": "Play Fishing and Lines unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/strongdog3/img/fishing%20and%20lines.jpg",
+  "entrypoint": "https://iloveshorty.github.io/strongdog3/html/fishing%20and%20lines/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

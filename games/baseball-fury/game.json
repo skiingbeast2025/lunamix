@@ -1,0 +1,13 @@
+{
+  "id": 522,
+  "slug": "baseball-fury",
+  "name": "Baseball Fury",
+  "category": "sports",
+  "description": "Play Baseball Fury unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/strongdog2/img/baseballfury.jfif",
+  "entrypoint": "https://iloveshorty.github.io/strongdog2/html/unity/u.html?g=baseballfury",
+  "openInNewTab": false,
+  "isFeatured": false
+}

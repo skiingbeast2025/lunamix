@@ -1,0 +1,13 @@
+{
+  "id": 538,
+  "slug": "nova-billiards",
+  "name": "Nova Billiards",
+  "category": "sports",
+  "description": "Play Nova Billiards unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/strongdog2/img/nova-billiards.jfif",
+  "entrypoint": "https://iloveshorty.github.io/strongdog2/html/unity/u.html?g=novabilliards",
+  "openInNewTab": false,
+  "isFeatured": false
+}

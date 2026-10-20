@@ -1,0 +1,13 @@
+{
+  "id": 735,
+  "slug": "mirror-madness",
+  "name": "Mirror Madness",
+  "category": "retro",
+  "description": "Play Mirror Madness unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/strongdog3/img/Mirror%20Madness.png",
+  "entrypoint": "https://iloveshorty.github.io/strongdog3/html/Mirror%20Madness/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

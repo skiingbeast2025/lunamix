@@ -1,0 +1,13 @@
+{
+  "id": 218,
+  "slug": "bombit-3",
+  "name": "Bombit 3",
+  "category": "other",
+  "description": "Play Bombit 3 unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/img/bombit3.jpg",
+  "entrypoint": "https://iloveshorty.github.io/swf/bombit3/game/base.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

@@ -1,0 +1,13 @@
+{
+  "id": 1022,
+  "slug": "catpad",
+  "name": "Catpad",
+  "category": "other",
+  "description": "Play Catpad unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/strongdog4/img/catpad.jpg",
+  "entrypoint": "https://iloveshorty.github.io/strongdog4/html/catpad/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

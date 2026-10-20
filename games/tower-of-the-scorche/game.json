@@ -1,0 +1,13 @@
+{
+  "id": 331,
+  "slug": "tower-of-the-scorche",
+  "name": "Tower of the Scorche",
+  "category": "other",
+  "description": "Play Tower of the Scorche unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/img/tower%20of%20the%20scorche.png",
+  "entrypoint": "https://iloveshorty.github.io/html/tower%20of%20the%20scorche/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

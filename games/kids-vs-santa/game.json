@@ -1,0 +1,13 @@
+{
+  "id": 788,
+  "slug": "kids-vs-santa",
+  "name": "Kids vs Santa",
+  "category": "action",
+  "description": "Play Kids vs Santa unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/strongdog3/img/kids%20vs%20santa.jpg",
+  "entrypoint": "https://iloveshorty.github.io/strongdog3/swf/kids%20vs%20santa/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

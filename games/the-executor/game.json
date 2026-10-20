@@ -1,0 +1,13 @@
+{
+  "id": 131,
+  "slug": "the-executor",
+  "name": "The Executor",
+  "category": "other",
+  "description": "Play The Executor unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/img/executor.png",
+  "entrypoint": "https://iloveshorty.github.io/html/theexocutor",
+  "openInNewTab": false,
+  "isFeatured": false
+}

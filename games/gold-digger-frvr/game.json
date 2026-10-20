@@ -1,0 +1,13 @@
+{
+  "id": 958,
+  "slug": "gold-digger-frvr",
+  "name": "Gold Digger Frvr",
+  "category": "adventure",
+  "description": "Play Gold Digger Frvr unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/strongdog3/img/gold%20digger%20frvr.jpg",
+  "entrypoint": "https://iloveshorty.github.io/strongdog3/html/gold%20digger%20frvr/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

@@ -1,0 +1,13 @@
+{
+  "id": 143,
+  "slug": "sand-and-water",
+  "name": "Sand and Water",
+  "category": "other",
+  "description": "Play Sand and Water unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/img/sand.png",
+  "entrypoint": "https://iloveshorty.github.io/html/Sand%20and%20Water%20v3.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

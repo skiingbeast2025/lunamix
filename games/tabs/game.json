@@ -1,0 +1,13 @@
+{
+  "id": 235,
+  "slug": "tabs",
+  "name": "Tabs",
+  "category": "action",
+  "description": "Play Tabs unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.jpeg",
+  "remoteIcon": "https://iloveshorty.github.io/img/tabs.jpeg",
+  "entrypoint": "https://iloveshorty.github.io/html/tabs/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": true
+}

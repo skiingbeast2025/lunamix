@@ -1,0 +1,13 @@
+{
+  "id": 365,
+  "slug": "tactical-weapon-pack",
+  "name": "Tactical Weapon Pack",
+  "category": "other",
+  "description": "Play Tactical Weapon Pack unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/img/tactical%20weapon%20pack.png",
+  "entrypoint": "https://iloveshorty.github.io/html/tactical%20weapon%20pack/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

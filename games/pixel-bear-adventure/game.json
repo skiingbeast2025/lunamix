@@ -1,0 +1,13 @@
+{
+  "id": 5,
+  "slug": "pixel-bear-adventure",
+  "name": "Pixel Bear Adventure",
+  "category": "adventure",
+  "description": "Play Pixel Bear Adventure unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/img/pixelbearadventure.png",
+  "entrypoint": "https://iloveshorty.github.io/html/pixelbearadventure/game/pixelbearadventure.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

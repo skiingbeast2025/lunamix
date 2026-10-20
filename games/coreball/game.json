@@ -1,0 +1,13 @@
+{
+  "id": 100,
+  "slug": "coreball",
+  "name": "Coreball",
+  "category": "puzzle",
+  "description": "Play Coreball unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/img/coreball.webp",
+  "entrypoint": "https://iloveshorty.github.io/html/core-ball/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

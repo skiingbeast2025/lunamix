@@ -1,0 +1,13 @@
+{
+  "id": 441,
+  "slug": "erase-box",
+  "name": "Erase Box",
+  "category": "other",
+  "description": "Play Erase Box unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/strongdog2/img/erase%20box.jpg",
+  "entrypoint": "https://iloveshorty.github.io/strongdog2/html/erase%20box/gamereal/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

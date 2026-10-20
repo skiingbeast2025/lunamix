@@ -1,0 +1,13 @@
+{
+  "id": 139,
+  "slug": "terraria",
+  "name": "Terraria",
+  "category": "adventure",
+  "description": "Play Terraria unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/img/terraria.jpg",
+  "entrypoint": "https://iloveshorty.github.io/html/Terraria.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

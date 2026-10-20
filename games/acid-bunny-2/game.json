@@ -1,0 +1,13 @@
+{
+  "id": 778,
+  "slug": "acid-bunny-2",
+  "name": "Acid Bunny 2",
+  "category": "platformer",
+  "description": "Play Acid Bunny 2 unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.jpg",
+  "remoteIcon": "https://iloveshorty.github.io/strongdog3/img/acid%20bunny%202.jpg",
+  "entrypoint": "https://iloveshorty.github.io/strongdog3/swf/acid%20bunny%202/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": true
+}

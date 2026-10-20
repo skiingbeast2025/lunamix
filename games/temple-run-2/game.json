@@ -1,0 +1,13 @@
+{
+  "id": 38,
+  "slug": "temple-run-2",
+  "name": "Temple Run 2",
+  "category": "platformer",
+  "description": "Play Temple Run 2 unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/img/templerun.webp",
+  "entrypoint": "https://iloveshorty.github.io/html/temple-run-2/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

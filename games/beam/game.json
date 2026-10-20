@@ -1,0 +1,13 @@
+{
+  "id": 315,
+  "slug": "beam",
+  "name": "Beam",
+  "category": "other",
+  "description": "Play Beam unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/img/beam.png",
+  "entrypoint": "https://iloveshorty.github.io/html/beam/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

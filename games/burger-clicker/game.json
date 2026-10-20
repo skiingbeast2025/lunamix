@@ -1,0 +1,13 @@
+{
+  "id": 814,
+  "slug": "burger-clicker",
+  "name": "Burger Clicker",
+  "category": "other",
+  "description": "Play Burger Clicker unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/strongdog3/img/burger%20clicker.jpg",
+  "entrypoint": "https://iloveshorty.github.io/strongdog3/html/burger%20clicker/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

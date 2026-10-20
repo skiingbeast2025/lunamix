@@ -1,0 +1,13 @@
+{
+  "id": 884,
+  "slug": "sink-it",
+  "name": "Sink It",
+  "category": "other",
+  "description": "Play Sink It unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/strongdog3/img/sink%20it.jpg",
+  "entrypoint": "https://iloveshorty.github.io/strongdog3/html/sink%20it/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

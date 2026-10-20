@@ -1,0 +1,13 @@
+{
+  "id": 36,
+  "slug": "time-shooters",
+  "name": "Time Shooters",
+  "category": "action",
+  "description": "Play Time Shooters unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/img/timeshooters.webp",
+  "entrypoint": "https://iloveshorty.github.io/html/timeshooter/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

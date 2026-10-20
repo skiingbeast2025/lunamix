@@ -1,0 +1,13 @@
+{
+  "id": 1013,
+  "slug": "cannon-strike",
+  "name": "Cannon Strike",
+  "category": "action",
+  "description": "Play Cannon Strike unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/strongdog4/img/cannon%20strike.png",
+  "entrypoint": "https://iloveshorty.github.io/strongdog4/html/cannon%20strike/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

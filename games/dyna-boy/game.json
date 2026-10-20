@@ -1,0 +1,13 @@
+{
+  "id": 934,
+  "slug": "dyna-boy",
+  "name": "Dyna Boy",
+  "category": "other",
+  "description": "Play Dyna Boy unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/strongdog4/img/dyna%20boy.jpg",
+  "entrypoint": "https://iloveshorty.github.io/strongdog4/html/dyna%20boy/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

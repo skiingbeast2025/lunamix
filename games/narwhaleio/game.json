@@ -1,0 +1,13 @@
+{
+  "id": 753,
+  "slug": "narwhaleio",
+  "name": "Narwhale.io",
+  "category": "action",
+  "description": "Play Narwhale.io unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/strongdog3/img/narwhale.io.png",
+  "entrypoint": "https://iloveshorty.github.io/strongdog3/html/narwhale.io/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

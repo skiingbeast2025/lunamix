@@ -1,0 +1,13 @@
+{
+  "id": 148,
+  "slug": "space-huggers",
+  "name": "Space Huggers",
+  "category": "action",
+  "description": "Play Space Huggers unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/img/huggers.jpeg",
+  "entrypoint": "https://iloveshorty.github.io/html/spacehuggers/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

@@ -1,0 +1,13 @@
+{
+  "id": 781,
+  "slug": "armor-mayhem",
+  "name": "Armor Mayhem",
+  "category": "action",
+  "description": "Play Armor Mayhem unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/strongdog3/img/armor%20mayhem.jpg",
+  "entrypoint": "https://iloveshorty.github.io/strongdog3/swf/armor%20mayhem/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

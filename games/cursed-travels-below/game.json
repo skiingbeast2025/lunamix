@@ -1,0 +1,13 @@
+{
+  "id": 348,
+  "slug": "cursed-travels-below",
+  "name": "Cursed Travels Below",
+  "category": "adventure",
+  "description": "Play Cursed Travels Below unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/img/cursed%20travels%20below.png",
+  "entrypoint": "https://iloveshorty.github.io/html/cursed%20travels%20below/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

@@ -1,0 +1,13 @@
+{
+  "id": 864,
+  "slug": "power-badminton",
+  "name": "Power Badminton",
+  "category": "sports",
+  "description": "Play Power Badminton unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.jpg",
+  "remoteIcon": "https://iloveshorty.github.io/strongdog3/img/power%20badminton.jpg",
+  "entrypoint": "https://iloveshorty.github.io/strongdog3/html/power%20badminton/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": true
+}

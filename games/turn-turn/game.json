@@ -1,0 +1,13 @@
+{
+  "id": 655,
+  "slug": "turn-turn",
+  "name": "Turn Turn",
+  "category": "other",
+  "description": "Play Turn Turn unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/strongdog2/img/turn%20turn.jpg",
+  "entrypoint": "https://iloveshorty.github.io/strongdog2/html/turn%20turn/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

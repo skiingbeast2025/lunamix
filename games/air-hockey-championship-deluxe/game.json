@@ -1,0 +1,13 @@
+{
+  "id": 1055,
+  "slug": "air-hockey-championship-deluxe",
+  "name": "Air Hockey Championship Deluxe",
+  "category": "sports",
+  "description": "Play Air Hockey Championship Deluxe unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/strongdog4/img/air%20hockey%20championship%20deluxe.jpg",
+  "entrypoint": "https://iloveshorty.github.io/strongdog4/html/air%20hockey%20championship%20deluxe/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

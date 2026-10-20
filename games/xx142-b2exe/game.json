@@ -1,0 +1,13 @@
+{
+  "id": 144,
+  "slug": "xx142-b2exe",
+  "name": "Xx142-b2exe",
+  "category": "other",
+  "description": "Play Xx142-b2exe unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.png",
+  "remoteIcon": "https://iloveshorty.github.io/img/xx.png",
+  "entrypoint": "https://iloveshorty.github.io/html/xx142-b2exe/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": true
+}

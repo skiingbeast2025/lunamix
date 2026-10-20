@@ -1,0 +1,13 @@
+{
+  "id": 175,
+  "slug": "flappy-bird",
+  "name": "Flappy Bird",
+  "category": "platformer",
+  "description": "Play Flappy Bird unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.png",
+  "remoteIcon": "https://iloveshorty.github.io/img/FlappyBird.png",
+  "entrypoint": "https://iloveshorty.github.io/html/flappybird/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": true
+}

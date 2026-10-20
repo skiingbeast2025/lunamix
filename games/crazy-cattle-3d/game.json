@@ -1,0 +1,13 @@
+{
+  "id": 1153,
+  "slug": "crazy-cattle-3d",
+  "name": "Crazy Cattle 3D",
+  "category": "other",
+  "description": "Play Crazy Cattle 3D unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/strongdog4/img/crazy%20cattle%203d.png",
+  "entrypoint": "https://iloveshorty.github.io/strongdog4/html/crazy%20cattle%203d/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

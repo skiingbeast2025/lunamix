@@ -1,0 +1,13 @@
+{
+  "id": 1060,
+  "slug": "among-us-online-edition",
+  "name": "Among Us Online Edition",
+  "category": "action",
+  "description": "Play Among Us Online Edition unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/strongdog4/img/among%20us%20online%20edition.jpg",
+  "entrypoint": "https://iloveshorty.github.io/strongdog4/html/among%20us%20online%20edition/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

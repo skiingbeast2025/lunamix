@@ -1,0 +1,13 @@
+{
+  "id": 722,
+  "slug": "bottle-flip",
+  "name": "Bottle Flip",
+  "category": "puzzle",
+  "description": "Play Bottle Flip unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/strongdog3/img/bottle%20flip.png",
+  "entrypoint": "https://iloveshorty.github.io/strongdog3/html/bottle%20flip/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

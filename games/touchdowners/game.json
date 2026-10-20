@@ -1,0 +1,13 @@
+{
+  "id": 855,
+  "slug": "touchdowners",
+  "name": "Touchdowners",
+  "category": "sports",
+  "description": "Play Touchdowners unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/strongdog3/img/touchdowners.jpg",
+  "entrypoint": "https://iloveshorty.github.io/strongdog3/html/touchdowners/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

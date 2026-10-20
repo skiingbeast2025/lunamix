@@ -1,0 +1,13 @@
+{
+  "id": 41,
+  "slug": "subway-surfers-beijing",
+  "name": "Subway Surfers Beijing",
+  "category": "platformer",
+  "description": "Play Subway Surfers Beijing unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/img/subwaysurferbeijing.webp",
+  "entrypoint": "https://iloveshorty.github.io/html/subwaysurfersbeijing/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

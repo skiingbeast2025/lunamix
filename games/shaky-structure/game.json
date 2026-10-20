@@ -1,0 +1,13 @@
+{
+  "id": 474,
+  "slug": "shaky-structure",
+  "name": "Shaky Structure",
+  "category": "other",
+  "description": "Play Shaky Structure unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/strongdog2/img/shaky%20structure.webp",
+  "entrypoint": "https://iloveshorty.github.io/strongdog2/html/shaky%20structure/gamereal/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

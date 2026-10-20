@@ -1,0 +1,13 @@
+{
+  "id": 422,
+  "slug": "contractomaton",
+  "name": "Contractomaton",
+  "category": "retro",
+  "description": "Play Contractomaton unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/strongdog2/img/contractomaton.jpg",
+  "entrypoint": "https://iloveshorty.github.io/strongdog2/html/contractomaton/gamereal/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

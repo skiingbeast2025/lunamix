@@ -1,0 +1,13 @@
+{
+  "id": 878,
+  "slug": "shape-fold",
+  "name": "Shape Fold",
+  "category": "puzzle",
+  "description": "Play Shape Fold unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/strongdog3/img/shape%20fold.jpg",
+  "entrypoint": "https://iloveshorty.github.io/strongdog3/html/shape%20fold/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

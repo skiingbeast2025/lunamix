@@ -1,0 +1,13 @@
+{
+  "id": 1105,
+  "slug": "bridge-race",
+  "name": "Bridge Race",
+  "category": "platformer",
+  "description": "Play Bridge Race unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/strongdog4/img/bridge%20race.jpg",
+  "entrypoint": "https://iloveshorty.github.io/strongdog4/html/bridge%20race/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

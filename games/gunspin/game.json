@@ -1,0 +1,13 @@
+{
+  "id": 623,
+  "slug": "gunspin",
+  "name": "Gunspin",
+  "category": "action",
+  "description": "Play Gunspin unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/strongdog2/img/gunspin.jpg",
+  "entrypoint": "https://iloveshorty.github.io/strongdog2/html/gunspin/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

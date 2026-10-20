@@ -1,0 +1,13 @@
+{
+  "id": 430,
+  "slug": "marcus-osnail",
+  "name": "Marcus Osnail",
+  "category": "other",
+  "description": "Play Marcus Osnail unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/strongdog2/img/marcus%20osnail.png",
+  "entrypoint": "https://iloveshorty.github.io/strongdog2/html/marcus%20osnail/gamereal/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

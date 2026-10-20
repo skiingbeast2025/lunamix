@@ -1,0 +1,13 @@
+{
+  "id": 215,
+  "slug": "papa-louies-1",
+  "name": "Papa Louies 1",
+  "category": "platformer",
+  "description": "Play Papa Louies 1 unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.jpeg",
+  "remoteIcon": "https://iloveshorty.github.io/img/louie1.jpeg",
+  "entrypoint": "https://iloveshorty.github.io/swf/louie1/game/base.html",
+  "openInNewTab": false,
+  "isFeatured": true
+}

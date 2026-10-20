@@ -1,0 +1,13 @@
+{
+  "id": 395,
+  "slug": "jetpack-kiwi",
+  "name": "Jetpack Kiwi",
+  "category": "other",
+  "description": "Play Jetpack Kiwi unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/strongdog2/img/jetpack%20kiwi.jpg",
+  "entrypoint": "https://iloveshorty.github.io/strongdog2/html/jetpack%20kiwi/gamereal/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

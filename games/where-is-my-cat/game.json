@@ -1,0 +1,13 @@
+{
+  "id": 819,
+  "slug": "where-is-my-cat",
+  "name": "Where Is My Cat",
+  "category": "puzzle",
+  "description": "Play Where Is My Cat unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/strongdog3/img/where%20is%20my%20cat.jpg",
+  "entrypoint": "https://iloveshorty.github.io/strongdog3/html/where%20is%20my%20cat/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

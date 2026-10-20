@@ -1,0 +1,13 @@
+{
+  "id": 1068,
+  "slug": "aqua-thrills",
+  "name": "Aqua Thrills",
+  "category": "other",
+  "description": "Play Aqua Thrills unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/strongdog4/img/aqua%20thrills.jpg",
+  "entrypoint": "https://iloveshorty.github.io/strongdog4/html/aqua%20thrills/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

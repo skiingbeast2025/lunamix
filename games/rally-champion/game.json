@@ -1,0 +1,13 @@
+{
+  "id": 866,
+  "slug": "rally-champion",
+  "name": "Rally Champion",
+  "category": "driving",
+  "description": "Play Rally Champion unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/strongdog3/img/rally%20champion.jpg",
+  "entrypoint": "https://iloveshorty.github.io/strongdog3/html/rally%20champion/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

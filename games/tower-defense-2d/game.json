@@ -1,0 +1,13 @@
+{
+  "id": 709,
+  "slug": "tower-defense-2d",
+  "name": "Tower Defense 2D",
+  "category": "action",
+  "description": "Play Tower Defense 2D unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/strongdog2/img/tower%20defense%202d.jpg",
+  "entrypoint": "https://iloveshorty.github.io/strongdog2/html/tower%20defense%202d/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

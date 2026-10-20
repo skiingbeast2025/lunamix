@@ -1,0 +1,13 @@
+{
+  "id": 445,
+  "slug": "notebook-jam",
+  "name": "Notebook Jam",
+  "category": "other",
+  "description": "Play Notebook Jam unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/strongdog2/img/notebook%20jam.jpg",
+  "entrypoint": "https://iloveshorty.github.io/strongdog2/html/notebook%20jam/gamereal/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

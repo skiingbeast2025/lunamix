@@ -1,0 +1,13 @@
+{
+  "id": 679,
+  "slug": "skyblock",
+  "name": "Skyblock",
+  "category": "adventure",
+  "description": "Play Skyblock unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/strongdog3/img/skyblock.jpg",
+  "entrypoint": "https://iloveshorty.github.io/strongdog3/html/skyblock/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

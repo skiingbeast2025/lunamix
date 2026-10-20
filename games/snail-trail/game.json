@@ -1,0 +1,13 @@
+{
+  "id": 462,
+  "slug": "snail-trail",
+  "name": "Snail Trail",
+  "category": "other",
+  "description": "Play Snail Trail unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/strongdog2/img/snail%20trail.webp",
+  "entrypoint": "https://iloveshorty.github.io/strongdog2/html/snail%20trail/gamereal/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

@@ -1,0 +1,13 @@
+{
+  "id": 598,
+  "slug": "level-devil",
+  "name": "Level Devil",
+  "category": "platformer",
+  "description": "Play Level Devil unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/strongdog2/img/level%20devil.jpg",
+  "entrypoint": "https://iloveshorty.github.io/strongdog2/html/level%20devil/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

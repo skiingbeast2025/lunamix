@@ -1,0 +1,13 @@
+{
+  "id": 125,
+  "slug": "achievementunlocked",
+  "name": "Achievementunlocked",
+  "category": "other",
+  "description": "Play Achievementunlocked unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/img/ache.webp",
+  "entrypoint": "https://iloveshorty.github.io/html/achievementunlocked/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

@@ -1,0 +1,13 @@
+{
+  "id": 169,
+  "slug": "geometry-dash-world-toxic",
+  "name": "Geometry Dash World Toxic",
+  "category": "geometry-dash",
+  "description": "Play Geometry Dash World Toxic unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/img/dashtoxic.png",
+  "entrypoint": "https://iloveshorty.github.io/html/Geometry%20Dash%20World%20Toxic%20factory/game/Geometry%20Dash%20World%20Toxic%20factory.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

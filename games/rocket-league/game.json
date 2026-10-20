@@ -1,0 +1,13 @@
+{
+  "id": 248,
+  "slug": "rocket-league",
+  "name": "Rocket League",
+  "category": "sports",
+  "description": "Play Rocket League unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/img/rocketleague.jpg",
+  "entrypoint": "https://iloveshorty.github.io/html/rocket%20league/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

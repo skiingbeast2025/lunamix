@@ -1,0 +1,13 @@
+{
+  "id": 570,
+  "slug": "n-gon",
+  "name": "N-gon",
+  "category": "other",
+  "description": "Play N-gon unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/strongdog2/img/n-gon.png",
+  "entrypoint": "https://iloveshorty.github.io/strongdog2/html/n-gon/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

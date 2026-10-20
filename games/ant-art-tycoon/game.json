@@ -1,0 +1,13 @@
+{
+  "id": 339,
+  "slug": "ant-art-tycoon",
+  "name": "Ant Art Tycoon",
+  "category": "other",
+  "description": "Play Ant Art Tycoon unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/img/ant%20art%20tycoon.png",
+  "entrypoint": "https://iloveshorty.github.io/html/ant%20art%20tycoon/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

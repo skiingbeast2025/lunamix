@@ -1,0 +1,13 @@
+{
+  "id": 1035,
+  "slug": "crazy-tunnel-3d",
+  "name": "Crazy Tunnel 3D",
+  "category": "platformer",
+  "description": "Play Crazy Tunnel 3D unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/strongdog4/img/crazy%20tunnel%203d.jpg",
+  "entrypoint": "https://iloveshorty.github.io/strongdog4/html/crazy%20tunnel%203d/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

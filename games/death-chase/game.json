@@ -1,0 +1,13 @@
+{
+  "id": 1044,
+  "slug": "death-chase",
+  "name": "Death Chase",
+  "category": "driving",
+  "description": "Play Death Chase unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/strongdog4/img/death%20chase.jpg",
+  "entrypoint": "https://iloveshorty.github.io/strongdog4/html/death%20chase/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

@@ -1,0 +1,13 @@
+{
+  "id": 60,
+  "slug": "moto-x3m",
+  "name": "Moto X3M",
+  "category": "driving",
+  "description": "Play Moto X3M unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.webp",
+  "remoteIcon": "https://iloveshorty.github.io/img/motox3m.webp",
+  "entrypoint": "https://iloveshorty.github.io/html/motox3m/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": true
+}

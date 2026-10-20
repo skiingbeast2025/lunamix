@@ -1,0 +1,13 @@
+{
+  "id": 708,
+  "slug": "small-world-cup",
+  "name": "Small World Cup",
+  "category": "sports",
+  "description": "Play Small World Cup unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/strongdog3/img/small%20world%20cup.jpg",
+  "entrypoint": "https://iloveshorty.github.io/strongdog3/html/small%20world%20cup/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

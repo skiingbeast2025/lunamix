@@ -1,0 +1,13 @@
+{
+  "id": 455,
+  "slug": "house-pusher",
+  "name": "House Pusher",
+  "category": "puzzle",
+  "description": "Play House Pusher unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/strongdog2/img/house%20pusher.png",
+  "entrypoint": "https://iloveshorty.github.io/strongdog2/html/house%20pusher/gamereal/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

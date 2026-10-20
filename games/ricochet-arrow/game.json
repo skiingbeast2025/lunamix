@@ -1,0 +1,13 @@
+{
+  "id": 303,
+  "slug": "ricochet-arrow",
+  "name": "Ricochet Arrow",
+  "category": "puzzle",
+  "description": "Play Ricochet Arrow unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/img/ricochet%20arrow.jpg",
+  "entrypoint": "https://iloveshorty.github.io/html/ricochet%20arrow/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

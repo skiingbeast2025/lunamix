@@ -1,0 +1,13 @@
+{
+  "id": 360,
+  "slug": "orange",
+  "name": "Orange",
+  "category": "puzzle",
+  "description": "Play Orange unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/img/orange.png",
+  "entrypoint": "https://iloveshorty.github.io/html/orange/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

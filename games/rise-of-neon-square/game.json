@@ -1,0 +1,13 @@
+{
+  "id": 697,
+  "slug": "rise-of-neon-square",
+  "name": "Rise of Neon Square",
+  "category": "other",
+  "description": "Play Rise of Neon Square unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/strongdog3/img/rise%20of%20neon%20square.jpg",
+  "entrypoint": "https://iloveshorty.github.io/strongdog3/html/rise%20of%20neon%20square/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

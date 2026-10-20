@@ -1,0 +1,13 @@
+{
+  "id": 42,
+  "slug": "subway-surfers-san-fran",
+  "name": "Subway Surfers San Fran",
+  "category": "platformer",
+  "description": "Play Subway Surfers San Fran unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/img/subsan.webp",
+  "entrypoint": "https://iloveshorty.github.io/html/subwaysurferssanfrancisco/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

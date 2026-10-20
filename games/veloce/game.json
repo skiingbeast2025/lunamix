@@ -1,0 +1,13 @@
+{
+  "id": 30,
+  "slug": "veloce",
+  "name": "Veloce",
+  "category": "other",
+  "description": "Play Veloce unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/img/VELOCE.webp",
+  "entrypoint": "https://iloveshorty.github.io/html/veloce/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

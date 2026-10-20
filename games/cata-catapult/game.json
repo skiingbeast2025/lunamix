@@ -1,0 +1,13 @@
+{
+  "id": 408,
+  "slug": "cata-catapult",
+  "name": "Cata Catapult",
+  "category": "other",
+  "description": "Play Cata Catapult unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/strongdog2/img/cata%20catapult.png",
+  "entrypoint": "https://iloveshorty.github.io/strongdog2/html/cata%20catapult/gamereal/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

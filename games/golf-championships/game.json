@@ -1,0 +1,13 @@
+{
+  "id": 959,
+  "slug": "golf-championships",
+  "name": "Golf Championships",
+  "category": "sports",
+  "description": "Play Golf Championships unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/strongdog3/img/golf%20championships.jpg",
+  "entrypoint": "https://iloveshorty.github.io/strongdog3/html/golf%20championships/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

@@ -1,0 +1,13 @@
+{
+  "id": 960,
+  "slug": "google-feud",
+  "name": "Google Feud",
+  "category": "puzzle",
+  "description": "Play Google Feud unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/strongdog3/img/google%20feud.jpg",
+  "entrypoint": "https://iloveshorty.github.io/strongdog3/html/google%20feud/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

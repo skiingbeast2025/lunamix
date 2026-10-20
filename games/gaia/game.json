@@ -1,0 +1,13 @@
+{
+  "id": 507,
+  "slug": "gaia",
+  "name": "Gaia",
+  "category": "other",
+  "description": "Play Gaia unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/strongdog2/img/gaia.webp",
+  "entrypoint": "https://iloveshorty.github.io/strongdog2/html/gaia/gamereal/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

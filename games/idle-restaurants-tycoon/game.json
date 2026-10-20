@@ -1,0 +1,13 @@
+{
+  "id": 701,
+  "slug": "idle-restaurants-tycoon",
+  "name": "Idle Restaurants Tycoon",
+  "category": "other",
+  "description": "Play Idle Restaurants Tycoon unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/strongdog3/img/idle%20restaurants%20tycoon.jpg",
+  "entrypoint": "https://iloveshorty.github.io/strongdog3/html/idle%20restaurants%20tycoon/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

@@ -1,0 +1,13 @@
+{
+  "id": 121,
+  "slug": "avalanche",
+  "name": "Avalanche",
+  "category": "other",
+  "description": "Play Avalanche unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/img/avalanche.webp",
+  "entrypoint": "https://iloveshorty.github.io/html/avalanche/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

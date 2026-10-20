@@ -1,0 +1,13 @@
+{
+  "id": 609,
+  "slug": "terretorialio",
+  "name": "Terretorial.io",
+  "category": "other",
+  "description": "Play Terretorial.io unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/strongdog2/img/terretorial.io.jpeg",
+  "entrypoint": "https://iloveshorty.github.io/strongdog2/html/terretorial.io/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

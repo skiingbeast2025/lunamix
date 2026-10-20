@@ -1,0 +1,13 @@
+{
+  "id": 805,
+  "slug": "baldis-basics-field-trip",
+  "name": "Baldis Basics Field Trip",
+  "category": "adventure",
+  "description": "Play Baldis Basics Field Trip unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/strongdog3/img/baldis%20basics%20field%20trip.jpg",
+  "entrypoint": "https://iloveshorty.github.io/strongdog3/html/baldis%20basics%20field%20trip/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

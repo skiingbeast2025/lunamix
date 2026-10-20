@@ -1,0 +1,13 @@
+{
+  "id": 292,
+  "slug": "shortcut-race",
+  "name": "Shortcut Race",
+  "category": "other",
+  "description": "Play Shortcut Race unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/img/shortcut%20race.jpg",
+  "entrypoint": "https://iloveshorty.github.io/html/shortcut%20race/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

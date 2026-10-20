@@ -1,0 +1,13 @@
+{
+  "id": 695,
+  "slug": "baw",
+  "name": "BAW",
+  "category": "puzzle",
+  "description": "Play BAW unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/strongdog2/img/baw.jpg",
+  "entrypoint": "https://iloveshorty.github.io/strongdog2/html/baw/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

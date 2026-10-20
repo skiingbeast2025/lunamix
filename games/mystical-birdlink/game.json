@@ -1,0 +1,13 @@
+{
+  "id": 909,
+  "slug": "mystical-birdlink",
+  "name": "Mystical Birdlink",
+  "category": "puzzle",
+  "description": "Play Mystical Birdlink unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/strongdog4/img/mystical%20birdlink.jpg",
+  "entrypoint": "https://iloveshorty.github.io/strongdog4/html/mystical%20birdlink/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

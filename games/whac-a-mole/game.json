@@ -1,0 +1,13 @@
+{
+  "id": 19,
+  "slug": "whac-a-mole",
+  "name": "Whac-a-mole",
+  "category": "retro",
+  "description": "Play Whac-a-mole unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/img/Whac-A-Mole.webp",
+  "entrypoint": "https://iloveshorty.github.io/html/whac-a-mole/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

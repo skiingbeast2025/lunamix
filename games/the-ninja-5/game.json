@@ -1,0 +1,13 @@
+{
+  "id": 134,
+  "slug": "the-ninja-5",
+  "name": "The Ninja 5",
+  "category": "action",
+  "description": "Play The Ninja 5 unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/img/n5.webp",
+  "entrypoint": "https://iloveshorty.github.io/html/The%20Ninja%205.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

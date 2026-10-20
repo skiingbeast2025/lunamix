@@ -1,0 +1,13 @@
+{
+  "id": 621,
+  "slug": "tiny-heist",
+  "name": "Tiny Heist",
+  "category": "adventure",
+  "description": "Play Tiny Heist unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/strongdog2/img/tiny%20heist.jpg",
+  "entrypoint": "https://iloveshorty.github.io/strongdog2/html/tiny%20heist/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

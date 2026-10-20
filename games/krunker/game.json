@@ -1,0 +1,13 @@
+{
+  "id": 65,
+  "slug": "krunker",
+  "name": "Krunker",
+  "category": "platformer",
+  "description": "Play Krunker unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.webp",
+  "remoteIcon": "https://iloveshorty.github.io/img/krunker.webp",
+  "entrypoint": "https://iloveshorty.github.io/html/krunker/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": true
+}

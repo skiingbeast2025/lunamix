@@ -1,0 +1,13 @@
+{
+  "id": 406,
+  "slug": "elephant-rave-2",
+  "name": "Elephant Rave 2",
+  "category": "other",
+  "description": "Play Elephant Rave 2 unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.webp",
+  "remoteIcon": "https://iloveshorty.github.io/strongdog2/img/elephant%20rave%202.webp",
+  "entrypoint": "https://iloveshorty.github.io/strongdog2/swf/elephant%20rave%202/gamereal/base.html",
+  "openInNewTab": false,
+  "isFeatured": true
+}

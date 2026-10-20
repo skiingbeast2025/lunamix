@@ -1,0 +1,13 @@
+{
+  "id": 98,
+  "slug": "csgo-clicker",
+  "name": "Csgo Clicker",
+  "category": "other",
+  "description": "Play Csgo Clicker unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/img/CSGO.webp",
+  "entrypoint": "https://iloveshorty.github.io/html/csgo-clicker/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

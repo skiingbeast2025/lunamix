@@ -1,0 +1,13 @@
+{
+  "id": 247,
+  "slug": "google-snake",
+  "name": "Google Snake",
+  "category": "retro",
+  "description": "Play Google Snake unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.jpg",
+  "remoteIcon": "https://iloveshorty.github.io/img/googlesnake.jpg",
+  "entrypoint": "https://iloveshorty.github.io/html/google-snake/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": true
+}

@@ -1,0 +1,13 @@
+{
+  "id": 117,
+  "slug": "bad-icecream-3",
+  "name": "Bad Icecream 3",
+  "category": "retro",
+  "description": "Play Bad Icecream 3 unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.webp",
+  "remoteIcon": "https://iloveshorty.github.io/img/bad-ice-cream-3.webp",
+  "entrypoint": "https://iloveshorty.github.io/html/bad-ice-cream-3/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": true
+}

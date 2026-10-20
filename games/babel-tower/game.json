@@ -1,0 +1,13 @@
+{
+  "id": 666,
+  "slug": "babel-tower",
+  "name": "Babel Tower",
+  "category": "other",
+  "description": "Play Babel Tower unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/strongdog2/img/babel%20tower.jpg",
+  "entrypoint": "https://iloveshorty.github.io/strongdog2/html/babel%20tower/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

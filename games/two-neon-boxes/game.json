@@ -1,0 +1,13 @@
+{
+  "id": 861,
+  "slug": "two-neon-boxes",
+  "name": "Two Neon Boxes",
+  "category": "other",
+  "description": "Play Two Neon Boxes unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/strongdog3/img/two%20neon%20boxes.jpg",
+  "entrypoint": "https://iloveshorty.github.io/strongdog3/html/two%20neon%20boxes/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

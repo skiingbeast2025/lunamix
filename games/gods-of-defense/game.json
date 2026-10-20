@@ -1,0 +1,13 @@
+{
+  "id": 444,
+  "slug": "gods-of-defense",
+  "name": "Gods of Defense",
+  "category": "action",
+  "description": "Play Gods of Defense unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/strongdog2/img/gods%20of%20defense.jpg",
+  "entrypoint": "https://iloveshorty.github.io/strongdog2/html/gods%20of%20defense/gamereal/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

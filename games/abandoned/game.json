@@ -1,0 +1,13 @@
+{
+  "id": 756,
+  "slug": "abandoned",
+  "name": "Abandoned",
+  "category": "adventure",
+  "description": "Play Abandoned unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/img/abandonedgame.jfif",
+  "entrypoint": "https://iloveshorty.github.io/html/abandoned/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

@@ -1,0 +1,13 @@
+{
+  "id": 849,
+  "slug": "temple-of-boom",
+  "name": "Temple of Boom",
+  "category": "adventure",
+  "description": "Play Temple of Boom unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/strongdog3/img/temple%20of%20boom.jpg",
+  "entrypoint": "https://iloveshorty.github.io/strongdog3/html/temple%20of%20boom/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

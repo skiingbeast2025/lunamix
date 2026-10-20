@@ -84,6 +84,7 @@ def build_registry():
                     "description": description,
                     "author": author,
                     "icon": icon_path,
+                    "remoteIcon": data.get("remoteIcon", ""),
                     "entrypoint": entrypoint,
                     "isLocal": True,
                     "isFeatured": is_featured,
@@ -108,8 +109,8 @@ def build_registry():
     def sort_key(g):
         s = g.get("slug", "")
         if s in PRIORITY_ORDER:
-            return (0, PRIORITY_ORDER.index(s))
-        return (1, not g.get("isFeatured", False), g.get("name", ""))
+            return (0, PRIORITY_ORDER.index(s), "")
+        return (1, 0 if g.get("isFeatured") else 1, (g.get("name") or "").lower())
 
     games.sort(key=sort_key)
 

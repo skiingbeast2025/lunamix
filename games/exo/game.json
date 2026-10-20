@@ -1,0 +1,13 @@
+{
+  "id": 82,
+  "slug": "exo",
+  "name": "Exo",
+  "category": "other",
+  "description": "Play Exo unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/img/exo.webp",
+  "entrypoint": "https://iloveshorty.github.io/html/exo/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

@@ -1,0 +1,13 @@
+{
+  "id": 557,
+  "slug": "solitaire",
+  "name": "Solitaire",
+  "category": "puzzle",
+  "description": "Play Solitaire unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/strongdog2/img/solitaire.jfif",
+  "entrypoint": "https://iloveshorty.github.io/strongdog2/html/solitaire/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

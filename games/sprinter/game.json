@@ -1,0 +1,13 @@
+{
+  "id": 649,
+  "slug": "sprinter",
+  "name": "Sprinter",
+  "category": "sports",
+  "description": "Play Sprinter unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.jpg",
+  "remoteIcon": "https://iloveshorty.github.io/strongdog3/img/sprinter.jpg",
+  "entrypoint": "https://iloveshorty.github.io/strongdog3/html/sprinter/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": true
+}

@@ -1,0 +1,13 @@
+{
+  "id": 338,
+  "slug": "swords-and-souls",
+  "name": "Swords and Souls",
+  "category": "puzzle",
+  "description": "Play Swords and Souls unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/img/swords%20and%20souls.avif",
+  "entrypoint": "https://iloveshorty.github.io/swf/swords%20and%20souls/game/base.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

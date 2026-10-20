@@ -1,0 +1,13 @@
+{
+  "id": 130,
+  "slug": "1v1lol",
+  "name": "1v1.lol",
+  "category": "action",
+  "description": "Play 1v1.lol unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.webp",
+  "remoteIcon": "https://iloveshorty.github.io/img/1v1.webp",
+  "entrypoint": "https://iloveshorty.github.io/html/1v1/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": true
+}

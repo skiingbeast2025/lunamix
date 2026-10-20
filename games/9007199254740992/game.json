@@ -1,0 +1,13 @@
+{
+  "id": 126,
+  "slug": "9007199254740992",
+  "name": "9007199254740992",
+  "category": "other",
+  "description": "Play 9007199254740992 unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/img/900.webp",
+  "entrypoint": "https://iloveshorty.github.io/html/9007199254740992/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

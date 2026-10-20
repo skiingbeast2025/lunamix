@@ -1,0 +1,13 @@
+{
+  "id": 947,
+  "slug": "fortz",
+  "name": "Fortz",
+  "category": "action",
+  "description": "Play Fortz unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/strongdog3/img/fortz.jpg",
+  "entrypoint": "https://iloveshorty.github.io/strongdog3/html/fortz/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

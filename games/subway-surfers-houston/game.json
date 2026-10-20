@@ -1,0 +1,13 @@
+{
+  "id": 40,
+  "slug": "subway-surfers-houston",
+  "name": "Subway Surfers Houston",
+  "category": "platformer",
+  "description": "Play Subway Surfers Houston unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/img/subwaysurfershouston.webp",
+  "entrypoint": "https://iloveshorty.github.io/html/subwaysurfershouston/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

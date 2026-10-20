@@ -1,0 +1,13 @@
+{
+  "id": 245,
+  "slug": "slope-2",
+  "name": "Slope 2",
+  "category": "platformer",
+  "description": "Play Slope 2 unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/img/slope2.jpg",
+  "entrypoint": "https://iloveshorty.github.io/html/slope2/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

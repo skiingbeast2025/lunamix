@@ -1,0 +1,13 @@
+{
+  "id": 401,
+  "slug": "scraplegs",
+  "name": "Scraplegs",
+  "category": "other",
+  "description": "Play Scraplegs unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/strongdog2/img/scraplegs.webp",
+  "entrypoint": "https://iloveshorty.github.io/strongdog2/html/scraplegs/gamereal/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

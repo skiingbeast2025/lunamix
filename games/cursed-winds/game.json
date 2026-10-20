@@ -1,0 +1,13 @@
+{
+  "id": 783,
+  "slug": "cursed-winds",
+  "name": "Cursed Winds",
+  "category": "other",
+  "description": "Play Cursed Winds unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/strongdog3/img/cursed%20winds.jpg",
+  "entrypoint": "https://iloveshorty.github.io/strongdog3/swf/cursed%20winds/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

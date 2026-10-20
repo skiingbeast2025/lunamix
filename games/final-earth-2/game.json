@@ -1,0 +1,13 @@
+{
+  "id": 632,
+  "slug": "final-earth-2",
+  "name": "Final Earth 2",
+  "category": "other",
+  "description": "Play Final Earth 2 unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/strongdog2/img/finalearth2.png",
+  "entrypoint": "https://iloveshorty.github.io/strongdog2/html/final%20earth%202/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

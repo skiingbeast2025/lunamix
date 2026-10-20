@@ -1,0 +1,13 @@
+{
+  "id": 39,
+  "slug": "subway-surfers-monaco",
+  "name": "Subway Surfers Monaco",
+  "category": "platformer",
+  "description": "Play Subway Surfers Monaco unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.webp",
+  "remoteIcon": "https://iloveshorty.github.io/img/SubwayMonaco.webp",
+  "entrypoint": "https://iloveshorty.github.io/html/subwaysurfersmonaco/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": true
+}

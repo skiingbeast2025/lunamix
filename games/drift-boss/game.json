@@ -1,0 +1,13 @@
+{
+  "id": 242,
+  "slug": "drift-boss",
+  "name": "Drift Boss",
+  "category": "driving",
+  "description": "Play Drift Boss unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/img/drift-boss.png",
+  "entrypoint": "https://iloveshorty.github.io/html/drift-boss/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

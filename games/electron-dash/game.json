@@ -1,0 +1,13 @@
+{
+  "id": 936,
+  "slug": "electron-dash",
+  "name": "Electron Dash",
+  "category": "platformer",
+  "description": "Play Electron Dash unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/strongdog4/img/electron%20dash.jpg",
+  "entrypoint": "https://iloveshorty.github.io/strongdog4/html/electron%20dash/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

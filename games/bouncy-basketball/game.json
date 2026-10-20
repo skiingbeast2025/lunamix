@@ -1,0 +1,13 @@
+{
+  "id": 1001,
+  "slug": "bouncy-basketball",
+  "name": "Bouncy Basketball",
+  "category": "sports",
+  "description": "Play Bouncy Basketball unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/strongdog4/img/bouncy%20basketball.jpg",
+  "entrypoint": "https://iloveshorty.github.io/strongdog4/html/bouncy%20basketball/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

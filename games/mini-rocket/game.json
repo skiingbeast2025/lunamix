@@ -1,0 +1,13 @@
+{
+  "id": 413,
+  "slug": "mini-rocket",
+  "name": "Mini Rocket",
+  "category": "other",
+  "description": "Play Mini Rocket unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.avif",
+  "remoteIcon": "https://iloveshorty.github.io/strongdog2/img/mini%20rocket.avif",
+  "entrypoint": "https://iloveshorty.github.io/strongdog2/html/mini%20rocket/gamereal/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": true
+}

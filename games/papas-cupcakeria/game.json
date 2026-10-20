@@ -1,0 +1,13 @@
+{
+  "id": 271,
+  "slug": "papas-cupcakeria",
+  "name": "Papas Cupcakeria",
+  "category": "other",
+  "description": "Play Papas Cupcakeria unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.jpg",
+  "remoteIcon": "https://iloveshorty.github.io/img/papascupcakeria.jpg",
+  "entrypoint": "https://iloveshorty.github.io/swf/papacupcakeria/game/base.html",
+  "openInNewTab": false,
+  "isFeatured": true
+}

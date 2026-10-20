@@ -1,0 +1,13 @@
+{
+  "id": 518,
+  "slug": "greedy-mimic",
+  "name": "Greedy Mimic",
+  "category": "other",
+  "description": "Play Greedy Mimic unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/strongdog2/img/greedy%20mimic.png",
+  "entrypoint": "https://iloveshorty.github.io/strongdog2/html/greedy%20mimic/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

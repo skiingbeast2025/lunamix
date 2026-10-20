@@ -1,0 +1,13 @@
+{
+  "id": 418,
+  "slug": "slime-knight",
+  "name": "Slime Knight",
+  "category": "other",
+  "description": "Play Slime Knight unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.avif",
+  "remoteIcon": "https://iloveshorty.github.io/strongdog2/img/slime%20knight.avif",
+  "entrypoint": "https://iloveshorty.github.io/strongdog2/html/slime%20knight/gamereal/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": true
+}

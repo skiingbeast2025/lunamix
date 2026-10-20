@@ -1,0 +1,13 @@
+{
+  "id": 742,
+  "slug": "five-nights-at-winstons",
+  "name": "Five Nights at Winstons",
+  "category": "action",
+  "description": "Play Five Nights at Winstons unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.jpg",
+  "remoteIcon": "https://iloveshorty.github.io/strongdog3/img/five%20nights%20at%20winstons.jpg",
+  "entrypoint": "https://iloveshorty.github.io/strongdog3/html/five%20nights%20at%20winstons/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": true
+}

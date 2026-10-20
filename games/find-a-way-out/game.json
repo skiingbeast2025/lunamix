@@ -1,0 +1,13 @@
+{
+  "id": 496,
+  "slug": "find-a-way-out",
+  "name": "Find a Way Out",
+  "category": "other",
+  "description": "Play Find a Way Out unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/strongdog2/img/find%20a%20way%20out.jpg",
+  "entrypoint": "https://iloveshorty.github.io/strongdog2/html/find%20a%20way%20out/gamereal/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

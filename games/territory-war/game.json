@@ -1,0 +1,13 @@
+{
+  "id": 1150,
+  "slug": "territory-war",
+  "name": "Territory War",
+  "category": "action",
+  "description": "Play Territory War unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/strongdog4/img/territory%20war.jpg",
+  "entrypoint": "https://iloveshorty.github.io/strongdog4/swf/territory%20war/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

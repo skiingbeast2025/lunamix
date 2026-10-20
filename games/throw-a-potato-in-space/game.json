@@ -1,0 +1,13 @@
+{
+  "id": 644,
+  "slug": "throw-a-potato-in-space",
+  "name": "Throw a Potato in Space",
+  "category": "other",
+  "description": "Play Throw a Potato in Space unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/img/throwapotato3.png",
+  "entrypoint": "https://iloveshorty.github.io/html/throw%20a%20potato%20in%20space/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

@@ -1,0 +1,13 @@
+{
+  "id": 346,
+  "slug": "choppy-orc",
+  "name": "Choppy Orc",
+  "category": "platformer",
+  "description": "Play Choppy Orc unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/img/choppy%20orc.jpg",
+  "entrypoint": "https://iloveshorty.github.io/html/choppy%20orc/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

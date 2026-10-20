@@ -1,0 +1,13 @@
+{
+  "id": 638,
+  "slug": "three-goblets",
+  "name": "Three Goblets",
+  "category": "adventure",
+  "description": "Play Three Goblets unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/strongdog2/img/three%20goblets.png",
+  "entrypoint": "https://iloveshorty.github.io/strongdog2/html/three%20goblets/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

@@ -1,0 +1,13 @@
+{
+  "id": 692,
+  "slug": "roper",
+  "name": "Roper",
+  "category": "platformer",
+  "description": "Play Roper unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/strongdog3/img/roper.jpg",
+  "entrypoint": "https://iloveshorty.github.io/strongdog3/html/roper/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

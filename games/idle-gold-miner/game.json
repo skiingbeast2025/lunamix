@@ -1,0 +1,13 @@
+{
+  "id": 895,
+  "slug": "idle-gold-miner",
+  "name": "Idle Gold Miner",
+  "category": "other",
+  "description": "Play Idle Gold Miner unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/strongdog4/img/idle%20gold%20miner.jpg",
+  "entrypoint": "https://iloveshorty.github.io/strongdog4/html/idle%20gold%20miner/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

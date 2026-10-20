@@ -1,0 +1,13 @@
+{
+  "id": 81,
+  "slug": "flappy-plane",
+  "name": "Flappy Plane",
+  "category": "other",
+  "description": "Play Flappy Plane unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/img/flappyplae.jpeg",
+  "entrypoint": "https://iloveshorty.github.io/html/flappyplane/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

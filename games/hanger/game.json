@@ -1,0 +1,13 @@
+{
+  "id": 688,
+  "slug": "hanger",
+  "name": "Hanger",
+  "category": "platformer",
+  "description": "Play Hanger unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/strongdog3/img/hanger.jpg",
+  "entrypoint": "https://iloveshorty.github.io/strongdog3/html/hanger/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

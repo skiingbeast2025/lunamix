@@ -1,0 +1,13 @@
+{
+  "id": 349,
+  "slug": "detective-bass-fish",
+  "name": "Detective Bass Fish",
+  "category": "other",
+  "description": "Play Detective Bass Fish unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/img/detective%20bass%20fish.webp",
+  "entrypoint": "https://iloveshorty.github.io/html/detective%20bass%20fish/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

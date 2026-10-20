@@ -1,0 +1,13 @@
+{
+  "id": 204,
+  "slug": "tiny-fishing",
+  "name": "Tiny Fishing",
+  "category": "sports",
+  "description": "Play Tiny Fishing unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/img/fishing.jpeg",
+  "entrypoint": "https://iloveshorty.github.io/html/tiny-fishing/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

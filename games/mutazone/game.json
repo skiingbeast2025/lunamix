@@ -1,0 +1,13 @@
+{
+  "id": 685,
+  "slug": "mutazone",
+  "name": "Mutazone",
+  "category": "action",
+  "description": "Play Mutazone unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/strongdog3/img/mutazone.jpg",
+  "entrypoint": "https://iloveshorty.github.io/strongdog3/html/mutazone/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

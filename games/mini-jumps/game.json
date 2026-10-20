@@ -1,0 +1,13 @@
+{
+  "id": 358,
+  "slug": "mini-jumps",
+  "name": "Mini Jumps",
+  "category": "platformer",
+  "description": "Play Mini Jumps unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/img/mini%20jumps.png",
+  "entrypoint": "https://iloveshorty.github.io/html/mini%20jumps/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

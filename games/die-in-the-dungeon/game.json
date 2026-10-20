@@ -1,0 +1,13 @@
+{
+  "id": 566,
+  "slug": "die-in-the-dungeon",
+  "name": "Die in the Dungeon",
+  "category": "adventure",
+  "description": "Play Die in the Dungeon unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/strongdog2/img/die%20in%20the%20dungeon.png",
+  "entrypoint": "https://iloveshorty.github.io/strongdog2/html/die%20in%20the%20dungeon/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

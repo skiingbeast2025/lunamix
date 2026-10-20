@@ -1,0 +1,13 @@
+{
+  "id": 487,
+  "slug": "leapoid",
+  "name": "Leapoid",
+  "category": "platformer",
+  "description": "Play Leapoid unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/strongdog2/img/leapoid.jpg",
+  "entrypoint": "https://iloveshorty.github.io/strongdog2/html/leapoid/gamereal/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

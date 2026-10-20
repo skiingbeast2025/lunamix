@@ -1,0 +1,13 @@
+{
+  "id": 163,
+  "slug": "mario",
+  "name": "Mario",
+  "category": "platformer",
+  "description": "Play Mario unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/img/Mario.png",
+  "entrypoint": "https://iloveshorty.github.io/html/Mario/game/Mario.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

@@ -1,0 +1,13 @@
+{
+  "id": 831,
+  "slug": "stick-defenders",
+  "name": "Stick Defenders",
+  "category": "action",
+  "description": "Play Stick Defenders unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/strongdog3/img/stick%20defenders.jpg",
+  "entrypoint": "https://iloveshorty.github.io/strongdog3/html/stick%20defenders/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

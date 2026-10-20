@@ -1,0 +1,13 @@
+{
+  "id": 180,
+  "slug": "digger-main",
+  "name": "Digger Main",
+  "category": "other",
+  "description": "Play Digger Main unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/img/diggermain.png",
+  "entrypoint": "https://iloveshorty.github.io/html/digger-main/digger-main/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

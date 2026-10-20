@@ -1,0 +1,13 @@
+{
+  "id": 476,
+  "slug": "adventure-boy-jailbreak",
+  "name": "Adventure Boy Jailbreak",
+  "category": "adventure",
+  "description": "Play Adventure Boy Jailbreak unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/strongdog2/img/adventure%20boy%20jailbreak.jpg",
+  "entrypoint": "https://iloveshorty.github.io/strongdog2/html/adventure%20boy%20jailbreak/gamereal/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

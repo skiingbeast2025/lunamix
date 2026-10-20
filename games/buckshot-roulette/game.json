@@ -1,0 +1,13 @@
+{
+  "id": 757,
+  "slug": "buckshot-roulette",
+  "name": "Buckshot Roulette",
+  "category": "action",
+  "description": "Play Buckshot Roulette unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.jpg",
+  "remoteIcon": "https://iloveshorty.github.io/strongdog3/img/buckshot%20roulette.jpg",
+  "entrypoint": "https://iloveshorty.github.io/strongdog3/html/buckshot%20roulette/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": true
+}

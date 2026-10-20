@@ -1,0 +1,13 @@
+{
+  "id": 197,
+  "slug": "asteroids",
+  "name": "Asteroids",
+  "category": "retro",
+  "description": "Play Asteroids unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.png",
+  "remoteIcon": "https://iloveshorty.github.io/img/asteroids.png",
+  "entrypoint": "https://iloveshorty.github.io/html/asteroids/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": true
+}

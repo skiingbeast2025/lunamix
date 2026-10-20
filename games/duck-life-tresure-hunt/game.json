@@ -1,0 +1,13 @@
+{
+  "id": 387,
+  "slug": "duck-life-tresure-hunt",
+  "name": "Duck Life Tresure Hunt",
+  "category": "adventure",
+  "description": "Play Duck Life Tresure Hunt unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/strongdog2/img/duck%20life%20tresure%20hunt.png",
+  "entrypoint": "https://iloveshorty.github.io/strongdog2/swf/duck%20life%20tresure%20hunt/gamereal/base.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

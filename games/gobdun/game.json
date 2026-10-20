@@ -1,0 +1,13 @@
+{
+  "id": 683,
+  "slug": "gobdun",
+  "name": "Gobdun",
+  "category": "adventure",
+  "description": "Play Gobdun unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/strongdog3/img/gobdun.jpg",
+  "entrypoint": "https://iloveshorty.github.io/strongdog3/html/gobdun/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

@@ -1,0 +1,13 @@
+{
+  "id": 508,
+  "slug": "indestructotank-gb",
+  "name": "Indestructotank Gb",
+  "category": "action",
+  "description": "Play Indestructotank Gb unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/strongdog2/img/indestructotank%20gb.jpg",
+  "entrypoint": "https://iloveshorty.github.io/strongdog2/html/indestructotank%20gb/gamereal/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

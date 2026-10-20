@@ -1,0 +1,13 @@
+{
+  "id": 56,
+  "slug": "paperio",
+  "name": "Paper.io",
+  "category": "action",
+  "description": "Play Paper.io unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.webp",
+  "remoteIcon": "https://iloveshorty.github.io/img/paperio.webp",
+  "entrypoint": "https://iloveshorty.github.io/html/paperio/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": true
+}

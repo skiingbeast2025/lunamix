@@ -1,0 +1,13 @@
+{
+  "id": 762,
+  "slug": "nova-ai",
+  "name": "Nova AI",
+  "category": "other",
+  "description": "Play Nova AI unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/strongdog3/img/Nova%20AI.png",
+  "entrypoint": "https://iloveshorty.github.io/strongdog3/html/nova%20AI/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

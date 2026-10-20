@@ -1,0 +1,13 @@
+{
+  "id": 852,
+  "slug": "tiger-simulator",
+  "name": "Tiger Simulator",
+  "category": "other",
+  "description": "Play Tiger Simulator unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/strongdog3/img/tiger%20simulator.jpg",
+  "entrypoint": "https://iloveshorty.github.io/strongdog3/html/tiger%20simulator/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

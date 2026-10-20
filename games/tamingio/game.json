@@ -1,0 +1,13 @@
+{
+  "id": 750,
+  "slug": "tamingio",
+  "name": "Taming.io",
+  "category": "action",
+  "description": "Play Taming.io unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/strongdog3/img/taming.io.jpg",
+  "entrypoint": "https://iloveshorty.github.io/strongdog3/html/taming.io/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

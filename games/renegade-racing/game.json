@@ -1,0 +1,13 @@
+{
+  "id": 791,
+  "slug": "renegade-racing",
+  "name": "Renegade Racing",
+  "category": "driving",
+  "description": "Play Renegade Racing unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/strongdog3/img/renegade%20racing.jpg",
+  "entrypoint": "https://iloveshorty.github.io/strongdog3/swf/renegade%20racing/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

@@ -1,0 +1,13 @@
+{
+  "id": 182,
+  "slug": "cube-miner",
+  "name": "Cube Miner",
+  "category": "other",
+  "description": "Play Cube Miner unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/img/cube.png",
+  "entrypoint": "https://iloveshorty.github.io/html/Cube%20Miner/game/Cube%20Miner.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

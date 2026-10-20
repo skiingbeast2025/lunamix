@@ -1,0 +1,13 @@
+{
+  "id": 400,
+  "slug": "last-plant-on-earth",
+  "name": "Last Plant on Earth",
+  "category": "other",
+  "description": "Play Last Plant on Earth unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/strongdog2/img/last%20plant%20on%20earth.webp",
+  "entrypoint": "https://iloveshorty.github.io/strongdog2/html/last%20plant%20on%20earth/gamereal/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

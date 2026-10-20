@@ -1,0 +1,13 @@
+{
+  "id": 288,
+  "slug": "disaster-will-strike",
+  "name": "Disaster Will Strike",
+  "category": "action",
+  "description": "Play Disaster Will Strike unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/img/disasterwillstrike.jpg",
+  "entrypoint": "https://iloveshorty.github.io/swf/diasterwillstrike/game/base.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

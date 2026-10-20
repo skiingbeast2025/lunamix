@@ -1,0 +1,13 @@
+{
+  "id": 327,
+  "slug": "roots",
+  "name": "Roots",
+  "category": "other",
+  "description": "Play Roots unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/img/roots.jpg",
+  "entrypoint": "https://iloveshorty.github.io/html/roots/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

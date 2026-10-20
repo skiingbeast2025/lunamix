@@ -1,0 +1,13 @@
+{
+  "id": 156,
+  "slug": "radius-raid",
+  "name": "Radius Raid",
+  "category": "action",
+  "description": "Play Radius Raid unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/img/radius.png",
+  "entrypoint": "https://iloveshorty.github.io/html/radius%20raid/radius%20raid/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

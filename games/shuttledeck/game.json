@@ -1,0 +1,13 @@
+{
+  "id": 152,
+  "slug": "shuttledeck",
+  "name": "Shuttledeck",
+  "category": "other",
+  "description": "Play Shuttledeck unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/img/shuttle.png",
+  "entrypoint": "https://iloveshorty.github.io/html/shuttledeck/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

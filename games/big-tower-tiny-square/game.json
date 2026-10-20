@@ -1,0 +1,13 @@
+{
+  "id": 104,
+  "slug": "big-tower-tiny-square",
+  "name": "Big Tower Tiny Square",
+  "category": "platformer",
+  "description": "Play Big Tower Tiny Square unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.webp",
+  "remoteIcon": "https://iloveshorty.github.io/img/btts.webp",
+  "entrypoint": "https://iloveshorty.github.io/html/big-tower-tiny-square/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": true
+}

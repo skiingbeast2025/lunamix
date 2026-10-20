@@ -1,0 +1,13 @@
+{
+  "id": 654,
+  "slug": "stickman-boost-2",
+  "name": "Stickman Boost 2",
+  "category": "platformer",
+  "description": "Play Stickman Boost 2 unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/strongdog3/img/stickman%20boost%202.jpg",
+  "entrypoint": "https://iloveshorty.github.io/strongdog3/html/stickman%20boost%202/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

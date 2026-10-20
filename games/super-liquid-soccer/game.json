@@ -1,0 +1,13 @@
+{
+  "id": 579,
+  "slug": "super-liquid-soccer",
+  "name": "Super Liquid Soccer",
+  "category": "sports",
+  "description": "Play Super Liquid Soccer unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.jfif",
+  "remoteIcon": "https://iloveshorty.github.io/strongdog2/img/supper%20liquid%20soccer.jfif",
+  "entrypoint": "https://iloveshorty.github.io/strongdog2/html/super%20liquid%20soccer/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": true
+}

@@ -1,0 +1,13 @@
+{
+  "id": 375,
+  "slug": "smash-karts",
+  "name": "Smash Karts",
+  "category": "driving",
+  "description": "Play Smash Karts unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.avif",
+  "remoteIcon": "https://iloveshorty.github.io/img/smash%20karts.avif",
+  "entrypoint": "https://iloveshorty.github.io/html/smash%20karts/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": true
+}

@@ -1,0 +1,13 @@
+{
+  "id": 797,
+  "slug": "the-deepest-sleep",
+  "name": "The Deepest Sleep",
+  "category": "adventure",
+  "description": "Play The Deepest Sleep unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/strongdog3/img/the%20deepest%20sleep.jpg",
+  "entrypoint": "https://iloveshorty.github.io/strongdog3/swf/the%20deepest%20sleep/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

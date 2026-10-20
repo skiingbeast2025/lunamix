@@ -1,0 +1,13 @@
+{
+  "id": 897,
+  "slug": "idle-startup-tycoon",
+  "name": "Idle Startup Tycoon",
+  "category": "other",
+  "description": "Play Idle Startup Tycoon unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/strongdog4/img/idle%20startup%20tycoon.jpg",
+  "entrypoint": "https://iloveshorty.github.io/strongdog4/html/idle%20startup%20tycoon/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

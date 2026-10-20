@@ -1,0 +1,13 @@
+{
+  "id": 301,
+  "slug": "oil-race",
+  "name": "Oil Race",
+  "category": "driving",
+  "description": "Play Oil Race unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/img/oil%20race.avif",
+  "entrypoint": "https://iloveshorty.github.io/html/oil%20race/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

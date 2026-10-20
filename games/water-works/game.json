@@ -1,0 +1,13 @@
+{
+  "id": 23,
+  "slug": "water-works",
+  "name": "Water Works",
+  "category": "other",
+  "description": "Play Water Works unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/img/waterworks.webp",
+  "entrypoint": "https://iloveshorty.github.io/html/waterworks/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

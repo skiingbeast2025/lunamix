@@ -1,0 +1,13 @@
+{
+  "id": 15,
+  "slug": "yoshi-fabricator",
+  "name": "Yoshi Fabricator",
+  "category": "other",
+  "description": "Play Yoshi Fabricator unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/img/YFS.webp",
+  "entrypoint": "https://iloveshorty.github.io/html/yoshifabrication/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

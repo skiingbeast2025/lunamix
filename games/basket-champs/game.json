@@ -1,0 +1,13 @@
+{
+  "id": 976,
+  "slug": "basket-champs",
+  "name": "Basket Champs",
+  "category": "sports",
+  "description": "Play Basket Champs unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/strongdog4/img/basket%20champs.jpg",
+  "entrypoint": "https://iloveshorty.github.io/strongdog4/html/basket%20champs/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

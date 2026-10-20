@@ -1,0 +1,13 @@
+{
+  "id": 127,
+  "slug": "100-pong",
+  "name": "100 Pong",
+  "category": "retro",
+  "description": "Play 100 Pong unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/img/100pong.webp",
+  "entrypoint": "https://iloveshorty.github.io/html/100-player-pong/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

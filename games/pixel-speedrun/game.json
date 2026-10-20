@@ -1,0 +1,13 @@
+{
+  "id": 4,
+  "slug": "pixel-speedrun",
+  "name": "Pixel Speedrun",
+  "category": "driving",
+  "description": "Play Pixel Speedrun unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/img/pixelspeedrun.png",
+  "entrypoint": "https://iloveshorty.github.io/html/pixelspeedrun/game/pixelspeedrun.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

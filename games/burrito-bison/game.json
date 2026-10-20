@@ -1,0 +1,13 @@
+{
+  "id": 564,
+  "slug": "burrito-bison",
+  "name": "Burrito Bison",
+  "category": "action",
+  "description": "Play Burrito Bison unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/strongdog2/img/burrito%20bison.jfif",
+  "entrypoint": "https://iloveshorty.github.io/strongdog2/html/burrito%20bison/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

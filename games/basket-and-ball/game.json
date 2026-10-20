@@ -1,0 +1,13 @@
+{
+  "id": 561,
+  "slug": "basket-and-ball",
+  "name": "Basket and Ball",
+  "category": "sports",
+  "description": "Play Basket and Ball unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/strongdog2/img/basket%20and%20ball.jfif",
+  "entrypoint": "https://iloveshorty.github.io/strongdog2/html/basket%20and%20ball/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

@@ -1,0 +1,13 @@
+{
+  "id": 332,
+  "slug": "unloop",
+  "name": "Unloop",
+  "category": "other",
+  "description": "Play Unloop unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/img/unloop.jpg",
+  "entrypoint": "https://iloveshorty.github.io/html/unloop/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

@@ -1,0 +1,13 @@
+{
+  "id": 799,
+  "slug": "3d-bowling",
+  "name": "3D Bowling",
+  "category": "sports",
+  "description": "Play 3D Bowling unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/strongdog3/img/3d%20bowling.jpg",
+  "entrypoint": "https://iloveshorty.github.io/strongdog3/html/3d%20bowling/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

@@ -1,0 +1,13 @@
+{
+  "id": 871,
+  "slug": "roly-poly-monsters",
+  "name": "Roly Poly Monsters",
+  "category": "action",
+  "description": "Play Roly Poly Monsters unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/strongdog3/img/roly%20poly%20monsters.jpg",
+  "entrypoint": "https://iloveshorty.github.io/strongdog3/html/roly%20poly%20monsters/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

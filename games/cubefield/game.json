@@ -1,0 +1,13 @@
+{
+  "id": 181,
+  "slug": "cubefield",
+  "name": "Cubefield",
+  "category": "driving",
+  "description": "Play Cubefield unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/img/cubefeild.png",
+  "entrypoint": "https://iloveshorty.github.io/html/cubefield/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

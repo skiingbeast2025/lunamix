@@ -1,0 +1,13 @@
+{
+  "id": 558,
+  "slug": "super-santa-kicker",
+  "name": "Super Santa Kicker",
+  "category": "sports",
+  "description": "Play Super Santa Kicker unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/strongdog2/img/super%20santa%20kicker.png",
+  "entrypoint": "https://iloveshorty.github.io/strongdog2/html/super%20santa%20kicker/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

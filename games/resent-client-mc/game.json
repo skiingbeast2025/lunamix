@@ -1,0 +1,13 @@
+{
+  "id": 377,
+  "slug": "resent-client-mc",
+  "name": "Resent Client (mc)",
+  "category": "other",
+  "description": "Play Resent Client (mc) unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/strongdog2/img/resent.png",
+  "entrypoint": "https://iloveshorty.github.io/strongdog2/html/resent/Resent-4.0-Patch-2-English.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

@@ -1,0 +1,13 @@
+{
+  "id": 680,
+  "slug": "ragdoll-hit",
+  "name": "Ragdoll Hit",
+  "category": "action",
+  "description": "Play Ragdoll Hit unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.jpg",
+  "remoteIcon": "https://iloveshorty.github.io/strongdog3/img/ragdoll%20hit.jpg",
+  "entrypoint": "https://iloveshorty.github.io/strongdog3/html/ragdoll%20hit/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": true
+}

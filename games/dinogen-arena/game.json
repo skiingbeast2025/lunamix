@@ -1,0 +1,13 @@
+{
+  "id": 741,
+  "slug": "dinogen-arena",
+  "name": "Dinogen Arena",
+  "category": "action",
+  "description": "Play Dinogen Arena unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/strongdog3/img/Dinogen%20arena.jpg",
+  "entrypoint": "https://iloveshorty.github.io/strongdog3/html/Dinogen%20arena/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

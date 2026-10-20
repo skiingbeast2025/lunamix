@@ -1,0 +1,13 @@
+{
+  "id": 521,
+  "slug": "ball-mayhem",
+  "name": "Ball Mayhem",
+  "category": "sports",
+  "description": "Play Ball Mayhem unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/strongdog2/img/ball-mayhem.png",
+  "entrypoint": "https://iloveshorty.github.io/strongdog2/html/unity/u.html?g=ball-mayhem",
+  "openInNewTab": false,
+  "isFeatured": false
+}

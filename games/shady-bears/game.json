@@ -1,0 +1,13 @@
+{
+  "id": 877,
+  "slug": "shady-bears",
+  "name": "Shady Bears",
+  "category": "platformer",
+  "description": "Play Shady Bears unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/strongdog3/img/shady%20bears.jpg",
+  "entrypoint": "https://iloveshorty.github.io/strongdog3/html/shady%20bears/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

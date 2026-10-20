@@ -1,0 +1,13 @@
+{
+  "id": 872,
+  "slug": "rooftop-snipers-2",
+  "name": "Rooftop Snipers 2",
+  "category": "action",
+  "description": "Play Rooftop Snipers 2 unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.jpg",
+  "remoteIcon": "https://iloveshorty.github.io/strongdog3/img/rooftop%20snipers%202.jpg",
+  "entrypoint": "https://iloveshorty.github.io/strongdog3/html/rooftop%20snipers%202/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": true
+}

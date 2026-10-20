@@ -1,0 +1,13 @@
+{
+  "id": 952,
+  "slug": "g-switch-2",
+  "name": "G-switch 2",
+  "category": "platformer",
+  "description": "Play G-switch 2 unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/strongdog3/img/g-switch%202.jpg",
+  "entrypoint": "https://iloveshorty.github.io/strongdog3/html/g-switch%202/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

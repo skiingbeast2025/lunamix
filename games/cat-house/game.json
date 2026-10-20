@@ -1,0 +1,13 @@
+{
+  "id": 344,
+  "slug": "cat-house",
+  "name": "Cat House",
+  "category": "other",
+  "description": "Play Cat House unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/img/cat%20house.avif",
+  "entrypoint": "https://iloveshorty.github.io/html/cat%20house/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

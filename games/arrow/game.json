@@ -1,0 +1,13 @@
+{
+  "id": 713,
+  "slug": "arrow",
+  "name": "Arrow",
+  "category": "other",
+  "description": "Play Arrow unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/strongdog2/img/ARROW.jpg",
+  "entrypoint": "https://iloveshorty.github.io/strongdog2/html/ARROW/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

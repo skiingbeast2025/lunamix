@@ -1,0 +1,13 @@
+{
+  "id": 883,
+  "slug": "short-ride",
+  "name": "Short Ride",
+  "category": "platformer",
+  "description": "Play Short Ride unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/strongdog3/img/short%20ride.jpg",
+  "entrypoint": "https://iloveshorty.github.io/strongdog3/html/short%20ride/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

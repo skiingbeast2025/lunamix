@@ -1,0 +1,13 @@
+{
+  "id": 178,
+  "slug": "edge-not-found",
+  "name": "Edge Not Found",
+  "category": "other",
+  "description": "Play Edge Not Found unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.png",
+  "remoteIcon": "https://iloveshorty.github.io/img/edge.png",
+  "entrypoint": "https://iloveshorty.github.io/html/edgenotfound/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": true
+}

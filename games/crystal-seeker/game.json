@@ -1,0 +1,13 @@
+{
+  "id": 183,
+  "slug": "crystal-seeker",
+  "name": "Crystal Seeker",
+  "category": "other",
+  "description": "Play Crystal Seeker unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/img/crystal.png",
+  "entrypoint": "https://iloveshorty.github.io/html/Crystal%20Seeker.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

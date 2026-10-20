@@ -1,0 +1,13 @@
+{
+  "id": 600,
+  "slug": "tankoio",
+  "name": "Tanko.io",
+  "category": "action",
+  "description": "Play Tanko.io unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/strongdog2/img/tanko.io.jpg",
+  "entrypoint": "https://iloveshorty.github.io/strongdog2/html/tanko.io/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

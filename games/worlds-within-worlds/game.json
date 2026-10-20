@@ -1,0 +1,13 @@
+{
+  "id": 333,
+  "slug": "worlds-within-worlds",
+  "name": "Worlds Within Worlds",
+  "category": "other",
+  "description": "Play Worlds Within Worlds unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/img/worlds%20within%20worlds.png",
+  "entrypoint": "https://iloveshorty.github.io/html/worlds%20within%20worlds/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

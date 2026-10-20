@@ -1,0 +1,13 @@
+{
+  "id": 46,
+  "slug": "idle-shark",
+  "name": "Idle Shark",
+  "category": "other",
+  "description": "Play Idle Shark unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.webp",
+  "remoteIcon": "https://iloveshorty.github.io/img/sharkgame.webp",
+  "entrypoint": "https://iloveshorty.github.io/html/idle-shark/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": true
+}

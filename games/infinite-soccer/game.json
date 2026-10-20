@@ -1,0 +1,13 @@
+{
+  "id": 699,
+  "slug": "infinite-soccer",
+  "name": "Infinite Soccer",
+  "category": "sports",
+  "description": "Play Infinite Soccer unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/strongdog3/img/infinite%20soccer.jpg",
+  "entrypoint": "https://iloveshorty.github.io/strongdog3/html/infinite%20soccer/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

@@ -1,0 +1,13 @@
+{
+  "id": 880,
+  "slug": "shoot-stickman",
+  "name": "Shoot Stickman",
+  "category": "action",
+  "description": "Play Shoot Stickman unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/strongdog3/img/shoot%20stickman.jpg",
+  "entrypoint": "https://iloveshorty.github.io/strongdog3/html/shoot%20stickman/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

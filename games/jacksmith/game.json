@@ -1,0 +1,13 @@
+{
+  "id": 607,
+  "slug": "jacksmith",
+  "name": "Jacksmith",
+  "category": "action",
+  "description": "Play Jacksmith unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.jpg",
+  "remoteIcon": "https://iloveshorty.github.io/strongdog2/img/jacksmith.jpg",
+  "entrypoint": "https://iloveshorty.github.io/strongdog2/swf/jacksmith/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": true
+}

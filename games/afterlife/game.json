@@ -1,0 +1,13 @@
+{
+  "id": 9,
+  "slug": "afterlife",
+  "name": "Afterlife",
+  "category": "other",
+  "description": "Play Afterlife unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/img/afterlife.png",
+  "entrypoint": "https://iloveshorty.github.io/html/afterlife/game/afterlife.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

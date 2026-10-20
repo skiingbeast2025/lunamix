@@ -1,0 +1,13 @@
+{
+  "id": 489,
+  "slug": "mutual-destruction",
+  "name": "Mutual Destruction",
+  "category": "action",
+  "description": "Play Mutual Destruction unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.jpg",
+  "remoteIcon": "https://iloveshorty.github.io/strongdog2/img/mutual%20destruction.jpg",
+  "entrypoint": "https://iloveshorty.github.io/strongdog2/html/mutual%20destruction/gamereal/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": true
+}

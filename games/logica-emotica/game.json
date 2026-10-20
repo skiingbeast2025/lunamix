@@ -1,0 +1,13 @@
+{
+  "id": 448,
+  "slug": "logica-emotica",
+  "name": "Logica Emotica",
+  "category": "puzzle",
+  "description": "Play Logica Emotica unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/strongdog2/img/logica%20emotica.jpg",
+  "entrypoint": "https://iloveshorty.github.io/strongdog2/html/logica%20emotica/gamereal/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

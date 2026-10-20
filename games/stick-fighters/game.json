@@ -1,0 +1,13 @@
+{
+  "id": 832,
+  "slug": "stick-fighters",
+  "name": "Stick Fighters",
+  "category": "action",
+  "description": "Play Stick Fighters unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/strongdog3/img/stick%20fighters.jpg",
+  "entrypoint": "https://iloveshorty.github.io/strongdog3/html/stick%20fighters/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

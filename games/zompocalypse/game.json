@@ -1,0 +1,13 @@
+{
+  "id": 658,
+  "slug": "zompocalypse",
+  "name": "Zompocalypse",
+  "category": "action",
+  "description": "Play Zompocalypse unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/strongdog2/img/zompocalypse.jpg",
+  "entrypoint": "https://iloveshorty.github.io/strongdog2/swf/zompocalypse/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

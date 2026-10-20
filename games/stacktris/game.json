@@ -1,0 +1,13 @@
+{
+  "id": 829,
+  "slug": "stacktris",
+  "name": "Stacktris",
+  "category": "retro",
+  "description": "Play Stacktris unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/strongdog3/img/stacktris.jpg",
+  "entrypoint": "https://iloveshorty.github.io/strongdog3/html/stacktris/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

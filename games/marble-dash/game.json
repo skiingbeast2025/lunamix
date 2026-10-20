@@ -1,0 +1,13 @@
+{
+  "id": 905,
+  "slug": "marble-dash",
+  "name": "Marble Dash",
+  "category": "platformer",
+  "description": "Play Marble Dash unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/strongdog4/img/marble%20dash.jpg",
+  "entrypoint": "https://iloveshorty.github.io/strongdog4/html/marble%20dash/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

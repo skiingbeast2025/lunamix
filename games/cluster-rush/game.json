@@ -1,0 +1,13 @@
+{
+  "id": 102,
+  "slug": "cluster-rush",
+  "name": "Cluster Rush",
+  "category": "platformer",
+  "description": "Play Cluster Rush unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/img/cluster.webp",
+  "entrypoint": "https://iloveshorty.github.io/html/cluster-rush/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

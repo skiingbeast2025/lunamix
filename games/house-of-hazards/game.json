@@ -1,0 +1,13 @@
+{
+  "id": 237,
+  "slug": "house-of-hazards",
+  "name": "House of Hazards",
+  "category": "action",
+  "description": "Play House of Hazards unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.jpg",
+  "remoteIcon": "https://iloveshorty.github.io/img/houseofhazards.jpg",
+  "entrypoint": "https://iloveshorty.github.io/html/houseofhazards/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": true
+}

@@ -1,0 +1,13 @@
+{
+  "id": 853,
+  "slug": "tiny-town-racing",
+  "name": "Tiny Town Racing",
+  "category": "driving",
+  "description": "Play Tiny Town Racing unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.jpg",
+  "remoteIcon": "https://iloveshorty.github.io/strongdog3/img/tiny%20town%20racing.jpg",
+  "entrypoint": "https://iloveshorty.github.io/strongdog3/html/tiny%20town%20racing/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": true
+}

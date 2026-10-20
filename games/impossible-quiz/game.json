@@ -1,0 +1,13 @@
+{
+  "id": 71,
+  "slug": "impossible-quiz",
+  "name": "Impossible Quiz",
+  "category": "puzzle",
+  "description": "Play Impossible Quiz unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/img/impossiblequiz.webp",
+  "entrypoint": "https://iloveshorty.github.io/html/impossiblequiz/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

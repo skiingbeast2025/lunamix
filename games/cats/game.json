@@ -1,0 +1,13 @@
+{
+  "id": 1023,
+  "slug": "cats",
+  "name": "Cats",
+  "category": "other",
+  "description": "Play Cats unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/strongdog4/img/cats.jpg",
+  "entrypoint": "https://iloveshorty.github.io/strongdog4/html/cats/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

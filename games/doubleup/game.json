@@ -1,0 +1,13 @@
+{
+  "id": 398,
+  "slug": "doubleup",
+  "name": "Doubleup",
+  "category": "other",
+  "description": "Play Doubleup unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/strongdog2/img/doubleup.webp",
+  "entrypoint": "https://iloveshorty.github.io/strongdog2/html/doubleup/gamereal/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

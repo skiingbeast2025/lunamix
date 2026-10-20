@@ -1,0 +1,13 @@
+{
+  "id": 47,
+  "slug": "sans",
+  "name": "Sans",
+  "category": "action",
+  "description": "Play Sans unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/img/sans.webp",
+  "entrypoint": "https://iloveshorty.github.io/html/sans/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

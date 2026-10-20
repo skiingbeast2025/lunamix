@@ -1,0 +1,13 @@
+{
+  "id": 640,
+  "slug": "twin-shot-2",
+  "name": "Twin Shot 2",
+  "category": "action",
+  "description": "Play Twin Shot 2 unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/strongdog2/img/twin%20shot%202.jpg",
+  "entrypoint": "https://iloveshorty.github.io/strongdog2/swf/twin%20shot%202/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

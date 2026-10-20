@@ -1,0 +1,13 @@
+{
+  "id": 107,
+  "slug": "boxing",
+  "name": "Boxing",
+  "category": "sports",
+  "description": "Play Boxing unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/img/box.webp",
+  "entrypoint": "https://iloveshorty.github.io/html/boxing-physics/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

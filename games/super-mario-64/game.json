@@ -1,0 +1,13 @@
+{
+  "id": 249,
+  "slug": "super-mario-64",
+  "name": "Super Mario 64",
+  "category": "retro",
+  "description": "Play Super Mario 64 unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.jpg",
+  "remoteIcon": "https://iloveshorty.github.io/img/sm64.jpg",
+  "entrypoint": "https://iloveshorty.github.io/html/sm64/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": true
+}

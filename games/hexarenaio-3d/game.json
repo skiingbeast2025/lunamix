@@ -1,0 +1,13 @@
+{
+  "id": 1088,
+  "slug": "hexarenaio-3d",
+  "name": "Hexarena.io 3D",
+  "category": "puzzle",
+  "description": "Play Hexarena.io 3D unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/strongdog4/img/hexarena.io%203d.png",
+  "entrypoint": "https://iloveshorty.github.io/strongdog4/html/hexarena.io%203d/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

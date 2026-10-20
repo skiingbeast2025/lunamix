@@ -1,0 +1,13 @@
+{
+  "id": 698,
+  "slug": "save-the-doge",
+  "name": "Save the Doge",
+  "category": "puzzle",
+  "description": "Play Save the Doge unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/strongdog3/img/save%20the%20doge.jpg",
+  "entrypoint": "https://iloveshorty.github.io/strongdog3/html/save%20the%20doge/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

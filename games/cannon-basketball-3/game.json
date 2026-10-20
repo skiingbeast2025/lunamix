@@ -1,0 +1,13 @@
+{
+  "id": 670,
+  "slug": "cannon-basketball-3",
+  "name": "Cannon Basketball 3",
+  "category": "sports",
+  "description": "Play Cannon Basketball 3 unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/strongdog2/img/cannon%20basketball%203.jpg",
+  "entrypoint": "https://iloveshorty.github.io/strongdog2/html/cannon%20basketball%203/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

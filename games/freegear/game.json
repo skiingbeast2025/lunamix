@@ -1,0 +1,13 @@
+{
+  "id": 285,
+  "slug": "freegear",
+  "name": "Freegear",
+  "category": "driving",
+  "description": "Play Freegear unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/img/freegear.jpg",
+  "entrypoint": "https://iloveshorty.github.io/swf/freegear/game/base.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

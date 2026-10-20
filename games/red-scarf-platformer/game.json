@@ -1,0 +1,13 @@
+{
+  "id": 437,
+  "slug": "red-scarf-platformer",
+  "name": "Red Scarf Platformer",
+  "category": "driving",
+  "description": "Play Red Scarf Platformer unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/strongdog2/img/red%20scarf%20platformer.jpg",
+  "entrypoint": "https://iloveshorty.github.io/strongdog2/html/red%20scarf%20platformer/gamereal/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

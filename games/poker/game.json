@@ -1,0 +1,13 @@
+{
+  "id": 620,
+  "slug": "poker",
+  "name": "Poker",
+  "category": "puzzle",
+  "description": "Play Poker unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/strongdog2/img/poker.jpg",
+  "entrypoint": "https://iloveshorty.github.io/strongdog2/html/poker/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

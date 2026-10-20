@@ -1,0 +1,13 @@
+{
+  "id": 1049,
+  "slug": "a-pretty-odd-bunny",
+  "name": "A Pretty Odd Bunny",
+  "category": "platformer",
+  "description": "Play A Pretty Odd Bunny unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/strongdog4/img/a%20pretty%20odd%20bunny.jpg",
+  "entrypoint": "https://iloveshorty.github.io/strongdog4/html/a%20pretty%20odd%20bunny/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

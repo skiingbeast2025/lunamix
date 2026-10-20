@@ -1,0 +1,13 @@
+{
+  "id": 661,
+  "slug": "idle-ants",
+  "name": "Idle Ants",
+  "category": "other",
+  "description": "Play Idle Ants unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/strongdog2/img/idle%20ants.jpg",
+  "entrypoint": "https://iloveshorty.github.io/strongdog2/html/idle%20ants/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

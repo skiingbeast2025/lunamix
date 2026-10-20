@@ -1,0 +1,13 @@
+{
+  "id": 899,
+  "slug": "jumping-shell",
+  "name": "Jumping Shell",
+  "category": "platformer",
+  "description": "Play Jumping Shell unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/strongdog4/img/jumping%20shell.png",
+  "entrypoint": "https://iloveshorty.github.io/strongdog4/html/jumping%20shell/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

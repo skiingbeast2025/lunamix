@@ -1,0 +1,13 @@
+{
+  "id": 357,
+  "slug": "life-in-the-static",
+  "name": "Life in the Static",
+  "category": "other",
+  "description": "Play Life in the Static unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/img/life%20in%20the%20static.jpg",
+  "entrypoint": "https://iloveshorty.github.io/html/life%20in%20the%20static/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

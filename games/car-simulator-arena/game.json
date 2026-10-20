@@ -1,0 +1,13 @@
+{
+  "id": 1017,
+  "slug": "car-simulator-arena",
+  "name": "Car Simulator Arena",
+  "category": "driving",
+  "description": "Play Car Simulator Arena unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/strongdog4/img/car%20simulator%20arena.jpg",
+  "entrypoint": "https://iloveshorty.github.io/strongdog4/html/car%20simulator%20arena/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

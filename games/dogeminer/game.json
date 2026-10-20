@@ -1,0 +1,13 @@
+{
+  "id": 94,
+  "slug": "dogeminer",
+  "name": "Dogeminer",
+  "category": "other",
+  "description": "Play Dogeminer unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/img/Dogecoin.webp",
+  "entrypoint": "https://iloveshorty.github.io/html/dogeminer/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

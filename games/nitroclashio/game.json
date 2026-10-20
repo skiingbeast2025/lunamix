@@ -1,0 +1,13 @@
+{
+  "id": 556,
+  "slug": "nitroclashio",
+  "name": "Nitroclash.io",
+  "category": "driving",
+  "description": "Play Nitroclash.io unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/strongdog2/img/nitroclash.io.jfif",
+  "entrypoint": "https://iloveshorty.github.io/strongdog2/html/nitroclash.io/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

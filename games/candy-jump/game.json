@@ -1,0 +1,13 @@
+{
+  "id": 1012,
+  "slug": "candy-jump",
+  "name": "Candy Jump",
+  "category": "platformer",
+  "description": "Play Candy Jump unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/strongdog4/img/candy%20jump.png",
+  "entrypoint": "https://iloveshorty.github.io/strongdog4/html/candy%20jump/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

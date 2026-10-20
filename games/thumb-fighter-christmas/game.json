@@ -1,0 +1,13 @@
+{
+  "id": 626,
+  "slug": "thumb-fighter-christmas",
+  "name": "Thumb Fighter Christmas",
+  "category": "action",
+  "description": "Play Thumb Fighter Christmas unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/strongdog2/img/thumb%20fighter%20christmas.jpg",
+  "entrypoint": "https://iloveshorty.github.io/strongdog2/html/thumb%20fighter%20christmas/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

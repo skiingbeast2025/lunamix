@@ -1,0 +1,13 @@
+{
+  "id": 511,
+  "slug": "roll-merge-3d",
+  "name": "Roll Merge 3D",
+  "category": "other",
+  "description": "Play Roll Merge 3D unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/strongdog2/img/roll%20merge%203d.jpg",
+  "entrypoint": "https://iloveshorty.github.io/strongdog2/html/roll%20merge%203d/gamereal/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

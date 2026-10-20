@@ -1,0 +1,13 @@
+{
+  "id": 817,
+  "slug": "volleyball-challange",
+  "name": "Volleyball Challange",
+  "category": "sports",
+  "description": "Play Volleyball Challange unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/strongdog3/img/volleyball%20challanges.jpg",
+  "entrypoint": "https://iloveshorty.github.io/strongdog3/html/volleyball%20challange/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

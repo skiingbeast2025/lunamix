@@ -1,0 +1,13 @@
+{
+  "id": 885,
+  "slug": "sketchbook-04",
+  "name": "Sketchbook 04",
+  "category": "other",
+  "description": "Play Sketchbook 04 unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/strongdog3/img/sketchbook%2004.jpg",
+  "entrypoint": "https://iloveshorty.github.io/strongdog3/html/sketchbook%2004/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

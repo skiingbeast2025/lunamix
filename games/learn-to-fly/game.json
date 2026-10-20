@@ -1,0 +1,13 @@
+{
+  "id": 64,
+  "slug": "learn-to-fly",
+  "name": "Learn to Fly",
+  "category": "other",
+  "description": "Play Learn to Fly unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.webp",
+  "remoteIcon": "https://iloveshorty.github.io/img/learntofly.webp",
+  "entrypoint": "https://iloveshorty.github.io/html/learntofly/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": true
+}

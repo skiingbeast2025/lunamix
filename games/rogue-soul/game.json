@@ -1,0 +1,13 @@
+{
+  "id": 724,
+  "slug": "rogue-soul",
+  "name": "Rogue Soul",
+  "category": "adventure",
+  "description": "Play Rogue Soul unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/strongdog3/img/Rogue%20Soul.jpg",
+  "entrypoint": "https://iloveshorty.github.io/strongdog3/swf/Rogue%20Soul/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

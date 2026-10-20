@@ -1,0 +1,13 @@
+{
+  "id": 850,
+  "slug": "tennis-masters",
+  "name": "Tennis Masters",
+  "category": "sports",
+  "description": "Play Tennis Masters unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/strongdog3/img/tennis%20masters.jpg",
+  "entrypoint": "https://iloveshorty.github.io/strongdog3/html/tennis%20masters/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

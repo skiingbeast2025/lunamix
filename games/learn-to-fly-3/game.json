@@ -1,0 +1,13 @@
+{
+  "id": 771,
+  "slug": "learn-to-fly-3",
+  "name": "Learn to Fly 3",
+  "category": "other",
+  "description": "Play Learn to Fly 3 unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.jpg",
+  "remoteIcon": "https://iloveshorty.github.io/strongdog3/img/learn%20to%20fly%203.jpg",
+  "entrypoint": "https://iloveshorty.github.io/strongdog3/swf/learn%20to%20fly%203/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": true
+}

@@ -1,0 +1,13 @@
+{
+  "id": 869,
+  "slug": "rio-rex",
+  "name": "Rio Rex",
+  "category": "action",
+  "description": "Play Rio Rex unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/strongdog3/img/rio%20rex.jpg",
+  "entrypoint": "https://iloveshorty.github.io/strongdog3/html/rio%20rex/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

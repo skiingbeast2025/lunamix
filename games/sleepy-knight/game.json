@@ -1,0 +1,13 @@
+{
+  "id": 519,
+  "slug": "sleepy-knight",
+  "name": "Sleepy Knight",
+  "category": "other",
+  "description": "Play Sleepy Knight unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/strongdog2/img/sleepy%20knight.png",
+  "entrypoint": "https://iloveshorty.github.io/strongdog2/html/sleepy%20knight/game/practice.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

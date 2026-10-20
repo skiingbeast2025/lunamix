@@ -1,0 +1,13 @@
+{
+  "id": 898,
+  "slug": "james-gun",
+  "name": "James Gun",
+  "category": "action",
+  "description": "Play James Gun unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/strongdog4/img/james%20gun.jpg",
+  "entrypoint": "https://iloveshorty.github.io/strongdog4/html/james%20gun/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

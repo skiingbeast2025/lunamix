@@ -1,0 +1,13 @@
+{
+  "id": 467,
+  "slug": "cloudhopper",
+  "name": "Cloudhopper",
+  "category": "platformer",
+  "description": "Play Cloudhopper unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/strongdog2/img/cloudhopper.webp",
+  "entrypoint": "https://iloveshorty.github.io/strongdog2/html/cloudhopper/gamereal/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

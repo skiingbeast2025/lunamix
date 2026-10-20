@@ -1,0 +1,13 @@
+{
+  "id": 300,
+  "slug": "mountain-biking",
+  "name": "Mountain Biking",
+  "category": "driving",
+  "description": "Play Mountain Biking unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/img/Mountain%20Biking.jpg",
+  "entrypoint": "https://iloveshorty.github.io/html/Mountain%20Biking/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

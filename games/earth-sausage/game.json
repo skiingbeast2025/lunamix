@@ -1,0 +1,13 @@
+{
+  "id": 8,
+  "slug": "earth-sausage",
+  "name": "Earth Sausage",
+  "category": "other",
+  "description": "Play Earth Sausage unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/img/earth.png",
+  "entrypoint": "https://iloveshorty.github.io/html/earthsausage/game/earthsausage.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

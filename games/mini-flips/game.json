@@ -1,0 +1,13 @@
+{
+  "id": 431,
+  "slug": "mini-flips",
+  "name": "Mini Flips",
+  "category": "other",
+  "description": "Play Mini Flips unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/strongdog2/img/mini%20flips.jpg",
+  "entrypoint": "https://iloveshorty.github.io/strongdog2/html/mini%20flips/gamereal/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

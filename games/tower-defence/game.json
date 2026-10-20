@@ -1,0 +1,13 @@
+{
+  "id": 11,
+  "slug": "tower-defence",
+  "name": "Tower Defence",
+  "category": "other",
+  "description": "Play Tower Defence unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/img/towerdef.png",
+  "entrypoint": "https://iloveshorty.github.io/html/towerdef.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

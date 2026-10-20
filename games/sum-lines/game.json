@@ -1,0 +1,13 @@
+{
+  "id": 440,
+  "slug": "sum-lines",
+  "name": "Sum Lines",
+  "category": "retro",
+  "description": "Play Sum Lines unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/strongdog2/img/sum%20lines.webp",
+  "entrypoint": "https://iloveshorty.github.io/strongdog2/html/sum%20lines/gamereal/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

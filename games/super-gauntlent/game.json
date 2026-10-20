@@ -1,0 +1,13 @@
+{
+  "id": 385,
+  "slug": "super-gauntlent",
+  "name": "Super Gauntlent",
+  "category": "other",
+  "description": "Play Super Gauntlent unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/strongdog2/img/super%20gauntlent.jpg",
+  "entrypoint": "https://iloveshorty.github.io/strongdog2/html/super%20gauntlent/gamereal/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

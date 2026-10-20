@@ -1,0 +1,13 @@
+{
+  "id": 838,
+  "slug": "stickman-golf",
+  "name": "Stickman Golf",
+  "category": "sports",
+  "description": "Play Stickman Golf unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/strongdog3/img/stickman%20golf.jpg",
+  "entrypoint": "https://iloveshorty.github.io/strongdog3/html/stickman%20golf/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

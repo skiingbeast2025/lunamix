@@ -1,0 +1,13 @@
+{
+  "id": 822,
+  "slug": "words-search-classic-edition",
+  "name": "Words Search Classic Edition",
+  "category": "puzzle",
+  "description": "Play Words Search Classic Edition unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/strongdog3/img/word%20search%20classic%20edition.png",
+  "entrypoint": "https://iloveshorty.github.io/strongdog3/html/words%20search%20classic%20edition/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

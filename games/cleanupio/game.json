@@ -1,0 +1,13 @@
+{
+  "id": 526,
+  "slug": "cleanupio",
+  "name": "Cleanup.io",
+  "category": "other",
+  "description": "Play Cleanup.io unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/strongdog2/img/cleanupio.jfif",
+  "entrypoint": "https://iloveshorty.github.io/strongdog2/html/unity/u.html?g=cleanupio",
+  "openInNewTab": false,
+  "isFeatured": false
+}

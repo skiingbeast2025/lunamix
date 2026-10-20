@@ -1,0 +1,13 @@
+{
+  "id": 294,
+  "slug": "basket-random",
+  "name": "Basket Random",
+  "category": "sports",
+  "description": "Play Basket Random unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.jpg",
+  "remoteIcon": "https://iloveshorty.github.io/img/Basket%20Random.jpg",
+  "entrypoint": "https://iloveshorty.github.io/html/Basket%20Random/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": true
+}

@@ -1,0 +1,13 @@
+{
+  "id": 636,
+  "slug": "squarex",
+  "name": "Squarex",
+  "category": "puzzle",
+  "description": "Play Squarex unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/strongdog2/img/squarex.jpg",
+  "entrypoint": "https://iloveshorty.github.io/strongdog2/html/squareX/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

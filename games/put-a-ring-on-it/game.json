@@ -1,0 +1,13 @@
+{
+  "id": 490,
+  "slug": "put-a-ring-on-it",
+  "name": "Put a Ring on It",
+  "category": "other",
+  "description": "Play Put a Ring on It unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/strongdog2/img/put%20a%20ring%20on%20it.jpg",
+  "entrypoint": "https://iloveshorty.github.io/strongdog2/html/put%20a%20ring%20on%20it/gamereal/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

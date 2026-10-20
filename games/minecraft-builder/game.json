@@ -1,0 +1,13 @@
+{
+  "id": 906,
+  "slug": "minecraft-builder",
+  "name": "Minecraft Builder",
+  "category": "adventure",
+  "description": "Play Minecraft Builder unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/strongdog4/img/minecraft%20builder.jpg",
+  "entrypoint": "https://iloveshorty.github.io/strongdog4/html/minecraft%20builder/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

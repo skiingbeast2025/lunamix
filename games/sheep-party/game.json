@@ -1,0 +1,13 @@
+{
+  "id": 602,
+  "slug": "sheep-party",
+  "name": "Sheep Party",
+  "category": "other",
+  "description": "Play Sheep Party unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/strongdog2/img/sheep%20party.jpg",
+  "entrypoint": "https://iloveshorty.github.io/strongdog2/html/sheep%20party/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

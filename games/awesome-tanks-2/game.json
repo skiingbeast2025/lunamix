@@ -1,0 +1,13 @@
+{
+  "id": 1096,
+  "slug": "awesome-tanks-2",
+  "name": "Awesome Tanks 2",
+  "category": "action",
+  "description": "Play Awesome Tanks 2 unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/strongdog4/img/awesome%20tanks%202.png",
+  "entrypoint": "https://iloveshorty.github.io/strongdog4/html/awesome%20tanks%202/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

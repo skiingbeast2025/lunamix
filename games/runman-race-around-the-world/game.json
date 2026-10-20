@@ -1,0 +1,13 @@
+{
+  "id": 873,
+  "slug": "runman-race-around-the-world",
+  "name": "Runman Race Around the World",
+  "category": "platformer",
+  "description": "Play Runman Race Around the World unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/strongdog3/img/runman%20race%20around%20the%20world.png",
+  "entrypoint": "https://iloveshorty.github.io/strongdog3/html/runman%20race%20around%20the%20world/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

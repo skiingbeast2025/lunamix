@@ -1,0 +1,13 @@
+{
+  "id": 581,
+  "slug": "traffic-tour",
+  "name": "Traffic Tour",
+  "category": "driving",
+  "description": "Play Traffic Tour unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/strongdog2/img/traffic%20tour.jfif",
+  "entrypoint": "https://iloveshorty.github.io/strongdog2/html/traffic%20tour/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

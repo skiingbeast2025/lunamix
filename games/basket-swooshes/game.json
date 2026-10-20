@@ -1,0 +1,13 @@
+{
+  "id": 977,
+  "slug": "basket-swooshes",
+  "name": "Basket Swooshes",
+  "category": "sports",
+  "description": "Play Basket Swooshes unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/strongdog4/img/basket%20swooshes.jpg",
+  "entrypoint": "https://iloveshorty.github.io/strongdog4/html/basket%20swooshes/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

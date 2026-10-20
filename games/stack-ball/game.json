@@ -1,0 +1,13 @@
+{
+  "id": 43,
+  "slug": "stack-ball",
+  "name": "Stack Ball",
+  "category": "puzzle",
+  "description": "Play Stack Ball unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.webp",
+  "remoteIcon": "https://iloveshorty.github.io/img/stackball.webp",
+  "entrypoint": "https://iloveshorty.github.io/html/stack-ball/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": true
+}

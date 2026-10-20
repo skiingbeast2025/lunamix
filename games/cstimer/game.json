@@ -1,0 +1,13 @@
+{
+  "id": 760,
+  "slug": "cstimer",
+  "name": "csTimer",
+  "category": "puzzle",
+  "description": "Play csTimer unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/strongdog3/img/cstimer.png",
+  "entrypoint": "https://iloveshorty.github.io/strongdog3/html/cstimer/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

@@ -1,0 +1,13 @@
+{
+  "id": 113,
+  "slug": "basketball-stars",
+  "name": "Basketball Stars",
+  "category": "sports",
+  "description": "Play Basketball Stars unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.webp",
+  "remoteIcon": "https://iloveshorty.github.io/img/BAS.webp",
+  "entrypoint": "https://iloveshorty.github.io/html/basketball-stars/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": true
+}

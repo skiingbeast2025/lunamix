@@ -1,0 +1,13 @@
+{
+  "id": 1024,
+  "slug": "cave-blast",
+  "name": "Cave Blast",
+  "category": "action",
+  "description": "Play Cave Blast unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/strongdog4/img/cave%20blast.jpg",
+  "entrypoint": "https://iloveshorty.github.io/strongdog4/html/cave%20blast/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

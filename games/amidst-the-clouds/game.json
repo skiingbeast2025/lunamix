@@ -1,0 +1,13 @@
+{
+  "id": 122,
+  "slug": "amidst-the-clouds",
+  "name": "Amidst the Clouds",
+  "category": "other",
+  "description": "Play Amidst the Clouds unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/img/amidst-the-clouds.webp",
+  "entrypoint": "https://iloveshorty.github.io/html/amidst-the-clouds/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

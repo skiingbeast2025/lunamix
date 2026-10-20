@@ -1,0 +1,13 @@
+{
+  "id": 549,
+  "slug": "basketbrosio",
+  "name": "Basketbros.io",
+  "category": "sports",
+  "description": "Play Basketbros.io unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/strongdog2/img/basketbros.io.jfif",
+  "entrypoint": "https://iloveshorty.github.io/strongdog2/html/basketbros.io/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

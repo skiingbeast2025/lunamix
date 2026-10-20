@@ -1,0 +1,13 @@
+{
+  "id": 550,
+  "slug": "brawlguysio",
+  "name": "Brawlguys.io",
+  "category": "action",
+  "description": "Play Brawlguys.io unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/strongdog2/img/brawlguys.io.jfif",
+  "entrypoint": "https://iloveshorty.github.io/strongdog2/html/brawlguys.io/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

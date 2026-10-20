@@ -1,0 +1,13 @@
+{
+  "id": 532,
+  "slug": "drift",
+  "name": "Drift",
+  "category": "driving",
+  "description": "Play Drift unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/strongdog2/img/drift.jfif",
+  "entrypoint": "https://iloveshorty.github.io/strongdog2/html/unity/u.html?g=drift",
+  "openInNewTab": false,
+  "isFeatured": false
+}

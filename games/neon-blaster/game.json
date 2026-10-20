@@ -1,0 +1,13 @@
+{
+  "id": 776,
+  "slug": "neon-blaster",
+  "name": "Neon Blaster",
+  "category": "action",
+  "description": "Play Neon Blaster unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/strongdog3/img/neon%20blaster.jpg",
+  "entrypoint": "https://iloveshorty.github.io/strongdog3/html/neon%20blaster/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

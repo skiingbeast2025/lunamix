@@ -1,0 +1,13 @@
+{
+  "id": 834,
+  "slug": "stickman-bridge-constructor",
+  "name": "Stickman Bridge Constructor",
+  "category": "puzzle",
+  "description": "Play Stickman Bridge Constructor unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/strongdog3/img/stickman%20bridge%20constructor.jpg",
+  "entrypoint": "https://iloveshorty.github.io/strongdog3/html/stickman%20bridge%20constructor/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

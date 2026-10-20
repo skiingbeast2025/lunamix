@@ -1,0 +1,13 @@
+{
+  "id": 304,
+  "slug": "soccer-random",
+  "name": "Soccer Random",
+  "category": "sports",
+  "description": "Play Soccer Random unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/img/Soccor%20Random.avif",
+  "entrypoint": "https://iloveshorty.github.io/html/Soccer%20Random/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

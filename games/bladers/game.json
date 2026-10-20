@@ -1,0 +1,13 @@
+{
+  "id": 996,
+  "slug": "bladers",
+  "name": "Bladers",
+  "category": "action",
+  "description": "Play Bladers unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/strongdog4/img/bladers.jpg",
+  "entrypoint": "https://iloveshorty.github.io/strongdog4/html/bladers/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

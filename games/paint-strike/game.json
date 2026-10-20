@@ -1,0 +1,13 @@
+{
+  "id": 916,
+  "slug": "paint-strike",
+  "name": "Paint Strike",
+  "category": "action",
+  "description": "Play Paint Strike unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/strongdog4/img/paint%20strike.jpg",
+  "entrypoint": "https://iloveshorty.github.io/strongdog4/html/paint%20strike/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

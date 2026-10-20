@@ -1,0 +1,13 @@
+{
+  "id": 929,
+  "slug": "ducklingsio",
+  "name": "Ducklings.io",
+  "category": "other",
+  "description": "Play Ducklings.io unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/strongdog4/img/ducklings.io.jpg",
+  "entrypoint": "https://iloveshorty.github.io/strongdog4/html/ducklings.io/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

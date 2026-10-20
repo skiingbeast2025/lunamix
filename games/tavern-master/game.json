@@ -1,0 +1,13 @@
+{
+  "id": 312,
+  "slug": "tavern-master",
+  "name": "Tavern Master",
+  "category": "other",
+  "description": "Play Tavern Master unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/img/tavern%20master.png",
+  "entrypoint": "https://iloveshorty.github.io/html/tavern%20master/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

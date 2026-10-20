@@ -1,0 +1,13 @@
+{
+  "id": 497,
+  "slug": "idle-fill-factory",
+  "name": "Idle Fill Factory",
+  "category": "other",
+  "description": "Play Idle Fill Factory unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/strongdog2/img/idle%20fill%20factory.jpg",
+  "entrypoint": "https://iloveshorty.github.io/strongdog2/html/idle%20fill%20factory/gamereal/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

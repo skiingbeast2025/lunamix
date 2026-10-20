@@ -1,0 +1,13 @@
+{
+  "id": 55,
+  "slug": "papery-planes",
+  "name": "Papery Planes",
+  "category": "retro",
+  "description": "Play Papery Planes unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/img/paperplane.webp",
+  "entrypoint": "https://iloveshorty.github.io/html/papery-planes/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

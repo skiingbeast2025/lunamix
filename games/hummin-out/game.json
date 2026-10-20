@@ -1,0 +1,13 @@
+{
+  "id": 426,
+  "slug": "hummin-out",
+  "name": "Hummin Out",
+  "category": "other",
+  "description": "Play Hummin Out unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/strongdog2/img/hummin%20out.webp",
+  "entrypoint": "https://iloveshorty.github.io/strongdog2/html/hummin%20out/gamereal/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

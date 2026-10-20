@@ -1,0 +1,13 @@
+{
+  "id": 922,
+  "slug": "decent",
+  "name": "Decent",
+  "category": "other",
+  "description": "Play Decent unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/strongdog4/img/decent.jpg",
+  "entrypoint": "https://iloveshorty.github.io/strongdog4/html/decent/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

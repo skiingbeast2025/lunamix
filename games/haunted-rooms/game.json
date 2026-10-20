@@ -1,0 +1,13 @@
+{
+  "id": 425,
+  "slug": "haunted-rooms",
+  "name": "Haunted Rooms",
+  "category": "other",
+  "description": "Play Haunted Rooms unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/strongdog2/img/haunted%20rooms.webp",
+  "entrypoint": "https://iloveshorty.github.io/strongdog2/html/haunted%20rooms/gamereal/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

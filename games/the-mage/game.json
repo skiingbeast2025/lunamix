@@ -1,0 +1,13 @@
+{
+  "id": 464,
+  "slug": "the-mage",
+  "name": "The Mage",
+  "category": "other",
+  "description": "Play The Mage unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.jpg",
+  "remoteIcon": "https://iloveshorty.github.io/strongdog2/img/the%20mage.jpg",
+  "entrypoint": "https://iloveshorty.github.io/strongdog2/html/the%20mage/gamereal/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": true
+}

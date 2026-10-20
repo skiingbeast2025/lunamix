@@ -1,0 +1,13 @@
+{
+  "id": 340,
+  "slug": "arcade-wizard",
+  "name": "Arcade Wizard",
+  "category": "other",
+  "description": "Play Arcade Wizard unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/img/arcade%20wizard.png",
+  "entrypoint": "https://iloveshorty.github.io/html/arcade%20wizard/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

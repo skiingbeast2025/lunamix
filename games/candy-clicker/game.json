@@ -1,0 +1,13 @@
+{
+  "id": 667,
+  "slug": "candy-clicker",
+  "name": "Candy Clicker",
+  "category": "other",
+  "description": "Play Candy Clicker unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/strongdog2/img/candy%20clicker.jpg",
+  "entrypoint": "https://iloveshorty.github.io/strongdog2/html/candy%20clicker/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

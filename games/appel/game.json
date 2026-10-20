@@ -1,0 +1,13 @@
+{
+  "id": 199,
+  "slug": "appel",
+  "name": "Appel",
+  "category": "platformer",
+  "description": "Play Appel unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.png",
+  "remoteIcon": "https://iloveshorty.github.io/img/appel.png",
+  "entrypoint": "https://iloveshorty.github.io/html/Appel/game/Appel.html",
+  "openInNewTab": false,
+  "isFeatured": true
+}

@@ -1,0 +1,13 @@
+{
+  "id": 392,
+  "slug": "pixel-shooter",
+  "name": "Pixel Shooter",
+  "category": "action",
+  "description": "Play Pixel Shooter unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/strongdog2/img/pixelshooter.jpeg",
+  "entrypoint": "https://iloveshorty.github.io/strongdog2/html/pixelshooter/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

@@ -1,0 +1,13 @@
+{
+  "id": 195,
+  "slug": "ball-platformer",
+  "name": "Ball Platformer",
+  "category": "platformer",
+  "description": "Play Ball Platformer unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/img/ball%20platformer.png",
+  "entrypoint": "https://iloveshorty.github.io/html/ball%20platformer/game/ball%20platformer.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

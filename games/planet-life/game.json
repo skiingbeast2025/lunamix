@@ -1,0 +1,13 @@
+{
+  "id": 240,
+  "slug": "planet-life",
+  "name": "Planet Life",
+  "category": "adventure",
+  "description": "Play Planet Life unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/img/planetlife.jpg",
+  "entrypoint": "https://iloveshorty.github.io/html/planetlife/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

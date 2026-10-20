@@ -1,0 +1,13 @@
+{
+  "id": 527,
+  "slug": "pixel-apocalypse",
+  "name": "Pixel Apocalypse",
+  "category": "action",
+  "description": "Play Pixel Apocalypse unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/strongdog2/img/crazy-pixel-apocalypse-3.jfif",
+  "entrypoint": "https://iloveshorty.github.io/strongdog2/html/unity/u.html?g=crazy-pixel-apocalypse-3",
+  "openInNewTab": false,
+  "isFeatured": false
+}

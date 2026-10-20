@@ -1,0 +1,13 @@
+{
+  "id": 646,
+  "slug": "sniper-shot",
+  "name": "Sniper Shot",
+  "category": "action",
+  "description": "Play Sniper Shot unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/strongdog3/img/sniper%20shot.jpg",
+  "entrypoint": "https://iloveshorty.github.io/strongdog3/html/sniper%20shot/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

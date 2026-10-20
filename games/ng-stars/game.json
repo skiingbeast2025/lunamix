@@ -1,0 +1,13 @@
+{
+  "id": 571,
+  "slug": "ng-stars",
+  "name": "Ng Stars",
+  "category": "other",
+  "description": "Play Ng Stars unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/strongdog2/img/NG%20stars.jfif",
+  "entrypoint": "https://iloveshorty.github.io/strongdog2/html/NG%20stars/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

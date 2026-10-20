@@ -1,0 +1,13 @@
+{
+  "id": 808,
+  "slug": "blockpost",
+  "name": "Blockpost",
+  "category": "action",
+  "description": "Play Blockpost unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.jpg",
+  "remoteIcon": "https://iloveshorty.github.io/strongdog3/img/blockpost.jpg",
+  "entrypoint": "https://iloveshorty.github.io/strongdog3/html/blockpost/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": true
+}

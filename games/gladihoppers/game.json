@@ -1,0 +1,13 @@
+{
+  "id": 596,
+  "slug": "gladihoppers",
+  "name": "Gladihoppers",
+  "category": "platformer",
+  "description": "Play Gladihoppers unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.jfif",
+  "remoteIcon": "https://iloveshorty.github.io/strongdog2/img/gladdihoppers.jfif",
+  "entrypoint": "https://iloveshorty.github.io/strongdog2/html/gladihoppers/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": true
+}

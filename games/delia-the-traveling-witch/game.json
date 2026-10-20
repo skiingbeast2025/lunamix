@@ -1,0 +1,13 @@
+{
+  "id": 631,
+  "slug": "delia-the-traveling-witch",
+  "name": "Delia the Traveling Witch",
+  "category": "adventure",
+  "description": "Play Delia the Traveling Witch unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/strongdog2/img/delia%20the%20traveling%20witch.png",
+  "entrypoint": "https://iloveshorty.github.io/strongdog2/html/delia%20the%20traveling%20witch/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

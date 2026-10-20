@@ -1,0 +1,13 @@
+{
+  "id": 806,
+  "slug": "ball-sort-soccer",
+  "name": "Ball Sort Soccer",
+  "category": "sports",
+  "description": "Play Ball Sort Soccer unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/strongdog3/img/ball%20sort%20soccer.jpg",
+  "entrypoint": "https://iloveshorty.github.io/strongdog3/html/ball%20sort%20soccer/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

@@ -1,0 +1,13 @@
+{
+  "id": 367,
+  "slug": "tough-growth",
+  "name": "Tough Growth",
+  "category": "other",
+  "description": "Play Tough Growth unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/img/tough%20growth.jpg",
+  "entrypoint": "https://iloveshorty.github.io/html/tough%20growth/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

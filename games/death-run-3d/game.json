@@ -1,0 +1,13 @@
+{
+  "id": 529,
+  "slug": "death-run-3d",
+  "name": "Death Run 3D",
+  "category": "platformer",
+  "description": "Play Death Run 3D unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/strongdog2/img/death-run-3d.jfif",
+  "entrypoint": "https://iloveshorty.github.io/strongdog2/html/unity/u.html?g=death-run-3d",
+  "openInNewTab": false,
+  "isFeatured": false
+}

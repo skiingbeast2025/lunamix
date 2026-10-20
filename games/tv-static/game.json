@@ -1,0 +1,13 @@
+{
+  "id": 31,
+  "slug": "tv-static",
+  "name": "Tv Static",
+  "category": "other",
+  "description": "Play Tv Static unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/img/tv-static.webp",
+  "entrypoint": "https://iloveshorty.github.io/html/tv-static/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

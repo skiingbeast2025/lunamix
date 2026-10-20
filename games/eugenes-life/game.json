@@ -1,0 +1,13 @@
+{
+  "id": 938,
+  "slug": "eugenes-life",
+  "name": "Eugenes Life",
+  "category": "retro",
+  "description": "Play Eugenes Life unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.jpg",
+  "remoteIcon": "https://iloveshorty.github.io/strongdog4/img/eugenes%20life.jpg",
+  "entrypoint": "https://iloveshorty.github.io/strongdog4/html/eugenes%20life/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": true
+}

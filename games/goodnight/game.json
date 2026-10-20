@@ -1,0 +1,13 @@
+{
+  "id": 73,
+  "slug": "goodnight",
+  "name": "Goodnight",
+  "category": "other",
+  "description": "Play Goodnight unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.webp",
+  "remoteIcon": "https://iloveshorty.github.io/img/gn.webp",
+  "entrypoint": "https://iloveshorty.github.io/html/goodnight/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": true
+}

@@ -1,0 +1,13 @@
+{
+  "id": 583,
+  "slug": "burger-tycoon",
+  "name": "Burger Tycoon",
+  "category": "other",
+  "description": "Play Burger Tycoon unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/strongdog2/img/burger%20tycoon.jfif",
+  "entrypoint": "https://iloveshorty.github.io/strongdog2/swf/burger%20tycoon/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

@@ -1,0 +1,13 @@
+{
+  "id": 458,
+  "slug": "moosha",
+  "name": "Moosha",
+  "category": "other",
+  "description": "Play Moosha unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/strongdog2/img/moosha.jpg",
+  "entrypoint": "https://iloveshorty.github.io/strongdog2/html/moosha/gamereal/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

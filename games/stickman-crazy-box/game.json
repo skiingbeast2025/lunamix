@@ -1,0 +1,13 @@
+{
+  "id": 836,
+  "slug": "stickman-crazy-box",
+  "name": "Stickman Crazy Box",
+  "category": "other",
+  "description": "Play Stickman Crazy Box unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/strongdog3/img/stickman%20crazy%20box.jpg",
+  "entrypoint": "https://iloveshorty.github.io/strongdog3/html/stickman%20crazy%20box/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

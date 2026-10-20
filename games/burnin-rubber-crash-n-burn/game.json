@@ -1,0 +1,13 @@
+{
+  "id": 1009,
+  "slug": "burnin-rubber-crash-n-burn",
+  "name": "Burnin Rubber Crash n Burn",
+  "category": "driving",
+  "description": "Play Burnin Rubber Crash n Burn unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.jpg",
+  "remoteIcon": "https://iloveshorty.github.io/strongdog4/img/burnin%20rubber%20crash%20n%20burn.jpg",
+  "entrypoint": "https://iloveshorty.github.io/strongdog4/html/burnin%20rubber%20crash%20n%20burn/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": true
+}

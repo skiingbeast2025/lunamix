@@ -1,0 +1,13 @@
+{
+  "id": 818,
+  "slug": "war-of-caribbean-pirates",
+  "name": "War of Caribbean Pirates",
+  "category": "driving",
+  "description": "Play War of Caribbean Pirates unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/strongdog3/img/war%20of%20caribbean%20pirates.jpg",
+  "entrypoint": "https://iloveshorty.github.io/strongdog3/html/war%20of%20caribbean%20pirates/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

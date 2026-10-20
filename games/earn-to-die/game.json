@@ -1,0 +1,13 @@
+{
+  "id": 588,
+  "slug": "earn-to-die",
+  "name": "Earn to Die",
+  "category": "driving",
+  "description": "Play Earn to Die unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/strongdog2/img/earn%20to%20die.png",
+  "entrypoint": "https://iloveshorty.github.io/strongdog2/swf/earn%20to%20die/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

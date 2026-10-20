@@ -1,0 +1,13 @@
+{
+  "id": 664,
+  "slug": "time-shooter-3",
+  "name": "Time Shooter 3",
+  "category": "action",
+  "description": "Play Time Shooter 3 unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.jpg",
+  "remoteIcon": "https://iloveshorty.github.io/strongdog2/img/time%20shooter%203.jpg",
+  "entrypoint": "https://iloveshorty.github.io/strongdog2/html/time%20shooter%203/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": true
+}

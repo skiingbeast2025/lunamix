@@ -1,0 +1,13 @@
+{
+  "id": 691,
+  "slug": "bit-planes",
+  "name": "Bit Planes",
+  "category": "retro",
+  "description": "Play Bit Planes unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.jpg",
+  "remoteIcon": "https://iloveshorty.github.io/strongdog3/img/bit%20planes.jpg",
+  "entrypoint": "https://iloveshorty.github.io/strongdog3/html/bit%20planes/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": true
+}

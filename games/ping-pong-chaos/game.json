@@ -1,0 +1,13 @@
+{
+  "id": 765,
+  "slug": "ping-pong-chaos",
+  "name": "Ping Pong Chaos",
+  "category": "retro",
+  "description": "Play Ping Pong Chaos unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/strongdog3/img/ping%20pong%20chaos.jpg",
+  "entrypoint": "https://iloveshorty.github.io/strongdog3/html/ping%20pong%20chaos/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

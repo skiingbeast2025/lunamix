@@ -1,0 +1,13 @@
+{
+  "id": 531,
+  "slug": "doomzio",
+  "name": "Doomz.io",
+  "category": "retro",
+  "description": "Play Doomz.io unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.jfif",
+  "remoteIcon": "https://iloveshorty.github.io/strongdog2/img/doomz-io.jfif",
+  "entrypoint": "https://iloveshorty.github.io/strongdog2/html/unity/u.html?g=doomz-io",
+  "openInNewTab": false,
+  "isFeatured": true
+}

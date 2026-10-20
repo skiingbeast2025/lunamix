@@ -1,0 +1,13 @@
+{
+  "id": 478,
+  "slug": "are-you-human",
+  "name": "Are You Human",
+  "category": "other",
+  "description": "Play Are You Human unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/strongdog2/img/are%20you%20human.webp",
+  "entrypoint": "https://iloveshorty.github.io/strongdog2/html/are%20you%20human/gamereal/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

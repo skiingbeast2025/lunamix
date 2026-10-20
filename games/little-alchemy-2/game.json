@@ -1,0 +1,13 @@
+{
+  "id": 689,
+  "slug": "little-alchemy-2",
+  "name": "Little Alchemy 2",
+  "category": "puzzle",
+  "description": "Play Little Alchemy 2 unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/strongdog3/img/little%20alchemy%202.jpg",
+  "entrypoint": "https://iloveshorty.github.io/strongdog3/html/little%20alchemy%202/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

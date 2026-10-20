@@ -1,0 +1,13 @@
+{
+  "id": 1033,
+  "slug": "cow-bay",
+  "name": "Cow Bay",
+  "category": "adventure",
+  "description": "Play Cow Bay unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/strongdog4/img/cow%20bay.jpg",
+  "entrypoint": "https://iloveshorty.github.io/strongdog4/html/cow%20bay/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

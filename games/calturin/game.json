@@ -1,0 +1,13 @@
+{
+  "id": 480,
+  "slug": "calturin",
+  "name": "Calturin",
+  "category": "other",
+  "description": "Play Calturin unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/strongdog2/img/calturin.jpg",
+  "entrypoint": "https://iloveshorty.github.io/strongdog2/html/calturin/gamereal/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

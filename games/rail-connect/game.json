@@ -1,0 +1,13 @@
+{
+  "id": 491,
+  "slug": "rail-connect",
+  "name": "Rail Connect",
+  "category": "puzzle",
+  "description": "Play Rail Connect unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/strongdog2/img/rail%20connect.jpg",
+  "entrypoint": "https://iloveshorty.github.io/strongdog2/html/rail%20connect/gamereal/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

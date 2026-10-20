@@ -1,0 +1,13 @@
+{
+  "id": 840,
+  "slug": "stickman-warriers",
+  "name": "Stickman Warriers",
+  "category": "action",
+  "description": "Play Stickman Warriers unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/strongdog3/img/stickman%20warriers.jpg",
+  "entrypoint": "https://iloveshorty.github.io/strongdog3/html/stickman%20warriers/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

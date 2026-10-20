@@ -1,0 +1,13 @@
+{
+  "id": 786,
+  "slug": "effing-worms",
+  "name": "Effing Worms",
+  "category": "action",
+  "description": "Play Effing Worms unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/strongdog3/img/effing%20worms.jpg",
+  "entrypoint": "https://iloveshorty.github.io/strongdog3/swf/effing%20worms/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

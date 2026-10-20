@@ -1,0 +1,13 @@
+{
+  "id": 830,
+  "slug": "stair-race-3d",
+  "name": "Stair Race 3D",
+  "category": "platformer",
+  "description": "Play Stair Race 3D unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/strongdog3/img/stair%20race%203d.jpg",
+  "entrypoint": "https://iloveshorty.github.io/strongdog3/html/stair%20race%203d/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

@@ -1,0 +1,13 @@
+{
+  "id": 17,
+  "slug": "wordle",
+  "name": "Wordle",
+  "category": "puzzle",
+  "description": "Play Wordle unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/img/wordle.webp",
+  "entrypoint": "https://iloveshorty.github.io/html/wordle/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

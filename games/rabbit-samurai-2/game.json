@@ -1,0 +1,13 @@
+{
+  "id": 577,
+  "slug": "rabbit-samurai-2",
+  "name": "Rabbit Samurai 2",
+  "category": "platformer",
+  "description": "Play Rabbit Samurai 2 unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/strongdog2/img/rabbit%20samurai%202.jfif",
+  "entrypoint": "https://iloveshorty.github.io/strongdog2/html/rabbit%20samurai%202/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

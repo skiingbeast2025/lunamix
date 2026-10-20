@@ -1,0 +1,13 @@
+{
+  "id": 174,
+  "slug": "fortnite-z",
+  "name": "Fortnite Z",
+  "category": "action",
+  "description": "Play Fortnite Z unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/img/fornitez.png",
+  "entrypoint": "https://iloveshorty.github.io/html/Fortnite%20Z/game/Fortnite%20Z.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

@@ -1,0 +1,13 @@
+{
+  "id": 881,
+  "slug": "shootz",
+  "name": "Shootz",
+  "category": "action",
+  "description": "Play Shootz unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/strongdog3/img/shootz.jpg",
+  "entrypoint": "https://iloveshorty.github.io/strongdog3/html/shootz/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

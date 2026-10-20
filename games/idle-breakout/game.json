@@ -1,0 +1,13 @@
+{
+  "id": 72,
+  "slug": "idle-breakout",
+  "name": "Idle Breakout",
+  "category": "retro",
+  "description": "Play Idle Breakout unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/img/idlebreakout.webp",
+  "entrypoint": "https://iloveshorty.github.io/html/idle-breakout/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

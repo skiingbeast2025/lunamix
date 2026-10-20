@@ -1,0 +1,13 @@
+{
+  "id": 1010,
+  "slug": "burnout-drift-seaport-max",
+  "name": "Burnout Drift Seaport Max",
+  "category": "driving",
+  "description": "Play Burnout Drift Seaport Max unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/strongdog4/img/burnout%20drift%20seaport%20max.jpg",
+  "entrypoint": "https://iloveshorty.github.io/strongdog4/html/burnout%20drift%20seaport%20max/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

@@ -1,0 +1,13 @@
+{
+  "id": 505,
+  "slug": "yin-and-yang",
+  "name": "Yin and Yang",
+  "category": "other",
+  "description": "Play Yin and Yang unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/strongdog2/img/yin%20and%20yang.jpg",
+  "entrypoint": "https://iloveshorty.github.io/strongdog2/html/yin%20and%20yang/gamereal/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

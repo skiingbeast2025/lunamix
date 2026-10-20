@@ -1,0 +1,13 @@
+{
+  "id": 717,
+  "slug": "ngu-idle",
+  "name": "NGU Idle",
+  "category": "other",
+  "description": "Play NGU Idle unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.jpg",
+  "remoteIcon": "https://iloveshorty.github.io/strongdog3/img/NGU%20idle.jpg",
+  "entrypoint": "https://iloveshorty.github.io/strongdog3/html/NGU%20idle/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": true
+}

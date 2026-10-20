@@ -1,0 +1,13 @@
+{
+  "id": 383,
+  "slug": "mini-magbot",
+  "name": "Mini Magbot",
+  "category": "other",
+  "description": "Play Mini Magbot unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/strongdog2/img/mini%20magbot.jpg",
+  "entrypoint": "https://iloveshorty.github.io/strongdog2/html/mini%20magbot/gamereal/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

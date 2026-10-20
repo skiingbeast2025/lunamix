@@ -1,0 +1,13 @@
+{
+  "id": 313,
+  "slug": "a-grim-chase",
+  "name": "A Grim Chase",
+  "category": "other",
+  "description": "Play A Grim Chase unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/img/a%20grim%20chase.jpg",
+  "entrypoint": "https://iloveshorty.github.io/html/a%20grim%20chase/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

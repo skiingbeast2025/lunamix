@@ -1,0 +1,13 @@
+{
+  "id": 449,
+  "slug": "magirune",
+  "name": "Magirune",
+  "category": "platformer",
+  "description": "Play Magirune unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.jpg",
+  "remoteIcon": "https://iloveshorty.github.io/strongdog2/img/magirune.jpg",
+  "entrypoint": "https://iloveshorty.github.io/strongdog2/html/magirune/gamereal/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": true
+}

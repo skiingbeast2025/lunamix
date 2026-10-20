@@ -1,0 +1,13 @@
+{
+  "id": 662,
+  "slug": "tap-tap-shots",
+  "name": "Tap Tap Shots",
+  "category": "sports",
+  "description": "Play Tap Tap Shots unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/strongdog2/img/tap%20tap%20shots.jpg",
+  "entrypoint": "https://iloveshorty.github.io/strongdog2/html/tap%20tap%20shots/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

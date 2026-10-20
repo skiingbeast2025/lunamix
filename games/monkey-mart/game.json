@@ -1,0 +1,13 @@
+{
+  "id": 299,
+  "slug": "monkey-mart",
+  "name": "Monkey Mart",
+  "category": "other",
+  "description": "Play Monkey Mart unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.png",
+  "remoteIcon": "https://iloveshorty.github.io/img/monkey%20mart.png",
+  "entrypoint": "https://iloveshorty.github.io/html/monkey%20mart/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": true
+}

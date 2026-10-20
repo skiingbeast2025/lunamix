@@ -1,0 +1,13 @@
+{
+  "id": 20,
+  "slug": "web-retro",
+  "name": "Web Retro",
+  "category": "other",
+  "description": "Play Web Retro unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/img/webretro.webp",
+  "entrypoint": "https://iloveshorty.github.io/html/webretro/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

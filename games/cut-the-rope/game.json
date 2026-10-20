@@ -1,0 +1,13 @@
+{
+  "id": 97,
+  "slug": "cut-the-rope",
+  "name": "Cut the Rope",
+  "category": "puzzle",
+  "description": "Play Cut the Rope unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.webp",
+  "remoteIcon": "https://iloveshorty.github.io/img/ctr.webp",
+  "entrypoint": "https://iloveshorty.github.io/html/cuttherope/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": true
+}

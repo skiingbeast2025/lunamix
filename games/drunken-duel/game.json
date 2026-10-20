@@ -1,0 +1,13 @@
+{
+  "id": 927,
+  "slug": "drunken-duel",
+  "name": "Drunken Duel",
+  "category": "platformer",
+  "description": "Play Drunken Duel unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/strongdog4/img/drunken%20duel.jpg",
+  "entrypoint": "https://iloveshorty.github.io/strongdog4/html/drunken%20duel/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

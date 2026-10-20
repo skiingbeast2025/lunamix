@@ -1,0 +1,13 @@
+{
+  "id": 726,
+  "slug": "footballbros",
+  "name": "Footballbros",
+  "category": "sports",
+  "description": "Play Footballbros unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.jpg",
+  "remoteIcon": "https://iloveshorty.github.io/strongdog3/img/footballbros.jpg",
+  "entrypoint": "https://iloveshorty.github.io/strongdog3/html/footballbros/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": true
+}

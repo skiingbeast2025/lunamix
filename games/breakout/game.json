@@ -1,0 +1,13 @@
+{
+  "id": 190,
+  "slug": "breakout",
+  "name": "Breakout",
+  "category": "retro",
+  "description": "Play Breakout unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/img/breakout.png",
+  "entrypoint": "https://iloveshorty.github.io/html/breakout/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

@@ -1,0 +1,13 @@
+{
+  "id": 918,
+  "slug": "parkour-race",
+  "name": "Parkour Race",
+  "category": "platformer",
+  "description": "Play Parkour Race unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/strongdog4/img/parkour%20race.jpg",
+  "entrypoint": "https://iloveshorty.github.io/strongdog4/html/parkour%20race/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

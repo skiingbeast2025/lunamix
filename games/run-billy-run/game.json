@@ -1,0 +1,13 @@
+{
+  "id": 755,
+  "slug": "run-billy-run",
+  "name": "Run Billy Run",
+  "category": "platformer",
+  "description": "Play Run Billy Run unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/img/run%20billy%20run.png",
+  "entrypoint": "https://iloveshorty.github.io/html/run%20billy%20run/gamereal/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

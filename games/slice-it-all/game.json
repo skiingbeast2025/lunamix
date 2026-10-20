@@ -1,0 +1,13 @@
+{
+  "id": 1131,
+  "slug": "slice-it-all",
+  "name": "Slice It All",
+  "category": "platformer",
+  "description": "Play Slice It All unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/strongdog4/img/slice%20it%20all.jpg",
+  "entrypoint": "https://iloveshorty.github.io/strongdog4/html/slice%20it%20all/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

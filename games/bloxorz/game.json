@@ -1,0 +1,13 @@
+{
+  "id": 193,
+  "slug": "bloxorz",
+  "name": "Bloxorz",
+  "category": "puzzle",
+  "description": "Play Bloxorz unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.png",
+  "remoteIcon": "https://iloveshorty.github.io/img/bloxorz.png",
+  "entrypoint": "https://iloveshorty.github.io/html/bloxorz/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": true
+}

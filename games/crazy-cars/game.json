@@ -1,0 +1,13 @@
+{
+  "id": 1034,
+  "slug": "crazy-cars",
+  "name": "Crazy Cars",
+  "category": "driving",
+  "description": "Play Crazy Cars unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/strongdog4/img/crazy%20cars.jpg",
+  "entrypoint": "https://iloveshorty.github.io/strongdog4/html/crazy%20cars/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

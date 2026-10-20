@@ -1,0 +1,13 @@
+{
+  "id": 325,
+  "slug": "pixoji",
+  "name": "Pixoji",
+  "category": "other",
+  "description": "Play Pixoji unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/img/pixoji.png",
+  "entrypoint": "https://iloveshorty.github.io/html/pixoji/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

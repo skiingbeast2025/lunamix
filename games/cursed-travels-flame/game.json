@@ -1,0 +1,13 @@
+{
+  "id": 318,
+  "slug": "cursed-travels-flame",
+  "name": "Cursed Travels Flame",
+  "category": "adventure",
+  "description": "Play Cursed Travels Flame unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/img/cursed%20travels%20flame.png",
+  "entrypoint": "https://iloveshorty.github.io/html/cursed%20travels%20flame/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

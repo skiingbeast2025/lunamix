@@ -1,0 +1,13 @@
+{
+  "id": 944,
+  "slug": "sans-fight",
+  "name": "Sans Fight",
+  "category": "action",
+  "description": "Play Sans Fight unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.png",
+  "remoteIcon": "https://iloveshorty.github.io/strongdog4/img/sans%20fight.png",
+  "entrypoint": "https://iloveshorty.github.io/strongdog4/html/sans%20fight/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": true
+}

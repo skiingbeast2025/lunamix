@@ -1,0 +1,13 @@
+{
+  "id": 1099,
+  "slug": "basketball-frvr",
+  "name": "Basketball Frvr",
+  "category": "sports",
+  "description": "Play Basketball Frvr unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/strongdog4/img/basketball%20frvr.jpg",
+  "entrypoint": "https://iloveshorty.github.io/strongdog4/html/basketball%20frvr/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

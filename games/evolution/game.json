@@ -1,0 +1,13 @@
+{
+  "id": 83,
+  "slug": "evolution",
+  "name": "Evolution",
+  "category": "other",
+  "description": "Play Evolution unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/img/evolution.webp",
+  "entrypoint": "https://iloveshorty.github.io/html/evolution/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

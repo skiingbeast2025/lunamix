@@ -1,0 +1,13 @@
+{
+  "id": 510,
+  "slug": "ordeals-of-december",
+  "name": "Ordeals of December",
+  "category": "other",
+  "description": "Play Ordeals of December unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/strongdog2/img/ordeals%20of%20december.jpg",
+  "entrypoint": "https://iloveshorty.github.io/strongdog2/html/ordeals%20of%20december/gamereal/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

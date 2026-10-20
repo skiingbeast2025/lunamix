@@ -1,0 +1,13 @@
+{
+  "id": 454,
+  "slug": "gobo-desert-of-cubes",
+  "name": "Gobo Desert of Cubes",
+  "category": "other",
+  "description": "Play Gobo Desert of Cubes unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.jpg",
+  "remoteIcon": "https://iloveshorty.github.io/strongdog2/img/gobo%20desert%20of%20cubes.jpg",
+  "entrypoint": "https://iloveshorty.github.io/strongdog2/html/gobo%20desert%20of%20cubes/gamereal/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": true
+}

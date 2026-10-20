@@ -1,0 +1,13 @@
+{
+  "id": 381,
+  "slug": "club-tycoon",
+  "name": "Club Tycoon",
+  "category": "other",
+  "description": "Play Club Tycoon unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/strongdog2/img/club%20tycoon.jpg",
+  "entrypoint": "https://iloveshorty.github.io/strongdog2/html/club%20tycoon/gamereal/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

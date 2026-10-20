@@ -1,0 +1,13 @@
+{
+  "id": 251,
+  "slug": "working-stiffs",
+  "name": "Working Stiffs",
+  "category": "action",
+  "description": "Play Working Stiffs unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/img/workingstiffs.jpg",
+  "entrypoint": "https://iloveshorty.github.io/swf/workingstiffs/game/base.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

@@ -1,0 +1,13 @@
+{
+  "id": 604,
+  "slug": "shipoio",
+  "name": "Shipo.io",
+  "category": "action",
+  "description": "Play Shipo.io unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/strongdog2/img/shipo.io.jpg",
+  "entrypoint": "https://iloveshorty.github.io/strongdog2/html/shipo.io/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

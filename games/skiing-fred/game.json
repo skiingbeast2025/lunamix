@@ -1,0 +1,13 @@
+{
+  "id": 887,
+  "slug": "skiing-fred",
+  "name": "Skiing Fred",
+  "category": "sports",
+  "description": "Play Skiing Fred unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.jpg",
+  "remoteIcon": "https://iloveshorty.github.io/strongdog3/img/skiing%20fred.jpg",
+  "entrypoint": "https://iloveshorty.github.io/strongdog3/html/skiing%20fred/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": true
+}

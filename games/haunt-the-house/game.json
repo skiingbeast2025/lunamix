@@ -1,0 +1,13 @@
+{
+  "id": 238,
+  "slug": "haunt-the-house",
+  "name": "Haunt the House",
+  "category": "adventure",
+  "description": "Play Haunt the House unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/img/hauntthehouse.jpg",
+  "entrypoint": "https://iloveshorty.github.io/swf/hauntthehouse/game/base.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

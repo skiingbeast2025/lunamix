@@ -523,19 +523,23 @@
         const regRes = await fetch('./games/registry.json');
         if (regRes.ok) {
           const regData = await regRes.json();
-          if (Array.isArray(regData) && regData.length > 0) {
-            localGamesList = regData.map(g => ({
-              id: g.id,
-              slug: g.slug,
-              name: g.name,
-              category: g.category || 'other',
-              logo: g.icon || getGameLogo(g),
-              isLocal: true,
-              isFeatured: !!g.isFeatured,
-              openInNewTab: !!g.openInNewTab,
-              targetUrl: g.targetUrl || (g.openInNewTab ? g.entrypoint : `./play.html?game=${g.slug}`)
-            }));
-          }
+            localGamesList = regData.map(g => {
+              let logo = g.icon;
+              if ((!logo || logo.endsWith('.svg')) && g.remoteIcon) {
+                logo = g.remoteIcon;
+              }
+              return {
+                id: g.id,
+                slug: g.slug,
+                name: g.name,
+                category: g.category || 'other',
+                logo: logo || getGameLogo(g),
+                isLocal: true,
+                isFeatured: !!g.isFeatured,
+                openInNewTab: !!g.openInNewTab,
+                targetUrl: g.targetUrl || (g.openInNewTab ? g.entrypoint : `./play.html?game=${g.slug}`)
+              };
+            });
         }
       } catch (regErr) {
         console.warn('Could not load games/registry.json, using fallback list:', regErr);

@@ -1,0 +1,13 @@
+{
+  "id": 870,
+  "slug": "rocket-pult",
+  "name": "Rocket Pult",
+  "category": "other",
+  "description": "Play Rocket Pult unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/strongdog3/img/rocket%20pult.jpg",
+  "entrypoint": "https://iloveshorty.github.io/strongdog3/html/rocket%20pult/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

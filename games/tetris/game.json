@@ -1,0 +1,13 @@
+{
+  "id": 146,
+  "slug": "tetris",
+  "name": "Tetris",
+  "category": "retro",
+  "description": "Play Tetris unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.jpeg",
+  "remoteIcon": "https://iloveshorty.github.io/img/tetris.jpeg",
+  "entrypoint": "https://iloveshorty.github.io/html/tetris%20advanced/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": true
+}

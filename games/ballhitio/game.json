@@ -1,0 +1,13 @@
+{
+  "id": 974,
+  "slug": "ballhitio",
+  "name": "Ballhit.io",
+  "category": "sports",
+  "description": "Play Ballhit.io unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/strongdog4/img/ballhit.io.jpg",
+  "entrypoint": "https://iloveshorty.github.io/strongdog4/html/ballhit.io/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

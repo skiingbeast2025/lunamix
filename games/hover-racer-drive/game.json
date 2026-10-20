@@ -1,0 +1,13 @@
+{
+  "id": 297,
+  "slug": "hover-racer-drive",
+  "name": "Hover Racer Drive",
+  "category": "driving",
+  "description": "Play Hover Racer Drive unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/img/hover%20racer%20drive.png",
+  "entrypoint": "https://iloveshorty.github.io/html/hover%20racer%20drive/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

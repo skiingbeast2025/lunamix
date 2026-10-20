@@ -1,0 +1,13 @@
+{
+  "id": 782,
+  "slug": "bridge-tactics",
+  "name": "Bridge Tactics",
+  "category": "puzzle",
+  "description": "Play Bridge Tactics unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/strongdog3/img/bridge%20tactics.jpg",
+  "entrypoint": "https://iloveshorty.github.io/strongdog3/swf/bridge%20tactics/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

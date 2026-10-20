@@ -1,0 +1,13 @@
+{
+  "id": 370,
+  "slug": "arcuz",
+  "name": "Arcuz",
+  "category": "other",
+  "description": "Play Arcuz unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/img/arcuz.jpg",
+  "entrypoint": "https://iloveshorty.github.io/swf/arcuz/game/base.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

@@ -1,0 +1,13 @@
+{
+  "id": 417,
+  "slug": "platformation",
+  "name": "Platformation",
+  "category": "other",
+  "description": "Play Platformation unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.jpg",
+  "remoteIcon": "https://iloveshorty.github.io/strongdog2/img/platformation.jpg",
+  "entrypoint": "https://iloveshorty.github.io/strongdog2/html/platformation/gamereal/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": true
+}

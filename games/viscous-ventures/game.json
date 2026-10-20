@@ -1,0 +1,13 @@
+{
+  "id": 420,
+  "slug": "viscous-ventures",
+  "name": "Viscous Ventures",
+  "category": "other",
+  "description": "Play Viscous Ventures unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/strongdog2/img/viscous%20ventures.jpg",
+  "entrypoint": "https://iloveshorty.github.io/strongdog2/html/viscous%20ventures/gamereal/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

@@ -1,0 +1,13 @@
+{
+  "id": 634,
+  "slug": "knightin",
+  "name": "Knightin",
+  "category": "adventure",
+  "description": "Play Knightin unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/strongdog2/img/knightin.jpg",
+  "entrypoint": "https://iloveshorty.github.io/strongdog2/html/knightin/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

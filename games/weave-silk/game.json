@@ -1,0 +1,13 @@
+{
+  "id": 22,
+  "slug": "weave-silk",
+  "name": "Weave Silk",
+  "category": "other",
+  "description": "Play Weave Silk unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/img/weavesilk.webp",
+  "entrypoint": "https://iloveshorty.github.io/html/weavesilk/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

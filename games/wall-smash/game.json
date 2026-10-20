@@ -1,0 +1,13 @@
+{
+  "id": 24,
+  "slug": "wall-smash",
+  "name": "Wall Smash",
+  "category": "action",
+  "description": "Play Wall Smash unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/img/wallsmash.webp",
+  "entrypoint": "https://iloveshorty.github.io/html/wallsmash/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

@@ -1,0 +1,13 @@
+{
+  "id": 568,
+  "slug": "freefall-tournament",
+  "name": "Freefall Tournament",
+  "category": "action",
+  "description": "Play Freefall Tournament unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/strongdog2/img/freefall%20tournament.jfif",
+  "entrypoint": "https://iloveshorty.github.io/strongdog2/html/freefall%20tournament/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

@@ -1,0 +1,13 @@
+{
+  "id": 173,
+  "slug": "fruit-ninja",
+  "name": "Fruit Ninja",
+  "category": "action",
+  "description": "Play Fruit Ninja unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/img/fruit.png",
+  "entrypoint": "https://iloveshorty.github.io/html/fruitninja/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

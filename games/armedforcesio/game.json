@@ -1,0 +1,13 @@
+{
+  "id": 1073,
+  "slug": "armedforcesio",
+  "name": "Armedforces.io",
+  "category": "action",
+  "description": "Play Armedforces.io unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/strongdog4/img/armedforces.io.jpg",
+  "entrypoint": "https://iloveshorty.github.io/strongdog4/html/armedforces.io/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

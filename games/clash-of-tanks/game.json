@@ -1,0 +1,13 @@
+{
+  "id": 1107,
+  "slug": "clash-of-tanks",
+  "name": "Clash of Tanks",
+  "category": "action",
+  "description": "Play Clash of Tanks unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/strongdog4/img/clash%20of%20tanks.jpg",
+  "entrypoint": "https://iloveshorty.github.io/strongdog4/html/clash%20of%20tanks/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

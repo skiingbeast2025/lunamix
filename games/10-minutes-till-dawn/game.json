@@ -1,0 +1,13 @@
+{
+  "id": 128,
+  "slug": "10-minutes-till-dawn",
+  "name": "10 Minutes Till Dawn",
+  "category": "action",
+  "description": "Play 10 Minutes Till Dawn unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/img/10m.webp",
+  "entrypoint": "https://iloveshorty.github.io/html/10-minutes-till-dawn/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

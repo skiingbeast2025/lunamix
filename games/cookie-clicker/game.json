@@ -1,0 +1,13 @@
+{
+  "id": 184,
+  "slug": "cookie-clicker",
+  "name": "Cookie Clicker",
+  "category": "other",
+  "description": "Play Cookie Clicker unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.png",
+  "remoteIcon": "https://iloveshorty.github.io/img/cookie.png",
+  "entrypoint": "https://iloveshorty.github.io/html/cookieclicker/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": true
+}

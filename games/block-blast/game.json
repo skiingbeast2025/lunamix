@@ -1,0 +1,13 @@
+{
+  "id": 730,
+  "slug": "block-blast",
+  "name": "Block Blast",
+  "category": "puzzle",
+  "description": "Play Block Blast unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/strongdog3/img/block%20blast.jpg",
+  "entrypoint": "https://iloveshorty.github.io/strongdog3/html/block%20blast/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

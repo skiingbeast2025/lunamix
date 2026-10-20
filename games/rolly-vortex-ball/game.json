@@ -1,0 +1,13 @@
+{
+  "id": 672,
+  "slug": "rolly-vortex-ball",
+  "name": "Rolly Vortex Ball",
+  "category": "platformer",
+  "description": "Play Rolly Vortex Ball unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/strongdog3/img/rolly%20vortex%20ball.jpg",
+  "entrypoint": "https://iloveshorty.github.io/strongdog3/html/rolly%20vortex%20ball/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

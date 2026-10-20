@@ -1,0 +1,13 @@
+{
+  "id": 473,
+  "slug": "orb-of-creation",
+  "name": "Orb of Creation",
+  "category": "other",
+  "description": "Play Orb of Creation unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/strongdog2/img/orb%20of%20creation.jpg",
+  "entrypoint": "https://iloveshorty.github.io/strongdog2/html/orb%20of%20creation/gamereal/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

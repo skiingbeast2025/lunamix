@@ -1,0 +1,13 @@
+{
+  "id": 317,
+  "slug": "clickventure",
+  "name": "Clickventure",
+  "category": "other",
+  "description": "Play Clickventure unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/img/clickbenture.jpg",
+  "entrypoint": "https://iloveshorty.github.io/html/clickventure/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

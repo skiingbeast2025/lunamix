@@ -1,0 +1,13 @@
+{
+  "id": 320,
+  "slug": "gem-twins",
+  "name": "Gem Twins",
+  "category": "other",
+  "description": "Play Gem Twins unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/img/gem%20twins.png",
+  "entrypoint": "https://iloveshorty.github.io/html/gem%20twins/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

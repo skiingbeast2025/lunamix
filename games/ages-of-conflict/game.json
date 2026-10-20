@@ -1,0 +1,13 @@
+{
+  "id": 124,
+  "slug": "ages-of-conflict",
+  "name": "Ages of Conflict",
+  "category": "sports",
+  "description": "Play Ages of Conflict unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/img/ages-of-conflict.webp",
+  "entrypoint": "https://iloveshorty.github.io/html/ages-of-conflict/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

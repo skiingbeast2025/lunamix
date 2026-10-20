@@ -1,0 +1,13 @@
+{
+  "id": 140,
+  "slug": "terrain-generator",
+  "name": "Terrain Generator",
+  "category": "other",
+  "description": "Play Terrain Generator unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/img/terrain.png",
+  "entrypoint": "https://iloveshorty.github.io/html/Terrain%20Generator.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

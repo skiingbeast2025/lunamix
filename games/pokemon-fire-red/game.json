@@ -1,0 +1,13 @@
+{
+  "id": 52,
+  "slug": "pokemon-fire-red",
+  "name": "Pokemon Fire Red",
+  "category": "adventure",
+  "description": "Play Pokemon Fire Red unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/img/PokemonFireRed.webp",
+  "entrypoint": "https://iloveshorty.github.io/html/pokemonfirered/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

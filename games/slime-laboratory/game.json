@@ -1,0 +1,13 @@
+{
+  "id": 888,
+  "slug": "slime-laboratory",
+  "name": "Slime Laboratory",
+  "category": "platformer",
+  "description": "Play Slime Laboratory unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/strongdog3/img/slime%20laboratory.jpg",
+  "entrypoint": "https://iloveshorty.github.io/strongdog3/html/slime%20laboratory/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

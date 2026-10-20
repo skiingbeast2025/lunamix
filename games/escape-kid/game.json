@@ -1,0 +1,13 @@
+{
+  "id": 483,
+  "slug": "escape-kid",
+  "name": "Escape Kid",
+  "category": "adventure",
+  "description": "Play Escape Kid unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/strongdog2/img/escape%20kid.webp",
+  "entrypoint": "https://iloveshorty.github.io/strongdog2/html/escape%20kid/gamereal/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

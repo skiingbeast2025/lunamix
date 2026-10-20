@@ -1,0 +1,13 @@
+{
+  "id": 1057,
+  "slug": "alien-invadersio",
+  "name": "Alien Invaders.io",
+  "category": "action",
+  "description": "Play Alien Invaders.io unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/strongdog4/img/alien%20invaders.io.jpg",
+  "entrypoint": "https://iloveshorty.github.io/strongdog4/html/alien%20invaders%20io/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

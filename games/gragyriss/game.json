@@ -1,0 +1,13 @@
+{
+  "id": 321,
+  "slug": "gragyriss",
+  "name": "Gragyriss",
+  "category": "other",
+  "description": "Play Gragyriss unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/img/gragyriss.avif",
+  "entrypoint": "https://iloveshorty.github.io/html/gragyriss/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

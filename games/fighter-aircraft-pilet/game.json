@@ -1,0 +1,13 @@
+{
+  "id": 567,
+  "slug": "fighter-aircraft-pilet",
+  "name": "Fighter Aircraft Pilet",
+  "category": "action",
+  "description": "Play Fighter Aircraft Pilet unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/strongdog2/img/fighter%20aircraft%20piolet.jfif",
+  "entrypoint": "https://iloveshorty.github.io/strongdog2/html/fighter%20aircraft%20piolet/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

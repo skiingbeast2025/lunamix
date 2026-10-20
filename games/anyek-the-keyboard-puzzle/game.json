@@ -1,0 +1,13 @@
+{
+  "id": 477,
+  "slug": "anyek-the-keyboard-puzzle",
+  "name": "Anyek the Keyboard Puzzle",
+  "category": "puzzle",
+  "description": "Play Anyek the Keyboard Puzzle unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/strongdog2/img/anyek%20the%20keyboard%20puzzle.jpg",
+  "entrypoint": "https://iloveshorty.github.io/strongdog2/html/anyek%20the%20keyboard%20puzzle/gamereal/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

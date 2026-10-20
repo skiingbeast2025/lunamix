@@ -1,0 +1,13 @@
+{
+  "id": 659,
+  "slug": "tennis-random",
+  "name": "Tennis Random",
+  "category": "sports",
+  "description": "Play Tennis Random unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/strongdog2/img/tennis%20random.jpg",
+  "entrypoint": "https://iloveshorty.github.io/strongdog2/html/tennis%20random/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

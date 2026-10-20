@@ -1,0 +1,13 @@
+{
+  "id": 611,
+  "slug": "cactus-mccoy",
+  "name": "Cactus Mccoy",
+  "category": "adventure",
+  "description": "Play Cactus Mccoy unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/strongdog2/img/cactus%20mccoy.jpg",
+  "entrypoint": "https://iloveshorty.github.io/strongdog2/swf/cactus%20mccoy/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

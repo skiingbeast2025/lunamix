@@ -1,0 +1,13 @@
+{
+  "id": 858,
+  "slug": "tricks",
+  "name": "Tricks",
+  "category": "other",
+  "description": "Play Tricks unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/strongdog3/img/tricks.jpg",
+  "entrypoint": "https://iloveshorty.github.io/strongdog3/html/tricks/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

@@ -1,0 +1,13 @@
+{
+  "id": 937,
+  "slug": "energy",
+  "name": "Energy",
+  "category": "puzzle",
+  "description": "Play Energy unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/strongdog4/img/energy.jpg",
+  "entrypoint": "https://iloveshorty.github.io/strongdog4/html/energy/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

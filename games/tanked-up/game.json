@@ -1,0 +1,13 @@
+{
+  "id": 727,
+  "slug": "tanked-up",
+  "name": "Tanked Up",
+  "category": "action",
+  "description": "Play Tanked Up unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/strongdog3/img/tanked%20up.jpg",
+  "entrypoint": "https://iloveshorty.github.io/strongdog3/swf/tanked%20up/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

@@ -1,0 +1,13 @@
+{
+  "id": 963,
+  "slug": "hammer-2-reloaded",
+  "name": "Hammer 2 Reloaded",
+  "category": "action",
+  "description": "Play Hammer 2 Reloaded unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/strongdog3/img/hammer%202%20reloaded.jpg",
+  "entrypoint": "https://iloveshorty.github.io/strongdog3/html/hammer%202%20reloaded/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

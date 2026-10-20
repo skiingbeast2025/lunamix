@@ -1,0 +1,13 @@
+{
+  "id": 876,
+  "slug": "scrap-divers",
+  "name": "Scrap Divers",
+  "category": "platformer",
+  "description": "Play Scrap Divers unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/strongdog3/img/scrap%20divers.jpg",
+  "entrypoint": "https://iloveshorty.github.io/strongdog3/html/scrap%20divers/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

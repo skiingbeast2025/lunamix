@@ -1,0 +1,13 @@
+{
+  "id": 766,
+  "slug": "room-clicker",
+  "name": "Room Clicker",
+  "category": "other",
+  "description": "Play Room Clicker unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/strongdog3/img/room%20clicker.jpg",
+  "entrypoint": "https://iloveshorty.github.io/strongdog3/html/room%20clicker/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

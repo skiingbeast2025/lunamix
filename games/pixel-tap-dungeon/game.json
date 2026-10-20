@@ -1,0 +1,13 @@
+{
+  "id": 502,
+  "slug": "pixel-tap-dungeon",
+  "name": "Pixel Tap Dungeon",
+  "category": "adventure",
+  "description": "Play Pixel Tap Dungeon unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/strongdog2/img/pixel%20tap%20dungeon.png",
+  "entrypoint": "https://iloveshorty.github.io/strongdog2/html/pixel%20tap%20dungeon/gamereal/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

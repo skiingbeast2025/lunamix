@@ -1,0 +1,13 @@
+{
+  "id": 499,
+  "slug": "kity-builder-prototype",
+  "name": "Kity Builder Prototype",
+  "category": "other",
+  "description": "Play Kity Builder Prototype unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/strongdog2/img/kity%20builder%20prototype.png",
+  "entrypoint": "https://iloveshorty.github.io/strongdog2/html/kity%20builder%20prototype/gamereal/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

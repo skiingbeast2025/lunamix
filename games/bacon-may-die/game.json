@@ -1,0 +1,13 @@
+{
+  "id": 972,
+  "slug": "bacon-may-die",
+  "name": "Bacon May Die",
+  "category": "action",
+  "description": "Play Bacon May Die unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/strongdog4/img/bacon%20may%20die.jpg",
+  "entrypoint": "https://iloveshorty.github.io/strongdog4/html/bacon%20may%20die/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

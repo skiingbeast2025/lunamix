@@ -1,0 +1,13 @@
+{
+  "id": 681,
+  "slug": "ovo-3d",
+  "name": "OvO 3D",
+  "category": "platformer",
+  "description": "Play OvO 3D unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.jpg",
+  "remoteIcon": "https://iloveshorty.github.io/strongdog3/img/ovo%203d.jpg",
+  "entrypoint": "https://iloveshorty.github.io/strongdog3/html/ovo%203d/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": true
+}

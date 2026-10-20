@@ -1,0 +1,13 @@
+{
+  "id": 590,
+  "slug": "fireboy-and-watergirl-2",
+  "name": "Fireboy and Watergirl 2",
+  "category": "adventure",
+  "description": "Play Fireboy and Watergirl 2 unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.jfif",
+  "remoteIcon": "https://iloveshorty.github.io/strongdog2/img/Fireboy%20and%20Watergirl%202.jfif",
+  "entrypoint": "https://iloveshorty.github.io/strongdog2/html/Fireboy%20and%20Watergirl%202/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": true
+}

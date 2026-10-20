@@ -1,0 +1,13 @@
+{
+  "id": 635,
+  "slug": "metrocubevania",
+  "name": "Metrocubevania",
+  "category": "adventure",
+  "description": "Play Metrocubevania unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/strongdog2/img/metrocubevania.png",
+  "entrypoint": "https://iloveshorty.github.io/strongdog2/html/metrocubevania/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

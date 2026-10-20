@@ -1,0 +1,13 @@
+{
+  "id": 115,
+  "slug": "ballhop",
+  "name": "Ballhop",
+  "category": "platformer",
+  "description": "Play Ballhop unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/img/ballhop.webp",
+  "entrypoint": "https://iloveshorty.github.io/html/ball-hop/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

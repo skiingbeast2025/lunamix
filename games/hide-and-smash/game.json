@@ -1,0 +1,13 @@
+{
+  "id": 966,
+  "slug": "hide-and-smash",
+  "name": "Hide and Smash",
+  "category": "action",
+  "description": "Play Hide and Smash unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/strongdog3/img/hide%20and%20smash.jpg",
+  "entrypoint": "https://iloveshorty.github.io/strongdog3/html/hide%20and%20smash/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

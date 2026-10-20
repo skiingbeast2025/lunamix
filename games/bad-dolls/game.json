@@ -1,0 +1,13 @@
+{
+  "id": 973,
+  "slug": "bad-dolls",
+  "name": "Bad Dolls",
+  "category": "action",
+  "description": "Play Bad Dolls unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/strongdog4/img/bad%20dolls.jpg",
+  "entrypoint": "https://iloveshorty.github.io/strongdog4/html/bad%20dolls/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

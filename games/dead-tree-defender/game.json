@@ -1,0 +1,13 @@
+{
+  "id": 1147,
+  "slug": "dead-tree-defender",
+  "name": "Dead Tree Defender",
+  "category": "action",
+  "description": "Play Dead Tree Defender unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/strongdog4/img/dead%20tree%20defender.jpg",
+  "entrypoint": "https://iloveshorty.github.io/strongdog4/swf/dead%20tree%20defender/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

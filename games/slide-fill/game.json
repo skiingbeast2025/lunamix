@@ -1,0 +1,13 @@
+{
+  "id": 513,
+  "slug": "slide-fill",
+  "name": "Slide Fill",
+  "category": "other",
+  "description": "Play Slide Fill unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/strongdog2/img/slide%20fill.jpg",
+  "entrypoint": "https://iloveshorty.github.io/strongdog2/html/slide%20fill/gamereal/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

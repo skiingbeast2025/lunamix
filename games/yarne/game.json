@@ -1,0 +1,13 @@
+{
+  "id": 516,
+  "slug": "yarne",
+  "name": "Yarne",
+  "category": "other",
+  "description": "Play Yarne unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/strongdog2/img/yarne.png",
+  "entrypoint": "https://iloveshorty.github.io/strongdog2/html/yarne/gamereal/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

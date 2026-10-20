@@ -1,0 +1,13 @@
+{
+  "id": 389,
+  "slug": "agario",
+  "name": "Agar.io",
+  "category": "action",
+  "description": "Play Agar.io unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/strongdog2/img/agar.jpeg",
+  "entrypoint": "https://iloveshorty.github.io/strongdog2/html/jptragar/web/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

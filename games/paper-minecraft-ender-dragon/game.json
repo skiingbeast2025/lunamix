@@ -1,0 +1,13 @@
+{
+  "id": 587,
+  "slug": "paper-minecraft-ender-dragon",
+  "name": "Paper Minecraft Ender Dragon",
+  "category": "adventure",
+  "description": "Play Paper Minecraft Ender Dragon unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/strongdog2/img/paper%20minecraft%20ender%20dragon.jfif",
+  "entrypoint": "https://iloveshorty.github.io/strongdog2/html/paper%20minecraft%20ender%20dragon/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

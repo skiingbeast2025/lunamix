@@ -1,0 +1,13 @@
+{
+  "id": 913,
+  "slug": "onion-boy",
+  "name": "Onion Boy",
+  "category": "platformer",
+  "description": "Play Onion Boy unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/strongdog4/img/onion%20boy.jpg",
+  "entrypoint": "https://iloveshorty.github.io/strongdog4/html/onion%20boy/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

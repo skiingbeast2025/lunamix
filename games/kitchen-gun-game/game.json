@@ -1,0 +1,13 @@
+{
+  "id": 67,
+  "slug": "kitchen-gun-game",
+  "name": "Kitchen Gun Game",
+  "category": "action",
+  "description": "Play Kitchen Gun Game unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/img/kitchen-gun-game.webp",
+  "entrypoint": "https://iloveshorty.github.io/html/kitchen-gun-game/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

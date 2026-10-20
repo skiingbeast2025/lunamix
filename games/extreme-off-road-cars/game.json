@@ -1,0 +1,13 @@
+{
+  "id": 941,
+  "slug": "extreme-off-road-cars",
+  "name": "Extreme Off Road Cars",
+  "category": "driving",
+  "description": "Play Extreme Off Road Cars unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/strongdog4/img/extreme%20off%20road%20cars.jpg",
+  "entrypoint": "https://iloveshorty.github.io/strongdog4/html/extreme%20off%20road%20cars/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

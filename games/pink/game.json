@@ -1,0 +1,13 @@
+{
+  "id": 324,
+  "slug": "pink",
+  "name": "Pink",
+  "category": "puzzle",
+  "description": "Play Pink unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/img/pink.png",
+  "entrypoint": "https://iloveshorty.github.io/html/pink/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

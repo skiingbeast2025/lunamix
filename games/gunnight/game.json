@@ -1,0 +1,13 @@
+{
+  "id": 569,
+  "slug": "gunnight",
+  "name": "Gunnight",
+  "category": "action",
+  "description": "Play Gunnight unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/strongdog2/img/gunnight.jfif",
+  "entrypoint": "https://iloveshorty.github.io/strongdog2/html/gunnight/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

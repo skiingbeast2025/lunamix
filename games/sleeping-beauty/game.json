@@ -1,0 +1,13 @@
+{
+  "id": 151,
+  "slug": "sleeping-beauty",
+  "name": "Sleeping Beauty",
+  "category": "other",
+  "description": "Play Sleeping Beauty unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/img/sleeping.png",
+  "entrypoint": "https://iloveshorty.github.io/html/sleeping%20beauty/sleeping%20beauty/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

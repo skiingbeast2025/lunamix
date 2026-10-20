@@ -1,0 +1,13 @@
+{
+  "id": 815,
+  "slug": "cars-simulator",
+  "name": "Cars Simulator",
+  "category": "driving",
+  "description": "Play Cars Simulator unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/strongdog3/img/car%20simulator.jpg",
+  "entrypoint": "https://iloveshorty.github.io/strongdog3/html/cars%20simulator/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

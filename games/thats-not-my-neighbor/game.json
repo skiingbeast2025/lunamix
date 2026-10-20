@@ -1,0 +1,13 @@
+{
+  "id": 759,
+  "slug": "thats-not-my-neighbor",
+  "name": "Thats Not My Neighbor",
+  "category": "action",
+  "description": "Play Thats Not My Neighbor unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.jpg",
+  "remoteIcon": "https://iloveshorty.github.io/strongdog3/img/thats%20not%20my%20neighbor.jpg",
+  "entrypoint": "https://iloveshorty.github.io/strongdog3/html/thats%20not%20my%20neighbor/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": true
+}

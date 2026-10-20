@@ -1,0 +1,13 @@
+{
+  "id": 605,
+  "slug": "strongdog-chat",
+  "name": "Strongdog Chat",
+  "category": "other",
+  "description": "Play Strongdog Chat unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/strongdog2/img/strongdog%20chat.png",
+  "entrypoint": "https://iloveshorty.github.io/strongdog2/html/strongdog%20chat/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

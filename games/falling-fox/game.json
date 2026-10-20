@@ -1,0 +1,13 @@
+{
+  "id": 553,
+  "slug": "falling-fox",
+  "name": "Falling Fox",
+  "category": "other",
+  "description": "Play Falling Fox unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/strongdog2/img/falling%20fox.jfif",
+  "entrypoint": "https://iloveshorty.github.io/strongdog2/html/falling%20fox/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

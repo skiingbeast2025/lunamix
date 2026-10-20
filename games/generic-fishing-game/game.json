@@ -1,0 +1,13 @@
+{
+  "id": 352,
+  "slug": "generic-fishing-game",
+  "name": "Generic Fishing Game",
+  "category": "sports",
+  "description": "Play Generic Fishing Game unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/img/generic%20fishing%20game.png",
+  "entrypoint": "https://iloveshorty.github.io/html/generic%20fishing%20game/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

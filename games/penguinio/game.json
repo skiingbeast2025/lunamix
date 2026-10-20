@@ -1,0 +1,13 @@
+{
+  "id": 539,
+  "slug": "penguinio",
+  "name": "Penguin.io",
+  "category": "other",
+  "description": "Play Penguin.io unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/strongdog2/img/penguin-io.jfif",
+  "entrypoint": "https://iloveshorty.github.io/strongdog2/html/unity/u.html?g=Penguinio",
+  "openInNewTab": false,
+  "isFeatured": false
+}

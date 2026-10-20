@@ -1,0 +1,13 @@
+{
+  "id": 975,
+  "slug": "balloonsio",
+  "name": "Balloons.io",
+  "category": "other",
+  "description": "Play Balloons.io unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/strongdog4/img/balloons.io.jpg",
+  "entrypoint": "https://iloveshorty.github.io/strongdog4/html/balloons.io/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

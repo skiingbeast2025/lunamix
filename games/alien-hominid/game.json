@@ -1,0 +1,13 @@
+{
+  "id": 123,
+  "slug": "alien-hominid",
+  "name": "Alien Hominid",
+  "category": "action",
+  "description": "Play Alien Hominid unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/img/alienhominid.webp",
+  "entrypoint": "https://iloveshorty.github.io/html/alienhominid/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

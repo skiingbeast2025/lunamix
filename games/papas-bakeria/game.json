@@ -1,0 +1,13 @@
+{
+  "id": 274,
+  "slug": "papas-bakeria",
+  "name": "Papas Bakeria",
+  "category": "other",
+  "description": "Play Papas Bakeria unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.jpg",
+  "remoteIcon": "https://iloveshorty.github.io/img/papasbakeria.jpg",
+  "entrypoint": "https://iloveshorty.github.io/swf/papabakeria/game/base.html",
+  "openInNewTab": false,
+  "isFeatured": true
+}

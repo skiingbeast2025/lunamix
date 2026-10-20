@@ -1,0 +1,13 @@
+{
+  "id": 728,
+  "slug": "backgammon",
+  "name": "Backgammon",
+  "category": "puzzle",
+  "description": "Play Backgammon unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/strongdog3/img/backgammon.jpg",
+  "entrypoint": "https://iloveshorty.github.io/strongdog3/html/backgammon/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

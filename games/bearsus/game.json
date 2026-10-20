@@ -1,0 +1,13 @@
+{
+  "id": 987,
+  "slug": "bearsus",
+  "name": "Bearsus",
+  "category": "action",
+  "description": "Play Bearsus unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/strongdog4/img/bearsus.jpg",
+  "entrypoint": "https://iloveshorty.github.io/strongdog4/html/bearsus/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

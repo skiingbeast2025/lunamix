@@ -1,0 +1,13 @@
+{
+  "id": 371,
+  "slug": "one-trick-mage",
+  "name": "One Trick Mage",
+  "category": "other",
+  "description": "Play One Trick Mage unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/img/one%20trick%20mage.png",
+  "entrypoint": "https://iloveshorty.github.io/html/one%20trick%20mage/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

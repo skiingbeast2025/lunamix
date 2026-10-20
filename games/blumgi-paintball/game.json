@@ -1,0 +1,13 @@
+{
+  "id": 613,
+  "slug": "blumgi-paintball",
+  "name": "Blumgi Paintball",
+  "category": "other",
+  "description": "Play Blumgi Paintball unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/strongdog2/img/blumgi%20paintball.jpg",
+  "entrypoint": "https://iloveshorty.github.io/strongdog2/html/blumgi%20paintball/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

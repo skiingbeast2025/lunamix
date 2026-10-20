@@ -1,0 +1,13 @@
+{
+  "id": 669,
+  "slug": "trafficmania",
+  "name": "Trafficmania",
+  "category": "driving",
+  "description": "Play Trafficmania unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/strongdog2/img/trafficmania.jpg",
+  "entrypoint": "https://iloveshorty.github.io/strongdog2/html/trafficmania/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

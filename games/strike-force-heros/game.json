@@ -1,0 +1,13 @@
+{
+  "id": 794,
+  "slug": "strike-force-heros",
+  "name": "Strike Force Heros",
+  "category": "action",
+  "description": "Play Strike Force Heros unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/strongdog3/img/strike%20force%20heros.jpg",
+  "entrypoint": "https://iloveshorty.github.io/strongdog3/swf/strike%20force%20heros/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

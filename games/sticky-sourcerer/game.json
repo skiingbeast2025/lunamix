@@ -1,0 +1,13 @@
+{
+  "id": 517,
+  "slug": "sticky-sourcerer",
+  "name": "Sticky Sourcerer",
+  "category": "other",
+  "description": "Play Sticky Sourcerer unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/strongdog2/img/sticky%20sourcerer.png",
+  "entrypoint": "https://iloveshorty.github.io/strongdog2/html/sticky%20sorcerer/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

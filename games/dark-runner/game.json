@@ -1,0 +1,13 @@
+{
+  "id": 1041,
+  "slug": "dark-runner",
+  "name": "Dark Runner",
+  "category": "platformer",
+  "description": "Play Dark Runner unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/strongdog4/img/dark%20runner.jpg",
+  "entrypoint": "https://iloveshorty.github.io/strongdog4/html/dark%20runner/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

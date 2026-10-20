@@ -1,0 +1,13 @@
+{
+  "id": 930,
+  "slug": "dunk-perfect",
+  "name": "Dunk Perfect",
+  "category": "sports",
+  "description": "Play Dunk Perfect unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/strongdog4/img/dunk%20perfect.jpg",
+  "entrypoint": "https://iloveshorty.github.io/strongdog4/html/dunk%20perfect/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

@@ -1,0 +1,13 @@
+{
+  "id": 329,
+  "slug": "scalak",
+  "name": "Scalak",
+  "category": "puzzle",
+  "description": "Play Scalak unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/img/scalak.jpg",
+  "entrypoint": "https://iloveshorty.github.io/html/scalak/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

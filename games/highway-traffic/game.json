@@ -1,0 +1,13 @@
+{
+  "id": 969,
+  "slug": "highway-traffic",
+  "name": "Highway Traffic",
+  "category": "driving",
+  "description": "Play Highway Traffic unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/strongdog3/img/highway%20traffic.jpg",
+  "entrypoint": "https://iloveshorty.github.io/strongdog3/html/highway%20traffic/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

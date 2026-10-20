@@ -1,0 +1,13 @@
+{
+  "id": 453,
+  "slug": "forward-winds",
+  "name": "Forward Winds",
+  "category": "action",
+  "description": "Play Forward Winds unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/strongdog2/img/forward%20winds.png",
+  "entrypoint": "https://iloveshorty.github.io/strongdog2/html/forward%20winds/gamereal/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

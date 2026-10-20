@@ -1,0 +1,13 @@
+{
+  "id": 668,
+  "slug": "red-ball-4",
+  "name": "Red Ball 4",
+  "category": "platformer",
+  "description": "Play Red Ball 4 unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/strongdog2/img/red%20ball%204.jpg",
+  "entrypoint": "https://iloveshorty.github.io/strongdog2/html/red%20ball%204/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

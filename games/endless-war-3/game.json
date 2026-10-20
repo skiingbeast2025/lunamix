@@ -1,0 +1,13 @@
+{
+  "id": 84,
+  "slug": "endless-war-3",
+  "name": "Endless War 3",
+  "category": "action",
+  "description": "Play Endless War 3 unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/img/endlesswar3.webp",
+  "entrypoint": "https://iloveshorty.github.io/html/endlesswar3/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

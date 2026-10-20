@@ -1,0 +1,13 @@
+{
+  "id": 221,
+  "slug": "penguin-dinner",
+  "name": "Penguin Dinner",
+  "category": "other",
+  "description": "Play Penguin Dinner unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/img/penguin.jpeg",
+  "entrypoint": "https://iloveshorty.github.io/swf/penguin/game/base.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

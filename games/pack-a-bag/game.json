@@ -1,0 +1,13 @@
+{
+  "id": 915,
+  "slug": "pack-a-bag",
+  "name": "Pack a Bag",
+  "category": "puzzle",
+  "description": "Play Pack a Bag unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/strongdog4/img/pack%20a%20bag.jpg",
+  "entrypoint": "https://iloveshorty.github.io/strongdog4/html/pack%20a%20bag/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

@@ -1,0 +1,13 @@
+{
+  "id": 721,
+  "slug": "endless-tunnel",
+  "name": "Endless Tunnel",
+  "category": "platformer",
+  "description": "Play Endless Tunnel unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/strongdog3/img/endless%20tunnel.jpg",
+  "entrypoint": "https://iloveshorty.github.io/strongdog3/html/endless%20tunnel/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

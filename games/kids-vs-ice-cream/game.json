@@ -1,0 +1,13 @@
+{
+  "id": 787,
+  "slug": "kids-vs-ice-cream",
+  "name": "Kids vs Ice Cream",
+  "category": "action",
+  "description": "Play Kids vs Ice Cream unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/strongdog3/img/kids%20vs%20ice%20cream.jpg",
+  "entrypoint": "https://iloveshorty.github.io/strongdog3/swf/kids%20vs%20ice%20cream/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

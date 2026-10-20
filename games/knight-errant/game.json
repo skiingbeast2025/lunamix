@@ -1,0 +1,13 @@
+{
+  "id": 323,
+  "slug": "knight-errant",
+  "name": "Knight Errant",
+  "category": "other",
+  "description": "Play Knight Errant unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/img/knight%20errant.png",
+  "entrypoint": "https://iloveshorty.github.io/html/knight%20errant/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

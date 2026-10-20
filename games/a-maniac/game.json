@@ -1,0 +1,13 @@
+{
+  "id": 393,
+  "slug": "a-maniac",
+  "name": "A Maniac",
+  "category": "other",
+  "description": "Play A Maniac unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/strongdog2/img/a%20maniac.webp",
+  "entrypoint": "https://iloveshorty.github.io/strongdog2/html/a%20maniac/gamereal/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

@@ -1,0 +1,13 @@
+{
+  "id": 160,
+  "slug": "packabunchas",
+  "name": "Packabunchas",
+  "category": "other",
+  "description": "Play Packabunchas unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/img/pack.png",
+  "entrypoint": "https://iloveshorty.github.io/html/packabunchas/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

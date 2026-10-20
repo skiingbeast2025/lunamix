@@ -1,0 +1,13 @@
+{
+  "id": 500,
+  "slug": "mad-pirate-skeleton",
+  "name": "Mad Pirate Skeleton",
+  "category": "other",
+  "description": "Play Mad Pirate Skeleton unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/strongdog2/img/mad%20pirate%20skeleton.jpg",
+  "entrypoint": "https://iloveshorty.github.io/strongdog2/html/mad%20pirate%20skeleton/gamereal/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

@@ -1,0 +1,13 @@
+{
+  "id": 1036,
+  "slug": "cricket-world-cup",
+  "name": "Cricket World Cup",
+  "category": "sports",
+  "description": "Play Cricket World Cup unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/strongdog4/img/cricket%20world%20cup.jpg",
+  "entrypoint": "https://iloveshorty.github.io/strongdog4/html/cricket%20world%20cup/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

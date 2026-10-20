@@ -1,0 +1,13 @@
+{
+  "id": 601,
+  "slug": "friday-night-funkin",
+  "name": "Friday Night Funkin",
+  "category": "other",
+  "description": "Play Friday Night Funkin unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.jpg",
+  "remoteIcon": "https://iloveshorty.github.io/strongdog2/img/friday%20night%20funkin.jpg",
+  "entrypoint": "https://iloveshorty.github.io/strongdog2/html/friday%20night%20funkin/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": true
+}

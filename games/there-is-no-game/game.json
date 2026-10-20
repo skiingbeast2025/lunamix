@@ -1,0 +1,13 @@
+{
+  "id": 330,
+  "slug": "there-is-no-game",
+  "name": "There Is No Game",
+  "category": "puzzle",
+  "description": "Play There Is No Game unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/img/there%20is%20no%20game.jpg",
+  "entrypoint": "https://iloveshorty.github.io/html/there%20is%20no%20game/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

@@ -1,0 +1,13 @@
+{
+  "id": 1081,
+  "slug": "patricks-parabox",
+  "name": "Patricks Parabox",
+  "category": "puzzle",
+  "description": "Play Patricks Parabox unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/strongdog4/img/patricks%20parabox.jpg",
+  "entrypoint": "https://iloveshorty.github.io/strongdog4/html/Patricks%20parabox/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

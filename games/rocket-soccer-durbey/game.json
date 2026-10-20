@@ -1,0 +1,13 @@
+{
+  "id": 673,
+  "slug": "rocket-soccer-durbey",
+  "name": "Rocket Soccer Durbey",
+  "category": "sports",
+  "description": "Play Rocket Soccer Durbey unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/strongdog3/img/rocket%20soccer%20durbey.jpg",
+  "entrypoint": "https://iloveshorty.github.io/strongdog3/html/rocket%20soccer%20durbey/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

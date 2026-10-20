@@ -1,0 +1,13 @@
+{
+  "id": 948,
+  "slug": "free-the-key",
+  "name": "Free the Key",
+  "category": "puzzle",
+  "description": "Play Free the Key unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/strongdog3/img/free%20the%20key.jpg",
+  "entrypoint": "https://iloveshorty.github.io/strongdog3/html/free%20the%20key/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

@@ -1,0 +1,13 @@
+{
+  "id": 328,
+  "slug": "sabotage",
+  "name": "Sabotage",
+  "category": "other",
+  "description": "Play Sabotage unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/img/sabotage.webp",
+  "entrypoint": "https://iloveshorty.github.io/html/sabotage/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

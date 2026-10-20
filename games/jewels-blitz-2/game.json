@@ -1,0 +1,13 @@
+{
+  "id": 700,
+  "slug": "jewels-blitz-2",
+  "name": "Jewels Blitz 2",
+  "category": "puzzle",
+  "description": "Play Jewels Blitz 2 unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/strongdog3/img/jewels%20blitz%202.jpg",
+  "entrypoint": "https://iloveshorty.github.io/strongdog3/html/jewels%20blitz%202/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

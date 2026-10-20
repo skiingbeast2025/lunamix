@@ -1,0 +1,13 @@
+{
+  "id": 586,
+  "slug": "grindcraft",
+  "name": "Grindcraft",
+  "category": "other",
+  "description": "Play Grindcraft unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/strongdog2/img/grindcraft.jfif",
+  "entrypoint": "https://iloveshorty.github.io/strongdog2/html/grindcraft/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

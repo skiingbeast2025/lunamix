@@ -1,0 +1,13 @@
+{
+  "id": 10,
+  "slug": "yet-another-world",
+  "name": "Yet Another World",
+  "category": "other",
+  "description": "Play Yet Another World unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/img/yetanotherworld.png",
+  "entrypoint": "https://iloveshorty.github.io/html/yetanotherworld.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

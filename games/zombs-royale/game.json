@@ -1,0 +1,13 @@
+{
+  "id": 14,
+  "slug": "zombs-royale",
+  "name": "Zombs Royale",
+  "category": "action",
+  "description": "Play Zombs Royale unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/img/zombs-royale.webp",
+  "entrypoint": "https://iloveshorty.github.io/html/zombs-royale/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

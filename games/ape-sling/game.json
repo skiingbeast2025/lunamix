@@ -1,0 +1,13 @@
+{
+  "id": 1066,
+  "slug": "ape-sling",
+  "name": "Ape Sling",
+  "category": "platformer",
+  "description": "Play Ape Sling unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/strongdog4/img/ape%20sling.jpg",
+  "entrypoint": "https://iloveshorty.github.io/strongdog4/html/ape%20sling/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

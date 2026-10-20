@@ -1,0 +1,13 @@
+{
+  "id": 597,
+  "slug": "checkers",
+  "name": "Checkers",
+  "category": "puzzle",
+  "description": "Play Checkers unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/strongdog2/img/checkers.png",
+  "entrypoint": "https://iloveshorty.github.io/strongdog2/html/checkers/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

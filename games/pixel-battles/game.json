@@ -1,0 +1,13 @@
+{
+  "id": 302,
+  "slug": "pixel-battles",
+  "name": "Pixel Battles",
+  "category": "action",
+  "description": "Play Pixel Battles unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/img/Pixel%20Battles.jpg",
+  "entrypoint": "https://iloveshorty.github.io/html/Pixel%20Battles/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

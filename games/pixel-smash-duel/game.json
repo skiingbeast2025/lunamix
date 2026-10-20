@@ -1,0 +1,13 @@
+{
+  "id": 674,
+  "slug": "pixel-smash-duel",
+  "name": "Pixel Smash Duel",
+  "category": "action",
+  "description": "Play Pixel Smash Duel unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/strongdog3/img/pixel%20smash%20duel.jpg",
+  "entrypoint": "https://iloveshorty.github.io/strongdog3/html/pixel%20smash%20duel/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

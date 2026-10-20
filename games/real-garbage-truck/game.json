@@ -1,0 +1,13 @@
+{
+  "id": 703,
+  "slug": "real-garbage-truck",
+  "name": "Real Garbage Truck",
+  "category": "driving",
+  "description": "Play Real Garbage Truck unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/strongdog3/img/real%20garbage%20truck.jpg",
+  "entrypoint": "https://iloveshorty.github.io/strongdog3/html/real%20garbage%20truck/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

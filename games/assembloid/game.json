@@ -1,0 +1,13 @@
+{
+  "id": 712,
+  "slug": "assembloid",
+  "name": "Assembloid",
+  "category": "puzzle",
+  "description": "Play Assembloid unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.png",
+  "remoteIcon": "https://iloveshorty.github.io/strongdog2/img/assembloid.png",
+  "entrypoint": "https://iloveshorty.github.io/strongdog2/html/assembloid/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": true
+}

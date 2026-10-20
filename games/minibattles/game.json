@@ -1,0 +1,13 @@
+{
+  "id": 624,
+  "slug": "minibattles",
+  "name": "Minibattles",
+  "category": "action",
+  "description": "Play Minibattles unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/strongdog2/img/minibattles.jpg",
+  "entrypoint": "https://iloveshorty.github.io/strongdog2/html/minibattles/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

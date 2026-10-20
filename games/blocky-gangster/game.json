@@ -1,0 +1,13 @@
+{
+  "id": 535,
+  "slug": "blocky-gangster",
+  "name": "Blocky Gangster",
+  "category": "action",
+  "description": "Play Blocky Gangster unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/strongdog2/img/gungame-shooting-warfare-blocky-gangster.jfif",
+  "entrypoint": "https://iloveshorty.github.io/strongdog2/html/unity/u.html?g=gungame-shooting-warfare-blocky-gangster",
+  "openInNewTab": false,
+  "isFeatured": false
+}

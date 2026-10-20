@@ -1,0 +1,13 @@
+{
+  "id": 933,
+  "slug": "duo-survival-3",
+  "name": "Duo Survival 3",
+  "category": "adventure",
+  "description": "Play Duo Survival 3 unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/strongdog4/img/duo%20survival%203.jpg",
+  "entrypoint": "https://iloveshorty.github.io/strongdog4/html/duo%20survival%203/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

@@ -1,0 +1,13 @@
+{
+  "id": 533,
+  "slug": "dunkers",
+  "name": "Dunkers",
+  "category": "sports",
+  "description": "Play Dunkers unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/strongdog2/img/dunkers.png",
+  "entrypoint": "https://iloveshorty.github.io/strongdog2/html/unity/u.html?g=dunkers",
+  "openInNewTab": false,
+  "isFeatured": false
+}

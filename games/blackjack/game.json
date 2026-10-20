@@ -1,0 +1,13 @@
+{
+  "id": 619,
+  "slug": "blackjack",
+  "name": "Blackjack",
+  "category": "puzzle",
+  "description": "Play Blackjack unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/strongdog2/img/blackjack.jpg",
+  "entrypoint": "https://iloveshorty.github.io/strongdog2/html/blackjack/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

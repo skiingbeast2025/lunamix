@@ -1,0 +1,13 @@
+{
+  "id": 153,
+  "slug": "roadblocks",
+  "name": "Roadblocks",
+  "category": "puzzle",
+  "description": "Play Roadblocks unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/img/roadblocks.jpeg",
+  "entrypoint": "https://iloveshorty.github.io/html/roadblocks/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

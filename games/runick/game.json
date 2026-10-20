@@ -1,0 +1,13 @@
+{
+  "id": 470,
+  "slug": "runick",
+  "name": "Runick",
+  "category": "platformer",
+  "description": "Play Runick unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/strongdog2/img/runick.jpg",
+  "entrypoint": "https://iloveshorty.github.io/strongdog2/html/runick/gamereal/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

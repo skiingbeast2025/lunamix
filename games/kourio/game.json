@@ -1,0 +1,13 @@
+{
+  "id": 758,
+  "slug": "kourio",
+  "name": "Kour.io",
+  "category": "action",
+  "description": "Play Kour.io unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/strongdog3/img/kour.io.jpg",
+  "entrypoint": "https://iloveshorty.github.io/strongdog3/html/kour.io/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

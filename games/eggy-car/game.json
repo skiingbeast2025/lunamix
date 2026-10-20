@@ -1,0 +1,13 @@
+{
+  "id": 86,
+  "slug": "eggy-car",
+  "name": "Eggy Car",
+  "category": "driving",
+  "description": "Play Eggy Car unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.webp",
+  "remoteIcon": "https://iloveshorty.github.io/img/eggy-car.webp",
+  "entrypoint": "https://iloveshorty.github.io/html/eggy-car/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": true
+}

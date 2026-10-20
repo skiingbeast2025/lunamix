@@ -1,0 +1,13 @@
+{
+  "id": 120,
+  "slug": "backrooms",
+  "name": "Backrooms",
+  "category": "adventure",
+  "description": "Play Backrooms unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/img/backrooms.webp",
+  "entrypoint": "https://iloveshorty.github.io/html/backrooms/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

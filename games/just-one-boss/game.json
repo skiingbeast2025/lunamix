@@ -1,0 +1,13 @@
+{
+  "id": 159,
+  "slug": "just-one-boss",
+  "name": "Just One Boss",
+  "category": "other",
+  "description": "Play Just One Boss unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/img/oneboss.png",
+  "entrypoint": "https://iloveshorty.github.io/html/just%20one%20boss/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

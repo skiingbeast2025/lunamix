@@ -1,0 +1,13 @@
+{
+  "id": 616,
+  "slug": "idle-lumber-inc",
+  "name": "Idle Lumber Inc",
+  "category": "other",
+  "description": "Play Idle Lumber Inc unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/strongdog2/img/idle%20lumber%20inc.jpg",
+  "entrypoint": "https://iloveshorty.github.io/strongdog2/html/idle%20lumber%20inc/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

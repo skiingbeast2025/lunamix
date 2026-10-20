@@ -1,0 +1,13 @@
+{
+  "id": 305,
+  "slug": "tanuki-sunset",
+  "name": "Tanuki Sunset",
+  "category": "driving",
+  "description": "Play Tanuki Sunset unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/img/tanuki%20sunset.jpg",
+  "entrypoint": "https://iloveshorty.github.io/html/tanuki%20sunset/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

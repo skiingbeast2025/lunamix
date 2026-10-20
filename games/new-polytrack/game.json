@@ -1,0 +1,13 @@
+{
+  "id": 739,
+  "slug": "new-polytrack",
+  "name": "New Polytrack",
+  "category": "driving",
+  "description": "Play New Polytrack unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.jpg",
+  "remoteIcon": "https://iloveshorty.github.io/strongdog3/img/new%20polytrack.jpg",
+  "entrypoint": "https://iloveshorty.github.io/strongdog3/html/new%20polytrack/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": true
+}

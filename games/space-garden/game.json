@@ -1,0 +1,13 @@
+{
+  "id": 149,
+  "slug": "space-garden",
+  "name": "Space Garden",
+  "category": "other",
+  "description": "Play Space Garden unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/img/garden.jpeg",
+  "entrypoint": "https://iloveshorty.github.io/html/spacegarden/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

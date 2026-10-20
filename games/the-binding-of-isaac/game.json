@@ -1,0 +1,13 @@
+{
+  "id": 1151,
+  "slug": "the-binding-of-isaac",
+  "name": "The Binding of Isaac",
+  "category": "action",
+  "description": "Play The Binding of Isaac unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.jpg",
+  "remoteIcon": "https://iloveshorty.github.io/strongdog4/img/the%20binding%20of%20isaac.jpg",
+  "entrypoint": "https://iloveshorty.github.io/strongdog4/swf/the%20binding%20of%20isaac/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": true
+}

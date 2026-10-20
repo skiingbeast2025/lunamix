@@ -1,0 +1,13 @@
+{
+  "id": 641,
+  "slug": "crossy-cat",
+  "name": "Crossy Cat",
+  "category": "platformer",
+  "description": "Play Crossy Cat unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/strongdog2/img/crossy%20cat.jpg",
+  "entrypoint": "https://iloveshorty.github.io/strongdog2/html/crossy%20cat/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

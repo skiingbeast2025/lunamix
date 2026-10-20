@@ -476,6 +476,27 @@
         }
         if (!gameData) {
           try {
+            const regRes = await fetch('./games/registry.json');
+            if (regRes.ok) {
+              const regList = await regRes.json();
+              const found = regList.find(g => g.id === idNum);
+              if (found) {
+                if (found.openInNewTab) {
+                  window.location.replace(found.entrypoint);
+                  return;
+                }
+                gameData = {
+                  name: found.name,
+                  category: found.category || 'Arcade',
+                  url: found.entrypoint || `./games/${found.slug}/index.html`,
+                  isLocal: true
+                };
+              }
+            }
+          } catch (e) {}
+        }
+        if (!gameData) {
+          try {
             const res = await fetch('./games-data.json');
             if (res.ok) {
               const data = await res.json();

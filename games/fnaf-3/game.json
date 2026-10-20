@@ -1,0 +1,13 @@
+{
+  "id": 77,
+  "slug": "fnaf-3",
+  "name": "Fnaf 3",
+  "category": "action",
+  "description": "Play Fnaf 3 unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/img/fnaf.webp",
+  "entrypoint": "https://iloveshorty.github.io/html/fnaf3/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

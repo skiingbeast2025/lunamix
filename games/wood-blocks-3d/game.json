@@ -1,0 +1,13 @@
+{
+  "id": 821,
+  "slug": "wood-blocks-3d",
+  "name": "Wood Blocks 3D",
+  "category": "puzzle",
+  "description": "Play Wood Blocks 3D unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/strongdog3/img/wood%20blocks%203d.jpg",
+  "entrypoint": "https://iloveshorty.github.io/strongdog3/html/wood%20blocks%203d/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

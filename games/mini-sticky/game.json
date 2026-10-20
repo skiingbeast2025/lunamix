@@ -1,0 +1,13 @@
+{
+  "id": 359,
+  "slug": "mini-sticky",
+  "name": "Mini Sticky",
+  "category": "other",
+  "description": "Play Mini Sticky unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/img/mini%20sticky.avif",
+  "entrypoint": "https://iloveshorty.github.io/html/mini%20sticky/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

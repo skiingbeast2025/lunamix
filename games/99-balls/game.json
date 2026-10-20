@@ -1,0 +1,13 @@
+{
+  "id": 800,
+  "slug": "99-balls",
+  "name": "99 Balls",
+  "category": "puzzle",
+  "description": "Play 99 Balls unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/strongdog3/img/99%20balls.jpg",
+  "entrypoint": "https://iloveshorty.github.io/strongdog3/html/99%20balls/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

@@ -1,0 +1,13 @@
+{
+  "id": 87,
+  "slug": "eel-slap",
+  "name": "Eel Slap",
+  "category": "other",
+  "description": "Play Eel Slap unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/img/eel-slap.webp",
+  "entrypoint": "https://iloveshorty.github.io/html/eel-slap/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

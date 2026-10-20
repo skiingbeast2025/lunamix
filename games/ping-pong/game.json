@@ -1,0 +1,13 @@
+{
+  "id": 919,
+  "slug": "ping-pong",
+  "name": "Ping Pong",
+  "category": "retro",
+  "description": "Play Ping Pong unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/strongdog4/img/ping%20pong.jpg",
+  "entrypoint": "https://iloveshorty.github.io/strongdog4/html/ping%20pong/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

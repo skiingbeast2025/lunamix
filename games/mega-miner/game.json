@@ -1,0 +1,13 @@
+{
+  "id": 789,
+  "slug": "mega-miner",
+  "name": "Mega Miner",
+  "category": "adventure",
+  "description": "Play Mega Miner unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/strongdog3/img/mega%20miner.jpg",
+  "entrypoint": "https://iloveshorty.github.io/strongdog3/swf/mega%20miner/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

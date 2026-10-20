@@ -1,0 +1,13 @@
+{
+  "id": 684,
+  "slug": "moto-maniac-3",
+  "name": "Moto Maniac 3",
+  "category": "driving",
+  "description": "Play Moto Maniac 3 unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/strongdog3/img/moto%20maniac%203.jpg",
+  "entrypoint": "https://iloveshorty.github.io/strongdog3/html/moto%20maniac%203/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

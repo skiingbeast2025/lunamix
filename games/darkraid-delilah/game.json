@@ -1,0 +1,13 @@
+{
+  "id": 424,
+  "slug": "darkraid-delilah",
+  "name": "Darkraid Delilah",
+  "category": "other",
+  "description": "Play Darkraid Delilah unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/strongdog2/img/darkraid%20delilah.jpg",
+  "entrypoint": "https://iloveshorty.github.io/strongdog2/html/darkraid%20delilah/gamereal/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

@@ -1,0 +1,13 @@
+{
+  "id": 501,
+  "slug": "out-of-ctrl",
+  "name": "Out of Ctrl",
+  "category": "other",
+  "description": "Play Out of Ctrl unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/strongdog2/img/out%20of%20ctrl.jpg",
+  "entrypoint": "https://iloveshorty.github.io/strongdog2/html/out%20of%20ctrl/gamereal/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

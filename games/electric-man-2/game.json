@@ -1,0 +1,13 @@
+{
+  "id": 286,
+  "slug": "electric-man-2",
+  "name": "Electric Man 2",
+  "category": "action",
+  "description": "Play Electric Man 2 unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/img/electricman2.jpg",
+  "entrypoint": "https://iloveshorty.github.io/swf/electricman2/game/base.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

@@ -1,0 +1,13 @@
+{
+  "id": 775,
+  "slug": "galaga",
+  "name": "Galaga",
+  "category": "retro",
+  "description": "Play Galaga unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.png",
+  "remoteIcon": "https://iloveshorty.github.io/strongdog3/img/galaga.png",
+  "entrypoint": "https://iloveshorty.github.io/strongdog3/html/galaga/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": true
+}

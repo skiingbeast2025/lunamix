@@ -1,0 +1,13 @@
+{
+  "id": 390,
+  "slug": "retro-bowl-college",
+  "name": "Retro Bowl College",
+  "category": "sports",
+  "description": "Play Retro Bowl College unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.png",
+  "remoteIcon": "https://iloveshorty.github.io/strongdog2/img/retro%20bowl%20college.png",
+  "entrypoint": "https://iloveshorty.github.io/strongdog2/html/retro%20bowl%20college/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": true
+}

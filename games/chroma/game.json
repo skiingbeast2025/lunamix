@@ -1,0 +1,13 @@
+{
+  "id": 185,
+  "slug": "chroma",
+  "name": "Chroma",
+  "category": "other",
+  "description": "Play Chroma unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/img/chroma.png",
+  "entrypoint": "https://iloveshorty.github.io/html/chroma/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

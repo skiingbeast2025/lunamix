@@ -1,0 +1,13 @@
+{
+  "id": 647,
+  "slug": "snow-battleio",
+  "name": "Snow Battle.io",
+  "category": "action",
+  "description": "Play Snow Battle.io unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/strongdog3/img/snow%20battle.io.jpg",
+  "entrypoint": "https://iloveshorty.github.io/strongdog3/html/snow%20battle.io/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

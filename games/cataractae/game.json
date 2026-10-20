@@ -1,0 +1,13 @@
+{
+  "id": 345,
+  "slug": "cataractae",
+  "name": "Cataractae",
+  "category": "other",
+  "description": "Play Cataractae unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/img/cataractae.jpg",
+  "entrypoint": "https://iloveshorty.github.io/html/cataractae/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

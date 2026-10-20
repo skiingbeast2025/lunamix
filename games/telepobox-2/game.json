@@ -1,0 +1,13 @@
+{
+  "id": 463,
+  "slug": "telepobox-2",
+  "name": "Telepobox 2",
+  "category": "puzzle",
+  "description": "Play Telepobox 2 unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/strongdog2/img/telepobox2.jpg",
+  "entrypoint": "https://iloveshorty.github.io/strongdog2/html/telepobox%202/gamereal/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

@@ -1,0 +1,13 @@
+{
+  "id": 388,
+  "slug": "giraffes-volleyball",
+  "name": "Giraffes Volleyball",
+  "category": "sports",
+  "description": "Play Giraffes Volleyball unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/strongdog2/img/giraffe.png",
+  "entrypoint": "https://iloveshorty.github.io/strongdog2/html/giraffe/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

@@ -1,0 +1,13 @@
+{
+  "id": 157,
+  "slug": "racer",
+  "name": "Racer",
+  "category": "driving",
+  "description": "Play Racer unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/img/racer.jpeg",
+  "entrypoint": "https://iloveshorty.github.io/html/racer/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

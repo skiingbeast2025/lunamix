@@ -1,0 +1,13 @@
+{
+  "id": 582,
+  "slug": "miragine-war",
+  "name": "Miragine War",
+  "category": "action",
+  "description": "Play Miragine War unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/strongdog2/img/miragine%20war.jfif",
+  "entrypoint": "https://iloveshorty.github.io/strongdog2/swf/miragine%20war/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

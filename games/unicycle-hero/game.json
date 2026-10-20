@@ -1,0 +1,13 @@
+{
+  "id": 767,
+  "slug": "unicycle-hero",
+  "name": "Unicycle Hero",
+  "category": "sports",
+  "description": "Play Unicycle Hero unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/strongdog3/img/unicycle%20hero.png",
+  "entrypoint": "https://iloveshorty.github.io/strongdog3/html/unicycle%20hero/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

@@ -1,0 +1,13 @@
+{
+  "id": 696,
+  "slug": "b-side",
+  "name": "B-Side",
+  "category": "puzzle",
+  "description": "Play B-Side unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/strongdog2/img/b-side.jpg",
+  "entrypoint": "https://iloveshorty.github.io/strongdog2/html/b-side/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

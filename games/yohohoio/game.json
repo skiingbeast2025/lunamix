@@ -1,0 +1,13 @@
+{
+  "id": 376,
+  "slug": "yohohoio",
+  "name": "Yohoho.io",
+  "category": "action",
+  "description": "Play Yohoho.io unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/img/yohoho.io.jfif",
+  "entrypoint": "https://iloveshorty.github.io/html/yohoho.io/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

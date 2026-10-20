@@ -1,0 +1,13 @@
+{
+  "id": 88,
+  "slug": "ede-surf",
+  "name": "Ede Surf",
+  "category": "other",
+  "description": "Play Ede Surf unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/img/edge-surf.webp",
+  "entrypoint": "https://iloveshorty.github.io/html/edge-surf/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

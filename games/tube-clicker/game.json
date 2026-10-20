@@ -1,0 +1,13 @@
+{
+  "id": 642,
+  "slug": "tube-clicker",
+  "name": "Tube Clicker",
+  "category": "other",
+  "description": "Play Tube Clicker unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/strongdog2/img/tube%20clicker.jpg",
+  "entrypoint": "https://iloveshorty.github.io/strongdog2/html/tube%20clicker/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

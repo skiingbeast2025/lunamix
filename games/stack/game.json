@@ -1,0 +1,13 @@
+{
+  "id": 147,
+  "slug": "stack",
+  "name": "Stack",
+  "category": "puzzle",
+  "description": "Play Stack unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.jpeg",
+  "remoteIcon": "https://iloveshorty.github.io/img/stack.jpeg",
+  "entrypoint": "https://iloveshorty.github.io/html/stack/stack/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": true
+}

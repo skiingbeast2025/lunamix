@@ -1,0 +1,13 @@
+{
+  "id": 980,
+  "slug": "battle-golf",
+  "name": "Battle Golf",
+  "category": "sports",
+  "description": "Play Battle Golf unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/strongdog4/img/battle%20golf.png",
+  "entrypoint": "https://iloveshorty.github.io/strongdog4/html/battle%20golf/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

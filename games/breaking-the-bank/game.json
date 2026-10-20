@@ -1,0 +1,13 @@
+{
+  "id": 306,
+  "slug": "breaking-the-bank",
+  "name": "Breaking the Bank",
+  "category": "adventure",
+  "description": "Play Breaking the Bank unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.jpg",
+  "remoteIcon": "https://iloveshorty.github.io/img/breaking%20the%20bank.jpg",
+  "entrypoint": "https://iloveshorty.github.io/swf/breaking%20the%20bank/game/base.html",
+  "openInNewTab": false,
+  "isFeatured": true
+}

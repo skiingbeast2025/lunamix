@@ -1,0 +1,13 @@
+{
+  "id": 461,
+  "slug": "robox",
+  "name": "Robox",
+  "category": "other",
+  "description": "Play Robox unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/strongdog2/img/robox.jpg",
+  "entrypoint": "https://iloveshorty.github.io/strongdog2/html/robox/gamereal/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

@@ -1,0 +1,13 @@
+{
+  "id": 475,
+  "slug": "the-impossible-quiz-2",
+  "name": "The Impossible Quiz 2",
+  "category": "puzzle",
+  "description": "Play The Impossible Quiz 2 unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/strongdog2/img/the%20impossible%20quiz%202.avif",
+  "entrypoint": "https://iloveshorty.github.io/strongdog2/swf/the%20impossible%20quiz%202/gamereal/base.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

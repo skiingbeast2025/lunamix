@@ -1,0 +1,13 @@
+{
+  "id": 707,
+  "slug": "parking-fury-3",
+  "name": "Parking Fury 3",
+  "category": "driving",
+  "description": "Play Parking Fury 3 unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/strongdog3/img/parking%20fury%203.jpg",
+  "entrypoint": "https://iloveshorty.github.io/strongdog3/html/parking%20fury%203/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

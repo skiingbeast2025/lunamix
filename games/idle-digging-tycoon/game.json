@@ -1,0 +1,13 @@
+{
+  "id": 615,
+  "slug": "idle-digging-tycoon",
+  "name": "Idle Digging Tycoon",
+  "category": "other",
+  "description": "Play Idle Digging Tycoon unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/strongdog2/img/idle%20digging%20tycoon.jpg",
+  "entrypoint": "https://iloveshorty.github.io/strongdog2/html/idle%20digging%20tycoon/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

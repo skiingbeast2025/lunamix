@@ -1,0 +1,13 @@
+{
+  "id": 404,
+  "slug": "stress-chess",
+  "name": "Stress Chess",
+  "category": "puzzle",
+  "description": "Play Stress Chess unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/strongdog2/img/stress%20chess.jpg",
+  "entrypoint": "https://iloveshorty.github.io/strongdog2/html/stress%20chess/gamereal/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

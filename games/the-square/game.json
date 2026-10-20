@@ -1,0 +1,13 @@
+{
+  "id": 37,
+  "slug": "the-square",
+  "name": "The Square",
+  "category": "other",
+  "description": "Play The Square unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/img/thesquare.webp",
+  "entrypoint": "https://iloveshorty.github.io/html/thesquare/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

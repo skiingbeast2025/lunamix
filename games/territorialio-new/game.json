@@ -1,0 +1,13 @@
+{
+  "id": 1089,
+  "slug": "territorialio-new",
+  "name": "Territorial.io New",
+  "category": "action",
+  "description": "Play Territorial.io New unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/strongdog4/img/territorial.io%20new.jpg",
+  "entrypoint": "https://iloveshorty.github.io/strongdog4/html/territorial.io%20new/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

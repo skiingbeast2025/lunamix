@@ -1,0 +1,13 @@
+{
+  "id": 293,
+  "slug": "gun-mayhem-2",
+  "name": "Gun Mayhem 2",
+  "category": "action",
+  "description": "Play Gun Mayhem 2 unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.jpg",
+  "remoteIcon": "https://iloveshorty.github.io/img/gun%20mayhem%202.jpg",
+  "entrypoint": "https://iloveshorty.github.io/swf/gun%20mayhem%202/game/base.html",
+  "openInNewTab": false,
+  "isFeatured": true
+}

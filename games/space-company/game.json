@@ -1,0 +1,13 @@
+{
+  "id": 150,
+  "slug": "space-company",
+  "name": "Space Company",
+  "category": "other",
+  "description": "Play Space Company unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/img/images.png",
+  "entrypoint": "https://iloveshorty.github.io/html/spacecompany/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

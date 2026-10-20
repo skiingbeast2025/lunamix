@@ -1,0 +1,13 @@
+{
+  "id": 384,
+  "slug": "slis",
+  "name": "Slis",
+  "category": "other",
+  "description": "Play Slis unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/strongdog2/img/slis.webp",
+  "entrypoint": "https://iloveshorty.github.io/strongdog2/html/slis/gamereal/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

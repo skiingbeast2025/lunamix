@@ -1,0 +1,13 @@
+{
+  "id": 116,
+  "slug": "baldis-basics",
+  "name": "Baldis Basics",
+  "category": "adventure",
+  "description": "Play Baldis Basics unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/img/baldis-basics.webp",
+  "entrypoint": "https://iloveshorty.github.io/html/baldis-basics/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

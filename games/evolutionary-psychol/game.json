@@ -1,0 +1,13 @@
+{
+  "id": 484,
+  "slug": "evolutionary-psychol",
+  "name": "Evolutionary Psychol",
+  "category": "other",
+  "description": "Play Evolutionary Psychol unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/strongdog2/img/evolutionary%20psychology.jpg",
+  "entrypoint": "https://iloveshorty.github.io/strongdog2/html/evolutionary%20psychol/gamereal/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

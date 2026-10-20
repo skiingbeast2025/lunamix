@@ -1,0 +1,13 @@
+{
+  "id": 433,
+  "slug": "mirror-wizard",
+  "name": "Mirror Wizard",
+  "category": "other",
+  "description": "Play Mirror Wizard unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.jpg",
+  "remoteIcon": "https://iloveshorty.github.io/strongdog2/img/mirror%20wizard.jpg",
+  "entrypoint": "https://iloveshorty.github.io/strongdog2/html/mirror%20wizard/gamereal/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": true
+}

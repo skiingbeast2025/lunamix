@@ -1,0 +1,13 @@
+{
+  "id": 70,
+  "slug": "interactive-buddy",
+  "name": "Interactive Buddy",
+  "category": "other",
+  "description": "Play Interactive Buddy unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/img/interactivebuddy.webp",
+  "entrypoint": "https://iloveshorty.github.io/html/interactivebuddy/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

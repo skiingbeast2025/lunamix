@@ -1,0 +1,13 @@
+{
+  "id": 485,
+  "slug": "icy-north",
+  "name": "Icy North",
+  "category": "other",
+  "description": "Play Icy North unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/strongdog2/img/icy%20north.png",
+  "entrypoint": "https://iloveshorty.github.io/strongdog2/html/icy%20north/gamereal/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

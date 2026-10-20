@@ -1,0 +1,13 @@
+{
+  "id": 350,
+  "slug": "doodle-alive",
+  "name": "Doodle Alive",
+  "category": "other",
+  "description": "Play Doodle Alive unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/img/doodle%20alive.jpg",
+  "entrypoint": "https://iloveshorty.github.io/html/doodle%20alive/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

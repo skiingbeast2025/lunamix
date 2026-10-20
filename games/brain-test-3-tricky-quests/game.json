@@ -1,0 +1,13 @@
+{
+  "id": 1003,
+  "slug": "brain-test-3-tricky-quests",
+  "name": "Brain Test 3 Tricky Quests",
+  "category": "puzzle",
+  "description": "Play Brain Test 3 Tricky Quests unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/strongdog4/img/brain%20test%203%20tricky%20quests.png",
+  "entrypoint": "https://iloveshorty.github.io/strongdog4/html/brain%20test%203%20tricky%20quests/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

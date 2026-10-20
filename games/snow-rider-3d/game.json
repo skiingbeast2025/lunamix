@@ -1,0 +1,13 @@
+{
+  "id": 241,
+  "slug": "snow-rider-3d",
+  "name": "Snow Rider 3D",
+  "category": "sports",
+  "description": "Play Snow Rider 3D unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.png",
+  "remoteIcon": "https://iloveshorty.github.io/img/snow-rider-3d-unblocked.png",
+  "entrypoint": "https://iloveshorty.github.io/html/snow-rider-3d/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": true
+}

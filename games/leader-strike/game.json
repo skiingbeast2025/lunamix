@@ -1,0 +1,13 @@
+{
+  "id": 618,
+  "slug": "leader-strike",
+  "name": "Leader Strike",
+  "category": "action",
+  "description": "Play Leader Strike unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/strongdog2/img/leader-strike.jfif",
+  "entrypoint": "https://iloveshorty.github.io/strongdog2/html/leader-strike/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

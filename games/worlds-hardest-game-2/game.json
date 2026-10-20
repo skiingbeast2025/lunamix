@@ -1,0 +1,13 @@
+{
+  "id": 823,
+  "slug": "worlds-hardest-game-2",
+  "name": "World's Hardest Game 2",
+  "category": "puzzle",
+  "description": "Play World's Hardest Game 2 unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/strongdog3/img/worlds%20hardest%20game%202.png",
+  "entrypoint": "https://iloveshorty.github.io/strongdog3/html/worlds%20hardest%20game%202/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

@@ -1,0 +1,13 @@
+{
+  "id": 419,
+  "slug": "steel-and-claw",
+  "name": "Steel and Claw",
+  "category": "other",
+  "description": "Play Steel and Claw unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/strongdog2/img/steel%20and%20claw.png",
+  "entrypoint": "https://iloveshorty.github.io/strongdog2/html/steel%20and%20claw/gamereal/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

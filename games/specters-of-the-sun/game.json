@@ -1,0 +1,13 @@
+{
+  "id": 403,
+  "slug": "specters-of-the-sun",
+  "name": "Specters of the Sun",
+  "category": "other",
+  "description": "Play Specters of the Sun unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/strongdog2/img/specters%20of%20the%20sun.jpg",
+  "entrypoint": "https://iloveshorty.github.io/strongdog2/html/specters%20of%20the%20sun/gamereal/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

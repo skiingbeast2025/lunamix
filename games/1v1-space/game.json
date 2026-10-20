@@ -1,0 +1,13 @@
+{
+  "id": 129,
+  "slug": "1v1-space",
+  "name": "1v1 Space",
+  "category": "other",
+  "description": "Play 1v1 Space unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/img/1v1space.webp",
+  "entrypoint": "https://iloveshorty.github.io/html/1v1space/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

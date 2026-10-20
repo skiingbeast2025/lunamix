@@ -1,0 +1,13 @@
+{
+  "id": 25,
+  "slug": "vex-7",
+  "name": "Vex 7",
+  "category": "platformer",
+  "description": "Play Vex 7 unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.webp",
+  "remoteIcon": "https://iloveshorty.github.io/img/vex7.webp",
+  "entrypoint": "https://iloveshorty.github.io/html/vex7/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": true
+}

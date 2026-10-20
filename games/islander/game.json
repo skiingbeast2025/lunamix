@@ -1,0 +1,13 @@
+{
+  "id": 633,
+  "slug": "islander",
+  "name": "Islander",
+  "category": "adventure",
+  "description": "Play Islander unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/strongdog2/img/ISLANDER.png",
+  "entrypoint": "https://iloveshorty.github.io/strongdog2/html/ISLANDER/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

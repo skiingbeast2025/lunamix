@@ -1,0 +1,13 @@
+{
+  "id": 76,
+  "slug": "fnaf-4",
+  "name": "Fnaf 4",
+  "category": "action",
+  "description": "Play Fnaf 4 unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/img/fnaf.webp",
+  "entrypoint": "https://iloveshorty.github.io/html/fnaf4/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

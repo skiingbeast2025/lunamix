@@ -1,0 +1,13 @@
+{
+  "id": 552,
+  "slug": "draw-the-hill",
+  "name": "Draw the Hill",
+  "category": "puzzle",
+  "description": "Play Draw the Hill unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/strongdog2/img/draw%20the%20hill.jfif",
+  "entrypoint": "https://iloveshorty.github.io/strongdog2/html/draw%20the%20hill/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

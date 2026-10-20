@@ -1,0 +1,13 @@
+{
+  "id": 93,
+  "slug": "doodle-jump",
+  "name": "Doodle Jump",
+  "category": "platformer",
+  "description": "Play Doodle Jump unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.webp",
+  "remoteIcon": "https://iloveshorty.github.io/img/doodle.webp",
+  "entrypoint": "https://iloveshorty.github.io/html/doodlejump/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": true
+}

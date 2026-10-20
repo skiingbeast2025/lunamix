@@ -1,0 +1,13 @@
+{
+  "id": 921,
+  "slug": "pool-club",
+  "name": "Pool Club",
+  "category": "sports",
+  "description": "Play Pool Club unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/strongdog3/img/pool%20club.jpg",
+  "entrypoint": "https://iloveshorty.github.io/strongdog3/html/pool%20club/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

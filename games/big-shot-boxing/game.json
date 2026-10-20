@@ -1,0 +1,13 @@
+{
+  "id": 990,
+  "slug": "big-shot-boxing",
+  "name": "Big Shot Boxing",
+  "category": "sports",
+  "description": "Play Big Shot Boxing unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/strongdog4/img/big%20shot%20boxing.jpg",
+  "entrypoint": "https://iloveshorty.github.io/strongdog4/html/big%20shot%20boxing/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

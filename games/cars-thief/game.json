@@ -1,0 +1,13 @@
+{
+  "id": 1018,
+  "slug": "cars-thief",
+  "name": "Cars Thief",
+  "category": "driving",
+  "description": "Play Cars Thief unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/strongdog4/img/cars%20thief.jpg",
+  "entrypoint": "https://iloveshorty.github.io/strongdog4/html/cars%20thief/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

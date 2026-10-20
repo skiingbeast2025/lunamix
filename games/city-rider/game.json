@@ -1,0 +1,13 @@
+{
+  "id": 1029,
+  "slug": "city-rider",
+  "name": "City Rider",
+  "category": "driving",
+  "description": "Play City Rider unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/strongdog4/img/city%20rider.jpg",
+  "entrypoint": "https://iloveshorty.github.io/strongdog4/html/city%20rider/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

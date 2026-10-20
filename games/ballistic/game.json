@@ -1,0 +1,13 @@
+{
+  "id": 548,
+  "slug": "ballistic",
+  "name": "Ballistic",
+  "category": "other",
+  "description": "Play Ballistic unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/strongdog2/img/ballistic.jfif",
+  "entrypoint": "https://iloveshorty.github.io/strongdog2/html/ballistic/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

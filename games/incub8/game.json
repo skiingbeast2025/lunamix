@@ -1,0 +1,13 @@
+{
+  "id": 472,
+  "slug": "incub8",
+  "name": "Incub8",
+  "category": "other",
+  "description": "Play Incub8 unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/strongdog2/img/incub8.png",
+  "entrypoint": "https://iloveshorty.github.io/strongdog2/html/incub8/gamereal/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

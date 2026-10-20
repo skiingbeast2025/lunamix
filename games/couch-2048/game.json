@@ -1,0 +1,13 @@
+{
+  "id": 236,
+  "slug": "couch-2048",
+  "name": "Couch 2048",
+  "category": "puzzle",
+  "description": "Play Couch 2048 unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.jpg",
+  "remoteIcon": "https://iloveshorty.github.io/img/couch.jpg",
+  "entrypoint": "https://iloveshorty.github.io/html/couch2048/game/Couch.html",
+  "openInNewTab": false,
+  "isFeatured": true
+}

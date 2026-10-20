@@ -1,0 +1,13 @@
+{
+  "id": 764,
+  "slug": "iron-snout",
+  "name": "Iron Snout",
+  "category": "action",
+  "description": "Play Iron Snout unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.png",
+  "remoteIcon": "https://iloveshorty.github.io/strongdog3/img/iron%20snout.png",
+  "entrypoint": "https://iloveshorty.github.io/strongdog3/html/iron%20snout/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": true
+}

@@ -1,0 +1,13 @@
+{
+  "id": 804,
+  "slug": "backrooms-2d",
+  "name": "Backrooms 2D",
+  "category": "adventure",
+  "description": "Play Backrooms 2D unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/strongdog3/img/backrooms%202d.jpg",
+  "entrypoint": "https://iloveshorty.github.io/strongdog3/html/backrooms%202d/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}

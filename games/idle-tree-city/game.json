@@ -1,0 +1,13 @@
+{
+  "id": 690,
+  "slug": "idle-tree-city",
+  "name": "Idle Tree City",
+  "category": "other",
+  "description": "Play Idle Tree City unblocked on Lunamix.",
+  "author": "StrongDog XP",
+  "icon": "icon.svg",
+  "remoteIcon": "https://iloveshorty.github.io/strongdog3/img/idle%20tree%20city.jpg",
+  "entrypoint": "https://iloveshorty.github.io/strongdog3/html/idle%20tree%20city/game/index.html",
+  "openInNewTab": false,
+  "isFeatured": false
+}
