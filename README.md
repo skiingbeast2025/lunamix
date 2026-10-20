@@ -31,7 +31,7 @@ Open index.html directly in your browser, or use a local server extension (like 
 🌐 Deployment
 Lunamix runs anywhere without backend setup and can be hosted for free:
 
-Cloudflare Pages: Connect your GitHub repository to Cloudflare Pages for instant, lightning-fast global deployment.
+Cloudflare Pages: Connect your GitHub repository to Cloudflare Pages for lightning-fast global deployment.
 
 GitHub Pages: Go to your repository settings, navigate to Pages, and set the source branch to main or master.
 

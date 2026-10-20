@@ -71,7 +71,7 @@ const LunamixCloak = {
 
 const LunamixPanic = {
   panicKey: '~',
-  panicUrl: 'https://classroom.google.com',
+  panicUrl: 'https://www.apsva.us',
   storageKeyPanicKey: 'lunamix_panic_key',
   storageKeyPanicUrl: 'lunamix_panic_url',
 
@@ -80,7 +80,11 @@ const LunamixPanic = {
       const savedKey = localStorage.getItem(this.storageKeyPanicKey);
       if (savedKey) this.panicKey = savedKey;
       const savedUrl = localStorage.getItem(this.storageKeyPanicUrl);
-      if (savedUrl) this.panicUrl = savedUrl;
+      if (savedUrl && !savedUrl.includes('classroom.google.com')) {
+        this.panicUrl = savedUrl;
+      } else {
+        this.panicUrl = 'https://www.apsva.us';
+      }
     } catch (e) {}
 
     window.addEventListener('keydown', (e) => {
