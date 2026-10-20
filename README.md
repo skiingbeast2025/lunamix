@@ -48,5 +48,5 @@ Push to the Branch (git push origin feature/AmazingFeature)
 
 Open a Pull Request
 
-⚠️ Disclaimer
+### ⚠️ Disclaimer
 Lunamix is created for educational, recreational, and archiving purposes. Users are responsible for complying with the network policies and terms of service of the institutions or environments in which they use this platform.
