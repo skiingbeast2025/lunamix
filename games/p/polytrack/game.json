@@ -6,6 +6,6 @@
   "description": "Low-poly physics racing with community tracks, leaderboards, and car customization.",
   "author": "Kodub",
   "icon": "icon.png",
-  "entrypoint": "https://iloveshorty.github.io/strongdog2/html/polytrack/index.html",
+  "entrypoint": "https://iloveshorty.github.io/strongdog2/html/polytrack/game/index.html",
   "isFeatured": true
 }

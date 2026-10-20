@@ -6,7 +6,7 @@
   "description": "Community-built Geometry Dash web remake with customized levels and mechanics.",
   "author": "Web-Dashers Community",
   "icon": "icon.png",
-  "entrypoint": "https://web-dashers.github.io/",
+  "entrypoint": "https://skiingbeast2025.github.io/webdickers/",
   "isFeatured": true,
   "openInNewTab": true
 }

@@ -153,6 +153,20 @@
           <span class="hidden md:inline">Reload</span>
         </button>
 
+        <!-- Theater Mode Toggle -->
+        <button 
+          type="button" 
+          onclick="toggleTheaterWide()" 
+          id="theater-btn"
+          class="p-2 sm:px-2.5 sm:py-1.5 rounded-xl text-xs font-medium text-slate-300 hover:text-white bg-slate-900/80 hover:bg-slate-800 border border-slate-800 hover:border-slate-700 transition-all hidden sm:flex items-center gap-1.5"
+          title="Toggle Wide Theater Mode (Hotkey: T)"
+        >
+          <svg class="w-3.5 h-3.5 text-slate-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+          </svg>
+          <span class="hidden md:inline">Theater</span>
+        </button>
+
         <!-- Fullscreen Toggle -->
         <button 
           type="button" 
@@ -219,12 +233,12 @@
     </div>
   </header>
 
-  <!-- Universal Theater Game Viewport Container -->
-  <main class="relative z-10 flex-1 w-full max-w-7xl mx-auto px-2 sm:px-4 lg:px-6 py-3 sm:py-4 flex flex-col">
+  <!-- Universal Theater Game Viewport Container (True Viewport Height, Zero Vertical Clip) -->
+  <main id="player-main" class="relative z-10 flex-1 w-full max-w-7xl mx-auto px-2 sm:px-4 lg:px-6 py-2 sm:py-3 flex flex-col justify-center">
 
     <div 
       id="player-container" 
-      class="relative flex-1 w-full min-h-[75vh] sm:min-h-[82vh] bg-black rounded-2xl border border-slate-800/90 shadow-2xl overflow-hidden flex flex-col glow-box"
+      class="relative flex-1 w-full h-[calc(100vh-140px)] min-h-[480px] max-h-[calc(100vh-130px)] bg-black rounded-2xl border border-slate-800/90 shadow-2xl overflow-hidden flex flex-col glow-box"
     >
       
       <!-- Loading Overlay -->
@@ -240,7 +254,7 @@
         </div>
         <div class="text-center">
           <p id="loading-game-label" class="text-sm font-semibold text-white">Loading Game...</p>
-          <p class="text-xs text-slate-400 mt-1 font-mono">Press <kbd class="px-1.5 py-0.5 bg-slate-800 border border-slate-700 rounded text-slate-300">F</kbd> for Fullscreen Theater Mode</p>
+          <p class="text-xs text-slate-400 mt-1 font-mono">Press <kbd class="px-1.5 py-0.5 bg-slate-800 border border-slate-700 rounded text-slate-300">F</kbd> for Fullscreen • <kbd class="px-1.5 py-0.5 bg-slate-800 border border-slate-700 rounded text-slate-300">T</kbd> for Theater</p>
         </div>
       </div>
 
@@ -271,12 +285,12 @@
         </div>
       </div>
 
-      <!-- Universal Game Iframe -->
+      <!-- Universal Game Iframe with Full Pointer Lock & Resizing Permissions -->
       <iframe 
         id="game-iframe" 
         class="w-full h-full border-0 bg-black flex-1"
-        allow="autoplay; fullscreen; gamepad; focus-without-user-activation *" 
-        sandbox="allow-scripts allow-same-origin allow-forms allow-popups"
+        allow="autoplay; fullscreen; gamepad; focus-without-user-activation; pointer-lock *" 
+        sandbox="allow-scripts allow-same-origin allow-forms allow-popups allow-downloads allow-modals allow-pointer-lock"
         title="Lunamix Game Player"
       ></iframe>
 
@@ -323,8 +337,8 @@
       'web-dashers': {
         name: 'Web-Dashers',
         category: 'Geometry Dash',
-        url: 'https://web-dashers.github.io/',
-        altUrls: [],
+        url: 'https://skiingbeast2025.github.io/webdickers/',
+        altUrls: ['https://web-dashers.github.io/'],
         openInNewTab: true,
         isLocal: true
       },
@@ -355,8 +369,8 @@
       'slope': {
         name: 'Slope 3D',
         category: 'Platformer',
-        url: 'https://iloveshorty.github.io/html/slope/index.html',
-        altUrls: ['https://iloveshorty.github.io/html/slope/game/index.html'],
+        url: 'https://iloveshorty.github.io/html/slope/game/index.html',
+        altUrls: ['https://iloveshorty.github.io/html/slope/index.html'],
         openInNewTab: false,
         isLocal: true
       },
@@ -371,8 +385,8 @@
       'subway-surfers': {
         name: 'Subway Surfers San Francisco',
         category: 'Platformer',
-        url: 'https://iloveshorty.github.io/html/subwaysurferssanfrancisco/index.html',
-        altUrls: ['https://iloveshorty.github.io/html/subwaysurfersbeijing/index.html'],
+        url: 'https://iloveshorty.github.io/html/subwaysurferssanfrancisco/game/index.html',
+        altUrls: ['https://iloveshorty.github.io/html/subwaysurferssanfrancisco/index.html'],
         openInNewTab: false,
         isLocal: true
       },
@@ -387,8 +401,8 @@
       'polytrack': {
         name: 'PolyTrack Ranked',
         category: 'Driving',
-        url: 'https://iloveshorty.github.io/strongdog2/html/polytrack/index.html',
-        altUrls: ['https://iloveshorty.github.io/strongdog3/html/new%20polytrack/index.html'],
+        url: 'https://iloveshorty.github.io/strongdog2/html/polytrack/game/index.html',
+        altUrls: ['https://iloveshorty.github.io/strongdog2/html/polytrack/index.html'],
         openInNewTab: false,
         isLocal: true
       }
@@ -646,6 +660,31 @@
     }
 
     /**
+     * Toggle Wide Theater Mode (fills maximum screen width without leaving the page)
+     */
+    function toggleTheaterWide() {
+      const main = document.getElementById('player-main') || document.querySelector('main');
+      const container = document.getElementById('player-container');
+      const theaterBtn = document.getElementById('theater-btn');
+      if (!main || !container) return;
+
+      const isWide = main.classList.contains('max-w-none');
+      if (isWide) {
+        main.classList.remove('max-w-none', 'px-1', 'py-1');
+        main.classList.add('max-w-7xl', 'px-2', 'sm:px-4', 'lg:px-6', 'py-2', 'sm:py-3');
+        container.classList.remove('h-[calc(100vh-80px)]', 'max-h-[calc(100vh-70px)]');
+        container.classList.add('h-[calc(100vh-140px)]', 'max-h-[calc(100vh-130px)]');
+        if (theaterBtn) theaterBtn.classList.remove('text-indigo-400', 'border-indigo-500/50');
+      } else {
+        main.classList.remove('max-w-7xl', 'px-2', 'sm:px-4', 'lg:px-6', 'py-2', 'sm:py-3');
+        main.classList.add('max-w-none', 'px-1', 'py-1');
+        container.classList.remove('h-[calc(100vh-140px)]', 'max-h-[calc(100vh-130px)]');
+        container.classList.add('h-[calc(100vh-80px)]', 'max-h-[calc(100vh-70px)]');
+        if (theaterBtn) theaterBtn.classList.add('text-indigo-400', 'border-indigo-500/50');
+      }
+    }
+
+    /**
      * Open game directly in new tab
      */
     function openInNewTab() {
@@ -655,7 +694,7 @@
     }
 
     /**
-     * Setup Keyboard Shortcuts: F for fullscreen, R for reload
+     * Setup Keyboard Shortcuts: F for fullscreen, T for theater wide, R for reload
      */
     function setupPlayerShortcuts() {
       window.addEventListener('keydown', (e) => {
@@ -665,6 +704,9 @@
         if (e.key === 'f' || e.key === 'F') {
           e.preventDefault();
           toggleFullscreen();
+        } else if (e.key === 't' || e.key === 'T') {
+          e.preventDefault();
+          toggleTheaterWide();
         } else if (e.key === 'r' || e.key === 'R') {
           e.preventDefault();
           reloadGame();
