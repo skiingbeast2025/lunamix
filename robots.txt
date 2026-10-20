@@ -2,3 +2,4 @@ User-agent: *
 Allow: /
 
 Sitemap: https://skiingbeast2025.github.io/lunamix/sitemap.xml
+Sitemap: https://skiingbeast2025.github.io/lunamix/sitemap.txt
