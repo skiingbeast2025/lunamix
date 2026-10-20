@@ -5,6 +5,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Game Player — Lunamix</title>
   <meta name="description" content="Universal web player for Lunamix arcade. Full theater mode, fullscreen, smooth gameplay, and stealth tab cloaker.">
+  <link rel="canonical" href="https://skiingbeast2025.github.io/lunamix/play.html">
+  <meta property="og:title" content="Game Player — Lunamix">
+  <meta property="og:description" content="Play unblocked games in high performance theater mode.">
+  <meta property="og:url" content="https://skiingbeast2025.github.io/lunamix/play.html">
 
   <!-- Favicon -->
   <link rel="shortcut icon" href="./assets/logos/favicon.svg" type="image/svg+xml">
@@ -292,21 +296,16 @@
         <span class="flex items-center gap-1"><kbd class="px-1.5 py-0.5 rounded bg-slate-900 border border-slate-800 text-slate-400">~</kbd> Panic Exit</span>
       </div>
       <div>
-        Play In Browser • Theater Mode
+        Theater Mode
       </div>
     </div>
 
   </main>
 
-  <!-- Footer -->
+  <!-- Minimalist Footer -->
   <footer class="relative z-10 w-full border-t border-slate-900 bg-slate-950/90 backdrop-blur-md py-4 text-center mt-2">
-    <div class="max-w-7xl mx-auto px-4 flex flex-col sm:flex-row items-center justify-between gap-2 text-xs text-slate-500 font-mono">
-      <div>Lunamix Arcade Player • 1,000+ Free & Unblocked Web Games</div>
-      <div class="flex items-center gap-3">
-        <a href="./games.html" class="hover:text-slate-300">Catalog</a>
-        <span>•</span>
-        <a href="./index.html" class="hover:text-slate-300">Home</a>
-      </div>
+    <div class="max-w-7xl mx-auto px-4 flex items-center justify-center text-xs text-slate-500 font-mono">
+      <a href="https://github.com/skiingbeast2025/lunamix" target="_blank" rel="noopener noreferrer" class="hover:text-slate-300 transition-colors">GitHub</a>
     </div>
   </footer>
 
@@ -374,6 +373,13 @@
         altUrls: ['https://iloveshorty.github.io/html/subwaysurfersbeijing/index.html'],
         isLocal: true
       },
+      'retro-bowl': {
+        name: 'Retro Bowl',
+        category: 'Sports',
+        url: 'https://iloveshorty.github.io/html/retrobowl/game/index.html',
+        altUrls: [],
+        isLocal: true
+      },
       'polytrack': {
         name: 'PolyTrack Ranked',
         category: 'Driving',
@@ -395,6 +401,7 @@
     LOCAL_GAMES_DICT['gd-subzero'] = LOCAL_GAMES_DICT['geometry-dash-subzero'];
     LOCAL_GAMES_DICT['meltdown'] = LOCAL_GAMES_DICT['geometry-dash-meltdown'];
     LOCAL_GAMES_DICT['gd-meltdown'] = LOCAL_GAMES_DICT['geometry-dash-meltdown'];
+    LOCAL_GAMES_DICT['retrobowl'] = LOCAL_GAMES_DICT['retro-bowl'];
     LOCAL_GAMES_DICT['subway'] = LOCAL_GAMES_DICT['subway-surfers'];
     LOCAL_GAMES_DICT['subwaysurfers'] = LOCAL_GAMES_DICT['subway-surfers'];
 
@@ -428,6 +435,8 @@
         const idNum = parseInt(params.get('id'), 10);
         if (idNum === 170) {
           gameData = LOCAL_GAMES_DICT['geometry-dash'];
+        } else if (idNum === 49) {
+          gameData = LOCAL_GAMES_DICT['retro-bowl'];
         } else if (idNum === 1009) {
           gameData = LOCAL_GAMES_DICT['web-dashers'];
         } else if (idNum === 171) {
@@ -484,6 +493,12 @@
         return;
       }
 
+      // Resolve direct game URL (bypassing any StrongDog wrapper)
+      let targetUrl = gameData.url;
+      if (targetUrl && targetUrl.includes('iloveshorty.github.io') && targetUrl.endsWith('/index.html') && !targetUrl.includes('/game/')) {
+        targetUrl = targetUrl.replace(/\/index\.html$/, '/game/index.html');
+      }
+
       // Populate UI
       titleEl.textContent = gameData.name;
       titleEl.title = gameData.name;
@@ -496,7 +511,7 @@
         localBadge.classList.add('hidden');
       }
 
-      currentGameUrl = gameData.url;
+      currentGameUrl = targetUrl;
 
       // Load iframe
       iframe.onload = () => {
@@ -508,7 +523,7 @@
         }, 200);
       };
 
-      iframe.src = gameData.url;
+      iframe.src = targetUrl;
 
       // Setup Keyboard Shortcuts
       setupPlayerShortcuts();
