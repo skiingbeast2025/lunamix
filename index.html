@@ -1,493 +1,412 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="dark">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Lunamix Hub</title>
-  <meta name="description" content="Launch the tools, games, and pages inside the Lunamix repo." />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lunamix — The Ultimate Static Web Arcade</title>
+  <meta name="description" content="100% static, client-side browser gaming hub. Play 1,000+ unblocked classic and modern web games directly in your browser with zero server lag, instant loading, and stealth cloaking.">
+
+  <!-- Favicon -->
+  <link rel="shortcut icon" href="./assets/logos/favicon.svg" type="image/svg+xml">
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com/3.4.17"></script>
+
+  <!-- Google Fonts: Inter & JetBrains Mono -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;700;800&family=JetBrains+Mono:wght@400;500;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+            mono: ['JetBrains Mono', 'monospace'],
+          }
+        }
+      }
+    }
+  </script>
+
   <style>
-    :root {
-      --bg-dark: #080b10;
-      --bg-panel: rgba(255,255,255,.04);
-      --bg-panel-hover: rgba(255,255,255,.07);
-      --border-glass: rgba(255,255,255,.10);
-      --border-glass-hover: rgba(255,255,255,.20);
-      --border-subtle: rgba(255,255,255,.06);
-      --accent-purple: #a78bfa;
-      --accent-cyan: #67e8f9;
-      --accent-green: #86efac;
-      --accent-purple-dim: rgba(167,139,250,.15);
-      --accent-cyan-dim: rgba(103,232,249,.15);
-      --accent-green-dim: rgba(134,239,172,.15);
-      --accent-purple-glow: rgba(167,139,250,.4);
-      --accent-cyan-glow: rgba(103,232,249,.4);
-      --accent-green-glow: rgba(134,239,172,.4);
-      --text-primary: #f0f0f5;
-      --text-secondary: rgba(240,240,245,.65);
-      --text-tertiary: rgba(240,240,245,.35);
-      --font-display: 'Syne', sans-serif;
-      --font-mono: 'JetBrains Mono', monospace;
-      --font-body: 'Space Mono', monospace;
-      --space-sm: 8px;
-      --space-md: 16px;
-      --space-lg: 24px;
-      --space-xl: 32px;
-      --space-2xl: 48px;
-      --space-3xl: 64px;
-      --space-4xl: 96px;
-      --space-section: clamp(80px, 10vw, 140px);
-      --radius-sm: 10px;
-      --radius-md: 14px;
-      --radius-lg: 22px;
-      --radius-full: 9999px;
-      --blur-sm: 12px;
-      --blur-md: 20px;
-      --shadow-glass: 0 8px 32px rgba(0,0,0,.3);
-      --shadow-glow-purple: 0 0 30px rgba(167,139,250,.15);
-      --ease-out: cubic-bezier(.16,1,.3,1);
-      --speed-fast: 150ms;
-      --speed: 300ms;
-      --speed-slow: 600ms;
-      --grid-max: 1200px;
-      --grid-padding: clamp(20px, 4vw, 60px);
+    /* Custom scrollbar */
+    ::-webkit-scrollbar {
+      width: 8px;
+    }
+    ::-webkit-scrollbar-track {
+      background: rgba(15, 23, 42, 0.6);
+    }
+    ::-webkit-scrollbar-thumb {
+      background: rgba(148, 163, 184, 0.25);
+      border-radius: 4px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: rgba(148, 163, 184, 0.4);
     }
 
-    * { box-sizing: border-box; }
-    html { scroll-behavior: smooth; }
-    body {
-      margin: 0;
-      min-height: 100vh;
-      font-family: var(--font-body);
-      background: var(--bg-dark);
-      color: var(--text-primary);
-      line-height: 1.7;
-      overflow-x: hidden;
-      position: relative;
-      -webkit-font-smoothing: antialiased;
-      text-rendering: optimizeLegibility;
+    /* InvisiProxy Background Canvas CSS */
+    #background {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 0;
+      pointer-events: none;
+      background-color: #000000;
     }
-    body.has-cursor, body.has-cursor a, body.has-cursor button,
-    body.has-cursor input, body.has-cursor select, body.has-cursor textarea { cursor: none; }
 
-    ::selection { background: var(--accent-purple); color: var(--bg-dark); }
-    a { color: inherit; text-decoration: none; }
-    img, svg { max-width: 100%; display: block; }
-    button { font: inherit; }
-
-    .container {
-      width: min(var(--grid-max), calc(100% - (var(--grid-padding) * 2)));
-      margin-inline: auto;
+    /* Monochrome glowing bullet & box */
+    .glow-dot {
+      box-shadow: 0 0 10px rgba(255, 255, 255, 0.7), 0 0 20px rgba(255, 255, 255, 0.3);
     }
-    .section { padding: var(--space-section) 0; position: relative; }
-    .section-title { font-size: clamp(2rem, 4vw, 3.5rem); margin: 0 0 var(--space-2xl); }
-
-    .bg-orbs { position: fixed; inset: 0; pointer-events: none; z-index: -1; overflow: hidden; }
-    .orb { position: absolute; border-radius: 50%; filter: blur(80px); opacity: .35; will-change: transform; }
-    .orb-1 { width: 500px; height: 500px; background: var(--accent-purple); top: -10%; left: -5%; animation: drift1 25s ease-in-out infinite; }
-    .orb-2 { width: 400px; height: 400px; background: var(--accent-cyan); top: 40%; right: -10%; animation: drift2 30s ease-in-out infinite; }
-    .orb-3 { width: 350px; height: 350px; background: var(--accent-green); bottom: -5%; left: 30%; animation: drift3 20s ease-in-out infinite; }
-    @keyframes drift1 { 0%,100%{transform:translate(0,0) scale(1)} 25%{transform:translate(80px,60px) scale(1.1)} 50%{transform:translate(-40px,120px) scale(.9)} 75%{transform:translate(60px,-30px) scale(1.05)} }
-    @keyframes drift2 { 0%,100%{transform:translate(0,0) scale(1)} 33%{transform:translate(-100px,-80px) scale(1.15)} 66%{transform:translate(50px,60px) scale(.85)} }
-    @keyframes drift3 { 0%,100%{transform:translate(0,0) scale(1)} 50%{transform:translate(70px,-90px) scale(1.1)} }
-
-    .noise-overlay {
-      position: fixed; inset: 0; z-index: 1; pointer-events: none; opacity: .03; mix-blend-mode: overlay;
-      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
-      background-size: 256px 256px;
+    .glow-box {
+      box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.45);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
     }
-    .cursor-dot {
-      position: fixed; top: 0; left: 0; width: 16px; height: 16px; border-radius: 50%;
-      background: var(--accent-purple); pointer-events: none; z-index: 1000; mix-blend-mode: screen;
-      box-shadow: 0 0 20px var(--accent-purple-glow), 0 0 60px var(--accent-purple-dim);
-      transition: width .2s, height .2s, background .3s; will-change: transform;
+    .feature-card {
+      transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
     }
-    .cursor-dot.hover { width: 48px; height: 48px; background: rgba(167,139,250,.15); border: 1px solid var(--accent-purple); }
-
-    .glass {
-      background: var(--bg-panel);
-      backdrop-filter: blur(var(--blur-md));
-      -webkit-backdrop-filter: blur(var(--blur-md));
-      border: 1px solid var(--border-glass);
-      border-radius: var(--radius-lg);
-      position: relative;
-      overflow: hidden;
-      transition: border-color var(--speed) var(--ease-out), box-shadow var(--speed) var(--ease-out), background var(--speed) var(--ease-out), transform var(--speed) var(--ease-out);
-    }
-    .glass:hover {
-      border-color: var(--border-glass-hover);
-      background: var(--bg-panel-hover);
-      box-shadow: var(--shadow-glass), inset 0 1px 0 rgba(255,255,255,.05);
+    .feature-card:hover {
       transform: translateY(-4px);
+      border-color: rgba(255, 255, 255, 0.3);
+      box-shadow: 0 12px 30px -10px rgba(99, 102, 241, 0.25);
     }
-    .glass::before {
-      content: '';
-      position: absolute;
-      top: 0; left: -100%;
-      width: 50%; height: 100%;
-      background: linear-gradient(90deg, transparent, rgba(255,255,255,.06), transparent);
-      transition: left .6s var(--ease-out); z-index: 2; pointer-events: none;
-    }
-    .glass:hover::before { left: 120%; }
-
-    .tag {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      padding: 6px 14px;
-      border-radius: var(--radius-full);
-      font-family: var(--font-mono);
-      font-size: .75rem;
-      font-weight: 500;
-      letter-spacing: .05em;
-      text-transform: uppercase;
-      border: 1px solid var(--border-glass);
-      background: var(--bg-panel);
-      color: var(--text-secondary);
-      transition: all var(--speed) var(--ease-out);
-    }
-    .tag-purple { border-color: var(--accent-purple-dim); color: var(--accent-purple); }
-    .tag-cyan { border-color: var(--accent-cyan-dim); color: var(--accent-cyan); }
-    .tag-green { border-color: var(--accent-green-dim); color: var(--accent-green); }
-
-    .blink-dot { display: inline-block; width: 8px; height: 8px; border-radius: 50%; background: var(--accent-green); animation: blink 2s ease-in-out infinite; }
-    @keyframes blink { 0%,100%{opacity:1;box-shadow:0 0 0 0 var(--accent-green-glow)} 50%{opacity:.4;box-shadow:0 0 12px 4px var(--accent-green-glow)} }
-
-    .navbar {
-      position: fixed; top: 20px; left: 50%; transform: translateX(-50%); z-index: 100;
-      display: flex; align-items: center; gap: 8px; padding: 10px 12px;
-      background: rgba(8,11,16,.7); backdrop-filter: blur(var(--blur-md)); -webkit-backdrop-filter: blur(var(--blur-md));
-      border: 1px solid var(--border-glass); border-radius: var(--radius-full); box-shadow: var(--shadow-glass);
-      width: max-content; max-width: calc(100% - 40px); transition: transform .3s ease, border-color var(--speed);
-    }
-    .navbar.hidden { transform: translateX(-50%) translateY(-150%); }
-    .navbar:hover { border-color: var(--border-glass-hover); }
-    .nav-logo {
-      font-family: var(--font-display); font-weight: 800; font-size: 1.1rem; letter-spacing: -.02em; color: var(--accent-purple);
-      padding: 6px 14px; white-space: nowrap;
-    }
-    .nav-links { display: flex; align-items: center; gap: 2px; }
-    .nav-links a {
-      font-family: var(--font-mono); font-size: .8rem; font-weight: 500; color: var(--text-secondary);
-      padding: 8px 16px; border-radius: var(--radius-full); white-space: nowrap; transition: all var(--speed-fast) var(--ease-out);
-    }
-    .nav-links a:hover { color: var(--text-primary); background: var(--bg-panel-hover); }
-    .nav-cta {
-      font-family: var(--font-mono); font-size: .8rem; font-weight: 700; color: var(--accent-purple);
-      padding: 8px 20px; border: 1px solid var(--accent-purple-dim); border-radius: var(--radius-full);
-      background: var(--accent-purple-dim); white-space: nowrap; transition: all var(--speed) var(--ease-out);
-    }
-    .nav-cta:hover { background: var(--accent-purple); color: var(--bg-dark); box-shadow: var(--shadow-glow-purple); transform: translateY(-1px); }
-    .mobile-menu-btn { display: none; flex-direction: column; gap: 5px; padding: 8px; }
-    .mobile-menu-btn span { width: 20px; height: 2px; background: var(--text-primary); border-radius: 2px; }
-
-    .hero {
-      min-height: 100vh; display: flex; flex-direction: column; align-items: center; justify-content: center;
-      text-align: center; position: relative; padding: 128px var(--grid-padding) 80px;
-    }
-    .hero-content { position: relative; z-index: 10; max-width: 900px; }
-    .hero-tag { display: inline-flex; align-items: center; gap: 8px; margin-bottom: var(--space-lg); }
-    .hero h1 {
-      margin: 0 0 var(--space-lg);
-      font-family: var(--font-display);
-      font-size: clamp(3rem, 8vw, 7rem);
-      letter-spacing: -.06em;
-      line-height: .9;
-      font-weight: 800;
-    }
-    .accent-purple { color: var(--accent-purple); } .accent-cyan { color: var(--accent-cyan); } .accent-green { color: var(--accent-green); }
-    .hero-subtitle {
-      margin: 0 auto var(--space-xl);
-      max-width: 650px;
-      font-size: clamp(1rem, 1.5vw, 1.2rem);
-      color: var(--text-secondary);
-    }
-    .hero-buttons {
-      display: flex; justify-content: center; gap: 16px; margin-top: var(--space-2xl);
-      flex-wrap: wrap;
-    }
-    .btn {
-      display: inline-flex; align-items: center; justify-content: center; gap: 8px; padding: 14px 32px;
-      border-radius: var(--radius-full); font-family: var(--font-mono); font-size: .85rem; font-weight: 700;
-      transition: all var(--speed) var(--ease-out); will-change: transform;
-      border: 1px solid transparent;
-    }
-    .btn-accent { background: var(--accent-purple); color: var(--bg-dark); box-shadow: var(--shadow-glow-purple); }
-    .btn-accent:hover { transform: translateY(-2px); box-shadow: 0 0 40px var(--accent-purple-glow), 0 8px 32px rgba(0,0,0,.4); }
-    .btn-glass { background: var(--bg-panel); backdrop-filter: blur(var(--blur-sm)); border: 1px solid var(--border-glass); }
-    .btn-glass:hover { background: var(--bg-panel-hover); border-color: var(--border-glass-hover); transform: translateY(-2px); box-shadow: var(--shadow-glass); }
-
-    .section-divider {
-      width: 100%; height: 1px; position: relative; overflow: hidden; background: var(--border-subtle);
-    }
-    .section-divider::after {
-      content: ''; position: absolute; top: 0; left: -60%; width: 60%; height: 100%;
-      background: linear-gradient(90deg, transparent, var(--accent-purple), var(--accent-cyan), transparent);
-      animation: scan 4s linear infinite;
-    }
-    @keyframes scan { to { left: 100%; } }
-
-    .launch-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: var(--space-lg);
-      margin-top: var(--space-xl);
-    }
-    .launch-card {
-      padding: var(--space-xl);
-      display: flex;
-      flex-direction: column;
-      min-height: 280px;
-      gap: var(--space-md);
-    }
-    .launch-card.featured {
-      border-color: var(--accent-purple-dim);
-      background: linear-gradient(135deg, var(--accent-purple-dim), var(--bg-panel));
-    }
-    .launch-icon {
-      width: 64px; height: 64px; border-radius: var(--radius-md);
-      display: grid; place-items: center; font-size: 1.8rem;
-      background: rgba(255,255,255,.03); border: 1px solid var(--border-glass);
-    }
-    .launch-card h3 {
-      margin: 0;
-      font-size: clamp(1.6rem, 2vw, 2rem);
-      font-family: var(--font-display);
-      letter-spacing: -.03em;
-      line-height: 1.1;
-    }
-    .launch-card p {
-      margin: 0;
-      color: var(--text-secondary);
-      flex: 1;
-    }
-    .launch-meta {
-      display: flex; flex-wrap: wrap; gap: 8px;
-      margin-top: auto;
-    }
-    .launch-card .btn {
-      width: 100%; margin-top: var(--space-md);
-    }
-
-    .quick-links {
-      display: flex; flex-wrap: wrap; gap: 12px; justify-content: center;
-      margin-top: var(--space-xl);
-    }
-
-    .footer {
-      padding: var(--space-2xl) 0; border-top: 1px solid var(--border-subtle);
-    }
-    .footer-inner {
-      display: flex; justify-content: space-between; align-items: center; gap: var(--space-md);
-      flex-wrap: wrap;
-    }
-    .footer-logo {
-      font-family: var(--font-display); font-weight: 800; font-size: 1.2rem; color: var(--accent-purple); letter-spacing: -.02em;
-    }
-    .footer-copy { font-family: var(--font-mono); font-size: .75rem; color: var(--text-tertiary); }
-    .footer-links { display: flex; gap: var(--space-lg); flex-wrap: wrap; }
-    .footer-links a { font-family: var(--font-mono); font-size: .8rem; color: var(--text-secondary); }
-    .footer-links a:hover { color: var(--accent-purple); }
-
-    @media (max-width: 768px) {
-      .navbar { top: 12px; left: 16px; right: 16px; transform: none; width: auto; max-width: none; border-radius: var(--radius-lg); flex-wrap: wrap; justify-content: space-between; padding: 12px 16px; }
-      .navbar.hidden { transform: translateY(-150%); }
-      .nav-links { display: none; width: 100%; flex-direction: column; align-items: stretch; padding-top: 12px; margin-top: 8px; border-top: 1px solid var(--border-subtle); order: 10; }
-      .nav-links.active { display: flex; }
-      .nav-links a { padding: 10px 0; }
-      .nav-cta { order: -1; padding: 8px 16px; font-size: .75rem; }
-      .mobile-menu-btn { display: flex; order: -2; }
-      .hero h1 { font-size: clamp(2.5rem, 10vw, 4rem); }
-      .hero-buttons { flex-direction: column; align-items: center; }
-      .btn { width: 100%; max-width: 320px; }
-      .footer-inner { flex-direction: column; text-align: center; }
-    }
-
-    @media (hover: none) { .cursor-dot { display: none; } }
   </style>
 </head>
-<body>
-  <div class="cursor-dot" aria-hidden="true"></div>
-  <div class="bg-orbs" aria-hidden="true"><div class="orb orb-1"></div><div class="orb orb-2"></div><div class="orb orb-3"></div></div>
-  <div class="noise-overlay" aria-hidden="true"></div>
+<body class="bg-black text-neutral-100 min-h-screen relative font-sans selection:bg-white selection:text-black antialiased overflow-x-hidden flex flex-col justify-between">
 
-  <nav class="navbar" aria-label="Main navigation">
-    <a href="#home" class="nav-logo">LUNAMIX</a>
-    <ul class="nav-links">
-      <li><a href="#home">Home</a></li>
-      <li><a href="#launch">Launch</a></li>
-      <li><a href="#files">Files</a></li>
-    </ul>
-    <a href="#launch" class="nav-cta">Open hub</a>
-    <button class="mobile-menu-btn" aria-label="Open menu" aria-expanded="false"><span></span><span></span><span></span></button>
-  </nav>
+  <!-- InvisiProxy Constellation Background Canvas -->
+  <canvas id="background" class="fixed inset-0 w-full h-full pointer-events-none z-0" aria-hidden="true"></canvas>
 
-  <main>
-    <section class="hero" id="home">
-      <div class="hero-content">
-        <div class="hero-tag">
-          <span class="blink-dot"></span>
-          <span class="tag tag-green">All systems online</span>
+  <!-- Top Navigation Bar -->
+  <header class="relative z-20 w-full border-b border-slate-800/80 bg-slate-950/80 backdrop-blur-xl">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+      
+      <!-- Brand Logo -->
+      <a href="./index.html" class="flex items-center gap-3 group">
+        <div class="w-9 h-9 rounded-xl bg-slate-900 border border-slate-700/80 flex items-center justify-center p-1.5 shadow-inner group-hover:border-slate-500 transition-colors">
+          <img src="./assets/logos/favicon.svg" alt="Lunamix Moon" class="w-full h-full">
         </div>
-        <h1>Your repo,<br><span class="accent-purple">ready to launch</span></h1>
-        <p class="hero-subtitle">A central glass-style launch hub for the tools and experiences inside this project. Start the game, open the template, or jump into the repo files.</p>
-        <div class="hero-buttons">
-          <a href="#launch" class="btn btn-accent">Launch now</a>
-          <a href="#files" class="btn btn-glass">Browse files</a>
+        <div class="flex flex-col">
+          <span class="font-mono text-lg font-extrabold tracking-wider text-white flex items-center gap-1.5">
+            LUNAMIX
+            <span class="text-[10px] px-1.5 py-0.2 font-mono bg-indigo-500/20 text-indigo-400 border border-indigo-500/30 rounded">v2.5</span>
+          </span>
+          <span class="text-[10px] text-slate-400 font-mono tracking-tight hidden sm:block">100% Static Web Arcade</span>
         </div>
-        <div class="quick-links">
-          <span class="tag tag-purple">Geometry Dash</span>
-          <span class="tag tag-cyan">Glass template</span>
-          <span class="tag tag-green">Repo files</span>
+      </a>
+
+      <!-- Navigation & Controls -->
+      <div class="flex items-center gap-2.5 sm:gap-4">
+        <!-- Catalog Link -->
+        <a href="./games.html" class="hidden sm:inline-flex items-center gap-2 px-3.5 py-1.5 rounded-lg text-xs font-semibold text-slate-200 bg-slate-900/90 hover:bg-slate-800 border border-slate-700/80 hover:border-slate-600 transition-all">
+          <svg class="w-3.5 h-3.5 text-indigo-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z" />
+          </svg>
+          Game Catalog (1,000+)
+        </a>
+
+        <!-- Geometry Dash Direct Link -->
+        <a href="./play.html?game=geometry-dash-wasm" class="hidden md:inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-semibold text-amber-300 bg-amber-500/10 hover:bg-amber-500/20 border border-amber-500/30 transition-all">
+          <svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
+          </svg>
+          Geometry Dash WASM
+        </a>
+
+        <!-- Tab Cloak Dropdown -->
+        <div class="relative flex items-center">
+          <select 
+            id="nav-tab-cloak" 
+            class="tab-cloak-select appearance-none bg-slate-900/90 border border-slate-700/80 text-xs text-slate-300 hover:text-white rounded-lg pl-2.5 pr-7 py-1.5 focus:outline-none focus:ring-1 focus:ring-white transition-all cursor-pointer"
+            onchange="LunamixCloak.apply(this.value)"
+            title="Stealth Tab Cloak: disguise this tab"
+          >
+            <option value="default">🎭 Cloak: Off (Lunamix)</option>
+            <option value="classroom">Google Classroom</option>
+            <option value="drive">Google Drive</option>
+            <option value="canvas">Canvas LMS</option>
+            <option value="docs">Google Docs</option>
+          </select>
+          <div class="pointer-events-none absolute right-2 flex items-center text-slate-400">
+            <svg class="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+            </svg>
+          </div>
         </div>
+
+        <!-- Panic Button -->
+        <button 
+          type="button" 
+          onclick="LunamixPanic.trigger()"
+          class="inline-flex items-center gap-1.5 px-2.5 sm:px-3 py-1.5 rounded-lg text-xs font-semibold text-rose-300 bg-rose-500/15 hover:bg-rose-500/25 border border-rose-500/40 hover:border-rose-400 transition-all cursor-pointer shrink-0"
+          title="Panic Exit (Hotkey: ~ or Esc): Instantly redirects to Google Classroom"
+        >
+          <svg class="w-3.5 h-3.5 text-rose-400 animate-pulse" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
+          </svg>
+          <span class="hidden sm:inline">Panic</span>
+          <kbd class="px-1 text-[10px] font-mono bg-rose-950/80 rounded border border-rose-800 panic-key-label">~</kbd>
+        </button>
+
+        <!-- Settings Cog Modal Trigger -->
+        <button 
+          type="button" 
+          onclick="openSettingsModal()"
+          class="p-1.5 rounded-lg text-slate-400 hover:text-white bg-slate-900/80 hover:bg-slate-800 border border-slate-800 hover:border-slate-700 transition-all"
+          title="Settings & Cloak Preferences"
+        >
+          <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" />
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+          </svg>
+        </button>
+
       </div>
-    </section>
+    </div>
+  </header>
 
-    <div class="section-divider"></div>
+  <!-- Hero Section -->
+  <main class="relative z-10 flex-1 flex flex-col justify-center items-center px-4 sm:px-6 lg:px-8 py-12 sm:py-20 max-w-5xl mx-auto text-center">
 
-    <section class="section" id="launch">
-      <div class="container">
-        <div class="section-label" style="display:inline-flex;align-items:center;gap:8px;font-family:var(--font-mono);font-size:.75rem;font-weight:700;text-transform:uppercase;letter-spacing:.12em;color:var(--accent-purple);margin-bottom:var(--space-lg);">Launch</div>
-        <h2 class="section-title">Open your project</h2>
+    <!-- Live Status Pill -->
+    <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-slate-900/90 border border-slate-700/80 shadow-lg backdrop-blur-md mb-8 glow-box">
+      <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+      <span class="text-xs font-mono font-medium text-slate-300">100% Client-Side Static</span>
+      <span class="text-slate-600">•</span>
+      <span class="text-xs font-mono text-indigo-400 font-semibold">1,015 Verified Games</span>
+      <span class="text-slate-600 hidden sm:inline">•</span>
+      <span class="text-xs font-mono text-slate-400 hidden sm:inline">Zero Lag</span>
+    </div>
 
-        <div class="launch-grid">
-          <article class="glass launch-card featured">
-            <div class="launch-icon">🎮</div>
-            <span class="tag tag-purple">Primary game</span>
-            <h3>Geometry Dash</h3>
-            <p>Launch the working web game directly from the repo. This is the current playable entry point for the project.</p>
-            <div class="launch-meta">
-              <span class="tag tag-cyan">GeoDash/index.html</span>
-            </div>
-            <a href="./GeoDash/index.html" class="btn btn-accent">Launch game</a>
-          </article>
+    <!-- Hero Title -->
+    <h1 class="text-4xl sm:text-6xl md:text-7xl font-extrabold tracking-tight text-white mb-6 leading-tight">
+      Play Without Limits.<br>
+      <span class="text-transparent bg-clip-text bg-gradient-to-r from-white via-neutral-200 to-neutral-400">
+        Pure Static Web Arcade.
+      </span>
+    </h1>
 
-          <article class="glass launch-card">
-            <div class="launch-icon">✨</div>
-            <span class="tag tag-cyan">Design template</span>
-            <h3>Glass template</h3>
-            <p>Open the visual reference file for the glass-style UI used across this repo and future pages.</p>
-            <div class="launch-meta">
-              <span class="tag tag-green">glass-template.html</span>
-            </div>
-            <a href="./glass-template.html" class="btn btn-glass">Open template</a>
-          </article>
+    <!-- Hero Subtitle -->
+    <p class="max-w-2xl text-base sm:text-xl text-neutral-400 font-normal leading-relaxed mb-10">
+      Lunamix delivers a pristine, high-density catalog of 1,000+ curated unblocked web games directly to your browser. Built entirely on HTML5, WebGL, and WebAssembly with instant stealth cloaking and zero server bottlenecks.
+    </p>
 
-          <article class="glass launch-card">
-            <div class="launch-icon">📘</div>
-            <span class="tag tag-green">Docs</span>
-            <h3>Project overview</h3>
-            <p>Read the project notes and instructions for the game audio patch and repo setup.</p>
-            <div class="launch-meta">
-              <span class="tag">README.md</span>
-            </div>
-            <a href="./README.md" class="btn btn-glass">Read notes</a>
-          </article>
+    <!-- Hero Call to Action Buttons -->
+    <div class="flex flex-col sm:flex-row items-center justify-center gap-4 w-full max-w-md sm:max-w-none mb-16">
+      
+      <!-- Primary CTA: Catalog -->
+      <a 
+        href="./games.html" 
+        class="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-8 py-4 rounded-xl bg-white text-black font-semibold text-sm sm:text-base hover:bg-neutral-200 transition-all transform hover:-translate-y-0.5 shadow-2xl shadow-white/20 glow-dot"
+      >
+        <span>Explore All 1,000+ Games</span>
+        <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+        </svg>
+      </a>
+
+      <!-- Secondary CTA: Geometry Dash WASM -->
+      <a 
+        href="./play.html?game=geometry-dash-wasm" 
+        class="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-7 py-4 rounded-xl bg-slate-900/90 hover:bg-slate-850 text-white font-semibold text-sm sm:text-base border border-slate-700/90 hover:border-slate-500 transition-all transform hover:-translate-y-0.5 shadow-xl backdrop-blur-md"
+      >
+        <span class="text-amber-400">⚡</span>
+        <span>Play Geometry Dash (WASM)</span>
+      </a>
+
+      <!-- Tertiary CTA: Slope / OvO -->
+      <a 
+        href="./games.html?category=featured" 
+        class="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-4 rounded-xl bg-slate-950/60 hover:bg-slate-900/80 text-slate-300 hover:text-white font-medium text-sm sm:text-base border border-slate-800/80 hover:border-slate-700 transition-all backdrop-blur-md"
+      >
+        <span>★ Featured Classics</span>
+      </a>
+
+    </div>
+
+    <!-- Feature Pillars Grid -->
+    <div class="w-full grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 text-left">
+      
+      <!-- Feature 1 -->
+      <div class="feature-card p-5 rounded-2xl bg-slate-950/70 border border-slate-800/90 backdrop-blur-md">
+        <div class="w-10 h-10 rounded-xl bg-indigo-500/10 border border-indigo-500/20 flex items-center justify-center text-indigo-400 mb-3.5">
+          <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
+          </svg>
         </div>
+        <h3 class="text-sm font-bold text-white mb-1">100% Client-Side</h3>
+        <p class="text-xs text-slate-400 leading-relaxed">
+          Hosted entirely on GitHub Pages. No backend containers, no lag, and no proxy server failures.
+        </p>
       </div>
-    </section>
 
-    <div class="section-divider"></div>
-
-    <section class="section" id="files">
-      <div class="container">
-        <div class="section-label" style="display:inline-flex;align-items:center;gap:8px;font-family:var(--font-mono);font-size:.75rem;font-weight:700;text-transform:uppercase;letter-spacing:.12em;color:var(--accent-cyan);margin-bottom:var(--space-lg);">Files</div>
-        <h2 class="section-title">Quick access</h2>
-
-        <div class="launch-grid">
-          <article class="glass launch-card">
-            <div class="launch-icon">🗂️</div>
-            <span class="tag">Folder</span>
-            <h3>GeoDash folder</h3>
-            <p>Open the dedicated folder that contains the main game source and supporting files.</p>
-            <a href="./GeoDash/" class="btn btn-glass">Open folder</a>
-          </article>
-
-          <article class="glass launch-card">
-            <div class="launch-icon">📄</div>
-            <span class="tag tag-purple">Standalone</span>
-            <h3>GeoDash online</h3>
-            <p>Jump directly to the alternate online-style game page if you want a more direct launch route.</p>
-            <a href="./GeoDash/GeoDashOnline.html" class="btn btn-glass">Open page</a>
-          </article>
-
-          <article class="glass launch-card">
-            <div class="launch-icon">🧩</div>
-            <span class="tag tag-green">Use for updates</span>
-            <h3>Hub updater</h3>
-            <p>This page is designed to be easy to expand later with new folders, mini-games, and project links.</p>
-            <a href="#home" class="btn btn-glass">Back to top</a>
-          </article>
+      <!-- Feature 2 -->
+      <div class="feature-card p-5 rounded-2xl bg-slate-950/70 border border-slate-800/90 backdrop-blur-md">
+        <div class="w-10 h-10 rounded-xl bg-rose-500/10 border border-rose-500/20 flex items-center justify-center text-rose-400 mb-3.5">
+          <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
+          </svg>
         </div>
+        <h3 class="text-sm font-bold text-white mb-1">Tab Cloak & Panic</h3>
+        <p class="text-xs text-slate-400 leading-relaxed">
+          Disguise as Google Classroom or Drive in 1 click. Press <kbd class="px-1 py-0.5 text-[10px] font-mono bg-slate-800 rounded">~</kbd> for instant emergency escape.
+        </p>
       </div>
-    </section>
+
+      <!-- Feature 3 -->
+      <div class="feature-card p-5 rounded-2xl bg-slate-950/70 border border-slate-800/90 backdrop-blur-md">
+        <div class="w-10 h-10 rounded-xl bg-amber-500/10 border border-amber-500/20 flex items-center justify-center text-amber-400 mb-3.5">
+          <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 4a2 2 0 114 0v1a1 1 0 001 1h3a1 1 0 011 1v3a1 1 0 01-1 1h-1a2 2 0 100 4h1a1 1 0 011 1v3a1 1 0 01-1 1h-3a1 1 0 01-1-1v-1a2 2 0 10-4 0v1a1 1 0 01-1 1H7a1 1 0 01-1-1v-3a1 1 0 00-1-1H4a2 2 0 110-4h1a1 1 0 001-1V7a1 1 0 011-1h3a1 1 0 001-1V4z" />
+          </svg>
+        </div>
+        <h3 class="text-sm font-bold text-white mb-1">Geometry Dash Hub</h3>
+        <p class="text-xs text-slate-400 leading-relaxed">
+          Triple-port architecture: Bog WebAssembly, C++ WebGL2 with custom songs, and full 22-level Phaser port.
+        </p>
+      </div>
+
+      <!-- Feature 4 -->
+      <div class="feature-card p-5 rounded-2xl bg-slate-950/70 border border-slate-800/90 backdrop-blur-md">
+        <div class="w-10 h-10 rounded-xl bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center text-emerald-400 mb-3.5">
+          <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+          </svg>
+        </div>
+        <h3 class="text-sm font-bold text-white mb-1">1,000+ Game Index</h3>
+        <p class="text-xs text-slate-400 leading-relaxed">
+          Full catalog of StrongDog, OvO, Slope, PolyTrack, Subway Surfers, and verified HTML5 classics.
+        </p>
+      </div>
+
+    </div>
+
   </main>
 
-  <footer class="footer">
-    <div class="container footer-inner">
-      <span class="footer-logo">LUNAMIX</span>
-      <nav class="footer-links" aria-label="Footer">
-        <a href="#home">Home</a>
-        <a href="#launch">Launch</a>
-        <a href="#files">Files</a>
-      </nav>
-      <span class="footer-copy">© 2026 Lunamix</span>
+  <!-- Minimalist Footer -->
+  <footer class="relative z-10 w-full border-t border-slate-900 bg-slate-950/90 backdrop-blur-md py-6 text-center">
+    <div class="max-w-7xl mx-auto px-4 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-slate-500 font-mono">
+      <div>
+        LUNAMIX ARCADE • 100% Static Browser Architecture • Ready for GitHub Pages
+      </div>
+      <div class="flex items-center gap-4">
+        <a href="./games.html" class="hover:text-slate-300 transition-colors">Catalog</a>
+        <span>•</span>
+        <a href="./play.html?game=geometry-dash-wasm" class="hover:text-slate-300 transition-colors">GD WASM</a>
+        <span>•</span>
+        <a href="https://github.com/skiingbeast2025/lunamix" target="_blank" rel="noopener noreferrer" class="hover:text-slate-300 transition-colors">GitHub</a>
+      </div>
     </div>
   </footer>
 
+  <!-- Quick Settings & Cloak Customizer Modal -->
+  <div id="settings-modal" class="fixed inset-0 z-50 flex items-center justify-center bg-black/80 backdrop-blur-md p-4 hidden">
+    <div class="w-full max-w-md rounded-2xl bg-slate-900 border border-slate-800 shadow-2xl p-6 glow-box relative">
+      <div class="flex items-center justify-between mb-5">
+        <h3 class="text-base font-bold text-white flex items-center gap-2">
+          <span>⚙️ Settings & Stealth Controls</span>
+        </h3>
+        <button type="button" onclick="closeSettingsModal()" class="text-slate-400 hover:text-white p-1 rounded-lg hover:bg-slate-800">
+          <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+          </svg>
+        </button>
+      </div>
+
+      <div class="space-y-4 text-left">
+        <div>
+          <label class="block text-xs font-mono text-slate-400 mb-1.5 uppercase tracking-wider">Tab Cloaking Preset</label>
+          <select 
+            id="modal-tab-cloak" 
+            class="tab-cloak-select w-full bg-slate-950 border border-slate-700 text-sm text-slate-200 rounded-xl px-3 py-2.5 focus:outline-none focus:ring-1 focus:ring-white"
+            onchange="LunamixCloak.apply(this.value)"
+          >
+            <option value="default">Default (Lunamix Arcade)</option>
+            <option value="classroom">Google Classroom (Classes)</option>
+            <option value="drive">Google Drive (My Drive)</option>
+            <option value="canvas">Canvas LMS (Dashboard)</option>
+            <option value="docs">Google Docs (Documents)</option>
+          </select>
+          <p class="text-[11px] text-slate-500 mt-1">Disguises the browser tab title and favicon instantly.</p>
+        </div>
+
+        <div>
+          <label class="block text-xs font-mono text-slate-400 mb-1.5 uppercase tracking-wider">Panic Emergency Key</label>
+          <div class="flex gap-2">
+            <input 
+              id="modal-panic-key" 
+              type="text" 
+              value="~" 
+              maxlength="10" 
+              class="w-24 bg-slate-950 border border-slate-700 text-sm font-mono text-center text-rose-400 rounded-xl px-3 py-2.5 focus:outline-none focus:ring-1 focus:ring-rose-400"
+            >
+            <button 
+              type="button" 
+              onclick="savePanicKey()"
+              class="flex-1 bg-slate-800 hover:bg-slate-700 text-slate-200 text-xs font-semibold rounded-xl px-4 py-2.5 transition-colors"
+            >
+              Update Key
+            </button>
+          </div>
+          <p class="text-[11px] text-slate-500 mt-1">Pressing this key instantly redirects away to safety.</p>
+        </div>
+
+        <div>
+          <label class="block text-xs font-mono text-slate-400 mb-1.5 uppercase tracking-wider">Panic Redirect Destination</label>
+          <input 
+            id="modal-panic-url" 
+            type="url" 
+            value="https://classroom.google.com" 
+            class="w-full bg-slate-950 border border-slate-700 text-xs font-mono text-slate-300 rounded-xl px-3 py-2.5 focus:outline-none focus:ring-1 focus:ring-white"
+          >
+        </div>
+      </div>
+
+      <div class="mt-6 flex justify-end gap-2">
+        <button 
+          type="button" 
+          onclick="closeSettingsModal()" 
+          class="px-4 py-2 rounded-xl bg-white text-black font-semibold text-xs hover:bg-neutral-200 transition-colors"
+        >
+          Save & Close
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Lunamix Core Library -->
+  <script src="./assets/js/lunamix-core.js"></script>
+
   <script>
-    (() => {
-      const navbar = document.querySelector('.navbar');
-      const mobileBtn = document.querySelector('.mobile-menu-btn');
-      const navLinks = document.querySelector('.nav-links');
-      const cursor = document.querySelector('.cursor-dot');
-      const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-
-      let lastY = 0;
-      let ticking = false;
-      window.addEventListener('scroll', () => {
-        if (ticking) return;
-        ticking = true;
-        requestAnimationFrame(() => {
-          const y = window.scrollY;
-          navbar.classList.toggle('hidden', y > lastY && y > 120);
-          lastY = y;
-          ticking = false;
-        });
-      }, { passive: true });
-
-      if (mobileBtn && navLinks) {
-        mobileBtn.addEventListener('click', () => {
-          const open = navLinks.classList.toggle('active');
-          mobileBtn.setAttribute('aria-expanded', open);
-        });
-
-        navLinks.querySelectorAll('a').forEach(a => {
-          a.addEventListener('click', () => {
-            navLinks.classList.remove('active');
-            mobileBtn.setAttribute('aria-expanded', 'false');
-          });
-        });
+    function openSettingsModal() {
+      const modal = document.getElementById('settings-modal');
+      if (modal) {
+        modal.classList.remove('hidden');
+        document.getElementById('modal-panic-key').value = LunamixPanic.panicKey;
+        document.getElementById('modal-panic-url').value = LunamixPanic.panicUrl;
       }
-
-      if (!window.matchMedia('(hover: none)').matches && !reduced && cursor) {
-        document.body.classList.add('has-cursor');
-        let mx = window.innerWidth / 2, my = window.innerHeight / 2, cx = mx, cy = my;
-        window.addEventListener('mousemove', e => {
-          mx = e.clientX; my = e.clientY;
-        });
-        const hoverSel = 'a, button, .tag, .glass, .launch-card';
-        document.addEventListener('mouseover', e => e.target.closest(hoverSel) && cursor.classList.add('hover'));
-        document.addEventListener('mouseout', e => e.target.closest(hoverSel) && cursor.classList.remove('hover'));
-        (function loop() {
-          cx += (mx - cx) * .12; cy += (my - cy) * .12;
-          cursor.style.transform = `translate(${cx - cursor.offsetWidth / 2}px, ${cy - cursor.offsetHeight / 2}px)`;
-          requestAnimationFrame(loop);
-        })();
+    }
+    function closeSettingsModal() {
+      const modal = document.getElementById('settings-modal');
+      if (modal) {
+        modal.classList.add('hidden');
+        const url = document.getElementById('modal-panic-url').value;
+        if (url) LunamixPanic.setUrl(url);
       }
-    })();
+    }
+    function savePanicKey() {
+      const k = document.getElementById('modal-panic-key').value.trim();
+      if (k) {
+        LunamixPanic.setKey(k);
+        alert('Panic key updated to: ' + k);
+      }
+    }
   </script>
 </body>
 </html>
