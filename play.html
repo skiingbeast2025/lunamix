@@ -132,12 +132,6 @@
           >
             ARCADE
           </span>
-          <span 
-            id="game-local-badge" 
-            class="hidden md:inline-flex px-1.5 py-0.5 text-[9px] font-mono font-bold uppercase rounded bg-emerald-950 text-emerald-400 border border-emerald-800 shrink-0"
-          >
-            VERIFIED HQ
-          </span>
         </div>
 
       </div>
@@ -416,7 +410,6 @@
       const iframe = document.getElementById('game-iframe');
       const titleEl = document.getElementById('game-title');
       const catEl = document.getElementById('game-cat-badge');
-      const localBadge = document.getElementById('game-local-badge');
       const loader = document.getElementById('player-loading-overlay');
       const errorView = document.getElementById('player-error-view');
       const label = document.getElementById('loading-game-label');
@@ -505,12 +498,6 @@
       titleEl.title = gameData.name;
       catEl.textContent = gameData.category;
       label.textContent = `Loading ${gameData.name}...`;
-
-      if (gameData.isLocal) {
-        localBadge.classList.remove('hidden');
-      } else {
-        localBadge.classList.add('hidden');
-      }
 
       currentGameUrl = targetUrl;
 

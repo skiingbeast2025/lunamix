@@ -1,17 +1,15 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
     <meta charset="utf-8" />
-    <title>GeoDash (Online)</title>
-    <!-- Load the community geometry-dash-wasm build from jsDelivr which includes the full online/event menus. -->
-    <!-- We embed it in an iframe so the original pack/minified bundling in this repo is not modified. -->
+    <title>Geometry Dash Online</title>
+    <!-- Connects to skiingbeast2025/geometry-dash-wasm-proxy with Cloudflare Worker proxy & music loader -->
     <style>html,body,iframe{height:100%;width:100%;margin:0;padding:0;border:0}iframe{display:block}</style>
   </head>
   <body>
-    <iframe src="https://cdn.jsdelivr.net/gh/cgeometrydash/geometrydash-wasm@main/index.html" title="Geometry Dash WASM (Online)" sandbox="allow-scripts allow-same-origin allow-forms allow-popups"></iframe>
-    <!-- If the iframe is blocked by the browser or CDN, open the game in a new tab using this link: -->
+    <iframe src="https://skiingbeast2025.github.io/geometry-dash-wasm-proxy/" title="Geometry Dash Online" sandbox="allow-scripts allow-same-origin allow-forms allow-popups allow-downloads" allow="autoplay; fullscreen; gamepad"></iframe>
     <noscript>
-      <p>JavaScript is required — open the game directly: <a href="https://cdn.jsdelivr.net/gh/cgeometrydash/geometrydash-wasm@main/index.html" target="_blank">Open Geometry Dash WASM (official build)</a></p>
+      <p>JavaScript is required — open directly: <a href="https://skiingbeast2025.github.io/geometry-dash-wasm-proxy/" target="_blank">Open Geometry Dash Online</a></p>
     </noscript>
   </body>
 </html>

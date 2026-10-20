@@ -676,12 +676,7 @@
       imgContainer.appendChild(img);
 
       // Badges
-      if (game.isLocal) {
-        const localBadge = document.createElement('span');
-        localBadge.className = 'absolute top-1.5 left-1.5 px-1.5 py-0.5 text-[9px] font-mono font-bold uppercase bg-emerald-500/90 text-black rounded shadow';
-        localBadge.textContent = 'LOCAL';
-        imgContainer.appendChild(localBadge);
-      }
+
       if (game.isFeatured) {
         const featBadge = document.createElement('span');
         featBadge.className = 'absolute top-1.5 right-1.5 px-1.5 py-0.5 text-[9px] font-mono font-bold uppercase bg-amber-400/90 text-black rounded shadow flex items-center gap-0.5';
