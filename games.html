@@ -170,8 +170,8 @@
         <a href="./play.html?game=geometry-dash" class="px-3 py-1.5 rounded-lg text-xs font-mono font-medium text-amber-300 bg-amber-500/10 border border-amber-500/30 hover:bg-amber-500/20 transition-all flex items-center gap-1.5">
           <span>⚡ Geometry Dash</span>
         </a>
-        <a href="./play.html?game=geometry-dash-web-full" class="px-3 py-1.5 rounded-lg text-xs font-mono font-medium text-indigo-300 bg-indigo-500/10 border border-indigo-500/30 hover:bg-indigo-500/20 transition-all flex items-center gap-1.5">
-          <span>🎵 GD Full 22L</span>
+        <a href="./play.html?game=web-dashers" class="px-3 py-1.5 rounded-lg text-xs font-mono font-medium text-emerald-300 bg-emerald-500/10 border border-emerald-500/30 hover:bg-emerald-500/20 transition-all flex items-center gap-1.5">
+          <span>🎮 Web-Dashers</span>
         </a>
       </div>
     </div>
@@ -381,7 +381,8 @@
     // =======================================================================
     const LOCAL_GAMES = [
       {
-        slug: 'geometry-dash-wasm',
+        id: 170,
+        slug: 'geometry-dash',
         name: 'Geometry Dash',
         category: 'geometry-dash',
         logo: './assets/logos/geometry-dash.png',
@@ -390,22 +391,43 @@
         targetUrl: './play.html?game=geometry-dash'
       },
       {
-        slug: 'geometry-dash-web-full',
-        name: 'Geometry Dash Web Full',
+        id: 1009,
+        slug: 'web-dashers',
+        name: 'Web-Dashers',
         category: 'geometry-dash',
-        logo: './assets/logos/geometry-dash.png',
+        logo: './assets/logos/web-dashers.png',
         isLocal: true,
         isFeatured: true,
-        targetUrl: './play.html?game=geometry-dash-web-full'
+        targetUrl: './play.html?game=web-dashers'
       },
       {
-        slug: 'geodash',
-        name: 'GeoDash Web Port',
+        id: 171,
+        slug: 'geometry-dash-subzero',
+        name: 'Geometry Dash Subzero',
+        category: 'geometry-dash',
+        logo: './assets/logos/geometry-dash-subzero.png',
+        isLocal: true,
+        isFeatured: true,
+        targetUrl: './play.html?game=geometry-dash-subzero'
+      },
+      {
+        id: 172,
+        slug: 'geometry-dash-meltdown',
+        name: 'Geometry Dash Meltdown',
+        category: 'geometry-dash',
+        logo: './assets/logos/geometry-dash-meltdown.png',
+        isLocal: true,
+        isFeatured: true,
+        targetUrl: './play.html?game=geometry-dash-meltdown'
+      },
+      {
+        slug: 'geodash-classic',
+        name: 'GeoDash Classic',
         category: 'geometry-dash',
         logo: './assets/logos/geometry-dash.png',
         isLocal: true,
-        isFeatured: true,
-        targetUrl: './play.html?game=geodash'
+        isFeatured: false,
+        targetUrl: './play.html?game=geodash-classic'
       },
       {
         slug: 'slope',
@@ -457,7 +479,15 @@
      * Determine accurate logo for any game
      */
     function getGameLogo(game) {
-      // 1. Mandatory requirement: Use geometry-dash.png for ALL Geometry Dash variants/clones
+      // 1. Explicit local logo or custom logo if provided
+      if (game.logo) {
+        return game.logo;
+      }
+      if (game.localLogo) {
+        return game.localLogo;
+      }
+
+      // 2. Geometry Dash variants fallback to official geometry-dash.png if no dedicated logo
       const nameLower = (game.name || '').toLowerCase();
       const catLower = (game.category || '').toLowerCase();
       if (
@@ -469,15 +499,7 @@
         return './assets/logos/geometry-dash.png';
       }
 
-      // 2. Local game specific logo
-      if (game.logo) {
-        return game.logo;
-      }
-
       // 3. StrongDog game cached localLogo or logoUrl
-      if (game.localLogo) {
-        return game.localLogo;
-      }
       if (game.logoUrl) {
         return game.logoUrl;
       }
@@ -497,10 +519,22 @@
         const res = await fetch('./games-data.json');
         if (res.ok) {
           const strongDogGames = await res.json();
+          // Filter out duplicate games that are already defined in LOCAL_GAMES
+          const localSlugs = new Set(LOCAL_GAMES.map(g => (g.slug || '').toLowerCase()));
+          const localNames = new Set(LOCAL_GAMES.map(g => (g.name || '').toLowerCase()));
+          const localIds = new Set(LOCAL_GAMES.filter(g => g.id).map(g => g.id));
+          
+          const filteredSD = strongDogGames.filter(g => {
+            if (localIds.has(g.id)) return false;
+            if (g.slug && localSlugs.has(g.slug.toLowerCase())) return false;
+            if (g.name && localNames.has(g.name.toLowerCase())) return false;
+            return true;
+          });
+
           // Normalize StrongDog entries
-          const normalizedSD = strongDogGames.map(g => ({
+          const normalizedSD = filteredSD.map(g => ({
             id: g.id,
-            slug: g.slug,
+            slug: g.slug || String(g.id),
             name: g.name,
             category: g.category || 'other',
             logo: getGameLogo(g),

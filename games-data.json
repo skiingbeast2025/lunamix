@@ -8505,17 +8505,18 @@
     "id": 172,
     "slug": "geometry-dash-meltdown",
     "name": "Geometry Dash Meltdown",
-    "category": "platformer",
+    "category": "geometry-dash",
     "playableUrl": "https://iloveshorty.github.io/html/Geometry%20Dash%20Meltdown/game/Geometry%20Dash%20Meltdown.html",
     "logoUrl": "https://iloveshorty.github.io/img/dashmeltdown.png",
     "page": 1,
-    "isFeatured": false
+    "isFeatured": true,
+    "localLogo": "./assets/logos/geometry-dash-meltdown.png"
   },
   {
     "id": 171,
     "slug": "geometry-dash-subzero",
     "name": "Geometry Dash Subzero",
-    "category": "platformer",
+    "category": "geometry-dash",
     "playableUrl": "https://iloveshorty.github.io/html/Geometry%20Dash%20Subzero/game/Geometry%20Dash%20Subzero.html",
     "logoUrl": "https://iloveshorty.github.io/img/dashsubzero.png",
     "page": 1,
@@ -8537,11 +8538,12 @@
     "id": 169,
     "slug": "geometry-dash-world-toxic",
     "name": "Geometry Dash World Toxic",
-    "category": "platformer",
+    "category": "geometry-dash",
     "playableUrl": "https://iloveshorty.github.io/html/Geometry%20Dash%20World%20Toxic%20factory/game/Geometry%20Dash%20World%20Toxic%20factory.html",
     "logoUrl": "https://iloveshorty.github.io/img/dashtoxic.png",
     "page": 1,
-    "isFeatured": false
+    "isFeatured": false,
+    "localLogo": "./assets/logos/geometry-dash.png"
   },
   {
     "id": 168,
