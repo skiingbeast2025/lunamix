@@ -1,0 +1,562 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Game Player — Lunamix</title>
+  <meta name="description" content="Universal static web player for Lunamix arcade. Full theater mode, fullscreen, iframe sandbox, and stealth tab cloaker.">
+
+  <!-- Favicon -->
+  <link rel="shortcut icon" href="./assets/logos/favicon.svg" type="image/svg+xml">
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com/3.4.17"></script>
+
+  <!-- Google Fonts: Inter & JetBrains Mono -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+            mono: ['JetBrains Mono', 'monospace'],
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    /* Custom scrollbar */
+    ::-webkit-scrollbar {
+      width: 8px;
+    }
+    ::-webkit-scrollbar-track {
+      background: rgba(15, 23, 42, 0.6);
+    }
+    ::-webkit-scrollbar-thumb {
+      background: rgba(148, 163, 184, 0.25);
+      border-radius: 4px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: rgba(148, 163, 184, 0.4);
+    }
+
+    /* InvisiProxy Background Canvas CSS */
+    #background {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 0;
+      pointer-events: none;
+      background-color: #000000;
+    }
+
+    .glow-dot {
+      box-shadow: 0 0 8px rgba(255, 255, 255, 0.8), 0 0 16px rgba(255, 255, 255, 0.35);
+    }
+    .glow-box {
+      box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.5);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+    }
+
+    /* Theater Player Container */
+    #player-container:fullscreen {
+      width: 100vw;
+      height: 100vh;
+      border-radius: 0;
+      border: none;
+      padding: 0;
+      margin: 0;
+      background-color: #000000;
+    }
+    #player-container:-webkit-full-screen {
+      width: 100vw;
+      height: 100vh;
+      border-radius: 0;
+      border: none;
+      padding: 0;
+      margin: 0;
+      background-color: #000000;
+    }
+  </style>
+</head>
+<body class="bg-black text-neutral-100 min-h-screen relative font-sans selection:bg-white selection:text-black antialiased overflow-x-hidden flex flex-col justify-between">
+
+  <!-- InvisiProxy Constellation Background Canvas -->
+  <canvas id="background" class="fixed inset-0 w-full h-full pointer-events-none z-0" aria-hidden="true"></canvas>
+
+  <!-- Player Navigation & Controls Header Bar -->
+  <header class="relative z-30 w-full border-b border-slate-800/80 bg-slate-950/85 backdrop-blur-xl sticky top-0">
+    <div class="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 h-16 flex items-center justify-between gap-3">
+      
+      <!-- Left Controls: Back to Catalog & Title -->
+      <div class="flex items-center gap-3 sm:gap-4 min-w-0 flex-1">
+        
+        <!-- Back to Catalog Button -->
+        <a 
+          href="./games.html" 
+          class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-semibold text-slate-200 bg-slate-900/90 hover:bg-slate-800 border border-slate-700/80 hover:border-slate-500 transition-all shrink-0"
+          title="Return to Game Catalog"
+        >
+          <svg class="w-3.5 h-3.5 text-slate-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+          </svg>
+          <span class="hidden sm:inline">Back to Catalog</span>
+          <span class="sm:hidden">Back</span>
+        </a>
+
+        <div class="h-5 w-px bg-slate-800 shrink-0 hidden sm:block"></div>
+
+        <!-- Dynamic Game Title & Category Badge -->
+        <div class="flex items-center gap-2 min-w-0">
+          <h1 id="game-title" class="text-xs sm:text-base font-bold text-white truncate max-w-[140px] sm:max-w-xs md:max-w-md">
+            Loading Game...
+          </h1>
+          <span 
+            id="game-cat-badge" 
+            class="hidden sm:inline-flex px-2 py-0.5 text-[10px] font-mono uppercase rounded-md bg-slate-800/90 text-slate-300 border border-slate-700/70 shrink-0"
+          >
+            ARCADE
+          </span>
+          <span 
+            id="game-local-badge" 
+            class="hidden md:inline-flex px-1.5 py-0.5 text-[9px] font-mono font-bold uppercase rounded bg-emerald-950 text-emerald-400 border border-emerald-800 shrink-0"
+          >
+            STATIC VERIFIED
+          </span>
+        </div>
+
+      </div>
+
+      <!-- Right Controls: Player Tools & Stealth Actions -->
+      <div class="flex items-center gap-1.5 sm:gap-2 shrink-0">
+        
+        <!-- Reload Game -->
+        <button 
+          type="button" 
+          onclick="reloadGame()" 
+          id="reload-btn"
+          class="p-2 sm:px-2.5 sm:py-1.5 rounded-xl text-xs font-medium text-slate-300 hover:text-white bg-slate-900/80 hover:bg-slate-800 border border-slate-800 hover:border-slate-700 transition-all flex items-center gap-1.5"
+          title="Reload Game Frame (Hotkey: R)"
+        >
+          <svg id="reload-icon" class="w-3.5 h-3.5 text-slate-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
+          </svg>
+          <span class="hidden md:inline">Reload</span>
+        </button>
+
+        <!-- Fullscreen Toggle -->
+        <button 
+          type="button" 
+          onclick="toggleFullscreen()" 
+          id="fullscreen-btn"
+          class="p-2 sm:px-2.5 sm:py-1.5 rounded-xl text-xs font-semibold text-white bg-indigo-600/20 hover:bg-indigo-600/30 border border-indigo-500/40 hover:border-indigo-400 transition-all flex items-center gap-1.5"
+          title="Toggle Fullscreen Theater Mode (Hotkey: F)"
+        >
+          <svg class="w-3.5 h-3.5 text-indigo-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 8V4m0 0h4M4 4l5 5m11-5h-4m4 0v4m0-4l-5 5M4 16v4m0 0h4m-4 0l5-5m11 5l-5-5m5 5v-4m0 4h-4" />
+          </svg>
+          <span class="hidden md:inline">Fullscreen</span>
+        </button>
+
+        <!-- Open in New Tab -->
+        <button 
+          type="button" 
+          onclick="openInNewTab()" 
+          class="p-2 sm:px-2.5 sm:py-1.5 rounded-xl text-xs font-medium text-slate-400 hover:text-slate-200 bg-slate-900/60 hover:bg-slate-800 border border-slate-800/80 transition-all hidden sm:flex items-center gap-1.5"
+          title="Open game directly in a new tab"
+        >
+          <svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+          </svg>
+          <span class="hidden lg:inline">Pop Out</span>
+        </button>
+
+        <!-- Tab Cloak Dropdown -->
+        <div class="relative flex items-center">
+          <select 
+            id="player-tab-cloak" 
+            class="tab-cloak-select appearance-none bg-slate-900/90 border border-slate-700/80 text-xs text-slate-300 hover:text-white rounded-lg pl-2 pr-6 py-1.5 focus:outline-none focus:ring-1 focus:ring-white transition-all cursor-pointer"
+            onchange="LunamixCloak.apply(this.value)"
+            title="Stealth Tab Cloak"
+          >
+            <option value="default">🎭 Cloak</option>
+            <option value="classroom">Classroom</option>
+            <option value="drive">Drive</option>
+            <option value="canvas">Canvas</option>
+            <option value="docs">Docs</option>
+          </select>
+          <div class="pointer-events-none absolute right-1.5 flex items-center text-slate-400">
+            <svg class="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+            </svg>
+          </div>
+        </div>
+
+        <!-- Panic Button -->
+        <button 
+          type="button" 
+          onclick="LunamixPanic.trigger()"
+          class="inline-flex items-center gap-1 px-2 sm:px-3 py-1.5 rounded-lg text-xs font-semibold text-rose-300 bg-rose-500/15 hover:bg-rose-500/25 border border-rose-500/40 hover:border-rose-400 transition-all cursor-pointer shrink-0"
+          title="Panic Exit (Hotkey: ~ or Esc)"
+        >
+          <svg class="w-3.5 h-3.5 text-rose-400 animate-pulse" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
+          </svg>
+          <span class="hidden sm:inline">Panic</span>
+          <kbd class="px-1 text-[10px] font-mono bg-rose-950/80 rounded border border-rose-800 panic-key-label">~</kbd>
+        </button>
+
+      </div>
+    </div>
+  </header>
+
+  <!-- Universal Theater Game Viewport Container -->
+  <main class="relative z-10 flex-1 w-full max-w-7xl mx-auto px-2 sm:px-4 lg:px-6 py-3 sm:py-4 flex flex-col">
+
+    <div 
+      id="player-container" 
+      class="relative flex-1 w-full min-h-[75vh] sm:min-h-[82vh] bg-black rounded-2xl border border-slate-800/90 shadow-2xl overflow-hidden flex flex-col glow-box"
+    >
+      
+      <!-- Loading Overlay -->
+      <div 
+        id="player-loading-overlay" 
+        class="absolute inset-0 z-20 bg-slate-950 flex flex-col items-center justify-center gap-4 transition-opacity duration-300"
+      >
+        <div class="relative">
+          <div class="w-14 h-14 rounded-2xl bg-slate-900 border border-slate-700/80 flex items-center justify-center p-2.5 shadow-xl">
+            <img src="./assets/logos/favicon.svg" alt="Lunamix" class="w-full h-full animate-pulse">
+          </div>
+          <div class="absolute -inset-1 rounded-2xl bg-gradient-to-r from-purple-500 to-indigo-500 opacity-30 blur-sm -z-10 animate-spin"></div>
+        </div>
+        <div class="text-center">
+          <p id="loading-game-label" class="text-sm font-semibold text-white">Loading Game...</p>
+          <p class="text-xs text-slate-400 mt-1 font-mono">Press <kbd class="px-1.5 py-0.5 bg-slate-800 border border-slate-700 rounded text-slate-300">F</kbd> for Fullscreen Theater Mode</p>
+        </div>
+      </div>
+
+      <!-- Error / Fallback View (Shown if no valid game found) -->
+      <div 
+        id="player-error-view" 
+        class="hidden absolute inset-0 z-20 bg-slate-950/95 flex flex-col items-center justify-center text-center p-6"
+      >
+        <div class="w-16 h-16 rounded-2xl bg-rose-500/10 border border-rose-500/20 flex items-center justify-center text-rose-400 mb-4">
+          <svg class="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
+          </svg>
+        </div>
+        <h2 class="text-lg font-bold text-white mb-2">No Valid Game Selected</h2>
+        <p class="text-xs text-slate-400 max-w-md mb-6 leading-relaxed">
+          Please select a game from our 1,000+ title catalog or check the link parameters.
+        </p>
+        <div class="flex flex-wrap items-center justify-center gap-3">
+          <a href="./games.html" class="px-5 py-2.5 rounded-xl bg-white text-black font-semibold text-xs hover:bg-neutral-200 transition-colors">
+            Browse All Games →
+          </a>
+          <a href="./play.html?game=geometry-dash-wasm" class="px-5 py-2.5 rounded-xl bg-slate-900 border border-slate-700 text-amber-300 font-semibold text-xs hover:bg-slate-800 transition-colors">
+            Play Geometry Dash WASM
+          </a>
+          <a href="./play.html?game=slope" class="px-5 py-2.5 rounded-xl bg-slate-900 border border-slate-700 text-slate-200 font-semibold text-xs hover:bg-slate-800 transition-colors">
+            Play Slope
+          </a>
+        </div>
+      </div>
+
+      <!-- Universal Game Iframe -->
+      <iframe 
+        id="game-iframe" 
+        class="w-full h-full border-0 bg-black flex-1"
+        allow="autoplay; fullscreen; gamepad; focus-without-user-activation *" 
+        sandbox="allow-scripts allow-same-origin allow-forms allow-popups"
+        title="Lunamix Game Player"
+      ></iframe>
+
+    </div>
+
+    <!-- Quick Controls & Shortcut Hints Bar -->
+    <div class="mt-3 flex flex-wrap items-center justify-between gap-2 text-[11px] font-mono text-slate-500 px-1">
+      <div class="flex items-center gap-3">
+        <span>Controls:</span>
+        <span class="flex items-center gap-1"><kbd class="px-1.5 py-0.5 rounded bg-slate-900 border border-slate-800 text-slate-400">F</kbd> Fullscreen</span>
+        <span class="flex items-center gap-1"><kbd class="px-1.5 py-0.5 rounded bg-slate-900 border border-slate-800 text-slate-400">R</kbd> Reload</span>
+        <span class="flex items-center gap-1"><kbd class="px-1.5 py-0.5 rounded bg-slate-900 border border-slate-800 text-slate-400">~</kbd> Panic Exit</span>
+      </div>
+      <div>
+        100% Client-Side Static Execution • Sandboxed Frame
+      </div>
+    </div>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="relative z-10 w-full border-t border-slate-900 bg-slate-950/90 backdrop-blur-md py-4 text-center mt-2">
+    <div class="max-w-7xl mx-auto px-4 flex flex-col sm:flex-row items-center justify-between gap-2 text-xs text-slate-500 font-mono">
+      <div>Lunamix Arcade Player • 100% Static GitHub Pages</div>
+      <div class="flex items-center gap-3">
+        <a href="./games.html" class="hover:text-slate-300">Catalog</a>
+        <span>•</span>
+        <a href="./index.html" class="hover:text-slate-300">Home</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Lunamix Core Engine -->
+  <script src="./assets/js/lunamix-core.js"></script>
+
+  <script>
+    // =======================================================================
+    // Local Flagship Game Slugs and Resource Mappings
+    // =======================================================================
+    const LOCAL_GAMES_DICT = {
+      'geometry-dash-wasm': {
+        name: 'Geometry Dash (WASM Port)',
+        category: 'Geometry Dash',
+        url: './GeoDash/GeoDashOnline.html',
+        altUrls: ['https://cdn.jsdelivr.net/gh/cgeometrydash/geometrydash-wasm@main/index.html'],
+        isLocal: true
+      },
+      'geometry-dash-web-full': {
+        name: 'Geometry Dash Web Full',
+        category: 'Geometry Dash',
+        url: './GeoDash/index.html',
+        altUrls: ['./GeoDash/GeoDashOnline.html'],
+        isLocal: true
+      },
+      'geodash': {
+        name: 'GeoDash Web Port',
+        category: 'Geometry Dash',
+        url: './GeoDash/index.html',
+        altUrls: ['./GeoDash/GeoDashOnline.html'],
+        isLocal: true
+      },
+      'slope': {
+        name: 'Slope 3D',
+        category: 'Platformer',
+        url: 'https://iloveshorty.github.io/html/slope/index.html',
+        altUrls: ['./games/slope/index.html'],
+        isLocal: true
+      },
+      'ovo': {
+        name: 'OvO Parkour',
+        category: 'Platformer',
+        url: 'https://iloveshorty.github.io/strongdog3/html/ovo/index.html',
+        altUrls: ['./games/ovo/index.html'],
+        isLocal: true
+      },
+      'subway-surfers': {
+        name: 'Subway Surfers San Francisco',
+        category: 'Platformer',
+        url: 'https://iloveshorty.github.io/html/subway-surfers/index.html',
+        altUrls: ['./games/subway-surfers/index.html'],
+        isLocal: true
+      },
+      'polytrack': {
+        name: 'PolyTrack Ranked',
+        category: 'Driving',
+        url: 'https://iloveshorty.github.io/strongdog2/html/polytrack/index.html',
+        altUrls: ['./games/polytrack/index.html'],
+        isLocal: true
+      }
+    };
+
+    // Aliases
+    LOCAL_GAMES_DICT['geometry-dash'] = LOCAL_GAMES_DICT['geometry-dash-wasm'];
+    LOCAL_GAMES_DICT['gd'] = LOCAL_GAMES_DICT['geometry-dash-wasm'];
+    LOCAL_GAMES_DICT['gd-wasm'] = LOCAL_GAMES_DICT['geometry-dash-wasm'];
+    LOCAL_GAMES_DICT['gd-full'] = LOCAL_GAMES_DICT['geometry-dash-web-full'];
+    LOCAL_GAMES_DICT['subway'] = LOCAL_GAMES_DICT['subway-surfers'];
+    LOCAL_GAMES_DICT['subwaysurfers'] = LOCAL_GAMES_DICT['subway-surfers'];
+
+    let currentGameUrl = '';
+
+    /**
+     * Resolve and launch the game based on query parameters (?game=<slug> or ?id=<id>)
+     */
+    async function initPlayer() {
+      const params = new URLSearchParams(window.location.search);
+      const iframe = document.getElementById('game-iframe');
+      const titleEl = document.getElementById('game-title');
+      const catEl = document.getElementById('game-cat-badge');
+      const localBadge = document.getElementById('game-local-badge');
+      const loader = document.getElementById('player-loading-overlay');
+      const errorView = document.getElementById('player-error-view');
+      const label = document.getElementById('loading-game-label');
+
+      let gameData = null;
+
+      // 1. Check for ?game=<slug>
+      if (params.has('game')) {
+        const slug = params.get('game').toLowerCase();
+        if (LOCAL_GAMES_DICT[slug]) {
+          gameData = LOCAL_GAMES_DICT[slug];
+        }
+      }
+
+      // 2. Check for ?id=<id>
+      if (!gameData && params.has('id')) {
+        const idNum = parseInt(params.get('id'), 10);
+        try {
+          const res = await fetch('./games-data.json');
+          if (res.ok) {
+            const data = await res.json();
+            const found = data.find(g => g.id === idNum);
+            if (found) {
+              gameData = {
+                name: found.name,
+                category: found.category || 'Arcade',
+                url: found.playableUrl,
+                isLocal: false
+              };
+            }
+          }
+        } catch (e) {
+          console.error('Failed to load games-data.json:', e);
+        }
+      }
+
+      // If still not found, check if a direct slug exists in games-data.json
+      if (!gameData && params.has('slug')) {
+        const directSlug = params.get('slug').toLowerCase();
+        try {
+          const res = await fetch('./games-data.json');
+          if (res.ok) {
+            const data = await res.json();
+            const found = data.find(g => g.slug === directSlug);
+            if (found) {
+              gameData = {
+                name: found.name,
+                category: found.category || 'Arcade',
+                url: found.playableUrl,
+                isLocal: false
+              };
+            }
+          }
+        } catch (e) {}
+      }
+
+      // 3. Render Game or Error
+      if (!gameData || !gameData.url) {
+        loader.classList.add('hidden');
+        errorView.classList.remove('hidden');
+        titleEl.textContent = 'Game Not Found';
+        return;
+      }
+
+      // Populate UI
+      titleEl.textContent = gameData.name;
+      titleEl.title = gameData.name;
+      catEl.textContent = gameData.category;
+      label.textContent = `Loading ${gameData.name}...`;
+
+      if (gameData.isLocal) {
+        localBadge.classList.remove('hidden');
+      } else {
+        localBadge.classList.add('hidden');
+      }
+
+      currentGameUrl = gameData.url;
+
+      // Load iframe
+      iframe.onload = () => {
+        setTimeout(() => {
+          loader.classList.add('opacity-0');
+          setTimeout(() => {
+            loader.classList.add('hidden');
+          }, 300);
+        }, 200);
+      };
+
+      iframe.src = gameData.url;
+
+      // Setup Keyboard Shortcuts
+      setupPlayerShortcuts();
+    }
+
+    /**
+     * Reload iframe
+     */
+    function reloadGame() {
+      const iframe = document.getElementById('game-iframe');
+      const loader = document.getElementById('player-loading-overlay');
+      const icon = document.getElementById('reload-icon');
+
+      if (icon) icon.classList.add('animate-spin');
+      loader.classList.remove('hidden', 'opacity-0');
+
+      if (iframe && currentGameUrl) {
+        iframe.src = currentGameUrl;
+      }
+
+      setTimeout(() => {
+        if (icon) icon.classList.remove('animate-spin');
+      }, 1000);
+    }
+
+    /**
+     * Toggle Theater / Fullscreen Mode
+     */
+    function toggleFullscreen() {
+      const container = document.getElementById('player-container');
+      if (!container) return;
+
+      if (!document.fullscreenElement && !document.webkitFullscreenElement) {
+        if (container.requestFullscreen) {
+          container.requestFullscreen();
+        } else if (container.webkitRequestFullscreen) {
+          container.webkitRequestFullscreen();
+        }
+      } else {
+        if (document.exitFullscreen) {
+          document.exitFullscreen();
+        } else if (document.webkitExitFullscreen) {
+          document.webkitExitFullscreen();
+        }
+      }
+    }
+
+    /**
+     * Open game directly in new tab
+     */
+    function openInNewTab() {
+      if (currentGameUrl) {
+        window.open(currentGameUrl, '_blank');
+      }
+    }
+
+    /**
+     * Setup Keyboard Shortcuts: F for fullscreen, R for reload
+     */
+    function setupPlayerShortcuts() {
+      window.addEventListener('keydown', (e) => {
+        // Ignore if focus is in an input
+        if (['INPUT', 'SELECT', 'TEXTAREA'].includes(document.activeElement.tagName)) return;
+
+        if (e.key === 'f' || e.key === 'F') {
+          e.preventDefault();
+          toggleFullscreen();
+        } else if (e.key === 'r' || e.key === 'R') {
+          e.preventDefault();
+          reloadGame();
+        }
+      });
+    }
+
+    // Auto-init on load
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', initPlayer);
+    } else {
+      initPlayer();
+    }
+  </script>
+</body>
+</html>
