@@ -347,8 +347,8 @@
       'geodash-classic': {
         name: 'GeoDash Classic',
         category: 'Geometry Dash',
-        url: './games/geodash-classic/index.html',
-        altUrls: ['./GeoDash/index.html'],
+        url: './games/g/geodash-classic/index.html',
+        altUrls: ['./games/geodash-classic/index.html', './GeoDash/index.html'],
         openInNewTab: false,
         isLocal: true
       },
@@ -429,24 +429,53 @@
       // 1. Check for ?game=<slug>
       if (params.has('game')) {
         const slug = params.get('game').toLowerCase();
+        const firstChar = slug[0] ? slug[0].toLowerCase() : '';
+        const letter = /^[a-z]$/.test(firstChar) ? firstChar : '0-9';
+
         try {
-          const res = await fetch(`./games/${slug}/game.json`);
+          // Check letter folder first, then flat legacy folder
+          let res = await fetch(`./games/${letter}/${slug}/game.json`);
+          if (!res.ok) {
+            res = await fetch(`./games/${slug}/game.json`);
+          }
           if (res.ok) {
             const manifest = await res.json();
             if (manifest.openInNewTab || manifest.standaloneTab || manifest.standalone) {
-              const directUrl = manifest.entrypoint || `./games/${slug}/index.html`;
+              const directUrl = manifest.entrypoint || `./games/${letter}/${slug}/index.html`;
               window.location.replace(directUrl);
               return;
             }
             gameData = {
               name: manifest.name,
               category: manifest.category || 'Arcade',
-              url: manifest.entrypoint || `./games/${slug}/index.html`,
+              url: manifest.entrypoint || `./games/${letter}/${slug}/index.html`,
               isLocal: true
             };
           }
         } catch (e) {
-          console.warn(`Could not load ./games/${slug}/game.json:`, e);
+          console.warn(`Could not load ./games/${letter}/${slug}/game.json:`, e);
+        }
+
+        if (!gameData) {
+          try {
+            const regRes = await fetch('./games/registry.json');
+            if (regRes.ok) {
+              const regList = await regRes.json();
+              const found = regList.find(g => (g.slug || '').toLowerCase() === slug);
+              if (found) {
+                if (found.openInNewTab) {
+                  window.location.replace(found.entrypoint);
+                  return;
+                }
+                gameData = {
+                  name: found.name,
+                  category: found.category || 'Arcade',
+                  url: found.entrypoint,
+                  isLocal: true
+                };
+              }
+            }
+          } catch (e) {}
         }
 
         if (!gameData && LOCAL_GAMES_DICT[slug]) {

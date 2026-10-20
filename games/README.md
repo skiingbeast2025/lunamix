@@ -9,47 +9,31 @@ This directory houses all discrete games deployed in the Lunamix arcade. Every g
 ```text
 games/
 ├── registry.json             # Compiled master catalog of all installed games
-├── geometry-dash/            # Geometry Dash (connected to skiingbeast2025/geometry-dash-wasm-proxy)
-│   ├── game.json             # Game metadata (slug, name, category, description, entrypoint)
-│   ├── icon.png              # Dedicated game logo
-│   ├── upstream.json         # Live upstream commit status & sync metadata
-│   └── index.html            # Standalone launcher / player embed
-├── retro-bowl/
-│   ├── game.json
-│   ├── icon.webp
-│   └── index.html
-├── web-dashers/
-│   ├── game.json
-│   ├── icon.png
-│   └── index.html
-├── geometry-dash-subzero/
-│   ├── game.json
-│   ├── icon.png
-│   └── index.html
-├── geometry-dash-meltdown/
-│   ├── game.json
-│   ├── icon.png
-│   └── index.html
-├── geodash-classic/
-│   ├── game.json
-│   ├── icon.png
-│   └── index.html
-├── slope/
-│   ├── game.json
-│   ├── icon.jpg
-│   └── index.html
-├── ovo/
-│   ├── game.json
-│   ├── icon.jpg
-│   └── index.html
-├── subway-surfers/
-│   ├── game.json
-│   ├── icon.png
-│   └── index.html
-└── polytrack/
-    ├── game.json
-    ├── icon.png
-    └── index.html
+├── 0-9/                      # Numerical titles (1v1lol, 100-pong, 3d-bowling, etc.)
+│   └── 1v1lol/
+│       ├── game.json
+│       ├── icon.webp
+│       └── index.html
+├── a/                        # Games starting with 'a'
+├── b/                        # Games starting with 'b'
+│   └── ...
+├── g/                        # Games starting with 'g'
+│   ├── geometry-dash/        # Geometry Dash (auto-synced from skiingbeast2025/geometry-dash-wasm-proxy)
+│   │   ├── game.json         # Metadata (slug, name, category, description, entrypoint)
+│   │   ├── icon.png          # Dedicated game logo
+│   │   ├── upstream.json     # Live upstream commit status & sync metadata
+│   │   └── index.html        # Clean standalone launcher
+│   └── geodash-classic/
+├── o/
+│   └── ovo/
+├── r/
+│   └── retro-bowl/
+├── s/
+│   └── slope/
+├── w/
+│   └── web-dashers/
+└── z/
+    └── zeepkist-crash-2d/
 ```
 
 ---

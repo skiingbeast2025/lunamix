@@ -6,6 +6,6 @@
   "description": "Classic standalone Geometry Dash web port.",
   "author": "Griffpatch",
   "icon": "icon.png",
-  "entrypoint": "./games/geodash-classic/index.html",
+  "entrypoint": "./games/g/geodash-classic/index.html",
   "isFeatured": false
 }

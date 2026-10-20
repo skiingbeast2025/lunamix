@@ -35,64 +35,90 @@ def find_icon_for_slug(slug: str):
     return None
 
 
+def get_letter_for_slug(slug: str) -> str:
+    """Return lowercase letter bucket for a slug (a-z or 0-9)."""
+    if not slug:
+        return "0-9"
+    first = slug[0].lower()
+    return first if first.isalpha() else "0-9"
+
+
+def get_all_game_folders():
+    """Find all folders containing game.json in games/ (both direct and inside letter subdirectories)."""
+    if not GAMES_DIR.exists():
+        return []
+    folders = []
+    for item in sorted(GAMES_DIR.iterdir()):
+        if not item.is_dir() or item.name.startswith("."):
+            continue
+        # Direct game folder check
+        if (item / "game.json").is_file():
+            folders.append(item)
+        else:
+            # Check letter subfolder (e.g. games/a/*, games/0-9/*)
+            for sub in sorted(item.iterdir()):
+                if sub.is_dir() and not sub.name.startswith(".") and (sub / "game.json").is_file():
+                    folders.append(sub)
+    return folders
+
+
 def build_registry():
     """Scan games/ directory, parse game.json manifests, and write games/registry.json."""
     if not GAMES_DIR.exists():
         GAMES_DIR.mkdir(parents=True, exist_ok=True)
 
     games = []
-    # Sorted by folder name for deterministic output
-    for entry in sorted(os.listdir(GAMES_DIR)):
-        game_folder = GAMES_DIR / entry
+    for game_folder in get_all_game_folders():
         manifest = game_folder / "game.json"
-        if game_folder.is_dir() and manifest.is_file():
-            try:
-                with open(manifest, "r", encoding="utf-8") as f:
-                    data = json.load(f)
-                
-                slug = data.get("slug") or data.get("id") or entry
-                name = data.get("name") or entry.replace("-", " ").title()
-                category = (data.get("category") or "other").lower()
-                
-                # Resolve icon
-                icon_file = data.get("icon") or "icon.png"
-                icon_path = f"./games/{entry}/{icon_file}"
-                if not (game_folder / icon_file).exists():
-                    fallback = find_icon_for_slug(slug)
-                    if fallback:
-                        icon_path = f"./assets/logos/{fallback.name}"
-                    else:
-                        icon_path = "./assets/logos/lunamix-badge.svg"
+        try:
+            with open(manifest, "r", encoding="utf-8") as f:
+                data = json.load(f)
+            
+            slug = data.get("slug") or data.get("id") or game_folder.name
+            name = data.get("name") or game_folder.name.replace("-", " ").title()
+            category = (data.get("category") or "other").lower()
+            rel_folder = game_folder.relative_to(REPO_ROOT).as_posix()  # e.g. "games/g/geometry-dash"
+            
+            # Resolve icon
+            icon_file = data.get("icon") or "icon.png"
+            if (game_folder / icon_file).exists():
+                icon_path = f"./{rel_folder}/{icon_file}"
+            else:
+                fallback = find_icon_for_slug(slug)
+                if fallback:
+                    icon_path = f"./assets/logos/{fallback.name}"
+                else:
+                    icon_path = "./assets/logos/lunamix-badge.svg"
 
-                entrypoint = data.get("entrypoint") or f"./games/{entry}/index.html"
-                is_featured = bool(data.get("isFeatured", False))
-                is_open_in_new_tab = bool(
-                    data.get("openInNewTab")
-                    or data.get("standaloneTab")
-                    or data.get("standalone")
-                )
-                description = data.get("description", "")
-                author = data.get("author", "")
+            entrypoint = data.get("entrypoint") or f"./{rel_folder}/index.html"
+            is_featured = bool(data.get("isFeatured", False))
+            is_open_in_new_tab = bool(
+                data.get("openInNewTab")
+                or data.get("standaloneTab")
+                or data.get("standalone")
+            )
+            description = data.get("description", "")
+            author = data.get("author", "")
 
-                target_url = entrypoint if is_open_in_new_tab else f"./play.html?game={slug}"
+            target_url = entrypoint if is_open_in_new_tab else f"./play.html?game={slug}"
 
-                games.append({
-                    "id": data.get("id", slug),
-                    "slug": slug,
-                    "name": name,
-                    "category": category,
-                    "description": description,
-                    "author": author,
-                    "icon": icon_path,
-                    "remoteIcon": data.get("remoteIcon", ""),
-                    "entrypoint": entrypoint,
-                    "isLocal": True,
-                    "isFeatured": is_featured,
-                    "openInNewTab": is_open_in_new_tab,
-                    "targetUrl": target_url
-                })
-            except Exception as e:
-                print(f"⚠️ Warning: Error loading {manifest}: {e}", file=sys.stderr)
+            games.append({
+                "id": data.get("id", slug),
+                "slug": slug,
+                "name": name,
+                "category": category,
+                "description": description,
+                "author": author,
+                "icon": icon_path,
+                "remoteIcon": data.get("remoteIcon", ""),
+                "entrypoint": entrypoint,
+                "isLocal": True,
+                "isFeatured": is_featured,
+                "openInNewTab": is_open_in_new_tab,
+                "targetUrl": target_url
+            })
+        except Exception as e:
+            print(f"⚠️ Warning: Error loading {manifest}: {e}", file=sys.stderr)
 
     PRIORITY_ORDER = [
         "geometry-dash",
@@ -123,42 +149,42 @@ def build_registry():
 
 def list_games():
     """List all installed games in a clean table format."""
-    if not GAMES_DIR.exists():
-        print("No games directory found.")
-        return
-
-    subdirs = [d for d in sorted(os.listdir(GAMES_DIR)) if (GAMES_DIR / d / "game.json").is_file()]
-    if not subdirs:
+    game_folders = get_all_game_folders()
+    if not game_folders:
         print("No installed games found in games/ directory.")
         return
 
-    print(f"\n🎮 Installed Lunamix Games ({len(subdirs)} total):")
+    print(f"\n🎮 Installed Lunamix Games ({len(game_folders)} total):")
     print("=" * 86)
     print(f"{'SLUG':<24} | {'NAME':<26} | {'CATEGORY':<14} | {'FEAT'} | {'MODE'}")
     print("-" * 86)
 
-    for entry in subdirs:
-        manifest = GAMES_DIR / entry / "game.json"
+    for game_folder in game_folders:
+        manifest = game_folder / "game.json"
         try:
             with open(manifest, "r", encoding="utf-8") as f:
                 data = json.load(f)
-            slug = data.get("slug") or entry
-            name = data.get("name") or entry
+            slug = data.get("slug") or game_folder.name
+            name = data.get("name") or game_folder.name
             cat = data.get("category") or "other"
             feat = "★ YES" if data.get("isFeatured") else "  no"
             mode = "Clean Tab ↗" if (data.get("openInNewTab") or data.get("standaloneTab") or data.get("standalone")) else "Theater"
             print(f"{slug:<24} | {name[:25]:<26} | {cat[:13]:<14} | {feat} | {mode}")
         except Exception:
-            print(f"{entry:<24} | [Error reading game.json]")
+            print(f"{game_folder.name:<24} | [Error reading game.json]")
 
     print("=" * 86)
     print(f"Registry status: {REGISTRY_FILE.relative_to(REPO_ROOT)} ({REGISTRY_FILE.stat().st_size if REGISTRY_FILE.exists() else 0} bytes)\n")
 
 
 def add_game(slug: str, name: str, category: str, url: str, icon_path: str = None, desc: str = "", author: str = "", is_featured: bool = False, open_in_new_tab: bool = False):
-    """Add a new game to games/<slug>/."""
+    """Add a new game to games/<letter>/<slug>/."""
     slug = slug.strip().lower().replace(" ", "-")
-    target_dir = GAMES_DIR / slug
+    letter = get_letter_for_slug(slug)
+    letter_dir = GAMES_DIR / letter
+    letter_dir.mkdir(parents=True, exist_ok=True)
+    target_dir = letter_dir / slug
+
     if target_dir.exists():
         print(f"❌ Error: Game folder already exists: {target_dir.relative_to(REPO_ROOT)}")
         sys.exit(1)
@@ -173,18 +199,18 @@ def add_game(slug: str, name: str, category: str, url: str, icon_path: str = Non
         icon_filename = f"icon{icon_ext}"
         shutil.copyfile(icon_path, target_dir / icon_filename)
     else:
-        # Check assets/logos
         found = find_icon_for_slug(slug)
         if found:
             icon_ext = found.suffix
             icon_filename = f"icon{icon_ext}"
             shutil.copyfile(found, target_dir / icon_filename)
         else:
-            # Fallback copy lunamix-badge.svg
             badge = ASSETS_LOGOS_DIR / "lunamix-badge.svg"
             if badge.exists():
                 icon_filename = "icon.svg"
                 shutil.copyfile(badge, target_dir / icon_filename)
+
+    rel_folder = target_dir.relative_to(REPO_ROOT).as_posix()
 
     # 2. Write game.json
     manifest_data = {
@@ -194,7 +220,7 @@ def add_game(slug: str, name: str, category: str, url: str, icon_path: str = Non
         "description": desc or f"Play {name} unblocked on Lunamix.",
         "author": author or "Unknown",
         "icon": icon_filename,
-        "entrypoint": url or f"./games/{slug}/index.html",
+        "entrypoint": url or f"./{rel_folder}/index.html",
         "openInNewTab": open_in_new_tab,
         "isFeatured": is_featured
     }
@@ -287,9 +313,17 @@ def add_game(slug: str, name: str, category: str, url: str, icon_path: str = Non
 def remove_game(slug: str):
     """Remove a game directory and rebuild registry."""
     slug = slug.strip().lower()
-    target_dir = GAMES_DIR / slug
+    letter = get_letter_for_slug(slug)
+    target_dir = GAMES_DIR / letter / slug
     if not target_dir.exists():
-        print(f"❌ Error: Game folder not found: {target_dir.relative_to(REPO_ROOT)}")
+        # Fallback check across any letter folder or flat
+        for f in get_all_game_folders():
+            if f.name == slug:
+                target_dir = f
+                break
+
+    if not target_dir.exists():
+        print(f"❌ Error: Game folder not found for slug: {slug}")
         sys.exit(1)
 
     shutil.rmtree(target_dir)
@@ -299,9 +333,11 @@ def remove_game(slug: str):
 
 def sync_gd():
     """Check upstream geometry-dash-wasm-proxy repository and update local sync status."""
-    gd_folder = GAMES_DIR / "geometry-dash"
+    gd_folder = GAMES_DIR / "g" / "geometry-dash"
     if not gd_folder.exists():
-        print("❌ Error: games/geometry-dash/ does not exist. Please run setup first.")
+        gd_folder = GAMES_DIR / "geometry-dash"
+    if not gd_folder.exists():
+        print("❌ Error: games/g/geometry-dash/ does not exist. Please run setup first.")
         sys.exit(1)
 
     api_url = "https://api.github.com/repos/skiingbeast2025/geometry-dash-wasm-proxy/commits/main"
