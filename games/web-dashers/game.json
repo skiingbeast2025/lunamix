@@ -7,5 +7,6 @@
   "author": "Web-Dashers Community",
   "icon": "icon.png",
   "entrypoint": "https://web-dashers.github.io/",
-  "isFeatured": true
+  "isFeatured": true,
+  "openInNewTab": true
 }

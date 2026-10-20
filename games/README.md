@@ -78,6 +78,7 @@ Each game directory must contain a `game.json` file:
 - **`icon`**: File name of the icon image inside this game's folder (e.g. `icon.png`).
 - **`entrypoint`**: Direct URL or relative path (`./games/<slug>/index.html`) to launch the game.
 - **`isFeatured`**: Boolean flag (`true` to highlight with a gold star badge).
+- **`openInNewTab`**: Boolean flag (`true` for games that are meant to be their own standalone websites, like OvO, Web-Dashers, or Geometry Dash, loading them in a clean tab with nothing else in it).
 
 ---
 
@@ -97,13 +98,14 @@ python3 tools/manage_games.py add <slug> \
   --category "platformer" \
   --url "https://example.com/game/" \
   --icon path/to/icon.png \
-  --featured
+  --featured \
+  --new-tab
 ```
 This automatically:
 - Creates `games/<slug>/`
 - Copies the icon to `games/<slug>/icon.<ext>`
 - Writes `games/<slug>/game.json`
-- Generates a standalone `games/<slug>/index.html` player
+- Generates a standalone `games/<slug>/index.html` player (with auto-redirect for clean tabs)
 - Recompiles `games/registry.json`
 
 ### 3. Remove a game

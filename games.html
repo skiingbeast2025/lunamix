@@ -375,7 +375,8 @@
         logo: './assets/logos/geometry-dash.png',
         isLocal: true,
         isFeatured: true,
-        targetUrl: './play.html?game=geometry-dash'
+        openInNewTab: true,
+        targetUrl: 'https://skiingbeast2025.github.io/geometry-dash-wasm-proxy/'
       },
       {
         id: 49,
@@ -385,6 +386,7 @@
         logo: './assets/logos/retro-bowl.webp',
         isLocal: true,
         isFeatured: true,
+        openInNewTab: false,
         targetUrl: './play.html?game=retro-bowl'
       },
       {
@@ -395,7 +397,8 @@
         logo: './assets/logos/web-dashers.png',
         isLocal: true,
         isFeatured: true,
-        targetUrl: './play.html?game=web-dashers'
+        openInNewTab: true,
+        targetUrl: 'https://web-dashers.github.io/'
       },
       {
         id: 171,
@@ -405,6 +408,7 @@
         logo: './assets/logos/geometry-dash-subzero.png',
         isLocal: true,
         isFeatured: true,
+        openInNewTab: false,
         targetUrl: './play.html?game=geometry-dash-subzero'
       },
       {
@@ -415,6 +419,7 @@
         logo: './assets/logos/geometry-dash-meltdown.png',
         isLocal: true,
         isFeatured: true,
+        openInNewTab: false,
         targetUrl: './play.html?game=geometry-dash-meltdown'
       },
       {
@@ -424,6 +429,7 @@
         logo: './assets/logos/geometry-dash.png',
         isLocal: true,
         isFeatured: false,
+        openInNewTab: false,
         targetUrl: './play.html?game=geodash-classic'
       },
       {
@@ -433,6 +439,7 @@
         logo: './assets/logos/slope.jpg',
         isLocal: true,
         isFeatured: true,
+        openInNewTab: false,
         targetUrl: './play.html?game=slope'
       },
       {
@@ -442,7 +449,8 @@
         logo: './assets/logos/ovo.jpg',
         isLocal: true,
         isFeatured: true,
-        targetUrl: './play.html?game=ovo'
+        openInNewTab: true,
+        targetUrl: 'https://arjun99ab.github.io/ovo/'
       },
       {
         slug: 'subway-surfers',
@@ -524,7 +532,8 @@
               logo: g.icon || getGameLogo(g),
               isLocal: true,
               isFeatured: !!g.isFeatured,
-              targetUrl: g.targetUrl || `./play.html?game=${g.slug}`
+              openInNewTab: !!g.openInNewTab,
+              targetUrl: g.targetUrl || (g.openInNewTab ? g.entrypoint : `./play.html?game=${g.slug}`)
             }));
           }
         }
@@ -682,6 +691,10 @@
     function createGameCard(game) {
       const a = document.createElement('a');
       a.href = game.targetUrl;
+      if (game.openInNewTab) {
+        a.target = '_blank';
+        a.rel = 'noopener noreferrer';
+      }
       a.className = 'game-card group relative flex flex-col bg-slate-900/60 hover:bg-slate-900/95 border border-slate-800/80 hover:border-slate-600 rounded-xl overflow-hidden backdrop-blur-md shadow-md';
 
       const logoSrc = game.logo || getGameLogo(game);
@@ -699,6 +712,12 @@
       imgContainer.appendChild(img);
 
       // Badges
+      if (game.openInNewTab) {
+        const tabBadge = document.createElement('span');
+        tabBadge.className = 'absolute top-1.5 left-1.5 px-1.5 py-0.5 text-[9px] font-mono font-medium text-cyan-300 bg-cyan-950/90 border border-cyan-800/70 rounded shadow flex items-center gap-1';
+        tabBadge.innerHTML = '<span>↗</span><span>TAB</span>';
+        imgContainer.appendChild(tabBadge);
+      }
 
       if (game.isFeatured) {
         const featBadge = document.createElement('span');
@@ -710,7 +729,11 @@
       // Play hover overlay
       const playOverlay = document.createElement('div');
       playOverlay.className = 'absolute inset-0 bg-black/40 backdrop-blur-[1px] opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center';
-      playOverlay.innerHTML = '<span class="w-9 h-9 rounded-full bg-white/95 text-black flex items-center justify-center shadow-lg transform group-hover:scale-110 transition-transform"><svg class="w-4 h-4 ml-0.5" fill="currentColor" viewBox="0 0 20 20"><path d="M4.5 3.5l11 6.5-11 6.5v-13z"/></svg></span>';
+      if (game.openInNewTab) {
+        playOverlay.innerHTML = '<span class="w-9 h-9 rounded-full bg-white/95 text-black flex items-center justify-center shadow-lg transform group-hover:scale-110 transition-transform" title="Opens in clean standalone tab"><svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" /></svg></span>';
+      } else {
+        playOverlay.innerHTML = '<span class="w-9 h-9 rounded-full bg-white/95 text-black flex items-center justify-center shadow-lg transform group-hover:scale-110 transition-transform"><svg class="w-4 h-4 ml-0.5" fill="currentColor" viewBox="0 0 20 20"><path d="M4.5 3.5l11 6.5-11 6.5v-13z"/></svg></span>';
+      }
       imgContainer.appendChild(playOverlay);
 
       a.appendChild(imgContainer);
@@ -735,7 +758,7 @@
 
       const playHint = document.createElement('span');
       playHint.className = 'text-neutral-500 group-hover:text-neutral-200 transition-colors hidden sm:inline';
-      playHint.textContent = 'Play →';
+      playHint.textContent = game.openInNewTab ? 'Open ↗' : 'Play →';
       metaRow.appendChild(playHint);
 
       info.appendChild(metaRow);

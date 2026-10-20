@@ -317,6 +317,7 @@
         category: 'Geometry Dash',
         url: 'https://skiingbeast2025.github.io/geometry-dash-wasm-proxy/',
         altUrls: [],
+        openInNewTab: true,
         isLocal: true
       },
       'web-dashers': {
@@ -324,6 +325,7 @@
         category: 'Geometry Dash',
         url: 'https://web-dashers.github.io/',
         altUrls: [],
+        openInNewTab: true,
         isLocal: true
       },
       'geometry-dash-subzero': {
@@ -331,6 +333,7 @@
         category: 'Geometry Dash',
         url: 'https://iloveshorty.github.io/html/Geometry%20Dash%20Subzero/game/Geometry%20Dash%20Subzero.html',
         altUrls: [],
+        openInNewTab: false,
         isLocal: true
       },
       'geometry-dash-meltdown': {
@@ -338,6 +341,7 @@
         category: 'Geometry Dash',
         url: 'https://iloveshorty.github.io/html/Geometry%20Dash%20Meltdown/game/Geometry%20Dash%20Meltdown.html',
         altUrls: [],
+        openInNewTab: false,
         isLocal: true
       },
       'geodash-classic': {
@@ -345,6 +349,7 @@
         category: 'Geometry Dash',
         url: './games/geodash-classic/index.html',
         altUrls: ['./GeoDash/index.html'],
+        openInNewTab: false,
         isLocal: true
       },
       'slope': {
@@ -352,6 +357,7 @@
         category: 'Platformer',
         url: 'https://iloveshorty.github.io/html/slope/index.html',
         altUrls: ['https://iloveshorty.github.io/html/slope/game/index.html'],
+        openInNewTab: false,
         isLocal: true
       },
       'ovo': {
@@ -359,6 +365,7 @@
         category: 'Platformer',
         url: 'https://arjun99ab.github.io/ovo/',
         altUrls: ['https://arjun99ab.github.io/ovo/1.4.4/index.html'],
+        openInNewTab: true,
         isLocal: true
       },
       'subway-surfers': {
@@ -366,6 +373,7 @@
         category: 'Platformer',
         url: 'https://iloveshorty.github.io/html/subwaysurferssanfrancisco/index.html',
         altUrls: ['https://iloveshorty.github.io/html/subwaysurfersbeijing/index.html'],
+        openInNewTab: false,
         isLocal: true
       },
       'retro-bowl': {
@@ -373,6 +381,7 @@
         category: 'Sports',
         url: 'https://iloveshorty.github.io/html/retrobowl/game/index.html',
         altUrls: [],
+        openInNewTab: false,
         isLocal: true
       },
       'polytrack': {
@@ -380,6 +389,7 @@
         category: 'Driving',
         url: 'https://iloveshorty.github.io/strongdog2/html/polytrack/index.html',
         altUrls: ['https://iloveshorty.github.io/strongdog3/html/new%20polytrack/index.html'],
+        openInNewTab: false,
         isLocal: true
       }
     };
@@ -423,6 +433,11 @@
           const res = await fetch(`./games/${slug}/game.json`);
           if (res.ok) {
             const manifest = await res.json();
+            if (manifest.openInNewTab || manifest.standaloneTab || manifest.standalone) {
+              const directUrl = manifest.entrypoint || `./games/${slug}/index.html`;
+              window.location.replace(directUrl);
+              return;
+            }
             gameData = {
               name: manifest.name,
               category: manifest.category || 'Arcade',
@@ -435,6 +450,10 @@
         }
 
         if (!gameData && LOCAL_GAMES_DICT[slug]) {
+          if (LOCAL_GAMES_DICT[slug].openInNewTab) {
+            window.location.replace(LOCAL_GAMES_DICT[slug].url);
+            return;
+          }
           gameData = LOCAL_GAMES_DICT[slug];
         }
       }
@@ -443,11 +462,13 @@
       if (!gameData && params.has('id')) {
         const idNum = parseInt(params.get('id'), 10);
         if (idNum === 170) {
-          gameData = LOCAL_GAMES_DICT['geometry-dash'];
+          window.location.replace(LOCAL_GAMES_DICT['geometry-dash'].url);
+          return;
+        } else if (idNum === 1009) {
+          window.location.replace(LOCAL_GAMES_DICT['web-dashers'].url);
+          return;
         } else if (idNum === 49) {
           gameData = LOCAL_GAMES_DICT['retro-bowl'];
-        } else if (idNum === 1009) {
-          gameData = LOCAL_GAMES_DICT['web-dashers'];
         } else if (idNum === 171) {
           gameData = LOCAL_GAMES_DICT['geometry-dash-subzero'];
         } else if (idNum === 172) {

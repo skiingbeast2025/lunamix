@@ -10,7 +10,8 @@
     "entrypoint": "https://skiingbeast2025.github.io/geometry-dash-wasm-proxy/",
     "isLocal": true,
     "isFeatured": true,
-    "targetUrl": "./play.html?game=geometry-dash"
+    "openInNewTab": true,
+    "targetUrl": "https://skiingbeast2025.github.io/geometry-dash-wasm-proxy/"
   },
   {
     "id": 49,
@@ -23,6 +24,7 @@
     "entrypoint": "https://iloveshorty.github.io/html/retrobowl/game/index.html",
     "isLocal": true,
     "isFeatured": true,
+    "openInNewTab": false,
     "targetUrl": "./play.html?game=retro-bowl"
   },
   {
@@ -36,7 +38,8 @@
     "entrypoint": "https://web-dashers.github.io/",
     "isLocal": true,
     "isFeatured": true,
-    "targetUrl": "./play.html?game=web-dashers"
+    "openInNewTab": true,
+    "targetUrl": "https://web-dashers.github.io/"
   },
   {
     "id": 171,
@@ -49,6 +52,7 @@
     "entrypoint": "https://iloveshorty.github.io/html/Geometry%20Dash%20Subzero/game/Geometry%20Dash%20Subzero.html",
     "isLocal": true,
     "isFeatured": true,
+    "openInNewTab": false,
     "targetUrl": "./play.html?game=geometry-dash-subzero"
   },
   {
@@ -62,6 +66,7 @@
     "entrypoint": "https://iloveshorty.github.io/html/Geometry%20Dash%20Meltdown/game/Geometry%20Dash%20Meltdown.html",
     "isLocal": true,
     "isFeatured": true,
+    "openInNewTab": false,
     "targetUrl": "./play.html?game=geometry-dash-meltdown"
   },
   {
@@ -75,6 +80,7 @@
     "entrypoint": "./games/geodash-classic/index.html",
     "isLocal": true,
     "isFeatured": false,
+    "openInNewTab": false,
     "targetUrl": "./play.html?game=geodash-classic"
   },
   {
@@ -88,6 +94,7 @@
     "entrypoint": "https://iloveshorty.github.io/html/slope/index.html",
     "isLocal": true,
     "isFeatured": true,
+    "openInNewTab": false,
     "targetUrl": "./play.html?game=slope"
   },
   {
@@ -101,7 +108,8 @@
     "entrypoint": "https://arjun99ab.github.io/ovo/",
     "isLocal": true,
     "isFeatured": true,
-    "targetUrl": "./play.html?game=ovo"
+    "openInNewTab": true,
+    "targetUrl": "https://arjun99ab.github.io/ovo/"
   },
   {
     "id": "subway-surfers",
@@ -114,6 +122,7 @@
     "entrypoint": "https://iloveshorty.github.io/html/subwaysurferssanfrancisco/index.html",
     "isLocal": true,
     "isFeatured": true,
+    "openInNewTab": false,
     "targetUrl": "./play.html?game=subway-surfers"
   },
   {
@@ -127,6 +136,7 @@
     "entrypoint": "https://iloveshorty.github.io/strongdog2/html/polytrack/index.html",
     "isLocal": true,
     "isFeatured": true,
+    "openInNewTab": false,
     "targetUrl": "./play.html?game=polytrack"
   }
 ]

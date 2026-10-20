@@ -7,5 +7,6 @@
   "author": "Dedragames / Modloader by arjun99ab",
   "icon": "icon.jpg",
   "entrypoint": "https://arjun99ab.github.io/ovo/",
-  "isFeatured": true
+  "isFeatured": true,
+  "openInNewTab": true
 }

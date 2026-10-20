@@ -7,5 +7,6 @@
   "author": "RobTop Games / Proxy by skiingbeast2025",
   "icon": "icon.png",
   "entrypoint": "https://skiingbeast2025.github.io/geometry-dash-wasm-proxy/",
-  "isFeatured": true
+  "isFeatured": true,
+  "openInNewTab": true
 }

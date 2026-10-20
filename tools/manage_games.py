@@ -6,7 +6,7 @@ Effortlessly manage games in the Lunamix arcade repository.
 
 Usage:
     python3 tools/manage_games.py list
-    python3 tools/manage_games.py add <slug> --name "Title" --category "cat" --url "https://..." [--icon path] [--featured]
+    python3 tools/manage_games.py add <slug> --name "Title" --category "cat" --url "https://..." [--icon path] [--featured] [--new-tab]
     python3 tools/manage_games.py remove <slug>
     python3 tools/manage_games.py build
     python3 tools/manage_games.py sync-gd
@@ -58,7 +58,6 @@ def build_registry():
                 icon_file = data.get("icon") or "icon.png"
                 icon_path = f"./games/{entry}/{icon_file}"
                 if not (game_folder / icon_file).exists():
-                    # Check if icon exists in assets/logos
                     fallback = find_icon_for_slug(slug)
                     if fallback:
                         icon_path = f"./assets/logos/{fallback.name}"
@@ -67,8 +66,15 @@ def build_registry():
 
                 entrypoint = data.get("entrypoint") or f"./games/{entry}/index.html"
                 is_featured = bool(data.get("isFeatured", False))
+                is_open_in_new_tab = bool(
+                    data.get("openInNewTab")
+                    or data.get("standaloneTab")
+                    or data.get("standalone")
+                )
                 description = data.get("description", "")
                 author = data.get("author", "")
+
+                target_url = entrypoint if is_open_in_new_tab else f"./play.html?game={slug}"
 
                 games.append({
                     "id": data.get("id", slug),
@@ -81,7 +87,8 @@ def build_registry():
                     "entrypoint": entrypoint,
                     "isLocal": True,
                     "isFeatured": is_featured,
-                    "targetUrl": f"./play.html?game={slug}"
+                    "openInNewTab": is_open_in_new_tab,
+                    "targetUrl": target_url
                 })
             except Exception as e:
                 print(f"⚠️ Warning: Error loading {manifest}: {e}", file=sys.stderr)
@@ -125,9 +132,9 @@ def list_games():
         return
 
     print(f"\n🎮 Installed Lunamix Games ({len(subdirs)} total):")
-    print("=" * 80)
-    print(f"{'SLUG':<24} | {'NAME':<28} | {'CATEGORY':<14} | {'FEATURED'}")
-    print("-" * 80)
+    print("=" * 86)
+    print(f"{'SLUG':<24} | {'NAME':<26} | {'CATEGORY':<14} | {'FEAT'} | {'MODE'}")
+    print("-" * 86)
 
     for entry in subdirs:
         manifest = GAMES_DIR / entry / "game.json"
@@ -138,15 +145,16 @@ def list_games():
             name = data.get("name") or entry
             cat = data.get("category") or "other"
             feat = "★ YES" if data.get("isFeatured") else "  no"
-            print(f"{slug:<24} | {name[:27]:<28} | {cat[:13]:<14} | {feat}")
+            mode = "Clean Tab ↗" if (data.get("openInNewTab") or data.get("standaloneTab") or data.get("standalone")) else "Theater"
+            print(f"{slug:<24} | {name[:25]:<26} | {cat[:13]:<14} | {feat} | {mode}")
         except Exception:
             print(f"{entry:<24} | [Error reading game.json]")
 
-    print("=" * 80)
+    print("=" * 86)
     print(f"Registry status: {REGISTRY_FILE.relative_to(REPO_ROOT)} ({REGISTRY_FILE.stat().st_size if REGISTRY_FILE.exists() else 0} bytes)\n")
 
 
-def add_game(slug: str, name: str, category: str, url: str, icon_path: str = None, desc: str = "", author: str = "", is_featured: bool = False):
+def add_game(slug: str, name: str, category: str, url: str, icon_path: str = None, desc: str = "", author: str = "", is_featured: bool = False, open_in_new_tab: bool = False):
     """Add a new game to games/<slug>/."""
     slug = slug.strip().lower().replace(" ", "-")
     target_dir = GAMES_DIR / slug
@@ -186,6 +194,7 @@ def add_game(slug: str, name: str, category: str, url: str, icon_path: str = Non
         "author": author or "Unknown",
         "icon": icon_filename,
         "entrypoint": url or f"./games/{slug}/index.html",
+        "openInNewTab": open_in_new_tab,
         "isFeatured": is_featured
     }
 
@@ -193,7 +202,48 @@ def add_game(slug: str, name: str, category: str, url: str, icon_path: str = Non
         json.dump(manifest_data, f, indent=2, ensure_ascii=False)
 
     # 3. Create index.html launcher
-    index_html_content = f"""<!DOCTYPE html>
+    if open_in_new_tab:
+        index_html_content = f"""<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>{name}</title>
+  <meta http-equiv="refresh" content="0; url={url}">
+  <script>
+    if (window.self === window.top) {{
+      window.location.replace("{url}");
+    }}
+  </script>
+  <style>
+    html, body {{
+      margin: 0;
+      padding: 0;
+      width: 100vw;
+      height: 100vh;
+      overflow: hidden;
+      background: #000;
+    }}
+    iframe {{
+      border: 0;
+      width: 100vw;
+      height: 100vh;
+      display: block;
+    }}
+  </style>
+</head>
+<body>
+  <iframe 
+    src="{url}" 
+    title="{name}" 
+    allow="autoplay; fullscreen; gamepad; focus-without-user-activation *" 
+    sandbox="allow-scripts allow-same-origin allow-forms allow-popups allow-downloads">
+  </iframe>
+</body>
+</html>
+"""
+    else:
+        index_html_content = f"""<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="utf-8">
@@ -307,6 +357,7 @@ def main():
     add_p.add_argument("--desc", default="", help="Description")
     add_p.add_argument("--author", default="", help="Author / developer")
     add_p.add_argument("--featured", action="store_true", help="Flag as featured game")
+    add_p.add_argument("--new-tab", "--standalone", action="store_true", dest="open_in_new_tab", help="Make game load in a clean standalone tab with nothing else in it")
 
     # remove
     rem_p = subparsers.add_parser("remove", help="Remove an installed game")
@@ -329,7 +380,8 @@ def main():
             icon_path=args.icon,
             desc=args.desc,
             author=args.author,
-            is_featured=args.featured
+            is_featured=args.featured,
+            open_in_new_tab=args.open_in_new_tab
         )
     elif args.command == "remove":
         remove_game(args.slug)
