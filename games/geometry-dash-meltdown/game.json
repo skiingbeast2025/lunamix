@@ -1,0 +1,11 @@
+{
+  "id": 172,
+  "slug": "geometry-dash-meltdown",
+  "name": "Geometry Dash Meltdown",
+  "category": "geometry-dash",
+  "description": "Geometry Dash Meltdown featuring The Seven Seas, Viking Arena, and Airborne Robots.",
+  "author": "RobTop Games",
+  "icon": "icon.png",
+  "entrypoint": "https://iloveshorty.github.io/html/Geometry%20Dash%20Meltdown/game/Geometry%20Dash%20Meltdown.html",
+  "isFeatured": true
+}

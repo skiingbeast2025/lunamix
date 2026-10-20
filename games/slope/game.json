@@ -1,0 +1,11 @@
+{
+  "id": "slope",
+  "slug": "slope",
+  "name": "Slope 3D",
+  "category": "platformer",
+  "description": "Fast-paced 3D endless runner roll game through a neon city.",
+  "author": "Y8",
+  "icon": "icon.jpg",
+  "entrypoint": "https://iloveshorty.github.io/html/slope/index.html",
+  "isFeatured": true
+}

@@ -1,0 +1,11 @@
+{
+  "id": "ovo",
+  "slug": "ovo",
+  "name": "OvO (Modloader)",
+  "category": "platformer",
+  "description": "The complete OvO modloader edition with custom skins, replays, and speedrun community tools.",
+  "author": "Dedragames / Modloader by arjun99ab",
+  "icon": "icon.jpg",
+  "entrypoint": "https://arjun99ab.github.io/ovo/",
+  "isFeatured": true
+}

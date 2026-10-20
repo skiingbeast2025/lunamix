@@ -1,0 +1,11 @@
+{
+  "id": 1009,
+  "slug": "web-dashers",
+  "name": "Web-Dashers",
+  "category": "geometry-dash",
+  "description": "Community-built Geometry Dash web remake with customized levels and mechanics.",
+  "author": "Web-Dashers Community",
+  "icon": "icon.png",
+  "entrypoint": "https://web-dashers.github.io/",
+  "isFeatured": true
+}

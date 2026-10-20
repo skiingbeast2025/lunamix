@@ -1,0 +1,11 @@
+{
+  "id": 49,
+  "slug": "retro-bowl",
+  "name": "Retro Bowl",
+  "category": "sports",
+  "description": "The classic 8-bit style American football management game.",
+  "author": "New Star Games",
+  "icon": "icon.webp",
+  "entrypoint": "https://iloveshorty.github.io/html/retrobowl/game/index.html",
+  "isFeatured": true
+}

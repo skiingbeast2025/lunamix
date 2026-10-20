@@ -1,0 +1,39 @@
+name: Sync Geometry Dash Upstream
+
+on:
+  workflow_dispatch:
+  repository_dispatch:
+    types: [gd-updated]
+  schedule:
+    - cron: '0 0 * * *'
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - name: Checkout Lunamix
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Query Upstream GD Proxy & Rebuild Registry
+        run: |
+          python3 tools/manage_games.py sync-gd
+          python3 tools/manage_games.py build
+
+      - name: Commit and Push if Changed
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          git add games/geometry-dash/upstream.json games/registry.json
+          if git diff --staged --quiet; then
+            echo "No upstream changes detected."
+          else
+            git commit -m "chore(sync): update upstream Geometry Dash tracking to latest commit"
+            git push
+          fi

@@ -1,0 +1,11 @@
+{
+  "id": 173,
+  "slug": "geodash-classic",
+  "name": "GeoDash Classic",
+  "category": "geometry-dash",
+  "description": "Classic standalone Geometry Dash web port.",
+  "author": "Griffpatch",
+  "icon": "icon.png",
+  "entrypoint": "./games/geodash-classic/index.html",
+  "isFeatured": false
+}

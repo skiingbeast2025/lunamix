@@ -343,8 +343,8 @@
       'geodash-classic': {
         name: 'GeoDash Classic',
         category: 'Geometry Dash',
-        url: './GeoDash/index.html',
-        altUrls: [],
+        url: './games/geodash-classic/index.html',
+        altUrls: ['./GeoDash/index.html'],
         isLocal: true
       },
       'slope': {
@@ -419,7 +419,22 @@
       // 1. Check for ?game=<slug>
       if (params.has('game')) {
         const slug = params.get('game').toLowerCase();
-        if (LOCAL_GAMES_DICT[slug]) {
+        try {
+          const res = await fetch(`./games/${slug}/game.json`);
+          if (res.ok) {
+            const manifest = await res.json();
+            gameData = {
+              name: manifest.name,
+              category: manifest.category || 'Arcade',
+              url: manifest.entrypoint || `./games/${slug}/index.html`,
+              isLocal: true
+            };
+          }
+        } catch (e) {
+          console.warn(`Could not load ./games/${slug}/game.json:`, e);
+        }
+
+        if (!gameData && LOCAL_GAMES_DICT[slug]) {
           gameData = LOCAL_GAMES_DICT[slug];
         }
       }

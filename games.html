@@ -509,17 +509,40 @@
      * Initialize catalog
      */
     async function initCatalog() {
-      // Start with local games
-      allGames = [...LOCAL_GAMES];
+      // 1. Load modular games from games/registry.json
+      let localGamesList = [...LOCAL_GAMES];
+      try {
+        const regRes = await fetch('./games/registry.json');
+        if (regRes.ok) {
+          const regData = await regRes.json();
+          if (Array.isArray(regData) && regData.length > 0) {
+            localGamesList = regData.map(g => ({
+              id: g.id,
+              slug: g.slug,
+              name: g.name,
+              category: g.category || 'other',
+              logo: g.icon || getGameLogo(g),
+              isLocal: true,
+              isFeatured: !!g.isFeatured,
+              targetUrl: g.targetUrl || `./play.html?game=${g.slug}`
+            }));
+          }
+        }
+      } catch (regErr) {
+        console.warn('Could not load games/registry.json, using fallback list:', regErr);
+      }
+
+      // Populate local games at top
+      allGames = [...localGamesList];
 
       try {
         const res = await fetch('./games-data.json');
         if (res.ok) {
           const strongDogGames = await res.json();
-          // Filter out duplicate games that are already defined in LOCAL_GAMES
-          const localSlugs = new Set(LOCAL_GAMES.map(g => (g.slug || '').toLowerCase()));
-          const localNames = new Set(LOCAL_GAMES.map(g => (g.name || '').toLowerCase()));
-          const localIds = new Set(LOCAL_GAMES.filter(g => g.id).map(g => g.id));
+          // Filter out duplicate games that are already defined in localGamesList
+          const localSlugs = new Set(localGamesList.map(g => (g.slug || '').toLowerCase()));
+          const localNames = new Set(localGamesList.map(g => (g.name || '').toLowerCase()));
+          const localIds = new Set(localGamesList.filter(g => g.id).map(g => g.id));
           
           const filteredSD = strongDogGames.filter(g => {
             if (localIds.has(g.id)) return false;

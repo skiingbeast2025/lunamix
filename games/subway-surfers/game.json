@@ -1,0 +1,11 @@
+{
+  "id": "subway-surfers",
+  "slug": "subway-surfers",
+  "name": "Subway Surfers San Francisco",
+  "category": "platformer",
+  "description": "Run, dodge trains, and collect coins in Subway Surfers San Francisco.",
+  "author": "Kiloo & SYBO",
+  "icon": "icon.png",
+  "entrypoint": "https://iloveshorty.github.io/html/subwaysurferssanfrancisco/index.html",
+  "isFeatured": true
+}
