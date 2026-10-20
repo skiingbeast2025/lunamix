@@ -8526,11 +8526,12 @@
     "id": 170,
     "slug": "geometry-dash",
     "name": "Geometry Dash",
-    "category": "platformer",
-    "playableUrl": "https://iloveshorty.github.io/html/Geometry%20Dash%20v1/game/Geometry%20Dash%20v1.html",
-    "logoUrl": "https://iloveshorty.github.io/img/dash.png",
+    "category": "geometry-dash",
+    "playableUrl": "https://skiingbeast2025.github.io/geometry-dash-wasm-proxy/",
+    "logoUrl": "./assets/logos/geometry-dash.png",
     "page": 1,
-    "isFeatured": false
+    "isFeatured": true,
+    "localLogo": "./assets/logos/geometry-dash.png"
   },
   {
     "id": 169,
