@@ -1,52 +1,159 @@
-# Lunamix 🌙 🎮
-Lunamix is a lightweight, high-performance HTML5 gaming and anti-censorship platform designed to provide unrestricted access to web-based games and utilities. Built for speed, privacy, and ease of deployment, Lunamix helps users bypass web filters while enjoying a seamless gaming experience.
+# Lunamix
 
-## ✨ Features
-HTML5 Gaming Hub: A curated collection of web games that run directly in your browser without plugins or downloads.
+Lunamix is a lightweight, high-performance static HTML5 arcade and web gaming platform. Built with clean, modern HTML, CSS, and Vanilla JavaScript, Lunamix runs entirely client-side without server dependencies, container runtimes, or database requirements.
 
-Anti-Censorship & Privacy: Designed with bypass capabilities in mind, making it ideal for restricted networks (like schools or workplaces).
+Live site: [https://skiingbeast2025.github.io/lunamix/](https://skiingbeast2025.github.io/lunamix/)
 
-Lightweight & Fast: Built using clean, modern HTML, CSS, and JavaScript for minimal loading times and smooth performance.
+---
 
-Easy Deployment: Can be hosted for free on GitHub Pages, Cloudflare Pages, or Vercel within seconds.
+## Features
 
-Responsive Design: Optimized for both desktop and mobile devices.
+- **Static Architecture**: 100% client-side platform compatible with GitHub Pages, Cloudflare Pages, and local file servers.
+- **Alphabetical Catalog**: Over 1,000 games organized into dedicated alphabetical letter directories (`games/a/` through `games/z/`, and `games/0-9/`).
+- **Universal Player**: Embedded theater player with responsive viewport sizing, full-window Theater Wide mode (hotkey `T`), fullscreen toggle (hotkey `F`), and frame reload (hotkey `R`).
+- **Privacy and Cloaking**: Built-in tab cloaking presets (Google Classroom, Google Drive, Google Docs, Canvas) and customizable instant panic key redirect (`~` or `Esc`).
+- **Standalone Launch Modes**: Support for complex web applications (including Geometry Dash WASM, Web-Dashers, and OvO Modloader) to launch directly in clean, dedicated browser tabs.
+- **Optimized Asset Delivery**: Parallel chunk downloading and persistent browser Cache API storage for large WASM game assets.
+- **CLI Management**: Bundled zero-dependency Python CLI (`tools/manage_games.py`) for adding, removing, validating, and rebuilding catalog manifests.
 
-## 🚀 Getting Started
-Prerequisites
-To run or modify Lunamix locally, you just need a standard web browser and a local development server (or text editor like VS Code).
+---
 
-Installation & Local Setup
-Clone the repository:
+## Repository Structure
 
-Bash
-git clone https://github.com/skiingbeast2025/lunamix.git
-Navigate to the project directory:
+```text
+lunamix/
+├── index.html              # Landing page and platform introduction
+├── games.html              # Searchable game catalog with category filtering
+├── play.html               # Universal player container with theater and cloaking controls
+├── games-data.json         # Master metadata registry for all catalog games
+├── assets/
+│   ├── css/                # Custom styling and animations
+│   ├── js/                 # Lunamix core engine, cloaking, and particle canvas
+│   └── logos/              # Cached game icons and logos
+├── games/                  # Modular game directory structure
+│   ├── registry.json       # Compiled manifest index
+│   ├── 0-9/                # Numeric titles (1v1.LOL, 2048, etc.)
+│   ├── a/ ... z/           # Alphabetical letter subdirectories
+│   └── g/
+│       ├── geometry-dash/  # Geometry Dash WASM launcher & upstream sync
+│       └── geodash-classic/# GeoDash canvas classic build
+└── tools/
+    └── manage_games.py     # Command-line tool for catalog management
+```
 
-Bash
-cd lunamix
-Run locally:
-Open index.html directly in your browser, or use a local server extension (like Live Server in VS Code) for the best experience.
+---
 
-## 🌐 Deployment
-Lunamix runs anywhere without backend setup and can be hosted for free:
+## Getting Started
 
-Cloudflare Pages: Connect your GitHub repository to Cloudflare Pages for lightning-fast global deployment.
+### Prerequisites
 
-GitHub Pages: Go to your repository settings, navigate to Pages, and set the source branch to main or master.
+A modern web browser supporting HTML5, WebGL, and WebAssembly (such as Chrome, Firefox, Safari, or Edge).
 
-## 🛠️ Contributing
-Contributions, game suggestions, and bug reports are always welcome!
+### Installation and Local Setup
 
-Fork the Project
+1. Clone the repository:
 
-Create your Feature Branch (git checkout -b feature/AmazingFeature)
+   ```bash
+   git clone https://github.com/skiingbeast2025/lunamix.git
+   ```
 
-Commit your Changes (git commit -m 'Add some AmazingFeature')
+2. Navigate to the project directory:
 
-Push to the Branch (git push origin feature/AmazingFeature)
+   ```bash
+   cd lunamix
+   ```
 
-Open a Pull Request
+3. Start a local HTTP server:
 
-### ⚠️ Disclaimer
-Lunamix is created for educational, recreational, and archiving purposes. Users are responsible for complying with the network policies and terms of service of the institutions or environments in which they use this platform.
+   ```bash
+   # Using Python 3
+   python3 -m http.server 8000
+
+   # Or using Node.js npx
+   npx serve .
+   ```
+
+4. Open `http://localhost:8000` in your browser.
+
+---
+
+## Catalog Management
+
+Lunamix includes a command-line utility to manage game entries and compile catalog manifests:
+
+### List Installed Games
+
+```bash
+python3 tools/manage_games.py list
+```
+
+### Add a New Game
+
+```bash
+python3 tools/manage_games.py add <slug> \
+  --name "Game Title" \
+  --category "platformer" \
+  --url "https://example.com/game/index.html" \
+  --icon path/to/icon.png \
+  --featured
+```
+
+### Remove a Game
+
+```bash
+python3 tools/manage_games.py remove <slug>
+```
+
+### Rebuild the Master Registry
+
+```bash
+python3 tools/manage_games.py build
+```
+
+### Sync Upstream Geometry Dash Proxy
+
+```bash
+python3 tools/manage_games.py sync-gd
+```
+
+---
+
+## Deployment
+
+Lunamix requires no build step and can be hosted immediately on any static web host:
+
+- **GitHub Pages**: In repository settings under **Pages**, set the source branch to `main` with the root directory (`/`).
+- **Cloudflare Pages**: Connect the GitHub repository, select `None` as the build preset, and deploy.
+- **Vercel / Netlify**: Import the repository with empty build commands and output directory set to `./`.
+
+---
+
+## Contributing
+
+1. Fork the repository.
+2. Create a feature branch:
+
+   ```bash
+   git checkout -b feature/new-game-title
+   ```
+
+3. Commit your changes:
+
+   ```bash
+   git commit -m "Add new game manifest and icon"
+   ```
+
+4. Push to your branch:
+
+   ```bash
+   git push origin feature/new-game-title
+   ```
+
+5. Open a Pull Request on GitHub.
+
+---
+
+## Disclaimer
+
+> [!NOTE]
+> Lunamix is developed for educational, recreational, and web preservation purposes. Users are responsible for complying with the local network usage policies and terms of service of the environments in which they access this platform.
