@@ -40,13 +40,22 @@
     <script type="module">window._esModulesSupported = true;</script>
     <style>
         /* ── GUST Lunamix Embedded Game Mode ── */
+        body.gust-embed,
+        body.gust-embed .app,
+        body.gust-embed .view {
+            background: #000000 !important;
+        }
         body.gust-embed .titlebar,
         body.gust-embed .navbar,
         body.gust-embed #bookmarksBar,
         body.gust-embed #devTools,
         body.gust-embed .sidebar,
         body.gust-embed .ext-popup-host,
-        body.gust-embed #tutorialModal {
+        body.gust-embed #tutorialModal,
+        body.gust-embed #newtab,
+        body.gust-embed #skinNTP,
+        body.gust-embed .newtab,
+        body.gust-embed .cntp {
             display: none !important;
         }
         body.gust-embed .app {
@@ -66,7 +75,8 @@
             height: 100vh !important;
             border: none !important;
             border-radius: 0 !important;
-            z-index: 1 !important;
+            z-index: 10 !important;
+            background: #000000 !important;
         }
         body.gust-embed #gust-embed-pill {
             position: fixed;
@@ -21647,40 +21657,48 @@ _VIEWER_DL_JS +
                     // boot forever — after the cap the benchmark finishes in the
                     // background and navigation proceeds.
                     // ponytail: 25s cap; raise only if huge pools routinely exceed it.
-                    if (poolModeOn() && typeof curl !== 'undefined' && curl) {
-                        try {
-                            showBootBenchmark();
-                            const bench = benchmarkWispPool(setBootBenchmarkProgress).then(() => { try { rememberFastestRelay(); } catch (e) {} });
-                            // live progress even when setup started the benchmark first
-                            const tick = setInterval(() => {
-                                const pool = getWispPool();
-                                setBootBenchmarkProgress(pool.filter(u => wispHealth[u]).length, pool.length);
-                            }, 200);
-                            await Promise.race([bench, new Promise(r => setTimeout(r, 25000))]);
-                            clearInterval(tick);
-                        } catch (e) {} finally {
-                            hideBootBenchmark();
-                        }
-                    }
-
-            // Signal that libcurl init is complete so deferred UI (tutorial, etc.) can start
-                    if (window._onLibcurlInitDone) window._onLibcurlInitDone();
-
-                    // Check for Lunamix target URL or embed mode
                     const _gustParams = new URLSearchParams(window.location.search);
-                    if (_gustParams.get('embed') === '1' || _gustParams.get('minimal') === '1') {
-                        document.body.classList.add('gust-embed');
-                        const pill = document.createElement('div');
-                        pill.id = 'gust-embed-pill';
-                        pill.innerHTML = '<span>🛡️ GUST WISP Tunnel</span> <a href="' + window.location.href.replace(/([?&])embed=1(&|$)/, '').replace(/[?&]$/, '') + '" target="_blank">Pop Out ↗</a>';
-                        document.body.appendChild(pill);
-                    }
+                    const _isEmbedded = _gustParams.get('embed') === '1' || _gustParams.get('minimal') === '1';
                     let _targetToLoad = _gustParams.get('url');
                     if (!_targetToLoad && window.location.hash) {
                         _targetToLoad = decodeURIComponent(window.location.hash.slice(1));
                     }
 
+                    if (_isEmbedded) {
+                        document.body.classList.add('gust-embed');
+                        const pill = document.createElement('div');
+                        pill.id = 'gust-embed-pill';
+                        pill.innerHTML = '<span>🛡️ GUST WISP Tunnel</span> <a href="' + window.location.href.replace(/([?&])embed=1(&|$)/, '').replace(/[?&]$/, '') + '" target="_blank">Pop Out ↗</a>';
+                        document.body.appendChild(pill);
+                        hideNewTab();
+                    }
+
+                    // ── Boot gate: full WISP-pool benchmark before any page loads ──
+                    if (poolModeOn() && typeof curl !== 'undefined' && curl) {
+                        if (_targetToLoad || _isEmbedded) {
+                            // Non-blocking background benchmark so embedded games launch immediately without a 25-second wait
+                            benchmarkWispPool(setBootBenchmarkProgress).then(() => { try { rememberFastestRelay(); } catch (e) {} }).catch(() => {});
+                        } else {
+                            try {
+                                showBootBenchmark();
+                                const bench = benchmarkWispPool(setBootBenchmarkProgress).then(() => { try { rememberFastestRelay(); } catch (e) {} });
+                                const tick = setInterval(() => {
+                                    const pool = getWispPool();
+                                    setBootBenchmarkProgress(pool.filter(u => wispHealth[u]).length, pool.length);
+                                }, 200);
+                                await Promise.race([bench, new Promise(r => setTimeout(r, 25000))]);
+                                clearInterval(tick);
+                            } catch (e) {} finally {
+                                hideBootBenchmark();
+                            }
+                        }
+                    }
+
+                    // Signal that libcurl init is complete so deferred UI (tutorial, etc.) can start
+                    if (window._onLibcurlInitDone) window._onLibcurlInitDone();
+
                     if (_targetToLoad) {
+                        hideNewTab();
                         go(_targetToLoad, true);
                     } else if (tabsLoaded) {
                         const activeTab = getActiveTab();

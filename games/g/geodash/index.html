@@ -1,32 +1,146 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>GeoDash - lunamixmc</title>
-  <style>
-    html, body {
-      margin: 0;
-      padding: 0;
-      width: 100%;
-      height: 100%;
-      background: #0c0f1d;
-      overflow: hidden;
-    }
-    iframe {
-      width: 100%;
-      height: 100%;
-      border: 0;
-      display: block;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Geometry Dash Update News - GeoDash</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@700&family=Orbitron:wght@700;900&display=swap" rel="stylesheet">
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: #0c0f1d;
+            background-image: 
+                radial-gradient(at 50% 0%, rgba(31, 223, 114, 0.15) 0px, transparent 50%),
+                radial-gradient(at 0% 100%, rgba(0, 180, 216, 0.15) 0px, transparent 50%),
+                linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+            background-size: 100% 100%, 100% 100%, 40px 40px, 40px 40px;
+            color: #ffffff;
+            font-family: 'Fredoka', sans-serif;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+        }
+
+        .card {
+            background: rgba(18, 24, 47, 0.85);
+            border: 4px solid #1fdf72;
+            border-radius: 20px;
+            padding: 3rem 2.5rem;
+            text-align: center;
+            box-shadow: 
+                0 0 30px rgba(31, 223, 114, 0.3),
+                inset 0 0 15px rgba(31, 223, 114, 0.1);
+            max-width: 580px;
+            width: 90%;
+            position: relative;
+            backdrop-filter: blur(10px);
+            transform: translateY(0);
+            animation: float 4s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        /* Decorative GD Icons representing the game theme */
+        .cube-icon {
+            width: 70px;
+            height: 70px;
+            background-color: #00b4d8;
+            border: 5px solid #ffffff;
+            border-radius: 8px;
+            margin: 0 auto 1.5rem auto;
+            position: relative;
+            box-shadow: 0 0 20px rgba(0, 180, 216, 0.6);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .cube-icon::before {
+            content: '';
+            width: 30px;
+            height: 30px;
+            border: 5px solid #ffffff;
+            background: transparent;
+        }
+
+        h1 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 2.5rem;
+            font-weight: 900;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 1rem;
+            background: linear-gradient(45deg, #00b4d8, #1fdf72);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow: 0 0 15px rgba(31, 223, 114, 0.2);
+            white-space: nowrap;
+        }
+
+        p {
+            font-size: 1.5rem;
+            color: #e0e6ed;
+            margin-bottom: 2rem;
+            line-height: 1.4;
+        }
+
+        .highlight {
+            color: #ffb703;
+            text-shadow: 0 0 10px rgba(255, 183, 3, 0.5);
+            display: block;
+            font-size: 1.8rem;
+            margin-top: 0.5rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .btn {
+            display: inline-block;
+            background: linear-gradient(135deg, #1fdf72 0%, #15994f 100%);
+            color: #0c0f1d;
+            font-family: 'Orbitron', sans-serif;
+            font-weight: 700;
+            font-size: 1.1rem;
+            text-decoration: none;
+            padding: 12px 35px;
+            border-radius: 50px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            box-shadow: 0 5px 15px rgba(31, 223, 114, 0.4);
+            transition: all 0.2s ease;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 25px rgba(31, 223, 114, 0.6);
+            background: linear-gradient(135deg, #26ed7c 0%, #1bc265 100%);
+        }
+    </style>
 </head>
 <body>
-  <iframe 
-    src="https://lunamixmc.github.io/GeoDash/" 
-    title="GeoDash" 
-    allow="autoplay; fullscreen; gamepad; focus-without-user-activation; pointer-lock *"
-    sandbox="allow-scripts allow-same-origin allow-forms allow-popups allow-downloads allow-modals allow-pointer-lock"
-  ></iframe>
+
+    <div class="card">
+        <div class="cube-icon"></div>
+        <h1>Geometry Dash</h1>
+        <p>A brand new update arrives next week... <span class="highlight">Next Week!</span></p>
+        <button class="btn" onclick="alert('Please wait one week!')">Let's Go!</button>
+    </div>
+
 </body>
 </html>
+

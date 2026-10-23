@@ -426,8 +426,8 @@
       'geodash': {
         name: 'GeoDash',
         category: 'Geometry Dash',
-        url: 'https://lunamixmc.github.io/GeoDash/',
-        altUrls: ['./GeoDash/index.html', './games/g/geodash/index.html'],
+        url: './games/g/geodash/index.html',
+        altUrls: ['./GeoDash/index.html'],
         aspectRatio: '16:9',
         openInNewTab: false,
         isLocal: true
@@ -531,6 +531,10 @@
 
     function resolveProxiedUrl(targetUrl) {
       if (!targetUrl) return '';
+      // GeoDash local override: lunamixmc GeoDash is hosted locally in this repository
+      if (targetUrl.includes('lunamixmc.github.io/GeoDash')) {
+        return './games/g/geodash/index.html';
+      }
       if (!gustProxyEnabled) return targetUrl;
       if (targetUrl.includes('gust.html')) return targetUrl;
       // Local files on the same domain don't need external proxying

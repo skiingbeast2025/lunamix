@@ -40,7 +40,7 @@
     "author": "lunamixmc",
     "icon": "./games/g/geodash/icon.png",
     "remoteIcon": "",
-    "entrypoint": "https://lunamixmc.github.io/GeoDash/",
+    "entrypoint": "./games/g/geodash/index.html",
     "isLocal": true,
     "isFeatured": true,
     "openInNewTab": false,

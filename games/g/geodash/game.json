@@ -7,7 +7,7 @@
   "author": "lunamixmc",
   "repoUrl": "https://github.com/lunamixmc/GeoDash",
   "icon": "icon.png",
-  "entrypoint": "https://lunamixmc.github.io/GeoDash/",
+  "entrypoint": "./games/g/geodash/index.html",
   "aspectRatio": "16:9",
   "isFeatured": true,
   "openInNewTab": false
