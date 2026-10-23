@@ -10,7 +10,8 @@ Live site: [https://skiingbeast2025.github.io/lunamix/](https://skiingbeast2025.
 
 - **Static Architecture**: 100% client-side platform compatible with GitHub Pages, Cloudflare Pages, and local file servers.
 - **Alphabetical Catalog**: Over 1,000 games organized into dedicated alphabetical letter directories (`games/a/` through `games/z/`, and `games/0-9/`).
-- **Universal Player**: Embedded theater player with responsive viewport sizing, full-window Theater Wide mode (hotkey `T`), fullscreen toggle (hotkey `F`), and frame reload (hotkey `R`).
+- **Universal Player**: Embedded theater player with responsive viewport sizing, full-window Theater Wide mode (hotkey `T`), fullscreen toggle (hotkey `F`), frame reload (hotkey `R`), and GUST proxy toggle (hotkey `P`).
+- **GUST WISP Proxy**: Client-side WebAssembly proxy (`gust.html` powered by GUST & `libcurl.js` over WISP WebSockets) to bypass restrictive school and enterprise firewalls without backend proxy servers.
 - **Privacy and Cloaking**: Built-in tab cloaking presets (Google Classroom, Google Drive, Google Docs, Canvas) and customizable instant panic key redirect (`~` or `Esc`).
 - **Standalone Launch Modes**: Support for complex web applications (including Geometry Dash WASM, Web-Dashers, and OvO Modloader) to launch directly in clean, dedicated browser tabs.
 - **Optimized Asset Delivery**: Parallel chunk downloading and persistent browser Cache API storage for large WASM game assets.
@@ -24,7 +25,8 @@ Live site: [https://skiingbeast2025.github.io/lunamix/](https://skiingbeast2025.
 lunamix/
 ├── index.html              # Landing page and platform introduction
 ├── games.html              # Searchable game catalog with category filtering
-├── play.html               # Universal player container with theater and cloaking controls
+├── play.html               # Universal player container with theater, cloaking, and GUST proxy controls
+├── gust.html               # GUST WebAssembly WISP proxy client
 ├── games-data.json         # Master metadata registry for all catalog games
 ├── assets/
 │   ├── css/                # Custom styling and animations
@@ -35,8 +37,9 @@ lunamix/
 │   ├── 0-9/                # Numeric titles (1v1.LOL, 2048, etc.)
 │   ├── a/ ... z/           # Alphabetical letter subdirectories
 │   └── g/
-│       ├── geometry-dash/  # Geometry Dash WASM launcher & upstream sync
-│       └── geodash-classic/# GeoDash canvas classic build
+│       ├── geometry-dash/          # Geometry Dash WASM full build
+│       ├── geometry-dash-scratch/  # Geometry Dash Scratch (Griffpatch 4:3 offline)
+│       └── geodash/                # GeoDash by lunamixmc
 └── tools/
     └── manage_games.py     # Command-line tool for catalog management
 ```

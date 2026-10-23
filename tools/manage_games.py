@@ -123,6 +123,8 @@ def build_registry():
 
     PRIORITY_ORDER = [
         "geometry-dash",
+        "geometry-dash-scratch",
+        "geodash",
         "retro-bowl",
         "web-dashers",
         "geometry-dash-subzero",

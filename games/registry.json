@@ -16,6 +16,38 @@
     "targetUrl": "https://skiingbeast2025.github.io/geometry-dash-wasm-proxy/"
   },
   {
+    "id": 173,
+    "slug": "geometry-dash-scratch",
+    "name": "Geometry Dash Scratch",
+    "category": "geometry-dash",
+    "description": "The classic Scratch / TurboWarp edition of Geometry Dash recreated by Griffpatch.",
+    "author": "Griffpatch",
+    "icon": "./games/g/geometry-dash-scratch/icon.png",
+    "remoteIcon": "",
+    "entrypoint": "./games/g/geometry-dash-scratch/index.html",
+    "isLocal": true,
+    "isFeatured": true,
+    "openInNewTab": false,
+    "aspectRatio": "4:3",
+    "targetUrl": "./play.html?game=geometry-dash-scratch"
+  },
+  {
+    "id": 174,
+    "slug": "geodash",
+    "name": "GeoDash",
+    "category": "geometry-dash",
+    "description": "GeoDash by lunamixmc - web port & update news (https://github.com/lunamixmc/GeoDash).",
+    "author": "lunamixmc",
+    "icon": "./games/g/geodash/icon.png",
+    "remoteIcon": "",
+    "entrypoint": "https://lunamixmc.github.io/GeoDash/",
+    "isLocal": true,
+    "isFeatured": true,
+    "openInNewTab": false,
+    "aspectRatio": "16:9",
+    "targetUrl": "./play.html?game=geodash"
+  },
+  {
     "id": 49,
     "slug": "retro-bowl",
     "name": "Retro Bowl",
@@ -78,22 +110,6 @@
     "openInNewTab": false,
     "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=geometry-dash-meltdown"
-  },
-  {
-    "id": 173,
-    "slug": "geodash-classic",
-    "name": "GeoDash Classic",
-    "category": "geometry-dash",
-    "description": "Classic standalone Geometry Dash web port.",
-    "author": "Griffpatch",
-    "icon": "./games/g/geodash-classic/icon.png",
-    "remoteIcon": "",
-    "entrypoint": "./games/g/geodash-classic/index.html",
-    "isLocal": true,
-    "isFeatured": false,
-    "openInNewTab": false,
-    "aspectRatio": "4:3",
-    "targetUrl": "./play.html?game=geodash-classic"
   },
   {
     "id": "slope",

@@ -1,0 +1,12 @@
+{
+  "id": 173,
+  "slug": "geometry-dash-scratch",
+  "name": "Geometry Dash Scratch",
+  "category": "geometry-dash",
+  "description": "The classic Scratch / TurboWarp edition of Geometry Dash recreated by Griffpatch.",
+  "author": "Griffpatch",
+  "icon": "icon.png",
+  "entrypoint": "./games/g/geometry-dash-scratch/index.html",
+  "aspectRatio": "4:3",
+  "isFeatured": true
+}

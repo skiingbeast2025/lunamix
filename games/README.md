@@ -23,7 +23,14 @@ games/
 │   │   ├── icon.png          # Dedicated game logo
 │   │   ├── upstream.json     # Live upstream commit status & sync metadata
 │   │   └── index.html        # Clean standalone launcher
-│   └── geodash-classic/
+│   ├── geometry-dash-scratch/# Geometry Dash Scratch (Griffpatch 4:3 offline)
+│   │   ├── game.json
+│   │   ├── icon.png
+│   │   └── index.html
+│   └── geodash/              # GeoDash by lunamixmc
+│       ├── game.json
+│       ├── icon.png
+│       └── index.html
 ├── o/
 │   └── ovo/
 ├── r/

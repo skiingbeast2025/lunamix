@@ -1,0 +1,14 @@
+{
+  "id": 174,
+  "slug": "geodash",
+  "name": "GeoDash",
+  "category": "geometry-dash",
+  "description": "GeoDash by lunamixmc - web port & update news (https://github.com/lunamixmc/GeoDash).",
+  "author": "lunamixmc",
+  "repoUrl": "https://github.com/lunamixmc/GeoDash",
+  "icon": "icon.png",
+  "entrypoint": "https://lunamixmc.github.io/GeoDash/",
+  "aspectRatio": "16:9",
+  "isFeatured": true,
+  "openInNewTab": false
+}

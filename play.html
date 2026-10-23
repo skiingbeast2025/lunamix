@@ -181,6 +181,33 @@
           <span class="hidden md:inline">Fullscreen</span>
         </button>
 
+        <!-- GUST Proxy Toggle (Bypasses School & Enterprise Firewalls via WISP) -->
+        <button 
+          type="button" 
+          onclick="toggleGustProxy()" 
+          id="gust-proxy-btn"
+          class="p-2 sm:px-2.5 sm:py-1.5 rounded-xl text-xs font-semibold text-emerald-300 bg-emerald-500/15 hover:bg-emerald-500/25 border border-emerald-500/40 hover:border-emerald-400 transition-all flex items-center gap-1.5"
+          title="Toggle GUST WISP Proxy for restricted school networks (Hotkey: P)"
+        >
+          <svg class="w-3.5 h-3.5 text-emerald-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+          </svg>
+          <span id="gust-proxy-label" class="hidden sm:inline">GUST: ON</span>
+        </button>
+
+        <!-- Standalone GUST Browser -->
+        <a 
+          href="./gust.html" 
+          target="_blank" 
+          class="p-2 sm:px-2.5 sm:py-1.5 rounded-xl text-xs font-medium text-slate-400 hover:text-cyan-300 bg-slate-900/60 hover:bg-slate-800 border border-slate-800/80 transition-all hidden lg:flex items-center gap-1.5"
+          title="Open GUST Unblocked Web Proxy Browser"
+        >
+          <svg class="w-3.5 h-3.5 text-cyan-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9" />
+          </svg>
+          <span class="hidden xl:inline">GUST Browser</span>
+        </a>
+
         <!-- Open in New Tab -->
         <button 
           type="button" 
@@ -329,6 +356,7 @@
         <span class="flex items-center gap-1"><kbd class="px-1.5 py-0.5 rounded bg-slate-900 border border-slate-800 text-slate-400">F</kbd> Fullscreen</span>
         <span class="flex items-center gap-1"><kbd class="px-1.5 py-0.5 rounded bg-slate-900 border border-slate-800 text-slate-400">T</kbd> Theater</span>
         <span class="flex items-center gap-1"><kbd class="px-1.5 py-0.5 rounded bg-slate-900 border border-slate-800 text-slate-400">A</kbd> Ratio</span>
+        <span class="flex items-center gap-1"><kbd class="px-1.5 py-0.5 rounded bg-slate-900 border border-slate-800 text-slate-400">P</kbd> GUST</span>
         <span class="flex items-center gap-1"><kbd class="px-1.5 py-0.5 rounded bg-slate-900 border border-slate-800 text-slate-400">R</kbd> Reload</span>
         <span class="flex items-center gap-1"><kbd class="px-1.5 py-0.5 rounded bg-slate-900 border border-slate-800 text-slate-400">~</kbd> Panic Exit</span>
       </div>
@@ -386,12 +414,21 @@
         openInNewTab: false,
         isLocal: true
       },
-      'geodash-classic': {
-        name: 'GeoDash Classic',
+      'geometry-dash-scratch': {
+        name: 'Geometry Dash Scratch',
         category: 'Geometry Dash',
-        url: './games/g/geodash-classic/index.html',
-        altUrls: ['./games/geodash-classic/index.html', './GeoDash/index.html'],
+        url: './games/g/geometry-dash-scratch/index.html',
+        altUrls: ['./games/g/geodash-classic/index.html', './games/geometry-dash-scratch/index.html'],
         aspectRatio: '4:3',
+        openInNewTab: false,
+        isLocal: true
+      },
+      'geodash': {
+        name: 'GeoDash',
+        category: 'Geometry Dash',
+        url: 'https://lunamixmc.github.io/GeoDash/',
+        altUrls: ['./GeoDash/index.html', './games/g/geodash/index.html'],
+        aspectRatio: '16:9',
         openInNewTab: false,
         isLocal: true
       },
@@ -444,7 +481,10 @@
     LOCAL_GAMES_DICT['gd-wasm'] = LOCAL_GAMES_DICT['geometry-dash'];
     LOCAL_GAMES_DICT['geometry-dash-web-full'] = LOCAL_GAMES_DICT['geometry-dash'];
     LOCAL_GAMES_DICT['gd-full'] = LOCAL_GAMES_DICT['geometry-dash'];
-    LOCAL_GAMES_DICT['geodash'] = LOCAL_GAMES_DICT['geodash-classic'];
+    LOCAL_GAMES_DICT['geodash-classic'] = LOCAL_GAMES_DICT['geometry-dash-scratch'];
+    LOCAL_GAMES_DICT['gd-scratch'] = LOCAL_GAMES_DICT['geometry-dash-scratch'];
+    LOCAL_GAMES_DICT['scratch-gd'] = LOCAL_GAMES_DICT['geometry-dash-scratch'];
+    LOCAL_GAMES_DICT['lunamix-geodash'] = LOCAL_GAMES_DICT['geodash'];
     LOCAL_GAMES_DICT['subzero'] = LOCAL_GAMES_DICT['geometry-dash-subzero'];
     LOCAL_GAMES_DICT['gd-subzero'] = LOCAL_GAMES_DICT['geometry-dash-subzero'];
     LOCAL_GAMES_DICT['meltdown'] = LOCAL_GAMES_DICT['geometry-dash-meltdown'];
@@ -453,8 +493,70 @@
     LOCAL_GAMES_DICT['subway'] = LOCAL_GAMES_DICT['subway-surfers'];
     LOCAL_GAMES_DICT['subwaysurfers'] = LOCAL_GAMES_DICT['subway-surfers'];
 
-    let currentGameUrl = '';
+    let currentGameRawUrl = '';
+    let currentGameEffectiveUrl = '';
     let currentAspectRatio = '16:9';
+
+    // GUST Proxy State for restricted environments (persisted)
+    let gustProxyEnabled = localStorage.getItem('lunamix_gust_proxy') !== 'false';
+
+    function toggleGustProxy() {
+      gustProxyEnabled = !gustProxyEnabled;
+      try {
+        localStorage.setItem('lunamix_gust_proxy', gustProxyEnabled ? 'true' : 'false');
+      } catch (e) {}
+      updateGustUI();
+      if (currentGameRawUrl) {
+        loadIframeUrl(currentGameRawUrl);
+      }
+    }
+
+    function updateGustUI() {
+      const btn = document.getElementById('gust-proxy-btn');
+      const label = document.getElementById('gust-proxy-label');
+      if (btn && label) {
+        if (gustProxyEnabled) {
+          btn.classList.add('bg-emerald-500/15', 'border-emerald-500/40', 'text-emerald-300');
+          btn.classList.remove('bg-slate-900/80', 'border-slate-800', 'text-slate-400');
+          label.textContent = 'GUST: ON';
+          btn.title = 'GUST WISP Proxy Active - Traffic encrypted and tunneled for restricted networks (Hotkey: P)';
+        } else {
+          btn.classList.remove('bg-emerald-500/15', 'border-emerald-500/40', 'text-emerald-300');
+          btn.classList.add('bg-slate-900/80', 'border-slate-800', 'text-slate-400');
+          label.textContent = 'GUST: OFF';
+          btn.title = 'GUST Proxy Off - Direct connection (Hotkey: P)';
+        }
+      }
+    }
+
+    function resolveProxiedUrl(targetUrl) {
+      if (!targetUrl) return '';
+      if (!gustProxyEnabled) return targetUrl;
+      if (targetUrl.includes('gust.html')) return targetUrl;
+      // Local files on the same domain don't need external proxying
+      if (targetUrl.startsWith('./') || targetUrl.startsWith('/') || (!targetUrl.startsWith('http://') && !targetUrl.startsWith('https://'))) {
+        return targetUrl;
+      }
+      // Route through GUST WISP WebAssembly tunnel
+      return `./gust.html?url=${encodeURIComponent(targetUrl)}&embed=1`;
+    }
+
+    function loadIframeUrl(rawUrl) {
+      const iframe = document.getElementById('game-iframe');
+      const loader = document.getElementById('player-loading-overlay');
+      if (!iframe) return;
+
+      currentGameRawUrl = rawUrl;
+      const effectiveUrl = resolveProxiedUrl(rawUrl);
+      currentGameEffectiveUrl = effectiveUrl;
+      currentGameUrl = effectiveUrl;
+
+      if (loader) {
+        loader.classList.remove('hidden', 'opacity-0');
+      }
+
+      iframe.src = effectiveUrl;
+    }
 
     /**
      * Update viewport dimensions based on player container size and aspect ratio
@@ -526,6 +628,7 @@
      * Resolve and launch the game based on query parameters (?game=<slug> or ?id=<id>)
      */
     async function initPlayer() {
+      updateGustUI();
       const params = new URLSearchParams(window.location.search);
       const iframe = document.getElementById('game-iframe');
       const titleEl = document.getElementById('game-title');
@@ -559,7 +662,7 @@
               name: manifest.name,
               category: manifest.category || 'Arcade',
               url: manifest.entrypoint || `./games/${letter}/${slug}/index.html`,
-              aspectRatio: manifest.aspectRatio || (slug === 'geodash-classic' ? '4:3' : '16:9'),
+              aspectRatio: manifest.aspectRatio || ((slug === 'geodash-classic' || slug === 'geometry-dash-scratch') ? '4:3' : '16:9'),
               isLocal: true
             };
           }
@@ -582,7 +685,7 @@
                   name: found.name,
                   category: found.category || 'Arcade',
                   url: found.entrypoint,
-                  aspectRatio: found.aspectRatio || (slug === 'geodash-classic' ? '4:3' : '16:9'),
+                  aspectRatio: found.aspectRatio || ((slug === 'geodash-classic' || slug === 'geometry-dash-scratch') ? '4:3' : '16:9'),
                   isLocal: true
                 };
               }
@@ -615,7 +718,9 @@
         } else if (idNum === 172) {
           gameData = LOCAL_GAMES_DICT['geometry-dash-meltdown'];
         } else if (idNum === 173) {
-          gameData = LOCAL_GAMES_DICT['geodash-classic'];
+          gameData = LOCAL_GAMES_DICT['geometry-dash-scratch'];
+        } else if (idNum === 174) {
+          gameData = LOCAL_GAMES_DICT['geodash'];
         }
         if (!gameData) {
           try {
@@ -632,7 +737,7 @@
                   name: found.name,
                   category: found.category || 'Arcade',
                   url: found.entrypoint || `./games/${found.slug}/index.html`,
-                  aspectRatio: found.aspectRatio || (found.slug === 'geodash-classic' ? '4:3' : '16:9'),
+                  aspectRatio: found.aspectRatio || ((found.slug === 'geodash-classic' || found.slug === 'geometry-dash-scratch') ? '4:3' : '16:9'),
                   isLocal: true
                 };
               }
@@ -674,7 +779,7 @@
                 name: found.name,
                 category: found.category || 'Arcade',
                 url: found.playableUrl,
-                aspectRatio: found.aspectRatio || (directSlug === 'geodash-classic' ? '4:3' : '16:9'),
+                aspectRatio: found.aspectRatio || ((directSlug === 'geodash-classic' || directSlug === 'geometry-dash-scratch') ? '4:3' : '16:9'),
                 isLocal: false
               };
             }
@@ -706,9 +811,7 @@
       const initialRatio = gameData.aspectRatio || '16:9';
       setAspectRatio(initialRatio, true);
 
-      currentGameUrl = targetUrl;
-
-      // Load iframe
+      // Load iframe via GUST proxy if enabled
       iframe.onload = () => {
         updateViewportDimensions();
         setTimeout(() => {
@@ -719,7 +822,7 @@
         }, 200);
       };
 
-      iframe.src = targetUrl;
+      loadIframeUrl(targetUrl);
 
       // Setup Keyboard Shortcuts
       setupPlayerShortcuts();
@@ -734,10 +837,10 @@
       const icon = document.getElementById('reload-icon');
 
       if (icon) icon.classList.add('animate-spin');
-      loader.classList.remove('hidden', 'opacity-0');
+      if (loader) loader.classList.remove('hidden', 'opacity-0');
 
-      if (iframe && currentGameUrl) {
-        iframe.src = currentGameUrl;
+      if (iframe && currentGameRawUrl) {
+        loadIframeUrl(currentGameRawUrl);
       }
 
       setTimeout(() => {
@@ -800,13 +903,14 @@
      * Open game directly in new tab
      */
     function openInNewTab() {
-      if (currentGameUrl) {
-        window.open(currentGameUrl, '_blank');
+      if (currentGameRawUrl) {
+        const target = resolveProxiedUrl(currentGameRawUrl);
+        window.open(target, '_blank');
       }
     }
 
     /**
-     * Setup Keyboard Shortcuts: F for fullscreen, T for theater wide, A for aspect ratio, R for reload
+     * Setup Keyboard Shortcuts: F for fullscreen, T for theater wide, A for aspect ratio, R for reload, P for GUST proxy
      */
     function setupPlayerShortcuts() {
       window.addEventListener('keydown', (e) => {
@@ -825,9 +929,22 @@
         } else if (e.key === 'r' || e.key === 'R') {
           e.preventDefault();
           reloadGame();
+        } else if (e.key === 'p' || e.key === 'P') {
+          e.preventDefault();
+          toggleGustProxy();
         }
       });
     }
+
+    // Forward window postMessages to child iframe for WASM/GUST coordination
+    window.addEventListener('message', (ev) => {
+      const iframe = document.getElementById('game-iframe');
+      if (iframe && iframe.contentWindow && ev.source !== iframe.contentWindow) {
+        try {
+          iframe.contentWindow.postMessage(ev.data, '*');
+        } catch (e) {}
+      }
+    });
 
     // Auto-update viewport on window resize and fullscreen state changes
     window.addEventListener('resize', updateViewportDimensions);
