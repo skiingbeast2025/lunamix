@@ -115,6 +115,7 @@ def build_registry():
                 "isLocal": True,
                 "isFeatured": is_featured,
                 "openInNewTab": is_open_in_new_tab,
+                "aspectRatio": data.get("aspectRatio", "16:9"),
                 "targetUrl": target_url
             })
         except Exception as e:

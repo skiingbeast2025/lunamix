@@ -12,6 +12,7 @@
     "isLocal": true,
     "isFeatured": true,
     "openInNewTab": true,
+    "aspectRatio": "16:9",
     "targetUrl": "https://skiingbeast2025.github.io/geometry-dash-wasm-proxy/"
   },
   {
@@ -27,6 +28,7 @@
     "isLocal": true,
     "isFeatured": true,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=retro-bowl"
   },
   {
@@ -42,6 +44,7 @@
     "isLocal": true,
     "isFeatured": true,
     "openInNewTab": true,
+    "aspectRatio": "16:9",
     "targetUrl": "https://skiingbeast2025.github.io/webdickers/"
   },
   {
@@ -57,6 +60,7 @@
     "isLocal": true,
     "isFeatured": true,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=geometry-dash-subzero"
   },
   {
@@ -72,6 +76,7 @@
     "isLocal": true,
     "isFeatured": true,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=geometry-dash-meltdown"
   },
   {
@@ -87,6 +92,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "4:3",
     "targetUrl": "./play.html?game=geodash-classic"
   },
   {
@@ -102,6 +108,7 @@
     "isLocal": true,
     "isFeatured": true,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=slope"
   },
   {
@@ -117,6 +124,7 @@
     "isLocal": true,
     "isFeatured": true,
     "openInNewTab": true,
+    "aspectRatio": "16:9",
     "targetUrl": "https://arjun99ab.github.io/ovo/"
   },
   {
@@ -132,6 +140,7 @@
     "isLocal": true,
     "isFeatured": true,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=subway-surfers"
   },
   {
@@ -147,6 +156,7 @@
     "isLocal": true,
     "isFeatured": true,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=polytrack"
   },
   {
@@ -162,6 +172,7 @@
     "isLocal": true,
     "isFeatured": true,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=1v1lol"
   },
   {
@@ -177,6 +188,7 @@
     "isLocal": true,
     "isFeatured": true,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=a-dance-of-fire-and-ice"
   },
   {
@@ -192,6 +204,7 @@
     "isLocal": true,
     "isFeatured": true,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=a-dark-room"
   },
   {
@@ -207,6 +220,7 @@
     "isLocal": true,
     "isFeatured": true,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=acid-bunny-2"
   },
   {
@@ -222,6 +236,7 @@
     "isLocal": true,
     "isFeatured": true,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=appel"
   },
   {
@@ -237,6 +252,7 @@
     "isLocal": true,
     "isFeatured": true,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=asciispace"
   },
   {
@@ -252,6 +268,7 @@
     "isLocal": true,
     "isFeatured": true,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=aspiring-artist"
   },
   {
@@ -267,6 +284,7 @@
     "isLocal": true,
     "isFeatured": true,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=assembloid"
   },
   {
@@ -282,6 +300,7 @@
     "isLocal": true,
     "isFeatured": true,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=asteroids"
   },
   {
@@ -297,6 +316,7 @@
     "isLocal": true,
     "isFeatured": true,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=bad-icecream"
   },
   {
@@ -312,6 +332,7 @@
     "isLocal": true,
     "isFeatured": true,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=bad-icecream-2"
   },
   {
@@ -327,6 +348,7 @@
     "isLocal": true,
     "isFeatured": true,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=bad-icecream-3"
   },
   {
@@ -342,6 +364,7 @@
     "isLocal": true,
     "isFeatured": true,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=basket-random"
   },
   {
@@ -357,6 +380,7 @@
     "isLocal": true,
     "isFeatured": true,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=basketball-stars"
   },
   {
@@ -372,6 +396,7 @@
     "isLocal": true,
     "isFeatured": true,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=big-ice-tower-tiny-square"
   },
   {
@@ -387,6 +412,7 @@
     "isLocal": true,
     "isFeatured": true,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=big-tower-tiny-square"
   },
   {
@@ -402,6 +428,7 @@
     "isLocal": true,
     "isFeatured": true,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=bit-planes"
   },
   {
@@ -417,6 +444,7 @@
     "isLocal": true,
     "isFeatured": true,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=bitlife"
   },
   {
@@ -432,6 +460,7 @@
     "isLocal": true,
     "isFeatured": true,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=blockpost"
   },
   {
@@ -447,6 +476,7 @@
     "isLocal": true,
     "isFeatured": true,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=blocky-gun-paintball"
   },
   {
@@ -462,6 +492,7 @@
     "isLocal": true,
     "isFeatured": true,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=bloxorz"
   },
   {
@@ -477,6 +508,7 @@
     "isLocal": true,
     "isFeatured": true,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=breaking-the-bank"
   },
   {
@@ -492,6 +524,7 @@
     "isLocal": true,
     "isFeatured": true,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=buckshot-roulette"
   },
   {
@@ -507,6 +540,7 @@
     "isLocal": true,
     "isFeatured": true,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=burnin-rubber-crash-n-burn"
   },
   {
@@ -522,6 +556,7 @@
     "isLocal": true,
     "isFeatured": true,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=burnout-extreme-drift-2"
   },
   {
@@ -537,6 +572,7 @@
     "isLocal": true,
     "isFeatured": true,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=cherry-on-the-ice-cream"
   },
   {
@@ -552,6 +588,7 @@
     "isLocal": true,
     "isFeatured": true,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=cognite"
   },
   {
@@ -567,6 +604,7 @@
     "isLocal": true,
     "isFeatured": true,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=connect-3"
   },
   {
@@ -582,6 +620,7 @@
     "isLocal": true,
     "isFeatured": true,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=cookie-clicker"
   },
   {
@@ -597,6 +636,7 @@
     "isLocal": true,
     "isFeatured": true,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=couch-2048"
   },
   {
@@ -612,6 +652,7 @@
     "isLocal": true,
     "isFeatured": true,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=crossyroad"
   },
   {
@@ -627,6 +668,7 @@
     "isLocal": true,
     "isFeatured": true,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=cut-the-rope"
   },
   {
@@ -642,6 +684,7 @@
     "isLocal": true,
     "isFeatured": true,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=cyber-city-driver"
   },
   {
@@ -657,6 +700,7 @@
     "isLocal": true,
     "isFeatured": true,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=doodle-jump"
   },
   {
@@ -672,6 +716,7 @@
     "isLocal": true,
     "isFeatured": true,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=doomzio"
   },
   {
@@ -687,6 +732,7 @@
     "isLocal": true,
     "isFeatured": true,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=drive-mad"
   },
   {
@@ -702,6 +748,7 @@
     "isLocal": true,
     "isFeatured": true,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=drive-mad-200-levels"
   },
   {
@@ -717,6 +764,7 @@
     "isLocal": true,
     "isFeatured": true,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=duck-life"
   },
   {
@@ -732,6 +780,7 @@
     "isLocal": true,
     "isFeatured": true,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=duck-life-2"
   },
   {
@@ -747,6 +796,7 @@
     "isLocal": true,
     "isFeatured": true,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=duck-life-3"
   },
   {
@@ -762,6 +812,7 @@
     "isLocal": true,
     "isFeatured": true,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=eatio"
   },
   {
@@ -777,6 +828,7 @@
     "isLocal": true,
     "isFeatured": true,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=eco-ego"
   },
   {
@@ -792,6 +844,7 @@
     "isLocal": true,
     "isFeatured": true,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=edge-not-found"
   },
   {
@@ -807,6 +860,7 @@
     "isLocal": true,
     "isFeatured": true,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=eggy-car"
   },
   {
@@ -822,6 +876,7 @@
     "isLocal": true,
     "isFeatured": true,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=elephant-rave-2"
   },
   {
@@ -837,6 +892,7 @@
     "isLocal": true,
     "isFeatured": true,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=escaping-the-prison"
   },
   {
@@ -852,6 +908,7 @@
     "isLocal": true,
     "isFeatured": true,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=eugenes-life"
   },
   {
@@ -867,6 +924,7 @@
     "isLocal": true,
     "isFeatured": true,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=evil-glich"
   },
   {
@@ -882,6 +940,7 @@
     "isLocal": true,
     "isFeatured": true,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=fireboy-and-watergirl-2"
   },
   {
@@ -897,6 +956,7 @@
     "isLocal": true,
     "isFeatured": true,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=fireboy-and-watergirl-3"
   },
   {
@@ -912,6 +972,7 @@
     "isLocal": true,
     "isFeatured": true,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=fireboy-and-watergirl-4"
   },
   {
@@ -927,6 +988,7 @@
     "isLocal": true,
     "isFeatured": true,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=five-nights-at-winstons"
   },
   {
@@ -942,6 +1004,7 @@
     "isLocal": true,
     "isFeatured": true,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=flappy-bird"
   },
   {
@@ -957,6 +1020,7 @@
     "isLocal": true,
     "isFeatured": true,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=fleeing-the-complex"
   },
   {
@@ -972,6 +1036,7 @@
     "isLocal": true,
     "isFeatured": true,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=fnaf"
   },
   {
@@ -987,6 +1052,7 @@
     "isLocal": true,
     "isFeatured": true,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=football-strike"
   },
   {
@@ -1002,6 +1068,7 @@
     "isLocal": true,
     "isFeatured": true,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=footballbros"
   },
   {
@@ -1017,6 +1084,7 @@
     "isLocal": true,
     "isFeatured": true,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=friday-night-funkin"
   },
   {
@@ -1032,6 +1100,7 @@
     "isLocal": true,
     "isFeatured": true,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=funny-shooter"
   },
   {
@@ -1047,6 +1116,7 @@
     "isLocal": true,
     "isFeatured": true,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=g-switch-3"
   },
   {
@@ -1062,6 +1132,7 @@
     "isLocal": true,
     "isFeatured": true,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=galaga"
   },
   {
@@ -1077,6 +1148,7 @@
     "isLocal": true,
     "isFeatured": true,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=getaway-shootout"
   },
   {
@@ -1092,6 +1164,7 @@
     "isLocal": true,
     "isFeatured": true,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=gladihoppers"
   },
   {
@@ -1107,6 +1180,7 @@
     "isLocal": true,
     "isFeatured": true,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=gobo-desert-of-cubes"
   },
   {
@@ -1122,6 +1196,7 @@
     "isLocal": true,
     "isFeatured": true,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=golf-orbit"
   },
   {
@@ -1137,6 +1212,7 @@
     "isLocal": true,
     "isFeatured": true,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=goodnight"
   },
   {
@@ -1152,6 +1228,7 @@
     "isLocal": true,
     "isFeatured": true,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=google-snake"
   },
   {
@@ -1167,6 +1244,7 @@
     "isLocal": true,
     "isFeatured": true,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=green"
   },
   {
@@ -1182,6 +1260,7 @@
     "isLocal": true,
     "isFeatured": true,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=gun-mayhem-2"
   },
   {
@@ -1197,6 +1276,7 @@
     "isLocal": true,
     "isFeatured": true,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=hot-dog-bush"
   },
   {
@@ -1212,6 +1292,7 @@
     "isLocal": true,
     "isFeatured": true,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=house-of-hazards"
   },
   {
@@ -1227,6 +1308,7 @@
     "isLocal": true,
     "isFeatured": true,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=idle-shark"
   },
   {
@@ -1242,6 +1324,7 @@
     "isLocal": true,
     "isFeatured": true,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=infiltrating-the-airship"
   },
   {
@@ -1257,6 +1340,7 @@
     "isLocal": true,
     "isFeatured": true,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=iron-snout"
   },
   {
@@ -1272,6 +1356,7 @@
     "isLocal": true,
     "isFeatured": true,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=jacksmith"
   },
   {
@@ -1287,6 +1372,7 @@
     "isLocal": true,
     "isFeatured": true,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=just-fall"
   },
   {
@@ -1302,6 +1388,7 @@
     "isLocal": true,
     "isFeatured": true,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=konnekt"
   },
   {
@@ -1317,6 +1404,7 @@
     "isLocal": true,
     "isFeatured": true,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=krunker"
   },
   {
@@ -1332,6 +1420,7 @@
     "isLocal": true,
     "isFeatured": true,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=learn-to-fly"
   },
   {
@@ -1347,6 +1436,7 @@
     "isLocal": true,
     "isFeatured": true,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=learn-to-fly-2"
   },
   {
@@ -1362,6 +1452,7 @@
     "isLocal": true,
     "isFeatured": true,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=learn-to-fly-3"
   },
   {
@@ -1377,6 +1468,7 @@
     "isLocal": true,
     "isFeatured": true,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=magirune"
   },
   {
@@ -1392,6 +1484,7 @@
     "isLocal": true,
     "isFeatured": true,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=magnet-master-redux"
   },
   {
@@ -1407,6 +1500,7 @@
     "isLocal": true,
     "isFeatured": true,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=mini-bubbles"
   },
   {
@@ -1422,6 +1516,7 @@
     "isLocal": true,
     "isFeatured": true,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=mini-rocket"
   },
   {
@@ -1437,6 +1532,7 @@
     "isLocal": true,
     "isFeatured": true,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=mirror-wizard"
   },
   {
@@ -1452,6 +1548,7 @@
     "isLocal": true,
     "isFeatured": true,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=monkey-mart"
   },
   {
@@ -1467,6 +1564,7 @@
     "isLocal": true,
     "isFeatured": true,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=moto-x3m"
   },
   {
@@ -1482,6 +1580,7 @@
     "isLocal": true,
     "isFeatured": true,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=moto-x3m-2"
   },
   {
@@ -1497,6 +1596,7 @@
     "isLocal": true,
     "isFeatured": true,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=moto-x3m-winter"
   },
   {
@@ -1512,6 +1612,7 @@
     "isLocal": true,
     "isFeatured": true,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=mutual-destruction"
   },
   {
@@ -1527,6 +1628,7 @@
     "isLocal": true,
     "isFeatured": true,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=new-polytrack"
   },
   {
@@ -1542,6 +1644,7 @@
     "isLocal": true,
     "isFeatured": true,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=ngu-idle"
   },
   {
@@ -1557,6 +1660,7 @@
     "isLocal": true,
     "isFeatured": true,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=ovo-3d"
   },
   {
@@ -1572,6 +1676,7 @@
     "isLocal": true,
     "isFeatured": true,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=pacman"
   },
   {
@@ -1587,6 +1692,7 @@
     "isLocal": true,
     "isFeatured": true,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=papa-louies-1"
   },
   {
@@ -1602,6 +1708,7 @@
     "isLocal": true,
     "isFeatured": true,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=papas-bakeria"
   },
   {
@@ -1617,6 +1724,7 @@
     "isLocal": true,
     "isFeatured": true,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=papas-burgeria"
   },
   {
@@ -1632,6 +1740,7 @@
     "isLocal": true,
     "isFeatured": true,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=papas-cupcakeria"
   },
   {
@@ -1647,6 +1756,7 @@
     "isLocal": true,
     "isFeatured": true,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=papas-donuteria"
   },
   {
@@ -1662,6 +1772,7 @@
     "isLocal": true,
     "isFeatured": true,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=papas-freezeria"
   },
   {
@@ -1677,6 +1788,7 @@
     "isLocal": true,
     "isFeatured": true,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=papas-pizzeria"
   },
   {
@@ -1692,6 +1804,7 @@
     "isLocal": true,
     "isFeatured": true,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=papas-scooperia"
   },
   {
@@ -1707,6 +1820,7 @@
     "isLocal": true,
     "isFeatured": true,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=papas-taco-mia"
   },
   {
@@ -1722,6 +1836,7 @@
     "isLocal": true,
     "isFeatured": true,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=paper-minecraft"
   },
   {
@@ -1737,6 +1852,7 @@
     "isLocal": true,
     "isFeatured": true,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=paperio"
   },
   {
@@ -1752,6 +1868,7 @@
     "isLocal": true,
     "isFeatured": true,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=platformation"
   },
   {
@@ -1767,6 +1884,7 @@
     "isLocal": true,
     "isFeatured": true,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=pong"
   },
   {
@@ -1782,6 +1900,7 @@
     "isLocal": true,
     "isFeatured": true,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=power-badminton"
   },
   {
@@ -1797,6 +1916,7 @@
     "isLocal": true,
     "isFeatured": true,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=push-the-box"
   },
   {
@@ -1812,6 +1932,7 @@
     "isLocal": true,
     "isFeatured": true,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=raft-wars"
   },
   {
@@ -1827,6 +1948,7 @@
     "isLocal": true,
     "isFeatured": true,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=ragdoll-hit"
   },
   {
@@ -1842,6 +1964,7 @@
     "isLocal": true,
     "isFeatured": true,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=retro-bowl-college"
   },
   {
@@ -1857,6 +1980,7 @@
     "isLocal": true,
     "isFeatured": true,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=rooftop-snipers"
   },
   {
@@ -1872,6 +1996,7 @@
     "isLocal": true,
     "isFeatured": true,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=rooftop-snipers-2"
   },
   {
@@ -1887,6 +2012,7 @@
     "isLocal": true,
     "isFeatured": true,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=run-1"
   },
   {
@@ -1902,6 +2028,7 @@
     "isLocal": true,
     "isFeatured": true,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=sans-fight"
   },
   {
@@ -1917,6 +2044,7 @@
     "isLocal": true,
     "isFeatured": true,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=sausage-flipping"
   },
   {
@@ -1932,6 +2060,7 @@
     "isLocal": true,
     "isFeatured": true,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=scratch-brawl-2"
   },
   {
@@ -1947,6 +2076,7 @@
     "isLocal": true,
     "isFeatured": true,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=skiing-fred"
   },
   {
@@ -1962,6 +2092,7 @@
     "isLocal": true,
     "isFeatured": true,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=slime-knight"
   },
   {
@@ -1977,6 +2108,7 @@
     "isLocal": true,
     "isFeatured": true,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=smash-karts"
   },
   {
@@ -1992,6 +2124,7 @@
     "isLocal": true,
     "isFeatured": true,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=smashkarts"
   },
   {
@@ -2007,6 +2140,7 @@
     "isLocal": true,
     "isFeatured": true,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=snow-rider-3d"
   },
   {
@@ -2022,6 +2156,7 @@
     "isLocal": true,
     "isFeatured": true,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=sonny2"
   },
   {
@@ -2037,6 +2172,7 @@
     "isLocal": true,
     "isFeatured": true,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=space-invaders"
   },
   {
@@ -2052,6 +2188,7 @@
     "isLocal": true,
     "isFeatured": true,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=sprinter"
   },
   {
@@ -2067,6 +2204,7 @@
     "isLocal": true,
     "isFeatured": true,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=stack"
   },
   {
@@ -2082,6 +2220,7 @@
     "isLocal": true,
     "isFeatured": true,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=stack-ball"
   },
   {
@@ -2097,6 +2236,7 @@
     "isLocal": true,
     "isFeatured": true,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=stealing-the-diamond"
   },
   {
@@ -2112,6 +2252,7 @@
     "isLocal": true,
     "isFeatured": true,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=subway-surfers-monaco"
   },
   {
@@ -2127,6 +2268,7 @@
     "isLocal": true,
     "isFeatured": true,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=super-liquid-soccer"
   },
   {
@@ -2142,6 +2284,7 @@
     "isLocal": true,
     "isFeatured": true,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=super-mario-64"
   },
   {
@@ -2157,6 +2300,7 @@
     "isLocal": true,
     "isFeatured": true,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=tabs"
   },
   {
@@ -2172,6 +2316,7 @@
     "isLocal": true,
     "isFeatured": true,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=tag"
   },
   {
@@ -2187,6 +2332,7 @@
     "isLocal": true,
     "isFeatured": true,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=tank-trouble-2"
   },
   {
@@ -2202,6 +2348,7 @@
     "isLocal": true,
     "isFeatured": true,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=tetris"
   },
   {
@@ -2217,6 +2364,7 @@
     "isLocal": true,
     "isFeatured": true,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=thats-not-my-neighbor"
   },
   {
@@ -2232,6 +2380,7 @@
     "isLocal": true,
     "isFeatured": true,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=the-binding-of-isaac"
   },
   {
@@ -2247,6 +2396,7 @@
     "isLocal": true,
     "isFeatured": true,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=the-mage"
   },
   {
@@ -2262,6 +2412,7 @@
     "isLocal": true,
     "isFeatured": true,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=time-shooter-3"
   },
   {
@@ -2277,6 +2428,7 @@
     "isLocal": true,
     "isFeatured": true,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=tiny-town-racing"
   },
   {
@@ -2292,6 +2444,7 @@
     "isLocal": true,
     "isFeatured": true,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=tomb-of-the-mask"
   },
   {
@@ -2307,6 +2460,7 @@
     "isLocal": true,
     "isFeatured": true,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=vex-3"
   },
   {
@@ -2322,6 +2476,7 @@
     "isLocal": true,
     "isFeatured": true,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=vex-4"
   },
   {
@@ -2337,6 +2492,7 @@
     "isLocal": true,
     "isFeatured": true,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=vex-5"
   },
   {
@@ -2352,6 +2508,7 @@
     "isLocal": true,
     "isFeatured": true,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=vex-6"
   },
   {
@@ -2367,6 +2524,7 @@
     "isLocal": true,
     "isFeatured": true,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=vex-7"
   },
   {
@@ -2382,6 +2540,7 @@
     "isLocal": true,
     "isFeatured": true,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=we-become-what-we-behold"
   },
   {
@@ -2397,6 +2556,7 @@
     "isLocal": true,
     "isFeatured": true,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=worlds-hardest-game"
   },
   {
@@ -2412,6 +2572,7 @@
     "isLocal": true,
     "isFeatured": true,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=wrassling"
   },
   {
@@ -2427,6 +2588,7 @@
     "isLocal": true,
     "isFeatured": true,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=xx142-b2exe"
   },
   {
@@ -2442,6 +2604,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=100-unicorn"
   },
   {
@@ -2457,6 +2620,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=10-minutes-till-dawn"
   },
   {
@@ -2472,6 +2636,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=100-pong"
   },
   {
@@ -2487,6 +2652,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=1v1-space"
   },
   {
@@ -2502,6 +2668,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=2048-multitask"
   },
   {
@@ -2517,6 +2684,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=3-pandas-1"
   },
   {
@@ -2532,6 +2700,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=3d-bowling"
   },
   {
@@ -2547,6 +2716,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=3d-car-simulator"
   },
   {
@@ -2562,6 +2732,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=3d-moto-simulator-2"
   },
   {
@@ -2577,6 +2748,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=4x4-drive-offroad"
   },
   {
@@ -2592,6 +2764,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=8bit-fiesta"
   },
   {
@@ -2607,6 +2780,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=9007199254740992"
   },
   {
@@ -2622,6 +2796,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=99-balls"
   },
   {
@@ -2637,6 +2812,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=a-grim-chase"
   },
   {
@@ -2652,6 +2828,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=a-grim-love-tale"
   },
   {
@@ -2667,6 +2844,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=a-maniac"
   },
   {
@@ -2682,6 +2860,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=a-pretty-odd-bunny"
   },
   {
@@ -2697,6 +2876,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=a-small-world-cup"
   },
   {
@@ -2712,6 +2892,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=abandoned"
   },
   {
@@ -2727,6 +2908,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=achievementunlocked"
   },
   {
@@ -2742,6 +2924,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=acid-bunny"
   },
   {
@@ -2757,6 +2940,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=adventure-boy-jailbreak"
   },
   {
@@ -2772,6 +2956,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=adventure-capitolists"
   },
   {
@@ -2787,6 +2972,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=adventure-drivers"
   },
   {
@@ -2802,6 +2988,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=afterlife"
   },
   {
@@ -2817,6 +3004,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=agario"
   },
   {
@@ -2832,6 +3020,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=age-of-war"
   },
   {
@@ -2847,6 +3036,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=age-of-war-2"
   },
   {
@@ -2862,6 +3052,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=ages-of-conflict"
   },
   {
@@ -2877,6 +3068,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=air-hockey-championship-deluxe"
   },
   {
@@ -2892,6 +3084,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=algaes-escapade"
   },
   {
@@ -2907,6 +3100,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=alien-hominid"
   },
   {
@@ -2922,6 +3116,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=alien-invadersio"
   },
   {
@@ -2937,6 +3132,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=alien-invasion"
   },
   {
@@ -2952,6 +3148,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=alien-theif"
   },
   {
@@ -2967,6 +3164,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=aliens-nest"
   },
   {
@@ -2982,6 +3180,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=amazing-strange-rope-police"
   },
   {
@@ -2997,6 +3196,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=amidst-the-clouds"
   },
   {
@@ -3012,6 +3212,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=among-us"
   },
   {
@@ -3027,6 +3228,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=among-us-online-edition"
   },
   {
@@ -3042,6 +3244,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=among-usio"
   },
   {
@@ -3057,6 +3260,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=animal-arena"
   },
   {
@@ -3072,6 +3276,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=another-gentlemans-adventure"
   },
   {
@@ -3087,6 +3292,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=ant-art-tycoon"
   },
   {
@@ -3102,6 +3308,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=antiban"
   },
   {
@@ -3117,6 +3324,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=anyek-the-keyboard-puzzle"
   },
   {
@@ -3132,6 +3340,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=ape-sling"
   },
   {
@@ -3147,6 +3356,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=apple-shooter"
   },
   {
@@ -3162,6 +3372,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=aqua-thrills"
   },
   {
@@ -3177,6 +3388,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=aquaparkio"
   },
   {
@@ -3192,6 +3404,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=arcade-wizard"
   },
   {
@@ -3207,6 +3420,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=arcane-archer"
   },
   {
@@ -3222,6 +3436,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=arcuz"
   },
   {
@@ -3237,6 +3452,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=are-you-human"
   },
   {
@@ -3252,6 +3468,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=arithmetica"
   },
   {
@@ -3267,6 +3484,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=armedforcesio"
   },
   {
@@ -3282,6 +3500,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=armor-mayhem"
   },
   {
@@ -3297,6 +3516,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=arrow"
   },
   {
@@ -3312,6 +3532,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=arrow-box"
   },
   {
@@ -3327,6 +3548,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=astray"
   },
   {
@@ -3342,6 +3564,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=astro-steve-adventure"
   },
   {
@@ -3357,6 +3580,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=athletics-hero"
   },
   {
@@ -3372,6 +3596,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=avalanche"
   },
   {
@@ -3387,6 +3612,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=awesome-tanks-2"
   },
   {
@@ -3402,6 +3628,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=b-side"
   },
   {
@@ -3417,6 +3644,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=babel-tower"
   },
   {
@@ -3432,6 +3660,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=backgammon"
   },
   {
@@ -3447,6 +3676,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=backrooms"
   },
   {
@@ -3462,6 +3692,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=backrooms-2d"
   },
   {
@@ -3477,6 +3708,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=bacon-may-die"
   },
   {
@@ -3492,6 +3724,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=bad-dolls"
   },
   {
@@ -3507,6 +3740,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=badeggio"
   },
   {
@@ -3522,6 +3756,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=baldis-basics"
   },
   {
@@ -3537,6 +3772,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=baldis-basics-field-trip"
   },
   {
@@ -3552,6 +3788,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=ball-mayhem"
   },
   {
@@ -3567,6 +3804,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=ball-platformer"
   },
   {
@@ -3582,6 +3820,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=ball-sort-soccer"
   },
   {
@@ -3597,6 +3836,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=ballhitio"
   },
   {
@@ -3612,6 +3852,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=ballhop"
   },
   {
@@ -3627,6 +3868,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=ballistic"
   },
   {
@@ -3642,6 +3884,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=ballistic-chickens"
   },
   {
@@ -3657,6 +3900,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=balloonsio"
   },
   {
@@ -3672,6 +3916,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=baseball-fury"
   },
   {
@@ -3687,6 +3932,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=basket-and-ball"
   },
   {
@@ -3702,6 +3948,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=basket-champs"
   },
   {
@@ -3717,6 +3964,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=basket-legend-2020"
   },
   {
@@ -3732,6 +3980,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=basket-swooshes"
   },
   {
@@ -3747,6 +3996,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=basketball-frvr"
   },
   {
@@ -3762,6 +4012,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=basketballio"
   },
   {
@@ -3777,6 +4028,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=basketbrosio"
   },
   {
@@ -3792,6 +4044,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=battle-golf"
   },
   {
@@ -3807,6 +4060,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=baw"
   },
   {
@@ -3822,6 +4076,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=beam"
   },
   {
@@ -3837,6 +4092,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=bearsus"
   },
   {
@@ -3852,6 +4108,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=big-flappy-tower-tiny-square"
   },
   {
@@ -3867,6 +4124,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=big-shot-boxing"
   },
   {
@@ -3882,6 +4140,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=big-tall-small"
   },
   {
@@ -3897,6 +4156,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=big-tower-tiny-square-2"
   },
   {
@@ -3912,6 +4172,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=biker-street"
   },
   {
@@ -3927,6 +4188,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=binary"
   },
   {
@@ -3942,6 +4204,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=biters"
   },
   {
@@ -3957,6 +4220,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=blacken-slash-demo"
   },
   {
@@ -3972,6 +4236,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=blackholesquare"
   },
   {
@@ -3987,6 +4252,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=blackjack"
   },
   {
@@ -4002,6 +4268,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=bladers"
   },
   {
@@ -4017,6 +4284,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=blasting-marbles"
   },
   {
@@ -4032,6 +4300,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=blobby-clicker"
   },
   {
@@ -4047,6 +4316,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=block-blast"
   },
   {
@@ -4062,6 +4332,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=block-shooter-frenzy"
   },
   {
@@ -4077,6 +4348,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=block-the-pig"
   },
   {
@@ -4092,6 +4364,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=blocky-gangster"
   },
   {
@@ -4107,6 +4380,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=blocky-snakes"
   },
   {
@@ -4122,6 +4396,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=blocky-tower"
   },
   {
@@ -4137,6 +4412,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=blocky-trials"
   },
   {
@@ -4152,6 +4428,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=bloonstd"
   },
   {
@@ -4167,6 +4444,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=bloonstd-2"
   },
   {
@@ -4182,6 +4460,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=bloonstd-4"
   },
   {
@@ -4197,6 +4476,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=blue"
   },
   {
@@ -4212,6 +4492,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=blumgi-ball"
   },
   {
@@ -4227,6 +4508,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=blumgi-paintball"
   },
   {
@@ -4242,6 +4524,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=bob-the-robber-2"
   },
   {
@@ -4257,6 +4540,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=bokdown"
   },
   {
@@ -4272,6 +4556,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=bolly-beat"
   },
   {
@@ -4287,6 +4572,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=bomber-royale"
   },
   {
@@ -4302,6 +4588,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=bombit-1"
   },
   {
@@ -4317,6 +4604,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=bombit-2"
   },
   {
@@ -4332,6 +4620,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=bombit-3"
   },
   {
@@ -4347,6 +4636,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=bottle-flip"
   },
   {
@@ -4362,6 +4652,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=bounceback"
   },
   {
@@ -4377,6 +4668,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=bouncy-basketball"
   },
   {
@@ -4392,6 +4684,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=bouncy-woods"
   },
   {
@@ -4407,6 +4700,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=bowling-stars"
   },
   {
@@ -4422,6 +4716,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=boxing"
   },
   {
@@ -4437,6 +4732,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=brain-test-3-tricky-quests"
   },
   {
@@ -4452,6 +4748,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=brain-test-tricky-puzzles"
   },
   {
@@ -4467,6 +4764,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=brawlguysio"
   },
   {
@@ -4482,6 +4780,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=breaklock"
   },
   {
@@ -4497,6 +4796,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=breakout"
   },
   {
@@ -4512,6 +4812,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=bridge-race"
   },
   {
@@ -4527,6 +4828,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=bridge-tactics"
   },
   {
@@ -4542,6 +4844,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=browserquest"
   },
   {
@@ -4557,6 +4860,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=bubble-scratch"
   },
   {
@@ -4572,6 +4876,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=bumper-cars-soccer"
   },
   {
@@ -4587,6 +4892,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=bumpyballio"
   },
   {
@@ -4602,6 +4908,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=bunnies-carrot"
   },
   {
@@ -4617,6 +4924,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=burger-clicker"
   },
   {
@@ -4632,6 +4940,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=burger-tycoon"
   },
   {
@@ -4647,6 +4956,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=burnout-drift-seaport-max"
   },
   {
@@ -4662,6 +4972,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=burrito-bison"
   },
   {
@@ -4677,6 +4988,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=cactus-mccoy"
   },
   {
@@ -4692,6 +5004,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=cactus-mccoy-2"
   },
   {
@@ -4707,6 +5020,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=call-of-ops-2"
   },
   {
@@ -4722,6 +5036,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=calturin"
   },
   {
@@ -4737,6 +5052,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=candy-clicker"
   },
   {
@@ -4752,6 +5068,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=candy-jump"
   },
   {
@@ -4767,6 +5084,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=cannon-basketball"
   },
   {
@@ -4782,6 +5100,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=cannon-basketball-2"
   },
   {
@@ -4797,6 +5116,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=cannon-basketball-3"
   },
   {
@@ -4812,6 +5132,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=cannon-basketball-4"
   },
   {
@@ -4827,6 +5148,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=cannon-strike"
   },
   {
@@ -4842,6 +5164,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=captain-callisto"
   },
   {
@@ -4857,6 +5180,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=car-climb-racing"
   },
   {
@@ -4872,6 +5196,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=car-rush"
   },
   {
@@ -4887,6 +5212,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=car-simulator-arena"
   },
   {
@@ -4902,6 +5228,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=cardinal-chains"
   },
   {
@@ -4917,6 +5244,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=cars-simulator"
   },
   {
@@ -4932,6 +5260,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=cars-thief"
   },
   {
@@ -4947,6 +5276,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=cars-thief-tank-edition"
   },
   {
@@ -4962,6 +5292,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=cat-house"
   },
   {
@@ -4977,6 +5308,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=cat-trap"
   },
   {
@@ -4992,6 +5324,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=cata-catapult"
   },
   {
@@ -5007,6 +5340,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=cataractae"
   },
   {
@@ -5022,6 +5356,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=catpad"
   },
   {
@@ -5037,6 +5372,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=cats"
   },
   {
@@ -5052,6 +5388,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=cave-blast"
   },
   {
@@ -5067,6 +5404,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=checkers"
   },
   {
@@ -5082,6 +5420,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=checkpoint"
   },
   {
@@ -5097,6 +5436,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=chess"
   },
   {
@@ -5112,6 +5452,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=chicky-farm"
   },
   {
@@ -5127,6 +5468,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=chimney-trouble"
   },
   {
@@ -5142,6 +5484,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=choppy-orc"
   },
   {
@@ -5157,6 +5500,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=chroma"
   },
   {
@@ -5172,6 +5516,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=circlo"
   },
   {
@@ -5187,6 +5532,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=cities-of-babylon"
   },
   {
@@ -5202,6 +5548,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=city-rider"
   },
   {
@@ -5217,6 +5564,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=clash-of-tanks"
   },
   {
@@ -5232,6 +5580,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=cleanupio"
   },
   {
@@ -5247,6 +5596,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=clickventure"
   },
   {
@@ -5262,6 +5612,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=clickventure-castaway"
   },
   {
@@ -5277,6 +5628,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=cloudhopper"
   },
   {
@@ -5292,6 +5644,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=club-tycoon"
   },
   {
@@ -5307,6 +5660,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=cluster-rush"
   },
   {
@@ -5322,6 +5676,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=color-switch"
   },
   {
@@ -5337,6 +5692,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=color-tunnel-2"
   },
   {
@@ -5352,6 +5708,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=comic-book-cody"
   },
   {
@@ -5367,6 +5724,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=connect-4"
   },
   {
@@ -5382,6 +5740,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=conqio"
   },
   {
@@ -5397,6 +5756,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=contractomaton"
   },
   {
@@ -5412,6 +5772,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=cordovan"
   },
   {
@@ -5427,6 +5788,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=coreball"
   },
   {
@@ -5442,6 +5804,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=court-kings-3d"
   },
   {
@@ -5457,6 +5820,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=cow-bay"
   },
   {
@@ -5472,6 +5836,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=crazy-cars"
   },
   {
@@ -5487,6 +5852,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=crazy-cattle-3d"
   },
   {
@@ -5502,6 +5868,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=crazy-tunnel-3d"
   },
   {
@@ -5517,6 +5884,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=cricket-world-cup"
   },
   {
@@ -5532,6 +5900,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=crossy-cat"
   },
   {
@@ -5547,6 +5916,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=crystal-seeker"
   },
   {
@@ -5562,6 +5932,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=crystal-wizards"
   },
   {
@@ -5577,6 +5948,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=csgo-clicker"
   },
   {
@@ -5592,6 +5964,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=cstimer"
   },
   {
@@ -5607,6 +5980,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=cube-flip"
   },
   {
@@ -5622,6 +5996,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=cube-miner"
   },
   {
@@ -5637,6 +6012,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=cubefield"
   },
   {
@@ -5652,6 +6028,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=cubes-king"
   },
   {
@@ -5667,6 +6044,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=cubito-mayhem"
   },
   {
@@ -5682,6 +6060,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=cupcake-2048"
   },
   {
@@ -5697,6 +6076,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=cursed-travels-a-forgotten-seal"
   },
   {
@@ -5712,6 +6092,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=cursed-travels-below"
   },
   {
@@ -5727,6 +6108,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=cursed-travels-flame"
   },
   {
@@ -5742,6 +6124,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=cursed-travels-flame-of-the-banshee"
   },
   {
@@ -5757,6 +6140,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=cursed-travels-the-shattered-labyrinth"
   },
   {
@@ -5772,6 +6156,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=cursed-winds"
   },
   {
@@ -5787,6 +6172,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=curve-ball-3d"
   },
   {
@@ -5802,6 +6188,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=dark-runner"
   },
   {
@@ -5817,6 +6204,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=dark-tomb"
   },
   {
@@ -5832,6 +6220,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=darkraid-delilah"
   },
   {
@@ -5847,6 +6236,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=darts-pro"
   },
   {
@@ -5862,6 +6252,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=dead-tree-defender"
   },
   {
@@ -5877,6 +6268,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=death-by-ai"
   },
   {
@@ -5892,6 +6284,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=death-chase"
   },
   {
@@ -5907,6 +6300,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=death-run"
   },
   {
@@ -5922,6 +6316,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=death-run-3d"
   },
   {
@@ -5937,6 +6332,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=decent"
   },
   {
@@ -5952,6 +6348,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=deep-sleep"
   },
   {
@@ -5967,6 +6364,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=deeper-sleep"
   },
   {
@@ -5982,6 +6380,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=deepest-sword"
   },
   {
@@ -5997,6 +6396,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=delia-the-traveling-witch"
   },
   {
@@ -6012,6 +6412,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=detective-bass-fish"
   },
   {
@@ -6027,6 +6428,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=die-in-the-dungeon"
   },
   {
@@ -6042,6 +6444,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=digger-main"
   },
   {
@@ -6057,6 +6460,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=dino-bros"
   },
   {
@@ -6072,6 +6476,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=dinogen-arena"
   },
   {
@@ -6087,6 +6492,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=dinosaur"
   },
   {
@@ -6102,6 +6508,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=disaster-will-strike"
   },
   {
@@ -6117,6 +6524,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=disc-us"
   },
   {
@@ -6132,6 +6540,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=dispersal-vectors"
   },
   {
@@ -6147,6 +6556,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=dogeminer"
   },
   {
@@ -6162,6 +6572,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=doodle-alive"
   },
   {
@@ -6177,6 +6588,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=doubleup"
   },
   {
@@ -6192,6 +6604,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=drag-box"
   },
   {
@@ -6207,6 +6620,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=drake-and-the-wizards"
   },
   {
@@ -6222,6 +6636,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=draw-the-hill"
   },
   {
@@ -6237,6 +6652,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=dreadhead-parkour"
   },
   {
@@ -6252,6 +6668,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=drift"
   },
   {
@@ -6267,6 +6684,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=drift-boss"
   },
   {
@@ -6282,6 +6700,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=drift-city"
   },
   {
@@ -6297,6 +6716,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=drift-king"
   },
   {
@@ -6312,6 +6732,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=driftmania"
   },
   {
@@ -6327,6 +6748,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=drunk-guy"
   },
   {
@@ -6342,6 +6764,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=drunken-duel"
   },
   {
@@ -6357,6 +6780,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=dubai-police-parking-2"
   },
   {
@@ -6372,6 +6796,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=dubstep-raven"
   },
   {
@@ -6387,6 +6812,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=duck-life-tresure-hunt"
   },
   {
@@ -6402,6 +6828,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=ducklingsio"
   },
   {
@@ -6417,6 +6844,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=dungeon-scroller"
   },
   {
@@ -6432,6 +6860,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=dunk-perfect"
   },
   {
@@ -6447,6 +6876,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=dunkers"
   },
   {
@@ -6462,6 +6892,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=dunkers-fight"
   },
   {
@@ -6477,6 +6908,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=duo-survival-2"
   },
   {
@@ -6492,6 +6924,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=duo-survival-3"
   },
   {
@@ -6507,6 +6940,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=dyna-boy"
   },
   {
@@ -6522,6 +6956,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=earn-to-die"
   },
   {
@@ -6537,6 +6972,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=earth-sausage"
   },
   {
@@ -6552,6 +6988,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=ede-surf"
   },
   {
@@ -6567,6 +7004,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=eel-slap"
   },
   {
@@ -6582,6 +7020,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=effing-worms"
   },
   {
@@ -6597,6 +7036,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=effing-worms-2"
   },
   {
@@ -6612,6 +7052,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=eggbot-vs-zombies"
   },
   {
@@ -6627,6 +7068,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=electric-man-2"
   },
   {
@@ -6642,6 +7084,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=electron-dash"
   },
   {
@@ -6657,6 +7100,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=endless-tunnel"
   },
   {
@@ -6672,6 +7116,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=endless-war-3"
   },
   {
@@ -6687,6 +7132,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=energy"
   },
   {
@@ -6702,6 +7148,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=erase-box"
   },
   {
@@ -6717,6 +7164,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=escape-kid"
   },
   {
@@ -6732,6 +7180,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=evolution"
   },
   {
@@ -6747,6 +7196,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=evolutionary-psychol"
   },
   {
@@ -6762,6 +7212,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=exo"
   },
   {
@@ -6777,6 +7228,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=extreme-off-road-cars"
   },
   {
@@ -6792,6 +7244,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=factory-balls-1"
   },
   {
@@ -6807,6 +7260,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=factory-balls-2"
   },
   {
@@ -6822,6 +7276,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=factory-balls-3"
   },
   {
@@ -6837,6 +7292,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=factory-balls-4"
   },
   {
@@ -6852,6 +7308,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=falling-fox"
   },
   {
@@ -6867,6 +7324,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=fancade"
   },
   {
@@ -6882,6 +7340,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=fancy-pants-1"
   },
   {
@@ -6897,6 +7356,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=fancy-pants-3"
   },
   {
@@ -6912,6 +7372,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=fighter-aircraft-pilet"
   },
   {
@@ -6927,6 +7388,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=final-earth-2"
   },
   {
@@ -6942,6 +7404,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=find-a-way-out"
   },
   {
@@ -6957,6 +7420,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=finding-santa"
   },
   {
@@ -6972,6 +7436,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=fireboy-and-watergirl-1"
   },
   {
@@ -6987,6 +7452,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=fireboy-and-watergirl-5"
   },
   {
@@ -7002,6 +7468,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=fireboy-and-watergirl-6"
   },
   {
@@ -7017,6 +7484,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=fishing-and-lines"
   },
   {
@@ -7032,6 +7500,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=flappy-2048"
   },
   {
@@ -7047,6 +7516,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=flappy-plane"
   },
   {
@@ -7062,6 +7532,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=flat-guys"
   },
   {
@@ -7077,6 +7548,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=flip-bros"
   },
   {
@@ -7092,6 +7564,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=flip-hero"
   },
   {
@@ -7107,6 +7580,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=flip-runner"
   },
   {
@@ -7122,6 +7596,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=fluctuoid"
   },
   {
@@ -7137,6 +7612,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=fluid-simulation"
   },
   {
@@ -7152,6 +7628,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=fnaf-2"
   },
   {
@@ -7167,6 +7644,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=fnaf-3"
   },
   {
@@ -7182,6 +7660,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=fnaf-4"
   },
   {
@@ -7197,6 +7676,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=foot-chinko"
   },
   {
@@ -7212,6 +7692,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=football-legends"
   },
   {
@@ -7227,6 +7708,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=fortnite-z"
   },
   {
@@ -7242,6 +7724,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=fortz"
   },
   {
@@ -7257,6 +7740,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=forward-winds"
   },
   {
@@ -7272,6 +7756,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=free-kick-classic"
   },
   {
@@ -7287,6 +7772,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=free-the-key"
   },
   {
@@ -7302,6 +7788,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=freefall-tournament"
   },
   {
@@ -7317,6 +7804,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=freegear"
   },
   {
@@ -7332,6 +7820,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=fruit-ninja"
   },
   {
@@ -7347,6 +7836,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=fury-wars"
   },
   {
@@ -7362,6 +7852,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=g-switch"
   },
   {
@@ -7377,6 +7868,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=g-switch-2"
   },
   {
@@ -7392,6 +7884,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=gaia"
   },
   {
@@ -7407,6 +7900,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=game-of-farmers"
   },
   {
@@ -7422,6 +7916,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=gangster-contract-mafia-wars"
   },
   {
@@ -7437,6 +7932,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=gem-twins"
   },
   {
@@ -7452,6 +7948,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=generic-fishing-game"
   },
   {
@@ -7467,6 +7964,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=geometry-dash-world-toxic"
   },
   {
@@ -7482,6 +7980,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=get-on-top"
   },
   {
@@ -7497,6 +7996,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=getting-over-it"
   },
   {
@@ -7512,6 +8012,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=ginogen-arena"
   },
   {
@@ -7527,6 +8028,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=giraffes-volleyball"
   },
   {
@@ -7542,6 +8044,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=gloop"
   },
   {
@@ -7557,6 +8060,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=gobble"
   },
   {
@@ -7572,6 +8076,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=gobdun"
   },
   {
@@ -7587,6 +8092,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=gods-of-defense"
   },
   {
@@ -7602,6 +8108,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=going-balls"
   },
   {
@@ -7617,6 +8124,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=gold-digger-frvr"
   },
   {
@@ -7632,6 +8140,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=golf-championships"
   },
   {
@@ -7647,6 +8156,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=gooballs"
   },
   {
@@ -7662,6 +8172,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=goodbye-doggy"
   },
   {
@@ -7677,6 +8188,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=google-feud"
   },
   {
@@ -7692,6 +8204,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=grab-partyio"
   },
   {
@@ -7707,6 +8220,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=gragyriss"
   },
   {
@@ -7722,6 +8236,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=gravity-soccer"
   },
   {
@@ -7737,6 +8252,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=greedy-mimic"
   },
   {
@@ -7752,6 +8268,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=grindcraft"
   },
   {
@@ -7767,6 +8284,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=gun-mayhem-3"
   },
   {
@@ -7782,6 +8300,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=gunblood"
   },
   {
@@ -7797,6 +8316,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=gunnight"
   },
   {
@@ -7812,6 +8332,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=gunspin"
   },
   {
@@ -7827,6 +8348,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=hall-of-palettes"
   },
   {
@@ -7842,6 +8364,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=hammer-2-reloaded"
   },
   {
@@ -7857,6 +8380,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=handle"
   },
   {
@@ -7872,6 +8396,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=hanger"
   },
   {
@@ -7887,6 +8412,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=hasty-shaman"
   },
   {
@@ -7902,6 +8428,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=haunt-the-house"
   },
   {
@@ -7917,6 +8444,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=haunted-rooms"
   },
   {
@@ -7932,6 +8460,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=head-soccer"
   },
   {
@@ -7947,6 +8476,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=hexa-knot"
   },
   {
@@ -7962,6 +8492,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=hexarenaio-3d"
   },
   {
@@ -7977,6 +8508,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=hexologic"
   },
   {
@@ -7992,6 +8524,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=hextris"
   },
   {
@@ -8007,6 +8540,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=hide-and-smash"
   },
   {
@@ -8022,6 +8556,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=highway-bike-simulator"
   },
   {
@@ -8037,6 +8572,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=highway-rider-extreme"
   },
   {
@@ -8052,6 +8588,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=highway-traffic"
   },
   {
@@ -8067,6 +8604,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=holeio"
   },
   {
@@ -8082,6 +8620,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=horse-master"
   },
   {
@@ -8097,6 +8636,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=hoshi-saga-1"
   },
   {
@@ -8112,6 +8652,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=hoshi-saga-2"
   },
   {
@@ -8127,6 +8668,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=hoshi-saga-3"
   },
   {
@@ -8142,6 +8684,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=house-pusher"
   },
   {
@@ -8157,6 +8700,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=hover-racer-drive"
   },
   {
@@ -8172,6 +8716,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=hummin-out"
   },
   {
@@ -8187,6 +8732,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=hypersnake"
   },
   {
@@ -8202,6 +8748,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=i-wanna-win"
   },
   {
@@ -8217,6 +8764,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=icy-north"
   },
   {
@@ -8232,6 +8780,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=idle-ants"
   },
   {
@@ -8247,6 +8796,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=idle-breakout"
   },
   {
@@ -8262,6 +8812,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=idle-digging-tycoon"
   },
   {
@@ -8277,6 +8828,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=idle-fill-factory"
   },
   {
@@ -8292,6 +8844,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=idle-gold-miner"
   },
   {
@@ -8307,6 +8860,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=idle-lumber-inc"
   },
   {
@@ -8322,6 +8876,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=idle-mining-empire"
   },
   {
@@ -8337,6 +8892,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=idle-restaurants-tycoon"
   },
   {
@@ -8352,6 +8908,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=idle-startup-tycoon"
   },
   {
@@ -8367,6 +8924,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=idle-tree-city"
   },
   {
@@ -8382,6 +8940,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=impossible-quiz"
   },
   {
@@ -8397,6 +8956,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=in-space"
   },
   {
@@ -8412,6 +8972,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=incub8"
   },
   {
@@ -8427,6 +8988,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=indestructotank-gb"
   },
   {
@@ -8442,6 +9004,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=infinite-night-the-cunning-princess"
   },
   {
@@ -8457,6 +9020,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=infinite-soccer"
   },
   {
@@ -8472,6 +9036,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=interactive-buddy"
   },
   {
@@ -8487,6 +9052,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=inversion"
   },
   {
@@ -8502,6 +9068,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=iq-ball"
   },
   {
@@ -8517,6 +9084,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=islander"
   },
   {
@@ -8532,6 +9100,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=james-gun"
   },
   {
@@ -8547,6 +9116,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=jelly-go"
   },
   {
@@ -8562,6 +9132,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=jetpack-joyride"
   },
   {
@@ -8577,6 +9148,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=jetpack-kiwi"
   },
   {
@@ -8592,6 +9164,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=jetscout-boot-camp"
   },
   {
@@ -8607,6 +9180,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=jewels-blitz-2"
   },
   {
@@ -8622,6 +9196,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=jumping-shell"
   },
   {
@@ -8637,6 +9212,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=just-one-boss"
   },
   {
@@ -8652,6 +9228,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=just-passing"
   },
   {
@@ -8667,6 +9244,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=just-passing-2"
   },
   {
@@ -8682,6 +9260,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=kart-fightio"
   },
   {
@@ -8697,6 +9276,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=kart-race"
   },
   {
@@ -8712,6 +9292,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=keyholder"
   },
   {
@@ -8727,6 +9308,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=kids-vs-ice-cream"
   },
   {
@@ -8742,6 +9324,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=kids-vs-santa"
   },
   {
@@ -8757,6 +9340,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=kingdom-rush"
   },
   {
@@ -8772,6 +9356,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=kingdom-rush-frontie"
   },
   {
@@ -8787,6 +9372,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=kitchen-gun-game"
   },
   {
@@ -8802,6 +9388,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=kitten-cannon"
   },
   {
@@ -8817,6 +9404,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=kity-builder-prototype"
   },
   {
@@ -8832,6 +9420,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=knight-errant"
   },
   {
@@ -8847,6 +9436,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=knightin"
   },
   {
@@ -8862,6 +9452,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=knights-blade"
   },
   {
@@ -8877,6 +9468,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=kourio"
   },
   {
@@ -8892,6 +9484,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=laqueus-escape-chapter-1"
   },
   {
@@ -8907,6 +9500,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=laqueus-escape-chapter-5"
   },
   {
@@ -8922,6 +9516,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=laqueus-escape-chapter-6"
   },
   {
@@ -8937,6 +9532,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=last-plant-on-earth"
   },
   {
@@ -8952,6 +9548,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=leader-strike"
   },
   {
@@ -8967,6 +9564,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=leapoid"
   },
   {
@@ -8982,6 +9580,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=ledegnd-of-zelda-maker"
   },
   {
@@ -8997,6 +9596,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=lethal-sniper-3d-army-soldier"
   },
   {
@@ -9012,6 +9612,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=level-devil"
   },
   {
@@ -9027,6 +9628,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=life-in-the-static"
   },
   {
@@ -9042,6 +9644,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=little-alchemy-2"
   },
   {
@@ -9057,6 +9660,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=little-wheel"
   },
   {
@@ -9072,6 +9676,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=logica-emotica"
   },
   {
@@ -9087,6 +9692,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=ludo-multiplayer"
   },
   {
@@ -9102,6 +9708,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=mad-pirate-skeleton"
   },
   {
@@ -9117,6 +9724,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=madalin-cars"
   },
   {
@@ -9132,6 +9740,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=mafia-wars"
   },
   {
@@ -9147,6 +9756,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=maptroid"
   },
   {
@@ -9162,6 +9772,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=marble-dash"
   },
   {
@@ -9177,6 +9788,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=marcus-osnail"
   },
   {
@@ -9192,6 +9804,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=mario"
   },
   {
@@ -9207,6 +9820,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=may-i-have-your-attention-please"
   },
   {
@@ -9222,6 +9836,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=mega-miner"
   },
   {
@@ -9237,6 +9852,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=metrocubevania"
   },
   {
@@ -9252,6 +9868,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=min-hero-tower-of-sages"
   },
   {
@@ -9267,6 +9884,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=minecraft-builder"
   },
   {
@@ -9282,6 +9900,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=minecraft-case-simulator"
   },
   {
@@ -9297,6 +9916,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=minekahn"
   },
   {
@@ -9312,6 +9932,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=minesweeper"
   },
   {
@@ -9327,6 +9948,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=mini-flips"
   },
   {
@@ -9342,6 +9964,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=mini-jumps"
   },
   {
@@ -9357,6 +9980,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=mini-magbot"
   },
   {
@@ -9372,6 +9996,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=mini-putt-3"
   },
   {
@@ -9387,6 +10012,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=mini-sticky"
   },
   {
@@ -9402,6 +10028,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=mini-swim"
   },
   {
@@ -9417,6 +10044,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=mini-train"
   },
   {
@@ -9432,6 +10060,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=minibattles"
   },
   {
@@ -9447,6 +10076,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=miragine-war"
   },
   {
@@ -9462,6 +10092,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=mirror-madness"
   },
   {
@@ -9477,6 +10108,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=mob-city"
   },
   {
@@ -9492,6 +10124,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=money-movers"
   },
   {
@@ -9507,6 +10140,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=money-movers-2"
   },
   {
@@ -9522,6 +10156,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=money-rush"
   },
   {
@@ -9537,6 +10172,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=monke"
   },
   {
@@ -9552,6 +10188,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=moosha"
   },
   {
@@ -9567,6 +10204,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=more-ore"
   },
   {
@@ -9582,6 +10220,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=moto-maniac-3"
   },
   {
@@ -9597,6 +10236,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=moto-x3m-pool"
   },
   {
@@ -9612,6 +10252,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=moto-x3m-spooky"
   },
   {
@@ -9627,6 +10268,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=mountain-biking"
   },
   {
@@ -9642,6 +10284,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=murder-is-game-over"
   },
   {
@@ -9657,6 +10300,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=mutato-potato"
   },
   {
@@ -9672,6 +10316,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=mutazone"
   },
   {
@@ -9687,6 +10332,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=mystical-birdlink"
   },
   {
@@ -9702,6 +10348,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=n-gon"
   },
   {
@@ -9717,6 +10364,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=narwhaleio"
   },
   {
@@ -9732,6 +10380,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=neon-blaster"
   },
   {
@@ -9747,6 +10396,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=new-1v1lol"
   },
   {
@@ -9762,6 +10412,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=ng-stars"
   },
   {
@@ -9777,6 +10428,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=ninja-auto-run"
   },
   {
@@ -9792,6 +10444,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=ninja-kite"
   },
   {
@@ -9807,6 +10460,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=nitroclashio"
   },
   {
@@ -9822,6 +10476,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=noob-hook"
   },
   {
@@ -9837,6 +10492,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=notebook-jam"
   },
   {
@@ -9852,6 +10508,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=nova-ai"
   },
   {
@@ -9867,6 +10524,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=nova-billiards"
   },
   {
@@ -9882,6 +10540,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=nova-cloudwalkers"
   },
   {
@@ -9897,6 +10556,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=nzp"
   },
   {
@@ -9912,6 +10572,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=oil-race"
   },
   {
@@ -9927,6 +10588,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=one-screen-run-2"
   },
   {
@@ -9942,6 +10604,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=one-trick-mage"
   },
   {
@@ -9957,6 +10620,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=onion-boy"
   },
   {
@@ -9972,6 +10636,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=orange"
   },
   {
@@ -9987,6 +10652,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=orb-of-creation"
   },
   {
@@ -10002,6 +10668,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=orbital-survival"
   },
   {
@@ -10017,6 +10684,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=ordeals-of-december"
   },
   {
@@ -10032,6 +10700,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=out-of-ctrl"
   },
   {
@@ -10047,6 +10716,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=pack-a-bag"
   },
   {
@@ -10062,6 +10732,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=packabunchas"
   },
   {
@@ -10077,6 +10748,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=pacman-remake"
   },
   {
@@ -10092,6 +10764,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=paint-strike"
   },
   {
@@ -10107,6 +10780,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=papas-cheeseria"
   },
   {
@@ -10122,6 +10796,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=papas-hotdoggeria"
   },
   {
@@ -10137,6 +10812,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=papas-pancakeria"
   },
   {
@@ -10152,6 +10828,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=papas-pasteria"
   },
   {
@@ -10167,6 +10844,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=papas-sushiria"
   },
   {
@@ -10182,6 +10860,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=papas-wingeria"
   },
   {
@@ -10197,6 +10876,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=paper-fighter"
   },
   {
@@ -10212,6 +10892,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=paper-minecraft-ender-dragon"
   },
   {
@@ -10227,6 +10908,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=papery-planes"
   },
   {
@@ -10242,6 +10924,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=parking-fury-3"
   },
   {
@@ -10257,6 +10940,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=parkour-race"
   },
   {
@@ -10272,6 +10956,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=particle-clicker"
   },
   {
@@ -10287,6 +10972,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=party-project"
   },
   {
@@ -10302,6 +10988,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=path-of-arrows"
   },
   {
@@ -10317,6 +11004,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=pathfinder"
   },
   {
@@ -10332,6 +11020,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=patricks-parabox"
   },
   {
@@ -10347,6 +11036,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=pe-norie"
   },
   {
@@ -10362,6 +11052,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=peeper-reaper"
   },
   {
@@ -10377,6 +11068,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=penalty-shooters-3"
   },
   {
@@ -10392,6 +11084,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=penguin-dinner"
   },
   {
@@ -10407,6 +11100,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=penguinio"
   },
   {
@@ -10422,6 +11116,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=picky-package"
   },
   {
@@ -10437,6 +11132,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=ping-pong"
   },
   {
@@ -10452,6 +11148,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=ping-pong-chaos"
   },
   {
@@ -10467,6 +11164,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=pink"
   },
   {
@@ -10482,6 +11180,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=pixel-apocalypse"
   },
   {
@@ -10497,6 +11196,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=pixel-battles"
   },
   {
@@ -10512,6 +11212,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=pixel-bear-adventure"
   },
   {
@@ -10527,6 +11228,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=pixel-foosball"
   },
   {
@@ -10542,6 +11244,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=pixel-gun-apocalypse-2"
   },
   {
@@ -10557,6 +11260,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=pixel-shooter"
   },
   {
@@ -10572,6 +11276,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=pixel-smash-duel"
   },
   {
@@ -10587,6 +11292,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=pixel-speedrun"
   },
   {
@@ -10602,6 +11308,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=pixel-tap-dungeon"
   },
   {
@@ -10617,6 +11324,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=pixoji"
   },
   {
@@ -10632,6 +11340,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=pixwars-2"
   },
   {
@@ -10647,6 +11356,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=pizza-challange"
   },
   {
@@ -10662,6 +11372,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=pizza-tower"
   },
   {
@@ -10677,6 +11388,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=plactions"
   },
   {
@@ -10692,6 +11404,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=planet-d4rk"
   },
   {
@@ -10707,6 +11420,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=planet-life"
   },
   {
@@ -10722,6 +11436,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=plants-vs-zombies-2"
   },
   {
@@ -10737,6 +11452,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=pokemon-emerald"
   },
   {
@@ -10752,6 +11468,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=pokemon-fire-red"
   },
   {
@@ -10767,6 +11484,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=pokemon-unbound"
   },
   {
@@ -10782,6 +11500,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=poker"
   },
   {
@@ -10797,6 +11516,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=poly-track"
   },
   {
@@ -10812,6 +11532,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=pool-club"
   },
   {
@@ -10827,6 +11548,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=poor-bunny"
   },
   {
@@ -10842,6 +11564,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=portal"
   },
   {
@@ -10857,6 +11580,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=pou"
   },
   {
@@ -10872,6 +11596,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=pre-civilization-bronze-age"
   },
   {
@@ -10887,6 +11612,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=president-simulator"
   },
   {
@@ -10902,6 +11628,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=progress-knight"
   },
   {
@@ -10917,6 +11644,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=puppet-master"
   },
   {
@@ -10932,6 +11660,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=push"
   },
   {
@@ -10947,6 +11676,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=push-back"
   },
   {
@@ -10962,6 +11692,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=put-a-ring-on-it"
   },
   {
@@ -10977,6 +11708,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=quake"
   },
   {
@@ -10992,6 +11724,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=rabbit-samurai"
   },
   {
@@ -11007,6 +11740,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=rabbit-samurai-2"
   },
   {
@@ -11022,6 +11756,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=racer"
   },
   {
@@ -11037,6 +11772,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=racing-turbo-drift"
   },
   {
@@ -11052,6 +11788,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=radius-raid"
   },
   {
@@ -11067,6 +11804,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=rail-connect"
   },
   {
@@ -11082,6 +11820,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=rally-champion"
   },
   {
@@ -11097,6 +11836,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=real-garbage-truck"
   },
   {
@@ -11112,6 +11852,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=recoil"
   },
   {
@@ -11127,6 +11868,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=red-ball-4"
   },
   {
@@ -11142,6 +11884,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=red-scarf-platformer"
   },
   {
@@ -11157,6 +11900,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=red-vs-blue"
   },
   {
@@ -11172,6 +11916,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=reel-deep"
   },
   {
@@ -11187,6 +11932,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=renegade-racing"
   },
   {
@@ -11202,6 +11948,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=resent-client-mc"
   },
   {
@@ -11217,6 +11964,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=retro-speed"
   },
   {
@@ -11232,6 +11980,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=retrohaunt"
   },
   {
@@ -11247,6 +11996,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=ricochet-arrow"
   },
   {
@@ -11262,6 +12012,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=rio-rex"
   },
   {
@@ -11277,6 +12028,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=rise-of-neon-square"
   },
   {
@@ -11292,6 +12044,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=roadblocks"
   },
   {
@@ -11307,6 +12060,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=robox"
   },
   {
@@ -11322,6 +12076,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=rocket-league"
   },
   {
@@ -11337,6 +12092,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=rocket-pult"
   },
   {
@@ -11352,6 +12108,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=rocket-soccer-durbey"
   },
   {
@@ -11367,6 +12124,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=rogue-fable-3"
   },
   {
@@ -11382,6 +12140,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=rogue-soul"
   },
   {
@@ -11397,6 +12156,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=rogue-soul-2"
   },
   {
@@ -11412,6 +12172,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=roll-merge-3d"
   },
   {
@@ -11427,6 +12188,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=rolly-vortex-ball"
   },
   {
@@ -11442,6 +12204,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=roly-poly-monsters"
   },
   {
@@ -11457,6 +12220,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=room-clicker"
   },
   {
@@ -11472,6 +12236,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=roots"
   },
   {
@@ -11487,6 +12252,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=roper"
   },
   {
@@ -11502,6 +12268,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=rotate-box"
   },
   {
@@ -11517,6 +12284,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=run-2"
   },
   {
@@ -11532,6 +12300,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=run-billy-run"
   },
   {
@@ -11547,6 +12316,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=runick"
   },
   {
@@ -11562,6 +12332,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=runman-race-around-the-world"
   },
   {
@@ -11577,6 +12348,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=running-fred"
   },
   {
@@ -11592,6 +12364,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=sabotage"
   },
   {
@@ -11607,6 +12380,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=sand-and-water"
   },
   {
@@ -11622,6 +12396,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=sandtris"
   },
   {
@@ -11637,6 +12412,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=sans"
   },
   {
@@ -11652,6 +12428,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=save-the-doge"
   },
   {
@@ -11667,6 +12444,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=scalak"
   },
   {
@@ -11682,6 +12460,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=school-bus-demolition-durbey"
   },
   {
@@ -11697,6 +12476,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=scrap-divers"
   },
   {
@@ -11712,6 +12492,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=scrap-meatal-heros"
   },
   {
@@ -11727,6 +12508,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=scraplegs"
   },
   {
@@ -11742,6 +12524,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=sector-01"
   },
   {
@@ -11757,6 +12540,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=shady-bears"
   },
   {
@@ -11772,6 +12556,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=shaky-structure"
   },
   {
@@ -11787,6 +12572,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=shape-fold"
   },
   {
@@ -11802,6 +12588,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=shape-shifter"
   },
   {
@@ -11817,6 +12604,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=shape-switcher"
   },
   {
@@ -11832,6 +12620,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=sheep"
   },
   {
@@ -11847,6 +12636,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=sheep-party"
   },
   {
@@ -11862,6 +12652,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=shipoio"
   },
   {
@@ -11877,6 +12668,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=shoot-stickman"
   },
   {
@@ -11892,6 +12684,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=shootz"
   },
   {
@@ -11907,6 +12700,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=short-life"
   },
   {
@@ -11922,6 +12716,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=short-ride"
   },
   {
@@ -11937,6 +12732,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=shortcut-race"
   },
   {
@@ -11952,6 +12748,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=shuttledeck"
   },
   {
@@ -11967,6 +12764,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=sink-it"
   },
   {
@@ -11982,6 +12780,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=sketchbook-04"
   },
   {
@@ -11997,6 +12796,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=skibidi-shooter"
   },
   {
@@ -12012,6 +12812,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=skyblock"
   },
   {
@@ -12027,6 +12828,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=sleeping-beauty"
   },
   {
@@ -12042,6 +12844,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=sleepy-knight"
   },
   {
@@ -12057,6 +12860,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=slice-it-all"
   },
   {
@@ -12072,6 +12876,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=slide-box"
   },
   {
@@ -12087,6 +12892,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=slide-fill"
   },
   {
@@ -12102,6 +12908,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=slime-laboratory"
   },
   {
@@ -12117,6 +12924,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=slime-road"
   },
   {
@@ -12132,6 +12940,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=slimoban-2"
   },
   {
@@ -12147,6 +12956,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=sling-drift"
   },
   {
@@ -12162,6 +12972,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=slis"
   },
   {
@@ -12177,6 +12988,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=slitherio"
   },
   {
@@ -12192,6 +13004,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=slope-2"
   },
   {
@@ -12207,6 +13020,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=slope-city"
   },
   {
@@ -12222,6 +13036,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=small-world-cup"
   },
   {
@@ -12237,6 +13052,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=snail-trail"
   },
   {
@@ -12252,6 +13068,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=sniper-assasin"
   },
   {
@@ -12267,6 +13084,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=sniper-shot"
   },
   {
@@ -12282,6 +13100,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=snow-battleio"
   },
   {
@@ -12297,6 +13116,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=soccer-random"
   },
   {
@@ -12312,6 +13132,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=soccer-skills-euro-cup"
   },
   {
@@ -12327,6 +13148,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=solitaire"
   },
   {
@@ -12342,6 +13164,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=sonic-revert"
   },
   {
@@ -12357,6 +13180,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=sonny"
   },
   {
@@ -12372,6 +13196,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=sort-the-court"
   },
   {
@@ -12387,6 +13212,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=soul-mirror"
   },
   {
@@ -12402,6 +13228,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=space-company"
   },
   {
@@ -12417,6 +13244,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=space-cowboy"
   },
   {
@@ -12432,6 +13260,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=space-garden"
   },
   {
@@ -12447,6 +13276,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=space-huggers"
   },
   {
@@ -12462,6 +13292,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=space-order-mine"
   },
   {
@@ -12477,6 +13308,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=specters-of-the-sun"
   },
   {
@@ -12492,6 +13324,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=spelunky"
   },
   {
@@ -12507,6 +13340,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=spirit-dungeons"
   },
   {
@@ -12522,6 +13356,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=sports"
   },
   {
@@ -12537,6 +13372,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=square-hero"
   },
   {
@@ -12552,6 +13388,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=squarex"
   },
   {
@@ -12567,6 +13404,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=squish-run"
   },
   {
@@ -12582,6 +13420,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=stacktris"
   },
   {
@@ -12597,6 +13436,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=stair-race-3d"
   },
   {
@@ -12612,6 +13452,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=starblastio"
   },
   {
@@ -12627,6 +13468,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=steal-this-election"
   },
   {
@@ -12642,6 +13484,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=steel-and-claw"
   },
   {
@@ -12657,6 +13500,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=stick-archers-battle"
   },
   {
@@ -12672,6 +13516,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=stick-defenders"
   },
   {
@@ -12687,6 +13532,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=stick-duel-battle"
   },
   {
@@ -12702,6 +13548,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=stick-fighters"
   },
   {
@@ -12717,6 +13564,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=stickman-bike"
   },
   {
@@ -12732,6 +13580,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=stickman-boost"
   },
   {
@@ -12747,6 +13596,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=stickman-boost-2"
   },
   {
@@ -12762,6 +13612,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=stickman-bridge-constructor"
   },
   {
@@ -12777,6 +13628,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=stickman-climb-2"
   },
   {
@@ -12792,6 +13644,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=stickman-crazy-box"
   },
   {
@@ -12807,6 +13660,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=stickman-fighter-mega-brawl"
   },
   {
@@ -12822,6 +13676,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=stickman-golf"
   },
   {
@@ -12837,6 +13692,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=stickman-hook"
   },
   {
@@ -12852,6 +13708,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=stickman-school-run"
   },
   {
@@ -12867,6 +13724,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=stickman-warriers"
   },
   {
@@ -12882,6 +13740,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=stickshot"
   },
   {
@@ -12897,6 +13756,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=sticky-sourcerer"
   },
   {
@@ -12912,6 +13772,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=stress-chess"
   },
   {
@@ -12927,6 +13788,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=strg-snek"
   },
   {
@@ -12942,6 +13804,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=strike-force-heros"
   },
   {
@@ -12957,6 +13820,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=strike-force-kitty-1"
   },
   {
@@ -12972,6 +13836,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=strike-force-kitty-2"
   },
   {
@@ -12987,6 +13852,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=strike-force-kitty-3"
   },
   {
@@ -13002,6 +13868,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=strongdog-chat"
   },
   {
@@ -13017,6 +13884,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=subway-surfers-beijing"
   },
   {
@@ -13032,6 +13900,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=subway-surfers-houston"
   },
   {
@@ -13047,6 +13916,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=subway-surfers-san-fran"
   },
   {
@@ -13062,6 +13932,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=sugar-sugar"
   },
   {
@@ -13077,6 +13948,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=sum-lines"
   },
   {
@@ -13092,6 +13964,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=sumo-party"
   },
   {
@@ -13107,6 +13980,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=super-gauntlent"
   },
   {
@@ -13122,6 +13996,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=super-mario-world"
   },
   {
@@ -13137,6 +14012,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=super-mx-the-champion"
   },
   {
@@ -13152,6 +14028,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=super-pickleball-adventure"
   },
   {
@@ -13167,6 +14044,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=super-racing-gt"
   },
   {
@@ -13182,6 +14060,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=super-santa-kicker"
   },
   {
@@ -13197,6 +14076,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=superbattles-2"
   },
   {
@@ -13212,6 +14092,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=superbike-heros"
   },
   {
@@ -13227,6 +14108,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=superfighters"
   },
   {
@@ -13242,6 +14124,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=supernova"
   },
   {
@@ -13257,6 +14140,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=swingo"
   },
   {
@@ -13272,6 +14156,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=switchblade"
   },
   {
@@ -13287,6 +14172,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=swords-and-souls"
   },
   {
@@ -13302,6 +14188,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=tactical-weapon-pack"
   },
   {
@@ -13317,6 +14204,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=tamingio"
   },
   {
@@ -13332,6 +14220,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=tankio"
   },
   {
@@ -13347,6 +14236,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=tanked-up"
   },
   {
@@ -13362,6 +14252,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=tankoio"
   },
   {
@@ -13377,6 +14268,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=tanuki-sunset"
   },
   {
@@ -13392,6 +14284,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=tap-tap-shots"
   },
   {
@@ -13407,6 +14300,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=tarzan-ball"
   },
   {
@@ -13422,6 +14316,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=tasty-planet-dinotime"
   },
   {
@@ -13437,6 +14332,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=tavern-master"
   },
   {
@@ -13452,6 +14348,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=telepobox-2"
   },
   {
@@ -13467,6 +14364,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=temple-of-boom"
   },
   {
@@ -13482,6 +14380,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=temple-run-2"
   },
   {
@@ -13497,6 +14396,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=tennis-masters"
   },
   {
@@ -13512,6 +14412,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=tennis-random"
   },
   {
@@ -13527,6 +14428,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=terrain-generator"
   },
   {
@@ -13542,6 +14444,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=terraria"
   },
   {
@@ -13557,6 +14460,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=terretorialio"
   },
   {
@@ -13572,6 +14476,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=territorialio-new"
   },
   {
@@ -13587,6 +14492,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=territory-war"
   },
   {
@@ -13602,6 +14508,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=the-dark-one"
   },
   {
@@ -13617,6 +14524,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=the-deepest-sleep"
   },
   {
@@ -13632,6 +14540,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=the-designer"
   },
   {
@@ -13647,6 +14556,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=the-executor"
   },
   {
@@ -13662,6 +14572,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=the-impossible-quiz-2"
   },
   {
@@ -13677,6 +14588,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=the-little-giant"
   },
   {
@@ -13692,6 +14604,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=the-ninja"
   },
   {
@@ -13707,6 +14620,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=the-ninja-2"
   },
   {
@@ -13722,6 +14636,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=the-ninja-3"
   },
   {
@@ -13737,6 +14652,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=the-ninja-4"
   },
   {
@@ -13752,6 +14668,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=the-ninja-5"
   },
   {
@@ -13767,6 +14684,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=the-ninja-5-hacked"
   },
   {
@@ -13782,6 +14700,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=the-square"
   },
   {
@@ -13797,6 +14716,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=there-is-no-game"
   },
   {
@@ -13812,6 +14732,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=three-goblets"
   },
   {
@@ -13827,6 +14748,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=throw-a-potato"
   },
   {
@@ -13842,6 +14764,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=throw-a-potato-again"
   },
   {
@@ -13857,6 +14780,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=throw-a-potato-in-space"
   },
   {
@@ -13872,6 +14796,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=thumb-fighter-christmas"
   },
   {
@@ -13887,6 +14812,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=tic-tac-toe"
   },
   {
@@ -13902,6 +14828,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=tic-tac-toe-ai"
   },
   {
@@ -13917,6 +14844,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=tiger-simulator"
   },
   {
@@ -13932,6 +14860,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=timber-man"
   },
   {
@@ -13947,6 +14876,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=time-shooters"
   },
   {
@@ -13962,6 +14892,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=tiny-fishing"
   },
   {
@@ -13977,6 +14908,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=tiny-heist"
   },
   {
@@ -13992,6 +14924,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=toms-trial"
   },
   {
@@ -14007,6 +14940,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=top-outpost"
   },
   {
@@ -14022,6 +14956,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=top-speed-3d"
   },
   {
@@ -14037,6 +14972,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=top-speed-racing-3d"
   },
   {
@@ -14052,6 +14988,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=touchdowners"
   },
   {
@@ -14067,6 +15004,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=tough-growth"
   },
   {
@@ -14082,6 +15020,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=tower-defence"
   },
   {
@@ -14097,6 +15036,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=tower-defense-2d"
   },
   {
@@ -14112,6 +15052,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=tower-master"
   },
   {
@@ -14127,6 +15068,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=tower-of-destiny"
   },
   {
@@ -14142,6 +15084,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=tower-of-the-scorche"
   },
   {
@@ -14157,6 +15100,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=towerland"
   },
   {
@@ -14172,6 +15116,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=traffic-rush"
   },
   {
@@ -14187,6 +15132,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=traffic-tour"
   },
   {
@@ -14202,6 +15148,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=trafficmania"
   },
   {
@@ -14217,6 +15164,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=tricks"
   },
   {
@@ -14232,6 +15180,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=trimps-updated"
   },
   {
@@ -14247,6 +15196,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=truck-loader"
   },
   {
@@ -14262,6 +15212,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=tryh4rd"
   },
   {
@@ -14277,6 +15228,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=tube-clicker"
   },
   {
@@ -14292,6 +15244,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=tube-jumpers"
   },
   {
@@ -14307,6 +15260,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=tunnel-rush"
   },
   {
@@ -14322,6 +15276,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=turbo-motor-racer"
   },
   {
@@ -14337,6 +15292,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=turn-turn"
   },
   {
@@ -14352,6 +15308,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=tv-static"
   },
   {
@@ -14367,6 +15324,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=twin-shot-2"
   },
   {
@@ -14382,6 +15340,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=two-neon-boxes"
   },
   {
@@ -14397,6 +15356,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=two-punk-racing"
   },
   {
@@ -14412,6 +15372,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=two-timin-towers"
   },
   {
@@ -14427,6 +15388,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=ultimate-car-driving"
   },
   {
@@ -14442,6 +15404,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=ultimate-offroad-simulator"
   },
   {
@@ -14457,6 +15420,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=un-evergreen"
   },
   {
@@ -14472,6 +15436,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=unicycle-hero"
   },
   {
@@ -14487,6 +15452,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=unloop"
   },
   {
@@ -14502,6 +15468,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=veloce"
   },
   {
@@ -14517,6 +15484,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=village-craft"
   },
   {
@@ -14532,6 +15500,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=viscous-ventures"
   },
   {
@@ -14547,6 +15516,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=volleyball-challange"
   },
   {
@@ -14562,6 +15532,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=wall-smash"
   },
   {
@@ -14577,6 +15548,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=war-of-caribbean-pirates"
   },
   {
@@ -14592,6 +15564,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=water-color-sort"
   },
   {
@@ -14607,6 +15580,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=water-works"
   },
   {
@@ -14622,6 +15596,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=weave-silk"
   },
   {
@@ -14637,6 +15612,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=web-retro"
   },
   {
@@ -14652,6 +15628,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=westoon"
   },
   {
@@ -14667,6 +15644,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=whac-a-mole"
   },
   {
@@ -14682,6 +15660,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=where-is-my-cat"
   },
   {
@@ -14697,6 +15676,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=white-pen-road"
   },
   {
@@ -14712,6 +15692,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=winter-gifts"
   },
   {
@@ -14727,6 +15708,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=wizard-mike"
   },
   {
@@ -14742,6 +15724,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=wood-blocks-3d"
   },
   {
@@ -14757,6 +15740,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=wordle"
   },
   {
@@ -14772,6 +15756,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=words-search-classic-edition"
   },
   {
@@ -14787,6 +15772,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=working-stiffs"
   },
   {
@@ -14802,6 +15788,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=worlds-hardest-game-2"
   },
   {
@@ -14817,6 +15804,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=worlds-hardest-game-3"
   },
   {
@@ -14832,6 +15820,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=worlds-within-worlds"
   },
   {
@@ -14847,6 +15836,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=x-trial-racing"
   },
   {
@@ -14862,6 +15852,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=yarn-untangled"
   },
   {
@@ -14877,6 +15868,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=yarne"
   },
   {
@@ -14892,6 +15884,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=yet-another-world"
   },
   {
@@ -14907,6 +15900,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=yin-and-yang"
   },
   {
@@ -14922,6 +15916,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=yohohoio"
   },
   {
@@ -14937,6 +15932,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=yoshi-fabricator"
   },
   {
@@ -14952,6 +15948,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=zeepkist-crash-2d"
   },
   {
@@ -14967,6 +15964,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=zombie-outbreak-arena"
   },
   {
@@ -14982,6 +15980,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=zombs-royale"
   },
   {
@@ -14997,6 +15996,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=zompocalypse"
   },
   {
@@ -15012,6 +16012,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=zoro"
   },
   {
@@ -15027,6 +16028,7 @@
     "isLocal": true,
     "isFeatured": false,
     "openInNewTab": false,
+    "aspectRatio": "16:9",
     "targetUrl": "./play.html?game=zuck-vs-musk-beatdown"
   }
 ]

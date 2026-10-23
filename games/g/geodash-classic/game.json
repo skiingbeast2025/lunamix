@@ -7,5 +7,6 @@
   "author": "Griffpatch",
   "icon": "icon.png",
   "entrypoint": "./games/g/geodash-classic/index.html",
+  "aspectRatio": "4:3",
   "isFeatured": false
 }

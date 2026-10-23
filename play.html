@@ -194,6 +194,25 @@
           <span class="hidden lg:inline">Pop Out</span>
         </button>
 
+        <!-- Aspect Ratio Selector -->
+        <div class="relative flex items-center">
+          <select 
+            id="aspect-ratio-select" 
+            class="appearance-none bg-slate-900/90 border border-slate-700/80 text-xs text-slate-300 hover:text-white rounded-lg pl-2 pr-6 py-1.5 focus:outline-none focus:ring-1 focus:ring-indigo-500 transition-all cursor-pointer font-mono"
+            onchange="setAspectRatio(this.value)"
+            title="Aspect Ratio (Hotkey: A)"
+          >
+            <option value="16:9">16:9 Wide</option>
+            <option value="4:3">4:3 Classic</option>
+            <option value="fill">Fill (Stretch)</option>
+          </select>
+          <div class="pointer-events-none absolute right-1.5 flex items-center text-slate-400">
+            <svg class="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+            </svg>
+          </div>
+        </div>
+
         <!-- Tab Cloak Dropdown -->
         <div class="relative flex items-center">
           <select 
@@ -238,61 +257,68 @@
 
     <div 
       id="player-container" 
-      class="relative flex-1 w-full h-[calc(100vh-140px)] min-h-[480px] max-h-[calc(100vh-130px)] bg-black rounded-2xl border border-slate-800/90 shadow-2xl overflow-hidden flex flex-col glow-box"
+      class="relative flex-1 w-full h-[calc(100vh-140px)] min-h-[480px] max-h-[calc(100vh-130px)] bg-black rounded-2xl border border-slate-800/90 shadow-2xl overflow-hidden flex items-center justify-center glow-box"
     >
       
-      <!-- Loading Overlay -->
+      <!-- Aspect-Ratio-Preserving Frame (Centers game, prevents squishing and stretching) -->
       <div 
-        id="player-loading-overlay" 
-        class="absolute inset-0 z-20 bg-slate-950 flex flex-col items-center justify-center gap-4 transition-opacity duration-300"
+        id="game-viewport" 
+        class="relative flex items-center justify-center bg-black overflow-hidden transition-all duration-150"
+        style="width: 100%; height: 100%;"
       >
-        <div class="relative">
-          <div class="w-14 h-14 rounded-2xl bg-slate-900 border border-slate-700/80 flex items-center justify-center p-2.5 shadow-xl">
-            <img src="./assets/logos/favicon.svg" alt="Lunamix" class="w-full h-full animate-pulse">
+        <!-- Loading Overlay -->
+        <div 
+          id="player-loading-overlay" 
+          class="absolute inset-0 z-20 bg-slate-950 flex flex-col items-center justify-center gap-4 transition-opacity duration-300"
+        >
+          <div class="relative">
+            <div class="w-14 h-14 rounded-2xl bg-slate-900 border border-slate-700/80 flex items-center justify-center p-2.5 shadow-xl">
+              <img src="./assets/logos/favicon.svg" alt="Lunamix" class="w-full h-full animate-pulse">
+            </div>
+            <div class="absolute -inset-1 rounded-2xl bg-gradient-to-r from-purple-500 to-indigo-500 opacity-30 blur-sm -z-10 animate-spin"></div>
           </div>
-          <div class="absolute -inset-1 rounded-2xl bg-gradient-to-r from-purple-500 to-indigo-500 opacity-30 blur-sm -z-10 animate-spin"></div>
+          <div class="text-center">
+            <p id="loading-game-label" class="text-sm font-semibold text-white">Loading Game...</p>
+            <p class="text-xs text-slate-400 mt-1 font-mono">Press <kbd class="px-1.5 py-0.5 bg-slate-800 border border-slate-700 rounded text-slate-300">F</kbd> for Fullscreen • <kbd class="px-1.5 py-0.5 bg-slate-800 border border-slate-700 rounded text-slate-300">T</kbd> for Theater • <kbd class="px-1.5 py-0.5 bg-slate-800 border border-slate-700 rounded text-slate-300">A</kbd> for Ratio</p>
+          </div>
         </div>
-        <div class="text-center">
-          <p id="loading-game-label" class="text-sm font-semibold text-white">Loading Game...</p>
-          <p class="text-xs text-slate-400 mt-1 font-mono">Press <kbd class="px-1.5 py-0.5 bg-slate-800 border border-slate-700 rounded text-slate-300">F</kbd> for Fullscreen • <kbd class="px-1.5 py-0.5 bg-slate-800 border border-slate-700 rounded text-slate-300">T</kbd> for Theater</p>
-        </div>
-      </div>
 
-      <!-- Error / Fallback View (Shown if no valid game found) -->
-      <div 
-        id="player-error-view" 
-        class="hidden absolute inset-0 z-20 bg-slate-950/95 flex flex-col items-center justify-center text-center p-6"
-      >
-        <div class="w-16 h-16 rounded-2xl bg-rose-500/10 border border-rose-500/20 flex items-center justify-center text-rose-400 mb-4">
-          <svg class="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
-          </svg>
+        <!-- Error / Fallback View (Shown if no valid game found) -->
+        <div 
+          id="player-error-view" 
+          class="hidden absolute inset-0 z-20 bg-slate-950/95 flex flex-col items-center justify-center text-center p-6"
+        >
+          <div class="w-16 h-16 rounded-2xl bg-rose-500/10 border border-rose-500/20 flex items-center justify-center text-rose-400 mb-4">
+            <svg class="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
+            </svg>
+          </div>
+          <h2 class="text-lg font-bold text-white mb-2">No Valid Game Selected</h2>
+          <p class="text-xs text-slate-400 max-w-md mb-6 leading-relaxed">
+            Please select a game from our 1,000+ title catalog or check the link parameters.
+          </p>
+          <div class="flex flex-wrap items-center justify-center gap-3">
+            <a href="./games.html" class="px-5 py-2.5 rounded-xl bg-white text-black font-semibold text-xs hover:bg-neutral-200 transition-colors">
+              Browse All Games →
+            </a>
+            <a href="./play.html?game=geometry-dash" class="px-5 py-2.5 rounded-xl bg-slate-900 border border-slate-700 text-amber-300 font-semibold text-xs hover:bg-slate-800 transition-colors">
+              Play Geometry Dash
+            </a>
+            <a href="./play.html?game=slope" class="px-5 py-2.5 rounded-xl bg-slate-900 border border-slate-700 text-slate-200 font-semibold text-xs hover:bg-slate-800 transition-colors">
+              Play Slope
+            </a>
+          </div>
         </div>
-        <h2 class="text-lg font-bold text-white mb-2">No Valid Game Selected</h2>
-        <p class="text-xs text-slate-400 max-w-md mb-6 leading-relaxed">
-          Please select a game from our 1,000+ title catalog or check the link parameters.
-        </p>
-        <div class="flex flex-wrap items-center justify-center gap-3">
-          <a href="./games.html" class="px-5 py-2.5 rounded-xl bg-white text-black font-semibold text-xs hover:bg-neutral-200 transition-colors">
-            Browse All Games →
-          </a>
-          <a href="./play.html?game=geometry-dash" class="px-5 py-2.5 rounded-xl bg-slate-900 border border-slate-700 text-amber-300 font-semibold text-xs hover:bg-slate-800 transition-colors">
-            Play Geometry Dash
-          </a>
-          <a href="./play.html?game=slope" class="px-5 py-2.5 rounded-xl bg-slate-900 border border-slate-700 text-slate-200 font-semibold text-xs hover:bg-slate-800 transition-colors">
-            Play Slope
-          </a>
-        </div>
-      </div>
 
-      <!-- Universal Game Iframe with Full Pointer Lock & Resizing Permissions -->
-      <iframe 
-        id="game-iframe" 
-        class="w-full h-full border-0 bg-black flex-1"
-        allow="autoplay; fullscreen; gamepad; focus-without-user-activation; pointer-lock *" 
-        sandbox="allow-scripts allow-same-origin allow-forms allow-popups allow-downloads allow-modals allow-pointer-lock"
-        title="Lunamix Game Player"
-      ></iframe>
+        <!-- Universal Game Iframe with Full Pointer Lock & Resizing Permissions -->
+        <iframe 
+          id="game-iframe" 
+          class="w-full h-full border-0 bg-black block"
+          allow="autoplay; fullscreen; gamepad; focus-without-user-activation; pointer-lock *" 
+          sandbox="allow-scripts allow-same-origin allow-forms allow-popups allow-downloads allow-modals allow-pointer-lock"
+          title="Lunamix Game Player"
+        ></iframe>
+      </div>
 
     </div>
 
@@ -301,11 +327,13 @@
       <div class="flex items-center gap-3">
         <span>Controls:</span>
         <span class="flex items-center gap-1"><kbd class="px-1.5 py-0.5 rounded bg-slate-900 border border-slate-800 text-slate-400">F</kbd> Fullscreen</span>
+        <span class="flex items-center gap-1"><kbd class="px-1.5 py-0.5 rounded bg-slate-900 border border-slate-800 text-slate-400">T</kbd> Theater</span>
+        <span class="flex items-center gap-1"><kbd class="px-1.5 py-0.5 rounded bg-slate-900 border border-slate-800 text-slate-400">A</kbd> Ratio</span>
         <span class="flex items-center gap-1"><kbd class="px-1.5 py-0.5 rounded bg-slate-900 border border-slate-800 text-slate-400">R</kbd> Reload</span>
         <span class="flex items-center gap-1"><kbd class="px-1.5 py-0.5 rounded bg-slate-900 border border-slate-800 text-slate-400">~</kbd> Panic Exit</span>
       </div>
-      <div>
-        Theater Mode
+      <div id="ratio-status-label">
+        Ratio: 16:9 Wide
       </div>
     </div>
 
@@ -363,6 +391,7 @@
         category: 'Geometry Dash',
         url: './games/g/geodash-classic/index.html',
         altUrls: ['./games/geodash-classic/index.html', './GeoDash/index.html'],
+        aspectRatio: '4:3',
         openInNewTab: false,
         isLocal: true
       },
@@ -425,6 +454,73 @@
     LOCAL_GAMES_DICT['subwaysurfers'] = LOCAL_GAMES_DICT['subway-surfers'];
 
     let currentGameUrl = '';
+    let currentAspectRatio = '16:9';
+
+    /**
+     * Update viewport dimensions based on player container size and aspect ratio
+     */
+    function updateViewportDimensions() {
+      const container = document.getElementById('player-container');
+      const viewport = document.getElementById('game-viewport');
+      if (!container || !viewport) return;
+
+      const cw = container.clientWidth;
+      const ch = container.clientHeight;
+      if (!cw || !ch) return;
+
+      if (currentAspectRatio === 'fill') {
+        viewport.style.width = '100%';
+        viewport.style.height = '100%';
+        return;
+      }
+
+      let targetRatio = 16 / 9;
+      if (currentAspectRatio === '4:3') {
+        targetRatio = 4 / 3;
+      }
+
+      let w = cw;
+      let h = w / targetRatio;
+
+      if (h > ch) {
+        h = ch;
+        w = h * targetRatio;
+      }
+
+      viewport.style.width = `${Math.floor(w)}px`;
+      viewport.style.height = `${Math.floor(h)}px`;
+    }
+
+    /**
+     * Set active aspect ratio ('16:9', '4:3', or 'fill')
+     */
+    function setAspectRatio(ratio, updateSelect = false) {
+      if (!['16:9', '4:3', 'fill'].includes(ratio)) ratio = '16:9';
+      currentAspectRatio = ratio;
+
+      const select = document.getElementById('aspect-ratio-select');
+      if (select && (updateSelect || select.value !== ratio)) {
+        select.value = ratio;
+      }
+
+      const status = document.getElementById('ratio-status-label');
+      if (status) {
+        if (ratio === '16:9') status.textContent = 'Ratio: 16:9 Wide';
+        else if (ratio === '4:3') status.textContent = 'Ratio: 4:3 Classic';
+        else if (ratio === 'fill') status.textContent = 'Ratio: Fill (Stretch)';
+      }
+
+      updateViewportDimensions();
+    }
+
+    /**
+     * Cycle through aspect ratios: 16:9 -> 4:3 -> fill -> 16:9
+     */
+    function cycleAspectRatio() {
+      if (currentAspectRatio === '16:9') setAspectRatio('4:3', true);
+      else if (currentAspectRatio === '4:3') setAspectRatio('fill', true);
+      else setAspectRatio('16:9', true);
+    }
 
     /**
      * Resolve and launch the game based on query parameters (?game=<slug> or ?id=<id>)
@@ -463,6 +559,7 @@
               name: manifest.name,
               category: manifest.category || 'Arcade',
               url: manifest.entrypoint || `./games/${letter}/${slug}/index.html`,
+              aspectRatio: manifest.aspectRatio || (slug === 'geodash-classic' ? '4:3' : '16:9'),
               isLocal: true
             };
           }
@@ -485,6 +582,7 @@
                   name: found.name,
                   category: found.category || 'Arcade',
                   url: found.entrypoint,
+                  aspectRatio: found.aspectRatio || (slug === 'geodash-classic' ? '4:3' : '16:9'),
                   isLocal: true
                 };
               }
@@ -516,6 +614,8 @@
           gameData = LOCAL_GAMES_DICT['geometry-dash-subzero'];
         } else if (idNum === 172) {
           gameData = LOCAL_GAMES_DICT['geometry-dash-meltdown'];
+        } else if (idNum === 173) {
+          gameData = LOCAL_GAMES_DICT['geodash-classic'];
         }
         if (!gameData) {
           try {
@@ -532,6 +632,7 @@
                   name: found.name,
                   category: found.category || 'Arcade',
                   url: found.entrypoint || `./games/${found.slug}/index.html`,
+                  aspectRatio: found.aspectRatio || (found.slug === 'geodash-classic' ? '4:3' : '16:9'),
                   isLocal: true
                 };
               }
@@ -549,6 +650,7 @@
                   name: found.name,
                   category: found.category || 'Arcade',
                   url: found.playableUrl,
+                  aspectRatio: found.aspectRatio || '16:9',
                   isLocal: false
                 };
               }
@@ -572,6 +674,7 @@
                 name: found.name,
                 category: found.category || 'Arcade',
                 url: found.playableUrl,
+                aspectRatio: found.aspectRatio || (directSlug === 'geodash-classic' ? '4:3' : '16:9'),
                 isLocal: false
               };
             }
@@ -599,10 +702,15 @@
       catEl.textContent = gameData.category;
       label.textContent = `Loading ${gameData.name}...`;
 
+      // Apply initial aspect ratio from game metadata
+      const initialRatio = gameData.aspectRatio || '16:9';
+      setAspectRatio(initialRatio, true);
+
       currentGameUrl = targetUrl;
 
       // Load iframe
       iframe.onload = () => {
+        updateViewportDimensions();
         setTimeout(() => {
           loader.classList.add('opacity-0');
           setTimeout(() => {
@@ -657,6 +765,8 @@
           document.webkitExitFullscreen();
         }
       }
+      setTimeout(updateViewportDimensions, 60);
+      setTimeout(updateViewportDimensions, 250);
     }
 
     /**
@@ -682,6 +792,8 @@
         container.classList.add('h-[calc(100vh-80px)]', 'max-h-[calc(100vh-70px)]');
         if (theaterBtn) theaterBtn.classList.add('text-indigo-400', 'border-indigo-500/50');
       }
+      setTimeout(updateViewportDimensions, 50);
+      setTimeout(updateViewportDimensions, 200);
     }
 
     /**
@@ -694,11 +806,11 @@
     }
 
     /**
-     * Setup Keyboard Shortcuts: F for fullscreen, T for theater wide, R for reload
+     * Setup Keyboard Shortcuts: F for fullscreen, T for theater wide, A for aspect ratio, R for reload
      */
     function setupPlayerShortcuts() {
       window.addEventListener('keydown', (e) => {
-        // Ignore if focus is in an input
+        // Ignore if focus is in an input or select
         if (['INPUT', 'SELECT', 'TEXTAREA'].includes(document.activeElement.tagName)) return;
 
         if (e.key === 'f' || e.key === 'F') {
@@ -707,12 +819,26 @@
         } else if (e.key === 't' || e.key === 'T') {
           e.preventDefault();
           toggleTheaterWide();
+        } else if (e.key === 'a' || e.key === 'A') {
+          e.preventDefault();
+          cycleAspectRatio();
         } else if (e.key === 'r' || e.key === 'R') {
           e.preventDefault();
           reloadGame();
         }
       });
     }
+
+    // Auto-update viewport on window resize and fullscreen state changes
+    window.addEventListener('resize', updateViewportDimensions);
+    document.addEventListener('fullscreenchange', () => {
+      setTimeout(updateViewportDimensions, 50);
+      setTimeout(updateViewportDimensions, 200);
+    });
+    document.addEventListener('webkitfullscreenchange', () => {
+      setTimeout(updateViewportDimensions, 50);
+      setTimeout(updateViewportDimensions, 200);
+    });
 
     // Auto-init on load
     if (document.readyState === 'loading') {
