@@ -1,9 +1,9 @@
 {
   "upstream": "https://github.com/skiingbeast2025/geometry-dash-wasm-proxy",
   "live_url": "https://skiingbeast2025.github.io/geometry-dash-wasm-proxy/",
-  "last_synced_sha": "442aec9fce83f714f063b7ed04cf90b87546fee7",
-  "commit_message": "fix(loader): define gdFormatBytes helper to resolve ReferenceError during chunk assembly",
+  "last_synced_sha": "6fd6601c92a16d71b3c813cb336695b822aa78fe",
+  "commit_message": "perf(loader): stream chunk downloads with real-time progress and per-chunk retry",
   "commit_author": "skiingbeast2025",
-  "commit_date": "2026-10-22T14:03:55Z",
+  "commit_date": "2026-10-26T21:47:01Z",
   "auto_sync_method": "Live GitHub Pages iframe proxy with repository_dispatch workflow"
 }
