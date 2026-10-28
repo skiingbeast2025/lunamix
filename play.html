@@ -181,18 +181,18 @@
           <span class="hidden md:inline">Fullscreen</span>
         </button>
 
-        <!-- GUST Unblocker Toggle -->
+        <!-- GUST Toggle -->
         <button 
           type="button" 
           onclick="toggleGustProxy()" 
           id="gust-proxy-btn"
           class="p-2 sm:px-2.5 sm:py-1.5 rounded-xl text-xs font-semibold text-emerald-300 bg-emerald-500/15 hover:bg-emerald-500/25 border border-emerald-500/40 hover:border-emerald-400 transition-all flex items-center gap-1.5"
-          title="Toggle GUST unblocker for restricted school networks (Hotkey: P)"
+          title="Toggle GUST (Hotkey: P)"
         >
           <svg class="w-3.5 h-3.5 text-emerald-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
           </svg>
-          <span id="gust-proxy-label" class="hidden sm:inline">Unblocker: ON</span>
+          <span id="gust-proxy-label" class="hidden sm:inline">GUST On</span>
         </button>
 
         <!-- Open in New Tab -->
@@ -333,56 +333,24 @@
           title="Lunamix Game Player"
         ></iframe>
 
-        <!-- In-Game Unblock Notification Toast (Floating at bottom center of game) -->
-        <div id="in-game-unblock-toast" class="absolute bottom-4 left-1/2 -translate-x-1/2 z-30 pointer-events-none transition-all duration-500 opacity-0 translate-y-2">
-          <div class="flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-slate-950/90 border border-emerald-500/50 backdrop-blur-md shadow-2xl text-[11px] font-mono text-emerald-300">
-            <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
-            <span id="in-game-toast-text">Being unblocked with GUST</span>
-          </div>
-        </div>
       </div>
 
     </div>
 
-    <!-- Game Player Unblocker Status Banner (Bottom of Player) -->
-    <div id="unblock-status-bar" class="mt-2.5 flex flex-wrap items-center justify-between gap-2 px-3.5 py-2 rounded-xl bg-slate-900/60 border border-slate-800/80 backdrop-blur-md text-xs font-mono transition-all">
-      <div class="flex items-center gap-2.5">
-        <span id="unblock-status-indicator" class="relative flex h-2.5 w-2.5">
-          <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
-          <span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-emerald-500"></span>
-        </span>
-        <span id="unblock-status-text" class="text-emerald-400 font-semibold tracking-wide">
-          🛡️ Being unblocked with GUST
-        </span>
-        <span id="unblock-status-sub" class="text-slate-500 text-[11px] hidden md:inline">
-          • Encrypted packet tunnel active for restricted school & enterprise networks
-        </span>
-      </div>
-      <div class="flex items-center gap-3 text-[11px]">
-        <button 
-          onclick="toggleGustProxy()" 
-          id="unblock-toggle-action"
-          class="text-slate-400 hover:text-emerald-300 transition-colors cursor-pointer flex items-center gap-1.5"
-          title="Toggle GUST unblocker proxy (Hotkey: P)"
-        >
-          <span id="unblock-action-label">Unblocker ON</span>
-          <kbd class="px-1.5 py-0.5 rounded bg-slate-800 border border-slate-700 text-slate-300 text-[10px]">P</kbd>
-        </button>
-      </div>
-    </div>
-
-    <!-- Quick Controls & Shortcut Hints Bar -->
-    <div class="mt-2 flex flex-wrap items-center justify-between gap-2 text-[11px] font-mono text-slate-500 px-1">
+    <!-- Bar Below Game: GUST Status & Quick Controls -->
+    <div class="mt-2.5 flex flex-wrap items-center justify-between gap-2 text-xs font-mono px-1">
       <div class="flex items-center gap-3">
-        <span>Controls:</span>
-        <span class="flex items-center gap-1"><kbd class="px-1.5 py-0.5 rounded bg-slate-900 border border-slate-800 text-slate-400">F</kbd> Fullscreen</span>
-        <span class="flex items-center gap-1"><kbd class="px-1.5 py-0.5 rounded bg-slate-900 border border-slate-800 text-slate-400">T</kbd> Theater</span>
-        <span class="flex items-center gap-1"><kbd class="px-1.5 py-0.5 rounded bg-slate-900 border border-slate-800 text-slate-400">A</kbd> Ratio</span>
-        <span class="flex items-center gap-1"><kbd class="px-1.5 py-0.5 rounded bg-slate-900 border border-slate-800 text-slate-400">P</kbd> Unblocker</span>
-        <span class="flex items-center gap-1"><kbd class="px-1.5 py-0.5 rounded bg-slate-900 border border-slate-800 text-slate-400">R</kbd> Reload</span>
-        <span class="flex items-center gap-1"><kbd class="px-1.5 py-0.5 rounded bg-slate-900 border border-slate-800 text-slate-400">~</kbd> Panic Exit</span>
+        <span id="gust-status-bar" class="text-emerald-400 font-semibold cursor-pointer hover:underline transition-colors" onclick="toggleGustProxy()" title="Click or press P to toggle">GUST On</span>
+        <span class="text-slate-700">|</span>
+        <span class="text-slate-500 text-[11px]">Controls:</span>
+        <span class="flex items-center gap-1 text-[11px] text-slate-500"><kbd class="px-1.5 py-0.5 rounded bg-slate-900 border border-slate-800 text-slate-400 text-[10px]">F</kbd> Fullscreen</span>
+        <span class="flex items-center gap-1 text-[11px] text-slate-500"><kbd class="px-1.5 py-0.5 rounded bg-slate-900 border border-slate-800 text-slate-400 text-[10px]">T</kbd> Theater</span>
+        <span class="flex items-center gap-1 text-[11px] text-slate-500"><kbd class="px-1.5 py-0.5 rounded bg-slate-900 border border-slate-800 text-slate-400 text-[10px]">A</kbd> Ratio</span>
+        <span class="flex items-center gap-1 text-[11px] text-slate-500"><kbd class="px-1.5 py-0.5 rounded bg-slate-900 border border-slate-800 text-slate-400 text-[10px]">P</kbd> GUST</span>
+        <span class="flex items-center gap-1 text-[11px] text-slate-500"><kbd class="px-1.5 py-0.5 rounded bg-slate-900 border border-slate-800 text-slate-400 text-[10px]">R</kbd> Reload</span>
+        <span class="flex items-center gap-1 text-[11px] text-slate-500"><kbd class="px-1.5 py-0.5 rounded bg-slate-900 border border-slate-800 text-slate-400 text-[10px]">~</kbd> Panic</span>
       </div>
-      <div id="ratio-status-label">
+      <div id="ratio-status-label" class="text-slate-500 text-[11px]">
         Ratio: 16:9 Wide
       </div>
     </div>
@@ -536,77 +504,33 @@
     function updateGustUI() {
       const btn = document.getElementById('gust-proxy-btn');
       const label = document.getElementById('gust-proxy-label');
-      const statusBar = document.getElementById('unblock-status-bar');
-      const statusText = document.getElementById('unblock-status-text');
-      const statusSub = document.getElementById('unblock-status-sub');
-      const statusIndicator = document.getElementById('unblock-status-indicator');
-      const actionLabel = document.getElementById('unblock-action-label');
-      const toast = document.getElementById('in-game-unblock-toast');
-      const toastText = document.getElementById('in-game-toast-text');
+      const statusBar = document.getElementById('gust-status-bar');
 
-      const isLocal = !currentGameRawUrl || (
-        currentGameRawUrl.startsWith('./') || 
-        currentGameRawUrl.startsWith('/') || 
-        (!currentGameRawUrl.startsWith('http://') && !currentGameRawUrl.startsWith('https://')) ||
-        currentGameRawUrl.includes('lunamixmc.github.io/GeoDash')
-      );
+      const text = gustProxyEnabled ? 'GUST On' : 'GUST Off';
 
       if (btn && label) {
         if (gustProxyEnabled) {
           btn.classList.add('bg-emerald-500/15', 'border-emerald-500/40', 'text-emerald-300');
           btn.classList.remove('bg-slate-900/80', 'border-slate-800', 'text-slate-400');
-          label.textContent = 'Unblocker: ON';
-          btn.title = 'GUST WISP Proxy Active - Traffic encrypted and tunneled for restricted networks (Hotkey: P)';
+          label.textContent = text;
+          btn.title = 'GUST On (Hotkey: P)';
         } else {
           btn.classList.remove('bg-emerald-500/15', 'border-emerald-500/40', 'text-emerald-300');
           btn.classList.add('bg-slate-900/80', 'border-slate-800', 'text-slate-400');
-          label.textContent = 'Unblocker: OFF';
-          btn.title = 'GUST Unblocker Off - Direct connection (Hotkey: P)';
+          label.textContent = text;
+          btn.title = 'GUST Off (Hotkey: P)';
         }
       }
 
-      if (actionLabel) {
-        actionLabel.textContent = gustProxyEnabled ? 'Unblocker ON' : 'Unblocker OFF';
-      }
-
-      if (statusText && statusIndicator && statusSub) {
-        if (isLocal) {
-          statusIndicator.innerHTML = '<span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-cyan-400"></span>';
-          statusText.className = 'text-cyan-400 font-semibold tracking-wide';
-          statusText.textContent = '⚡ Running locally (100% offline & unblocked)';
-          statusSub.textContent = '• Local assets loaded directly from repository';
-        } else if (gustProxyEnabled) {
-          statusIndicator.innerHTML = `
-            <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
-            <span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-emerald-500"></span>
-          `;
-          statusText.className = 'text-emerald-400 font-semibold tracking-wide';
-          statusText.textContent = '🛡️ Being unblocked with GUST';
-          statusSub.textContent = '• Encrypted packet tunnel active for restricted school & enterprise networks';
+      if (statusBar) {
+        statusBar.textContent = text;
+        if (gustProxyEnabled) {
+          statusBar.className = 'text-emerald-400 font-semibold cursor-pointer hover:underline transition-colors';
+          statusBar.title = 'GUST On — Click or press P to turn Off';
         } else {
-          statusIndicator.innerHTML = '<span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-slate-500"></span>';
-          statusText.className = 'text-slate-400 font-semibold tracking-wide';
-          statusText.textContent = '⚡ Direct connection (GUST unblocker OFF)';
-          statusSub.textContent = '• Traffic direct to host; may be blocked by network firewall';
+          statusBar.className = 'text-slate-400 font-semibold cursor-pointer hover:underline transition-colors';
+          statusBar.title = 'GUST Off — Click or press P to turn On';
         }
-      }
-
-      // Show in-game toast notification
-      if (toast && toastText) {
-        if (isLocal) {
-          toastText.textContent = 'Running locally • 100% unblocked';
-        } else if (gustProxyEnabled) {
-          toastText.textContent = 'Being unblocked with GUST';
-        } else {
-          toastText.textContent = 'Direct connection • Unblocker OFF';
-        }
-        toast.classList.remove('opacity-0', 'translate-y-2');
-        toast.classList.add('opacity-100', 'translate-y-0');
-        clearTimeout(window._unblockToastTimer);
-        window._unblockToastTimer = setTimeout(() => {
-          toast.classList.add('opacity-0', 'translate-y-2');
-          toast.classList.remove('opacity-100', 'translate-y-0');
-        }, 3500);
       }
     }
 
@@ -1023,18 +947,8 @@
       });
     }
 
-    // Listen for GUST unblocker status notifications from child frame and forward messages
+    // Forward window postMessages to child iframe for WASM/GUST coordination
     window.addEventListener('message', (ev) => {
-      if (ev.data && ev.data.type === 'gust:unblocked') {
-        const statusText = document.getElementById('unblock-status-text');
-        if (statusText) {
-          if (ev.data.status === 'ready') {
-            statusText.textContent = '🛡️ Unblocked with GUST (Connected)';
-          } else if (ev.data.status === 'unblocking') {
-            statusText.textContent = '🛡️ Being unblocked with GUST...';
-          }
-        }
-      }
       const iframe = document.getElementById('game-iframe');
       if (iframe && iframe.contentWindow && ev.source !== iframe.contentWindow) {
         try {
