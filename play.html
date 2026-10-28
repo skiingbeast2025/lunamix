@@ -358,7 +358,7 @@
   </main>
 
   <!-- Minimalist Footer -->
-  <footer class="relative z-10 w-full border-t border-slate-900 bg-slate-950/90 backdrop-blur-md py-4 text-center mt-2">
+  <footer id="player-footer" class="relative z-10 w-full border-t border-slate-900 bg-slate-950/90 backdrop-blur-md py-4 text-center mt-2 transition-all">
     <div class="max-w-7xl mx-auto px-4 flex items-center justify-center text-xs text-slate-500 font-mono">
       <a href="https://github.com/skiingbeast2025/lunamix" target="_blank" rel="noopener noreferrer" class="hover:text-slate-300 transition-colors">GitHub</a>
     </div>
@@ -425,8 +425,8 @@
       'slope': {
         name: 'Slope 3D',
         category: 'Platformer',
-        url: 'https://iloveshorty.github.io/html/slope/game/index.html',
-        altUrls: ['https://iloveshorty.github.io/html/slope/index.html'],
+        url: './games/s/slope/index.html',
+        altUrls: ['https://iloveshorty.github.io/html/slope/game/index.html', 'https://iloveshorty.github.io/html/slope/index.html'],
         openInNewTab: false,
         isLocal: true
       },
@@ -890,24 +890,41 @@
       const main = document.getElementById('player-main') || document.querySelector('main');
       const container = document.getElementById('player-container');
       const theaterBtn = document.getElementById('theater-btn');
+      const footer = document.getElementById('player-footer');
       if (!main || !container) return;
 
       const isWide = main.classList.contains('max-w-none');
       if (isWide) {
-        main.classList.remove('max-w-none', 'px-1', 'py-1');
+        // Exit Theater Mode
+        main.classList.remove('max-w-none', 'px-1', 'py-0.5');
         main.classList.add('max-w-7xl', 'px-2', 'sm:px-4', 'lg:px-6', 'py-2', 'sm:py-3');
-        container.classList.remove('h-[calc(100vh-80px)]', 'max-h-[calc(100vh-70px)]');
-        container.classList.add('h-[calc(100vh-140px)]', 'max-h-[calc(100vh-130px)]');
-        if (theaterBtn) theaterBtn.classList.remove('text-indigo-400', 'border-indigo-500/50');
+        container.classList.remove('h-[calc(100vh-104px)]', 'max-h-[calc(100vh-104px)]', 'min-h-0');
+        container.classList.add('h-[calc(100vh-140px)]', 'max-h-[calc(100vh-130px)]', 'min-h-[480px]');
+        if (footer) footer.classList.remove('hidden');
+        if (theaterBtn) theaterBtn.classList.remove('text-indigo-400', 'border-indigo-500/50', 'bg-indigo-600/20');
       } else {
+        // Enter Theater Mode
         main.classList.remove('max-w-7xl', 'px-2', 'sm:px-4', 'lg:px-6', 'py-2', 'sm:py-3');
-        main.classList.add('max-w-none', 'px-1', 'py-1');
-        container.classList.remove('h-[calc(100vh-140px)]', 'max-h-[calc(100vh-130px)]');
-        container.classList.add('h-[calc(100vh-80px)]', 'max-h-[calc(100vh-70px)]');
-        if (theaterBtn) theaterBtn.classList.add('text-indigo-400', 'border-indigo-500/50');
+        main.classList.add('max-w-none', 'px-1', 'py-0.5');
+        container.classList.remove('h-[calc(100vh-140px)]', 'max-h-[calc(100vh-130px)]', 'min-h-[480px]');
+        container.classList.add('h-[calc(100vh-104px)]', 'max-h-[calc(100vh-104px)]', 'min-h-0');
+        if (footer) footer.classList.add('hidden');
+        if (theaterBtn) theaterBtn.classList.add('text-indigo-400', 'border-indigo-500/50', 'bg-indigo-600/20');
       }
+
+      updateViewportDimensions();
       setTimeout(updateViewportDimensions, 50);
-      setTimeout(updateViewportDimensions, 200);
+      setTimeout(updateViewportDimensions, 150);
+      setTimeout(updateViewportDimensions, 300);
+
+      // Notify iframe and child window of resize
+      const iframe = document.getElementById('game-iframe');
+      if (iframe && iframe.contentWindow) {
+        try {
+          iframe.contentWindow.dispatchEvent(new Event('resize'));
+          iframe.contentWindow.postMessage({ type: 'resize' }, '*');
+        } catch (e) {}
+      }
     }
 
     /**

@@ -5,28 +5,120 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
   <title>Slope 3D</title>
   <style>
-    html, body {
+    * {
+      box-sizing: border-box;
       margin: 0;
       padding: 0;
+    }
+    html, body {
       width: 100%;
       height: 100%;
       overflow: hidden;
       background: #000;
     }
-    iframe {
-      border: 0;
-      width: 100%;
-      height: 100%;
-      display: block;
+    #gameContainer {
+      position: absolute;
+      inset: 0;
+      width: 100% !important;
+      height: 100% !important;
+      background: #000 !important;
+      overflow: hidden;
+    }
+    canvas, #canvas {
+      position: absolute !important;
+      inset: 0 !important;
+      width: 100% !important;
+      height: 100% !important;
+      display: block !important;
+    }
+    /* Sleek Loading Overlay */
+    #loading {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      background: #050811;
+      color: #94a3b8;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, monospace;
+      font-size: 13px;
+      z-index: 50;
+      transition: opacity 0.3s;
+    }
+    .spinner {
+      width: 44px;
+      height: 44px;
+      border: 3px solid rgba(99, 102, 241, 0.2);
+      border-top-color: #6366f1;
+      border-radius: 50%;
+      animation: spin 0.8s linear infinite;
+      margin-bottom: 16px;
+    }
+    @keyframes spin {
+      to { transform: rotate(360deg); }
     }
   </style>
 </head>
 <body>
-  <iframe 
-    src="https://iloveshorty.github.io/html/slope/game/index.html" 
-    title="Slope 3D" 
-    allow="autoplay; fullscreen; gamepad; focus-without-user-activation *" 
-    sandbox="allow-scripts allow-same-origin allow-forms allow-popups allow-downloads">
-  </iframe>
+  <div id="loading">
+    <div class="spinner"></div>
+    <div id="loading-text">Loading Slope 3D...</div>
+  </div>
+
+  <div id="gameContainer"></div>
+
+  <script src="https://iloveshorty.github.io/html/slope/game/TemplateData/UnityProgress.js"></script>
+  <script src="https://iloveshorty.github.io/html/slope/game/TemplateData/unityloader41.js"></script>
+  <script>
+    function customProgress(gameInstance, progress) {
+      const el = document.getElementById('loading-text');
+      if (progress < 1) {
+        if (el) el.textContent = `Loading Slope 3D (${Math.round(progress * 100)}%)...`;
+      } else {
+        const l = document.getElementById('loading');
+        if (l) {
+          l.style.opacity = '0';
+          setTimeout(() => l.remove(), 350);
+        }
+      }
+    }
+
+    function enforceCanvasFit() {
+      const cv = document.querySelector('canvas');
+      if (cv) {
+        cv.style.setProperty('width', '100%', 'important');
+        cv.style.setProperty('height', '100%', 'important');
+      }
+      const gc = document.getElementById('gameContainer');
+      if (gc) {
+        gc.style.setProperty('background', '#000', 'important');
+      }
+    }
+
+    window.addEventListener('load', () => {
+      var gameInstance = UnityLoader.instantiate(
+        "gameContainer",
+        "https://iloveshorty.github.io/html/slope/game/Build/slope.json",
+        {
+          onProgress: customProgress,
+          Module: {
+            onRuntimeInitialized: function() {
+              customProgress(gameInstance, 1);
+              enforceCanvasFit();
+            }
+          }
+        }
+      );
+    });
+
+    window.addEventListener('resize', enforceCanvasFit);
+    window.addEventListener('message', (e) => {
+      if (e.data && e.data.type === 'resize') {
+        enforceCanvasFit();
+      }
+    });
+    setInterval(enforceCanvasFit, 500);
+  </script>
 </body>
 </html>

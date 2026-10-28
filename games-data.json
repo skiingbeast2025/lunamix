@@ -7773,7 +7773,7 @@
     "slug": "slope",
     "name": "Slope",
     "category": "platformer",
-    "playableUrl": "https://iloveshorty.github.io/html/slope/game/index.html",
+    "playableUrl": "./games/s/slope/index.html",
     "logoUrl": "https://iloveshorty.github.io/img/slope.webp",
     "page": 1,
     "isFeatured": true,
