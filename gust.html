@@ -38,27 +38,57 @@
     ></script>
     <!-- ES module stub: satisfies ECMAScript 6 Modules feature detection -->
     <script type="module">window._esModulesSupported = true;</script>
+    <script>
+        // Immediately detect headless embedded unblocker mode before any rendering occurs
+        (function() {
+            try {
+                var q = new URLSearchParams(window.location.search);
+                if (q.get('embed') === '1' || q.get('minimal') === '1' || window.self !== window.top) {
+                    document.documentElement.classList.add('gust-embed');
+                }
+            } catch (e) {}
+        })();
+    </script>
     <style>
-        /* ── GUST Lunamix Embedded Game Mode ── */
+        /* ── GUST Lunamix Headless Embedded Game Mode (Pure Invisible Proxy) ── */
+        html.gust-embed,
+        html.gust-embed body,
         body.gust-embed,
-        body.gust-embed .app,
-        body.gust-embed .view {
+        .gust-embed .app,
+        .gust-embed .view {
             background: #000000 !important;
+            overflow: hidden !important;
+            margin: 0 !important;
+            padding: 0 !important;
         }
-        body.gust-embed .titlebar,
-        body.gust-embed .navbar,
-        body.gust-embed #bookmarksBar,
-        body.gust-embed #devTools,
-        body.gust-embed .sidebar,
-        body.gust-embed .ext-popup-host,
-        body.gust-embed #tutorialModal,
-        body.gust-embed #newtab,
-        body.gust-embed #skinNTP,
-        body.gust-embed .newtab,
-        body.gust-embed .cntp {
+        .gust-embed .titlebar,
+        .gust-embed .navbar,
+        .gust-embed #bookmarksBar,
+        .gust-embed #devTools,
+        .gust-embed .sidebar,
+        .gust-embed .ext-popup-host,
+        .gust-embed #tutorialModal,
+        .gust-embed #tutorialOverlay,
+        .gust-embed #tutorialBackdrop,
+        .gust-embed #newtab,
+        .gust-embed #skinNTP,
+        .gust-embed .newtab,
+        .gust-embed .cntp,
+        .gust-embed #overlay,
+        .gust-embed #elemHighlightOverlay,
+        .gust-embed #contextMenu,
+        .gust-embed #gust-embed-pill,
+        .gust-embed .window-controls,
+        .gust-embed .tab-bar,
+        .gust-embed #downloadsBar,
+        .gust-embed #findBar,
+        .gust-embed #statusInfo {
             display: none !important;
+            visibility: hidden !important;
+            opacity: 0 !important;
+            pointer-events: none !important;
         }
-        body.gust-embed .app {
+        .gust-embed .app {
             padding: 0 !important;
             margin: 0 !important;
             width: 100vw !important;
@@ -66,9 +96,10 @@
             border-radius: 0 !important;
             border: none !important;
             overflow: hidden !important;
+            background: #000000 !important;
         }
-        body.gust-embed #contentArea,
-        body.gust-embed #frame {
+        .gust-embed #contentArea,
+        .gust-embed #frame {
             position: fixed !important;
             inset: 0 !important;
             width: 100vw !important;
@@ -77,35 +108,6 @@
             border-radius: 0 !important;
             z-index: 10 !important;
             background: #000000 !important;
-        }
-        body.gust-embed #gust-embed-pill {
-            position: fixed;
-            top: 8px;
-            right: 8px;
-            z-index: 999999;
-            background: rgba(13, 15, 18, 0.85);
-            backdrop-filter: blur(8px);
-            border: 1px solid rgba(100, 210, 255, 0.3);
-            border-radius: 20px;
-            padding: 4px 10px;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            font-family: var(--mono, monospace);
-            font-size: 11px;
-            color: #9de5ff;
-            box-shadow: 0 4px 16px rgba(0,0,0,0.4);
-            pointer-events: auto;
-            opacity: 0.35;
-            transition: opacity 0.2s ease;
-        }
-        body.gust-embed #gust-embed-pill:hover {
-            opacity: 1;
-        }
-        body.gust-embed #gust-embed-pill a {
-            color: #fff;
-            text-decoration: underline;
-            cursor: pointer;
         }
 
 
@@ -14740,6 +14742,7 @@ let activeTabId = 1;
             let _overlayDotsInterval = null;
 
             function showOverlay(msg) {
+                if (document.documentElement.classList.contains('gust-embed') || window.self !== window.top) return;
                 const base = msg.replace(/\.+$/, '');
                 let dotCount = 1;
                 overlayText.textContent = base + '.';
@@ -14752,6 +14755,10 @@ let activeTabId = 1;
             }
 
             function showOverlayError(reason) {
+                if (document.documentElement.classList.contains('gust-embed') || window.self !== window.top) {
+                    console.error('[GUST Embed] libcurl initialization error:', reason);
+                    return;
+                }
                 // Stop any dots animation
                 if (_overlayDotsInterval) { clearInterval(_overlayDotsInterval); _overlayDotsInterval = null; }
                 // Swap spinner for mini error triangle
@@ -19157,6 +19164,9 @@ _VIEWER_DL_JS +
                 }
 
                 try {
+                    if (window.parent && window.parent !== window) {
+                        try { window.parent.postMessage({ type: 'gust:unblocked', url: url, status: 'unblocking' }, '*'); } catch (e) {}
+                    }
                     log(`<i class="fas fa-arrow-right" style="color:var(--ac)"></i>` + url + ` <span style="color:var(--tx3);font-size:11px;font-family:var(--mono)">via ${WISP.replace(/^wss?:\/\//, '').split('/')[0]}</span>`, "info");
                     const opts = {
                         signal: tabCtrl.signal
@@ -20171,6 +20181,9 @@ _VIEWER_DL_JS +
                             loadedTab.blobSrc = newBlobUrl;
                             loadedTab.memBytes = _newBytes;
                             enforceBlobCap();   // keep only N warm background tabs
+                        }
+                        if (window.parent && window.parent !== window) {
+                            try { window.parent.postMessage({ type: 'gust:unblocked', url: url, status: 'ready' }, '*'); } catch (e) {}
                         }
                         frame.onload = null;
                     };
@@ -21665,11 +21678,8 @@ _VIEWER_DL_JS +
                     }
 
                     if (_isEmbedded) {
+                        document.documentElement.classList.add('gust-embed');
                         document.body.classList.add('gust-embed');
-                        const pill = document.createElement('div');
-                        pill.id = 'gust-embed-pill';
-                        pill.innerHTML = '<span>🛡️ GUST WISP Tunnel</span> <a href="' + window.location.href.replace(/([?&])embed=1(&|$)/, '').replace(/[?&]$/, '') + '" target="_blank">Pop Out ↗</a>';
-                        document.body.appendChild(pill);
                         hideNewTab();
                     }
 
@@ -23372,6 +23382,7 @@ _VIEWER_DL_JS +
             let tutActive = false;
 
             function startTutorial(force = false) {
+                if (document.documentElement.classList.contains('gust-embed') || window.self !== window.top) return;
                 if (!force) {
                     try {
                         if (ls.getItem(TUTORIAL_KEY) === 'done') return;
