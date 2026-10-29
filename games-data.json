@@ -1,5 +1,608 @@
 [
   {
+    "id": 2001,
+    "slug": "eaglercraft-26-3",
+    "name": "Eaglercraft 26.3 (Latest)",
+    "category": "minecraft",
+    "playableUrl": "https://skiingbeast2025.github.io/lunamix-eaglercraft/downloads/26.3.html",
+    "logoUrl": "./assets/logos/minecraft.svg",
+    "isFeatured": true
+  },
+  {
+    "id": 2002,
+    "slug": "eaglercraft-galactic",
+    "name": "Galactic Client 8.0.0 (320+ Hacks)",
+    "category": "minecraft",
+    "playableUrl": "https://skiingbeast2025.github.io/lunamix-eaglercraft/downloads/galactic-8.0.html",
+    "logoUrl": "./assets/logos/minecraft.svg",
+    "isFeatured": true
+  },
+  {
+    "id": 2003,
+    "slug": "eaglercraft-wurstx",
+    "name": "WurstX Client b2 WASM-GC",
+    "category": "minecraft",
+    "playableUrl": "https://skiingbeast2025.github.io/lunamix-eaglercraft/downloads/wurstx.html",
+    "logoUrl": "./assets/logos/minecraft.svg",
+    "isFeatured": true
+  },
+  {
+    "id": 2004,
+    "slug": "eaglercraft-liquidbounce",
+    "name": "LiquidBounce Eaglercraft",
+    "category": "minecraft",
+    "playableUrl": "https://skiingbeast2025.github.io/lunamix-eaglercraft/downloads/liquidbounce.html",
+    "logoUrl": "./assets/logos/minecraft.svg",
+    "isFeatured": true
+  },
+  {
+    "id": 2005,
+    "slug": "eaglercraft-meteor",
+    "name": "Meteor Client Eaglercraft",
+    "category": "minecraft",
+    "playableUrl": "https://skiingbeast2025.github.io/lunamix-eaglercraft/downloads/meteor.html",
+    "logoUrl": "./assets/logos/minecraft.svg",
+    "isFeatured": true
+  },
+  {
+    "id": 2006,
+    "slug": "eaglercraft-archmc",
+    "name": "ArchMC Official Client",
+    "category": "minecraft",
+    "playableUrl": "https://skiingbeast2025.github.io/lunamix-eaglercraft/downloads/archmc.html",
+    "logoUrl": "./assets/logos/minecraft.svg",
+    "isFeatured": true
+  },
+  {
+    "id": 2007,
+    "slug": "eaglercraft-solar",
+    "name": "Solar Client (FPS Boost)",
+    "category": "minecraft",
+    "playableUrl": "https://skiingbeast2025.github.io/lunamix-eaglercraft/downloads/solar.html",
+    "logoUrl": "./assets/logos/minecraft.svg",
+    "isFeatured": true
+  },
+  {
+    "id": 2008,
+    "slug": "eaglercraft-shaders",
+    "name": "EaglercraftX Shaders Ultimate Edition",
+    "category": "minecraft",
+    "playableUrl": "https://skiingbeast2025.github.io/lunamix-eaglercraft/downloads/shaders.html",
+    "logoUrl": "./assets/logos/minecraft.svg",
+    "isFeatured": true
+  },
+  {
+    "id": 2009,
+    "slug": "eaglercraft-1-8-8",
+    "name": "Eaglercraft 1.8.8 Stable",
+    "category": "minecraft",
+    "playableUrl": "https://skiingbeast2025.github.io/lunamix-eaglercraft/downloads/1.8.8.html",
+    "logoUrl": "./assets/logos/minecraft.svg",
+    "isFeatured": true
+  },
+  {
+    "id": 2010,
+    "slug": "eaglercraft-1-20-6",
+    "name": "Eaglercraft 1.20.6 Modern",
+    "category": "minecraft",
+    "playableUrl": "https://skiingbeast2025.github.io/lunamix-eaglercraft/downloads/1.20.6.html",
+    "logoUrl": "./assets/logos/minecraft.svg",
+    "isFeatured": true
+  },
+  {
+    "id": 2011,
+    "slug": "eaglercraft-1-20-wasm",
+    "name": "EaglercraftX 1.20 WASM-GC",
+    "category": "minecraft",
+    "playableUrl": "https://skiingbeast2025.github.io/lunamix-eaglercraft/downloads/1.20-wasm.html",
+    "logoUrl": "./assets/logos/minecraft.svg",
+    "isFeatured": false
+  },
+  {
+    "id": 2012,
+    "slug": "eaglercraft-1-12-2-wasm",
+    "name": "Eaglercraft 1.12.2 WASM-GC",
+    "category": "minecraft",
+    "playableUrl": "https://skiingbeast2025.github.io/lunamix-eaglercraft/downloads/1.12.2-wasm.html",
+    "logoUrl": "./assets/logos/minecraft.svg",
+    "isFeatured": false
+  },
+  {
+    "id": 2013,
+    "slug": "eaglercraft-1-8-8-wasm",
+    "name": "EaglercraftX 1.8.8 WASM-GC",
+    "category": "minecraft",
+    "playableUrl": "https://skiingbeast2025.github.io/lunamix-eaglercraft/downloads/1.8.8-wasm.html",
+    "logoUrl": "./assets/logos/minecraft.svg",
+    "isFeatured": false
+  },
+  {
+    "id": 2014,
+    "slug": "eaglercraft-reflex",
+    "name": "Reflex Client 0.0.2 WASM-GC",
+    "category": "minecraft",
+    "playableUrl": "https://skiingbeast2025.github.io/lunamix-eaglercraft/downloads/reflex.html",
+    "logoUrl": "./assets/logos/minecraft.svg",
+    "isFeatured": false
+  },
+  {
+    "id": 2015,
+    "slug": "eaglercraft-forge",
+    "name": "EaglerForge 1.2.5 Mod Client",
+    "category": "minecraft",
+    "playableUrl": "https://skiingbeast2025.github.io/lunamix-eaglercraft/downloads/eaglerforge.html",
+    "logoUrl": "./assets/logos/minecraft.svg",
+    "isFeatured": false
+  },
+  {
+    "id": 2016,
+    "slug": "eaglercraft-shadow",
+    "name": "Shadow Client 4.0 (Optifine)",
+    "category": "minecraft",
+    "playableUrl": "https://skiingbeast2025.github.io/lunamix-eaglercraft/downloads/shadow.html",
+    "logoUrl": "./assets/logos/minecraft.svg",
+    "isFeatured": false
+  },
+  {
+    "id": 2017,
+    "slug": "eaglercraft-shadow-3-0",
+    "name": "Shadow Client 3.0 Beta",
+    "category": "minecraft",
+    "playableUrl": "https://skiingbeast2025.github.io/lunamix-eaglercraft/downloads/shadow-3.0.html",
+    "logoUrl": "./assets/logos/minecraft.svg",
+    "isFeatured": false
+  },
+  {
+    "id": 2018,
+    "slug": "eaglercraft-resent-5-0",
+    "name": "Resent Client 5.0",
+    "category": "minecraft",
+    "playableUrl": "https://skiingbeast2025.github.io/lunamix-eaglercraft/downloads/resent-5.0.html",
+    "logoUrl": "./assets/logos/minecraft.svg",
+    "isFeatured": false
+  },
+  {
+    "id": 2019,
+    "slug": "eaglercraft-resent-4-4",
+    "name": "Resent Client 4.4 Signed",
+    "category": "minecraft",
+    "playableUrl": "https://skiingbeast2025.github.io/lunamix-eaglercraft/downloads/resent-4.4.html",
+    "logoUrl": "./assets/logos/minecraft.svg",
+    "isFeatured": false
+  },
+  {
+    "id": 2020,
+    "slug": "eaglercraft-resent",
+    "name": "Resent Client Classic",
+    "category": "minecraft",
+    "playableUrl": "https://skiingbeast2025.github.io/lunamix-eaglercraft/downloads/resent.html",
+    "logoUrl": "./assets/logos/minecraft.svg",
+    "isFeatured": false
+  },
+  {
+    "id": 2021,
+    "slug": "eaglercraft-flame",
+    "name": "Flame Client 3.7",
+    "category": "minecraft",
+    "playableUrl": "https://skiingbeast2025.github.io/lunamix-eaglercraft/downloads/flame.html",
+    "logoUrl": "./assets/logos/minecraft.svg",
+    "isFeatured": false
+  },
+  {
+    "id": 2022,
+    "slug": "eaglercraft-moonlight",
+    "name": "Moonlight Client",
+    "category": "minecraft",
+    "playableUrl": "https://skiingbeast2025.github.io/lunamix-eaglercraft/downloads/moonlight.html",
+    "logoUrl": "./assets/logos/minecraft.svg",
+    "isFeatured": false
+  },
+  {
+    "id": 2023,
+    "slug": "eaglercraft-astra",
+    "name": "Astra Client 1.8.8",
+    "category": "minecraft",
+    "playableUrl": "https://skiingbeast2025.github.io/lunamix-eaglercraft/downloads/astra.html",
+    "logoUrl": "./assets/logos/minecraft.svg",
+    "isFeatured": false
+  },
+  {
+    "id": 2024,
+    "slug": "eaglercraft-tuff",
+    "name": "Tuff Client 1.12.2",
+    "category": "minecraft",
+    "playableUrl": "https://skiingbeast2025.github.io/lunamix-eaglercraft/downloads/tuff.html",
+    "logoUrl": "./assets/logos/minecraft.svg",
+    "isFeatured": false
+  },
+  {
+    "id": 2025,
+    "slug": "eaglercraft-precision",
+    "name": "Precision Client",
+    "category": "minecraft",
+    "playableUrl": "https://skiingbeast2025.github.io/lunamix-eaglercraft/downloads/precision.html",
+    "logoUrl": "./assets/logos/minecraft.svg",
+    "isFeatured": false
+  },
+  {
+    "id": 2026,
+    "slug": "eaglercraft-n0va",
+    "name": "N0VA Client",
+    "category": "minecraft",
+    "playableUrl": "https://skiingbeast2025.github.io/lunamix-eaglercraft/downloads/n0va.html",
+    "logoUrl": "./assets/logos/minecraft.svg",
+    "isFeatured": false
+  },
+  {
+    "id": 2027,
+    "slug": "eaglercraft-starlike",
+    "name": "Starlike Client",
+    "category": "minecraft",
+    "playableUrl": "https://skiingbeast2025.github.io/lunamix-eaglercraft/downloads/starlike.html",
+    "logoUrl": "./assets/logos/minecraft.svg",
+    "isFeatured": false
+  },
+  {
+    "id": 2028,
+    "slug": "eaglercraft-kerosene",
+    "name": "Kerosene Client",
+    "category": "minecraft",
+    "playableUrl": "https://skiingbeast2025.github.io/lunamix-eaglercraft/downloads/kerosene.html",
+    "logoUrl": "./assets/logos/minecraft.svg",
+    "isFeatured": false
+  },
+  {
+    "id": 2029,
+    "slug": "eaglercraft-nitclient",
+    "name": "NitClient 2.0",
+    "category": "minecraft",
+    "playableUrl": "https://skiingbeast2025.github.io/lunamix-eaglercraft/downloads/nitclient.html",
+    "logoUrl": "./assets/logos/minecraft.svg",
+    "isFeatured": false
+  },
+  {
+    "id": 2030,
+    "slug": "eaglercraft-kone",
+    "name": "Kone Client 1.8.8",
+    "category": "minecraft",
+    "playableUrl": "https://skiingbeast2025.github.io/lunamix-eaglercraft/downloads/kone.html",
+    "logoUrl": "./assets/logos/minecraft.svg",
+    "isFeatured": false
+  },
+  {
+    "id": 2031,
+    "slug": "eaglercraft-pi",
+    "name": "Pi Client",
+    "category": "minecraft",
+    "playableUrl": "https://skiingbeast2025.github.io/lunamix-eaglercraft/downloads/pi.html",
+    "logoUrl": "./assets/logos/minecraft.svg",
+    "isFeatured": false
+  },
+  {
+    "id": 2032,
+    "slug": "eaglercraft-demon",
+    "name": "Demon Client",
+    "category": "minecraft",
+    "playableUrl": "https://skiingbeast2025.github.io/lunamix-eaglercraft/downloads/demon.html",
+    "logoUrl": "./assets/logos/minecraft.svg",
+    "isFeatured": false
+  },
+  {
+    "id": 2033,
+    "slug": "eaglercraft-daniel",
+    "name": "Daniel Client",
+    "category": "minecraft",
+    "playableUrl": "https://skiingbeast2025.github.io/lunamix-eaglercraft/downloads/daniel.html",
+    "logoUrl": "./assets/logos/minecraft.svg",
+    "isFeatured": false
+  },
+  {
+    "id": 2034,
+    "slug": "eaglercraft-justin",
+    "name": "Justin Client",
+    "category": "minecraft",
+    "playableUrl": "https://skiingbeast2025.github.io/lunamix-eaglercraft/downloads/justin.html",
+    "logoUrl": "./assets/logos/minecraft.svg",
+    "isFeatured": false
+  },
+  {
+    "id": 2035,
+    "slug": "eaglercraft-justin-v3",
+    "name": "Justin Client v3",
+    "category": "minecraft",
+    "playableUrl": "https://skiingbeast2025.github.io/lunamix-eaglercraft/downloads/justin-v3.html",
+    "logoUrl": "./assets/logos/minecraft.svg",
+    "isFeatured": false
+  },
+  {
+    "id": 2036,
+    "slug": "eaglercraft-dragonx-v5",
+    "name": "DragonX v5 Client",
+    "category": "minecraft",
+    "playableUrl": "https://skiingbeast2025.github.io/lunamix-eaglercraft/downloads/dragonx-v5.html",
+    "logoUrl": "./assets/logos/minecraft.svg",
+    "isFeatured": false
+  },
+  {
+    "id": 2037,
+    "slug": "eaglercraft-dragonx-v4",
+    "name": "DragonX v4 Client",
+    "category": "minecraft",
+    "playableUrl": "https://skiingbeast2025.github.io/lunamix-eaglercraft/downloads/dragonx-v4.html",
+    "logoUrl": "./assets/logos/minecraft.svg",
+    "isFeatured": false
+  },
+  {
+    "id": 2038,
+    "slug": "eaglercraft-dragonx",
+    "name": "DragonX Client Classic",
+    "category": "minecraft",
+    "playableUrl": "https://skiingbeast2025.github.io/lunamix-eaglercraft/downloads/dragonx.html",
+    "logoUrl": "./assets/logos/minecraft.svg",
+    "isFeatured": false
+  },
+  {
+    "id": 2039,
+    "slug": "eaglercraft-dragonx-lite",
+    "name": "DragonX Lite Client",
+    "category": "minecraft",
+    "playableUrl": "https://skiingbeast2025.github.io/lunamix-eaglercraft/downloads/dragonx-lite.html",
+    "logoUrl": "./assets/logos/minecraft.svg",
+    "isFeatured": false
+  },
+  {
+    "id": 2040,
+    "slug": "eaglercraft-dragonx-shadow",
+    "name": "DragonX Shadow Hybrid",
+    "category": "minecraft",
+    "playableUrl": "https://skiingbeast2025.github.io/lunamix-eaglercraft/downloads/dragonx-shadow.html",
+    "logoUrl": "./assets/logos/minecraft.svg",
+    "isFeatured": false
+  },
+  {
+    "id": 2041,
+    "slug": "eaglercraft-fuchsiax",
+    "name": "FuchsiaX Ghost Client",
+    "category": "minecraft",
+    "playableUrl": "https://skiingbeast2025.github.io/lunamix-eaglercraft/downloads/fuchsiax.html",
+    "logoUrl": "./assets/logos/minecraft.svg",
+    "isFeatured": false
+  },
+  {
+    "id": 2042,
+    "slug": "eaglercraft-nebula",
+    "name": "Nebula Client",
+    "category": "minecraft",
+    "playableUrl": "https://skiingbeast2025.github.io/lunamix-eaglercraft/downloads/nebula.html",
+    "logoUrl": "./assets/logos/minecraft.svg",
+    "isFeatured": false
+  },
+  {
+    "id": 2043,
+    "slug": "eaglercraft-pixel",
+    "name": "Pixel Client 1.12.2",
+    "category": "minecraft",
+    "playableUrl": "https://skiingbeast2025.github.io/lunamix-eaglercraft/downloads/pixel.html",
+    "logoUrl": "./assets/logos/minecraft.svg",
+    "isFeatured": false
+  },
+  {
+    "id": 2044,
+    "slug": "eaglercraft-mega",
+    "name": "Mega Client",
+    "category": "minecraft",
+    "playableUrl": "https://skiingbeast2025.github.io/lunamix-eaglercraft/downloads/mega.html",
+    "logoUrl": "./assets/logos/minecraft.svg",
+    "isFeatured": false
+  },
+  {
+    "id": 2045,
+    "slug": "eaglercraft-codercraft",
+    "name": "CoderCraft Client",
+    "category": "minecraft",
+    "playableUrl": "https://skiingbeast2025.github.io/lunamix-eaglercraft/downloads/codercraft.html",
+    "logoUrl": "./assets/logos/minecraft.svg",
+    "isFeatured": false
+  },
+  {
+    "id": 2046,
+    "slug": "eaglercraft-reborn",
+    "name": "Eagler Reborn Client",
+    "category": "minecraft",
+    "playableUrl": "https://skiingbeast2025.github.io/lunamix-eaglercraft/downloads/eagler-reborn.html",
+    "logoUrl": "./assets/logos/minecraft.svg",
+    "isFeatured": false
+  },
+  {
+    "id": 2047,
+    "slug": "eaglercraft-jmocraft",
+    "name": "JmoCraft v5.2",
+    "category": "minecraft",
+    "playableUrl": "https://skiingbeast2025.github.io/lunamix-eaglercraft/downloads/jmocraft.html",
+    "logoUrl": "./assets/logos/minecraft.svg",
+    "isFeatured": false
+  },
+  {
+    "id": 2048,
+    "slug": "eaglercraft-oddfuture",
+    "name": "OddFuture Client",
+    "category": "minecraft",
+    "playableUrl": "https://skiingbeast2025.github.io/lunamix-eaglercraft/downloads/oddfuture.html",
+    "logoUrl": "./assets/logos/minecraft.svg",
+    "isFeatured": false
+  },
+  {
+    "id": 2049,
+    "slug": "eaglercraft-uwu-b2",
+    "name": "UwU Client Beta 2",
+    "category": "minecraft",
+    "playableUrl": "https://skiingbeast2025.github.io/lunamix-eaglercraft/downloads/uwu-b2.html",
+    "logoUrl": "./assets/logos/minecraft.svg",
+    "isFeatured": false
+  },
+  {
+    "id": 2050,
+    "slug": "eaglercraft-uwu-v1",
+    "name": "UwU Client v1 Full",
+    "category": "minecraft",
+    "playableUrl": "https://skiingbeast2025.github.io/lunamix-eaglercraft/downloads/uwu-v1.html",
+    "logoUrl": "./assets/logos/minecraft.svg",
+    "isFeatured": false
+  },
+  {
+    "id": 2051,
+    "slug": "eaglercraft-uwu-lite",
+    "name": "UwU Lite 2",
+    "category": "minecraft",
+    "playableUrl": "https://skiingbeast2025.github.io/lunamix-eaglercraft/downloads/uwu-lite.html",
+    "logoUrl": "./assets/logos/minecraft.svg",
+    "isFeatured": false
+  },
+  {
+    "id": 2052,
+    "slug": "eaglercraft-26-2",
+    "name": "Eaglercraft 26.2 Stable",
+    "category": "minecraft",
+    "playableUrl": "https://skiingbeast2025.github.io/lunamix-eaglercraft/downloads/26.2.html",
+    "logoUrl": "./assets/logos/minecraft.svg",
+    "isFeatured": false
+  },
+  {
+    "id": 2053,
+    "slug": "eaglercraft-1-16-5",
+    "name": "Eaglercraft 1.16.5 Nether Update",
+    "category": "minecraft",
+    "playableUrl": "https://skiingbeast2025.github.io/lunamix-eaglercraft/downloads/1.16.5.html",
+    "logoUrl": "./assets/logos/minecraft.svg",
+    "isFeatured": false
+  },
+  {
+    "id": 2054,
+    "slug": "eaglercraft-1-14-4",
+    "name": "Eaglercraft 1.14.4 Village & Pillage",
+    "category": "minecraft",
+    "playableUrl": "https://skiingbeast2025.github.io/lunamix-eaglercraft/downloads/1.14.4.html",
+    "logoUrl": "./assets/logos/minecraft.svg",
+    "isFeatured": false
+  },
+  {
+    "id": 2055,
+    "slug": "eaglercraft-1-12-2",
+    "name": "Eaglercraft 1.12.2 World of Color",
+    "category": "minecraft",
+    "playableUrl": "https://skiingbeast2025.github.io/lunamix-eaglercraft/downloads/1.12.2.html",
+    "logoUrl": "./assets/logos/minecraft.svg",
+    "isFeatured": false
+  },
+  {
+    "id": 2056,
+    "slug": "eaglercraft-1-11-2",
+    "name": "Eaglercraft 1.11.2 Exploration",
+    "category": "minecraft",
+    "playableUrl": "https://skiingbeast2025.github.io/lunamix-eaglercraft/downloads/1.11.2.html",
+    "logoUrl": "./assets/logos/minecraft.svg",
+    "isFeatured": false
+  },
+  {
+    "id": 2057,
+    "slug": "eaglercraft-1-9-4",
+    "name": "Eaglercraft 1.9.4 Combat Update",
+    "category": "minecraft",
+    "playableUrl": "https://skiingbeast2025.github.io/lunamix-eaglercraft/downloads/1.9.4.html",
+    "logoUrl": "./assets/logos/minecraft.svg",
+    "isFeatured": false
+  },
+  {
+    "id": 2058,
+    "slug": "eaglercraft-1-8-8-u44",
+    "name": "EaglercraftX 1.8.8 u44 Signed",
+    "category": "minecraft",
+    "playableUrl": "https://skiingbeast2025.github.io/lunamix-eaglercraft/downloads/1.8.8-u44.html",
+    "logoUrl": "./assets/logos/minecraft.svg",
+    "isFeatured": false
+  },
+  {
+    "id": 2059,
+    "slug": "eaglercraft-1-8-8-u29",
+    "name": "EaglercraftX 1.8.8 u29",
+    "category": "minecraft",
+    "playableUrl": "https://skiingbeast2025.github.io/lunamix-eaglercraft/downloads/1.8.8-u29.html",
+    "logoUrl": "./assets/logos/minecraft.svg",
+    "isFeatured": false
+  },
+  {
+    "id": 2060,
+    "slug": "eaglercraft-1-8-8-u23",
+    "name": "EaglercraftX 1.8.8 u23 Signed",
+    "category": "minecraft",
+    "playableUrl": "https://skiingbeast2025.github.io/lunamix-eaglercraft/downloads/1.8.8-u23.html",
+    "logoUrl": "./assets/logos/minecraft.svg",
+    "isFeatured": false
+  },
+  {
+    "id": 2061,
+    "slug": "eaglercraft-1-5-2",
+    "name": "Eaglercraft 1.5.2 Redstone Update",
+    "category": "minecraft",
+    "playableUrl": "https://skiingbeast2025.github.io/lunamix-eaglercraft/downloads/1.5.2.html",
+    "logoUrl": "./assets/logos/minecraft.svg",
+    "isFeatured": false
+  },
+  {
+    "id": 2062,
+    "slug": "eaglercraft-1-2-5",
+    "name": "Eaglercraft 1.2.5 Classic",
+    "category": "minecraft",
+    "playableUrl": "https://skiingbeast2025.github.io/lunamix-eaglercraft/downloads/1.2.5.html",
+    "logoUrl": "./assets/logos/minecraft.svg",
+    "isFeatured": false
+  },
+  {
+    "id": 2063,
+    "slug": "eaglercraft-1-0-3",
+    "name": "Minecraft 1.0.3 Early Release",
+    "category": "minecraft",
+    "playableUrl": "https://skiingbeast2025.github.io/lunamix-eaglercraft/downloads/1.0.3.html",
+    "logoUrl": "./assets/logos/minecraft.svg",
+    "isFeatured": false
+  },
+  {
+    "id": 2064,
+    "slug": "eaglercraft-beta-1-7-3",
+    "name": "Eaglercraft Beta 1.7.3",
+    "category": "minecraft",
+    "playableUrl": "https://skiingbeast2025.github.io/lunamix-eaglercraft/downloads/beta1.7.3.html",
+    "logoUrl": "./assets/logos/minecraft.svg",
+    "isFeatured": false
+  },
+  {
+    "id": 2065,
+    "slug": "eaglercraft-beta-1-3",
+    "name": "Eaglercraft Beta 1.3",
+    "category": "minecraft",
+    "playableUrl": "https://skiingbeast2025.github.io/lunamix-eaglercraft/downloads/beta1.3.html",
+    "logoUrl": "./assets/logos/minecraft.svg",
+    "isFeatured": false
+  },
+  {
+    "id": 2066,
+    "slug": "eaglercraft-alpha-1-2-6",
+    "name": "Eaglercraft Alpha 1.2.6 Halloween",
+    "category": "minecraft",
+    "playableUrl": "https://skiingbeast2025.github.io/lunamix-eaglercraft/downloads/alpha1.2.6.html",
+    "logoUrl": "./assets/logos/minecraft.svg",
+    "isFeatured": false
+  },
+  {
+    "id": 2067,
+    "slug": "eaglercraft-indev",
+    "name": "Minecraft Indev Browser Edition",
+    "category": "minecraft",
+    "playableUrl": "https://skiingbeast2025.github.io/lunamix-eaglercraft/downloads/indev.html",
+    "logoUrl": "./assets/logos/minecraft.svg",
+    "isFeatured": false
+  },
+  {
     "id": 2031,
     "slug": "balatro-demake",
     "name": "Balatro Web Demake",
@@ -114,168 +717,6 @@
     "category": "emulator",
     "playableUrl": "./emulator.html",
     "logoUrl": "./assets/logos/emulator.svg",
-    "isFeatured": true
-  },
-  {
-    "id": 2018,
-    "slug": "eaglercraft-tuff",
-    "name": "Tuff Client",
-    "category": "minecraft",
-    "playableUrl": "https://skiingbeast2025.github.io/lunamix-eaglercraft/downloads/tuff.html",
-    "logoUrl": "./assets/logos/minecraft.svg",
-    "isFeatured": false
-  },
-  {
-    "id": 2017,
-    "slug": "eaglercraft-resent",
-    "name": "Resent Client",
-    "category": "minecraft",
-    "playableUrl": "https://skiingbeast2025.github.io/lunamix-eaglercraft/downloads/resent.html",
-    "logoUrl": "./assets/logos/minecraft.svg",
-    "isFeatured": false
-  },
-  {
-    "id": 2016,
-    "slug": "eaglercraft-pixel",
-    "name": "Pixel Client 1.12.2",
-    "category": "minecraft",
-    "playableUrl": "https://skiingbeast2025.github.io/lunamix-eaglercraft/downloads/pixel.html",
-    "logoUrl": "./assets/logos/minecraft.svg",
-    "isFeatured": false
-  },
-  {
-    "id": 2015,
-    "slug": "eaglercraft-dragonx",
-    "name": "DragonX Client",
-    "category": "minecraft",
-    "playableUrl": "https://skiingbeast2025.github.io/lunamix-eaglercraft/downloads/dragonx.html",
-    "logoUrl": "./assets/logos/minecraft.svg",
-    "isFeatured": false
-  },
-  {
-    "id": 2014,
-    "slug": "eaglercraft-astra",
-    "name": "Astra Client 1.8.8",
-    "category": "minecraft",
-    "playableUrl": "https://skiingbeast2025.github.io/lunamix-eaglercraft/downloads/astra.html",
-    "logoUrl": "./assets/logos/minecraft.svg",
-    "isFeatured": true
-  },
-  {
-    "id": 2013,
-    "slug": "eaglercraft-shadow",
-    "name": "Shadow Client (PvP)",
-    "category": "minecraft",
-    "playableUrl": "https://skiingbeast2025.github.io/lunamix-eaglercraft/downloads/shadow.html",
-    "logoUrl": "./assets/logos/minecraft.svg",
-    "isFeatured": true
-  },
-  {
-    "id": 2012,
-    "slug": "eaglercraft-alpha-1-2-6",
-    "name": "Eaglercraft Alpha 1.2.6",
-    "category": "minecraft",
-    "playableUrl": "https://skiingbeast2025.github.io/lunamix-eaglercraft/downloads/alpha1.2.6.html",
-    "logoUrl": "./assets/logos/minecraft.svg",
-    "isFeatured": false
-  },
-  {
-    "id": 2011,
-    "slug": "eaglercraft-beta-1-3",
-    "name": "Eaglercraft Beta 1.3",
-    "category": "minecraft",
-    "playableUrl": "https://skiingbeast2025.github.io/lunamix-eaglercraft/downloads/beta1.3.html",
-    "logoUrl": "./assets/logos/minecraft.svg",
-    "isFeatured": false
-  },
-  {
-    "id": 2010,
-    "slug": "eaglercraft-1-5-2",
-    "name": "Eaglercraft 1.5.2",
-    "category": "minecraft",
-    "playableUrl": "https://skiingbeast2025.github.io/lunamix-eaglercraft/downloads/1.5.2.html",
-    "logoUrl": "./assets/logos/minecraft.svg",
-    "isFeatured": false
-  },
-  {
-    "id": 2009,
-    "slug": "eaglercraft-1-9-4",
-    "name": "Eaglercraft 1.9.4",
-    "category": "minecraft",
-    "playableUrl": "https://skiingbeast2025.github.io/lunamix-eaglercraft/downloads/1.9.4.html",
-    "logoUrl": "./assets/logos/minecraft.svg",
-    "isFeatured": false
-  },
-  {
-    "id": 2008,
-    "slug": "eaglercraft-1-11-2",
-    "name": "Eaglercraft 1.11.2",
-    "category": "minecraft",
-    "playableUrl": "https://skiingbeast2025.github.io/lunamix-eaglercraft/downloads/1.11.2.html",
-    "logoUrl": "./assets/logos/minecraft.svg",
-    "isFeatured": false
-  },
-  {
-    "id": 2007,
-    "slug": "eaglercraft-1-14-4",
-    "name": "Eaglercraft 1.14.4",
-    "category": "minecraft",
-    "playableUrl": "https://skiingbeast2025.github.io/lunamix-eaglercraft/downloads/1.14.4.html",
-    "logoUrl": "./assets/logos/minecraft.svg",
-    "isFeatured": false
-  },
-  {
-    "id": 2006,
-    "slug": "eaglercraft-1-16-5",
-    "name": "Eaglercraft 1.16.5",
-    "category": "minecraft",
-    "playableUrl": "https://skiingbeast2025.github.io/lunamix-eaglercraft/downloads/1.16.5.html",
-    "logoUrl": "./assets/logos/minecraft.svg",
-    "isFeatured": true
-  },
-  {
-    "id": 2005,
-    "slug": "eaglercraft-1-20-6",
-    "name": "Eaglercraft 1.20.6",
-    "category": "minecraft",
-    "playableUrl": "https://skiingbeast2025.github.io/lunamix-eaglercraft/downloads/1.20.6.html",
-    "logoUrl": "./assets/logos/minecraft.svg",
-    "isFeatured": true
-  },
-  {
-    "id": 2004,
-    "slug": "eaglercraft-26-2",
-    "name": "Eaglercraft 26.2",
-    "category": "minecraft",
-    "playableUrl": "https://skiingbeast2025.github.io/lunamix-eaglercraft/downloads/26.2.html",
-    "logoUrl": "./assets/logos/minecraft.svg",
-    "isFeatured": false
-  },
-  {
-    "id": 2003,
-    "slug": "eaglercraft-26-3",
-    "name": "Eaglercraft 26.3",
-    "category": "minecraft",
-    "playableUrl": "https://skiingbeast2025.github.io/lunamix-eaglercraft/downloads/26.3.html",
-    "logoUrl": "./assets/logos/minecraft.svg",
-    "isFeatured": true
-  },
-  {
-    "id": 2002,
-    "slug": "eaglercraft-1-12-2",
-    "name": "Eaglercraft 1.12.2",
-    "category": "minecraft",
-    "playableUrl": "https://skiingbeast2025.github.io/lunamix-eaglercraft/downloads/1.12.2.html",
-    "logoUrl": "./assets/logos/minecraft.svg",
-    "isFeatured": true
-  },
-  {
-    "id": 2001,
-    "slug": "eaglercraft-1-8-8",
-    "name": "Eaglercraft 1.8.8",
-    "category": "minecraft",
-    "playableUrl": "https://skiingbeast2025.github.io/lunamix-eaglercraft/downloads/1.8.8.html",
-    "logoUrl": "./assets/logos/minecraft.svg",
     "isFeatured": true
   },
   {
