@@ -255,7 +255,7 @@ const LunamixTheme = {
 
 const LUNAMIX_CLOAK_PRESETS = {
   default: {
-    title: 'Lunamix — The Ultimate Unblocked Web Arcade',
+    title: 'Lunamix - The Ultimate Unblocked Web Arcade',
     favicon: './assets/logos/favicon.svg'
   },
   classroom: {
