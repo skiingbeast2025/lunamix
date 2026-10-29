@@ -81,6 +81,25 @@
       background-color: #000000;
     }
 
+    :root {
+      --lx-bg: #050714;
+      --lx-surface: #0a0f26;
+      --lx-border: rgba(99, 102, 241, 0.35);
+      --lx-accent: #6366f1;
+      --lx-glow: rgba(99, 102, 241, 0.45);
+    }
+
+    body {
+      background-color: var(--lx-bg) !important;
+      transition: background-color 0.3s ease;
+    }
+
+    header {
+      background-color: var(--lx-surface) !important;
+      border-color: var(--lx-border) !important;
+      transition: background-color 0.3s ease, border-color 0.3s ease;
+    }
+
     /* Monochrome glowing bullet & box */
     .glow-dot {
       box-shadow: 0 0 10px rgba(255, 255, 255, 0.7), 0 0 20px rgba(255, 255, 255, 0.3);
@@ -95,8 +114,8 @@
     }
     .feature-card:hover {
       transform: translateY(-4px);
-      border-color: rgba(255, 255, 255, 0.3);
-      box-shadow: 0 12px 30px -10px rgba(99, 102, 241, 0.25);
+      border-color: var(--lx-accent) !important;
+      box-shadow: 0 12px 30px -10px var(--lx-glow);
     }
   </style>
 </head>
@@ -132,6 +151,17 @@
           </svg>
           <span class="hidden sm:inline">GUST</span> Proxy
         </a>
+
+        <!-- Theme Selector Tab -->
+        <button 
+          type="button" 
+          onclick="LunamixTheme.openModal()"
+          class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-semibold text-purple-300 hover:text-purple-200 bg-purple-500/15 hover:bg-purple-500/25 border border-purple-500/40 hover:border-purple-400 transition-all cursor-pointer"
+          title="Select Theme"
+        >
+          <span>🎨</span>
+          <span class="hidden sm:inline font-mono">Themes</span>
+        </button>
 
         <!-- Tab Cloak Dropdown -->
         <div class="relative flex items-center">
@@ -191,7 +221,7 @@
     <!-- Live Status Pill -->
     <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-slate-900/90 border border-slate-700/80 shadow-lg backdrop-blur-md mb-8 glow-box">
       <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
-      <span class="text-xs font-mono text-indigo-400 font-semibold">1,002 Verified Games</span>
+      <span class="text-xs font-mono text-indigo-400 font-semibold">1,039 Verified Games</span>
     </div>
 
     <!-- Hero Title -->

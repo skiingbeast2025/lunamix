@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Universal Retro Emulator — Lunamix Arcade</title>
+  <meta name="description" content="Universal high-performance WebAssembly retro emulator for GBA, SNES, N64, NDS, NES, Genesis, and PS1 with drag-and-drop ROM loading and save states.">
+  <link rel="shortcut icon" href="./assets/logos/favicon.svg" type="image/svg+xml">
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com/3.4.17"></script>
+
+  <!-- Google Fonts: Inter & JetBrains Mono -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+            mono: ['JetBrains Mono', 'monospace'],
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    :root {
+      --lx-bg: #050714;
+      --lx-surface: #0a0f26;
+      --lx-border: rgba(99, 102, 241, 0.35);
+      --lx-accent: #6366f1;
+      --lx-glow: rgba(99, 102, 241, 0.45);
+    }
+
+    body {
+      background-color: var(--lx-bg) !important;
+      transition: background-color 0.3s ease;
+    }
+
+    header {
+      background-color: var(--lx-surface) !important;
+      border-color: var(--lx-border) !important;
+      transition: background-color 0.3s ease, border-color 0.3s ease;
+    }
+
+    #background {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 0;
+      pointer-events: none;
+      background-color: #000000;
+    }
+
+    .drop-zone {
+      border: 2px dashed var(--lx-border);
+      transition: all 0.25s ease;
+    }
+    .drop-zone.dragover {
+      border-color: var(--lx-accent);
+      background-color: rgba(99, 102, 241, 0.1);
+      transform: scale(1.01);
+    }
+
+    #game-container {
+      width: 100%;
+      height: calc(100vh - 64px);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+      background: #000000;
+      overflow: hidden;
+    }
+
+    #game {
+      width: 100%;
+      height: 100%;
+    }
+  </style>
+</head>
+<body class="bg-black text-neutral-100 min-h-screen relative font-sans antialiased overflow-hidden flex flex-col justify-between">
+
+  <!-- InvisiProxy Constellation Canvas -->
+  <canvas id="background" class="fixed inset-0 w-full h-full pointer-events-none z-0" aria-hidden="true"></canvas>
+
+  <!-- Top Navigation Header -->
+  <header class="relative z-30 w-full border-b border-slate-800/80 bg-slate-950/80 backdrop-blur-xl h-16 flex items-center justify-between px-3 sm:px-6 shrink-0">
+    <!-- Left: Back & Title -->
+    <div class="flex items-center gap-3">
+      <a href="./games.html" class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-semibold text-slate-300 hover:text-white bg-slate-900/80 hover:bg-slate-800 border border-slate-800 hover:border-slate-700 transition-all">
+        <svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+        </svg>
+        <span class="hidden sm:inline">Games</span>
+      </a>
+
+      <div class="h-5 w-px bg-slate-800 hidden sm:block"></div>
+
+      <div class="flex items-center gap-2">
+        <span class="text-lg">🎮</span>
+        <h1 id="emu-title" class="text-xs sm:text-base font-bold text-white tracking-wide truncate max-w-[150px] sm:max-w-xs md:max-w-md">
+          Retro WASM Emulator
+        </h1>
+        <span id="emu-core-badge" class="px-2 py-0.5 text-[10px] font-mono uppercase rounded-md bg-indigo-500/20 text-indigo-300 border border-indigo-500/30 shrink-0">
+          UNIVERSAL
+        </span>
+      </div>
+    </div>
+
+    <!-- Right: Controls & Stealth Tools -->
+    <div class="flex items-center gap-2">
+      <!-- Gamepad Indicator -->
+      <div id="gamepad-badge" class="hidden sm:inline-flex items-center gap-1 px-2.5 py-1 rounded-md text-[11px] font-mono text-slate-400 bg-slate-900/80 border border-slate-800">
+        <span>🎮</span>
+        <span id="gamepad-status">Gamepad Ready</span>
+      </div>
+
+      <!-- Theme Selector Button -->
+      <button 
+        type="button" 
+        onclick="LunamixTheme.openModal()"
+        class="inline-flex items-center gap-1.5 px-2.5 sm:px-3 py-1.5 rounded-lg text-xs font-semibold text-purple-300 hover:text-purple-200 bg-purple-500/15 hover:bg-purple-500/25 border border-purple-500/40 hover:border-purple-400 transition-all cursor-pointer"
+        title="Select App Theme"
+      >
+        <span>🎨</span>
+        <span class="hidden md:inline font-mono">Themes</span>
+      </button>
+
+      <!-- Tab Cloak Dropdown -->
+      <div class="relative flex items-center">
+        <select 
+          id="nav-tab-cloak" 
+          class="tab-cloak-select appearance-none bg-slate-900/90 border border-slate-700/80 text-xs text-slate-300 hover:text-white rounded-lg pl-2 pr-6 py-1.5 focus:outline-none focus:ring-1 focus:ring-white transition-all cursor-pointer"
+          onchange="LunamixCloak.apply(this.value)"
+          title="Stealth Tab Cloak"
+        >
+          <option value="default">🎭 Cloak</option>
+          <option value="classroom">Classroom</option>
+          <option value="drive">Drive</option>
+          <option value="canvas">Canvas</option>
+          <option value="docs">Docs</option>
+        </select>
+        <div class="pointer-events-none absolute right-1.5 flex items-center text-slate-400">
+          <svg class="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+          </svg>
+        </div>
+      </div>
+
+      <!-- Panic Button -->
+      <button 
+        type="button" 
+        onclick="LunamixPanic.trigger()"
+        class="inline-flex items-center gap-1 px-2.5 sm:px-3 py-1.5 rounded-lg text-xs font-semibold text-rose-300 bg-rose-500/15 hover:bg-rose-500/25 border border-rose-500/40 hover:border-rose-400 transition-all cursor-pointer shrink-0"
+        title="Panic Exit (Hotkey: ~ or Esc)"
+      >
+        <svg class="w-3.5 h-3.5 text-rose-400 animate-pulse" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
+        </svg>
+        <span class="hidden sm:inline">Panic</span>
+        <kbd class="px-1 text-[10px] font-mono bg-rose-950/80 rounded border border-rose-800 panic-key-label">~</kbd>
+      </button>
+    </div>
+  </header>
+
+  <!-- Main Game Container / ROM Loader View -->
+  <main id="game-container" class="relative z-10 flex-1">
+    
+    <!-- Drag & Drop ROM Loader Screen (shown when no ROM URL is in query) -->
+    <div id="rom-loader-view" class="max-w-2xl w-full mx-auto p-6 text-center">
+      <div class="p-8 sm:p-10 rounded-3xl bg-slate-900/90 border border-slate-800 shadow-2xl backdrop-blur-xl drop-zone glow-box" id="drop-zone">
+        
+        <div class="w-16 h-16 rounded-2xl bg-indigo-500/20 border border-indigo-500/30 mx-auto flex items-center justify-center text-3xl mb-5 shadow-inner">
+          🕹️
+        </div>
+
+        <h2 class="text-2xl sm:text-3xl font-extrabold text-white mb-2">Retro WebAssembly Runner</h2>
+        <p class="text-sm text-slate-400 mb-6 max-w-md mx-auto">
+          Play classic titles in 60 FPS WebAssembly. Drag & drop any ROM file from your computer or select a system below.
+        </p>
+
+        <!-- Core / System Selector -->
+        <div class="flex flex-col sm:flex-row items-center justify-center gap-3 mb-6 max-w-md mx-auto">
+          <label for="system-select" class="text-xs font-mono text-slate-400 shrink-0">System:</label>
+          <select id="system-select" class="w-full bg-slate-950 border border-slate-700 rounded-xl px-3 py-2 text-xs text-white focus:outline-none focus:ring-1 focus:ring-indigo-500 cursor-pointer">
+            <option value="gba">Game Boy Advance (GBA)</option>
+            <option value="snes">Super Nintendo (SNES)</option>
+            <option value="n64">Nintendo 64 (N64)</option>
+            <option value="nds">Nintendo DS (NDS)</option>
+            <option value="nes">Nintendo NES (NES)</option>
+            <option value="segaMD">Sega Genesis / Mega Drive</option>
+            <option value="psx">Sony PlayStation 1 (PS1)</option>
+            <option value="gb">Game Boy / Color (GB/GBC)</option>
+          </select>
+        </div>
+
+        <!-- File Upload Button & Drop Action -->
+        <input type="file" id="rom-file-input" class="hidden" accept=".gba,.snes,.smc,.sfc,.n64,.z64,.v64,.nds,.nes,.md,.bin,.gen,.iso,.chd,.zip,.7z">
+        
+        <div class="flex flex-col sm:flex-row items-center justify-center gap-3">
+          <button 
+            type="button" 
+            onclick="document.getElementById('rom-file-input').click()"
+            class="w-full sm:w-auto px-6 py-3 rounded-xl bg-white text-black font-bold text-xs hover:bg-neutral-200 transition-all shadow-lg flex items-center justify-center gap-2 cursor-pointer"
+          >
+            <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l-4-4m0 0L8 8m4-4v12" />
+            </svg>
+            Choose ROM File
+          </button>
+        </div>
+
+        <p class="text-[11px] font-mono text-slate-500 mt-4">
+          Supported: .gba, .snes, .n64, .nds, .nes, .md, .zip
+        </p>
+      </div>
+
+      <!-- Quick Preset Homebrew Games -->
+      <div class="mt-8 flex flex-wrap items-center justify-center gap-2 text-xs text-slate-400">
+        <span class="font-mono text-[11px] text-slate-500">Popular Quick Launch:</span>
+        <button onclick="launchPreset('gba', 'Pokemon Emerald', 'https://raw.githubusercontent.com/EmulatorJS/roms/main/gba/Pokemon%20Emerald.gba')" class="px-2.5 py-1 rounded-lg bg-slate-900 border border-slate-800 hover:border-slate-600 text-slate-300 hover:text-white transition-all cursor-pointer">
+          Pokémon Emerald
+        </button>
+        <button onclick="launchPreset('snes', 'Super Mario World', 'https://raw.githubusercontent.com/EmulatorJS/roms/main/snes/Super%20Mario%20World.sfc')" class="px-2.5 py-1 rounded-lg bg-slate-900 border border-slate-800 hover:border-slate-600 text-slate-300 hover:text-white transition-all cursor-pointer">
+          Super Mario World
+        </button>
+        <button onclick="launchPreset('n64', 'Super Smash Bros 64', 'https://raw.githubusercontent.com/EmulatorJS/roms/main/n64/Super%20Smash%20Bros.z64')" class="px-2.5 py-1 rounded-lg bg-slate-900 border border-slate-800 hover:border-slate-600 text-slate-300 hover:text-white transition-all cursor-pointer">
+          Smash 64
+        </button>
+      </div>
+    </div>
+
+    <!-- Active Emulator Canvas Target -->
+    <div id="game" class="hidden"></div>
+  </main>
+
+  <!-- Lunamix Core Library -->
+  <script src="./assets/js/lunamix-core.js"></script>
+
+  <!-- Emulator Initialization Logic -->
+  <script>
+    const SYSTEM_EXT_MAP = {
+      'gba': 'gba',
+      'snes': 'snes',
+      'smc': 'snes',
+      'sfc': 'snes',
+      'n64': 'n64',
+      'z64': 'n64',
+      'v64': 'n64',
+      'nds': 'nds',
+      'nes': 'nes',
+      'md': 'segaMD',
+      'gen': 'segaMD',
+      'bin': 'segaMD',
+      'psx': 'psx',
+      'iso': 'psx',
+      'gb': 'gb',
+      'gbc': 'gb'
+    };
+
+    function detectCoreFromFile(filename) {
+      const parts = filename.split('.');
+      if (parts.length > 1) {
+        const ext = parts.pop().toLowerCase();
+        return SYSTEM_EXT_MAP[ext] || 'gba';
+      }
+      return 'gba';
+    }
+
+    function initEmulator(core, romUrl, gameName) {
+      document.getElementById('rom-loader-view').classList.add('hidden');
+      const gameTarget = document.getElementById('game');
+      gameTarget.classList.remove('hidden');
+
+      document.getElementById('emu-title').textContent = gameName || 'Retro Classic';
+      document.getElementById('emu-core-badge').textContent = core.toUpperCase();
+
+      window.EJS_player = '#game';
+      window.EJS_core = core;
+      window.EJS_gameUrl = romUrl;
+      window.EJS_gameName = gameName;
+      window.EJS_pathtodata = 'https://cdn.emulatorjs.org/stable/data/';
+      window.EJS_startOnLoaded = true;
+      window.EJS_color = '#6366f1';
+
+      const script = document.createElement('script');
+      script.src = 'https://cdn.emulatorjs.org/stable/data/loader.js';
+      script.async = true;
+      document.body.appendChild(script);
+    }
+
+    function launchPreset(core, name, url) {
+      initEmulator(core, url, name);
+    }
+
+    // Drag and drop handlers
+    const dropZone = document.getElementById('drop-zone');
+    const fileInput = document.getElementById('rom-file-input');
+    const systemSelect = document.getElementById('system-select');
+
+    ['dragenter', 'dragover'].forEach(eventName => {
+      dropZone.addEventListener(eventName, (e) => {
+        e.preventDefault();
+        dropZone.classList.add('dragover');
+      }, false);
+    });
+
+    ['dragleave', 'drop'].forEach(eventName => {
+      dropZone.addEventListener(eventName, (e) => {
+        e.preventDefault();
+        dropZone.classList.remove('dragover');
+      }, false);
+    });
+
+    dropZone.addEventListener('drop', (e) => {
+      const dt = e.dataTransfer;
+      const files = dt.files;
+      if (files && files.length > 0) {
+        handleFile(files[0]);
+      }
+    });
+
+    fileInput.addEventListener('change', (e) => {
+      if (e.target.files && e.target.files.length > 0) {
+        handleFile(e.target.files[0]);
+      }
+    });
+
+    function handleFile(file) {
+      const detected = detectCoreFromFile(file.name);
+      const chosenSystem = systemSelect.value || detected;
+      const objectUrl = URL.createObjectURL(file);
+      const cleanName = file.name.replace(/\.[^/.]+$/, "");
+      initEmulator(chosenSystem, objectUrl, cleanName);
+    }
+
+    // Check URL parameters for direct boot
+    window.addEventListener('DOMContentLoaded', () => {
+      const params = new URLSearchParams(window.location.search);
+      const core = params.get('core');
+      const rom = params.get('rom');
+      const title = params.get('title') || 'Retro Game';
+
+      if (core && rom) {
+        initEmulator(core, rom, title);
+      }
+    });
+
+    // Gamepad detection indicator
+    window.addEventListener('gamepadconnected', (e) => {
+      const badge = document.getElementById('gamepad-badge');
+      const status = document.getElementById('gamepad-status');
+      if (badge && status) {
+        badge.classList.remove('hidden');
+        badge.classList.add('border-emerald-500/50', 'text-emerald-300');
+        status.textContent = `${e.gamepad.id.slice(0, 16)} Connected`;
+      }
+    });
+  </script>
+</body>
+</html>

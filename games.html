@@ -64,6 +64,25 @@
       background-color: #000000;
     }
 
+    :root {
+      --lx-bg: #050714;
+      --lx-surface: #0a0f26;
+      --lx-border: rgba(99, 102, 241, 0.35);
+      --lx-accent: #6366f1;
+      --lx-glow: rgba(99, 102, 241, 0.45);
+    }
+
+    body {
+      background-color: var(--lx-bg) !important;
+      transition: background-color 0.3s ease;
+    }
+
+    header {
+      background-color: var(--lx-surface) !important;
+      border-color: var(--lx-border) !important;
+      transition: background-color 0.3s ease, border-color 0.3s ease;
+    }
+
     .glow-dot {
       box-shadow: 0 0 8px rgba(255, 255, 255, 0.8), 0 0 16px rgba(255, 255, 255, 0.35);
     }
@@ -78,8 +97,8 @@
     }
     .game-card:hover {
       transform: translateY(-4px);
-      box-shadow: 0 12px 24px -6px rgba(0, 0, 0, 0.7), 0 0 15px rgba(255, 255, 255, 0.1);
-      border-color: rgba(255, 255, 255, 0.35);
+      box-shadow: 0 12px 24px -6px rgba(0, 0, 0, 0.7), 0 0 15px var(--lx-glow);
+      border-color: var(--lx-accent) !important;
     }
   </style>
 </head>
@@ -124,6 +143,17 @@
           </svg>
           <span class="hidden sm:inline">GUST</span> Proxy
         </a>
+
+        <!-- Theme Selector Tab -->
+        <button 
+          type="button" 
+          onclick="LunamixTheme.openModal()"
+          class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-semibold text-purple-300 hover:text-purple-200 bg-purple-500/15 hover:bg-purple-500/25 border border-purple-500/40 hover:border-purple-400 transition-all cursor-pointer"
+          title="Select Theme"
+        >
+          <span>🎨</span>
+          <span class="hidden sm:inline font-mono">Themes</span>
+        </button>
 
         <!-- Tab Cloak Dropdown -->
         <div class="relative flex items-center">
@@ -247,6 +277,22 @@
           class="cat-pill px-3 py-1.5 rounded-xl text-xs font-semibold transition-all whitespace-nowrap bg-slate-950/70 text-amber-300 hover:text-amber-200 hover:bg-slate-850 border border-slate-800"
         >
           ⚡ Geometry Dash
+        </button>
+        <button 
+          type="button" 
+          data-category="minecraft" 
+          onclick="setCategory('minecraft')" 
+          class="cat-pill px-3 py-1.5 rounded-xl text-xs font-semibold transition-all whitespace-nowrap bg-slate-950/70 text-emerald-400 hover:text-emerald-300 hover:bg-slate-850 border border-slate-800"
+        >
+          ⛏️ Minecraft
+        </button>
+        <button 
+          type="button" 
+          data-category="emulator" 
+          onclick="setCategory('emulator')" 
+          class="cat-pill px-3 py-1.5 rounded-xl text-xs font-semibold transition-all whitespace-nowrap bg-slate-950/70 text-purple-400 hover:text-purple-300 hover:bg-slate-850 border border-slate-800"
+        >
+          🎮 Emulators
         </button>
         <button 
           type="button" 
@@ -491,6 +537,96 @@
         isLocal: true,
         isFeatured: true,
         targetUrl: './play.html?game=polytrack'
+      },
+      {
+        slug: 'eaglercraft-hub',
+        name: 'Eaglercraft 18-in-1 Hub',
+        category: 'minecraft',
+        logo: './assets/logos/minecraft.svg',
+        isLocal: true,
+        isFeatured: true,
+        openInNewTab: true,
+        targetUrl: 'https://skiingbeast2025.github.io/lunamix-eaglercraft/'
+      },
+      {
+        slug: 'eaglercraft-1-8-8',
+        name: 'Eaglercraft 1.8.8 Stable',
+        category: 'minecraft',
+        logo: './assets/logos/minecraft.svg',
+        isLocal: true,
+        isFeatured: true,
+        openInNewTab: false,
+        targetUrl: './play.html?game=eaglercraft-1-8-8'
+      },
+      {
+        slug: 'eaglercraft-1-12-2',
+        name: 'Eaglercraft 1.12.2',
+        category: 'minecraft',
+        logo: './assets/logos/minecraft.svg',
+        isLocal: true,
+        isFeatured: true,
+        openInNewTab: false,
+        targetUrl: './play.html?game=eaglercraft-1-12-2'
+      },
+      {
+        slug: 'emulator-universal',
+        name: 'Universal Retro Emulator (WASM)',
+        category: 'emulator',
+        logo: './assets/logos/emulator.svg',
+        isLocal: true,
+        isFeatured: true,
+        openInNewTab: false,
+        targetUrl: './emulator.html'
+      },
+      {
+        slug: 'sm64',
+        name: 'Super Mario 64 (WASM 60FPS)',
+        category: 'emulator',
+        logo: './assets/logos/super-mario-64.jpg',
+        isLocal: true,
+        isFeatured: true,
+        openInNewTab: false,
+        targetUrl: './play.html?game=sm64'
+      },
+      {
+        slug: 'pokemon-emerald',
+        name: 'Pokémon Emerald (GBA)',
+        category: 'emulator',
+        logo: './assets/logos/emulator.svg',
+        isLocal: true,
+        isFeatured: true,
+        openInNewTab: false,
+        targetUrl: './emulator.html?core=gba&rom=https://raw.githubusercontent.com/EmulatorJS/roms/main/gba/Pokemon%20Emerald.gba&title=Pokemon+Emerald'
+      },
+      {
+        slug: 'super-mario-world',
+        name: 'Super Mario World (SNES)',
+        category: 'emulator',
+        logo: './assets/logos/emulator.svg',
+        isLocal: true,
+        isFeatured: true,
+        openInNewTab: false,
+        targetUrl: './emulator.html?core=snes&rom=https://raw.githubusercontent.com/EmulatorJS/roms/main/snes/Super%20Mario%20World.sfc&title=Super+Mario+World'
+      },
+      {
+        slug: 'smash-64',
+        name: 'Super Smash Bros 64 (N64)',
+        category: 'emulator',
+        logo: './assets/logos/emulator.svg',
+        isLocal: true,
+        isFeatured: true,
+        openInNewTab: false,
+        targetUrl: './emulator.html?core=n64&rom=https://raw.githubusercontent.com/EmulatorJS/roms/main/n64/Super%20Smash%20Bros.z64&title=Super+Smash+Bros+64'
+      },
+      {
+        slug: 'celeste',
+        name: 'Celeste Classic (WASM)',
+        category: 'platformer',
+        logo: './assets/logos/emulator.svg',
+        isLocal: true,
+        isFeatured: true,
+        openInNewTab: false,
+        targetUrl: './play.html?game=celeste'
       }
     ];
 
@@ -526,12 +662,22 @@
         return './assets/logos/geometry-dash.png';
       }
 
-      // 3. StrongDog game cached localLogo or logoUrl
+      // 3. Minecraft variants fallback
+      if (catLower === 'minecraft' || nameLower.includes('eaglercraft') || nameLower.includes('minecraft')) {
+        return './assets/logos/minecraft.svg';
+      }
+
+      // 4. Emulator variants fallback
+      if (catLower === 'emulator' || nameLower.includes('emulator') || nameLower.includes('gba') || nameLower.includes('snes') || nameLower.includes('n64')) {
+        return './assets/logos/emulator.svg';
+      }
+
+      // 5. StrongDog game cached localLogo or logoUrl
       if (game.logoUrl) {
         return game.logoUrl;
       }
 
-      // 4. Fallback Lunamix SVG badge
+      // 6. Fallback Lunamix SVG badge
       return './assets/logos/lunamix-badge.svg';
     }
 
@@ -638,6 +784,10 @@
           matchesCategory = !!game.isFeatured || !!game.isLocal;
         } else if (currentCategory === 'geometry-dash') {
           matchesCategory = cat === 'geometry-dash' || name.includes('geometry dash') || name.includes('geodash') || name.includes('dash');
+        } else if (currentCategory === 'minecraft') {
+          matchesCategory = cat === 'minecraft' || name.includes('minecraft') || name.includes('eaglercraft');
+        } else if (currentCategory === 'emulator') {
+          matchesCategory = cat === 'emulator' || name.includes('emulator') || name.includes('gba') || name.includes('snes') || name.includes('n64') || name.includes('nds');
         } else {
           matchesCategory = cat === currentCategory;
         }
@@ -778,7 +928,13 @@
       metaRow.className = 'flex items-center justify-between text-[10px] font-mono text-slate-400';
       
       const catBadge = document.createElement('span');
-      catBadge.className = 'uppercase px-1.5 py-0.5 rounded bg-slate-800/80 border border-slate-700/60 truncate max-w-[90px]';
+      if (game.category === 'minecraft') {
+        catBadge.className = 'uppercase px-1.5 py-0.5 rounded bg-emerald-500/20 text-emerald-300 border border-emerald-500/40 truncate max-w-[90px]';
+      } else if (game.category === 'emulator') {
+        catBadge.className = 'uppercase px-1.5 py-0.5 rounded bg-purple-500/20 text-purple-300 border border-purple-500/40 truncate max-w-[90px]';
+      } else {
+        catBadge.className = 'uppercase px-1.5 py-0.5 rounded bg-slate-800/80 border border-slate-700/60 truncate max-w-[90px]';
+      }
       catBadge.textContent = game.category || 'OTHER';
       metaRow.appendChild(catBadge);
 

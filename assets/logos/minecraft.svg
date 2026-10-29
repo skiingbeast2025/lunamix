@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="100%" height="100%">
+  <rect width="100" height="100" fill="#0d1b12" rx="16"/>
+  <!-- Isometric Grass Block -->
+  <g transform="translate(50, 48) scale(0.9)">
+    <!-- Top Face (Grass) -->
+    <polygon points="0,-32 36,-12 0,8 -36,-12" fill="#5b8731" stroke="#3b5e1b" stroke-width="1.5"/>
+    <polygon points="-12,-16 0,-22 12,-16 0,-10" fill="#72a83d"/>
+    <polygon points="-24,-13 -16,-17 -8,-13 -16,-9" fill="#4d7229"/>
+    <!-- Left Face (Dirt) -->
+    <polygon points="-36,-12 0,8 0,44 -36,24" fill="#866043" stroke="#5c3f29" stroke-width="1.5"/>
+    <polygon points="-36,-12 0,8 0,16 -8,12 -14,18 -22,13 -28,19 -36,14" fill="#5b8731"/>
+    <!-- Right Face (Darker Dirt) -->
+    <polygon points="0,8 36,-12 36,24 0,44" fill="#5c3f29" stroke="#3d2817" stroke-width="1.5"/>
+    <polygon points="0,8 36,-12 36,-4 28,1 22,-4 14,2 8,-3 0,4" fill="#486d26"/>
+  </g>
+</svg>

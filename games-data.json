@@ -1,5 +1,284 @@
 [
   {
+    "id": 2031,
+    "slug": "balatro-demake",
+    "name": "Balatro Web Demake",
+    "category": "puzzle",
+    "playableUrl": "https://balatro.pages.dev/",
+    "logoUrl": "./assets/logos/emulator.svg",
+    "isFeatured": true
+  },
+  {
+    "id": 2030,
+    "slug": "zelda-oot",
+    "name": "The Legend of Zelda: Ocarina of Time",
+    "category": "adventure",
+    "playableUrl": "https://zelda64.pages.dev/",
+    "logoUrl": "./assets/logos/emulator.svg",
+    "isFeatured": true
+  },
+  {
+    "id": 2029,
+    "slug": "celeste",
+    "name": "Celeste Classic (WASM)",
+    "category": "platformer",
+    "playableUrl": "https://lemon35.github.io/Celeste/",
+    "logoUrl": "./assets/logos/emulator.svg",
+    "isFeatured": true
+  },
+  {
+    "id": 2028,
+    "slug": "emulator-castlevania-aria",
+    "name": "Castlevania: Aria of Sorrow (GBA)",
+    "category": "emulator",
+    "playableUrl": "./emulator.html?core=gba&rom=https://raw.githubusercontent.com/EmulatorJS/roms/main/gba/Castlevania%20Aria%20of%20Sorrow.gba&title=Castlevania+Aria+of+Sorrow",
+    "logoUrl": "./assets/logos/emulator.svg",
+    "isFeatured": false
+  },
+  {
+    "id": 2027,
+    "slug": "emulator-metroid-fusion",
+    "name": "Metroid Fusion (GBA)",
+    "category": "emulator",
+    "playableUrl": "./emulator.html?core=gba&rom=https://raw.githubusercontent.com/EmulatorJS/roms/main/gba/Metroid%20Fusion.gba&title=Metroid+Fusion",
+    "logoUrl": "./assets/logos/emulator.svg",
+    "isFeatured": false
+  },
+  {
+    "id": 2026,
+    "slug": "emulator-sonic2",
+    "name": "Sonic the Hedgehog 2 (Genesis)",
+    "category": "emulator",
+    "playableUrl": "./emulator.html?core=segaMD&rom=https://raw.githubusercontent.com/EmulatorJS/roms/main/segaMD/Sonic%20The%20Hedgehog%202.bin&title=Sonic+The+Hedgehog+2",
+    "logoUrl": "./assets/logos/emulator.svg",
+    "isFeatured": true
+  },
+  {
+    "id": 2025,
+    "slug": "emulator-zelda-minish",
+    "name": "The Legend of Zelda: The Minish Cap (GBA)",
+    "category": "emulator",
+    "playableUrl": "./emulator.html?core=gba&rom=https://raw.githubusercontent.com/EmulatorJS/roms/main/gba/Zelda%20Minish%20Cap.gba&title=Zelda+The+Minish+Cap",
+    "logoUrl": "./assets/logos/emulator.svg",
+    "isFeatured": true
+  },
+  {
+    "id": 2024,
+    "slug": "emulator-mariokart64",
+    "name": "Mario Kart 64 (N64)",
+    "category": "emulator",
+    "playableUrl": "./emulator.html?core=n64&rom=https://raw.githubusercontent.com/EmulatorJS/roms/main/n64/Mario%20Kart%2064.z64&title=Mario+Kart+64",
+    "logoUrl": "./assets/logos/emulator.svg",
+    "isFeatured": true
+  },
+  {
+    "id": 2023,
+    "slug": "emulator-smash64",
+    "name": "Super Smash Bros 64 (N64)",
+    "category": "emulator",
+    "playableUrl": "./emulator.html?core=n64&rom=https://raw.githubusercontent.com/EmulatorJS/roms/main/n64/Super%20Smash%20Bros.z64&title=Super+Smash+Bros+64",
+    "logoUrl": "./assets/logos/emulator.svg",
+    "isFeatured": true
+  },
+  {
+    "id": 2022,
+    "slug": "emulator-smw",
+    "name": "Super Mario World (SNES)",
+    "category": "emulator",
+    "playableUrl": "./emulator.html?core=snes&rom=https://raw.githubusercontent.com/EmulatorJS/roms/main/snes/Super%20Mario%20World.sfc&title=Super+Mario+World",
+    "logoUrl": "./assets/logos/emulator.svg",
+    "isFeatured": true
+  },
+  {
+    "id": 2021,
+    "slug": "emulator-pokemon-emerald",
+    "name": "Pok\u00e9mon Emerald (GBA)",
+    "category": "emulator",
+    "playableUrl": "./emulator.html?core=gba&rom=https://raw.githubusercontent.com/EmulatorJS/roms/main/gba/Pokemon%20Emerald.gba&title=Pokemon+Emerald",
+    "logoUrl": "./assets/logos/emulator.svg",
+    "isFeatured": true
+  },
+  {
+    "id": 2020,
+    "slug": "sm64",
+    "name": "Super Mario 64 (WASM 60FPS)",
+    "category": "emulator",
+    "playableUrl": "https://froggo11.github.io/sm64-wasm/",
+    "logoUrl": "./assets/logos/super-mario-64.jpg",
+    "isFeatured": true
+  },
+  {
+    "id": 2019,
+    "slug": "emulator-universal",
+    "name": "Universal Retro Emulator",
+    "category": "emulator",
+    "playableUrl": "./emulator.html",
+    "logoUrl": "./assets/logos/emulator.svg",
+    "isFeatured": true
+  },
+  {
+    "id": 2018,
+    "slug": "eaglercraft-tuff",
+    "name": "Tuff Client",
+    "category": "minecraft",
+    "playableUrl": "https://skiingbeast2025.github.io/lunamix-eaglercraft/downloads/tuff.html",
+    "logoUrl": "./assets/logos/minecraft.svg",
+    "isFeatured": false
+  },
+  {
+    "id": 2017,
+    "slug": "eaglercraft-resent",
+    "name": "Resent Client",
+    "category": "minecraft",
+    "playableUrl": "https://skiingbeast2025.github.io/lunamix-eaglercraft/downloads/resent.html",
+    "logoUrl": "./assets/logos/minecraft.svg",
+    "isFeatured": false
+  },
+  {
+    "id": 2016,
+    "slug": "eaglercraft-pixel",
+    "name": "Pixel Client 1.12.2",
+    "category": "minecraft",
+    "playableUrl": "https://skiingbeast2025.github.io/lunamix-eaglercraft/downloads/pixel.html",
+    "logoUrl": "./assets/logos/minecraft.svg",
+    "isFeatured": false
+  },
+  {
+    "id": 2015,
+    "slug": "eaglercraft-dragonx",
+    "name": "DragonX Client",
+    "category": "minecraft",
+    "playableUrl": "https://skiingbeast2025.github.io/lunamix-eaglercraft/downloads/dragonx.html",
+    "logoUrl": "./assets/logos/minecraft.svg",
+    "isFeatured": false
+  },
+  {
+    "id": 2014,
+    "slug": "eaglercraft-astra",
+    "name": "Astra Client 1.8.8",
+    "category": "minecraft",
+    "playableUrl": "https://skiingbeast2025.github.io/lunamix-eaglercraft/downloads/astra.html",
+    "logoUrl": "./assets/logos/minecraft.svg",
+    "isFeatured": true
+  },
+  {
+    "id": 2013,
+    "slug": "eaglercraft-shadow",
+    "name": "Shadow Client (PvP)",
+    "category": "minecraft",
+    "playableUrl": "https://skiingbeast2025.github.io/lunamix-eaglercraft/downloads/shadow.html",
+    "logoUrl": "./assets/logos/minecraft.svg",
+    "isFeatured": true
+  },
+  {
+    "id": 2012,
+    "slug": "eaglercraft-alpha-1-2-6",
+    "name": "Eaglercraft Alpha 1.2.6",
+    "category": "minecraft",
+    "playableUrl": "https://skiingbeast2025.github.io/lunamix-eaglercraft/downloads/alpha1.2.6.html",
+    "logoUrl": "./assets/logos/minecraft.svg",
+    "isFeatured": false
+  },
+  {
+    "id": 2011,
+    "slug": "eaglercraft-beta-1-3",
+    "name": "Eaglercraft Beta 1.3",
+    "category": "minecraft",
+    "playableUrl": "https://skiingbeast2025.github.io/lunamix-eaglercraft/downloads/beta1.3.html",
+    "logoUrl": "./assets/logos/minecraft.svg",
+    "isFeatured": false
+  },
+  {
+    "id": 2010,
+    "slug": "eaglercraft-1-5-2",
+    "name": "Eaglercraft 1.5.2",
+    "category": "minecraft",
+    "playableUrl": "https://skiingbeast2025.github.io/lunamix-eaglercraft/downloads/1.5.2.html",
+    "logoUrl": "./assets/logos/minecraft.svg",
+    "isFeatured": false
+  },
+  {
+    "id": 2009,
+    "slug": "eaglercraft-1-9-4",
+    "name": "Eaglercraft 1.9.4",
+    "category": "minecraft",
+    "playableUrl": "https://skiingbeast2025.github.io/lunamix-eaglercraft/downloads/1.9.4.html",
+    "logoUrl": "./assets/logos/minecraft.svg",
+    "isFeatured": false
+  },
+  {
+    "id": 2008,
+    "slug": "eaglercraft-1-11-2",
+    "name": "Eaglercraft 1.11.2",
+    "category": "minecraft",
+    "playableUrl": "https://skiingbeast2025.github.io/lunamix-eaglercraft/downloads/1.11.2.html",
+    "logoUrl": "./assets/logos/minecraft.svg",
+    "isFeatured": false
+  },
+  {
+    "id": 2007,
+    "slug": "eaglercraft-1-14-4",
+    "name": "Eaglercraft 1.14.4",
+    "category": "minecraft",
+    "playableUrl": "https://skiingbeast2025.github.io/lunamix-eaglercraft/downloads/1.14.4.html",
+    "logoUrl": "./assets/logos/minecraft.svg",
+    "isFeatured": false
+  },
+  {
+    "id": 2006,
+    "slug": "eaglercraft-1-16-5",
+    "name": "Eaglercraft 1.16.5",
+    "category": "minecraft",
+    "playableUrl": "https://skiingbeast2025.github.io/lunamix-eaglercraft/downloads/1.16.5.html",
+    "logoUrl": "./assets/logos/minecraft.svg",
+    "isFeatured": true
+  },
+  {
+    "id": 2005,
+    "slug": "eaglercraft-1-20-6",
+    "name": "Eaglercraft 1.20.6",
+    "category": "minecraft",
+    "playableUrl": "https://skiingbeast2025.github.io/lunamix-eaglercraft/downloads/1.20.6.html",
+    "logoUrl": "./assets/logos/minecraft.svg",
+    "isFeatured": true
+  },
+  {
+    "id": 2004,
+    "slug": "eaglercraft-26-2",
+    "name": "Eaglercraft 26.2",
+    "category": "minecraft",
+    "playableUrl": "https://skiingbeast2025.github.io/lunamix-eaglercraft/downloads/26.2.html",
+    "logoUrl": "./assets/logos/minecraft.svg",
+    "isFeatured": false
+  },
+  {
+    "id": 2003,
+    "slug": "eaglercraft-26-3",
+    "name": "Eaglercraft 26.3",
+    "category": "minecraft",
+    "playableUrl": "https://skiingbeast2025.github.io/lunamix-eaglercraft/downloads/26.3.html",
+    "logoUrl": "./assets/logos/minecraft.svg",
+    "isFeatured": true
+  },
+  {
+    "id": 2002,
+    "slug": "eaglercraft-1-12-2",
+    "name": "Eaglercraft 1.12.2",
+    "category": "minecraft",
+    "playableUrl": "https://skiingbeast2025.github.io/lunamix-eaglercraft/downloads/1.12.2.html",
+    "logoUrl": "./assets/logos/minecraft.svg",
+    "isFeatured": true
+  },
+  {
+    "id": 2001,
+    "slug": "eaglercraft-1-8-8",
+    "name": "Eaglercraft 1.8.8",
+    "category": "minecraft",
+    "playableUrl": "https://skiingbeast2025.github.io/lunamix-eaglercraft/downloads/1.8.8.html",
+    "logoUrl": "./assets/logos/minecraft.svg",
+    "isFeatured": true
+  },
+  {
     "id": 944,
     "slug": "sans-fight",
     "name": "Sans Fight",

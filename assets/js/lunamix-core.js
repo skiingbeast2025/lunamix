@@ -1,7 +1,257 @@
 /**
- * Lunamix Core Engine - Unblocked Web Arcade
- * Features: InvisiProxy Constellation Canvas, Tab Cloak Engine, Panic Key Shield
+ * Lunamix Theme Engine
+ * Themes: Midnight Violet, Cyberpunk Emerald, AMOLED Onyx, Solar Flare, Arctic Frost, Rose Quartz
  */
+const LUNAMIX_THEMES = {
+  midnight: {
+    id: 'midnight',
+    name: 'Midnight Violet',
+    desc: 'Deep cosmic violet with indigo nebula glow',
+    bg: '#050714',
+    surface: '#0a0f26',
+    border: 'rgba(99, 102, 241, 0.35)',
+    accent: '#6366f1',
+    glow: 'rgba(99, 102, 241, 0.45)',
+    particleRGB: [147, 130, 255],
+    swatches: ['#050714', '#6366f1', '#a855f7']
+  },
+  cyberpunk: {
+    id: 'cyberpunk',
+    name: 'Cyberpunk Emerald',
+    desc: 'Matrix emerald & neon cyber glow',
+    bg: '#020d07',
+    surface: '#051f12',
+    border: 'rgba(16, 185, 129, 0.35)',
+    accent: '#10b981',
+    glow: 'rgba(16, 185, 129, 0.45)',
+    particleRGB: [52, 211, 153],
+    swatches: ['#020d07', '#10b981', '#34d399']
+  },
+  amoled: {
+    id: 'amoled',
+    name: 'AMOLED Onyx',
+    desc: 'Pure pitch black & crisp monochrome',
+    bg: '#000000',
+    surface: '#111111',
+    border: 'rgba(255, 255, 255, 0.22)',
+    accent: '#ffffff',
+    glow: 'rgba(255, 255, 255, 0.3)',
+    particleRGB: [230, 230, 230],
+    swatches: ['#000000', '#222222', '#ffffff']
+  },
+  solar: {
+    id: 'solar',
+    name: 'Solar Flare',
+    desc: 'Warm sunset amber & molten fire',
+    bg: '#0f0602',
+    surface: '#210f05',
+    border: 'rgba(245, 158, 11, 0.35)',
+    accent: '#f59e0b',
+    glow: 'rgba(245, 158, 11, 0.45)',
+    particleRGB: [251, 191, 36],
+    swatches: ['#0f0602', '#f59e0b', '#ef4444']
+  },
+  frost: {
+    id: 'frost',
+    name: 'Arctic Frost',
+    desc: 'Glacial cyan & deep oceanic navy',
+    bg: '#020b14',
+    surface: '#061726',
+    border: 'rgba(6, 182, 212, 0.35)',
+    accent: '#06b6d4',
+    glow: 'rgba(6, 182, 212, 0.45)',
+    particleRGB: [56, 189, 248],
+    swatches: ['#020b14', '#06b6d4', '#38bdf8']
+  },
+  rose: {
+    id: 'rose',
+    name: 'Rose Quartz',
+    desc: 'Neon sakura pink & twilight dusk',
+    bg: '#0f030a',
+    surface: '#240a18',
+    border: 'rgba(244, 63, 94, 0.35)',
+    accent: '#f43f5e',
+    glow: 'rgba(244, 63, 94, 0.45)',
+    particleRGB: [251, 113, 133],
+    swatches: ['#0f030a', '#f43f5e', '#ec4899']
+  }
+};
+
+const LunamixTheme = {
+  currentTheme: 'midnight',
+  storageKey: 'lunamix_theme',
+
+  init() {
+    try {
+      const saved = localStorage.getItem(this.storageKey);
+      if (saved && LUNAMIX_THEMES[saved]) {
+        this.apply(saved, false);
+      } else {
+        this.apply('midnight', false);
+      }
+    } catch (e) {
+      this.apply('midnight', false);
+    }
+    this.injectModal();
+  },
+
+  getTheme() {
+    return LUNAMIX_THEMES[this.currentTheme] || LUNAMIX_THEMES.midnight;
+  },
+
+  getParticleRGB() {
+    const t = this.getTheme();
+    return t.particleRGB || [147, 130, 255];
+  },
+
+  apply(themeId, save = true) {
+    const theme = LUNAMIX_THEMES[themeId] || LUNAMIX_THEMES.midnight;
+    this.currentTheme = theme.id;
+
+    document.documentElement.setAttribute('data-theme', theme.id);
+    const root = document.documentElement;
+    root.style.setProperty('--lx-bg', theme.bg);
+    root.style.setProperty('--lx-surface', theme.surface);
+    root.style.setProperty('--lx-border', theme.border);
+    root.style.setProperty('--lx-accent', theme.accent);
+    root.style.setProperty('--lx-glow', theme.glow);
+
+    const canvas = document.getElementById('background');
+    if (canvas) {
+      canvas.style.backgroundColor = theme.bg;
+    }
+
+    if (save) {
+      try {
+        localStorage.setItem(this.storageKey, theme.id);
+      } catch (e) {}
+    }
+
+    this.updateModalUI();
+  },
+
+  injectModal() {
+    if (document.getElementById('theme-modal')) return;
+
+    const modal = document.createElement('div');
+    modal.id = 'theme-modal';
+    modal.className = 'fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-md hidden';
+    modal.setAttribute('role', 'dialog');
+    modal.setAttribute('aria-modal', 'true');
+
+    let cardsHtml = '';
+    for (const [id, t] of Object.entries(LUNAMIX_THEMES)) {
+      cardsHtml += `
+        <button 
+          type="button"
+          onclick="LunamixTheme.apply('${id}')" 
+          class="theme-card relative group p-3.5 rounded-xl border text-left transition-all cursor-pointer flex flex-col justify-between"
+          data-theme-id="${id}"
+          style="background-color: ${t.surface}; border-color: ${t.border};"
+        >
+          <div>
+            <div class="flex items-center justify-between mb-2">
+              <span class="font-semibold text-sm text-white">${t.name}</span>
+              <span class="theme-active-badge text-[10px] font-mono px-1.5 py-0.5 rounded font-bold uppercase tracking-wider hidden" style="background-color: ${t.accent}; color: #000;">
+                Active
+              </span>
+            </div>
+            <p class="text-xs text-slate-400 mb-3">${t.desc}</p>
+          </div>
+          <div class="flex items-center gap-2">
+            <span class="text-[10px] font-mono text-slate-400">Palette:</span>
+            <div class="flex items-center gap-1.5">
+              ${t.swatches.map(c => `<span class="w-4 h-4 rounded-full border border-white/20 shadow-sm" style="background-color: ${c};"></span>`).join('')}
+            </div>
+          </div>
+        </button>
+      `;
+    }
+
+    modal.innerHTML = `
+      <div class="relative w-full max-w-2xl rounded-2xl bg-slate-950 border border-slate-800 shadow-2xl p-6 sm:p-7 glow-box" onclick="event.stopPropagation()">
+        <div class="flex items-center justify-between pb-4 border-b border-slate-800/80 mb-5">
+          <div class="flex items-center gap-2.5">
+            <div class="w-8 h-8 rounded-lg bg-indigo-500/20 border border-indigo-500/30 flex items-center justify-center text-indigo-400 text-base">
+              🎨
+            </div>
+            <div>
+              <h3 class="text-base font-bold text-white tracking-wide">Theme Selector</h3>
+              <p class="text-xs text-slate-400">Personalize your visual experience across Lunamix</p>
+            </div>
+          </div>
+          <button 
+            type="button" 
+            onclick="LunamixTheme.closeModal()" 
+            class="text-slate-400 hover:text-white p-1.5 rounded-lg hover:bg-slate-800/80 transition-colors cursor-pointer"
+            aria-label="Close modal"
+          >
+            <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+            </svg>
+          </button>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3.5 mb-6 max-h-[60vh] overflow-y-auto pr-1">
+          ${cardsHtml}
+        </div>
+
+        <div class="pt-4 border-t border-slate-800/80 flex items-center justify-between">
+          <span class="text-xs text-slate-400 font-mono">Changes persist automatically</span>
+          <button 
+            type="button" 
+            onclick="LunamixTheme.closeModal()" 
+            class="px-4 py-2 rounded-xl bg-white text-black font-semibold text-xs hover:bg-neutral-200 transition-colors cursor-pointer"
+          >
+            Done
+          </button>
+        </div>
+      </div>
+    `;
+
+    modal.addEventListener('click', (e) => {
+      if (e.target === modal) LunamixTheme.closeModal();
+    });
+
+    document.body.appendChild(modal);
+    this.updateModalUI();
+  },
+
+  updateModalUI() {
+    const cards = document.querySelectorAll('.theme-card');
+    cards.forEach(card => {
+      const id = card.getAttribute('data-theme-id');
+      const badge = card.querySelector('.theme-active-badge');
+      if (id === this.currentTheme) {
+        card.style.ring = '2px';
+        card.classList.add('ring-2', 'ring-white/80');
+        if (badge) badge.classList.remove('hidden');
+      } else {
+        card.classList.remove('ring-2', 'ring-white/80');
+        if (badge) badge.classList.add('hidden');
+      }
+    });
+  },
+
+  openModal() {
+    const modal = document.getElementById('theme-modal');
+    if (!modal) {
+      this.injectModal();
+    }
+    const m = document.getElementById('theme-modal');
+    if (m) {
+      m.classList.remove('hidden');
+      this.updateModalUI();
+    }
+  },
+
+  closeModal() {
+    const modal = document.getElementById('theme-modal');
+    if (modal) {
+      modal.classList.add('hidden');
+    }
+  }
+};
 
 const LUNAMIX_CLOAK_PRESETS = {
   default: {
@@ -191,6 +441,8 @@ function initInvisiProxyBackground() {
   function loop() {
     ctx.clearRect(0, 0, width, height);
     const len = particles.length;
+    const rgb = LunamixTheme.getParticleRGB();
+    const rgbStr = rgb.join(', ');
 
     for (let i = 0; i < len; i++) {
       const p1 = particles[i];
@@ -202,7 +454,7 @@ function initInvisiProxyBackground() {
 
         if (dist < 130) {
           const alpha = (1 - dist / 130) * 0.28;
-          ctx.strokeStyle = 'rgba(255, 255, 255, ' + alpha + ')';
+          ctx.strokeStyle = `rgba(${rgbStr}, ${alpha})`;
           ctx.lineWidth = 1;
           ctx.beginPath();
           ctx.moveTo(p1.x, p1.y);
@@ -216,7 +468,7 @@ function initInvisiProxyBackground() {
       const mdist = Math.sqrt(mdx * mdx + mdy * mdy);
       if (mdist < 150) {
         const alpha = (1 - mdist / 150) * 0.6;
-        ctx.strokeStyle = 'rgba(255, 255, 255, ' + alpha + ')';
+        ctx.strokeStyle = `rgba(${rgbStr}, ${alpha})`;
         ctx.lineWidth = 1.2;
         ctx.beginPath();
         ctx.moveTo(p1.x, p1.y);
@@ -235,7 +487,7 @@ function initInvisiProxyBackground() {
       if (p.y < 0) p.y = height;
       else if (p.y > height) p.y = 0;
 
-      ctx.fillStyle = 'rgba(255, 255, 255, ' + p.baseAlpha + ')';
+      ctx.fillStyle = `rgba(${rgbStr}, ${p.baseAlpha})`;
       ctx.beginPath();
       ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
       ctx.fill();
@@ -249,6 +501,7 @@ function initInvisiProxyBackground() {
 
 // Auto-run on boot
 (function() {
+  LunamixTheme.init();
   LunamixCloak.init();
   LunamixPanic.init();
   if (document.readyState === 'loading') {

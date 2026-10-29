@@ -227,6 +227,17 @@
           </div>
         </div>
 
+        <!-- Theme Selector Tab -->
+        <button 
+          type="button" 
+          onclick="LunamixTheme.openModal()"
+          class="p-2 sm:px-2.5 sm:py-1.5 rounded-xl text-xs font-medium text-purple-300 hover:text-purple-200 bg-purple-500/15 hover:bg-purple-500/25 border border-purple-500/40 hover:border-purple-400 transition-all flex items-center gap-1.5 cursor-pointer"
+          title="Select App Theme"
+        >
+          <span>🎨</span>
+          <span class="hidden xl:inline font-mono">Themes</span>
+        </button>
+
         <!-- Tab Cloak Dropdown -->
         <div class="relative flex items-center">
           <select 
@@ -461,6 +472,48 @@
         altUrls: ['https://iloveshorty.github.io/strongdog2/html/polytrack/index.html'],
         openInNewTab: false,
         isLocal: true
+      },
+      'eaglercraft-1-8-8': {
+        name: 'Eaglercraft 1.8.8 Stable',
+        category: 'Minecraft',
+        url: 'https://skiingbeast2025.github.io/lunamix-eaglercraft/downloads/1.8.8.html',
+        altUrls: ['https://minecraftbase.neocities.org/downloads/1.8.8'],
+        openInNewTab: false,
+        isLocal: false
+      },
+      'eaglercraft-1-12-2': {
+        name: 'Eaglercraft 1.12.2',
+        category: 'Minecraft',
+        url: 'https://skiingbeast2025.github.io/lunamix-eaglercraft/downloads/1.12.2.html',
+        altUrls: ['https://minecraftbase.neocities.org/downloads/1.12.2'],
+        openInNewTab: false,
+        isLocal: false
+      },
+      'sm64': {
+        name: 'Super Mario 64 (WASM 60FPS)',
+        category: 'Emulator',
+        url: 'https://froggo11.github.io/sm64-wasm/',
+        altUrls: ['https://sm64-wasm.pages.dev/'],
+        openInNewTab: false,
+        aspectRatio: '4:3',
+        isLocal: false
+      },
+      'celeste': {
+        name: 'Celeste Classic (WASM)',
+        category: 'Platformer',
+        url: 'https://lemon35.github.io/Celeste/',
+        altUrls: [],
+        openInNewTab: false,
+        aspectRatio: '16:9',
+        isLocal: false
+      },
+      'emulator': {
+        name: 'Universal Retro Emulator',
+        category: 'Emulator',
+        url: './emulator.html',
+        altUrls: [],
+        openInNewTab: false,
+        isLocal: true
       }
     };
 
@@ -482,6 +535,11 @@
     LOCAL_GAMES_DICT['retrobowl'] = LOCAL_GAMES_DICT['retro-bowl'];
     LOCAL_GAMES_DICT['subway'] = LOCAL_GAMES_DICT['subway-surfers'];
     LOCAL_GAMES_DICT['subwaysurfers'] = LOCAL_GAMES_DICT['subway-surfers'];
+    LOCAL_GAMES_DICT['eaglercraft'] = LOCAL_GAMES_DICT['eaglercraft-1-8-8'];
+    LOCAL_GAMES_DICT['minecraft'] = LOCAL_GAMES_DICT['eaglercraft-1-8-8'];
+    LOCAL_GAMES_DICT['eagler'] = LOCAL_GAMES_DICT['eaglercraft-1-8-8'];
+    LOCAL_GAMES_DICT['mario64'] = LOCAL_GAMES_DICT['sm64'];
+    LOCAL_GAMES_DICT['super-mario-64'] = LOCAL_GAMES_DICT['sm64'];
 
     let currentGameRawUrl = '';
     let currentGameEffectiveUrl = '';
