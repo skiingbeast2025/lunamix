@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Game Player - Lunamix</title>
-  <meta name="description" content="Universal web player for Lunamix arcade. Full theater mode, fullscreen, smooth gameplay, and stealth tab cloaker.">
+  <meta name="description" content="Universal web player for Lunamix. Full theater mode, fullscreen, smooth gameplay, and stealth tab cloaker.">
   <meta name="google-site-verification" content="9gcLHnT_jGP9RU4-Xe0kHbZEUVnZnGssskO0wYWx9oI" />
   <link rel="canonical" href="https://skiingbeast2025.github.io/lunamix/play.html">
   <meta property="og:title" content="Game Player - Lunamix">
@@ -75,6 +75,9 @@
 </head>
 <body class="bg-black text-neutral-100 min-h-screen relative font-sans selection:bg-white selection:text-black antialiased overflow-x-hidden flex flex-col justify-between">
 
+  <!-- Background Animated Canvas (Controlled by Toggle) -->
+  <canvas id="background" class="fixed inset-0 w-full h-full pointer-events-none z-0" aria-hidden="true"></canvas>
+
   <!-- Player Navigation & Controls Header Bar -->
   <header class="relative z-30 w-full border-b border-slate-800/80 bg-slate-950/85 backdrop-blur-xl sticky top-0">
     <div class="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 h-16 flex items-center justify-between gap-3">
@@ -106,7 +109,7 @@
             id="game-cat-badge" 
             class="hidden sm:inline-flex px-2 py-0.5 text-[10px] font-mono uppercase rounded-md bg-slate-800/90 text-slate-300 border border-slate-700/70 shrink-0"
           >
-            ARCADE
+            GAME
           </span>
         </div>
 
@@ -202,6 +205,19 @@
             </svg>
           </div>
         </div>
+
+        <!-- Background FX Toggle -->
+        <button 
+          type="button" 
+          onclick="LunamixBackground.toggle()"
+          class="bg-fx-toggle-btn p-2 sm:px-2.5 sm:py-1.5 rounded-xl text-xs font-medium text-slate-300 hover:text-white bg-slate-900/80 hover:bg-slate-800 border border-slate-700/80 hover:border-slate-600 transition-all flex items-center gap-1.5 cursor-pointer font-mono"
+          title="Toggle Background Particles FX"
+        >
+          <svg class="w-3.5 h-3.5 text-indigo-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z" />
+          </svg>
+          <span class="hidden xl:inline bg-fx-label">FX On</span>
+        </button>
 
         <!-- Theme Selector Tab -->
         <button 
@@ -716,7 +732,7 @@
             }
             gameData = {
               name: manifest.name,
-              category: manifest.category || 'Arcade',
+              category: manifest.category || 'Game',
               url: manifest.entrypoint || `./games/${letter}/${slug}/index.html`,
               aspectRatio: manifest.aspectRatio || ((slug === 'geodash-classic' || slug === 'geometry-dash-scratch') ? '4:3' : '16:9'),
               isLocal: true
@@ -739,7 +755,7 @@
                 }
                 gameData = {
                   name: found.name,
-                  category: found.category || 'Arcade',
+                  category: found.category || 'Game',
                   url: found.entrypoint,
                   aspectRatio: found.aspectRatio || ((slug === 'geodash-classic' || slug === 'geometry-dash-scratch') ? '4:3' : '16:9'),
                   isLocal: true
@@ -791,7 +807,7 @@
                 }
                 gameData = {
                   name: found.name,
-                  category: found.category || 'Arcade',
+                  category: found.category || 'Game',
                   url: found.entrypoint || `./games/${found.slug}/index.html`,
                   aspectRatio: found.aspectRatio || ((found.slug === 'geodash-classic' || found.slug === 'geometry-dash-scratch') ? '4:3' : '16:9'),
                   isLocal: true
@@ -809,7 +825,7 @@
               if (found) {
                 gameData = {
                   name: found.name,
-                  category: found.category || 'Arcade',
+                  category: found.category || 'Game',
                   url: found.playableUrl,
                   aspectRatio: found.aspectRatio || '16:9',
                   isLocal: false
@@ -833,7 +849,7 @@
             if (found) {
               gameData = {
                 name: found.name,
-                category: found.category || 'Arcade',
+                category: found.category || 'Game',
                 url: found.playableUrl,
                 aspectRatio: found.aspectRatio || ((directSlug === 'geodash-classic' || directSlug === 'geometry-dash-scratch') ? '4:3' : '16:9'),
                 isLocal: false

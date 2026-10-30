@@ -22,7 +22,6 @@
     <path fill="url(#glow)" d="M21 6H3c-1.1 0-2 .9-2 2v8c0 1.1.9 2 2 2h18c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2zm-10 7H8v3H6v-3H3v-2h3V8h2v3h3v2zm4.5 2c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5zm4-3c-.83 0-1.5-.67-1.5-1.5S18.67 9 19.5 9s1.5.67 1.5 1.5-.67 1.5-1.5 1.5z"/>
   </g>
   
-  <text x="200" y="152" fill="#f8fafc" font-family="'JetBrains Mono', 'Inter', monospace, sans-serif" font-size="18" font-weight="800" letter-spacing="4" text-anchor="middle">LUNAMIX</text>
-  <text x="200" y="174" fill="#94a3b8" font-family="'Inter', sans-serif" font-size="11" font-weight="600" letter-spacing="3" text-anchor="middle">ARCADE EDITION</text>
-  <line x1="140" y1="186" x2="260" y2="186" stroke="rgba(148, 163, 184, 0.2)" stroke-width="1" />
+  <text x="200" y="160" fill="#f8fafc" font-family="'JetBrains Mono', 'Inter', monospace, sans-serif" font-size="18" font-weight="800" letter-spacing="4" text-anchor="middle">LUNAMIX</text>
+  <line x1="140" y1="178" x2="260" y2="178" stroke="rgba(148, 163, 184, 0.2)" stroke-width="1" />
 </svg>

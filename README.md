@@ -1,6 +1,6 @@
 # Lunamix
 
-Lunamix is a lightweight, high-performance static HTML5 arcade and web gaming platform. Built with clean, modern HTML, CSS, and Vanilla JavaScript, Lunamix runs entirely client-side without server dependencies, container runtimes, or database requirements.
+Lunamix is a lightweight, high-performance static HTML5 web gaming platform. Built with clean, modern HTML, CSS, and Vanilla JavaScript, Lunamix runs entirely client-side without server dependencies, container runtimes, or database requirements.
 
 Live site: [https://skiingbeast2025.github.io/lunamix/](https://skiingbeast2025.github.io/lunamix/)
 

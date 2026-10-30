@@ -20,7 +20,7 @@
   {
     "@context": "https://schema.org",
     "@type": "WebApplication",
-    "name": "Lunamix Arcade",
+    "name": "Lunamix",
     "url": "https://skiingbeast2025.github.io/lunamix/",
     "description": "Free unblocked web games including Geometry Dash, Retro Bowl, Web-Dashers, Slope, and Eaglercraft.",
     "applicationCategory": "GameApplication",
@@ -106,6 +106,9 @@
 </head>
 <body class="bg-black text-neutral-100 min-h-screen relative font-sans selection:bg-white selection:text-black antialiased overflow-x-hidden flex flex-col justify-between">
 
+  <!-- Background Animated Canvas (Controlled by Toggle) -->
+  <canvas id="background" class="fixed inset-0 w-full h-full pointer-events-none z-0" aria-hidden="true"></canvas>
+
   <!-- Top Navigation Bar -->
   <header class="relative z-30 w-full border-b border-slate-800/80 bg-slate-950/80 backdrop-blur-xl sticky top-0">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
@@ -118,7 +121,6 @@
         <div class="flex flex-col">
           <span class="font-mono text-lg font-extrabold tracking-wider text-white flex items-center gap-1.5">
             LUNAMIX
-            <span class="text-[10px] px-1.5 py-0.2 font-mono bg-indigo-500/20 text-indigo-400 border border-indigo-500/30 rounded">ARCADE</span>
           </span>
           <span class="text-[10px] text-slate-400 font-mono tracking-tight hidden sm:block">Unblocked Games</span>
         </div>
@@ -127,6 +129,18 @@
       <!-- Right Navigation & Utility Actions -->
       <div class="flex items-center gap-2 sm:gap-3">
         
+        <!-- All Games Catalog Link -->
+        <a 
+          href="./games.html" 
+          class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-semibold text-slate-300 hover:text-white bg-slate-900/80 hover:bg-slate-800 border border-slate-700/80 hover:border-slate-600 transition-all font-mono"
+          title="Browse Full Games Catalog"
+        >
+          <svg class="w-3.5 h-3.5 text-indigo-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 10h16M4 14h16M4 18h16" />
+          </svg>
+          <span class="hidden sm:inline">All Games</span>
+        </a>
+
         <!-- Eaglercraft 26.3 -->
         <a 
           href="https://skiingbeast2025.github.io/lunamix-eaglercraft/" 
@@ -148,6 +162,19 @@
           </svg>
           <span class="hidden sm:inline">GUST</span> Proxy
         </a>
+
+        <!-- Background FX Toggle -->
+        <button 
+          type="button" 
+          onclick="LunamixBackground.toggle()"
+          class="bg-fx-toggle-btn inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-semibold text-slate-300 hover:text-white bg-slate-900/80 hover:bg-slate-800 border border-slate-700/80 hover:border-slate-600 transition-all cursor-pointer font-mono"
+          title="Toggle Background Particles FX"
+        >
+          <svg class="w-3.5 h-3.5 text-indigo-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z" />
+          </svg>
+          <span class="hidden sm:inline bg-fx-label">FX On</span>
+        </button>
 
         <!-- Theme Selector -->
         <button 
@@ -214,7 +241,7 @@
     </div>
   </header>
 
-  <!-- Main Arcade Content Container -->
+  <!-- Main Content Container -->
   <main class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 sm:py-8 flex-1 w-full">
 
     <!-- Header Section -->
@@ -378,7 +405,7 @@
         <h2 class="text-sm font-bold tracking-wide uppercase font-mono text-slate-400">Popular Games</h2>
         <span class="text-xs text-slate-500 font-mono">Instant Play</span>
       </div>
-      <div class="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-8 gap-2.5">
+      <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 xl:grid-cols-12 gap-2.5">
         
         <a href="./play.html?game=geometry-dash" class="featured-card group p-2 rounded-xl bg-slate-900/70 border border-slate-800 hover:border-amber-400/80 flex flex-col items-center text-center">
           <div class="aspect-square w-full rounded-lg overflow-hidden bg-slate-950 mb-1.5">
@@ -428,6 +455,14 @@
           <span class="text-[9px] font-mono text-slate-400">Racing</span>
         </a>
 
+        <a href="./play.html?id=237" class="featured-card group p-2 rounded-xl bg-slate-900/70 border border-slate-800 hover:border-indigo-400/80 flex flex-col items-center text-center">
+          <div class="aspect-square w-full rounded-lg overflow-hidden bg-slate-950 mb-1.5">
+            <img src="./assets/logos/retro-bowl.webp" alt="Retro Bowl" class="w-full h-full object-cover group-hover:scale-105 transition-transform" onerror="handleGameLogoError(this)">
+          </div>
+          <span class="text-xs font-bold text-slate-200 group-hover:text-indigo-300 truncate w-full">Retro Bowl</span>
+          <span class="text-[9px] font-mono text-slate-400">Football</span>
+        </a>
+
         <a href="https://skiingbeast2025.github.io/webdickers/" target="_blank" rel="noopener noreferrer" class="featured-card group p-2 rounded-xl bg-slate-900/70 border border-slate-800 hover:border-cyan-400/80 flex flex-col items-center text-center">
           <div class="aspect-square w-full rounded-lg overflow-hidden bg-slate-950 mb-1.5">
             <img src="./assets/logos/web-dashers.png" alt="Web Dashers" class="w-full h-full object-cover group-hover:scale-105 transition-transform">
@@ -436,12 +471,36 @@
           <span class="text-[9px] font-mono text-cyan-400">Standalone ↗</span>
         </a>
 
-        <a href="./play.html?id=237" class="featured-card group p-2 rounded-xl bg-slate-900/70 border border-slate-800 hover:border-indigo-400/80 flex flex-col items-center text-center">
+        <a href="./play.html?game=sm64" class="featured-card group p-2 rounded-xl bg-slate-900/70 border border-slate-800 hover:border-rose-400/80 flex flex-col items-center text-center">
           <div class="aspect-square w-full rounded-lg overflow-hidden bg-slate-950 mb-1.5">
-            <img src="https://iloveshorty.github.io/img/retrobowl.png" alt="Retro Bowl" class="w-full h-full object-cover group-hover:scale-105 transition-transform" onerror="handleGameLogoError(this)">
+            <img src="./assets/logos/super-mario-64.jpg" alt="Super Mario 64" class="w-full h-full object-cover group-hover:scale-105 transition-transform" onerror="handleGameLogoError(this)">
           </div>
-          <span class="text-xs font-bold text-slate-200 group-hover:text-indigo-300 truncate w-full">Retro Bowl</span>
-          <span class="text-[9px] font-mono text-slate-400">Football</span>
+          <span class="text-xs font-bold text-slate-200 group-hover:text-rose-300 truncate w-full">Super Mario 64</span>
+          <span class="text-[9px] font-mono text-rose-400">60FPS Port</span>
+        </a>
+
+        <a href="./emulator.html?core=gba&rom=https://raw.githubusercontent.com/EmulatorJS/roms/main/gba/Pokemon%20Emerald.gba&title=Pokemon+Emerald" class="featured-card group p-2 rounded-xl bg-slate-900/70 border border-slate-800 hover:border-emerald-400/80 flex flex-col items-center text-center">
+          <div class="aspect-square w-full rounded-lg overflow-hidden bg-slate-950 mb-1.5">
+            <img src="./assets/logos/pokemon-emerald.png" alt="Pokémon Emerald" class="w-full h-full object-cover group-hover:scale-105 transition-transform" onerror="handleGameLogoError(this)">
+          </div>
+          <span class="text-xs font-bold text-slate-200 group-hover:text-emerald-300 truncate w-full">Pokémon Emerald</span>
+          <span class="text-[9px] font-mono text-emerald-400">GBA RPG</span>
+        </a>
+
+        <a href="./play.html?id=262" class="featured-card group p-2 rounded-xl bg-slate-900/70 border border-slate-800 hover:border-amber-400/80 flex flex-col items-center text-center">
+          <div class="aspect-square w-full rounded-lg overflow-hidden bg-slate-950 mb-1.5">
+            <img src="./assets/logos/smash-karts.avif" alt="Smash Karts" class="w-full h-full object-cover group-hover:scale-105 transition-transform" onerror="handleGameLogoError(this)">
+          </div>
+          <span class="text-xs font-bold text-slate-200 group-hover:text-amber-300 truncate w-full">Smash Karts</span>
+          <span class="text-[9px] font-mono text-amber-400">3D Battle</span>
+        </a>
+
+        <a href="./play.html?id=1" class="featured-card group p-2 rounded-xl bg-slate-900/70 border border-slate-800 hover:border-violet-400/80 flex flex-col items-center text-center">
+          <div class="aspect-square w-full rounded-lg overflow-hidden bg-slate-950 mb-1.5">
+            <img src="./assets/logos/1v1lol.webp" alt="1v1.LOL" class="w-full h-full object-cover group-hover:scale-105 transition-transform" onerror="handleGameLogoError(this)">
+          </div>
+          <span class="text-xs font-bold text-slate-200 group-hover:text-violet-300 truncate w-full">1v1.LOL</span>
+          <span class="text-[9px] font-mono text-violet-400">Shooter</span>
         </a>
 
       </div>
@@ -492,17 +551,7 @@
 
   </main>
 
-  <!-- Community Footer -->
-  <footer class="relative z-10 w-full border-t border-slate-900 bg-slate-950 py-6 text-center text-xs text-slate-500 font-mono">
-    <div class="max-w-7xl mx-auto px-4 flex flex-col sm:flex-row items-center justify-between gap-3">
-      <span>Lunamix &bull; Unblocked Web Games</span>
-      <div class="flex items-center gap-4">
-        <a href="https://github.com/skiingbeast2025/lunamix" target="_blank" rel="noopener noreferrer" class="hover:text-slate-300 transition-colors">GitHub</a>
-        <a href="https://skiingbeast2025.github.io/lunamix-eaglercraft/" target="_blank" rel="noopener noreferrer" class="hover:text-slate-300 transition-colors">Eaglercraft Hub</a>
-        <a href="./gust.html" class="hover:text-slate-300 transition-colors">GUST Proxy</a>
-      </div>
-    </div>
-  </footer>
+
 
   <!-- Quick Settings & Cloak Customizer Modal -->
   <div id="settings-modal" class="fixed inset-0 z-50 flex items-center justify-center bg-black/80 backdrop-blur-md p-4 hidden">
@@ -684,10 +733,71 @@
         logo: "./assets/logos/polytrack.png",
         isLocal: true,
         isFeatured: true
+      },
+      {
+        id: "sm64",
+        slug: "sm64",
+        name: "Super Mario 64 (WASM 60FPS)",
+        category: "emulator",
+        targetUrl: "./play.html?game=sm64",
+        logo: "./assets/logos/super-mario-64.jpg",
+        isLocal: true,
+        isFeatured: true
+      },
+      {
+        id: "pokemon-emerald",
+        slug: "pokemon-emerald",
+        name: "Pokémon Emerald (GBA)",
+        category: "emulator",
+        targetUrl: "./emulator.html?core=gba&rom=https://raw.githubusercontent.com/EmulatorJS/roms/main/gba/Pokemon%20Emerald.gba&title=Pokemon+Emerald",
+        logo: "./assets/logos/pokemon-emerald.png",
+        isLocal: true,
+        isFeatured: true
+      },
+      {
+        id: "super-mario-world",
+        slug: "super-mario-world",
+        name: "Super Mario World (SNES)",
+        category: "emulator",
+        targetUrl: "./emulator.html?core=snes&rom=https://raw.githubusercontent.com/EmulatorJS/roms/main/snes/Super%20Mario%20World.sfc&title=Super+Mario+World",
+        logo: "./assets/logos/super-mario-world.png",
+        isLocal: true,
+        isFeatured: true
+      },
+      {
+        id: "smash-64",
+        slug: "smash-64",
+        name: "Super Smash Bros 64 (N64)",
+        category: "emulator",
+        targetUrl: "./emulator.html?core=n64&rom=https://raw.githubusercontent.com/EmulatorJS/roms/main/n64/Super%20Smash%20Bros.z64&title=Super+Smash+Bros+64",
+        logo: "./assets/logos/smash-64.png",
+        isLocal: true,
+        isFeatured: true
+      },
+      {
+        id: "celeste",
+        slug: "celeste",
+        name: "Celeste Classic (WASM)",
+        category: "platformer",
+        targetUrl: "./play.html?game=celeste",
+        logo: "./assets/logos/celeste.webp",
+        isLocal: true,
+        isFeatured: true
+      },
+      {
+        id: "emulator-universal",
+        slug: "emulator-universal",
+        name: "Universal Retro Emulator (WASM)",
+        category: "emulator",
+        targetUrl: "./emulator.html",
+        logo: "./assets/logos/emulator.png",
+        isLocal: true,
+        isFeatured: true
       }
     ];
 
     function getGameLogo(game) {
+      if (game.logo) return game.logo;
       if (game.localLogo) return game.localLogo;
       const lower = (game.name || '').toLowerCase();
       if (lower.includes('geometry dash') || lower.includes('geodash') || lower.includes('dash')) {
@@ -696,8 +806,32 @@
       if (lower.includes('eaglercraft') || lower.includes('minecraft')) {
         return './assets/logos/eaglercraft.png';
       }
+      if (lower.includes('super mario 64')) {
+        return './assets/logos/super-mario-64.jpg';
+      }
+      if (lower.includes('pokemon emerald')) {
+        return './assets/logos/pokemon-emerald.png';
+      }
+      if (lower.includes('super mario world')) {
+        return './assets/logos/super-mario-world.png';
+      }
+      if (lower.includes('smash bros') || lower.includes('smash 64')) {
+        return './assets/logos/smash-64.png';
+      }
+      if (lower.includes('celeste')) {
+        return './assets/logos/celeste.webp';
+      }
+      if (lower.includes('balatro')) {
+        return './assets/logos/balatro.png';
+      }
+      if (lower.includes('retro bowl')) {
+        return './assets/logos/retro-bowl.webp';
+      }
+      if (lower.includes('emulator') || lower.includes('gba') || lower.includes('snes') || lower.includes('n64')) {
+        return './assets/logos/emulator.png';
+      }
       if (game.logoUrl) return game.logoUrl;
-      return './assets/logos/lunamix-badge.svg';
+      return './assets/logos/eaglercraft.png';
     }
 
     async function initCatalog() {
@@ -848,6 +982,8 @@
         a.rel = 'noopener noreferrer';
       }
       a.className = 'game-card group relative flex flex-col bg-slate-900/60 hover:bg-slate-900/95 border border-slate-800/80 hover:border-slate-600 rounded-xl overflow-hidden backdrop-blur-md shadow-md';
+      a.setAttribute('data-name', game.name || '');
+      a.setAttribute('data-category', game.category || 'other');
 
       const logoSrc = game.logo || getGameLogo(game);
 

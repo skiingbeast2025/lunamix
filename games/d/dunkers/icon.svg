@@ -23,6 +23,6 @@
   </g>
   
   <text x="200" y="152" fill="#f8fafc" font-family="'JetBrains Mono', 'Inter', monospace, sans-serif" font-size="18" font-weight="800" letter-spacing="4" text-anchor="middle">LUNAMIX</text>
-  <text x="200" y="174" fill="#94a3b8" font-family="'Inter', sans-serif" font-size="11" font-weight="600" letter-spacing="3" text-anchor="middle">ARCADE EDITION</text>
+  
   <line x1="140" y1="186" x2="260" y2="186" stroke="rgba(148, 163, 184, 0.2)" stroke-width="1" />
 </svg>

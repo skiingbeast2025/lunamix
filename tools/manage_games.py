@@ -2,7 +2,7 @@
 """
 Lunamix Game Manager CLI
 ========================
-Effortlessly manage games in the Lunamix arcade repository.
+Effortlessly manage games in the Lunamix repository.
 
 Usage:
     python3 tools/manage_games.py list
