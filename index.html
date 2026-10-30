@@ -3,26 +3,26 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Lunamix - The Ultimate Unblocked Web Arcade</title>
-  <meta name="description" content="The ultimate browser gaming hub. Play 1,000+ unblocked classic and modern web games directly in your browser with fast loading and stealth cloaking.">
+  <title>Lunamix | Unblocked Games</title>
+  <meta name="description" content="Free unblocked web games to play directly in your browser. Fast loading, no installs, stealth tab cloaking, and panic key.">
   <meta name="google-site-verification" content="9gcLHnT_jGP9RU4-Xe0kHbZEUVnZnGssskO0wYWx9oI" />
   <link rel="canonical" href="https://skiingbeast2025.github.io/lunamix/">
-  <meta name="keywords" content="Lunamix, web arcade, unblocked games, Geometry Dash, Retro Bowl, Web-Dashers, Slope, OvO, HTML5 games, browser games">
+  <meta name="keywords" content="Lunamix, unblocked games, Geometry Dash, Retro Bowl, Web-Dashers, Slope, OvO, Eaglercraft, HTML5 games, browser games">
   
   <!-- Open Graph / SEO -->
-  <meta property="og:title" content="Lunamix - The Ultimate Unblocked Web Arcade">
-  <meta property="og:description" content="Play 1,000+ unblocked classic and modern web games directly in your browser. Fast, clean, and stealth-ready.">
+  <meta property="og:title" content="Lunamix | Unblocked Games">
+  <meta property="og:description" content="Free unblocked web games. Fast loading, clean player, and stealth tab cloaking.">
   <meta property="og:url" content="https://skiingbeast2025.github.io/lunamix/">
   <meta property="og:type" content="website">
   
-  <!-- Schema.org JSON-LD for Google Search -->
+  <!-- Schema.org JSON-LD -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "WebApplication",
     "name": "Lunamix Arcade",
     "url": "https://skiingbeast2025.github.io/lunamix/",
-    "description": "High-performance browser gaming arcade with 1,000+ verified unblocked titles including Geometry Dash, Retro Bowl, Web-Dashers, and Slope.",
+    "description": "Free unblocked web games including Geometry Dash, Retro Bowl, Web-Dashers, Slope, and Eaglercraft.",
     "applicationCategory": "GameApplication",
     "operatingSystem": "All"
   }
@@ -69,18 +69,6 @@
       background: rgba(148, 163, 184, 0.4);
     }
 
-    /* InvisiProxy Background Canvas CSS */
-    #background {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      z-index: 0;
-      pointer-events: none;
-      background-color: #000000;
-    }
-
     :root {
       --lx-bg: #050714;
       --lx-surface: #0a0f26;
@@ -100,32 +88,26 @@
       transition: background-color 0.3s ease, border-color 0.3s ease;
     }
 
-    /* Monochrome glowing bullet & box */
-    .glow-dot {
-      box-shadow: 0 0 10px rgba(255, 255, 255, 0.7), 0 0 20px rgba(255, 255, 255, 0.3);
+    .game-card {
+      transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.2s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.2s ease;
     }
-    .glow-box {
-      box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.45);
-      backdrop-filter: blur(14px);
-      -webkit-backdrop-filter: blur(14px);
-    }
-    .feature-card {
-      transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
-    }
-    .feature-card:hover {
+    .game-card:hover {
       transform: translateY(-4px);
+      box-shadow: 0 12px 24px -6px rgba(0, 0, 0, 0.7);
       border-color: var(--lx-accent) !important;
-      box-shadow: 0 12px 30px -10px var(--lx-glow);
+    }
+    .featured-card {
+      transition: transform 0.2s ease, border-color 0.2s ease;
+    }
+    .featured-card:hover {
+      transform: translateY(-3px);
     }
   </style>
 </head>
 <body class="bg-black text-neutral-100 min-h-screen relative font-sans selection:bg-white selection:text-black antialiased overflow-x-hidden flex flex-col justify-between">
 
-  <!-- InvisiProxy Constellation Background Canvas -->
-  <canvas id="background" class="fixed inset-0 w-full h-full pointer-events-none z-0" aria-hidden="true"></canvas>
-
   <!-- Top Navigation Bar -->
-  <header class="relative z-20 w-full border-b border-slate-800/80 bg-slate-950/80 backdrop-blur-xl">
+  <header class="relative z-30 w-full border-b border-slate-800/80 bg-slate-950/80 backdrop-blur-xl sticky top-0">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
       
       <!-- Brand Logo -->
@@ -136,35 +118,47 @@
         <div class="flex flex-col">
           <span class="font-mono text-lg font-extrabold tracking-wider text-white flex items-center gap-1.5">
             LUNAMIX
-            <span class="text-[10px] px-1.5 py-0.2 font-mono bg-indigo-500/20 text-indigo-400 border border-indigo-500/30 rounded">v1.0</span>
+            <span class="text-[10px] px-1.5 py-0.2 font-mono bg-indigo-500/20 text-indigo-400 border border-indigo-500/30 rounded">ARCADE</span>
           </span>
-          <span class="text-[10px] text-slate-400 font-mono tracking-tight hidden sm:block">Unblocked Web Arcade</span>
+          <span class="text-[10px] text-slate-400 font-mono tracking-tight hidden sm:block">Unblocked Games</span>
         </div>
       </a>
 
-      <!-- Navigation & Controls -->
+      <!-- Right Navigation & Utility Actions -->
+      <div class="flex items-center gap-2 sm:gap-3">
+        
         <!-- Eaglercraft 26.3 -->
-        <a href="https://skiingbeast2025.github.io/lunamix-eaglercraft/" class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-semibold text-lime-300 hover:text-lime-200 bg-lime-500/15 hover:bg-lime-500/25 border border-lime-500/40 hover:border-lime-400 transition-all" title="Play Eaglercraft 26.3 Web Minecraft">
-          <span>⛏️</span>
-          <span class="hidden sm:inline font-mono">Eaglercraft</span> 26.3
+        <a 
+          href="https://skiingbeast2025.github.io/lunamix-eaglercraft/" 
+          class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-semibold text-lime-300 hover:text-lime-200 bg-lime-500/15 hover:bg-lime-500/25 border border-lime-500/40 hover:border-lime-400 transition-all font-mono" 
+          title="Play Eaglercraft 26.3 Web Minecraft"
+        >
+          <span class="w-1.5 h-1.5 rounded-full bg-lime-400"></span>
+          <span>Eaglercraft 26.3</span>
         </a>
 
         <!-- GUST Proxy -->
-        <a href="./gust.html" class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-semibold text-emerald-300 hover:text-emerald-200 bg-emerald-500/15 hover:bg-emerald-500/25 border border-emerald-500/40 hover:border-emerald-400 transition-all" title="GUST Unblocked Web Proxy Browser">
+        <a 
+          href="./gust.html" 
+          class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-semibold text-emerald-300 hover:text-emerald-200 bg-emerald-500/15 hover:bg-emerald-500/25 border border-emerald-500/40 hover:border-emerald-400 transition-all" 
+          title="GUST Unblocked Web Proxy Browser"
+        >
           <svg class="w-3.5 h-3.5 text-emerald-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
           </svg>
           <span class="hidden sm:inline">GUST</span> Proxy
         </a>
 
-        <!-- Theme Selector Tab -->
+        <!-- Theme Selector -->
         <button 
           type="button" 
           onclick="LunamixTheme.openModal()"
-          class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-semibold text-purple-300 hover:text-purple-200 bg-purple-500/15 hover:bg-purple-500/25 border border-purple-500/40 hover:border-purple-400 transition-all cursor-pointer"
+          class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-semibold text-slate-300 hover:text-white bg-slate-900/80 hover:bg-slate-800 border border-slate-700/80 hover:border-slate-600 transition-all cursor-pointer"
           title="Select Theme"
         >
-          <span>🎨</span>
+          <svg class="w-3.5 h-3.5 text-indigo-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 21a4 4 0 01-4-4 5 5 0 013-4.5V11a7 7 0 1114 0v1.5a5 5 0 013 4.5 4 4 0 01-4 4H7z" />
+          </svg>
           <span class="hidden sm:inline font-mono">Themes</span>
         </button>
 
@@ -172,11 +166,11 @@
         <div class="relative flex items-center">
           <select 
             id="nav-tab-cloak" 
-            class="tab-cloak-select appearance-none bg-slate-900/90 border border-slate-700/80 text-xs text-slate-300 hover:text-white rounded-lg pl-2.5 pr-7 py-1.5 focus:outline-none focus:ring-1 focus:ring-white transition-all cursor-pointer"
+            class="tab-cloak-select appearance-none bg-slate-900/90 border border-slate-700/80 text-xs text-slate-300 hover:text-white rounded-lg pl-2.5 pr-7 py-1.5 focus:outline-none focus:ring-1 focus:ring-white transition-all cursor-pointer font-mono"
             onchange="LunamixCloak.apply(this.value)"
             title="Stealth Tab Cloak: disguise this tab"
           >
-            <option value="default">🎭 Cloak: Off (Lunamix)</option>
+            <option value="default">Cloak: Off</option>
             <option value="classroom">Google Classroom</option>
             <option value="drive">Google Drive</option>
             <option value="canvas">Canvas LMS</option>
@@ -194,7 +188,7 @@
           type="button" 
           onclick="LunamixPanic.trigger()"
           class="inline-flex items-center gap-1.5 px-2.5 sm:px-3 py-1.5 rounded-lg text-xs font-semibold text-rose-300 bg-rose-500/15 hover:bg-rose-500/25 border border-rose-500/40 hover:border-rose-400 transition-all cursor-pointer shrink-0"
-          title="Panic Exit (Hotkey: ~ or Esc): Redirects to apsva.us"
+          title="Panic Exit (Hotkey: ~ or Esc)"
         >
           <svg class="w-3.5 h-3.5 text-rose-400 animate-pulse" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
@@ -203,11 +197,11 @@
           <kbd class="px-1 text-[10px] font-mono bg-rose-950/80 rounded border border-rose-800 panic-key-label">~</kbd>
         </button>
 
-        <!-- Settings Cog Modal Trigger -->
+        <!-- Settings Modal Trigger -->
         <button 
           type="button" 
           onclick="openSettingsModal()"
-          class="p-1.5 rounded-lg text-slate-400 hover:text-white bg-slate-900/80 hover:bg-slate-800 border border-slate-800 hover:border-slate-700 transition-all"
+          class="p-1.5 rounded-lg text-slate-400 hover:text-white bg-slate-900/80 hover:bg-slate-800 border border-slate-800 hover:border-slate-700 transition-all cursor-pointer"
           title="Settings & Cloak Preferences"
         >
           <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -220,143 +214,304 @@
     </div>
   </header>
 
-  <!-- Hero Section -->
-  <main class="relative z-10 flex-1 flex flex-col justify-center items-center px-4 sm:px-6 lg:px-8 py-12 sm:py-20 max-w-5xl mx-auto text-center">
+  <!-- Main Arcade Content Container -->
+  <main class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 sm:py-8 flex-1 w-full">
 
-    <!-- Live Status Pill -->
-    <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-slate-900/90 border border-slate-700/80 shadow-lg backdrop-blur-md mb-8 glow-box">
-      <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
-      <span class="text-xs font-mono text-indigo-400 font-semibold">1,039 Verified Games</span>
+    <!-- Header Section -->
+    <div class="mb-6 sm:mb-8 text-center max-w-2xl mx-auto">
+      <h1 class="text-3xl sm:text-5xl font-black tracking-tight text-white mb-2.5 font-mono">
+        LUNAMIX
+      </h1>
+      <p class="text-xs sm:text-sm text-neutral-400 leading-relaxed">
+        Free unblocked web games to play at school or home. Fast loading, no installs. Press <kbd class="px-1.5 py-0.5 text-[10px] font-mono bg-slate-800 rounded border border-slate-700 text-slate-300">~</kbd> anytime to panic exit.
+      </p>
     </div>
 
-    <!-- Hero Title -->
-    <h1 class="text-4xl sm:text-6xl md:text-7xl font-extrabold tracking-tight text-white mb-6 leading-tight">
-      Play Without Limits.<br>
-      <span class="text-transparent bg-clip-text bg-gradient-to-r from-white via-neutral-200 to-neutral-400">
-        Unblocked Web Arcade.
-      </span>
-    </h1>
-
-    <!-- Hero Subtitle -->
-    <p class="max-w-2xl text-base sm:text-xl text-neutral-400 font-normal leading-relaxed mb-10">
-      Lunamix delivers a pristine, high-density catalog of 1,000+ curated unblocked web games directly to your browser. Enjoy fast gameplay, high performance, and built-in stealth cloaking.
-    </p>
-
-    <!-- Hero Call to Action Buttons -->
-    <div class="flex flex-col sm:flex-row items-center justify-center gap-4 w-full max-w-md sm:max-w-none mb-16">
+    <!-- Search Controls & Category Filter Bar -->
+    <div class="sticky top-20 z-20 mb-8 p-3.5 sm:p-4 rounded-2xl bg-slate-900/90 border border-slate-800 shadow-2xl backdrop-blur-xl">
       
-      <!-- Primary CTA: Catalog -->
-      <a 
-        href="./games.html" 
-        class="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-8 py-4 rounded-xl bg-white text-black font-semibold text-sm sm:text-base hover:bg-neutral-200 transition-all transform hover:-translate-y-0.5 shadow-2xl shadow-white/20 glow-dot"
-      >
-        <span>Explore All 1,000+ Games</span>
-        <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
-        </svg>
-      </a>
+      <!-- Top Row: Search Input & Status Counter -->
+      <div class="flex flex-col sm:flex-row gap-3 items-stretch sm:items-center justify-between mb-3.5">
+        
+        <!-- Live Search Input -->
+        <div class="relative flex-1">
+          <div class="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-slate-400">
+            <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+            </svg>
+          </div>
+          <input 
+            id="search-input" 
+            type="text" 
+            placeholder="Search 1,000+ games (Press '/' to focus)..." 
+            class="w-full pl-10 pr-20 py-2.5 bg-slate-950/80 border border-slate-800 rounded-xl text-sm text-slate-100 placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-white/40 focus:border-transparent transition-all"
+            autocomplete="off"
+          >
+          <div class="absolute inset-y-0 right-0 pr-2.5 flex items-center gap-1.5">
+            <button 
+              id="search-clear-btn" 
+              type="button" 
+              onclick="clearSearch()"
+              class="hidden text-slate-500 hover:text-slate-300 p-1 cursor-pointer"
+              title="Clear search"
+            >
+              <svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+              </svg>
+            </button>
+            <kbd class="hidden sm:inline-block px-1.5 py-0.5 text-[10px] font-mono text-slate-400 bg-slate-800/80 rounded border border-slate-700">/</kbd>
+          </div>
+        </div>
 
-      <!-- Secondary CTA: GUST Proxy -->
-      <a 
-        href="./gust.html" 
-        class="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-6 py-4 rounded-xl bg-slate-900/90 text-emerald-300 font-semibold text-sm sm:text-base border border-emerald-500/40 hover:bg-slate-800 hover:border-emerald-400 transition-all transform hover:-translate-y-0.5 shadow-xl"
-        title="Bypass Network Firewalls with GUST WebAssembly Proxy"
-      >
-        <svg class="w-5 h-5 text-emerald-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
-        </svg>
-        <span>GUST Proxy Browser</span>
-      </a>
+        <!-- Live Status Counter -->
+        <div id="status-counter" class="text-xs text-slate-300 font-mono px-3 py-1.5 bg-slate-950/60 border border-slate-800/80 rounded-xl text-center sm:text-right shrink-0">
+          Loading catalog...
+        </div>
 
-      <!-- Tertiary CTA: Eaglercraft 26.3 -->
-      <a 
-        href="https://skiingbeast2025.github.io/lunamix-eaglercraft/" 
-        class="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-4 rounded-xl bg-emerald-950/90 text-emerald-300 font-semibold text-sm sm:text-base border border-emerald-500/50 hover:bg-emerald-900/60 hover:border-emerald-400 transition-all transform hover:-translate-y-0.5 shadow-xl"
-        title="Play Eaglercraft 26.3 (Latest Web Minecraft)"
-      >
-        <span class="text-lg">⛏️</span>
-        <span>Eaglercraft 26.3</span>
-      </a>
+      </div>
+
+      <!-- Bottom Row: Category Filter Pills -->
+      <div class="flex items-center gap-1.5 overflow-x-auto pb-1 sm:pb-0 scrollbar-none" id="category-pills">
+        <button 
+          type="button" 
+          data-category="all" 
+          onclick="setCategory('all')" 
+          class="cat-pill px-3 py-1.5 rounded-xl text-xs font-semibold transition-all whitespace-nowrap bg-white text-black shadow-sm cursor-pointer"
+        >
+          All
+        </button>
+        <button 
+          type="button" 
+          data-category="featured" 
+          onclick="setCategory('featured')" 
+          class="cat-pill px-3 py-1.5 rounded-xl text-xs font-semibold transition-all whitespace-nowrap bg-slate-950/70 text-slate-300 hover:text-white hover:bg-slate-850 border border-slate-800 cursor-pointer"
+        >
+          Featured
+        </button>
+        <button 
+          type="button" 
+          data-category="geometry-dash" 
+          onclick="setCategory('geometry-dash')" 
+          class="cat-pill px-3 py-1.5 rounded-xl text-xs font-semibold transition-all whitespace-nowrap bg-slate-950/70 text-amber-300 hover:text-amber-200 hover:bg-slate-850 border border-slate-800 cursor-pointer"
+        >
+          Geometry Dash
+        </button>
+        <button 
+          type="button" 
+          data-category="minecraft" 
+          onclick="setCategory('minecraft')" 
+          class="cat-pill px-3 py-1.5 rounded-xl text-xs font-semibold transition-all whitespace-nowrap bg-slate-950/70 text-emerald-400 hover:text-emerald-300 hover:bg-slate-850 border border-slate-800 cursor-pointer"
+        >
+          Minecraft
+        </button>
+        <button 
+          type="button" 
+          data-category="emulator" 
+          onclick="setCategory('emulator')" 
+          class="cat-pill px-3 py-1.5 rounded-xl text-xs font-semibold transition-all whitespace-nowrap bg-slate-950/70 text-purple-400 hover:text-purple-300 hover:bg-slate-850 border border-slate-800 cursor-pointer"
+        >
+          Emulators
+        </button>
+        <button 
+          type="button" 
+          data-category="action" 
+          onclick="setCategory('action')" 
+          class="cat-pill px-3 py-1.5 rounded-xl text-xs font-semibold transition-all whitespace-nowrap bg-slate-950/70 text-slate-300 hover:text-white hover:bg-slate-850 border border-slate-800 cursor-pointer"
+        >
+          Action
+        </button>
+        <button 
+          type="button" 
+          data-category="platformer" 
+          onclick="setCategory('platformer')" 
+          class="cat-pill px-3 py-1.5 rounded-xl text-xs font-semibold transition-all whitespace-nowrap bg-slate-950/70 text-slate-300 hover:text-white hover:bg-slate-850 border border-slate-800 cursor-pointer"
+        >
+          Platformer
+        </button>
+        <button 
+          type="button" 
+          data-category="driving" 
+          onclick="setCategory('driving')" 
+          class="cat-pill px-3 py-1.5 rounded-xl text-xs font-semibold transition-all whitespace-nowrap bg-slate-950/70 text-slate-300 hover:text-white hover:bg-slate-850 border border-slate-800 cursor-pointer"
+        >
+          Driving
+        </button>
+        <button 
+          type="button" 
+          data-category="sports" 
+          onclick="setCategory('sports')" 
+          class="cat-pill px-3 py-1.5 rounded-xl text-xs font-semibold transition-all whitespace-nowrap bg-slate-950/70 text-slate-300 hover:text-white hover:bg-slate-850 border border-slate-800 cursor-pointer"
+        >
+          Sports
+        </button>
+        <button 
+          type="button" 
+          data-category="puzzle" 
+          onclick="setCategory('puzzle')" 
+          class="cat-pill px-3 py-1.5 rounded-xl text-xs font-semibold transition-all whitespace-nowrap bg-slate-950/70 text-slate-300 hover:text-white hover:bg-slate-850 border border-slate-800 cursor-pointer"
+        >
+          Puzzle
+        </button>
+        <button 
+          type="button" 
+          data-category="retro" 
+          onclick="setCategory('retro')" 
+          class="cat-pill px-3 py-1.5 rounded-xl text-xs font-semibold transition-all whitespace-nowrap bg-slate-950/70 text-slate-300 hover:text-white hover:bg-slate-850 border border-slate-800 cursor-pointer"
+        >
+          Retro
+        </button>
+        <button 
+          type="button" 
+          data-category="other" 
+          onclick="setCategory('other')" 
+          class="cat-pill px-3 py-1.5 rounded-xl text-xs font-semibold transition-all whitespace-nowrap bg-slate-950/70 text-slate-300 hover:text-white hover:bg-slate-850 border border-slate-800 cursor-pointer"
+        >
+          Other
+        </button>
+      </div>
 
     </div>
 
+    <!-- Quick Play / Featured Picks Row -->
+    <div id="quick-picks-section" class="mb-8">
+      <div class="flex items-center justify-between mb-3 px-1">
+        <h2 class="text-sm font-bold tracking-wide uppercase font-mono text-slate-400">Popular Games</h2>
+        <span class="text-xs text-slate-500 font-mono">Instant Play</span>
+      </div>
+      <div class="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-8 gap-2.5">
+        
+        <a href="./play.html?game=geometry-dash" class="featured-card group p-2 rounded-xl bg-slate-900/70 border border-slate-800 hover:border-amber-400/80 flex flex-col items-center text-center">
+          <div class="aspect-square w-full rounded-lg overflow-hidden bg-slate-950 mb-1.5">
+            <img src="./assets/logos/geometry-dash.png" alt="Geometry Dash" class="w-full h-full object-cover group-hover:scale-105 transition-transform">
+          </div>
+          <span class="text-xs font-bold text-slate-200 group-hover:text-amber-300 truncate w-full">Geometry Dash</span>
+          <span class="text-[9px] font-mono text-amber-400">WASM 2.2</span>
+        </a>
 
+        <a href="https://skiingbeast2025.github.io/lunamix-eaglercraft/" class="featured-card group p-2 rounded-xl bg-slate-900/70 border border-slate-800 hover:border-emerald-400/80 flex flex-col items-center text-center">
+          <div class="aspect-square w-full rounded-lg overflow-hidden bg-slate-950 mb-1.5">
+            <img src="./assets/logos/eaglercraft.png" alt="Eaglercraft 26.3" class="w-full h-full object-cover group-hover:scale-105 transition-transform">
+          </div>
+          <span class="text-xs font-bold text-slate-200 group-hover:text-emerald-300 truncate w-full">Eaglercraft</span>
+          <span class="text-[9px] font-mono text-emerald-400">67 Clients</span>
+        </a>
+
+        <a href="./play.html?game=slope" class="featured-card group p-2 rounded-xl bg-slate-900/70 border border-slate-800 hover:border-indigo-400/80 flex flex-col items-center text-center">
+          <div class="aspect-square w-full rounded-lg overflow-hidden bg-slate-950 mb-1.5">
+            <img src="./assets/logos/slope.png" alt="Slope" class="w-full h-full object-cover group-hover:scale-105 transition-transform">
+          </div>
+          <span class="text-xs font-bold text-slate-200 group-hover:text-indigo-300 truncate w-full">Slope</span>
+          <span class="text-[9px] font-mono text-slate-400">Speed 3D</span>
+        </a>
+
+        <a href="./play.html?game=ovo" class="featured-card group p-2 rounded-xl bg-slate-900/70 border border-slate-800 hover:border-indigo-400/80 flex flex-col items-center text-center">
+          <div class="aspect-square w-full rounded-lg overflow-hidden bg-slate-950 mb-1.5">
+            <img src="./assets/logos/ovo.png" alt="OvO" class="w-full h-full object-cover group-hover:scale-105 transition-transform">
+          </div>
+          <span class="text-xs font-bold text-slate-200 group-hover:text-indigo-300 truncate w-full">OvO</span>
+          <span class="text-[9px] font-mono text-slate-400">Parkour</span>
+        </a>
+
+        <a href="./play.html?game=subway-surfers" class="featured-card group p-2 rounded-xl bg-slate-900/70 border border-slate-800 hover:border-indigo-400/80 flex flex-col items-center text-center">
+          <div class="aspect-square w-full rounded-lg overflow-hidden bg-slate-950 mb-1.5">
+            <img src="./assets/logos/subway-surfers.png" alt="Subway Surfers" class="w-full h-full object-cover group-hover:scale-105 transition-transform">
+          </div>
+          <span class="text-xs font-bold text-slate-200 group-hover:text-indigo-300 truncate w-full">Subway Surfers</span>
+          <span class="text-[9px] font-mono text-slate-400">Runner</span>
+        </a>
+
+        <a href="./play.html?game=polytrack" class="featured-card group p-2 rounded-xl bg-slate-900/70 border border-slate-800 hover:border-indigo-400/80 flex flex-col items-center text-center">
+          <div class="aspect-square w-full rounded-lg overflow-hidden bg-slate-950 mb-1.5">
+            <img src="./assets/logos/polytrack.png" alt="PolyTrack" class="w-full h-full object-cover group-hover:scale-105 transition-transform">
+          </div>
+          <span class="text-xs font-bold text-slate-200 group-hover:text-indigo-300 truncate w-full">PolyTrack</span>
+          <span class="text-[9px] font-mono text-slate-400">Racing</span>
+        </a>
+
+        <a href="https://skiingbeast2025.github.io/webdickers/" target="_blank" rel="noopener noreferrer" class="featured-card group p-2 rounded-xl bg-slate-900/70 border border-slate-800 hover:border-cyan-400/80 flex flex-col items-center text-center">
+          <div class="aspect-square w-full rounded-lg overflow-hidden bg-slate-950 mb-1.5">
+            <img src="./assets/logos/web-dashers.png" alt="Web Dashers" class="w-full h-full object-cover group-hover:scale-105 transition-transform">
+          </div>
+          <span class="text-xs font-bold text-slate-200 group-hover:text-cyan-300 truncate w-full">Web Dashers</span>
+          <span class="text-[9px] font-mono text-cyan-400">Standalone ↗</span>
+        </a>
+
+        <a href="./play.html?id=237" class="featured-card group p-2 rounded-xl bg-slate-900/70 border border-slate-800 hover:border-indigo-400/80 flex flex-col items-center text-center">
+          <div class="aspect-square w-full rounded-lg overflow-hidden bg-slate-950 mb-1.5">
+            <img src="https://iloveshorty.github.io/img/retrobowl.png" alt="Retro Bowl" class="w-full h-full object-cover group-hover:scale-105 transition-transform" onerror="handleGameLogoError(this)">
+          </div>
+          <span class="text-xs font-bold text-slate-200 group-hover:text-indigo-300 truncate w-full">Retro Bowl</span>
+          <span class="text-[9px] font-mono text-slate-400">Football</span>
+        </a>
+
+      </div>
     </div>
 
-    <!-- Feature Pillars Grid -->
-    <div class="w-full grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 text-left">
-      
-      <!-- Feature 1 -->
-      <div class="feature-card p-5 rounded-2xl bg-slate-950/70 border border-slate-800/90 backdrop-blur-md">
-        <div class="w-10 h-10 rounded-xl bg-indigo-500/10 border border-indigo-500/20 flex items-center justify-center text-indigo-400 mb-3.5">
-          <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
-          </svg>
-        </div>
-        <h3 class="text-sm font-bold text-white mb-1">Fast Play</h3>
-        <p class="text-xs text-slate-400 leading-relaxed">
-          Zero downloads or installations required. Jump straight into the action with high-speed gameplay.
-        </p>
-      </div>
+    <!-- Dynamic Game Cards Grid -->
+    <div 
+      id="games-grid" 
+      class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-3 sm:gap-4 mb-10"
+    >
+      <!-- Cards rendered via JavaScript -->
+    </div>
 
-      <!-- Feature 2 -->
-      <div class="feature-card p-5 rounded-2xl bg-slate-950/70 border border-slate-800/90 backdrop-blur-md">
-        <div class="w-10 h-10 rounded-xl bg-rose-500/10 border border-rose-500/20 flex items-center justify-center text-rose-400 mb-3.5">
-          <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
-          </svg>
-        </div>
-        <h3 class="text-sm font-bold text-white mb-1">Tab Cloak & Panic</h3>
-        <p class="text-xs text-slate-400 leading-relaxed">
-          Disguise as Google Classroom or Drive in 1 click. Press <kbd class="px-1 py-0.5 text-[10px] font-mono bg-slate-800 rounded">~</kbd> for emergency escape to apsva.us.
-        </p>
+    <!-- Empty State -->
+    <div id="empty-state" class="hidden flex flex-col items-center justify-center py-16 text-center">
+      <div class="w-12 h-12 rounded-xl bg-slate-900 border border-slate-800 flex items-center justify-center text-slate-500 mb-3">
+        <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.172 16.172a4 4 0 015.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+        </svg>
       </div>
+      <h3 class="text-sm font-bold text-white mb-1">No Games Found</h3>
+      <p class="text-xs text-slate-400 max-w-sm mb-4">
+        No titles match your search criteria. Try a different search query or reset filters.
+      </p>
+      <button 
+        type="button" 
+        onclick="clearSearch()"
+        class="px-4 py-2 rounded-xl bg-white text-black font-semibold text-xs hover:bg-neutral-200 transition-colors cursor-pointer"
+      >
+        Reset Filters
+      </button>
+    </div>
 
-      <!-- Feature 3 -->
-      <div class="feature-card p-5 rounded-2xl bg-slate-950/70 border border-slate-800/90 backdrop-blur-md">
-        <div class="w-10 h-10 rounded-xl bg-amber-500/10 border border-amber-500/20 flex items-center justify-center text-amber-400 mb-3.5">
-          <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 4a2 2 0 114 0v1a1 1 0 001 1h3a1 1 0 011 1v3a1 1 0 01-1 1h-1a2 2 0 100 4h1a1 1 0 011 1v3a1 1 0 01-1 1h-3a1 1 0 01-1-1v-1a2 2 0 10-4 0v1a1 1 0 01-1 1H7a1 1 0 01-1-1v-3a1 1 0 00-1-1H4a2 2 0 110-4h1a1 1 0 001-1V7a1 1 0 011-1h3a1 1 0 001-1V4z" />
-          </svg>
-        </div>
-        <h3 class="text-sm font-bold text-white mb-1">Geometry Dash Hub</h3>
-        <p class="text-xs text-slate-400 leading-relaxed">
-          Featuring full custom music loading, Boomlings server connectivity, and smooth graphic acceleration.
-        </p>
+    <!-- Infinite Scroll Sentinel & Load More Fallback -->
+    <div id="scroll-sentinel" class="py-6 flex flex-col items-center justify-center">
+      <button 
+        id="load-more-btn" 
+        type="button" 
+        onclick="renderNextChunk()" 
+        class="hidden px-5 py-2.5 rounded-xl bg-slate-900 border border-slate-800 text-xs font-semibold text-slate-300 hover:text-white hover:bg-slate-800 transition-colors cursor-pointer"
+      >
+        Load More Games
+      </button>
+      <div id="catalog-end" class="hidden text-xs text-slate-500 font-mono py-4">
+        You have reached the end of the catalog
       </div>
-
-      <!-- Feature 4 -->
-      <div class="feature-card p-5 rounded-2xl bg-slate-950/70 border border-slate-800/90 backdrop-blur-md">
-        <div class="w-10 h-10 rounded-xl bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center text-emerald-400 mb-3.5">
-          <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
-          </svg>
-        </div>
-        <h3 class="text-sm font-bold text-white mb-1">1,000+ Game Index</h3>
-        <p class="text-xs text-slate-400 leading-relaxed">
-          Full catalog of StrongDog, OvO, Slope, PolyTrack, Subway Surfers, and verified HTML5 classics.
-        </p>
-      </div>
-
     </div>
 
   </main>
 
-  <!-- Minimalist Footer -->
-  <footer class="relative z-10 w-full border-t border-slate-900 bg-slate-950/90 backdrop-blur-md py-6 text-center">
-    <div class="max-w-7xl mx-auto px-4 flex items-center justify-center text-xs text-slate-500 font-mono">
-      <a href="https://github.com/skiingbeast2025/lunamix" target="_blank" rel="noopener noreferrer" class="hover:text-slate-300 transition-colors">GitHub</a>
+  <!-- Community Footer -->
+  <footer class="relative z-10 w-full border-t border-slate-900 bg-slate-950 py-6 text-center text-xs text-slate-500 font-mono">
+    <div class="max-w-7xl mx-auto px-4 flex flex-col sm:flex-row items-center justify-between gap-3">
+      <span>Lunamix &bull; Unblocked Web Games</span>
+      <div class="flex items-center gap-4">
+        <a href="https://github.com/skiingbeast2025/lunamix" target="_blank" rel="noopener noreferrer" class="hover:text-slate-300 transition-colors">GitHub</a>
+        <a href="https://skiingbeast2025.github.io/lunamix-eaglercraft/" target="_blank" rel="noopener noreferrer" class="hover:text-slate-300 transition-colors">Eaglercraft Hub</a>
+        <a href="./gust.html" class="hover:text-slate-300 transition-colors">GUST Proxy</a>
+      </div>
     </div>
   </footer>
 
   <!-- Quick Settings & Cloak Customizer Modal -->
   <div id="settings-modal" class="fixed inset-0 z-50 flex items-center justify-center bg-black/80 backdrop-blur-md p-4 hidden">
-    <div class="w-full max-w-md rounded-2xl bg-slate-900 border border-slate-800 shadow-2xl p-6 glow-box relative">
+    <div class="w-full max-w-md rounded-2xl bg-slate-900 border border-slate-800 shadow-2xl p-6 relative">
       <div class="flex items-center justify-between mb-5">
         <h3 class="text-base font-bold text-white flex items-center gap-2">
-          <span>⚙️ Settings & Stealth Controls</span>
+          Settings & Stealth Controls
         </h3>
-        <button type="button" onclick="closeSettingsModal()" class="text-slate-400 hover:text-white p-1 rounded-lg hover:bg-slate-800">
+        <button type="button" onclick="closeSettingsModal()" class="text-slate-400 hover:text-white p-1 rounded-lg hover:bg-slate-800 cursor-pointer">
           <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
           </svg>
@@ -371,7 +526,7 @@
             class="tab-cloak-select w-full bg-slate-950 border border-slate-700 text-sm text-slate-200 rounded-xl px-3 py-2.5 focus:outline-none focus:ring-1 focus:ring-white"
             onchange="LunamixCloak.apply(this.value)"
           >
-            <option value="default">Default (Lunamix Arcade)</option>
+            <option value="default">Default (Lunamix)</option>
             <option value="classroom">Google Classroom (Classes)</option>
             <option value="drive">Google Drive (My Drive)</option>
             <option value="canvas">Canvas LMS (Dashboard)</option>
@@ -393,7 +548,7 @@
             <button 
               type="button" 
               onclick="savePanicKey()"
-              class="flex-1 bg-slate-800 hover:bg-slate-700 text-slate-200 text-xs font-semibold rounded-xl px-4 py-2.5 transition-colors"
+              class="flex-1 bg-slate-800 hover:bg-slate-700 text-slate-200 text-xs font-semibold rounded-xl px-4 py-2.5 transition-colors cursor-pointer"
             >
               Update Key
             </button>
@@ -416,7 +571,7 @@
         <button 
           type="button" 
           onclick="closeSettingsModal()" 
-          class="px-4 py-2 rounded-xl bg-white text-black font-semibold text-xs hover:bg-neutral-200 transition-colors"
+          class="px-4 py-2 rounded-xl bg-white text-black font-semibold text-xs hover:bg-neutral-200 transition-colors cursor-pointer"
         >
           Save & Close
         </button>
@@ -427,7 +582,442 @@
   <!-- Lunamix Core Library -->
   <script src="./assets/js/lunamix-core.js"></script>
 
+  <!-- Catalog Management Script -->
   <script>
+    const CHUNK_SIZE = 36;
+    let allGames = [];
+    let filteredGames = [];
+    let renderedCount = 0;
+    let currentCategory = 'all';
+    let searchQuery = '';
+    let intersectionObserver = null;
+
+    const LOCAL_GAMES = [
+      {
+        id: "gd-wasm",
+        slug: "geometry-dash",
+        name: "Geometry Dash",
+        category: "geometry-dash",
+        targetUrl: "./play.html?game=geometry-dash",
+        logo: "./assets/logos/geometry-dash.png",
+        isLocal: true,
+        isFeatured: true
+      },
+      {
+        id: "eagler-26-3",
+        slug: "eaglercraft-26-3",
+        name: "Eaglercraft 26.3 (Latest Minecraft)",
+        category: "minecraft",
+        targetUrl: "https://skiingbeast2025.github.io/lunamix-eaglercraft/",
+        logo: "./assets/logos/eaglercraft.png",
+        isLocal: true,
+        isFeatured: true,
+        openInNewTab: false
+      },
+      {
+        id: "web-dashers",
+        slug: "web-dashers",
+        name: "Web Dashers",
+        category: "geometry-dash",
+        targetUrl: "https://skiingbeast2025.github.io/webdickers/",
+        logo: "./assets/logos/web-dashers.png",
+        isLocal: true,
+        isFeatured: true,
+        openInNewTab: true
+      },
+      {
+        id: "gd-scratch",
+        slug: "geometry-dash-scratch",
+        name: "Geometry Dash Scratch",
+        category: "geometry-dash",
+        targetUrl: "./play.html?game=geometry-dash-scratch",
+        logo: "./assets/logos/geometry-dash.png",
+        isLocal: true,
+        isFeatured: true
+      },
+      {
+        id: "gd-classic",
+        slug: "geodash",
+        name: "GeoDash Classic",
+        category: "geometry-dash",
+        targetUrl: "./play.html?game=geodash",
+        logo: "./assets/logos/geometry-dash.png",
+        isLocal: true,
+        isFeatured: false
+      },
+      {
+        id: "slope",
+        slug: "slope",
+        name: "Slope",
+        category: "action",
+        targetUrl: "./play.html?game=slope",
+        logo: "./assets/logos/slope.png",
+        isLocal: true,
+        isFeatured: true
+      },
+      {
+        id: "ovo",
+        slug: "ovo",
+        name: "OvO",
+        category: "platformer",
+        targetUrl: "./play.html?game=ovo",
+        logo: "./assets/logos/ovo.png",
+        isLocal: true,
+        isFeatured: true
+      },
+      {
+        id: "subway-surfers",
+        slug: "subway-surfers",
+        name: "Subway Surfers",
+        category: "action",
+        targetUrl: "./play.html?game=subway-surfers",
+        logo: "./assets/logos/subway-surfers.png",
+        isLocal: true,
+        isFeatured: true
+      },
+      {
+        id: "polytrack",
+        slug: "polytrack",
+        name: "PolyTrack",
+        category: "driving",
+        targetUrl: "./play.html?game=polytrack",
+        logo: "./assets/logos/polytrack.png",
+        isLocal: true,
+        isFeatured: true
+      }
+    ];
+
+    function getGameLogo(game) {
+      if (game.localLogo) return game.localLogo;
+      const lower = (game.name || '').toLowerCase();
+      if (lower.includes('geometry dash') || lower.includes('geodash') || lower.includes('dash')) {
+        return './assets/logos/geometry-dash.png';
+      }
+      if (lower.includes('eaglercraft') || lower.includes('minecraft')) {
+        return './assets/logos/eaglercraft.png';
+      }
+      if (game.logoUrl) return game.logoUrl;
+      return './assets/logos/lunamix-badge.svg';
+    }
+
+    async function initCatalog() {
+      try {
+        const res = await fetch('./games-data.json');
+        if (!res.ok) throw new Error('HTTP ' + res.status);
+        const data = await res.json();
+
+        const catalogGames = data.map(g => {
+          let target = `./play.html?id=${g.id}`;
+          if (g.category === 'minecraft' && g.playableUrl && g.playableUrl.startsWith('https://skiingbeast2025.github.io/lunamix-eaglercraft/')) {
+            target = g.playableUrl;
+          }
+          return {
+            ...g,
+            targetUrl: target,
+            logo: getGameLogo(g),
+            isLocal: false,
+            isFeatured: false
+          };
+        });
+
+        allGames = [...LOCAL_GAMES, ...catalogGames];
+      } catch (err) {
+        console.warn('Fallback to local games list:', err);
+        allGames = [...LOCAL_GAMES];
+      }
+
+      initCategoryFromURL();
+      initSearch();
+      applyFilters();
+      initObserver();
+    }
+
+    function initCategoryFromURL() {
+      const params = new URLSearchParams(window.location.search);
+      const cat = params.get('category');
+      if (cat) {
+        currentCategory = cat;
+        updateCategoryPillUI();
+      }
+      const q = params.get('q');
+      if (q) {
+        searchQuery = q.toLowerCase().trim();
+        const input = document.getElementById('search-input');
+        if (input) input.value = q;
+        document.getElementById('search-clear-btn').classList.remove('hidden');
+      }
+    }
+
+    function applyFilters() {
+      const q = searchQuery.toLowerCase().trim();
+
+      filteredGames = allGames.filter(game => {
+        const name = (game.name || '').toLowerCase();
+        const cat = (game.category || '').toLowerCase();
+
+        let matchesCategory = true;
+        if (currentCategory === 'all') {
+          matchesCategory = true;
+        } else if (currentCategory === 'featured') {
+          matchesCategory = !!game.isFeatured || !!game.isLocal;
+        } else if (currentCategory === 'geometry-dash') {
+          matchesCategory = cat === 'geometry-dash' || name.includes('geometry dash') || name.includes('geodash') || name.includes('dash');
+        } else if (currentCategory === 'minecraft') {
+          matchesCategory = cat === 'minecraft' || name.includes('minecraft') || name.includes('eaglercraft');
+        } else if (currentCategory === 'emulator') {
+          matchesCategory = cat === 'emulator' || name.includes('emulator') || name.includes('gba') || name.includes('snes') || name.includes('n64') || name.includes('nds');
+        } else {
+          matchesCategory = cat === currentCategory;
+        }
+
+        if (!matchesCategory) return false;
+
+        if (q) {
+          const matchesName = name.includes(q);
+          const matchesCat = cat.includes(q);
+          const matchesSlug = (game.slug || '').toLowerCase().includes(q);
+          return matchesName || matchesCat || matchesSlug;
+        }
+
+        return true;
+      });
+
+      const quickPicks = document.getElementById('quick-picks-section');
+      if (quickPicks) {
+        if (q || currentCategory !== 'all') {
+          quickPicks.classList.add('hidden');
+        } else {
+          quickPicks.classList.remove('hidden');
+        }
+      }
+
+      const grid = document.getElementById('games-grid');
+      grid.innerHTML = '';
+      renderedCount = 0;
+
+      const counter = document.getElementById('status-counter');
+      counter.textContent = `Showing ${filteredGames.length} of ${allGames.length} games`;
+
+      const emptyState = document.getElementById('empty-state');
+      const sentinel = document.getElementById('scroll-sentinel');
+      if (filteredGames.length === 0) {
+        emptyState.classList.remove('hidden');
+        sentinel.classList.add('hidden');
+      } else {
+        emptyState.classList.add('hidden');
+        sentinel.classList.remove('hidden');
+        renderNextChunk();
+      }
+    }
+
+    function renderNextChunk() {
+      if (renderedCount >= filteredGames.length) {
+        document.getElementById('load-more-btn').classList.add('hidden');
+        document.getElementById('catalog-end').classList.remove('hidden');
+        return;
+      }
+
+      const grid = document.getElementById('games-grid');
+      const nextBatch = filteredGames.slice(renderedCount, renderedCount + CHUNK_SIZE);
+      const fragment = document.createDocumentFragment();
+
+      nextBatch.forEach(game => {
+        const card = createGameCard(game);
+        fragment.appendChild(card);
+      });
+
+      grid.appendChild(fragment);
+      renderedCount += nextBatch.length;
+
+      const loadMoreBtn = document.getElementById('load-more-btn');
+      const catalogEnd = document.getElementById('catalog-end');
+      if (renderedCount >= filteredGames.length) {
+        loadMoreBtn.classList.add('hidden');
+        catalogEnd.classList.remove('hidden');
+      } else {
+        loadMoreBtn.classList.remove('hidden');
+        catalogEnd.classList.add('hidden');
+      }
+    }
+
+    function createGameCard(game) {
+      const a = document.createElement('a');
+      a.href = game.targetUrl;
+      if (game.openInNewTab) {
+        a.target = '_blank';
+        a.rel = 'noopener noreferrer';
+      }
+      a.className = 'game-card group relative flex flex-col bg-slate-900/60 hover:bg-slate-900/95 border border-slate-800/80 hover:border-slate-600 rounded-xl overflow-hidden backdrop-blur-md shadow-md';
+
+      const logoSrc = game.logo || getGameLogo(game);
+
+      const imgContainer = document.createElement('div');
+      imgContainer.className = 'relative aspect-video w-full overflow-hidden bg-slate-950 flex items-center justify-center';
+
+      const img = document.createElement('img');
+      img.src = logoSrc;
+      img.alt = game.name;
+      img.loading = 'lazy';
+      img.className = 'w-full h-full object-cover group-hover:scale-105 transition-transform duration-300';
+      img.setAttribute('onerror', 'handleGameLogoError(this)');
+      imgContainer.appendChild(img);
+
+      if (game.openInNewTab) {
+        const tabBadge = document.createElement('span');
+        tabBadge.className = 'absolute top-1.5 left-1.5 px-1.5 py-0.5 text-[9px] font-mono font-medium text-cyan-300 bg-cyan-950/90 border border-cyan-800/70 rounded shadow flex items-center gap-1';
+        tabBadge.innerHTML = '<span>↗</span><span>TAB</span>';
+        imgContainer.appendChild(tabBadge);
+      }
+
+      if (game.isFeatured) {
+        const featBadge = document.createElement('span');
+        featBadge.className = 'absolute top-1.5 right-1.5 px-1.5 py-0.5 text-[9px] font-mono font-bold uppercase bg-amber-400/90 text-black rounded shadow flex items-center gap-0.5';
+        featBadge.textContent = 'TOP';
+        imgContainer.appendChild(featBadge);
+      }
+
+      const playOverlay = document.createElement('div');
+      playOverlay.className = 'absolute inset-0 bg-black/40 backdrop-blur-[1px] opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center';
+      if (game.openInNewTab) {
+        playOverlay.innerHTML = '<span class="w-9 h-9 rounded-full bg-white/95 text-black flex items-center justify-center shadow-lg transform group-hover:scale-110 transition-transform" title="Opens in clean standalone tab"><svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" /></svg></span>';
+      } else {
+        playOverlay.innerHTML = '<span class="w-9 h-9 rounded-full bg-white/95 text-black flex items-center justify-center shadow-lg transform group-hover:scale-110 transition-transform"><svg class="w-4 h-4 ml-0.5" fill="currentColor" viewBox="0 0 20 20"><path d="M4.5 3.5l11 6.5-11 6.5v-13z"/></svg></span>';
+      }
+      imgContainer.appendChild(playOverlay);
+
+      a.appendChild(imgContainer);
+
+      const info = document.createElement('div');
+      info.className = 'p-2.5 sm:p-3 flex flex-col justify-between flex-1';
+
+      const title = document.createElement('h3');
+      title.className = 'text-xs sm:text-sm font-semibold text-slate-100 group-hover:text-white truncate mb-1';
+      title.textContent = game.name;
+      title.title = game.name;
+      info.appendChild(title);
+
+      const metaRow = document.createElement('div');
+      metaRow.className = 'flex items-center justify-between text-[10px] font-mono text-slate-400';
+      
+      const catBadge = document.createElement('span');
+      if (game.category === 'minecraft') {
+        catBadge.className = 'uppercase px-1.5 py-0.5 rounded bg-emerald-500/20 text-emerald-300 border border-emerald-500/40 truncate max-w-[90px]';
+      } else if (game.category === 'emulator') {
+        catBadge.className = 'uppercase px-1.5 py-0.5 rounded bg-purple-500/20 text-purple-300 border border-purple-500/40 truncate max-w-[90px]';
+      } else {
+        catBadge.className = 'uppercase px-1.5 py-0.5 rounded bg-slate-800/80 border border-slate-700/60 truncate max-w-[90px]';
+      }
+      catBadge.textContent = game.category || 'OTHER';
+      metaRow.appendChild(catBadge);
+
+      const playHint = document.createElement('span');
+      playHint.className = 'text-neutral-500 group-hover:text-neutral-200 transition-colors hidden sm:inline';
+      playHint.textContent = game.openInNewTab ? 'Open ↗' : 'Play →';
+      metaRow.appendChild(playHint);
+
+      info.appendChild(metaRow);
+      a.appendChild(info);
+
+      return a;
+    }
+
+    function initObserver() {
+      if ('IntersectionObserver' in window) {
+        const sentinel = document.getElementById('scroll-sentinel');
+        intersectionObserver = new IntersectionObserver((entries) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting && renderedCount < filteredGames.length) {
+              renderNextChunk();
+            }
+          });
+        }, {
+          rootMargin: '400px'
+        });
+
+        if (sentinel) {
+          intersectionObserver.observe(sentinel);
+        }
+      } else {
+        document.getElementById('load-more-btn').classList.remove('hidden');
+      }
+    }
+
+    function setCategory(cat) {
+      currentCategory = cat;
+      updateCategoryPillUI();
+      applyFilters();
+
+      const url = new URL(window.location);
+      if (cat === 'all') {
+        url.searchParams.delete('category');
+      } else {
+        url.searchParams.set('category', cat);
+      }
+      window.history.replaceState({}, '', url);
+    }
+
+    function updateCategoryPillUI() {
+      document.querySelectorAll('.cat-pill').forEach(btn => {
+        const cat = btn.getAttribute('data-category');
+        if (cat === currentCategory) {
+          btn.className = 'cat-pill px-3 py-1.5 rounded-xl text-xs font-semibold transition-all whitespace-nowrap bg-white text-black shadow-sm cursor-pointer';
+        } else {
+          btn.className = 'cat-pill px-3 py-1.5 rounded-xl text-xs font-semibold transition-all whitespace-nowrap bg-slate-950/70 text-slate-300 hover:text-white hover:bg-slate-850 border border-slate-800 cursor-pointer';
+        }
+      });
+    }
+
+    const searchInput = document.getElementById('search-input');
+    const searchClearBtn = document.getElementById('search-clear-btn');
+    let searchDebounce = null;
+
+    function initSearch() {
+      searchInput.addEventListener('input', (e) => {
+        const val = e.target.value;
+        if (val) {
+          searchClearBtn.classList.remove('hidden');
+        } else {
+          searchClearBtn.classList.add('hidden');
+        }
+
+        clearTimeout(searchDebounce);
+        searchDebounce = setTimeout(() => {
+          searchQuery = val;
+          applyFilters();
+
+          const url = new URL(window.location);
+          if (val.trim()) {
+            url.searchParams.set('q', val.trim());
+          } else {
+            url.searchParams.delete('q');
+          }
+          window.history.replaceState({}, '', url);
+        }, 150);
+      });
+
+      document.addEventListener('keydown', (e) => {
+        if (e.key === '/' && document.activeElement !== searchInput && document.activeElement.tagName !== 'INPUT' && document.activeElement.tagName !== 'TEXTAREA') {
+          e.preventDefault();
+          searchInput.focus();
+          searchInput.select();
+        }
+      });
+    }
+
+    function clearSearch() {
+      searchInput.value = '';
+      searchClearBtn.classList.add('hidden');
+      searchQuery = '';
+      currentCategory = 'all';
+      updateCategoryPillUI();
+      applyFilters();
+
+      const url = new URL(window.location);
+      url.searchParams.delete('q');
+      url.searchParams.delete('category');
+      window.history.replaceState({}, '', url);
+    }
+
     function openSettingsModal() {
       const modal = document.getElementById('settings-modal');
       if (modal) {
@@ -451,6 +1041,8 @@
         alert('Panic key updated to: ' + k);
       }
     }
+
+    document.addEventListener('DOMContentLoaded', initCatalog);
   </script>
 </body>
 </html>

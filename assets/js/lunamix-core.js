@@ -99,11 +99,6 @@ const LunamixTheme = {
     return LUNAMIX_THEMES[this.currentTheme] || LUNAMIX_THEMES.midnight;
   },
 
-  getParticleRGB() {
-    const t = this.getTheme();
-    return t.particleRGB || [147, 130, 255];
-  },
-
   apply(themeId, save = true) {
     const theme = LUNAMIX_THEMES[themeId] || LUNAMIX_THEMES.midnight;
     this.currentTheme = theme.id;
@@ -115,11 +110,6 @@ const LunamixTheme = {
     root.style.setProperty('--lx-border', theme.border);
     root.style.setProperty('--lx-accent', theme.accent);
     root.style.setProperty('--lx-glow', theme.glow);
-
-    const canvas = document.getElementById('background');
-    if (canvas) {
-      canvas.style.backgroundColor = theme.bg;
-    }
 
     if (save) {
       try {
@@ -169,15 +159,17 @@ const LunamixTheme = {
     }
 
     modal.innerHTML = `
-      <div class="relative w-full max-w-2xl rounded-2xl bg-slate-950 border border-slate-800 shadow-2xl p-6 sm:p-7 glow-box" onclick="event.stopPropagation()">
+      <div class="relative w-full max-w-2xl rounded-2xl bg-slate-950 border border-slate-800 shadow-2xl p-6 sm:p-7" onclick="event.stopPropagation()">
         <div class="flex items-center justify-between pb-4 border-b border-slate-800/80 mb-5">
           <div class="flex items-center gap-2.5">
-            <div class="w-8 h-8 rounded-lg bg-indigo-500/20 border border-indigo-500/30 flex items-center justify-center text-indigo-400 text-base">
-              🎨
+            <div class="w-8 h-8 rounded-lg bg-indigo-500/10 border border-indigo-500/20 flex items-center justify-center text-indigo-400">
+              <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 21a4 4 0 01-4-4 5 5 0 013-4.5V11a7 7 0 1114 0v1.5a5 5 0 013 4.5 4 4 0 01-4 4H7z" />
+              </svg>
             </div>
             <div>
-              <h3 class="text-base font-bold text-white tracking-wide">Theme Selector</h3>
-              <p class="text-xs text-slate-400">Personalize your visual experience across Lunamix</p>
+              <h3 class="text-base font-bold text-white tracking-wide">Themes</h3>
+              <p class="text-xs text-slate-400">Choose a color theme for Lunamix</p>
             </div>
           </div>
           <button 
@@ -255,7 +247,7 @@ const LunamixTheme = {
 
 const LUNAMIX_CLOAK_PRESETS = {
   default: {
-    title: 'Lunamix - The Ultimate Unblocked Web Arcade',
+    title: 'Lunamix | Unblocked Games',
     favicon: './assets/logos/favicon.svg'
   },
   classroom: {
@@ -392,121 +384,9 @@ function handleGameLogoError(img) {
   img.classList.add('opacity-90');
 }
 
-/**
- * InvisiProxy Animated Constellation Background Engine
- */
-function initInvisiProxyBackground() {
-  const canvas = document.getElementById('background');
-  if (!canvas) return;
-  const ctx = canvas.getContext('2d');
-  let width = 0;
-  let height = 0;
-  let particles = [];
-  let mouse = { x: -1000, y: -1000 };
-
-  function resize() {
-    width = canvas.width = window.innerWidth;
-    height = canvas.height = window.innerHeight;
-    createParticles();
-  }
-
-  function createParticles() {
-    particles = [];
-    const count = Math.min(Math.floor((width * height) / 9500), 120);
-    for (let i = 0; i < count; i++) {
-      particles.push({
-        x: Math.random() * width,
-        y: Math.random() * height,
-        vx: (Math.random() - 0.5) * 0.7,
-        vy: (Math.random() - 0.5) * 0.7,
-        radius: Math.random() * 1.6 + 1.0,
-        baseAlpha: Math.random() * 0.4 + 0.6
-      });
-    }
-  }
-
-  window.addEventListener('resize', resize);
-  window.addEventListener('mousemove', (e) => {
-    mouse.x = e.clientX;
-    mouse.y = e.clientY;
-  });
-
-  window.addEventListener('mouseleave', () => {
-    mouse.x = -1000;
-    mouse.y = -1000;
-  });
-
-  resize();
-
-  function loop() {
-    ctx.clearRect(0, 0, width, height);
-    const len = particles.length;
-    const rgb = LunamixTheme.getParticleRGB();
-    const rgbStr = rgb.join(', ');
-
-    for (let i = 0; i < len; i++) {
-      const p1 = particles[i];
-      for (let j = i + 1; j < len; j++) {
-        const p2 = particles[j];
-        const dx = p1.x - p2.x;
-        const dy = p1.y - p2.y;
-        const dist = Math.sqrt(dx * dx + dy * dy);
-
-        if (dist < 130) {
-          const alpha = (1 - dist / 130) * 0.28;
-          ctx.strokeStyle = `rgba(${rgbStr}, ${alpha})`;
-          ctx.lineWidth = 1;
-          ctx.beginPath();
-          ctx.moveTo(p1.x, p1.y);
-          ctx.lineTo(p2.x, p2.y);
-          ctx.stroke();
-        }
-      }
-
-      const mdx = p1.x - mouse.x;
-      const mdy = p1.y - mouse.y;
-      const mdist = Math.sqrt(mdx * mdx + mdy * mdy);
-      if (mdist < 150) {
-        const alpha = (1 - mdist / 150) * 0.6;
-        ctx.strokeStyle = `rgba(${rgbStr}, ${alpha})`;
-        ctx.lineWidth = 1.2;
-        ctx.beginPath();
-        ctx.moveTo(p1.x, p1.y);
-        ctx.lineTo(mouse.x, mouse.y);
-        ctx.stroke();
-      }
-    }
-
-    for (let i = 0; i < len; i++) {
-      const p = particles[i];
-      p.x += p.vx;
-      p.y += p.vy;
-
-      if (p.x < 0) p.x = width;
-      else if (p.x > width) p.x = 0;
-      if (p.y < 0) p.y = height;
-      else if (p.y > height) p.y = 0;
-
-      ctx.fillStyle = `rgba(${rgbStr}, ${p.baseAlpha})`;
-      ctx.beginPath();
-      ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
-      ctx.fill();
-    }
-
-    requestAnimationFrame(loop);
-  }
-
-  requestAnimationFrame(loop);
-}
-
 // Auto-run on boot
 (function() {
   LunamixTheme.init();
   LunamixCloak.init();
   LunamixPanic.init();
-  if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', initInvisiProxyBackground);
-  } else {
-    initInvisiProxyBackground();
-  }
 })();
