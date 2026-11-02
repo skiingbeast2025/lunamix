@@ -1,5 +1,15 @@
 [
   {
+    "id": 2000,
+    "slug": "eaglercraft-hbwmc",
+    "name": "HBWMC Eaglercraft Client (Official)",
+    "category": "minecraft",
+    "playableUrl": "https://skiingbeast2025.github.io/lunamix-eaglercraft/downloads/hbwmc.html",
+    "logoUrl": "./assets/logos/eaglercraft.png",
+    "isFeatured": true,
+    "localLogo": "./assets/logos/eaglercraft.png"
+  },
+  {
     "id": 2001,
     "slug": "eaglercraft-26-3",
     "name": "Eaglercraft 26.3 (Latest)",

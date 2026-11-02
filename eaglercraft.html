@@ -1,0 +1,3214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lunamix Eaglercraft Launcher</title>
+  <meta name="description" content="Lunamix Eaglercraft Launcher - Play HBWMC Official Client, Eaglercraft 26.3, 1.8.8, 1.12.2, PvP clients, and hacked clients unblocked in your browser.">
+  <link rel="icon" type="image/png" href="./assets/eaglercraft/main.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@500;600;700&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+  <style>
+    /* ============================================================
+       GX-LAUNCHER CYBER-INDUSTRIAL STYLESHEET
+       ============================================================ */
+    :root {
+      --ui-scale: 1;
+      --accent: #cc0000;
+      --accent-hi: #ff2222;
+      --accent-dim: #7a0000;
+      --accent-glow: rgba(180, 0, 0, 0.22);
+      --bg: #0a0a0a;
+      --bg2: #111111;
+      --bg3: #181818;
+      --panel: #141414;
+      --border: #2a2a2a;
+      --border2: #3a0000;
+      --text: #cccccc;
+      --text-dim: #666666;
+      --text-bright: #ffffff;
+      --mono: 'Share Tech Mono', monospace;
+      --sans: 'Rajdhani', 'Segoe UI', -apple-system, sans-serif;
+    }
+
+    [data-theme="green"] {
+      --accent: #00cc44;
+      --accent-hi: #00ff55;
+      --accent-dim: #006622;
+      --accent-glow: rgba(0, 180, 60, 0.2);
+      --border2: #003318;
+    }
+    [data-theme="blood"] {
+      --accent: #cc0000;
+      --accent-hi: #ff4444;
+      --accent-dim: #800000;
+      --accent-glow: rgba(200, 0, 0, 0.25);
+      --border2: #4a0000;
+      --bg: #080000;
+      --bg2: #0d0000;
+      --bg3: #120000;
+      --panel: #0f0000;
+    }
+    [data-theme="midnight"] {
+      --accent: #5566ff;
+      --accent-hi: #7788ff;
+      --accent-dim: #2233bb;
+      --accent-glow: rgba(80, 100, 255, 0.22);
+      --border2: #1a2050;
+      --bg: #070710;
+      --bg2: #0c0c1a;
+      --bg3: #111125;
+      --panel: #0e0e1e;
+    }
+    [data-theme="ash"] {
+      --accent: #999999;
+      --accent-hi: #cccccc;
+      --accent-dim: #555555;
+      --accent-glow: rgba(150, 150, 150, 0.18);
+      --border2: #404040;
+    }
+    [data-theme="amber"] {
+      --accent: #cc7700;
+      --accent-hi: #ffaa00;
+      --accent-dim: #7a4400;
+      --accent-glow: rgba(200, 120, 0, 0.22);
+      --border2: #3a2200;
+      --bg: #090600;
+      --bg2: #100d00;
+      --bg3: #181200;
+      --panel: #130f00;
+    }
+
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html, body {
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      background: var(--bg);
+      color: var(--text);
+      font-family: var(--sans);
+      user-select: none;
+    }
+
+    /* CRT scanline overlay */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background: repeating-linear-gradient(
+        0deg,
+        transparent,
+        transparent 3px,
+        rgba(0, 0, 0, 0.06) 3px,
+        rgba(0, 0, 0, 0.06) 4px
+      );
+      pointer-events: none;
+      z-index: 9999;
+    }
+
+    /* Shell */
+    .launcher {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      background: var(--bg2);
+      position: relative;
+    }
+
+    /* Title bar */
+    .title-bar {
+      height: 38px;
+      background: var(--panel);
+      border-bottom: 1px solid var(--border);
+      padding: 0 16px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-shrink: 0;
+      position: relative;
+    }
+    .title-bar::after {
+      content: '';
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      height: 1px;
+      background: linear-gradient(90deg, transparent 0%, var(--accent) 50%, transparent 100%);
+      opacity: 0.4;
+    }
+    .title-logo {
+      font-family: var(--mono);
+      font-size: 12px;
+      color: var(--accent);
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .title-logo .ver {
+      color: var(--text-dim);
+      font-size: 10px;
+      letter-spacing: 0.1em;
+    }
+    .title-dot {
+      width: 7px;
+      height: 7px;
+      background: var(--accent);
+      border-radius: 50%;
+      box-shadow: 0 0 8px var(--accent);
+      animation: pulse-glow 2s infinite ease-in-out;
+    }
+    @keyframes pulse-glow {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.3; }
+    }
+    .title-controls {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .wdot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: var(--border);
+      cursor: pointer;
+      transition: all 0.15s;
+    }
+    .wdot.min:hover { background: #eab308; }
+    .wdot.max:hover { background: #22c55e; }
+    .wdot.close:hover { background: #ef4444; }
+
+    /* Content row */
+    .content-row {
+      display: flex;
+      flex: 1;
+      min-height: 0;
+      overflow: hidden;
+    }
+
+    /* Sidebar */
+    .sidebar {
+      width: 200px;
+      flex-shrink: 0;
+      background: var(--panel);
+      border-right: 1px solid var(--border);
+      display: flex;
+      flex-direction: column;
+    }
+    .profile-card {
+      padding: 16px 14px 12px;
+      border-bottom: 1px solid var(--border);
+    }
+    .profile-label {
+      font-family: var(--mono);
+      font-size: 9px;
+      color: var(--text-dim);
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+    }
+    .profile-name {
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--text-bright);
+      letter-spacing: 0.04em;
+      margin-top: 2px;
+    }
+    .profile-status {
+      font-family: var(--mono);
+      font-size: 10px;
+      color: var(--accent);
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      margin-top: 4px;
+    }
+    .status-dot {
+      width: 6px;
+      height: 6px;
+      background: var(--accent);
+      border-radius: 50%;
+      box-shadow: 0 0 6px var(--accent);
+      animation: pulse-glow 2s infinite ease-in-out;
+    }
+
+    nav {
+      flex: 1;
+      padding: 8px 0;
+      overflow-y: auto;
+    }
+    .nav-label {
+      font-family: var(--mono);
+      font-size: 9px;
+      color: var(--text-dim);
+      text-transform: uppercase;
+      letter-spacing: 0.2em;
+      padding: 8px 14px 4px;
+    }
+    .nav-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 10px 14px;
+      cursor: pointer;
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      color: var(--text-dim);
+      text-transform: uppercase;
+      border-left: 2px solid transparent;
+      transition: all 0.15s;
+    }
+    .nav-item:hover {
+      background: rgba(255, 255, 255, 0.04);
+      color: var(--text);
+    }
+    .nav-item.selected {
+      background: var(--accent-glow);
+      border-left-color: var(--accent);
+      color: var(--text-bright);
+    }
+    .nav-svg {
+      width: 16px;
+      height: 16px;
+      stroke: currentColor;
+      fill: none;
+      stroke-width: 1.7;
+      opacity: 0.6;
+      transition: opacity 0.15s;
+    }
+    .nav-item:hover .nav-svg,
+    .nav-item.selected .nav-svg {
+      opacity: 1;
+    }
+
+    .sidebar-footer {
+      border-top: 1px solid var(--border);
+      padding: 6px 0;
+      flex-shrink: 0;
+    }
+
+    /* Main stage */
+    .main-panel {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      background: var(--bg3);
+      min-width: 0;
+      min-height: 0;
+      position: relative;
+    }
+    .top-bar {
+      height: 38px;
+      background: var(--panel);
+      border-bottom: 1px solid var(--border);
+      padding: 0 18px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-shrink: 0;
+    }
+    .panel-title {
+      font-family: var(--mono);
+      font-size: 11px;
+      color: var(--text-dim);
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+    }
+    .panel-title span { color: var(--accent); }
+    .breadcrumb {
+      font-family: var(--mono);
+      font-size: 10px;
+      color: var(--text-dim);
+      letter-spacing: 0.1em;
+    }
+
+    /* Views container */
+    .view-container {
+      flex: 1;
+      position: relative;
+      overflow-y: auto;
+      overflow-x: hidden;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .view-tab {
+      display: none;
+      width: 100%;
+      height: 100%;
+    }
+    .view-tab.active {
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* Game View */
+    #tab-game {
+      position: relative;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+    }
+    .hero-art-box {
+      flex: 1;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero-image {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center top;
+      opacity: 0.42;
+      filter: saturate(0.3) brightness(0.85);
+      position: absolute;
+      inset: 0;
+    }
+    .hero-overlay {
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at 50% 50%, rgba(10, 10, 10, 0.2) 0%, rgba(10, 10, 10, 0.85) 100%),
+                  linear-gradient(180deg, transparent 60%, var(--bg3) 100%);
+    }
+    .hero-text-overlay {
+      position: absolute;
+      bottom: 24px;
+      left: 28px;
+      z-index: 5;
+    }
+    .hero-badge {
+      display: inline-block;
+      font-family: var(--mono);
+      font-size: 9px;
+      padding: 3px 8px;
+      background: var(--accent);
+      color: #fff;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+    .hero-h1 {
+      font-size: 2.2rem;
+      font-weight: 700;
+      color: var(--text-bright);
+      letter-spacing: 0.04em;
+      line-height: 1.1;
+      text-transform: uppercase;
+    }
+    .hero-desc {
+      font-size: 13px;
+      color: var(--text);
+      max-width: 550px;
+      margin-top: 6px;
+      line-height: 1.4;
+    }
+
+    /* Launch bar */
+    .launch-bar {
+      flex-shrink: 0;
+      background: var(--panel);
+      border-top: 1px solid var(--border);
+      padding: 10px 18px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      position: relative;
+      z-index: 50;
+    }
+    .version-wrapper {
+      position: relative;
+      flex: 1;
+      max-width: 380px;
+    }
+    .version-select {
+      width: 100%;
+      background: var(--bg);
+      border: 1px solid var(--border2);
+      color: var(--text-bright);
+      font-family: var(--mono);
+      font-size: 12px;
+      padding: 8px 12px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      letter-spacing: 0.05em;
+      transition: all 0.15s;
+    }
+    .version-select:hover,
+    .version-select.open {
+      border-color: var(--accent);
+      background: var(--bg3);
+    }
+    .chevron {
+      font-size: 9px;
+      color: var(--text-dim);
+      transition: transform 0.15s;
+    }
+    .version-select.open .chevron {
+      transform: rotate(180deg);
+    }
+
+    .version-dropdown {
+      position: absolute;
+      bottom: calc(100% + 4px);
+      left: 0;
+      right: 0;
+      background: var(--bg2);
+      border: 1px solid var(--border2);
+      max-height: 280px;
+      overflow-y: auto;
+      display: none;
+      z-index: 1000;
+      box-shadow: 0 -12px 35px rgba(0, 0, 0, 0.85);
+    }
+    .version-dropdown.open {
+      display: block;
+    }
+    .version-search-wrap {
+      position: sticky;
+      top: 0;
+      background: var(--bg2);
+      border-bottom: 1px solid var(--border2);
+      padding: 8px;
+      z-index: 10;
+    }
+    .version-search-input {
+      width: 100%;
+      background: var(--bg);
+      border: 1px solid var(--border2);
+      color: var(--text-bright);
+      font-family: var(--mono);
+      font-size: 11px;
+      padding: 6px 10px;
+      outline: none;
+    }
+    .version-search-input:focus {
+      border-color: var(--accent);
+    }
+    .version-group-label {
+      font-family: var(--mono);
+      font-size: 9px;
+      color: var(--text-dim);
+      text-transform: uppercase;
+      letter-spacing: 0.2em;
+      padding: 8px 12px 4px;
+      border-top: 1px solid var(--border);
+    }
+    .version-group-label:first-of-type {
+      border-top: none;
+    }
+    .version-option {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 7px 12px;
+      cursor: pointer;
+      font-family: var(--mono);
+      font-size: 11px;
+      color: var(--text);
+      transition: background 0.1s;
+    }
+    .version-option:hover {
+      background: var(--accent-glow);
+      color: var(--text-bright);
+    }
+    .version-option.active-ver {
+      color: var(--accent);
+      background: rgba(255, 255, 255, 0.03);
+    }
+    .version-badge {
+      margin-left: auto;
+      font-size: 9px;
+      color: var(--text-dim);
+      border: 1px solid var(--border);
+      padding: 1px 5px;
+      border-radius: 2px;
+    }
+    .version-badge.wasm {
+      color: var(--accent);
+      border-color: var(--border2);
+    }
+    .version-badge.hack {
+      color: #ef4444;
+      border-color: rgba(239, 68, 68, 0.3);
+    }
+
+    .launch-mode-badge {
+      font-family: var(--mono);
+      font-size: 10px;
+      color: var(--text-dim);
+      border: 1px solid var(--border);
+      padding: 6px 12px;
+      cursor: pointer;
+      letter-spacing: 0.08em;
+      transition: all 0.15s;
+      white-space: nowrap;
+    }
+    .launch-mode-badge:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+    }
+
+    /* Play button */
+    .play-button {
+      background: var(--accent);
+      border: none;
+      color: #fff;
+      font-family: var(--sans);
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      padding: 0 34px;
+      height: 38px;
+      cursor: pointer;
+      clip-path: polygon(8px 0%, 100% 0%, calc(100% - 8px) 100%, 0% 100%);
+      transition: all 0.15s;
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+    .play-button:hover {
+      background: var(--accent-hi);
+      box-shadow: 0 0 20px var(--accent-glow);
+    }
+
+    /* Bottom bar */
+    .bottom-bar {
+      background: var(--panel);
+      border-top: 1px solid var(--border);
+      padding: 6px 18px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-shrink: 0;
+    }
+    .status-line {
+      font-family: var(--mono);
+      font-size: 10px;
+      color: var(--text-dim);
+      letter-spacing: 0.08em;
+    }
+    .status-line .hl { color: var(--accent); }
+    .credit {
+      font-family: var(--mono);
+      font-size: 10px;
+      color: var(--text-dim);
+      letter-spacing: 0.06em;
+    }
+
+    /* Cards Grids (Clients / Beta / Servers / Settings) */
+    .grid-view-wrap {
+      padding: 24px;
+      overflow-y: auto;
+      flex: 1;
+    }
+    .view-header-title {
+      font-size: 1.5rem;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      color: var(--text-bright);
+      text-transform: uppercase;
+      margin-bottom: 4px;
+    }
+    .view-header-sub {
+      font-family: var(--mono);
+      font-size: 11px;
+      color: var(--text-dim);
+      letter-spacing: 0.08em;
+      margin-bottom: 20px;
+    }
+    .cards-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 16px;
+    }
+    .client-grid-card {
+      background: var(--panel);
+      border: 1px solid var(--border);
+      padding: 16px;
+      display: flex;
+      flex-direction: column;
+      transition: all 0.15s cubic-bezier(0.16, 1, 0.3, 1);
+      position: relative;
+    }
+    .client-grid-card:hover {
+      border-color: var(--accent);
+      background: var(--bg2);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px var(--accent-glow);
+    }
+    .card-head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 10px;
+    }
+    .card-badge {
+      font-family: var(--mono);
+      font-size: 9px;
+      color: var(--accent);
+      border: 1px solid var(--border2);
+      padding: 2px 6px;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+    }
+    .card-badge.hack {
+      color: #ef4444;
+      border-color: rgba(239, 68, 68, 0.3);
+    }
+    .card-dot {
+      width: 5px;
+      height: 5px;
+      background: var(--accent);
+      border-radius: 50%;
+    }
+    .card-title {
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--text-bright);
+      margin-bottom: 6px;
+      letter-spacing: 0.03em;
+    }
+    .card-desc {
+      font-size: 12px;
+      color: var(--text-dim);
+      line-height: 1.4;
+      flex: 1;
+      margin-bottom: 14px;
+    }
+    .card-footer {
+      display: flex;
+      justify-content: flex-end;
+    }
+    .card-launch-btn {
+      background: transparent;
+      border: 1px solid var(--border);
+      color: var(--text-bright);
+      font-family: var(--mono);
+      font-size: 11px;
+      padding: 6px 14px;
+      cursor: pointer;
+      letter-spacing: 0.1em;
+      transition: all 0.15s;
+    }
+    .card-launch-btn:hover {
+      background: var(--accent);
+      border-color: var(--accent);
+      color: #fff;
+    }
+
+    /* Server cards */
+    .server-grid-card {
+      background: var(--panel);
+      border: 1px solid var(--border);
+      padding: 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      transition: all 0.15s;
+    }
+    .server-grid-card:hover {
+      border-color: var(--accent);
+    }
+    .server-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .server-title {
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--text-bright);
+    }
+    .server-status {
+      font-family: var(--mono);
+      font-size: 10px;
+      color: #22c55e;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+    .server-addr-box {
+      background: var(--bg);
+      border: 1px solid var(--border2);
+      padding: 8px 12px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+    }
+    .server-addr-box code {
+      font-family: var(--mono);
+      font-size: 11px;
+      color: var(--accent);
+      user-select: all;
+    }
+    .copy-addr-btn {
+      background: var(--panel);
+      border: 1px solid var(--border);
+      color: var(--text-dim);
+      font-family: var(--mono);
+      font-size: 9px;
+      padding: 4px 8px;
+      cursor: pointer;
+      letter-spacing: 0.08em;
+      transition: all 0.13s;
+    }
+    .copy-addr-btn:hover {
+      color: var(--text-bright);
+      border-color: var(--accent);
+    }
+    .server-desc {
+      font-size: 12px;
+      color: var(--text-dim);
+      line-height: 1.4;
+    }
+
+    /* Downloads view */
+    .downloads-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 12px;
+      border: 1px solid var(--border);
+    }
+    .downloads-table th {
+      background: var(--panel);
+      color: var(--text-dim);
+      font-family: var(--mono);
+      font-size: 10px;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      padding: 10px 12px;
+      text-align: left;
+      border-bottom: 1px solid var(--border);
+    }
+    .downloads-table td {
+      padding: 8px 12px;
+      border-bottom: 1px solid var(--border);
+    }
+    .downloads-table tr:hover td {
+      background: rgba(255, 255, 255, 0.02);
+    }
+    .download-btn {
+      display: inline-block;
+      font-family: var(--mono);
+      font-size: 10px;
+      color: var(--text-bright);
+      background: var(--panel);
+      border: 1px solid var(--border);
+      padding: 4px 10px;
+      text-decoration: none;
+      letter-spacing: 0.08em;
+      transition: all 0.15s;
+    }
+    .download-btn:hover {
+      background: var(--accent);
+      border-color: var(--accent);
+    }
+
+    /* Settings view */
+    .settings-section {
+      background: var(--panel);
+      border: 1px solid var(--border);
+      padding: 20px;
+      margin-bottom: 18px;
+    }
+    .settings-title {
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--text-bright);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-bottom: 12px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .theme-swatches {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+    .theme-swatch {
+      width: 38px;
+      height: 38px;
+      border: 2px solid var(--border);
+      cursor: pointer;
+      position: relative;
+      transition: transform 0.15s, border-color 0.15s;
+    }
+    .theme-swatch:hover,
+    .theme-swatch.selected {
+      transform: scale(1.1);
+      border-color: #fff;
+    }
+    .mode-radios {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .mode-label {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      cursor: pointer;
+      font-size: 13px;
+      color: var(--text);
+    }
+    .mode-label input {
+      accent-color: var(--accent);
+    }
+
+    /* In-App Theater Player */
+    #theater-player {
+      position: fixed;
+      inset: 0;
+      background: #000;
+      z-index: 9500;
+      display: none;
+      flex-direction: column;
+    }
+    #theater-player.active {
+      display: flex;
+    }
+    .theater-bar {
+      height: 42px;
+      background: #0a0a0a;
+      border-bottom: 1px solid var(--border);
+      padding: 0 16px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-shrink: 0;
+    }
+    .theater-left {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .theater-title {
+      font-family: var(--mono);
+      font-size: 12px;
+      color: var(--accent);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+    .theater-actions {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .theater-btn {
+      background: #151515;
+      border: 1px solid var(--border);
+      color: #bbb;
+      font-family: var(--mono);
+      font-size: 11px;
+      padding: 5px 10px;
+      cursor: pointer;
+      letter-spacing: 0.06em;
+      transition: all 0.13s;
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+    }
+    .theater-btn:hover {
+      color: #fff;
+      border-color: var(--accent);
+      background: #202020;
+    }
+    .theater-btn.close-btn:hover {
+      background: #ef4444;
+      border-color: #ef4444;
+    }
+    #theater-iframe {
+      flex: 1;
+      width: 100%;
+      height: 100%;
+      border: none;
+      background: #000;
+    }
+
+    /* Toast */
+    .toast {
+      position: fixed;
+      bottom: 45px;
+      right: 24px;
+      background: var(--bg2);
+      border: 1px solid var(--accent);
+      color: var(--text-bright);
+      font-family: var(--mono);
+      font-size: 11px;
+      padding: 8px 16px;
+      z-index: 10000;
+      opacity: 0;
+      transform: translateY(10px);
+      transition: all 0.2s ease;
+      pointer-events: none;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.7);
+    }
+    .toast.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  </style>
+</head>
+<body>
+
+<div class="launcher">
+
+  <!-- TITLE BAR -->
+  <header class="title-bar">
+    <div class="title-logo">
+      <div class="title-dot"></div>
+      LUNAMIX EAGLERCRAFT <span class="ver">v2.2</span>
+    </div>
+    <div class="title-controls">
+      <div class="wdot min" onclick="showToast('Launcher minimized.')" title="Minimize"></div>
+      <div class="wdot max" onclick="toggleWindowFullscreen()" title="Fullscreen"></div>
+      <div class="wdot close" onclick="window.location.href='https://skiingbeast2025.github.io/lunamix/'" title="Return to Lunamix"></div>
+    </div>
+  </header>
+
+  <div class="content-row">
+
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
+      <div class="profile-card">
+        <div class="profile-label">Player</div>
+        <div class="profile-name" id="profile-display">Player</div>
+        <div class="profile-status">
+          <div class="status-dot"></div>
+          ONLINE
+        </div>
+      </div>
+
+      <nav>
+        <div class="nav-label">Navigation</div>
+        <div class="nav-item selected" data-tab="game" onclick="switchTab('game')">
+          <svg class="nav-svg" viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="13" rx="1"/><path d="M8 7V5a2 2 0 012-2h4a2 2 0 012 2v2"/><line x1="12" y1="12" x2="12" y2="16"/><line x1="10" y1="14" x2="14" y2="14"/></svg>
+          Game
+        </div>
+        <div class="nav-item" data-tab="clients" onclick="switchTab('clients')">
+          <svg class="nav-svg" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="4"/></svg>
+          PvP Clients
+        </div>
+        <div class="nav-item" data-tab="betaclients" onclick="switchTab('betaclients')">
+          <svg class="nav-svg" viewBox="0 0 24 24"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+          Hacks & WASM
+        </div>
+        <div class="nav-item" data-tab="servers" onclick="switchTab('servers')">
+          <svg class="nav-svg" viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="5" rx="1"/><rect x="2" y="10" width="20" height="5" rx="1"/><rect x="2" y="17" width="20" height="5" rx="1"/></svg>
+          Servers
+        </div>
+        <div class="nav-item" data-tab="downloads" onclick="switchTab('downloads')">
+          <svg class="nav-svg" viewBox="0 0 24 24"><line x1="12" y1="3" x2="12" y2="15"/><polyline points="7 10 12 15 17 10"/><line x1="4" y1="19" x2="20" y2="19"/></svg>
+          Downloads
+        </div>
+      </nav>
+
+      <div class="sidebar-footer">
+        <div class="nav-item" data-tab="settings" onclick="switchTab('settings')">
+          <svg class="nav-svg" viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 00.33 1.82l.06.06a2 2 0 010 2.83 2 2 0 01-2.83 0l-.06-.06a1.65 1.65 0 00-1.82-.33 1.65 1.65 0 00-1 1.51V21a2 2 0 01-4 0v-.09A1.65 1.65 0 009 19.4a1.65 1.65 0 00-1.82.33l-.06.06a2 2 0 012.83-2.83l.06-.06A1.65 1.65 0 004.68 15a1.65 1.65 0 00-1.51-1H3a2 2 0 010-4h.09A1.65 1.65 0 004.6 9a1.65 1.65 0 00-.33-1.82l-.06-.06a2 2 0 012.83-2.83l.06.06A1.65 1.65 0 009 4.68a1.65 1.65 0 001-1.51V3a2 2 0 014 0v.09a1.65 1.65 0 001 1.51 1.65 1.65 0 001.82-.33l.06-.06a2 2 0 012.83 2.83l-.06.06A1.65 1.65 0 0019.4 9a1.65 1.65 0 001.51 1H21a2 2 0 010 4h-.09a1.65 1.65 0 00-1.51 1z"/></svg>
+          Settings
+        </div>
+        <div class="nav-item" onclick="window.location.href='https://skiingbeast2025.github.io/lunamix/'">
+          <svg class="nav-svg" viewBox="0 0 24 24"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+          Exit to Lunamix
+        </div>
+      </div>
+    </aside>
+
+    <!-- MAIN PANEL -->
+    <main class="main-panel">
+
+      <!-- TOP BREADCRUMB BAR -->
+      <div class="top-bar">
+        <div class="panel-title">LUNAMIX // <span id="view-title">GAME</span></div>
+        <div class="breadcrumb" id="breadcrumb-text">HOME / GAME</div>
+      </div>
+
+      <!-- VIEWS CONTAINER -->
+      <div class="view-container">
+
+        <!-- TAB 1: GAME -->
+        <div class="view-tab active" id="tab-game">
+          <div class="hero-art-box">
+            <img src="./assets/eaglercraft/fixed2.png" alt="" class="hero-image" onerror="this.src='./assets/eaglercraft/main.png'">
+            <div class="hero-overlay"></div>
+            <div class="hero-text-overlay">
+              <span class="hero-badge" id="hero-badge">OFFICIAL CLIENT</span>
+              <h1 class="hero-h1" id="hero-h1">HBWMC OFFICIAL</h1>
+              <p class="hero-desc" id="hero-desc">The flagship custom Eaglercraft build featuring high-speed networking, custom shader support, and optimized 60+ FPS browser execution.</p>
+            </div>
+          </div>
+
+          <!-- LAUNCH BAR -->
+          <div class="launch-bar">
+            <!-- Version dropdown -->
+            <div class="version-wrapper">
+              <div class="version-select" id="version-select" onclick="toggleDropdown()">
+                <span id="version-label">HBWMC Official Client</span>
+                <span class="chevron">▼</span>
+              </div>
+              <div class="version-dropdown" id="version-dropdown">
+                <div class="version-search-wrap">
+                  <input type="text" class="version-search-input" id="version-search" placeholder="Search 68 clients & versions..." oninput="filterDropdown(this)" onclick="event.stopPropagation()">
+                </div>
+                <div id="dropdown-options">
+                  <div class="version-group-label">Official & Featured</div>
+
+            <div class="version-option active-ver" data-id="hbwmc" data-file="hbwmc.html" data-name="HBWMC Official Client" onclick="selectClient('hbwmc', 'HBWMC Official Client', 'hbwmc.html')">
+              <img src="./assets/eaglercraft/main.png" alt="" width="18" height="18">
+              <span>HBWMC Official Client</span>
+              <span class="version-badge std">HBWMC MAIN</span>
+            </div>
+<div class="version-group-label">Releases & Vanilla</div>
+
+            <div class="version-option " data-id="26.3" data-file="26.3.html" data-name="Eaglercraft 26.3" onclick="selectClient('26.3', 'Eaglercraft 26.3', '26.3.html')">
+              <img src="./assets/eaglercraft/main.png" alt="" width="18" height="18">
+              <span>Eaglercraft 26.3</span>
+              <span class="version-badge std">DEFAULT / LATEST</span>
+            </div>
+
+            <div class="version-option " data-id="26.2" data-file="26.2.html" data-name="Eaglercraft 26.2" onclick="selectClient('26.2', 'Eaglercraft 26.2', '26.2.html')">
+              <img src="./assets/eaglercraft/main.png" alt="" width="18" height="18">
+              <span>Eaglercraft 26.2</span>
+              <span class="version-badge std">STABLE</span>
+            </div>
+
+            <div class="version-option " data-id="1.20.6" data-file="1.20.6.html" data-name="Eaglercraft 1.20.6" onclick="selectClient('1.20.6', 'Eaglercraft 1.20.6', '1.20.6.html')">
+              <img src="./assets/eaglercraft/main.png" alt="" width="18" height="18">
+              <span>Eaglercraft 1.20.6</span>
+              <span class="version-badge std">MODERN</span>
+            </div>
+
+            <div class="version-option " data-id="1.16.5" data-file="1.16.5.html" data-name="Eaglercraft 1.16.5" onclick="selectClient('1.16.5', 'Eaglercraft 1.16.5', '1.16.5.html')">
+              <img src="./assets/eaglercraft/main.png" alt="" width="18" height="18">
+              <span>Eaglercraft 1.16.5</span>
+              <span class="version-badge std">MAJOR</span>
+            </div>
+
+            <div class="version-option " data-id="1.14.4" data-file="1.14.4.html" data-name="Eaglercraft 1.14.4" onclick="selectClient('1.14.4', 'Eaglercraft 1.14.4', '1.14.4.html')">
+              <img src="./assets/eaglercraft/main.png" alt="" width="18" height="18">
+              <span>Eaglercraft 1.14.4</span>
+              <span class="version-badge std">UPDATE</span>
+            </div>
+
+            <div class="version-option " data-id="1.12.2" data-file="1.12.2.html" data-name="Eaglercraft 1.12.2" onclick="selectClient('1.12.2', 'Eaglercraft 1.12.2', '1.12.2.html')">
+              <img src="./assets/eaglercraft/main.png" alt="" width="18" height="18">
+              <span>Eaglercraft 1.12.2</span>
+              <span class="version-badge std">POPULAR</span>
+            </div>
+
+            <div class="version-option " data-id="1.11.2" data-file="1.11.2.html" data-name="Eaglercraft 1.11.2" onclick="selectClient('1.11.2', 'Eaglercraft 1.11.2', '1.11.2.html')">
+              <img src="./assets/eaglercraft/main.png" alt="" width="18" height="18">
+              <span>Eaglercraft 1.11.2</span>
+              <span class="version-badge std">STABLE</span>
+            </div>
+
+            <div class="version-option " data-id="1.9.4" data-file="1.9.4.html" data-name="Eaglercraft 1.9.4" onclick="selectClient('1.9.4', 'Eaglercraft 1.9.4', '1.9.4.html')">
+              <img src="./assets/eaglercraft/main.png" alt="" width="18" height="18">
+              <span>Eaglercraft 1.9.4</span>
+              <span class="version-badge std">COMBAT</span>
+            </div>
+
+            <div class="version-option " data-id="1.8.8" data-file="1.8.8.html" data-name="Eaglercraft 1.8.8" onclick="selectClient('1.8.8', 'Eaglercraft 1.8.8', '1.8.8.html')">
+              <img src="./assets/eaglercraft/main.png" alt="" width="18" height="18">
+              <span>Eaglercraft 1.8.8</span>
+              <span class="version-badge std">CLASSIC</span>
+            </div>
+
+            <div class="version-option " data-id="1.8.8-u44" data-file="1.8.8-u44.html" data-name="EaglercraftX 1.8 u44" onclick="selectClient('1.8.8-u44', 'EaglercraftX 1.8 u44', '1.8.8-u44.html')">
+              <img src="./assets/eaglercraft/main.png" alt="" width="18" height="18">
+              <span>EaglercraftX 1.8 u44</span>
+              <span class="version-badge std">U44 SIGNED</span>
+            </div>
+
+            <div class="version-option " data-id="1.8.8-u29" data-file="1.8.8-u29.html" data-name="EaglercraftX 1.8 u29" onclick="selectClient('1.8.8-u29', 'EaglercraftX 1.8 u29', '1.8.8-u29.html')">
+              <img src="./assets/eaglercraft/main.png" alt="" width="18" height="18">
+              <span>EaglercraftX 1.8 u29</span>
+              <span class="version-badge std">U29</span>
+            </div>
+
+            <div class="version-option " data-id="1.8.8-u23" data-file="1.8.8-u23.html" data-name="EaglercraftX 1.8 u23" onclick="selectClient('1.8.8-u23', 'EaglercraftX 1.8 u23', '1.8.8-u23.html')">
+              <img src="./assets/eaglercraft/main.png" alt="" width="18" height="18">
+              <span>EaglercraftX 1.8 u23</span>
+              <span class="version-badge std">U23 SIGNED</span>
+            </div>
+<div class="version-group-label">WASM-GC Builds</div>
+
+            <div class="version-option " data-id="1.20-wasm" data-file="1.20-wasm.html" data-name="EaglercraftX 1.20 WASM" onclick="selectClient('1.20-wasm', 'EaglercraftX 1.20 WASM', '1.20-wasm.html')">
+              <img src="./assets/eaglercraft/main.png" alt="" width="18" height="18">
+              <span>EaglercraftX 1.20 WASM</span>
+              <span class="version-badge wasm">WASM-GC</span>
+            </div>
+
+            <div class="version-option " data-id="1.12.2-wasm" data-file="1.12.2-wasm.html" data-name="Eaglercraft 1.12.2 WASM" onclick="selectClient('1.12.2-wasm', 'Eaglercraft 1.12.2 WASM', '1.12.2-wasm.html')">
+              <img src="./assets/eaglercraft/main.png" alt="" width="18" height="18">
+              <span>Eaglercraft 1.12.2 WASM</span>
+              <span class="version-badge wasm">WASM-GC</span>
+            </div>
+
+            <div class="version-option " data-id="1.8.8-wasm" data-file="1.8.8-wasm.html" data-name="EaglercraftX 1.8 WASM-GC" onclick="selectClient('1.8.8-wasm', 'EaglercraftX 1.8 WASM-GC', '1.8.8-wasm.html')">
+              <img src="./assets/eaglercraft/main.png" alt="" width="18" height="18">
+              <span>EaglercraftX 1.8 WASM-GC</span>
+              <span class="version-badge wasm">WASM-GC</span>
+            </div>
+
+            <div class="version-option " data-id="shaders" data-file="shaders.html" data-name="EaglercraftX Shaders Edition" onclick="selectClient('shaders', 'EaglercraftX Shaders Edition', 'shaders.html')">
+              <img src="./assets/eaglercraft/main.png" alt="" width="18" height="18">
+              <span>EaglercraftX Shaders Edition</span>
+              <span class="version-badge wasm">SHADERS</span>
+            </div>
+
+            <div class="version-option " data-id="eaglerforge" data-file="eaglerforge.html" data-name="EaglerForge Client" onclick="selectClient('eaglerforge', 'EaglerForge Client', 'eaglerforge.html')">
+              <img src="./assets/eaglercraft/main.png" alt="" width="18" height="18">
+              <span>EaglerForge Client</span>
+              <span class="version-badge wasm">MOD LOADER</span>
+            </div>
+
+            <div class="version-option " data-id="pixel" data-file="pixel.html" data-name="Pixel Client 1.12.2" onclick="selectClient('pixel', 'Pixel Client 1.12.2', 'pixel.html')">
+              <img src="./assets/eaglercraft/main.png" alt="" width="18" height="18">
+              <span>Pixel Client 1.12.2</span>
+              <span class="version-badge wasm">PIXEL 1.12</span>
+            </div>
+
+            <div class="version-option " data-id="mega" data-file="mega.html" data-name="Mega Client" onclick="selectClient('mega', 'Mega Client', 'mega.html')">
+              <img src="./assets/eaglercraft/main.png" alt="" width="18" height="18">
+              <span>Mega Client</span>
+              <span class="version-badge wasm">MEGA</span>
+            </div>
+
+            <div class="version-option " data-id="codercraft" data-file="codercraft.html" data-name="CoderCraft Client" onclick="selectClient('codercraft', 'CoderCraft Client', 'codercraft.html')">
+              <img src="./assets/eaglercraft/main.png" alt="" width="18" height="18">
+              <span>CoderCraft Client</span>
+              <span class="version-badge wasm">CODERCRAFT</span>
+            </div>
+
+            <div class="version-option " data-id="eagler-reborn" data-file="eagler-reborn.html" data-name="Eagler Reborn Client" onclick="selectClient('eagler-reborn', 'Eagler Reborn Client', 'eagler-reborn.html')">
+              <img src="./assets/eaglercraft/main.png" alt="" width="18" height="18">
+              <span>Eagler Reborn Client</span>
+              <span class="version-badge wasm">REBORN</span>
+            </div>
+
+            <div class="version-option " data-id="jmocraft" data-file="jmocraft.html" data-name="JmoCraft v5.2" onclick="selectClient('jmocraft', 'JmoCraft v5.2', 'jmocraft.html')">
+              <img src="./assets/eaglercraft/main.png" alt="" width="18" height="18">
+              <span>JmoCraft v5.2</span>
+              <span class="version-badge wasm">JMOCRAFT</span>
+            </div>
+
+            <div class="version-option " data-id="oddfuture" data-file="oddfuture.html" data-name="OddFuture Client" onclick="selectClient('oddfuture', 'OddFuture Client', 'oddfuture.html')">
+              <img src="./assets/eaglercraft/main.png" alt="" width="18" height="18">
+              <span>OddFuture Client</span>
+              <span class="version-badge wasm">ODDFUTURE</span>
+            </div>
+
+            <div class="version-option " data-id="uwu-v1" data-file="uwu-v1.html" data-name="UwU Client v1 Full" onclick="selectClient('uwu-v1', 'UwU Client v1 Full', 'uwu-v1.html')">
+              <img src="./assets/eaglercraft/main.png" alt="" width="18" height="18">
+              <span>UwU Client v1 Full</span>
+              <span class="version-badge wasm">UWU V1</span>
+            </div>
+
+            <div class="version-option " data-id="uwu-b2" data-file="uwu-b2.html" data-name="UwU Client Beta 2" onclick="selectClient('uwu-b2', 'UwU Client Beta 2', 'uwu-b2.html')">
+              <img src="./assets/eaglercraft/main.png" alt="" width="18" height="18">
+              <span>UwU Client Beta 2</span>
+              <span class="version-badge wasm">UWU B2</span>
+            </div>
+
+            <div class="version-option " data-id="uwu-lite" data-file="uwu-lite.html" data-name="UwU Lite 2" onclick="selectClient('uwu-lite', 'UwU Lite 2', 'uwu-lite.html')">
+              <img src="./assets/eaglercraft/main.png" alt="" width="18" height="18">
+              <span>UwU Lite 2</span>
+              <span class="version-badge wasm">UWU LITE</span>
+            </div>
+<div class="version-group-label">Premier PvP Clients</div>
+
+            <div class="version-option " data-id="archmc" data-file="archmc.html" data-name="ArchMC Official Client" onclick="selectClient('archmc', 'ArchMC Official Client', 'archmc.html')">
+              <img src="./assets/eaglercraft/main.png" alt="" width="18" height="18">
+              <span>ArchMC Official Client</span>
+              <span class="version-badge std">ARCHMC</span>
+            </div>
+
+            <div class="version-option " data-id="solar" data-file="solar.html" data-name="Solar Client" onclick="selectClient('solar', 'Solar Client', 'solar.html')">
+              <img src="./assets/eaglercraft/main.png" alt="" width="18" height="18">
+              <span>Solar Client</span>
+              <span class="version-badge std">FPS BOOST</span>
+            </div>
+
+            <div class="version-option " data-id="flame" data-file="flame.html" data-name="Flame Client 3.7" onclick="selectClient('flame', 'Flame Client 3.7', 'flame.html')">
+              <img src="./assets/eaglercraft/main.png" alt="" width="18" height="18">
+              <span>Flame Client 3.7</span>
+              <span class="version-badge std">FLAME 3.7</span>
+            </div>
+
+            <div class="version-option " data-id="moonlight" data-file="moonlight.html" data-name="Moonlight Client" onclick="selectClient('moonlight', 'Moonlight Client', 'moonlight.html')">
+              <img src="./assets/eaglercraft/main.png" alt="" width="18" height="18">
+              <span>Moonlight Client</span>
+              <span class="version-badge std">MOONLIGHT</span>
+            </div>
+
+            <div class="version-option " data-id="resent-5.0" data-file="resent-5.0.html" data-name="Resent Client 5.0" onclick="selectClient('resent-5.0', 'Resent Client 5.0', 'resent-5.0.html')">
+              <img src="./assets/eaglercraft/main.png" alt="" width="18" height="18">
+              <span>Resent Client 5.0</span>
+              <span class="version-badge std">RESENT 5.0</span>
+            </div>
+
+            <div class="version-option " data-id="resent-4.4" data-file="resent-4.4.html" data-name="Resent Client 4.4 Signed" onclick="selectClient('resent-4.4', 'Resent Client 4.4 Signed', 'resent-4.4.html')">
+              <img src="./assets/eaglercraft/main.png" alt="" width="18" height="18">
+              <span>Resent Client 4.4 Signed</span>
+              <span class="version-badge std">RESENT 4.4</span>
+            </div>
+
+            <div class="version-option " data-id="resent" data-file="resent.html" data-name="Resent Client Classic" onclick="selectClient('resent', 'Resent Client Classic', 'resent.html')">
+              <img src="./assets/eaglercraft/main.png" alt="" width="18" height="18">
+              <span>Resent Client Classic</span>
+              <span class="version-badge std">PVP CLIENT</span>
+            </div>
+
+            <div class="version-option " data-id="shadow" data-file="shadow.html" data-name="Shadow Client 4.0" onclick="selectClient('shadow', 'Shadow Client 4.0', 'shadow.html')">
+              <img src="./assets/eaglercraft/main.png" alt="" width="18" height="18">
+              <span>Shadow Client 4.0</span>
+              <span class="version-badge std">OPTIFINE</span>
+            </div>
+
+            <div class="version-option " data-id="shadow-3.0" data-file="shadow-3.0.html" data-name="Shadow Client 3.0 Beta" onclick="selectClient('shadow-3.0', 'Shadow Client 3.0 Beta', 'shadow-3.0.html')">
+              <img src="./assets/eaglercraft/main.png" alt="" width="18" height="18">
+              <span>Shadow Client 3.0 Beta</span>
+              <span class="version-badge std">SHADOW 3.0</span>
+            </div>
+
+            <div class="version-option " data-id="astra" data-file="astra.html" data-name="Astra Client" onclick="selectClient('astra', 'Astra Client', 'astra.html')">
+              <img src="./assets/eaglercraft/main.png" alt="" width="18" height="18">
+              <span>Astra Client</span>
+              <span class="version-badge std">ASTRA</span>
+            </div>
+
+            <div class="version-option " data-id="tuff" data-file="tuff.html" data-name="Tuff Client" onclick="selectClient('tuff', 'Tuff Client', 'tuff.html')">
+              <img src="./assets/eaglercraft/main.png" alt="" width="18" height="18">
+              <span>Tuff Client</span>
+              <span class="version-badge std">TUFF</span>
+            </div>
+
+            <div class="version-option " data-id="reflex" data-file="reflex.html" data-name="Reflex Client 0.0.2" onclick="selectClient('reflex', 'Reflex Client 0.0.2', 'reflex.html')">
+              <img src="./assets/eaglercraft/main.png" alt="" width="18" height="18">
+              <span>Reflex Client 0.0.2</span>
+              <span class="version-badge std">REFLEX</span>
+            </div>
+
+            <div class="version-option " data-id="precision" data-file="precision.html" data-name="Precision Client" onclick="selectClient('precision', 'Precision Client', 'precision.html')">
+              <img src="./assets/eaglercraft/main.png" alt="" width="18" height="18">
+              <span>Precision Client</span>
+              <span class="version-badge std">PRECISION</span>
+            </div>
+
+            <div class="version-option " data-id="n0va" data-file="n0va.html" data-name="N0VA Client" onclick="selectClient('n0va', 'N0VA Client', 'n0va.html')">
+              <img src="./assets/eaglercraft/main.png" alt="" width="18" height="18">
+              <span>N0VA Client</span>
+              <span class="version-badge std">N0VA</span>
+            </div>
+
+            <div class="version-option " data-id="starlike" data-file="starlike.html" data-name="Starlike Client" onclick="selectClient('starlike', 'Starlike Client', 'starlike.html')">
+              <img src="./assets/eaglercraft/main.png" alt="" width="18" height="18">
+              <span>Starlike Client</span>
+              <span class="version-badge std">STARLIKE</span>
+            </div>
+
+            <div class="version-option " data-id="kerosene" data-file="kerosene.html" data-name="Kerosene Client" onclick="selectClient('kerosene', 'Kerosene Client', 'kerosene.html')">
+              <img src="./assets/eaglercraft/main.png" alt="" width="18" height="18">
+              <span>Kerosene Client</span>
+              <span class="version-badge std">KEROSENE</span>
+            </div>
+
+            <div class="version-option " data-id="nitclient" data-file="nitclient.html" data-name="NitClient 2.0" onclick="selectClient('nitclient', 'NitClient 2.0', 'nitclient.html')">
+              <img src="./assets/eaglercraft/main.png" alt="" width="18" height="18">
+              <span>NitClient 2.0</span>
+              <span class="version-badge std">NITCLIENT 2.0</span>
+            </div>
+
+            <div class="version-option " data-id="kone" data-file="kone.html" data-name="Kone Client 1.8.8" onclick="selectClient('kone', 'Kone Client 1.8.8', 'kone.html')">
+              <img src="./assets/eaglercraft/main.png" alt="" width="18" height="18">
+              <span>Kone Client 1.8.8</span>
+              <span class="version-badge std">LIGHTWEIGHT</span>
+            </div>
+
+            <div class="version-option " data-id="pi" data-file="pi.html" data-name="Pi Client" onclick="selectClient('pi', 'Pi Client', 'pi.html')">
+              <img src="./assets/eaglercraft/main.png" alt="" width="18" height="18">
+              <span>Pi Client</span>
+              <span class="version-badge std">PI CLIENT</span>
+            </div>
+
+            <div class="version-option " data-id="demon" data-file="demon.html" data-name="Demon Client" onclick="selectClient('demon', 'Demon Client', 'demon.html')">
+              <img src="./assets/eaglercraft/main.png" alt="" width="18" height="18">
+              <span>Demon Client</span>
+              <span class="version-badge std">DEMON</span>
+            </div>
+
+            <div class="version-option " data-id="daniel" data-file="daniel.html" data-name="Daniel Client" onclick="selectClient('daniel', 'Daniel Client', 'daniel.html')">
+              <img src="./assets/eaglercraft/main.png" alt="" width="18" height="18">
+              <span>Daniel Client</span>
+              <span class="version-badge std">DANIEL</span>
+            </div>
+
+            <div class="version-option " data-id="justin" data-file="justin.html" data-name="Justin Client" onclick="selectClient('justin', 'Justin Client', 'justin.html')">
+              <img src="./assets/eaglercraft/main.png" alt="" width="18" height="18">
+              <span>Justin Client</span>
+              <span class="version-badge std">JUSTIN</span>
+            </div>
+
+            <div class="version-option " data-id="justin-v3" data-file="justin-v3.html" data-name="Justin Client v3" onclick="selectClient('justin-v3', 'Justin Client v3', 'justin-v3.html')">
+              <img src="./assets/eaglercraft/main.png" alt="" width="18" height="18">
+              <span>Justin Client v3</span>
+              <span class="version-badge std">JUSTIN V3</span>
+            </div>
+
+            <div class="version-option " data-id="dragonx" data-file="dragonx.html" data-name="DragonX Client" onclick="selectClient('dragonx', 'DragonX Client', 'dragonx.html')">
+              <img src="./assets/eaglercraft/main.png" alt="" width="18" height="18">
+              <span>DragonX Client</span>
+              <span class="version-badge std">DRAGONX</span>
+            </div>
+
+            <div class="version-option " data-id="dragonx-v5" data-file="dragonx-v5.html" data-name="DragonX v5 Client" onclick="selectClient('dragonx-v5', 'DragonX v5 Client', 'dragonx-v5.html')">
+              <img src="./assets/eaglercraft/main.png" alt="" width="18" height="18">
+              <span>DragonX v5 Client</span>
+              <span class="version-badge std">DRAGONX V5</span>
+            </div>
+
+            <div class="version-option " data-id="dragonx-v4" data-file="dragonx-v4.html" data-name="DragonX v4 Client" onclick="selectClient('dragonx-v4', 'DragonX v4 Client', 'dragonx-v4.html')">
+              <img src="./assets/eaglercraft/main.png" alt="" width="18" height="18">
+              <span>DragonX v4 Client</span>
+              <span class="version-badge std">DRAGONX V4</span>
+            </div>
+
+            <div class="version-option " data-id="dragonx-lite" data-file="dragonx-lite.html" data-name="DragonX Lite" onclick="selectClient('dragonx-lite', 'DragonX Lite', 'dragonx-lite.html')">
+              <img src="./assets/eaglercraft/main.png" alt="" width="18" height="18">
+              <span>DragonX Lite</span>
+              <span class="version-badge std">DRAGONX LITE</span>
+            </div>
+
+            <div class="version-option " data-id="dragonx-shadow" data-file="dragonx-shadow.html" data-name="DragonX Shadow Hybrid" onclick="selectClient('dragonx-shadow', 'DragonX Shadow Hybrid', 'dragonx-shadow.html')">
+              <img src="./assets/eaglercraft/main.png" alt="" width="18" height="18">
+              <span>DragonX Shadow Hybrid</span>
+              <span class="version-badge std">HYBRID</span>
+            </div>
+<div class="version-group-label">Hacks & Utilities</div>
+
+            <div class="version-option " data-id="galactic-8.0" data-file="galactic-8.0.html" data-name="Galactic Client 8.0.0" onclick="selectClient('galactic-8.0', 'Galactic Client 8.0.0', 'galactic-8.0.html')">
+              <img src="./assets/eaglercraft/main.png" alt="" width="18" height="18">
+              <span>Galactic Client 8.0.0</span>
+              <span class="version-badge std">320+ MODULES</span>
+            </div>
+
+            <div class="version-option " data-id="wurstx" data-file="wurstx.html" data-name="WurstX Client b2" onclick="selectClient('wurstx', 'WurstX Client b2', 'wurstx.html')">
+              <img src="./assets/eaglercraft/main.png" alt="" width="18" height="18">
+              <span>WurstX Client b2</span>
+              <span class="version-badge std">WURSTX</span>
+            </div>
+
+            <div class="version-option " data-id="liquidbounce" data-file="liquidbounce.html" data-name="LiquidBounce Eagler" onclick="selectClient('liquidbounce', 'LiquidBounce Eagler', 'liquidbounce.html')">
+              <img src="./assets/eaglercraft/main.png" alt="" width="18" height="18">
+              <span>LiquidBounce Eagler</span>
+              <span class="version-badge std">LIQUIDBOUNCE</span>
+            </div>
+
+            <div class="version-option " data-id="meteor" data-file="meteor.html" data-name="Meteor Client Eagler" onclick="selectClient('meteor', 'Meteor Client Eagler', 'meteor.html')">
+              <img src="./assets/eaglercraft/main.png" alt="" width="18" height="18">
+              <span>Meteor Client Eagler</span>
+              <span class="version-badge std">METEOR</span>
+            </div>
+
+            <div class="version-option " data-id="fuchsiax" data-file="fuchsiax.html" data-name="FuchsiaX Ghost Client" onclick="selectClient('fuchsiax', 'FuchsiaX Ghost Client', 'fuchsiax.html')">
+              <img src="./assets/eaglercraft/main.png" alt="" width="18" height="18">
+              <span>FuchsiaX Ghost Client</span>
+              <span class="version-badge std">GHOST CLIENT</span>
+            </div>
+
+            <div class="version-option " data-id="nebula" data-file="nebula.html" data-name="Nebula Client" onclick="selectClient('nebula', 'Nebula Client', 'nebula.html')">
+              <img src="./assets/eaglercraft/main.png" alt="" width="18" height="18">
+              <span>Nebula Client</span>
+              <span class="version-badge std">HACK CLIENT</span>
+            </div>
+<div class="version-group-label">Classic & Retro</div>
+
+            <div class="version-option " data-id="1.5.2" data-file="1.5.2.html" data-name="Eaglercraft 1.5.2" onclick="selectClient('1.5.2', 'Eaglercraft 1.5.2', '1.5.2.html')">
+              <img src="./assets/eaglercraft/main.png" alt="" width="18" height="18">
+              <span>Eaglercraft 1.5.2</span>
+              <span class="version-badge std">RETRO 1.5</span>
+            </div>
+
+            <div class="version-option " data-id="1.2.5" data-file="1.2.5.html" data-name="Eaglercraft 1.2.5" onclick="selectClient('1.2.5', 'Eaglercraft 1.2.5', '1.2.5.html')">
+              <img src="./assets/eaglercraft/main.png" alt="" width="18" height="18">
+              <span>Eaglercraft 1.2.5</span>
+              <span class="version-badge std">CLASSIC 1.2</span>
+            </div>
+
+            <div class="version-option " data-id="1.0.3" data-file="1.0.3.html" data-name="Minecraft 1.0.3" onclick="selectClient('1.0.3', 'Minecraft 1.0.3', '1.0.3.html')">
+              <img src="./assets/eaglercraft/main.png" alt="" width="18" height="18">
+              <span>Minecraft 1.0.3</span>
+              <span class="version-badge std">EARLY 1.0</span>
+            </div>
+
+            <div class="version-option " data-id="beta1.7.3" data-file="beta1.7.3.html" data-name="Eaglercraft Beta 1.7.3" onclick="selectClient('beta1.7.3', 'Eaglercraft Beta 1.7.3', 'beta1.7.3.html')">
+              <img src="./assets/eaglercraft/main.png" alt="" width="18" height="18">
+              <span>Eaglercraft Beta 1.7.3</span>
+              <span class="version-badge std">BETA 1.7.3</span>
+            </div>
+
+            <div class="version-option " data-id="beta1.3" data-file="beta1.3.html" data-name="Eaglercraft Beta 1.3" onclick="selectClient('beta1.3', 'Eaglercraft Beta 1.3', 'beta1.3.html')">
+              <img src="./assets/eaglercraft/main.png" alt="" width="18" height="18">
+              <span>Eaglercraft Beta 1.3</span>
+              <span class="version-badge std">BETA 1.3</span>
+            </div>
+
+            <div class="version-option " data-id="alpha1.2.6" data-file="alpha1.2.6.html" data-name="Eaglercraft Alpha 1.2.6" onclick="selectClient('alpha1.2.6', 'Eaglercraft Alpha 1.2.6', 'alpha1.2.6.html')">
+              <img src="./assets/eaglercraft/main.png" alt="" width="18" height="18">
+              <span>Eaglercraft Alpha 1.2.6</span>
+              <span class="version-badge std">ALPHA 1.2.6</span>
+            </div>
+
+            <div class="version-option " data-id="indev" data-file="indev.html" data-name="Minecraft Indev" onclick="selectClient('indev', 'Minecraft Indev', 'indev.html')">
+              <img src="./assets/eaglercraft/main.png" alt="" width="18" height="18">
+              <span>Minecraft Indev</span>
+              <span class="version-badge std">INDEV</span>
+            </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Mode badge -->
+            <div class="launch-mode-badge" id="mode-badge" onclick="cycleLaunchMode()" title="Click to toggle Launch Mode">
+              MODE: <span id="mode-label-text">IN-APP THEATER</span>
+            </div>
+
+            <button class="play-button" id="play-btn" onclick="launchActiveClient()">LAUNCH</button>
+          </div>
+        </div>
+
+        <!-- TAB 2: PVP CLIENTS -->
+        <div class="view-tab" id="tab-clients">
+          <div class="grid-view-wrap">
+            <h2 class="view-header-title">Competitive & PvP Clients</h2>
+            <div class="view-header-sub">Engineered for Bedwars, Skywars, low input delay, and CPS counters</div>
+            <div class="cards-grid">
+              
+        <div class="client-grid-card">
+          <div class="card-head">
+            <span class="card-badge">ARCHMC</span>
+            <div class="card-dot"></div>
+          </div>
+          <h3 class="card-title">ArchMC Official Client</h3>
+          <p class="card-desc">Official client for ArchMC server network with lowest input latency and custom HUD</p>
+          <div class="card-footer">
+            <button class="card-launch-btn" onclick="quickLaunch('archmc', 'ArchMC Official Client', 'archmc.html')">PLAY CLIENT</button>
+          </div>
+        </div>
+
+        <div class="client-grid-card">
+          <div class="card-head">
+            <span class="card-badge">FPS BOOST</span>
+            <div class="card-dot"></div>
+          </div>
+          <h3 class="card-title">Solar Client</h3>
+          <p class="card-desc">FPS boosting Eaglercraft PvP client with custom crosshairs, hit effects, and CPS</p>
+          <div class="card-footer">
+            <button class="card-launch-btn" onclick="quickLaunch('solar', 'Solar Client', 'solar.html')">PLAY CLIENT</button>
+          </div>
+        </div>
+
+        <div class="client-grid-card">
+          <div class="card-head">
+            <span class="card-badge">FLAME 3.7</span>
+            <div class="card-dot"></div>
+          </div>
+          <h3 class="card-title">Flame Client 3.7</h3>
+          <p class="card-desc">Popular competitive PvP client with block hit animations, reach counters, and armor HUD</p>
+          <div class="card-footer">
+            <button class="card-launch-btn" onclick="quickLaunch('flame', 'Flame Client 3.7', 'flame.html')">PLAY CLIENT</button>
+          </div>
+        </div>
+
+        <div class="client-grid-card">
+          <div class="card-head">
+            <span class="card-badge">MOONLIGHT</span>
+            <div class="card-dot"></div>
+          </div>
+          <h3 class="card-title">Moonlight Client</h3>
+          <p class="card-desc">Sleek dark-aesthetic PvP client with smooth motion blur and custom skyboxes</p>
+          <div class="card-footer">
+            <button class="card-launch-btn" onclick="quickLaunch('moonlight', 'Moonlight Client', 'moonlight.html')">PLAY CLIENT</button>
+          </div>
+        </div>
+
+        <div class="client-grid-card">
+          <div class="card-head">
+            <span class="card-badge">RESENT 5.0</span>
+            <div class="card-dot"></div>
+          </div>
+          <h3 class="card-title">Resent Client 5.0</h3>
+          <p class="card-desc">Latest major release of Resent Client with revamped ClickGUI and modular toggles</p>
+          <div class="card-footer">
+            <button class="card-launch-btn" onclick="quickLaunch('resent-5.0', 'Resent Client 5.0', 'resent-5.0.html')">PLAY CLIENT</button>
+          </div>
+        </div>
+
+        <div class="client-grid-card">
+          <div class="card-head">
+            <span class="card-badge">RESENT 4.4</span>
+            <div class="card-dot"></div>
+          </div>
+          <h3 class="card-title">Resent Client 4.4 Signed</h3>
+          <p class="card-desc">Signed stable edition of Resent 4.4 with proven server compatibility</p>
+          <div class="card-footer">
+            <button class="card-launch-btn" onclick="quickLaunch('resent-4.4', 'Resent Client 4.4 Signed', 'resent-4.4.html')">PLAY CLIENT</button>
+          </div>
+        </div>
+
+        <div class="client-grid-card">
+          <div class="card-head">
+            <span class="card-badge">PVP CLIENT</span>
+            <div class="card-dot"></div>
+          </div>
+          <h3 class="card-title">Resent Client Classic</h3>
+          <p class="card-desc">Original ultra lightweight competitive PvP client with clean minimal interface</p>
+          <div class="card-footer">
+            <button class="card-launch-btn" onclick="quickLaunch('resent', 'Resent Client Classic', 'resent.html')">PLAY CLIENT</button>
+          </div>
+        </div>
+
+        <div class="client-grid-card">
+          <div class="card-head">
+            <span class="card-badge">OPTIFINE</span>
+            <div class="card-dot"></div>
+          </div>
+          <h3 class="card-title">Shadow Client 4.0</h3>
+          <p class="card-desc">Full Optifine client for u34 with support for EaglerForge v1.3 mods and shaders</p>
+          <div class="card-footer">
+            <button class="card-launch-btn" onclick="quickLaunch('shadow', 'Shadow Client 4.0', 'shadow.html')">PLAY CLIENT</button>
+          </div>
+        </div>
+
+        <div class="client-grid-card">
+          <div class="card-head">
+            <span class="card-badge">SHADOW 3.0</span>
+            <div class="card-dot"></div>
+          </div>
+          <h3 class="card-title">Shadow Client 3.0 Beta</h3>
+          <p class="card-desc">Classic version of Shadow client with low-overhead rendering engine</p>
+          <div class="card-footer">
+            <button class="card-launch-btn" onclick="quickLaunch('shadow-3.0', 'Shadow Client 3.0 Beta', 'shadow-3.0.html')">PLAY CLIENT</button>
+          </div>
+        </div>
+
+        <div class="client-grid-card">
+          <div class="card-head">
+            <span class="card-badge">ASTRA</span>
+            <div class="card-dot"></div>
+          </div>
+          <h3 class="card-title">Astra Client</h3>
+          <p class="card-desc">Enhanced 1.8.8 client with visual animations, particle toggles, and CPS counters</p>
+          <div class="card-footer">
+            <button class="card-launch-btn" onclick="quickLaunch('astra', 'Astra Client', 'astra.html')">PLAY CLIENT</button>
+          </div>
+        </div>
+
+        <div class="client-grid-card">
+          <div class="card-head">
+            <span class="card-badge">TUFF</span>
+            <div class="card-dot"></div>
+          </div>
+          <h3 class="card-title">Tuff Client</h3>
+          <p class="card-desc">Feature-rich custom client with modern item support, scoreboard toggles, and clean HUD</p>
+          <div class="card-footer">
+            <button class="card-launch-btn" onclick="quickLaunch('tuff', 'Tuff Client', 'tuff.html')">PLAY CLIENT</button>
+          </div>
+        </div>
+
+        <div class="client-grid-card">
+          <div class="card-head">
+            <span class="card-badge">REFLEX</span>
+            <div class="card-dot"></div>
+          </div>
+          <h3 class="card-title">Reflex Client 0.0.2</h3>
+          <p class="card-desc">WASM-GC powered reflex client designed for ultra fast block placement and bridge assist</p>
+          <div class="card-footer">
+            <button class="card-launch-btn" onclick="quickLaunch('reflex', 'Reflex Client 0.0.2', 'reflex.html')">PLAY CLIENT</button>
+          </div>
+        </div>
+
+        <div class="client-grid-card">
+          <div class="card-head">
+            <span class="card-badge">PRECISION</span>
+            <div class="card-dot"></div>
+          </div>
+          <h3 class="card-title">Precision Client</h3>
+          <p class="card-desc">Precision hit registration and projectile trajectory helper with smooth animations</p>
+          <div class="card-footer">
+            <button class="card-launch-btn" onclick="quickLaunch('precision', 'Precision Client', 'precision.html')">PLAY CLIENT</button>
+          </div>
+        </div>
+
+        <div class="client-grid-card">
+          <div class="card-head">
+            <span class="card-badge">N0VA</span>
+            <div class="card-dot"></div>
+          </div>
+          <h3 class="card-title">N0VA Client</h3>
+          <p class="card-desc">Clean modern PvP client with customizable keystrokes, ping monitor, and hit color</p>
+          <div class="card-footer">
+            <button class="card-launch-btn" onclick="quickLaunch('n0va', 'N0VA Client', 'n0va.html')">PLAY CLIENT</button>
+          </div>
+        </div>
+
+        <div class="client-grid-card">
+          <div class="card-head">
+            <span class="card-badge">STARLIKE</span>
+            <div class="card-dot"></div>
+          </div>
+          <h3 class="card-title">Starlike Client</h3>
+          <p class="card-desc">Vibrant PvP client with custom particle streaks, hit sparkles, and full HUD editing</p>
+          <div class="card-footer">
+            <button class="card-launch-btn" onclick="quickLaunch('starlike', 'Starlike Client', 'starlike.html')">PLAY CLIENT</button>
+          </div>
+        </div>
+
+        <div class="client-grid-card">
+          <div class="card-head">
+            <span class="card-badge">KEROSENE</span>
+            <div class="card-dot"></div>
+          </div>
+          <h3 class="card-title">Kerosene Client</h3>
+          <p class="card-desc">High performance PvP client designed for bedwars and skywars fast pacing</p>
+          <div class="card-footer">
+            <button class="card-launch-btn" onclick="quickLaunch('kerosene', 'Kerosene Client', 'kerosene.html')">PLAY CLIENT</button>
+          </div>
+        </div>
+
+        <div class="client-grid-card">
+          <div class="card-head">
+            <span class="card-badge">NITCLIENT 2.0</span>
+            <div class="card-dot"></div>
+          </div>
+          <h3 class="card-title">NitClient 2.0</h3>
+          <p class="card-desc">Lightweight client with full color customization, target HUD, and sword animations</p>
+          <div class="card-footer">
+            <button class="card-launch-btn" onclick="quickLaunch('nitclient', 'NitClient 2.0', 'nitclient.html')">PLAY CLIENT</button>
+          </div>
+        </div>
+
+        <div class="client-grid-card">
+          <div class="card-head">
+            <span class="card-badge">LIGHTWEIGHT</span>
+            <div class="card-dot"></div>
+          </div>
+          <h3 class="card-title">Kone Client 1.8.8</h3>
+          <p class="card-desc">Compact 9MB lightweight PvP build optimized for low-end chromebooks</p>
+          <div class="card-footer">
+            <button class="card-launch-btn" onclick="quickLaunch('kone', 'Kone Client 1.8.8', 'kone.html')">PLAY CLIENT</button>
+          </div>
+        </div>
+
+        <div class="client-grid-card">
+          <div class="card-head">
+            <span class="card-badge">PI CLIENT</span>
+            <div class="card-dot"></div>
+          </div>
+          <h3 class="card-title">Pi Client</h3>
+          <p class="card-desc">Math-inspired PvP client with geometric crosshairs and trajectory calculations</p>
+          <div class="card-footer">
+            <button class="card-launch-btn" onclick="quickLaunch('pi', 'Pi Client', 'pi.html')">PLAY CLIENT</button>
+          </div>
+        </div>
+
+        <div class="client-grid-card">
+          <div class="card-head">
+            <span class="card-badge">DEMON</span>
+            <div class="card-dot"></div>
+          </div>
+          <h3 class="card-title">Demon Client</h3>
+          <p class="card-desc">High saturation aggressive PvP client with combat stats and killstreak audio</p>
+          <div class="card-footer">
+            <button class="card-launch-btn" onclick="quickLaunch('demon', 'Demon Client', 'demon.html')">PLAY CLIENT</button>
+          </div>
+        </div>
+
+        <div class="client-grid-card">
+          <div class="card-head">
+            <span class="card-badge">DANIEL</span>
+            <div class="card-dot"></div>
+          </div>
+          <h3 class="card-title">Daniel Client</h3>
+          <p class="card-desc">Community customized PvP client with custom cape physics and sword blocking</p>
+          <div class="card-footer">
+            <button class="card-launch-btn" onclick="quickLaunch('daniel', 'Daniel Client', 'daniel.html')">PLAY CLIENT</button>
+          </div>
+        </div>
+
+        <div class="client-grid-card">
+          <div class="card-head">
+            <span class="card-badge">JUSTIN</span>
+            <div class="card-dot"></div>
+          </div>
+          <h3 class="card-title">Justin Client</h3>
+          <p class="card-desc">Popular community PvP client featuring clean inventory GUI and quick eat shortcuts</p>
+          <div class="card-footer">
+            <button class="card-launch-btn" onclick="quickLaunch('justin', 'Justin Client', 'justin.html')">PLAY CLIENT</button>
+          </div>
+        </div>
+
+        <div class="client-grid-card">
+          <div class="card-head">
+            <span class="card-badge">JUSTIN V3</span>
+            <div class="card-dot"></div>
+          </div>
+          <h3 class="card-title">Justin Client v3</h3>
+          <p class="card-desc">Updated version 3 of Justin Client with upgraded motion smoothing</p>
+          <div class="card-footer">
+            <button class="card-launch-btn" onclick="quickLaunch('justin-v3', 'Justin Client v3', 'justin-v3.html')">PLAY CLIENT</button>
+          </div>
+        </div>
+
+        <div class="client-grid-card">
+          <div class="card-head">
+            <span class="card-badge">DRAGONX</span>
+            <div class="card-dot"></div>
+          </div>
+          <h3 class="card-title">DragonX Client</h3>
+          <p class="card-desc">Core DragonX client with custom particle physics, armor HUD, and ClickGUI</p>
+          <div class="card-footer">
+            <button class="card-launch-btn" onclick="quickLaunch('dragonx', 'DragonX Client', 'dragonx.html')">PLAY CLIENT</button>
+          </div>
+        </div>
+
+        <div class="client-grid-card">
+          <div class="card-head">
+            <span class="card-badge">DRAGONX V5</span>
+            <div class="card-dot"></div>
+          </div>
+          <h3 class="card-title">DragonX v5 Client</h3>
+          <p class="card-desc">The newest v5 evolution of DragonX with safewalk, sprint-reset, and modern UI</p>
+          <div class="card-footer">
+            <button class="card-launch-btn" onclick="quickLaunch('dragonx-v5', 'DragonX v5 Client', 'dragonx-v5.html')">PLAY CLIENT</button>
+          </div>
+        </div>
+
+        <div class="client-grid-card">
+          <div class="card-head">
+            <span class="card-badge">DRAGONX V4</span>
+            <div class="card-dot"></div>
+          </div>
+          <h3 class="card-title">DragonX v4 Client</h3>
+          <p class="card-desc">Version 4 of DragonX with expanded module menu and server quick-switch</p>
+          <div class="card-footer">
+            <button class="card-launch-btn" onclick="quickLaunch('dragonx-v4', 'DragonX v4 Client', 'dragonx-v4.html')">PLAY CLIENT</button>
+          </div>
+        </div>
+
+        <div class="client-grid-card">
+          <div class="card-head">
+            <span class="card-badge">DRAGONX LITE</span>
+            <div class="card-dot"></div>
+          </div>
+          <h3 class="card-title">DragonX Lite</h3>
+          <p class="card-desc">Streamlined edition of DragonX stripped of excess assets for maximum FPS</p>
+          <div class="card-footer">
+            <button class="card-launch-btn" onclick="quickLaunch('dragonx-lite', 'DragonX Lite', 'dragonx-lite.html')">PLAY CLIENT</button>
+          </div>
+        </div>
+
+        <div class="client-grid-card">
+          <div class="card-head">
+            <span class="card-badge">HYBRID</span>
+            <div class="card-dot"></div>
+          </div>
+          <h3 class="card-title">DragonX Shadow Hybrid</h3>
+          <p class="card-desc">Hybrid fusion combining DragonX combat modules with Shadow Client Optifine core</p>
+          <div class="card-footer">
+            <button class="card-launch-btn" onclick="quickLaunch('dragonx-shadow', 'DragonX Shadow Hybrid', 'dragonx-shadow.html')">PLAY CLIENT</button>
+          </div>
+        </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- TAB 3: BETA & HACKS -->
+        <div class="view-tab" id="tab-betaclients">
+          <div class="grid-view-wrap">
+            <h2 class="view-header-title">Hacks, Utilities & Next-Gen WASM</h2>
+            <div class="view-header-sub">WurstX, Galactic, LiquidBounce, Meteor, and experimental WASM-GC runtimes</div>
+            <div class="cards-grid">
+              
+        <div class="client-grid-card">
+          <div class="card-head">
+            <span class="card-badge hack">320+ MODULES</span>
+            <div class="card-dot"></div>
+          </div>
+          <h3 class="card-title">Galactic Client 8.0.0</h3>
+          <p class="card-desc">Top 1.12.2 cheat client with 320+ modules, custom scaffold, killaura, and bypasses</p>
+          <div class="card-footer">
+            <button class="card-launch-btn" onclick="quickLaunch('galactic-8.0', 'Galactic Client 8.0.0', 'galactic-8.0.html')">PLAY CLIENT</button>
+          </div>
+        </div>
+
+        <div class="client-grid-card">
+          <div class="card-head">
+            <span class="card-badge hack">WURSTX</span>
+            <div class="card-dot"></div>
+          </div>
+          <h3 class="card-title">WurstX Client b2</h3>
+          <p class="card-desc">Wurst Client ported to EaglercraftX with WASM-GC runtime, ClickGUI, and Nuker</p>
+          <div class="card-footer">
+            <button class="card-launch-btn" onclick="quickLaunch('wurstx', 'WurstX Client b2', 'wurstx.html')">PLAY CLIENT</button>
+          </div>
+        </div>
+
+        <div class="client-grid-card">
+          <div class="card-head">
+            <span class="card-badge hack">LIQUIDBOUNCE</span>
+            <div class="card-dot"></div>
+          </div>
+          <h3 class="card-title">LiquidBounce Eagler</h3>
+          <p class="card-desc">LiquidBounce utility suite with silent aim, flight, ESP, and anticheat disablers</p>
+          <div class="card-footer">
+            <button class="card-launch-btn" onclick="quickLaunch('liquidbounce', 'LiquidBounce Eagler', 'liquidbounce.html')">PLAY CLIENT</button>
+          </div>
+        </div>
+
+        <div class="client-grid-card">
+          <div class="card-head">
+            <span class="card-badge hack">METEOR</span>
+            <div class="card-dot"></div>
+          </div>
+          <h3 class="card-title">Meteor Client Eagler</h3>
+          <p class="card-desc">Meteor hacked client ported to the web with modern HUD, Baritone pathing, and radar</p>
+          <div class="card-footer">
+            <button class="card-launch-btn" onclick="quickLaunch('meteor', 'Meteor Client Eagler', 'meteor.html')">PLAY CLIENT</button>
+          </div>
+        </div>
+
+        <div class="client-grid-card">
+          <div class="card-head">
+            <span class="card-badge hack">GHOST CLIENT</span>
+            <div class="card-dot"></div>
+          </div>
+          <h3 class="card-title">FuchsiaX Ghost Client</h3>
+          <p class="card-desc">Undetectable ghost client with Account Manager, subtle reach, and smooth aimassist</p>
+          <div class="card-footer">
+            <button class="card-launch-btn" onclick="quickLaunch('fuchsiax', 'FuchsiaX Ghost Client', 'fuchsiax.html')">PLAY CLIENT</button>
+          </div>
+        </div>
+
+        <div class="client-grid-card">
+          <div class="card-head">
+            <span class="card-badge hack">HACK CLIENT</span>
+            <div class="card-dot"></div>
+          </div>
+          <h3 class="card-title">Nebula Client</h3>
+          <p class="card-desc">Feature packed utility client with inventory cleaner, auto-armor, and high jump</p>
+          <div class="card-footer">
+            <button class="card-launch-btn" onclick="quickLaunch('nebula', 'Nebula Client', 'nebula.html')">PLAY CLIENT</button>
+          </div>
+        </div>
+
+        <div class="client-grid-card">
+          <div class="card-head">
+            <span class="card-badge hack">WASM-GC</span>
+            <div class="card-dot"></div>
+          </div>
+          <h3 class="card-title">EaglercraftX 1.20 WASM</h3>
+          <p class="card-desc">WASM-GC enhanced 1.20 client with smooth WebGL2 rendering pipeline</p>
+          <div class="card-footer">
+            <button class="card-launch-btn" onclick="quickLaunch('1.20-wasm', 'EaglercraftX 1.20 WASM', '1.20-wasm.html')">PLAY CLIENT</button>
+          </div>
+        </div>
+
+        <div class="client-grid-card">
+          <div class="card-head">
+            <span class="card-badge hack">WASM-GC</span>
+            <div class="card-dot"></div>
+          </div>
+          <h3 class="card-title">Eaglercraft 1.12.2 WASM</h3>
+          <p class="card-desc">Official TeaVM WebAssembly-GC port of 1.12.2 for maximum frame rates</p>
+          <div class="card-footer">
+            <button class="card-launch-btn" onclick="quickLaunch('1.12.2-wasm', 'Eaglercraft 1.12.2 WASM', '1.12.2-wasm.html')">PLAY CLIENT</button>
+          </div>
+        </div>
+
+        <div class="client-grid-card">
+          <div class="card-head">
+            <span class="card-badge hack">WASM-GC</span>
+            <div class="card-dot"></div>
+          </div>
+          <h3 class="card-title">EaglercraftX 1.8 WASM-GC</h3>
+          <p class="card-desc">High-speed WebAssembly-Garbage Collection 1.8 build with zero GC stutter</p>
+          <div class="card-footer">
+            <button class="card-launch-btn" onclick="quickLaunch('1.8.8-wasm', 'EaglercraftX 1.8 WASM-GC', '1.8.8-wasm.html')">PLAY CLIENT</button>
+          </div>
+        </div>
+
+        <div class="client-grid-card">
+          <div class="card-head">
+            <span class="card-badge hack">SHADERS</span>
+            <div class="card-dot"></div>
+          </div>
+          <h3 class="card-title">EaglercraftX Shaders Edition</h3>
+          <p class="card-desc">Ultimate Edition with built-in WebGL dynamic shadows and custom shader pipeline</p>
+          <div class="card-footer">
+            <button class="card-launch-btn" onclick="quickLaunch('shaders', 'EaglercraftX Shaders Edition', 'shaders.html')">PLAY CLIENT</button>
+          </div>
+        </div>
+
+        <div class="client-grid-card">
+          <div class="card-head">
+            <span class="card-badge hack">MOD LOADER</span>
+            <div class="card-dot"></div>
+          </div>
+          <h3 class="card-title">EaglerForge Client</h3>
+          <p class="card-desc">EaglerForge v1.2.5 mod loader client enabling runtime custom javascript mods</p>
+          <div class="card-footer">
+            <button class="card-launch-btn" onclick="quickLaunch('eaglerforge', 'EaglerForge Client', 'eaglerforge.html')">PLAY CLIENT</button>
+          </div>
+        </div>
+
+        <div class="client-grid-card">
+          <div class="card-head">
+            <span class="card-badge hack">PIXEL 1.12</span>
+            <div class="card-dot"></div>
+          </div>
+          <h3 class="card-title">Pixel Client 1.12.2</h3>
+          <p class="card-desc">Modern 1.12.2 client with enhanced visual settings, smooth lighting, and QoL</p>
+          <div class="card-footer">
+            <button class="card-launch-btn" onclick="quickLaunch('pixel', 'Pixel Client 1.12.2', 'pixel.html')">PLAY CLIENT</button>
+          </div>
+        </div>
+
+        <div class="client-grid-card">
+          <div class="card-head">
+            <span class="card-badge hack">MEGA</span>
+            <div class="card-dot"></div>
+          </div>
+          <h3 class="card-title">Mega Client</h3>
+          <p class="card-desc">Custom community client with multi-server profiles and integrated sound packs</p>
+          <div class="card-footer">
+            <button class="card-launch-btn" onclick="quickLaunch('mega', 'Mega Client', 'mega.html')">PLAY CLIENT</button>
+          </div>
+        </div>
+
+        <div class="client-grid-card">
+          <div class="card-head">
+            <span class="card-badge hack">CODERCRAFT</span>
+            <div class="card-dot"></div>
+          </div>
+          <h3 class="card-title">CoderCraft Client</h3>
+          <p class="card-desc">Developer focused client with memory inspector, chunk debugger, and packet logger</p>
+          <div class="card-footer">
+            <button class="card-launch-btn" onclick="quickLaunch('codercraft', 'CoderCraft Client', 'codercraft.html')">PLAY CLIENT</button>
+          </div>
+        </div>
+
+        <div class="client-grid-card">
+          <div class="card-head">
+            <span class="card-badge hack">REBORN</span>
+            <div class="card-dot"></div>
+          </div>
+          <h3 class="card-title">Eagler Reborn Client</h3>
+          <p class="card-desc">Community restoration build with updated WebRTC relay and server ping embeds</p>
+          <div class="card-footer">
+            <button class="card-launch-btn" onclick="quickLaunch('eagler-reborn', 'Eagler Reborn Client', 'eagler-reborn.html')">PLAY CLIENT</button>
+          </div>
+        </div>
+
+        <div class="client-grid-card">
+          <div class="card-head">
+            <span class="card-badge hack">JMOCRAFT</span>
+            <div class="card-dot"></div>
+          </div>
+          <h3 class="card-title">JmoCraft v5.2</h3>
+          <p class="card-desc">Custom adventure build with custom textures, UI styling, and ambient audio</p>
+          <div class="card-footer">
+            <button class="card-launch-btn" onclick="quickLaunch('jmocraft', 'JmoCraft v5.2', 'jmocraft.html')">PLAY CLIENT</button>
+          </div>
+        </div>
+
+        <div class="client-grid-card">
+          <div class="card-head">
+            <span class="card-badge hack">ODDFUTURE</span>
+            <div class="card-dot"></div>
+          </div>
+          <h3 class="card-title">OddFuture Client</h3>
+          <p class="card-desc">Custom themed client with OFWGKTA branding, custom sounds, and music player</p>
+          <div class="card-footer">
+            <button class="card-launch-btn" onclick="quickLaunch('oddfuture', 'OddFuture Client', 'oddfuture.html')">PLAY CLIENT</button>
+          </div>
+        </div>
+
+        <div class="client-grid-card">
+          <div class="card-head">
+            <span class="card-badge hack">UWU V1</span>
+            <div class="card-dot"></div>
+          </div>
+          <h3 class="card-title">UwU Client v1 Full</h3>
+          <p class="card-desc">Whimsical anime-inspired client with custom sound effects and pink UI theme</p>
+          <div class="card-footer">
+            <button class="card-launch-btn" onclick="quickLaunch('uwu-v1', 'UwU Client v1 Full', 'uwu-v1.html')">PLAY CLIENT</button>
+          </div>
+        </div>
+
+        <div class="client-grid-card">
+          <div class="card-head">
+            <span class="card-badge hack">UWU B2</span>
+            <div class="card-dot"></div>
+          </div>
+          <h3 class="card-title">UwU Client Beta 2</h3>
+          <p class="card-desc">Beta 2 release of UwU client with updated particle trails and custom fonts</p>
+          <div class="card-footer">
+            <button class="card-launch-btn" onclick="quickLaunch('uwu-b2', 'UwU Client Beta 2', 'uwu-b2.html')">PLAY CLIENT</button>
+          </div>
+        </div>
+
+        <div class="client-grid-card">
+          <div class="card-head">
+            <span class="card-badge hack">UWU LITE</span>
+            <div class="card-dot"></div>
+          </div>
+          <h3 class="card-title">UwU Lite 2</h3>
+          <p class="card-desc">Resource-friendly edition of UwU client keeping the custom aesthetic with high FPS</p>
+          <div class="card-footer">
+            <button class="card-launch-btn" onclick="quickLaunch('uwu-lite', 'UwU Lite 2', 'uwu-lite.html')">PLAY CLIENT</button>
+          </div>
+        </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- TAB 4: SERVERS -->
+        <div class="view-tab" id="tab-servers">
+          <div class="grid-view-wrap">
+            <h2 class="view-header-title">Public Multiplayer Server List</h2>
+            <div class="view-header-sub">Verified Eaglercraft WebSocket servers online and ready to join</div>
+            <div class="cards-grid">
+              
+        <div class="server-grid-card">
+          <div class="server-header">
+            <div class="server-title">ArchMC</div>
+            <div class="server-status"><span class="status-dot"></span>ONLINE</div>
+          </div>
+          <div class="server-addr-box">
+            <code>mc.arch.lol</code>
+            <button class="copy-addr-btn" onclick="copyServerAddr('mc.arch.lol', this)">COPY IP</button>
+          </div>
+          <p class="server-desc">The leading competitive Eaglercraft network with Bedwars, Skywars, and Duels.</p>
+        </div>
+
+        <div class="server-grid-card">
+          <div class="server-header">
+            <div class="server-title">Zentic Network</div>
+            <div class="server-status"><span class="status-dot"></span>ONLINE</div>
+          </div>
+          <div class="server-addr-box">
+            <code>wss://zentic.cc</code>
+            <button class="copy-addr-btn" onclick="copyServerAddr('wss://zentic.cc', this)">COPY IP</button>
+          </div>
+          <p class="server-desc">Active multiplayer community featuring custom mini-games and survival.</p>
+        </div>
+
+        <div class="server-grid-card">
+          <div class="server-header">
+            <div class="server-title">VanillaMC</div>
+            <div class="server-status"><span class="status-dot"></span>ONLINE</div>
+          </div>
+          <div class="server-addr-box">
+            <code>wss://vanillamc.org</code>
+            <button class="copy-addr-btn" onclick="copyServerAddr('wss://vanillamc.org', this)">COPY IP</button>
+          </div>
+          <p class="server-desc">Pure vanilla survival experience with grief prevention and friendly community.</p>
+        </div>
+
+        <div class="server-grid-card">
+          <div class="server-header">
+            <div class="server-title">Zyth</div>
+            <div class="server-status"><span class="status-dot"></span>ONLINE</div>
+          </div>
+          <div class="server-addr-box">
+            <code>wss://mc.zyth.me</code>
+            <button class="copy-addr-btn" onclick="copyServerAddr('wss://mc.zyth.me', this)">COPY IP</button>
+          </div>
+          <p class="server-desc">High-performance PvP practice and competitive arena server.</p>
+        </div>
+
+        <div class="server-grid-card">
+          <div class="server-header">
+            <div class="server-title">AsianF4rmer</div>
+            <div class="server-status"><span class="status-dot"></span>ONLINE</div>
+          </div>
+          <div class="server-addr-box">
+            <code>wss://asianf4rmer.minecraft.pe</code>
+            <button class="copy-addr-btn" onclick="copyServerAddr('wss://asianf4rmer.minecraft.pe', this)">COPY IP</button>
+          </div>
+          <p class="server-desc">Survival, economy, and parkour courses.</p>
+        </div>
+
+        <div class="server-grid-card">
+          <div class="server-header">
+            <div class="server-title">Aeon Network</div>
+            <div class="server-status"><span class="status-dot"></span>ONLINE</div>
+          </div>
+          <div class="server-addr-box">
+            <code>wss://aeon-network.net/1.8</code>
+            <button class="copy-addr-btn" onclick="copyServerAddr('wss://aeon-network.net/1.8', this)">COPY IP</button>
+          </div>
+          <p class="server-desc">Classic 1.8 combat and practice server.</p>
+        </div>
+
+        <div class="server-grid-card">
+          <div class="server-header">
+            <div class="server-title">Lamp Lifesteal</div>
+            <div class="server-status"><span class="status-dot"></span>ONLINE</div>
+          </div>
+          <div class="server-addr-box">
+            <code>wss://mc.lamplifesteal.xyz</code>
+            <button class="copy-addr-btn" onclick="copyServerAddr('wss://mc.lamplifesteal.xyz', this)">COPY IP</button>
+          </div>
+          <p class="server-desc">Thrilling hardcore Lifesteal SMP server.</p>
+        </div>
+
+        <div class="server-grid-card">
+          <div class="server-header">
+            <div class="server-title">Voidsent</div>
+            <div class="server-status"><span class="status-dot"></span>ONLINE</div>
+          </div>
+          <div class="server-addr-box">
+            <code>wss://mc.voidsent.net</code>
+            <button class="copy-addr-btn" onclick="copyServerAddr('wss://mc.voidsent.net', this)">COPY IP</button>
+          </div>
+          <p class="server-desc">Crossplay Eaglercraft network with custom custom cosmetics.</p>
+        </div>
+
+        <div class="server-grid-card">
+          <div class="server-header">
+            <div class="server-title">Mytheria MC</div>
+            <div class="server-status"><span class="status-dot"></span>ONLINE</div>
+          </div>
+          <div class="server-addr-box">
+            <code>wss://play.mytheriamc.net</code>
+            <button class="copy-addr-btn" onclick="copyServerAddr('wss://play.mytheriamc.net', this)">COPY IP</button>
+          </div>
+          <p class="server-desc">Custom RPG survival with quests, dungeons, and trading.</p>
+        </div>
+
+        <div class="server-grid-card">
+          <div class="server-header">
+            <div class="server-title">CMC</div>
+            <div class="server-status"><span class="status-dot"></span>ONLINE</div>
+          </div>
+          <div class="server-addr-box">
+            <code>wss://cmc.tf</code>
+            <button class="copy-addr-btn" onclick="copyServerAddr('wss://cmc.tf', this)">COPY IP</button>
+          </div>
+          <p class="server-desc">Clean vanilla-oriented community survival.</p>
+        </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- TAB 5: DOWNLOADS -->
+        <div class="view-tab" id="tab-downloads">
+          <div class="grid-view-wrap">
+            <h2 class="view-header-title">Offline Client Library</h2>
+            <div class="view-header-sub">Download self-contained single-file HTML clients for offline offline play</div>
+            <table class="downloads-table">
+              <thead>
+                <tr>
+                  <th>Client Name</th>
+                  <th>Type</th>
+                  <th>Tag</th>
+                  <th style="text-align: right;">Action</th>
+                </tr>
+              </thead>
+              <tbody>
+                
+        <tr class="download-row">
+          <td class="font-mono text-white py-2 px-3">HBWMC Official Client</td>
+          <td class="text-xs text-dim py-2 px-3">Official Client</td>
+          <td class="py-2 px-3"><span class="version-badge">HBWMC MAIN</span></td>
+          <td class="text-right py-2 px-3">
+            <a href="https://skiingbeast2025.github.io/lunamix-eaglercraft/downloads/hbwmc.html" download="hbwmc.html" class="download-btn">DOWNLOAD HTML</a>
+          </td>
+        </tr>
+
+        <tr class="download-row">
+          <td class="font-mono text-white py-2 px-3">Eaglercraft 26.3</td>
+          <td class="text-xs text-dim py-2 px-3">Release</td>
+          <td class="py-2 px-3"><span class="version-badge">DEFAULT / LATEST</span></td>
+          <td class="text-right py-2 px-3">
+            <a href="https://skiingbeast2025.github.io/lunamix-eaglercraft/downloads/26.3.html" download="26.3.html" class="download-btn">DOWNLOAD HTML</a>
+          </td>
+        </tr>
+
+        <tr class="download-row">
+          <td class="font-mono text-white py-2 px-3">Eaglercraft 26.2</td>
+          <td class="text-xs text-dim py-2 px-3">Release</td>
+          <td class="py-2 px-3"><span class="version-badge">STABLE</span></td>
+          <td class="text-right py-2 px-3">
+            <a href="https://skiingbeast2025.github.io/lunamix-eaglercraft/downloads/26.2.html" download="26.2.html" class="download-btn">DOWNLOAD HTML</a>
+          </td>
+        </tr>
+
+        <tr class="download-row">
+          <td class="font-mono text-white py-2 px-3">Eaglercraft 1.20.6</td>
+          <td class="text-xs text-dim py-2 px-3">Release</td>
+          <td class="py-2 px-3"><span class="version-badge">MODERN</span></td>
+          <td class="text-right py-2 px-3">
+            <a href="https://skiingbeast2025.github.io/lunamix-eaglercraft/downloads/1.20.6.html" download="1.20.6.html" class="download-btn">DOWNLOAD HTML</a>
+          </td>
+        </tr>
+
+        <tr class="download-row">
+          <td class="font-mono text-white py-2 px-3">EaglercraftX 1.20 WASM</td>
+          <td class="text-xs text-dim py-2 px-3">Next-Gen</td>
+          <td class="py-2 px-3"><span class="version-badge">WASM-GC</span></td>
+          <td class="text-right py-2 px-3">
+            <a href="https://skiingbeast2025.github.io/lunamix-eaglercraft/downloads/1.20-wasm.html" download="1.20-wasm.html" class="download-btn">DOWNLOAD HTML</a>
+          </td>
+        </tr>
+
+        <tr class="download-row">
+          <td class="font-mono text-white py-2 px-3">Eaglercraft 1.16.5</td>
+          <td class="text-xs text-dim py-2 px-3">Release</td>
+          <td class="py-2 px-3"><span class="version-badge">MAJOR</span></td>
+          <td class="text-right py-2 px-3">
+            <a href="https://skiingbeast2025.github.io/lunamix-eaglercraft/downloads/1.16.5.html" download="1.16.5.html" class="download-btn">DOWNLOAD HTML</a>
+          </td>
+        </tr>
+
+        <tr class="download-row">
+          <td class="font-mono text-white py-2 px-3">Eaglercraft 1.14.4</td>
+          <td class="text-xs text-dim py-2 px-3">Release</td>
+          <td class="py-2 px-3"><span class="version-badge">UPDATE</span></td>
+          <td class="text-right py-2 px-3">
+            <a href="https://skiingbeast2025.github.io/lunamix-eaglercraft/downloads/1.14.4.html" download="1.14.4.html" class="download-btn">DOWNLOAD HTML</a>
+          </td>
+        </tr>
+
+        <tr class="download-row">
+          <td class="font-mono text-white py-2 px-3">Eaglercraft 1.12.2</td>
+          <td class="text-xs text-dim py-2 px-3">Release</td>
+          <td class="py-2 px-3"><span class="version-badge">POPULAR</span></td>
+          <td class="text-right py-2 px-3">
+            <a href="https://skiingbeast2025.github.io/lunamix-eaglercraft/downloads/1.12.2.html" download="1.12.2.html" class="download-btn">DOWNLOAD HTML</a>
+          </td>
+        </tr>
+
+        <tr class="download-row">
+          <td class="font-mono text-white py-2 px-3">Eaglercraft 1.12.2 WASM</td>
+          <td class="text-xs text-dim py-2 px-3">Next-Gen</td>
+          <td class="py-2 px-3"><span class="version-badge">WASM-GC</span></td>
+          <td class="text-right py-2 px-3">
+            <a href="https://skiingbeast2025.github.io/lunamix-eaglercraft/downloads/1.12.2-wasm.html" download="1.12.2-wasm.html" class="download-btn">DOWNLOAD HTML</a>
+          </td>
+        </tr>
+
+        <tr class="download-row">
+          <td class="font-mono text-white py-2 px-3">Eaglercraft 1.11.2</td>
+          <td class="text-xs text-dim py-2 px-3">Release</td>
+          <td class="py-2 px-3"><span class="version-badge">STABLE</span></td>
+          <td class="text-right py-2 px-3">
+            <a href="https://skiingbeast2025.github.io/lunamix-eaglercraft/downloads/1.11.2.html" download="1.11.2.html" class="download-btn">DOWNLOAD HTML</a>
+          </td>
+        </tr>
+
+        <tr class="download-row">
+          <td class="font-mono text-white py-2 px-3">Eaglercraft 1.9.4</td>
+          <td class="text-xs text-dim py-2 px-3">Release</td>
+          <td class="py-2 px-3"><span class="version-badge">COMBAT</span></td>
+          <td class="text-right py-2 px-3">
+            <a href="https://skiingbeast2025.github.io/lunamix-eaglercraft/downloads/1.9.4.html" download="1.9.4.html" class="download-btn">DOWNLOAD HTML</a>
+          </td>
+        </tr>
+
+        <tr class="download-row">
+          <td class="font-mono text-white py-2 px-3">Eaglercraft 1.8.8</td>
+          <td class="text-xs text-dim py-2 px-3">Release</td>
+          <td class="py-2 px-3"><span class="version-badge">CLASSIC</span></td>
+          <td class="text-right py-2 px-3">
+            <a href="https://skiingbeast2025.github.io/lunamix-eaglercraft/downloads/1.8.8.html" download="1.8.8.html" class="download-btn">DOWNLOAD HTML</a>
+          </td>
+        </tr>
+
+        <tr class="download-row">
+          <td class="font-mono text-white py-2 px-3">EaglercraftX 1.8 WASM-GC</td>
+          <td class="text-xs text-dim py-2 px-3">Next-Gen</td>
+          <td class="py-2 px-3"><span class="version-badge">WASM-GC</span></td>
+          <td class="text-right py-2 px-3">
+            <a href="https://skiingbeast2025.github.io/lunamix-eaglercraft/downloads/1.8.8-wasm.html" download="1.8.8-wasm.html" class="download-btn">DOWNLOAD HTML</a>
+          </td>
+        </tr>
+
+        <tr class="download-row">
+          <td class="font-mono text-white py-2 px-3">EaglercraftX 1.8 u44</td>
+          <td class="text-xs text-dim py-2 px-3">Release</td>
+          <td class="py-2 px-3"><span class="version-badge">U44 SIGNED</span></td>
+          <td class="text-right py-2 px-3">
+            <a href="https://skiingbeast2025.github.io/lunamix-eaglercraft/downloads/1.8.8-u44.html" download="1.8.8-u44.html" class="download-btn">DOWNLOAD HTML</a>
+          </td>
+        </tr>
+
+        <tr class="download-row">
+          <td class="font-mono text-white py-2 px-3">EaglercraftX 1.8 u29</td>
+          <td class="text-xs text-dim py-2 px-3">Release</td>
+          <td class="py-2 px-3"><span class="version-badge">U29</span></td>
+          <td class="text-right py-2 px-3">
+            <a href="https://skiingbeast2025.github.io/lunamix-eaglercraft/downloads/1.8.8-u29.html" download="1.8.8-u29.html" class="download-btn">DOWNLOAD HTML</a>
+          </td>
+        </tr>
+
+        <tr class="download-row">
+          <td class="font-mono text-white py-2 px-3">EaglercraftX 1.8 u23</td>
+          <td class="text-xs text-dim py-2 px-3">Release</td>
+          <td class="py-2 px-3"><span class="version-badge">U23 SIGNED</span></td>
+          <td class="text-right py-2 px-3">
+            <a href="https://skiingbeast2025.github.io/lunamix-eaglercraft/downloads/1.8.8-u23.html" download="1.8.8-u23.html" class="download-btn">DOWNLOAD HTML</a>
+          </td>
+        </tr>
+
+        <tr class="download-row">
+          <td class="font-mono text-white py-2 px-3">EaglercraftX Shaders Edition</td>
+          <td class="text-xs text-dim py-2 px-3">Modded</td>
+          <td class="py-2 px-3"><span class="version-badge">SHADERS</span></td>
+          <td class="text-right py-2 px-3">
+            <a href="https://skiingbeast2025.github.io/lunamix-eaglercraft/downloads/shaders.html" download="shaders.html" class="download-btn">DOWNLOAD HTML</a>
+          </td>
+        </tr>
+
+        <tr class="download-row">
+          <td class="font-mono text-white py-2 px-3">Eaglercraft 1.5.2</td>
+          <td class="text-xs text-dim py-2 px-3">Retro</td>
+          <td class="py-2 px-3"><span class="version-badge">RETRO 1.5</span></td>
+          <td class="text-right py-2 px-3">
+            <a href="https://skiingbeast2025.github.io/lunamix-eaglercraft/downloads/1.5.2.html" download="1.5.2.html" class="download-btn">DOWNLOAD HTML</a>
+          </td>
+        </tr>
+
+        <tr class="download-row">
+          <td class="font-mono text-white py-2 px-3">Eaglercraft 1.2.5</td>
+          <td class="text-xs text-dim py-2 px-3">Retro</td>
+          <td class="py-2 px-3"><span class="version-badge">CLASSIC 1.2</span></td>
+          <td class="text-right py-2 px-3">
+            <a href="https://skiingbeast2025.github.io/lunamix-eaglercraft/downloads/1.2.5.html" download="1.2.5.html" class="download-btn">DOWNLOAD HTML</a>
+          </td>
+        </tr>
+
+        <tr class="download-row">
+          <td class="font-mono text-white py-2 px-3">Minecraft 1.0.3</td>
+          <td class="text-xs text-dim py-2 px-3">Retro</td>
+          <td class="py-2 px-3"><span class="version-badge">EARLY 1.0</span></td>
+          <td class="text-right py-2 px-3">
+            <a href="https://skiingbeast2025.github.io/lunamix-eaglercraft/downloads/1.0.3.html" download="1.0.3.html" class="download-btn">DOWNLOAD HTML</a>
+          </td>
+        </tr>
+
+        <tr class="download-row">
+          <td class="font-mono text-white py-2 px-3">Eaglercraft Beta 1.7.3</td>
+          <td class="text-xs text-dim py-2 px-3">Retro</td>
+          <td class="py-2 px-3"><span class="version-badge">BETA 1.7.3</span></td>
+          <td class="text-right py-2 px-3">
+            <a href="https://skiingbeast2025.github.io/lunamix-eaglercraft/downloads/beta1.7.3.html" download="beta1.7.3.html" class="download-btn">DOWNLOAD HTML</a>
+          </td>
+        </tr>
+
+        <tr class="download-row">
+          <td class="font-mono text-white py-2 px-3">Eaglercraft Beta 1.3</td>
+          <td class="text-xs text-dim py-2 px-3">Retro</td>
+          <td class="py-2 px-3"><span class="version-badge">BETA 1.3</span></td>
+          <td class="text-right py-2 px-3">
+            <a href="https://skiingbeast2025.github.io/lunamix-eaglercraft/downloads/beta1.3.html" download="beta1.3.html" class="download-btn">DOWNLOAD HTML</a>
+          </td>
+        </tr>
+
+        <tr class="download-row">
+          <td class="font-mono text-white py-2 px-3">Eaglercraft Alpha 1.2.6</td>
+          <td class="text-xs text-dim py-2 px-3">Retro</td>
+          <td class="py-2 px-3"><span class="version-badge">ALPHA 1.2.6</span></td>
+          <td class="text-right py-2 px-3">
+            <a href="https://skiingbeast2025.github.io/lunamix-eaglercraft/downloads/alpha1.2.6.html" download="alpha1.2.6.html" class="download-btn">DOWNLOAD HTML</a>
+          </td>
+        </tr>
+
+        <tr class="download-row">
+          <td class="font-mono text-white py-2 px-3">Minecraft Indev</td>
+          <td class="text-xs text-dim py-2 px-3">Retro</td>
+          <td class="py-2 px-3"><span class="version-badge">INDEV</span></td>
+          <td class="text-right py-2 px-3">
+            <a href="https://skiingbeast2025.github.io/lunamix-eaglercraft/downloads/indev.html" download="indev.html" class="download-btn">DOWNLOAD HTML</a>
+          </td>
+        </tr>
+
+        <tr class="download-row">
+          <td class="font-mono text-white py-2 px-3">Galactic Client 8.0.0</td>
+          <td class="text-xs text-dim py-2 px-3">Hack Client</td>
+          <td class="py-2 px-3"><span class="version-badge">320+ MODULES</span></td>
+          <td class="text-right py-2 px-3">
+            <a href="https://skiingbeast2025.github.io/lunamix-eaglercraft/downloads/galactic-8.0.html" download="galactic-8.0.html" class="download-btn">DOWNLOAD HTML</a>
+          </td>
+        </tr>
+
+        <tr class="download-row">
+          <td class="font-mono text-white py-2 px-3">WurstX Client b2</td>
+          <td class="text-xs text-dim py-2 px-3">Hack Client</td>
+          <td class="py-2 px-3"><span class="version-badge">WURSTX</span></td>
+          <td class="text-right py-2 px-3">
+            <a href="https://skiingbeast2025.github.io/lunamix-eaglercraft/downloads/wurstx.html" download="wurstx.html" class="download-btn">DOWNLOAD HTML</a>
+          </td>
+        </tr>
+
+        <tr class="download-row">
+          <td class="font-mono text-white py-2 px-3">LiquidBounce Eagler</td>
+          <td class="text-xs text-dim py-2 px-3">Hack Client</td>
+          <td class="py-2 px-3"><span class="version-badge">LIQUIDBOUNCE</span></td>
+          <td class="text-right py-2 px-3">
+            <a href="https://skiingbeast2025.github.io/lunamix-eaglercraft/downloads/liquidbounce.html" download="liquidbounce.html" class="download-btn">DOWNLOAD HTML</a>
+          </td>
+        </tr>
+
+        <tr class="download-row">
+          <td class="font-mono text-white py-2 px-3">Meteor Client Eagler</td>
+          <td class="text-xs text-dim py-2 px-3">Hack Client</td>
+          <td class="py-2 px-3"><span class="version-badge">METEOR</span></td>
+          <td class="text-right py-2 px-3">
+            <a href="https://skiingbeast2025.github.io/lunamix-eaglercraft/downloads/meteor.html" download="meteor.html" class="download-btn">DOWNLOAD HTML</a>
+          </td>
+        </tr>
+
+        <tr class="download-row">
+          <td class="font-mono text-white py-2 px-3">FuchsiaX Ghost Client</td>
+          <td class="text-xs text-dim py-2 px-3">Ghost Client</td>
+          <td class="py-2 px-3"><span class="version-badge">GHOST CLIENT</span></td>
+          <td class="text-right py-2 px-3">
+            <a href="https://skiingbeast2025.github.io/lunamix-eaglercraft/downloads/fuchsiax.html" download="fuchsiax.html" class="download-btn">DOWNLOAD HTML</a>
+          </td>
+        </tr>
+
+        <tr class="download-row">
+          <td class="font-mono text-white py-2 px-3">Nebula Client</td>
+          <td class="text-xs text-dim py-2 px-3">Hack Client</td>
+          <td class="py-2 px-3"><span class="version-badge">HACK CLIENT</span></td>
+          <td class="text-right py-2 px-3">
+            <a href="https://skiingbeast2025.github.io/lunamix-eaglercraft/downloads/nebula.html" download="nebula.html" class="download-btn">DOWNLOAD HTML</a>
+          </td>
+        </tr>
+
+        <tr class="download-row">
+          <td class="font-mono text-white py-2 px-3">ArchMC Official Client</td>
+          <td class="text-xs text-dim py-2 px-3">PvP Client</td>
+          <td class="py-2 px-3"><span class="version-badge">ARCHMC</span></td>
+          <td class="text-right py-2 px-3">
+            <a href="https://skiingbeast2025.github.io/lunamix-eaglercraft/downloads/archmc.html" download="archmc.html" class="download-btn">DOWNLOAD HTML</a>
+          </td>
+        </tr>
+
+        <tr class="download-row">
+          <td class="font-mono text-white py-2 px-3">Solar Client</td>
+          <td class="text-xs text-dim py-2 px-3">PvP Client</td>
+          <td class="py-2 px-3"><span class="version-badge">FPS BOOST</span></td>
+          <td class="text-right py-2 px-3">
+            <a href="https://skiingbeast2025.github.io/lunamix-eaglercraft/downloads/solar.html" download="solar.html" class="download-btn">DOWNLOAD HTML</a>
+          </td>
+        </tr>
+
+        <tr class="download-row">
+          <td class="font-mono text-white py-2 px-3">Flame Client 3.7</td>
+          <td class="text-xs text-dim py-2 px-3">PvP Client</td>
+          <td class="py-2 px-3"><span class="version-badge">FLAME 3.7</span></td>
+          <td class="text-right py-2 px-3">
+            <a href="https://skiingbeast2025.github.io/lunamix-eaglercraft/downloads/flame.html" download="flame.html" class="download-btn">DOWNLOAD HTML</a>
+          </td>
+        </tr>
+
+        <tr class="download-row">
+          <td class="font-mono text-white py-2 px-3">Moonlight Client</td>
+          <td class="text-xs text-dim py-2 px-3">PvP Client</td>
+          <td class="py-2 px-3"><span class="version-badge">MOONLIGHT</span></td>
+          <td class="text-right py-2 px-3">
+            <a href="https://skiingbeast2025.github.io/lunamix-eaglercraft/downloads/moonlight.html" download="moonlight.html" class="download-btn">DOWNLOAD HTML</a>
+          </td>
+        </tr>
+
+        <tr class="download-row">
+          <td class="font-mono text-white py-2 px-3">Resent Client 5.0</td>
+          <td class="text-xs text-dim py-2 px-3">PvP Client</td>
+          <td class="py-2 px-3"><span class="version-badge">RESENT 5.0</span></td>
+          <td class="text-right py-2 px-3">
+            <a href="https://skiingbeast2025.github.io/lunamix-eaglercraft/downloads/resent-5.0.html" download="resent-5.0.html" class="download-btn">DOWNLOAD HTML</a>
+          </td>
+        </tr>
+
+        <tr class="download-row">
+          <td class="font-mono text-white py-2 px-3">Resent Client 4.4 Signed</td>
+          <td class="text-xs text-dim py-2 px-3">PvP Client</td>
+          <td class="py-2 px-3"><span class="version-badge">RESENT 4.4</span></td>
+          <td class="text-right py-2 px-3">
+            <a href="https://skiingbeast2025.github.io/lunamix-eaglercraft/downloads/resent-4.4.html" download="resent-4.4.html" class="download-btn">DOWNLOAD HTML</a>
+          </td>
+        </tr>
+
+        <tr class="download-row">
+          <td class="font-mono text-white py-2 px-3">Resent Client Classic</td>
+          <td class="text-xs text-dim py-2 px-3">PvP Client</td>
+          <td class="py-2 px-3"><span class="version-badge">PVP CLIENT</span></td>
+          <td class="text-right py-2 px-3">
+            <a href="https://skiingbeast2025.github.io/lunamix-eaglercraft/downloads/resent.html" download="resent.html" class="download-btn">DOWNLOAD HTML</a>
+          </td>
+        </tr>
+
+        <tr class="download-row">
+          <td class="font-mono text-white py-2 px-3">Shadow Client 4.0</td>
+          <td class="text-xs text-dim py-2 px-3">PvP Client</td>
+          <td class="py-2 px-3"><span class="version-badge">OPTIFINE</span></td>
+          <td class="text-right py-2 px-3">
+            <a href="https://skiingbeast2025.github.io/lunamix-eaglercraft/downloads/shadow.html" download="shadow.html" class="download-btn">DOWNLOAD HTML</a>
+          </td>
+        </tr>
+
+        <tr class="download-row">
+          <td class="font-mono text-white py-2 px-3">Shadow Client 3.0 Beta</td>
+          <td class="text-xs text-dim py-2 px-3">PvP Client</td>
+          <td class="py-2 px-3"><span class="version-badge">SHADOW 3.0</span></td>
+          <td class="text-right py-2 px-3">
+            <a href="https://skiingbeast2025.github.io/lunamix-eaglercraft/downloads/shadow-3.0.html" download="shadow-3.0.html" class="download-btn">DOWNLOAD HTML</a>
+          </td>
+        </tr>
+
+        <tr class="download-row">
+          <td class="font-mono text-white py-2 px-3">Astra Client</td>
+          <td class="text-xs text-dim py-2 px-3">PvP Client</td>
+          <td class="py-2 px-3"><span class="version-badge">ASTRA</span></td>
+          <td class="text-right py-2 px-3">
+            <a href="https://skiingbeast2025.github.io/lunamix-eaglercraft/downloads/astra.html" download="astra.html" class="download-btn">DOWNLOAD HTML</a>
+          </td>
+        </tr>
+
+        <tr class="download-row">
+          <td class="font-mono text-white py-2 px-3">Tuff Client</td>
+          <td class="text-xs text-dim py-2 px-3">PvP Client</td>
+          <td class="py-2 px-3"><span class="version-badge">TUFF</span></td>
+          <td class="text-right py-2 px-3">
+            <a href="https://skiingbeast2025.github.io/lunamix-eaglercraft/downloads/tuff.html" download="tuff.html" class="download-btn">DOWNLOAD HTML</a>
+          </td>
+        </tr>
+
+        <tr class="download-row">
+          <td class="font-mono text-white py-2 px-3">Reflex Client 0.0.2</td>
+          <td class="text-xs text-dim py-2 px-3">PvP Client</td>
+          <td class="py-2 px-3"><span class="version-badge">REFLEX</span></td>
+          <td class="text-right py-2 px-3">
+            <a href="https://skiingbeast2025.github.io/lunamix-eaglercraft/downloads/reflex.html" download="reflex.html" class="download-btn">DOWNLOAD HTML</a>
+          </td>
+        </tr>
+
+        <tr class="download-row">
+          <td class="font-mono text-white py-2 px-3">Precision Client</td>
+          <td class="text-xs text-dim py-2 px-3">PvP Client</td>
+          <td class="py-2 px-3"><span class="version-badge">PRECISION</span></td>
+          <td class="text-right py-2 px-3">
+            <a href="https://skiingbeast2025.github.io/lunamix-eaglercraft/downloads/precision.html" download="precision.html" class="download-btn">DOWNLOAD HTML</a>
+          </td>
+        </tr>
+
+        <tr class="download-row">
+          <td class="font-mono text-white py-2 px-3">N0VA Client</td>
+          <td class="text-xs text-dim py-2 px-3">PvP Client</td>
+          <td class="py-2 px-3"><span class="version-badge">N0VA</span></td>
+          <td class="text-right py-2 px-3">
+            <a href="https://skiingbeast2025.github.io/lunamix-eaglercraft/downloads/n0va.html" download="n0va.html" class="download-btn">DOWNLOAD HTML</a>
+          </td>
+        </tr>
+
+        <tr class="download-row">
+          <td class="font-mono text-white py-2 px-3">Starlike Client</td>
+          <td class="text-xs text-dim py-2 px-3">PvP Client</td>
+          <td class="py-2 px-3"><span class="version-badge">STARLIKE</span></td>
+          <td class="text-right py-2 px-3">
+            <a href="https://skiingbeast2025.github.io/lunamix-eaglercraft/downloads/starlike.html" download="starlike.html" class="download-btn">DOWNLOAD HTML</a>
+          </td>
+        </tr>
+
+        <tr class="download-row">
+          <td class="font-mono text-white py-2 px-3">Kerosene Client</td>
+          <td class="text-xs text-dim py-2 px-3">PvP Client</td>
+          <td class="py-2 px-3"><span class="version-badge">KEROSENE</span></td>
+          <td class="text-right py-2 px-3">
+            <a href="https://skiingbeast2025.github.io/lunamix-eaglercraft/downloads/kerosene.html" download="kerosene.html" class="download-btn">DOWNLOAD HTML</a>
+          </td>
+        </tr>
+
+        <tr class="download-row">
+          <td class="font-mono text-white py-2 px-3">NitClient 2.0</td>
+          <td class="text-xs text-dim py-2 px-3">PvP Client</td>
+          <td class="py-2 px-3"><span class="version-badge">NITCLIENT 2.0</span></td>
+          <td class="text-right py-2 px-3">
+            <a href="https://skiingbeast2025.github.io/lunamix-eaglercraft/downloads/nitclient.html" download="nitclient.html" class="download-btn">DOWNLOAD HTML</a>
+          </td>
+        </tr>
+
+        <tr class="download-row">
+          <td class="font-mono text-white py-2 px-3">Kone Client 1.8.8</td>
+          <td class="text-xs text-dim py-2 px-3">PvP Client</td>
+          <td class="py-2 px-3"><span class="version-badge">LIGHTWEIGHT</span></td>
+          <td class="text-right py-2 px-3">
+            <a href="https://skiingbeast2025.github.io/lunamix-eaglercraft/downloads/kone.html" download="kone.html" class="download-btn">DOWNLOAD HTML</a>
+          </td>
+        </tr>
+
+        <tr class="download-row">
+          <td class="font-mono text-white py-2 px-3">Pi Client</td>
+          <td class="text-xs text-dim py-2 px-3">PvP Client</td>
+          <td class="py-2 px-3"><span class="version-badge">PI CLIENT</span></td>
+          <td class="text-right py-2 px-3">
+            <a href="https://skiingbeast2025.github.io/lunamix-eaglercraft/downloads/pi.html" download="pi.html" class="download-btn">DOWNLOAD HTML</a>
+          </td>
+        </tr>
+
+        <tr class="download-row">
+          <td class="font-mono text-white py-2 px-3">Demon Client</td>
+          <td class="text-xs text-dim py-2 px-3">PvP Client</td>
+          <td class="py-2 px-3"><span class="version-badge">DEMON</span></td>
+          <td class="text-right py-2 px-3">
+            <a href="https://skiingbeast2025.github.io/lunamix-eaglercraft/downloads/demon.html" download="demon.html" class="download-btn">DOWNLOAD HTML</a>
+          </td>
+        </tr>
+
+        <tr class="download-row">
+          <td class="font-mono text-white py-2 px-3">Daniel Client</td>
+          <td class="text-xs text-dim py-2 px-3">PvP Client</td>
+          <td class="py-2 px-3"><span class="version-badge">DANIEL</span></td>
+          <td class="text-right py-2 px-3">
+            <a href="https://skiingbeast2025.github.io/lunamix-eaglercraft/downloads/daniel.html" download="daniel.html" class="download-btn">DOWNLOAD HTML</a>
+          </td>
+        </tr>
+
+        <tr class="download-row">
+          <td class="font-mono text-white py-2 px-3">Justin Client</td>
+          <td class="text-xs text-dim py-2 px-3">PvP Client</td>
+          <td class="py-2 px-3"><span class="version-badge">JUSTIN</span></td>
+          <td class="text-right py-2 px-3">
+            <a href="https://skiingbeast2025.github.io/lunamix-eaglercraft/downloads/justin.html" download="justin.html" class="download-btn">DOWNLOAD HTML</a>
+          </td>
+        </tr>
+
+        <tr class="download-row">
+          <td class="font-mono text-white py-2 px-3">Justin Client v3</td>
+          <td class="text-xs text-dim py-2 px-3">PvP Client</td>
+          <td class="py-2 px-3"><span class="version-badge">JUSTIN V3</span></td>
+          <td class="text-right py-2 px-3">
+            <a href="https://skiingbeast2025.github.io/lunamix-eaglercraft/downloads/justin-v3.html" download="justin-v3.html" class="download-btn">DOWNLOAD HTML</a>
+          </td>
+        </tr>
+
+        <tr class="download-row">
+          <td class="font-mono text-white py-2 px-3">DragonX Client</td>
+          <td class="text-xs text-dim py-2 px-3">PvP Client</td>
+          <td class="py-2 px-3"><span class="version-badge">DRAGONX</span></td>
+          <td class="text-right py-2 px-3">
+            <a href="https://skiingbeast2025.github.io/lunamix-eaglercraft/downloads/dragonx.html" download="dragonx.html" class="download-btn">DOWNLOAD HTML</a>
+          </td>
+        </tr>
+
+        <tr class="download-row">
+          <td class="font-mono text-white py-2 px-3">DragonX v5 Client</td>
+          <td class="text-xs text-dim py-2 px-3">PvP Client</td>
+          <td class="py-2 px-3"><span class="version-badge">DRAGONX V5</span></td>
+          <td class="text-right py-2 px-3">
+            <a href="https://skiingbeast2025.github.io/lunamix-eaglercraft/downloads/dragonx-v5.html" download="dragonx-v5.html" class="download-btn">DOWNLOAD HTML</a>
+          </td>
+        </tr>
+
+        <tr class="download-row">
+          <td class="font-mono text-white py-2 px-3">DragonX v4 Client</td>
+          <td class="text-xs text-dim py-2 px-3">PvP Client</td>
+          <td class="py-2 px-3"><span class="version-badge">DRAGONX V4</span></td>
+          <td class="text-right py-2 px-3">
+            <a href="https://skiingbeast2025.github.io/lunamix-eaglercraft/downloads/dragonx-v4.html" download="dragonx-v4.html" class="download-btn">DOWNLOAD HTML</a>
+          </td>
+        </tr>
+
+        <tr class="download-row">
+          <td class="font-mono text-white py-2 px-3">DragonX Lite</td>
+          <td class="text-xs text-dim py-2 px-3">PvP Client</td>
+          <td class="py-2 px-3"><span class="version-badge">DRAGONX LITE</span></td>
+          <td class="text-right py-2 px-3">
+            <a href="https://skiingbeast2025.github.io/lunamix-eaglercraft/downloads/dragonx-lite.html" download="dragonx-lite.html" class="download-btn">DOWNLOAD HTML</a>
+          </td>
+        </tr>
+
+        <tr class="download-row">
+          <td class="font-mono text-white py-2 px-3">DragonX Shadow Hybrid</td>
+          <td class="text-xs text-dim py-2 px-3">PvP Client</td>
+          <td class="py-2 px-3"><span class="version-badge">HYBRID</span></td>
+          <td class="text-right py-2 px-3">
+            <a href="https://skiingbeast2025.github.io/lunamix-eaglercraft/downloads/dragonx-shadow.html" download="dragonx-shadow.html" class="download-btn">DOWNLOAD HTML</a>
+          </td>
+        </tr>
+
+        <tr class="download-row">
+          <td class="font-mono text-white py-2 px-3">EaglerForge Client</td>
+          <td class="text-xs text-dim py-2 px-3">Mod Client</td>
+          <td class="py-2 px-3"><span class="version-badge">MOD LOADER</span></td>
+          <td class="text-right py-2 px-3">
+            <a href="https://skiingbeast2025.github.io/lunamix-eaglercraft/downloads/eaglerforge.html" download="eaglerforge.html" class="download-btn">DOWNLOAD HTML</a>
+          </td>
+        </tr>
+
+        <tr class="download-row">
+          <td class="font-mono text-white py-2 px-3">Pixel Client 1.12.2</td>
+          <td class="text-xs text-dim py-2 px-3">Modded</td>
+          <td class="py-2 px-3"><span class="version-badge">PIXEL 1.12</span></td>
+          <td class="text-right py-2 px-3">
+            <a href="https://skiingbeast2025.github.io/lunamix-eaglercraft/downloads/pixel.html" download="pixel.html" class="download-btn">DOWNLOAD HTML</a>
+          </td>
+        </tr>
+
+        <tr class="download-row">
+          <td class="font-mono text-white py-2 px-3">Mega Client</td>
+          <td class="text-xs text-dim py-2 px-3">Modded</td>
+          <td class="py-2 px-3"><span class="version-badge">MEGA</span></td>
+          <td class="text-right py-2 px-3">
+            <a href="https://skiingbeast2025.github.io/lunamix-eaglercraft/downloads/mega.html" download="mega.html" class="download-btn">DOWNLOAD HTML</a>
+          </td>
+        </tr>
+
+        <tr class="download-row">
+          <td class="font-mono text-white py-2 px-3">CoderCraft Client</td>
+          <td class="text-xs text-dim py-2 px-3">Modded</td>
+          <td class="py-2 px-3"><span class="version-badge">CODERCRAFT</span></td>
+          <td class="text-right py-2 px-3">
+            <a href="https://skiingbeast2025.github.io/lunamix-eaglercraft/downloads/codercraft.html" download="codercraft.html" class="download-btn">DOWNLOAD HTML</a>
+          </td>
+        </tr>
+
+        <tr class="download-row">
+          <td class="font-mono text-white py-2 px-3">Eagler Reborn Client</td>
+          <td class="text-xs text-dim py-2 px-3">Modded</td>
+          <td class="py-2 px-3"><span class="version-badge">REBORN</span></td>
+          <td class="text-right py-2 px-3">
+            <a href="https://skiingbeast2025.github.io/lunamix-eaglercraft/downloads/eagler-reborn.html" download="eagler-reborn.html" class="download-btn">DOWNLOAD HTML</a>
+          </td>
+        </tr>
+
+        <tr class="download-row">
+          <td class="font-mono text-white py-2 px-3">JmoCraft v5.2</td>
+          <td class="text-xs text-dim py-2 px-3">Modded</td>
+          <td class="py-2 px-3"><span class="version-badge">JMOCRAFT</span></td>
+          <td class="text-right py-2 px-3">
+            <a href="https://skiingbeast2025.github.io/lunamix-eaglercraft/downloads/jmocraft.html" download="jmocraft.html" class="download-btn">DOWNLOAD HTML</a>
+          </td>
+        </tr>
+
+        <tr class="download-row">
+          <td class="font-mono text-white py-2 px-3">OddFuture Client</td>
+          <td class="text-xs text-dim py-2 px-3">Modded</td>
+          <td class="py-2 px-3"><span class="version-badge">ODDFUTURE</span></td>
+          <td class="text-right py-2 px-3">
+            <a href="https://skiingbeast2025.github.io/lunamix-eaglercraft/downloads/oddfuture.html" download="oddfuture.html" class="download-btn">DOWNLOAD HTML</a>
+          </td>
+        </tr>
+
+        <tr class="download-row">
+          <td class="font-mono text-white py-2 px-3">UwU Client v1 Full</td>
+          <td class="text-xs text-dim py-2 px-3">Custom</td>
+          <td class="py-2 px-3"><span class="version-badge">UWU V1</span></td>
+          <td class="text-right py-2 px-3">
+            <a href="https://skiingbeast2025.github.io/lunamix-eaglercraft/downloads/uwu-v1.html" download="uwu-v1.html" class="download-btn">DOWNLOAD HTML</a>
+          </td>
+        </tr>
+
+        <tr class="download-row">
+          <td class="font-mono text-white py-2 px-3">UwU Client Beta 2</td>
+          <td class="text-xs text-dim py-2 px-3">Custom</td>
+          <td class="py-2 px-3"><span class="version-badge">UWU B2</span></td>
+          <td class="text-right py-2 px-3">
+            <a href="https://skiingbeast2025.github.io/lunamix-eaglercraft/downloads/uwu-b2.html" download="uwu-b2.html" class="download-btn">DOWNLOAD HTML</a>
+          </td>
+        </tr>
+
+        <tr class="download-row">
+          <td class="font-mono text-white py-2 px-3">UwU Lite 2</td>
+          <td class="text-xs text-dim py-2 px-3">Custom</td>
+          <td class="py-2 px-3"><span class="version-badge">UWU LITE</span></td>
+          <td class="text-right py-2 px-3">
+            <a href="https://skiingbeast2025.github.io/lunamix-eaglercraft/downloads/uwu-lite.html" download="uwu-lite.html" class="download-btn">DOWNLOAD HTML</a>
+          </td>
+        </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- TAB 6: SETTINGS -->
+        <div class="view-tab" id="tab-settings">
+          <div class="grid-view-wrap">
+            <h2 class="view-header-title">Launcher Settings</h2>
+            <div class="view-header-sub">Customize launch behavior, visual theme, and player profile</div>
+
+            <div class="settings-section">
+              <div class="settings-title">Launch Method</div>
+              <div class="mode-radios">
+                <label class="mode-label">
+                  <input type="radio" name="launch_mode" value="in-app" onchange="setLaunchMode('in-app')">
+                  <span><strong>In-App Theater (Recommended)</strong> — Seamless overlay player with pointer lock & fullscreen controls</span>
+                </label>
+                <label class="mode-label">
+                  <input type="radio" name="launch_mode" value="about-blank" onchange="setLaunchMode('about-blank')">
+                  <span><strong>About:Blank Stealth Mode</strong> — Opens about:blank popup to disguise history from monitors</span>
+                </label>
+                <label class="mode-label">
+                  <input type="radio" name="launch_mode" value="blob" onchange="setLaunchMode('blob')">
+                  <span><strong>Blob URL</strong> — Generates an ephemeral in-memory URL for stealth play</span>
+                </label>
+                <label class="mode-label">
+                  <input type="radio" name="launch_mode" value="popup" onchange="setLaunchMode('popup')">
+                  <span><strong>Standalone Window</strong> — Dedicated 1280x720 frameless browser popup</span>
+                </label>
+                <label class="mode-label">
+                  <input type="radio" name="launch_mode" value="regular" onchange="setLaunchMode('regular')">
+                  <span><strong>Direct New Tab</strong> — Opens target client directly in a new browser tab</span>
+                </label>
+              </div>
+            </div>
+
+            <div class="settings-section">
+              <div class="settings-title">Theme Palette</div>
+              <div class="theme-swatches">
+                <div class="theme-swatch selected" data-theme="default" style="background: #cc0000;" onclick="setTheme('default')" title="Default Crimson"></div>
+                <div class="theme-swatch" data-theme="green" style="background: #00cc44;" onclick="setTheme('green')" title="Emerald Green"></div>
+                <div class="theme-swatch" data-theme="blood" style="background: #800000;" onclick="setTheme('blood')" title="Dark Blood"></div>
+                <div class="theme-swatch" data-theme="midnight" style="background: #5566ff;" onclick="setTheme('midnight')" title="Cyber Midnight"></div>
+                <div class="theme-swatch" data-theme="ash" style="background: #888888;" onclick="setTheme('ash')" title="Ash Monochrome"></div>
+                <div class="theme-swatch" data-theme="amber" style="background: #cc7700;" onclick="setTheme('amber')" title="Solar Amber"></div>
+              </div>
+            </div>
+
+            <div class="settings-section">
+              <div class="settings-title">Player Name</div>
+              <input type="text" id="username-input" class="version-search-input" style="max-width: 300px;" placeholder="Player" onchange="setUsername(this.value)">
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- BOTTOM BAR -->
+      <footer class="bottom-bar">
+        <div class="status-line" id="status-line">STATUS: <span class="hl">HBWMC Official Client</span> // READY</div>
+        <div class="credit">GX-Launcher Architecture for Lunamix</div>
+      </footer>
+
+    </main>
+
+  </div>
+</div>
+
+<!-- IN-APP THEATER PLAYER -->
+<div id="theater-player">
+  <div class="theater-bar">
+    <div class="theater-left">
+      <div class="title-dot"></div>
+      <span class="theater-title" id="theater-title">HBWMC Official Client</span>
+    </div>
+    <div class="theater-actions">
+      <button class="theater-btn" onclick="requestGameFullscreen()">
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M8 3H5a2 2 0 00-2 2v3m18 0V5a2 2 0 00-2-2h-3m0 18h3a2 2 0 002-2v-3M3 16v3a2 2 0 002 2h3"/></svg>
+        Fullscreen
+      </button>
+      <button class="theater-btn" onclick="reloadGame()">
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"/></svg>
+        Reload
+      </button>
+      <button class="theater-btn" onclick="openActiveExternal()">
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6m4-3h6v6m-11 5L20 4"/></svg>
+        Pop Out
+      </button>
+      <button class="theater-btn close-btn" onclick="closeTheater()">
+        ✕ Exit Game
+      </button>
+    </div>
+  </div>
+  <iframe id="theater-iframe" src="" allow="autoplay; fullscreen; gamepad; focus-without-user-activation; pointer-lock *; keyboard-map *; clipboard-read; clipboard-write" sandbox="allow-scripts allow-same-origin allow-forms allow-popups allow-modals allow-downloads allow-pointer-lock"></iframe>
+</div>
+
+<!-- TOAST -->
+<div class="toast" id="toast"></div>
+
+<!-- LOGIC -->
+<script>
+  const ALL_CLIENTS = [{"id": "hbwmc", "name": "HBWMC Official Client", "category": "featured", "type": "Official Client", "desc": "Official HBWMC Eaglercraft Client build with custom networking, custom shaders, and optimal FPS", "tag": "HBWMC MAIN", "file": "hbwmc.html"}, {"id": "26.3", "name": "Eaglercraft 26.3", "category": "release", "type": "Release", "desc": "Latest experimental client build with cutting-edge shaders and max performance", "tag": "DEFAULT / LATEST", "file": "26.3.html"}, {"id": "26.2", "name": "Eaglercraft 26.2", "category": "release", "type": "Release", "desc": "High performance modern build with extended draw distance and audio engine", "tag": "STABLE", "file": "26.2.html"}, {"id": "1.20.6", "name": "Eaglercraft 1.20.6", "category": "release", "type": "Release", "desc": "Trails & Tales edition featuring armor trims, cherry blossom groves, and archaeology", "tag": "MODERN", "file": "1.20.6.html"}, {"id": "1.20-wasm", "name": "EaglercraftX 1.20 WASM", "category": "wasm", "type": "Next-Gen", "desc": "WASM-GC enhanced 1.20 client with smooth WebGL2 rendering pipeline", "tag": "WASM-GC", "file": "1.20-wasm.html"}, {"id": "1.16.5", "name": "Eaglercraft 1.16.5", "category": "release", "type": "Release", "desc": "Nether Update edition with Netherite, Piglins, Ruined Portals, and Crimson forests", "tag": "MAJOR", "file": "1.16.5.html"}, {"id": "1.14.4", "name": "Eaglercraft 1.14.4", "category": "release", "type": "Release", "desc": "Village & Pillage edition with crossbows, pillager raids, foxes, and new villagers", "tag": "UPDATE", "file": "1.14.4.html"}, {"id": "1.12.2", "name": "Eaglercraft 1.12.2", "category": "release", "type": "Release", "desc": "World of Color update with concrete, glazed terracotta, parrots, and illusions", "tag": "POPULAR", "file": "1.12.2.html"}, {"id": "1.12.2-wasm", "name": "Eaglercraft 1.12.2 WASM", "category": "wasm", "type": "Next-Gen", "desc": "Official TeaVM WebAssembly-GC port of 1.12.2 for maximum frame rates", "tag": "WASM-GC", "file": "1.12.2-wasm.html"}, {"id": "1.11.2", "name": "Eaglercraft 1.11.2", "category": "release", "type": "Release", "desc": "Exploration Update with Woodland Mansions, Totems of Undying, and Shulker boxes", "tag": "STABLE", "file": "1.11.2.html"}, {"id": "1.9.4", "name": "Eaglercraft 1.9.4", "category": "release", "type": "Release", "desc": "Combat Update edition with off-hand dual wielding, shield blocking, and Elytra wings", "tag": "COMBAT", "file": "1.9.4.html"}, {"id": "1.8.8", "name": "Eaglercraft 1.8.8", "category": "release", "type": "Release", "desc": "The gold standard competitive PvP version with full WebSocket multiplayer servers", "tag": "CLASSIC", "file": "1.8.8.html"}, {"id": "1.8.8-wasm", "name": "EaglercraftX 1.8 WASM-GC", "category": "wasm", "type": "Next-Gen", "desc": "High-speed WebAssembly-Garbage Collection 1.8 build with zero GC stutter", "tag": "WASM-GC", "file": "1.8.8-wasm.html"}, {"id": "1.8.8-u44", "name": "EaglercraftX 1.8 u44", "category": "release", "type": "Release", "desc": "Update 44 Signed release featuring official certificate and security fixes", "tag": "U44 SIGNED", "file": "1.8.8-u44.html"}, {"id": "1.8.8-u29", "name": "EaglercraftX 1.8 u29", "category": "release", "type": "Release", "desc": "Stable u29 client release with extended texture pack memory management", "tag": "U29", "file": "1.8.8-u29.html"}, {"id": "1.8.8-u23", "name": "EaglercraftX 1.8 u23", "category": "release", "type": "Release", "desc": "Signed offline client distribution for EaglercraftX update 23", "tag": "U23 SIGNED", "file": "1.8.8-u23.html"}, {"id": "shaders", "name": "EaglercraftX Shaders Edition", "category": "wasm", "type": "Modded", "desc": "Ultimate Edition with built-in WebGL dynamic shadows and custom shader pipeline", "tag": "SHADERS", "file": "shaders.html"}, {"id": "1.5.2", "name": "Eaglercraft 1.5.2", "category": "retro", "type": "Retro", "desc": "Redstone Update edition with hoppers, droppers, comparators, and quartz", "tag": "RETRO 1.5", "file": "1.5.2.html"}, {"id": "1.2.5", "name": "Eaglercraft 1.2.5", "category": "retro", "type": "Retro", "desc": "Historic 1.2.5 release with jungle biomes, iron golems, and ocelots", "tag": "CLASSIC 1.2", "file": "1.2.5.html"}, {"id": "1.0.3", "name": "Minecraft 1.0.3", "category": "retro", "type": "Retro", "desc": "Nostalgic early release preserved for browser play with original sound engine", "tag": "EARLY 1.0", "file": "1.0.3.html"}, {"id": "beta1.7.3", "name": "Eaglercraft Beta 1.7.3", "category": "retro", "type": "Retro", "desc": "Legendary Beta 1.7.3 with classic world generation, pistons, and punch-to-shear", "tag": "BETA 1.7.3", "file": "beta1.7.3.html"}, {"id": "beta1.3", "name": "Eaglercraft Beta 1.3", "category": "retro", "type": "Retro", "desc": "Nostalgic Minecraft Beta with original bed mechanics, slabs, and beta lighting", "tag": "BETA 1.3", "file": "beta1.3.html"}, {"id": "alpha1.2.6", "name": "Eaglercraft Alpha 1.2.6", "category": "retro", "type": "Retro", "desc": "Original Halloween Alpha release introducing the Nether, ghasts, and portals", "tag": "ALPHA 1.2.6", "file": "alpha1.2.6.html"}, {"id": "indev", "name": "Minecraft Indev", "category": "retro", "type": "Retro", "desc": "The earliest playable browser build with floating island and flat world types", "tag": "INDEV", "file": "indev.html"}, {"id": "galactic-8.0", "name": "Galactic Client 8.0.0", "category": "hack", "type": "Hack Client", "desc": "Top 1.12.2 cheat client with 320+ modules, custom scaffold, killaura, and bypasses", "tag": "320+ MODULES", "file": "galactic-8.0.html"}, {"id": "wurstx", "name": "WurstX Client b2", "category": "hack", "type": "Hack Client", "desc": "Wurst Client ported to EaglercraftX with WASM-GC runtime, ClickGUI, and Nuker", "tag": "WURSTX", "file": "wurstx.html"}, {"id": "liquidbounce", "name": "LiquidBounce Eagler", "category": "hack", "type": "Hack Client", "desc": "LiquidBounce utility suite with silent aim, flight, ESP, and anticheat disablers", "tag": "LIQUIDBOUNCE", "file": "liquidbounce.html"}, {"id": "meteor", "name": "Meteor Client Eagler", "category": "hack", "type": "Hack Client", "desc": "Meteor hacked client ported to the web with modern HUD, Baritone pathing, and radar", "tag": "METEOR", "file": "meteor.html"}, {"id": "fuchsiax", "name": "FuchsiaX Ghost Client", "category": "hack", "type": "Ghost Client", "desc": "Undetectable ghost client with Account Manager, subtle reach, and smooth aimassist", "tag": "GHOST CLIENT", "file": "fuchsiax.html"}, {"id": "nebula", "name": "Nebula Client", "category": "hack", "type": "Hack Client", "desc": "Feature packed utility client with inventory cleaner, auto-armor, and high jump", "tag": "HACK CLIENT", "file": "nebula.html"}, {"id": "archmc", "name": "ArchMC Official Client", "category": "pvp", "type": "PvP Client", "desc": "Official client for ArchMC server network with lowest input latency and custom HUD", "tag": "ARCHMC", "file": "archmc.html"}, {"id": "solar", "name": "Solar Client", "category": "pvp", "type": "PvP Client", "desc": "FPS boosting Eaglercraft PvP client with custom crosshairs, hit effects, and CPS", "tag": "FPS BOOST", "file": "solar.html"}, {"id": "flame", "name": "Flame Client 3.7", "category": "pvp", "type": "PvP Client", "desc": "Popular competitive PvP client with block hit animations, reach counters, and armor HUD", "tag": "FLAME 3.7", "file": "flame.html"}, {"id": "moonlight", "name": "Moonlight Client", "category": "pvp", "type": "PvP Client", "desc": "Sleek dark-aesthetic PvP client with smooth motion blur and custom skyboxes", "tag": "MOONLIGHT", "file": "moonlight.html"}, {"id": "resent-5.0", "name": "Resent Client 5.0", "category": "pvp", "type": "PvP Client", "desc": "Latest major release of Resent Client with revamped ClickGUI and modular toggles", "tag": "RESENT 5.0", "file": "resent-5.0.html"}, {"id": "resent-4.4", "name": "Resent Client 4.4 Signed", "category": "pvp", "type": "PvP Client", "desc": "Signed stable edition of Resent 4.4 with proven server compatibility", "tag": "RESENT 4.4", "file": "resent-4.4.html"}, {"id": "resent", "name": "Resent Client Classic", "category": "pvp", "type": "PvP Client", "desc": "Original ultra lightweight competitive PvP client with clean minimal interface", "tag": "PVP CLIENT", "file": "resent.html"}, {"id": "shadow", "name": "Shadow Client 4.0", "category": "pvp", "type": "PvP Client", "desc": "Full Optifine client for u34 with support for EaglerForge v1.3 mods and shaders", "tag": "OPTIFINE", "file": "shadow.html"}, {"id": "shadow-3.0", "name": "Shadow Client 3.0 Beta", "category": "pvp", "type": "PvP Client", "desc": "Classic version of Shadow client with low-overhead rendering engine", "tag": "SHADOW 3.0", "file": "shadow-3.0.html"}, {"id": "astra", "name": "Astra Client", "category": "pvp", "type": "PvP Client", "desc": "Enhanced 1.8.8 client with visual animations, particle toggles, and CPS counters", "tag": "ASTRA", "file": "astra.html"}, {"id": "tuff", "name": "Tuff Client", "category": "pvp", "type": "PvP Client", "desc": "Feature-rich custom client with modern item support, scoreboard toggles, and clean HUD", "tag": "TUFF", "file": "tuff.html"}, {"id": "reflex", "name": "Reflex Client 0.0.2", "category": "pvp", "type": "PvP Client", "desc": "WASM-GC powered reflex client designed for ultra fast block placement and bridge assist", "tag": "REFLEX", "file": "reflex.html"}, {"id": "precision", "name": "Precision Client", "category": "pvp", "type": "PvP Client", "desc": "Precision hit registration and projectile trajectory helper with smooth animations", "tag": "PRECISION", "file": "precision.html"}, {"id": "n0va", "name": "N0VA Client", "category": "pvp", "type": "PvP Client", "desc": "Clean modern PvP client with customizable keystrokes, ping monitor, and hit color", "tag": "N0VA", "file": "n0va.html"}, {"id": "starlike", "name": "Starlike Client", "category": "pvp", "type": "PvP Client", "desc": "Vibrant PvP client with custom particle streaks, hit sparkles, and full HUD editing", "tag": "STARLIKE", "file": "starlike.html"}, {"id": "kerosene", "name": "Kerosene Client", "category": "pvp", "type": "PvP Client", "desc": "High performance PvP client designed for bedwars and skywars fast pacing", "tag": "KEROSENE", "file": "kerosene.html"}, {"id": "nitclient", "name": "NitClient 2.0", "category": "pvp", "type": "PvP Client", "desc": "Lightweight client with full color customization, target HUD, and sword animations", "tag": "NITCLIENT 2.0", "file": "nitclient.html"}, {"id": "kone", "name": "Kone Client 1.8.8", "category": "pvp", "type": "PvP Client", "desc": "Compact 9MB lightweight PvP build optimized for low-end chromebooks", "tag": "LIGHTWEIGHT", "file": "kone.html"}, {"id": "pi", "name": "Pi Client", "category": "pvp", "type": "PvP Client", "desc": "Math-inspired PvP client with geometric crosshairs and trajectory calculations", "tag": "PI CLIENT", "file": "pi.html"}, {"id": "demon", "name": "Demon Client", "category": "pvp", "type": "PvP Client", "desc": "High saturation aggressive PvP client with combat stats and killstreak audio", "tag": "DEMON", "file": "demon.html"}, {"id": "daniel", "name": "Daniel Client", "category": "pvp", "type": "PvP Client", "desc": "Community customized PvP client with custom cape physics and sword blocking", "tag": "DANIEL", "file": "daniel.html"}, {"id": "justin", "name": "Justin Client", "category": "pvp", "type": "PvP Client", "desc": "Popular community PvP client featuring clean inventory GUI and quick eat shortcuts", "tag": "JUSTIN", "file": "justin.html"}, {"id": "justin-v3", "name": "Justin Client v3", "category": "pvp", "type": "PvP Client", "desc": "Updated version 3 of Justin Client with upgraded motion smoothing", "tag": "JUSTIN V3", "file": "justin-v3.html"}, {"id": "dragonx", "name": "DragonX Client", "category": "pvp", "type": "PvP Client", "desc": "Core DragonX client with custom particle physics, armor HUD, and ClickGUI", "tag": "DRAGONX", "file": "dragonx.html"}, {"id": "dragonx-v5", "name": "DragonX v5 Client", "category": "pvp", "type": "PvP Client", "desc": "The newest v5 evolution of DragonX with safewalk, sprint-reset, and modern UI", "tag": "DRAGONX V5", "file": "dragonx-v5.html"}, {"id": "dragonx-v4", "name": "DragonX v4 Client", "category": "pvp", "type": "PvP Client", "desc": "Version 4 of DragonX with expanded module menu and server quick-switch", "tag": "DRAGONX V4", "file": "dragonx-v4.html"}, {"id": "dragonx-lite", "name": "DragonX Lite", "category": "pvp", "type": "PvP Client", "desc": "Streamlined edition of DragonX stripped of excess assets for maximum FPS", "tag": "DRAGONX LITE", "file": "dragonx-lite.html"}, {"id": "dragonx-shadow", "name": "DragonX Shadow Hybrid", "category": "pvp", "type": "PvP Client", "desc": "Hybrid fusion combining DragonX combat modules with Shadow Client Optifine core", "tag": "HYBRID", "file": "dragonx-shadow.html"}, {"id": "eaglerforge", "name": "EaglerForge Client", "category": "wasm", "type": "Mod Client", "desc": "EaglerForge v1.2.5 mod loader client enabling runtime custom javascript mods", "tag": "MOD LOADER", "file": "eaglerforge.html"}, {"id": "pixel", "name": "Pixel Client 1.12.2", "category": "wasm", "type": "Modded", "desc": "Modern 1.12.2 client with enhanced visual settings, smooth lighting, and QoL", "tag": "PIXEL 1.12", "file": "pixel.html"}, {"id": "mega", "name": "Mega Client", "category": "wasm", "type": "Modded", "desc": "Custom community client with multi-server profiles and integrated sound packs", "tag": "MEGA", "file": "mega.html"}, {"id": "codercraft", "name": "CoderCraft Client", "category": "wasm", "type": "Modded", "desc": "Developer focused client with memory inspector, chunk debugger, and packet logger", "tag": "CODERCRAFT", "file": "codercraft.html"}, {"id": "eagler-reborn", "name": "Eagler Reborn Client", "category": "wasm", "type": "Modded", "desc": "Community restoration build with updated WebRTC relay and server ping embeds", "tag": "REBORN", "file": "eagler-reborn.html"}, {"id": "jmocraft", "name": "JmoCraft v5.2", "category": "wasm", "type": "Modded", "desc": "Custom adventure build with custom textures, UI styling, and ambient audio", "tag": "JMOCRAFT", "file": "jmocraft.html"}, {"id": "oddfuture", "name": "OddFuture Client", "category": "wasm", "type": "Modded", "desc": "Custom themed client with OFWGKTA branding, custom sounds, and music player", "tag": "ODDFUTURE", "file": "oddfuture.html"}, {"id": "uwu-v1", "name": "UwU Client v1 Full", "category": "wasm", "type": "Custom", "desc": "Whimsical anime-inspired client with custom sound effects and pink UI theme", "tag": "UWU V1", "file": "uwu-v1.html"}, {"id": "uwu-b2", "name": "UwU Client Beta 2", "category": "wasm", "type": "Custom", "desc": "Beta 2 release of UwU client with updated particle trails and custom fonts", "tag": "UWU B2", "file": "uwu-b2.html"}, {"id": "uwu-lite", "name": "UwU Lite 2", "category": "wasm", "type": "Custom", "desc": "Resource-friendly edition of UwU client keeping the custom aesthetic with high FPS", "tag": "UWU LITE", "file": "uwu-lite.html"}];
+  const DOWNLOAD_PREFIX = "https://skiingbeast2025.github.io/lunamix-eaglercraft/downloads/";
+
+  let currentClient = ALL_CLIENTS[0]; // HBWMC by default
+  let currentMode = localStorage.getItem('gx_launch_mode') || 'in-app';
+
+  // Apply theme
+  const currentTheme = localStorage.getItem('gx_theme') || 'default';
+  document.documentElement.setAttribute('data-theme', currentTheme);
+
+  // Apply username
+  const savedUser = localStorage.getItem('gx_username') || 'Player';
+  document.getElementById('profile-display').textContent = savedUser;
+  const userInput = document.getElementById('username-input');
+  if (userInput) userInput.value = savedUser;
+
+  // Set initial mode badge
+  updateModeBadge();
+
+  // Tab switching
+  function switchTab(tabId) {
+    document.querySelectorAll('.view-tab').forEach(t => t.classList.remove('active'));
+    document.querySelectorAll('.nav-item').forEach(n => n.classList.remove('selected'));
+    
+    const target = document.getElementById('tab-' + tabId);
+    if (target) target.classList.add('active');
+    
+    const navBtn = document.querySelector(`.nav-item[data-tab="${tabId}"]`);
+    if (navBtn) navBtn.classList.add('selected');
+
+    const titleMap = {
+      'game': 'GAME',
+      'clients': 'PVP CLIENTS',
+      'betaclients': 'HACKS & WASM',
+      'servers': 'SERVERS',
+      'downloads': 'DOWNLOADS',
+      'settings': 'SETTINGS'
+    };
+    document.getElementById('view-title').textContent = titleMap[tabId] || 'LAUNCHER';
+    document.getElementById('breadcrumb-text').textContent = 'HOME / ' + (titleMap[tabId] || 'LAUNCHER');
+  }
+
+  // Dropdown toggle & filter
+  function toggleDropdown() {
+    const dd = document.getElementById('version-dropdown');
+    const sel = document.getElementById('version-select');
+    const isOpen = dd.classList.toggle('open');
+    sel.classList.toggle('open', isOpen);
+    if (isOpen) {
+      const search = document.getElementById('version-search');
+      search.value = '';
+      filterDropdown(search);
+      setTimeout(() => search.focus(), 50);
+    }
+  }
+
+  function filterDropdown(input) {
+    const q = input.value.toLowerCase().trim();
+    document.querySelectorAll('.version-option').forEach(opt => {
+      const name = opt.getAttribute('data-name').toLowerCase();
+      const id = opt.getAttribute('data-id').toLowerCase();
+      opt.style.display = (name.includes(q) || id.includes(q)) ? 'flex' : 'none';
+    });
+  }
+
+  document.addEventListener('click', e => {
+    if (!e.target.closest('.version-wrapper')) {
+      document.getElementById('version-dropdown')?.classList.remove('open');
+      document.getElementById('version-select')?.classList.remove('open');
+    }
+  });
+
+  function selectClient(id, name, file) {
+    currentClient = ALL_CLIENTS.find(c => c.id === id) || { id, name, file };
+    document.getElementById('version-label').textContent = name;
+    document.getElementById('version-dropdown').classList.remove('open');
+    document.getElementById('version-select').classList.remove('open');
+
+    // Update active highlight
+    document.querySelectorAll('.version-option').forEach(opt => {
+      opt.classList.toggle('active-ver', opt.getAttribute('data-id') === id);
+    });
+
+    // Update hero banner text
+    document.getElementById('hero-badge').textContent = currentClient.tag || 'CLIENT';
+    document.getElementById('hero-h1').textContent = name.toUpperCase();
+    document.getElementById('hero-desc').textContent = currentClient.desc || 'High performance browser build ready for multiplayer.';
+    document.getElementById('status-line').innerHTML = 'STATUS: <span class="hl">' + name + '</span> // READY';
+  }
+
+  function quickLaunch(id, name, file) {
+    selectClient(id, name, file);
+    switchTab('game');
+    launchActiveClient();
+  }
+
+  // Mode cycle & set
+  const MODES = ['in-app', 'about-blank', 'blob', 'popup', 'regular'];
+  const MODE_LABELS = {
+    'in-app': 'IN-APP THEATER',
+    'about-blank': 'ABOUT:BLANK',
+    'blob': 'BLOB URL',
+    'popup': 'POPUP',
+    'regular': 'REGULAR'
+  };
+
+  function updateModeBadge() {
+    const el = document.getElementById('mode-label-text');
+    if (el) el.textContent = MODE_LABELS[currentMode] || currentMode.toUpperCase();
+    const radio = document.querySelector(`input[name="launch_mode"][value="${currentMode}"]`);
+    if (radio) radio.checked = true;
+  }
+
+  function cycleLaunchMode() {
+    const idx = MODES.indexOf(currentMode);
+    currentMode = MODES[(idx + 1) % MODES.length];
+    localStorage.setItem('gx_launch_mode', currentMode);
+    updateModeBadge();
+    showToast('Launch mode: ' + MODE_LABELS[currentMode]);
+  }
+
+  function setLaunchMode(mode) {
+    currentMode = mode;
+    localStorage.setItem('gx_launch_mode', currentMode);
+    updateModeBadge();
+    showToast('Launch mode: ' + MODE_LABELS[currentMode]);
+  }
+
+  // Theme
+  function setTheme(theme) {
+    document.documentElement.setAttribute('data-theme', theme);
+    localStorage.setItem('gx_theme', theme);
+    document.querySelectorAll('.theme-swatch').forEach(s => {
+      s.classList.toggle('selected', s.getAttribute('data-theme') === theme);
+    });
+    showToast('Theme: ' + theme.toUpperCase());
+  }
+
+  // Username
+  function setUsername(val) {
+    const name = val.trim() || 'Player';
+    localStorage.setItem('gx_username', name);
+    document.getElementById('profile-display').textContent = name;
+    showToast('Username set to ' + name);
+  }
+
+  // Toast
+  let toastTimer;
+  function showToast(msg) {
+    const t = document.getElementById('toast');
+    if (!t) return;
+    t.textContent = msg;
+    t.classList.add('show');
+    clearTimeout(toastTimer);
+    toastTimer = setTimeout(() => t.classList.remove('show'), 2800);
+  }
+
+  // Copy IP
+  function copyServerAddr(addr, btn) {
+    navigator.clipboard.writeText(addr).then(() => {
+      const orig = btn.textContent;
+      btn.textContent = 'COPIED!';
+      btn.style.color = '#22c55e';
+      setTimeout(() => {
+        btn.textContent = orig;
+        btn.style.color = '';
+      }, 2000);
+      showToast('Copied ' + addr + ' to clipboard!');
+    }).catch(() => {
+      showToast('Server address: ' + addr);
+    });
+  }
+
+  // Launching
+  function getClientUrl() {
+    return DOWNLOAD_PREFIX + currentClient.file;
+  }
+
+  function launchActiveClient() {
+    const url = getClientUrl();
+    const name = currentClient.name;
+    document.getElementById('status-line').innerHTML = 'STATUS: <span class="hl">' + name + '</span> // LAUNCHING...';
+
+    if (currentMode === 'in-app') {
+      openTheater(url, name);
+    } else if (currentMode === 'regular') {
+      window.open(url, '_blank');
+      document.getElementById('status-line').innerHTML = 'STATUS: <span class="hl">' + name + '</span> // LAUNCHED IN NEW TAB';
+    } else if (currentMode === 'popup') {
+      window.open(url, '_blank', 'width=1280,height=720,toolbar=0,menubar=0,location=0,status=0');
+      document.getElementById('status-line').innerHTML = 'STATUS: <span class="hl">' + name + '</span> // LAUNCHED POPUP';
+    } else if (currentMode === 'about-blank') {
+      showToast('Launching in about:blank...');
+      fetch(url).then(r => r.text()).then(html => {
+        const win = window.open('about:blank', '_blank');
+        if (!win) { showToast('Popup blocked! Please allow popups.'); return; }
+        win.document.open();
+        win.document.write(html);
+        win.document.close();
+        document.getElementById('status-line').innerHTML = 'STATUS: <span class="hl">' + name + '</span> // LAUNCHED ABOUT:BLANK';
+      }).catch(e => {
+        window.open(url, '_blank');
+      });
+    } else if (currentMode === 'blob') {
+      showToast('Generating Blob URL...');
+      fetch(url).then(r => r.text()).then(html => {
+        const blob = new Blob([html], { type: 'text/html' });
+        const blobUrl = URL.createObjectURL(blob);
+        window.open(blobUrl, '_blank');
+        document.getElementById('status-line').innerHTML = 'STATUS: <span class="hl">' + name + '</span> // LAUNCHED BLOB';
+      }).catch(e => {
+        window.open(url, '_blank');
+      });
+    }
+  }
+
+  // Theater modal controls
+  function openTheater(url, title) {
+    document.getElementById('theater-title').textContent = title;
+    const iframe = document.getElementById('theater-iframe');
+    iframe.src = url;
+    document.getElementById('theater-player').classList.add('active');
+    setTimeout(() => {
+      try { iframe.contentWindow?.focus(); } catch(e) {}
+    }, 400);
+  }
+
+  function closeTheater() {
+    const iframe = document.getElementById('theater-iframe');
+    iframe.src = 'about:blank';
+    document.getElementById('theater-player').classList.remove('active');
+    document.getElementById('status-line').innerHTML = 'STATUS: <span class="hl">' + currentClient.name + '</span> // READY';
+  }
+
+  function reloadGame() {
+    const iframe = document.getElementById('theater-iframe');
+    iframe.src = getClientUrl();
+    showToast('Reloading client...');
+  }
+
+  function openActiveExternal() {
+    window.open(getClientUrl(), '_blank');
+  }
+
+  function requestGameFullscreen() {
+    const el = document.getElementById('theater-player');
+    if (!document.fullscreenElement) {
+      el.requestFullscreen().catch(() => {});
+    } else {
+      document.exitFullscreen().catch(() => {});
+    }
+  }
+
+  function toggleWindowFullscreen() {
+    if (!document.fullscreenElement) {
+      document.documentElement.requestFullscreen().catch(() => {});
+    } else {
+      document.exitFullscreen().catch(() => {});
+    }
+  }
+</script>
+</body>
+</html>
