@@ -496,11 +496,46 @@
       'sm64': {
         name: 'Super Mario 64 (WASM 60FPS)',
         category: 'Emulator',
-        url: 'https://froggo11.github.io/sm64-wasm/',
-        altUrls: ['https://sm64-wasm.pages.dev/'],
+        url: 'https://iloveshorty.github.io/html/sm64/game/index.html',
+        altUrls: [],
         openInNewTab: false,
         aspectRatio: '4:3',
         isLocal: false
+      },
+      'pokemon-emerald': {
+        name: 'Pokémon Emerald (GBA)',
+        category: 'Emulator',
+        url: './emulator.html?core=gba&rom=https://iloveshorty.github.io/strongdog3/html/Pokemon%20Emerald/game/Pokemon%20-%20Emerald%20Version%20(U).gba&title=Pokemon+Emerald',
+        openInNewTab: false,
+        isLocal: true
+      },
+      'super-mario-world': {
+        name: 'Super Mario World (SNES)',
+        category: 'Emulator',
+        url: './emulator.html?core=snes&rom=./assets/roms/super-mario-world.smc&title=Super+Mario+World',
+        openInNewTab: false,
+        isLocal: true
+      },
+      'pokemon-firered': {
+        name: 'Pokémon FireRed (GBA)',
+        category: 'Emulator',
+        url: './emulator.html?core=gba&rom=https://iloveshorty.github.io/html/pokemonfirered/game/Pokemon%20-%20FireRed%20Version%20(USA,%20Europe).gba&title=Pokemon+FireRed',
+        openInNewTab: false,
+        isLocal: true
+      },
+      'pokemon-unbound': {
+        name: 'Pokémon Unbound (GBA)',
+        category: 'Emulator',
+        url: './emulator.html?core=gba&rom=https://iloveshorty.github.io/strongdog3/html/pokemon%20unbound/game/Pokemon%20Unbound%20(v2.1.1.1).gba&title=Pokemon+Unbound',
+        openInNewTab: false,
+        isLocal: true
+      },
+      '1080-snowboarding': {
+        name: '1080 Snowboarding (N64)',
+        category: 'Emulator',
+        url: './emulator.html?core=n64&rom=https://raw.githubusercontent.com/iloveshorty/strongdog4/main/html/1080%20snowboarding/game/1080%20snowboarding.z64&title=1080+Snowboarding',
+        openInNewTab: false,
+        isLocal: true
       },
       'celeste': {
         name: 'Celeste Classic (WASM)',
@@ -544,6 +579,11 @@
     LOCAL_GAMES_DICT['eagler'] = LOCAL_GAMES_DICT['eaglercraft-26-3'];
     LOCAL_GAMES_DICT['mario64'] = LOCAL_GAMES_DICT['sm64'];
     LOCAL_GAMES_DICT['super-mario-64'] = LOCAL_GAMES_DICT['sm64'];
+    LOCAL_GAMES_DICT['emerald'] = LOCAL_GAMES_DICT['pokemon-emerald'];
+    LOCAL_GAMES_DICT['smw'] = LOCAL_GAMES_DICT['super-mario-world'];
+    LOCAL_GAMES_DICT['firered'] = LOCAL_GAMES_DICT['pokemon-firered'];
+    LOCAL_GAMES_DICT['unbound'] = LOCAL_GAMES_DICT['pokemon-unbound'];
+    LOCAL_GAMES_DICT['1080'] = LOCAL_GAMES_DICT['1080-snowboarding'];
 
     let currentGameRawUrl = '';
     let currentGameEffectiveUrl = '';
@@ -865,6 +905,12 @@
         loader.classList.add('hidden');
         errorView.classList.remove('hidden');
         titleEl.textContent = 'Game Not Found';
+        return;
+      }
+
+      // If this is an emulator game pointing to emulator.html, redirect directly
+      if (gameData.url.includes('emulator.html') || (gameData.category && gameData.category.toLowerCase() === 'emulator' && gameData.url.includes('emulator'))) {
+        window.location.replace(gameData.url);
         return;
       }
 

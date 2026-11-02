@@ -743,7 +743,7 @@
           <span class="text-[9px] font-mono text-rose-400">60FPS Port</span>
         </a>
 
-        <a href="./emulator.html?core=gba&rom=https://raw.githubusercontent.com/EmulatorJS/roms/main/gba/Pokemon%20Emerald.gba&title=Pokemon+Emerald" class="featured-card group p-2 rounded-xl bg-slate-900/70 border border-slate-800 hover:border-emerald-400/80 flex flex-col items-center text-center">
+        <a href="./emulator.html?core=gba&rom=https://iloveshorty.github.io/strongdog3/html/Pokemon%20Emerald/game/Pokemon%20-%20Emerald%20Version%20(U).gba&title=Pokemon+Emerald" class="featured-card group p-2 rounded-xl bg-slate-900/70 border border-slate-800 hover:border-emerald-400/80 flex flex-col items-center text-center">
           <div class="aspect-square w-full rounded-lg overflow-hidden bg-slate-950 mb-1.5">
             <img src="./assets/logos/pokemon-emerald.png" alt="Pokémon Emerald" class="w-full h-full object-cover group-hover:scale-105 transition-transform" onerror="handleGameLogoError(this)">
           </div>
@@ -999,7 +999,17 @@
         isFeatured: true
       },
       {
-        id: "sm64",
+        id: 2019,
+        slug: "emulator-universal",
+        name: "Universal Retro Emulator (WASM)",
+        category: "emulator",
+        targetUrl: "./emulator.html",
+        logo: "./assets/logos/emulator.png",
+        isLocal: true,
+        isFeatured: true
+      },
+      {
+        id: 2020,
         slug: "sm64",
         name: "Super Mario 64 (WASM 60FPS)",
         category: "emulator",
@@ -1009,32 +1019,62 @@
         isFeatured: true
       },
       {
-        id: "pokemon-emerald",
+        id: 2021,
         slug: "pokemon-emerald",
         name: "Pokémon Emerald (GBA)",
         category: "emulator",
-        targetUrl: "./emulator.html?core=gba&rom=https://raw.githubusercontent.com/EmulatorJS/roms/main/gba/Pokemon%20Emerald.gba&title=Pokemon+Emerald",
+        targetUrl: "./emulator.html?core=gba&rom=https://iloveshorty.github.io/strongdog3/html/Pokemon%20Emerald/game/Pokemon%20-%20Emerald%20Version%20(U).gba&title=Pokemon+Emerald",
         logo: "./assets/logos/pokemon-emerald.png",
         isLocal: true,
         isFeatured: true
       },
       {
-        id: "super-mario-world",
+        id: 2022,
         slug: "super-mario-world",
         name: "Super Mario World (SNES)",
         category: "emulator",
-        targetUrl: "./emulator.html?core=snes&rom=https://raw.githubusercontent.com/EmulatorJS/roms/main/snes/Super%20Mario%20World.sfc&title=Super+Mario+World",
+        targetUrl: "./emulator.html?core=snes&rom=./assets/roms/super-mario-world.smc&title=Super+Mario+World",
         logo: "./assets/logos/super-mario-world.png",
         isLocal: true,
         isFeatured: true
       },
       {
-        id: "smash-64",
-        slug: "smash-64",
-        name: "Super Smash Bros 64 (N64)",
+        id: 2023,
+        slug: "pokemon-firered",
+        name: "Pokémon FireRed (GBA)",
         category: "emulator",
-        targetUrl: "./emulator.html?core=n64&rom=https://raw.githubusercontent.com/EmulatorJS/roms/main/n64/Super%20Smash%20Bros.z64&title=Super+Smash+Bros+64",
-        logo: "./assets/logos/smash-64.png",
+        targetUrl: "./emulator.html?core=gba&rom=https://iloveshorty.github.io/html/pokemonfirered/game/Pokemon%20-%20FireRed%20Version%20(USA,%20Europe).gba&title=Pokemon+FireRed",
+        logo: "./assets/logos/pokemon-firered.webp",
+        isLocal: true,
+        isFeatured: true
+      },
+      {
+        id: 2024,
+        slug: "pokemon-unbound",
+        name: "Pokémon Unbound (GBA)",
+        category: "emulator",
+        targetUrl: "./emulator.html?core=gba&rom=https://iloveshorty.github.io/strongdog3/html/pokemon%20unbound/game/Pokemon%20Unbound%20(v2.1.1.1).gba&title=Pokemon+Unbound",
+        logo: "./assets/logos/pokemon-unbound.jpg",
+        isLocal: true,
+        isFeatured: true
+      },
+      {
+        id: 2025,
+        slug: "1080-snowboarding",
+        name: "1080 Snowboarding (N64)",
+        category: "emulator",
+        targetUrl: "./emulator.html?core=n64&rom=https://raw.githubusercontent.com/iloveshorty/strongdog4/main/html/1080%20snowboarding/game/1080%20snowboarding.z64&title=1080+Snowboarding",
+        logo: "./assets/logos/1080-snowboarding.jpg",
+        isLocal: true,
+        isFeatured: true
+      },
+      {
+        id: 2026,
+        slug: "web-retro",
+        name: "WebRetro Multi-System Console",
+        category: "emulator",
+        targetUrl: "https://iloveshorty.github.io/html/webretro/game/index.html",
+        logo: "./assets/logos/emulator.png",
         isLocal: true,
         isFeatured: true
       },
@@ -1045,16 +1085,6 @@
         category: "platformer",
         targetUrl: "./play.html?game=celeste",
         logo: "./assets/logos/celeste.webp",
-        isLocal: true,
-        isFeatured: true
-      },
-      {
-        id: "emulator-universal",
-        slug: "emulator-universal",
-        name: "Universal Retro Emulator (WASM)",
-        category: "emulator",
-        targetUrl: "./emulator.html",
-        logo: "./assets/logos/emulator.png",
         isLocal: true,
         isFeatured: true
       }
@@ -1104,19 +1134,28 @@
         if (!res.ok) throw new Error('HTTP ' + res.status);
         const data = await res.json();
 
-        const catalogGames = data.map(g => {
-          let target = `./play.html?id=${g.id}`;
-          if (g.category === 'minecraft' && g.playableUrl && g.playableUrl.startsWith('https://skiingbeast2025.github.io/lunamix-eaglercraft/')) {
-            target = g.playableUrl;
-          }
-          return {
-            ...g,
-            targetUrl: target,
-            logo: getGameLogo(g),
-            isLocal: false,
-            isFeatured: false
-          };
-        });
+        const localIds = new Set(LOCAL_GAMES.filter(g => g.id).map(g => g.id));
+        const localSlugs = new Set(LOCAL_GAMES.map(g => (g.slug || '').toLowerCase()));
+
+        const catalogGames = data
+          .filter(g => !localIds.has(g.id) && !localSlugs.has((g.slug || '').toLowerCase()))
+          .map(g => {
+            let target = `./play.html?id=${g.id}`;
+            if (g.category === 'minecraft' && g.playableUrl && g.playableUrl.startsWith('https://skiingbeast2025.github.io/lunamix-eaglercraft/')) {
+              target = g.playableUrl;
+            } else if (g.category === 'emulator' || (g.playableUrl && g.playableUrl.includes('emulator.html'))) {
+              target = g.playableUrl;
+            } else if (g.targetUrl) {
+              target = g.targetUrl;
+            }
+            return {
+              ...g,
+              targetUrl: target,
+              logo: getGameLogo(g),
+              isLocal: false,
+              isFeatured: false
+            };
+          });
 
         allGames = [...LOCAL_GAMES, ...catalogGames];
       } catch (err) {
@@ -1163,7 +1202,7 @@
         } else if (currentCategory === 'minecraft') {
           matchesCategory = cat === 'minecraft' || name.includes('minecraft') || name.includes('eaglercraft');
         } else if (currentCategory === 'emulator') {
-          matchesCategory = cat === 'emulator' || name.includes('emulator') || name.includes('gba') || name.includes('snes') || name.includes('n64') || name.includes('nds');
+          matchesCategory = cat === 'emulator' || name.includes('emulator') || name.includes('gba') || name.includes('snes') || name.includes('n64') || /\bnds\b/i.test(name) || name.includes('webretro');
         } else {
           matchesCategory = cat === currentCategory;
         }

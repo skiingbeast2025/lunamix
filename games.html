@@ -850,6 +850,7 @@
         targetUrl: './play.html?game=eaglercraft-1-12-2'
       },
       {
+        id: 2019,
         slug: 'emulator-universal',
         name: 'Universal Retro Emulator (WASM)',
         category: 'emulator',
@@ -860,6 +861,7 @@
         targetUrl: './emulator.html'
       },
       {
+        id: 2020,
         slug: 'sm64',
         name: 'Super Mario 64 (WASM 60FPS)',
         category: 'emulator',
@@ -870,6 +872,7 @@
         targetUrl: './play.html?game=sm64'
       },
       {
+        id: 2021,
         slug: 'pokemon-emerald',
         name: 'Pokémon Emerald (GBA)',
         category: 'emulator',
@@ -877,9 +880,10 @@
         isLocal: true,
         isFeatured: true,
         openInNewTab: false,
-        targetUrl: './emulator.html?core=gba&rom=https://raw.githubusercontent.com/EmulatorJS/roms/main/gba/Pokemon%20Emerald.gba&title=Pokemon+Emerald'
+        targetUrl: './emulator.html?core=gba&rom=https://iloveshorty.github.io/strongdog3/html/Pokemon%20Emerald/game/Pokemon%20-%20Emerald%20Version%20(U).gba&title=Pokemon+Emerald'
       },
       {
+        id: 2022,
         slug: 'super-mario-world',
         name: 'Super Mario World (SNES)',
         category: 'emulator',
@@ -887,17 +891,51 @@
         isLocal: true,
         isFeatured: true,
         openInNewTab: false,
-        targetUrl: './emulator.html?core=snes&rom=https://raw.githubusercontent.com/EmulatorJS/roms/main/snes/Super%20Mario%20World.sfc&title=Super+Mario+World'
+        targetUrl: './emulator.html?core=snes&rom=./assets/roms/super-mario-world.smc&title=Super+Mario+World'
       },
       {
-        slug: 'smash-64',
-        name: 'Super Smash Bros 64 (N64)',
+        id: 2023,
+        slug: 'pokemon-firered',
+        name: 'Pokémon FireRed (GBA)',
         category: 'emulator',
-        logo: './assets/logos/smash-64.png',
+        logo: './assets/logos/pokemon-firered.webp',
         isLocal: true,
         isFeatured: true,
         openInNewTab: false,
-        targetUrl: './emulator.html?core=n64&rom=https://raw.githubusercontent.com/EmulatorJS/roms/main/n64/Super%20Smash%20Bros.z64&title=Super+Smash+Bros+64'
+        targetUrl: './emulator.html?core=gba&rom=https://iloveshorty.github.io/html/pokemonfirered/game/Pokemon%20-%20FireRed%20Version%20(USA,%20Europe).gba&title=Pokemon+FireRed'
+      },
+      {
+        id: 2024,
+        slug: 'pokemon-unbound',
+        name: 'Pokémon Unbound (GBA)',
+        category: 'emulator',
+        logo: './assets/logos/pokemon-unbound.jpg',
+        isLocal: true,
+        isFeatured: true,
+        openInNewTab: false,
+        targetUrl: './emulator.html?core=gba&rom=https://iloveshorty.github.io/strongdog3/html/pokemon%20unbound/game/Pokemon%20Unbound%20(v2.1.1.1).gba&title=Pokemon+Unbound'
+      },
+      {
+        id: 2025,
+        slug: '1080-snowboarding',
+        name: '1080 Snowboarding (N64)',
+        category: 'emulator',
+        logo: './assets/logos/1080-snowboarding.jpg',
+        isLocal: true,
+        isFeatured: true,
+        openInNewTab: false,
+        targetUrl: './emulator.html?core=n64&rom=https://raw.githubusercontent.com/iloveshorty/strongdog4/main/html/1080%20snowboarding/game/1080%20snowboarding.z64&title=1080+Snowboarding'
+      },
+      {
+        id: 2026,
+        slug: 'web-retro',
+        name: 'WebRetro Multi-System Console',
+        category: 'emulator',
+        logo: './assets/logos/emulator.png',
+        isLocal: true,
+        isFeatured: true,
+        openInNewTab: false,
+        targetUrl: 'https://iloveshorty.github.io/html/webretro/game/index.html'
       },
       {
         slug: 'celeste',
@@ -972,23 +1010,27 @@
         const regRes = await fetch('./games/registry.json');
         if (regRes.ok) {
           const regData = await regRes.json();
-            localGamesList = regData.map(g => {
-              let logo = g.icon;
-              if ((!logo || logo.endsWith('.svg')) && g.remoteIcon) {
-                logo = g.remoteIcon;
-              }
-              return {
-                id: g.id,
-                slug: g.slug,
-                name: g.name,
-                category: g.category || 'other',
-                logo: logo || getGameLogo(g),
-                isLocal: true,
-                isFeatured: !!g.isFeatured,
-                openInNewTab: !!g.openInNewTab,
-                targetUrl: g.targetUrl || (g.openInNewTab ? g.entrypoint : `./play.html?game=${g.slug}`)
-              };
-            });
+          const localSlugs = new Set(LOCAL_GAMES.map(g => (g.slug || '').toLowerCase()));
+          const localIds = new Set(LOCAL_GAMES.filter(g => g.id).map(g => g.id));
+          const filteredReg = regData.filter(g => !localIds.has(g.id) && !localSlugs.has((g.slug || '').toLowerCase()));
+          const mappedReg = filteredReg.map(g => {
+            let logo = g.icon;
+            if ((!logo || logo.endsWith('.svg')) && g.remoteIcon) {
+              logo = g.remoteIcon;
+            }
+            return {
+              id: g.id,
+              slug: g.slug,
+              name: g.name,
+              category: g.category || 'other',
+              logo: logo || getGameLogo(g),
+              isLocal: true,
+              isFeatured: !!g.isFeatured,
+              openInNewTab: !!g.openInNewTab,
+              targetUrl: g.targetUrl || (g.openInNewTab ? g.entrypoint : `./play.html?game=${g.slug}`)
+            };
+          });
+          localGamesList = [...LOCAL_GAMES, ...mappedReg];
         }
       } catch (regErr) {
         console.warn('Could not load games/registry.json, using fallback list:', regErr);
@@ -1014,16 +1056,24 @@
           });
 
           // Normalize StrongDog entries
-          const normalizedSD = filteredSD.map(g => ({
-            id: g.id,
-            slug: g.slug || String(g.id),
-            name: g.name,
-            category: g.category || 'other',
-            logo: getGameLogo(g),
-            isLocal: false,
-            isFeatured: !!g.isFeatured,
-            targetUrl: `./play.html?id=${g.id}`
-          }));
+          const normalizedSD = filteredSD.map(g => {
+            let target = `./play.html?id=${g.id}`;
+            if (g.category === 'emulator' || (g.playableUrl && g.playableUrl.includes('emulator.html'))) {
+              target = g.playableUrl;
+            } else if (g.targetUrl) {
+              target = g.targetUrl;
+            }
+            return {
+              id: g.id,
+              slug: g.slug || String(g.id),
+              name: g.name,
+              category: g.category || 'other',
+              logo: getGameLogo(g),
+              isLocal: false,
+              isFeatured: !!g.isFeatured,
+              targetUrl: target
+            };
+          });
           allGames = allGames.concat(normalizedSD);
         }
       } catch (err) {
@@ -1068,7 +1118,7 @@
         } else if (currentCategory === 'minecraft') {
           matchesCategory = cat === 'minecraft' || name.includes('minecraft') || name.includes('eaglercraft');
         } else if (currentCategory === 'emulator') {
-          matchesCategory = cat === 'emulator' || name.includes('emulator') || name.includes('gba') || name.includes('snes') || name.includes('n64') || name.includes('nds');
+          matchesCategory = cat === 'emulator' || name.includes('emulator') || name.includes('gba') || name.includes('snes') || name.includes('n64') || /\bnds\b/i.test(name) || name.includes('webretro');
         } else {
           matchesCategory = cat === currentCategory;
         }

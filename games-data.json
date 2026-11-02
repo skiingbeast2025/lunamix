@@ -180,126 +180,6 @@
     "localLogo": "./assets/logos/eaglercraft.png"
   },
   {
-    "id": 2019,
-    "slug": "eaglercraft-resent-4-4",
-    "name": "Resent Client 4.4 Signed",
-    "category": "minecraft",
-    "playableUrl": "https://skiingbeast2025.github.io/lunamix-eaglercraft/downloads/resent-4.4.html",
-    "logoUrl": "./assets/logos/eaglercraft.png",
-    "isFeatured": false,
-    "localLogo": "./assets/logos/eaglercraft.png"
-  },
-  {
-    "id": 2020,
-    "slug": "eaglercraft-resent",
-    "name": "Resent Client Classic",
-    "category": "minecraft",
-    "playableUrl": "https://skiingbeast2025.github.io/lunamix-eaglercraft/downloads/resent.html",
-    "logoUrl": "./assets/logos/eaglercraft.png",
-    "isFeatured": false,
-    "localLogo": "./assets/logos/eaglercraft.png"
-  },
-  {
-    "id": 2021,
-    "slug": "eaglercraft-flame",
-    "name": "Flame Client 3.7",
-    "category": "minecraft",
-    "playableUrl": "https://skiingbeast2025.github.io/lunamix-eaglercraft/downloads/flame.html",
-    "logoUrl": "./assets/logos/eaglercraft.png",
-    "isFeatured": false,
-    "localLogo": "./assets/logos/eaglercraft.png"
-  },
-  {
-    "id": 2022,
-    "slug": "eaglercraft-moonlight",
-    "name": "Moonlight Client",
-    "category": "minecraft",
-    "playableUrl": "https://skiingbeast2025.github.io/lunamix-eaglercraft/downloads/moonlight.html",
-    "logoUrl": "./assets/logos/eaglercraft.png",
-    "isFeatured": false,
-    "localLogo": "./assets/logos/eaglercraft.png"
-  },
-  {
-    "id": 2023,
-    "slug": "eaglercraft-astra",
-    "name": "Astra Client 1.8.8",
-    "category": "minecraft",
-    "playableUrl": "https://skiingbeast2025.github.io/lunamix-eaglercraft/downloads/astra.html",
-    "logoUrl": "./assets/logos/eaglercraft.png",
-    "isFeatured": false,
-    "localLogo": "./assets/logos/eaglercraft.png"
-  },
-  {
-    "id": 2024,
-    "slug": "eaglercraft-tuff",
-    "name": "Tuff Client 1.12.2",
-    "category": "minecraft",
-    "playableUrl": "https://skiingbeast2025.github.io/lunamix-eaglercraft/downloads/tuff.html",
-    "logoUrl": "./assets/logos/eaglercraft.png",
-    "isFeatured": false,
-    "localLogo": "./assets/logos/eaglercraft.png"
-  },
-  {
-    "id": 2025,
-    "slug": "eaglercraft-precision",
-    "name": "Precision Client",
-    "category": "minecraft",
-    "playableUrl": "https://skiingbeast2025.github.io/lunamix-eaglercraft/downloads/precision.html",
-    "logoUrl": "./assets/logos/eaglercraft.png",
-    "isFeatured": false,
-    "localLogo": "./assets/logos/eaglercraft.png"
-  },
-  {
-    "id": 2026,
-    "slug": "eaglercraft-n0va",
-    "name": "N0VA Client",
-    "category": "minecraft",
-    "playableUrl": "https://skiingbeast2025.github.io/lunamix-eaglercraft/downloads/n0va.html",
-    "logoUrl": "./assets/logos/eaglercraft.png",
-    "isFeatured": false,
-    "localLogo": "./assets/logos/eaglercraft.png"
-  },
-  {
-    "id": 2027,
-    "slug": "eaglercraft-starlike",
-    "name": "Starlike Client",
-    "category": "minecraft",
-    "playableUrl": "https://skiingbeast2025.github.io/lunamix-eaglercraft/downloads/starlike.html",
-    "logoUrl": "./assets/logos/eaglercraft.png",
-    "isFeatured": false,
-    "localLogo": "./assets/logos/eaglercraft.png"
-  },
-  {
-    "id": 2028,
-    "slug": "eaglercraft-kerosene",
-    "name": "Kerosene Client",
-    "category": "minecraft",
-    "playableUrl": "https://skiingbeast2025.github.io/lunamix-eaglercraft/downloads/kerosene.html",
-    "logoUrl": "./assets/logos/eaglercraft.png",
-    "isFeatured": false,
-    "localLogo": "./assets/logos/eaglercraft.png"
-  },
-  {
-    "id": 2029,
-    "slug": "eaglercraft-nitclient",
-    "name": "NitClient 2.0",
-    "category": "minecraft",
-    "playableUrl": "https://skiingbeast2025.github.io/lunamix-eaglercraft/downloads/nitclient.html",
-    "logoUrl": "./assets/logos/eaglercraft.png",
-    "isFeatured": false,
-    "localLogo": "./assets/logos/eaglercraft.png"
-  },
-  {
-    "id": 2030,
-    "slug": "eaglercraft-kone",
-    "name": "Kone Client 1.8.8",
-    "category": "minecraft",
-    "playableUrl": "https://skiingbeast2025.github.io/lunamix-eaglercraft/downloads/kone.html",
-    "logoUrl": "./assets/logos/eaglercraft.png",
-    "isFeatured": false,
-    "localLogo": "./assets/logos/eaglercraft.png"
-  },
-  {
     "id": 2031,
     "slug": "eaglercraft-pi",
     "name": "Pi Client",
@@ -680,101 +560,61 @@
     "localLogo": "./assets/logos/balatro.png"
   },
   {
-    "id": 2030,
-    "slug": "zelda-oot",
-    "name": "The Legend of Zelda: Ocarina of Time",
-    "category": "adventure",
-    "playableUrl": "https://zelda64.pages.dev/",
-    "logoUrl": "./assets/logos/zelda-oot.png",
-    "isFeatured": true,
-    "localLogo": "./assets/logos/zelda-oot.png"
-  },
-  {
-    "id": 2029,
-    "slug": "celeste",
-    "name": "Celeste Classic (WASM)",
-    "category": "platformer",
-    "playableUrl": "https://lemon35.github.io/Celeste/",
-    "logoUrl": "./assets/logos/celeste.webp",
-    "isFeatured": true,
-    "localLogo": "./assets/logos/celeste.webp"
-  },
-  {
-    "id": 2028,
-    "slug": "emulator-castlevania-aria",
-    "name": "Castlevania: Aria of Sorrow (GBA)",
-    "category": "emulator",
-    "playableUrl": "./emulator.html?core=gba&rom=https://raw.githubusercontent.com/EmulatorJS/roms/main/gba/Castlevania%20Aria%20of%20Sorrow.gba&title=Castlevania+Aria+of+Sorrow",
-    "logoUrl": "./assets/logos/castlevania-aria.png",
-    "isFeatured": false,
-    "localLogo": "./assets/logos/castlevania-aria.png"
-  },
-  {
-    "id": 2027,
-    "slug": "emulator-metroid-fusion",
-    "name": "Metroid Fusion (GBA)",
-    "category": "emulator",
-    "playableUrl": "./emulator.html?core=gba&rom=https://raw.githubusercontent.com/EmulatorJS/roms/main/gba/Metroid%20Fusion.gba&title=Metroid+Fusion",
-    "logoUrl": "./assets/logos/metroid-fusion.png",
-    "isFeatured": false,
-    "localLogo": "./assets/logos/metroid-fusion.png"
-  },
-  {
     "id": 2026,
-    "slug": "emulator-sonic2",
-    "name": "Sonic the Hedgehog 2 (Genesis)",
+    "slug": "web-retro",
+    "name": "WebRetro Multi-System Console",
     "category": "emulator",
-    "playableUrl": "./emulator.html?core=segaMD&rom=https://raw.githubusercontent.com/EmulatorJS/roms/main/segaMD/Sonic%20The%20Hedgehog%202.bin&title=Sonic+The+Hedgehog+2",
-    "logoUrl": "./assets/logos/sonic-2.png",
+    "playableUrl": "https://iloveshorty.github.io/html/webretro/game/index.html",
+    "logoUrl": "./assets/logos/emulator.png",
     "isFeatured": true,
-    "localLogo": "./assets/logos/sonic-2.png"
+    "localLogo": "./assets/logos/emulator.png"
   },
   {
     "id": 2025,
-    "slug": "emulator-zelda-minish",
-    "name": "The Legend of Zelda: The Minish Cap (GBA)",
+    "slug": "1080-snowboarding",
+    "name": "1080 Snowboarding (N64)",
     "category": "emulator",
-    "playableUrl": "./emulator.html?core=gba&rom=https://raw.githubusercontent.com/EmulatorJS/roms/main/gba/Zelda%20Minish%20Cap.gba&title=Zelda+The+Minish+Cap",
-    "logoUrl": "./assets/logos/zelda-minish-cap.png",
+    "playableUrl": "./emulator.html?core=n64&rom=https://raw.githubusercontent.com/iloveshorty/strongdog4/main/html/1080%20snowboarding/game/1080%20snowboarding.z64&title=1080+Snowboarding",
+    "logoUrl": "./assets/logos/1080-snowboarding.jpg",
     "isFeatured": true,
-    "localLogo": "./assets/logos/zelda-minish-cap.png"
+    "localLogo": "./assets/logos/1080-snowboarding.jpg"
   },
   {
     "id": 2024,
-    "slug": "emulator-mariokart64",
-    "name": "Mario Kart 64 (N64)",
+    "slug": "pokemon-unbound",
+    "name": "Pokémon Unbound (GBA)",
     "category": "emulator",
-    "playableUrl": "./emulator.html?core=n64&rom=https://raw.githubusercontent.com/EmulatorJS/roms/main/n64/Mario%20Kart%2064.z64&title=Mario+Kart+64",
-    "logoUrl": "./assets/logos/mario-kart-64.png",
+    "playableUrl": "./emulator.html?core=gba&rom=https://iloveshorty.github.io/strongdog3/html/pokemon%20unbound/game/Pokemon%20Unbound%20(v2.1.1.1).gba&title=Pokemon+Unbound",
+    "logoUrl": "./assets/logos/pokemon-unbound.jpg",
     "isFeatured": true,
-    "localLogo": "./assets/logos/mario-kart-64.png"
+    "localLogo": "./assets/logos/pokemon-unbound.jpg"
   },
   {
     "id": 2023,
-    "slug": "emulator-smash64",
-    "name": "Super Smash Bros 64 (N64)",
+    "slug": "pokemon-firered",
+    "name": "Pokémon FireRed (GBA)",
     "category": "emulator",
-    "playableUrl": "./emulator.html?core=n64&rom=https://raw.githubusercontent.com/EmulatorJS/roms/main/n64/Super%20Smash%20Bros.z64&title=Super+Smash+Bros+64",
-    "logoUrl": "./assets/logos/smash-64.png",
+    "playableUrl": "./emulator.html?core=gba&rom=https://iloveshorty.github.io/html/pokemonfirered/game/Pokemon%20-%20FireRed%20Version%20(USA,%20Europe).gba&title=Pokemon+FireRed",
+    "logoUrl": "./assets/logos/pokemon-firered.webp",
     "isFeatured": true,
-    "localLogo": "./assets/logos/smash-64.png"
+    "localLogo": "./assets/logos/pokemon-firered.webp"
   },
   {
     "id": 2022,
-    "slug": "emulator-smw",
+    "slug": "super-mario-world",
     "name": "Super Mario World (SNES)",
     "category": "emulator",
-    "playableUrl": "./emulator.html?core=snes&rom=https://raw.githubusercontent.com/EmulatorJS/roms/main/snes/Super%20Mario%20World.sfc&title=Super+Mario+World",
+    "playableUrl": "./emulator.html?core=snes&rom=./assets/roms/super-mario-world.smc&title=Super+Mario+World",
     "logoUrl": "./assets/logos/super-mario-world.png",
     "isFeatured": true,
     "localLogo": "./assets/logos/super-mario-world.png"
   },
   {
     "id": 2021,
-    "slug": "emulator-pokemon-emerald",
-    "name": "Pok\u00e9mon Emerald (GBA)",
+    "slug": "pokemon-emerald",
+    "name": "Pokémon Emerald (GBA)",
     "category": "emulator",
-    "playableUrl": "./emulator.html?core=gba&rom=https://raw.githubusercontent.com/EmulatorJS/roms/main/gba/Pokemon%20Emerald.gba&title=Pokemon+Emerald",
+    "playableUrl": "./emulator.html?core=gba&rom=https://iloveshorty.github.io/strongdog3/html/Pokemon%20Emerald/game/Pokemon%20-%20Emerald%20Version%20(U).gba&title=Pokemon+Emerald",
     "logoUrl": "./assets/logos/pokemon-emerald.png",
     "isFeatured": true,
     "localLogo": "./assets/logos/pokemon-emerald.png"
@@ -784,7 +624,7 @@
     "slug": "sm64",
     "name": "Super Mario 64 (WASM 60FPS)",
     "category": "emulator",
-    "playableUrl": "https://froggo11.github.io/sm64-wasm/",
+    "playableUrl": "https://iloveshorty.github.io/html/sm64/game/index.html",
     "logoUrl": "./assets/logos/super-mario-64.jpg",
     "isFeatured": true,
     "localLogo": "./assets/logos/super-mario-64.jpg"
@@ -792,7 +632,7 @@
   {
     "id": 2019,
     "slug": "emulator-universal",
-    "name": "Universal Retro Emulator",
+    "name": "Universal Retro Emulator (WASM)",
     "category": "emulator",
     "playableUrl": "./emulator.html",
     "logoUrl": "./assets/logos/emulator.png",
@@ -7599,16 +7439,6 @@
     "page": 1,
     "isFeatured": true,
     "localLogo": "./assets/logos/aspiring-artist.webp"
-  },
-  {
-    "id": 340,
-    "slug": "arcade-wizard",
-    "name": "Arcade Wizard",
-    "category": "other",
-    "playableUrl": "https://iloveshorty.github.io/html/arcade%20wizard/game/index.html",
-    "logoUrl": "https://iloveshorty.github.io/img/arcade%20wizard.png",
-    "page": 1,
-    "isFeatured": false
   },
   {
     "id": 339,
