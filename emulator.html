@@ -230,7 +230,7 @@
         <button onclick="launchPreset('gba', 'Pokémon Emerald', 'https://iloveshorty.github.io/strongdog3/html/Pokemon%20Emerald/game/Pokemon%20-%20Emerald%20Version%20(U).gba')" class="px-2.5 py-1 rounded-lg bg-slate-900 border border-slate-800 hover:border-slate-600 text-slate-300 hover:text-white transition-all cursor-pointer">
           Pokémon Emerald
         </button>
-        <button onclick="launchPreset('snes', 'Super Mario World', './assets/roms/super-mario-world.smc')" class="px-2.5 py-1 rounded-lg bg-slate-900 border border-slate-800 hover:border-slate-600 text-slate-300 hover:text-white transition-all cursor-pointer">
+        <button onclick="launchPreset('snes', 'Super Mario World', 'https://iloveshorty.github.io/strongdog3/html/super%20mario%20world/game/Super%20Mario%20World%20(U)%20%5B!%5D.smc')" class="px-2.5 py-1 rounded-lg bg-slate-900 border border-slate-800 hover:border-slate-600 text-slate-300 hover:text-white transition-all cursor-pointer">
           Super Mario World
         </button>
         <button onclick="launchPreset('gba', 'Pokémon FireRed', 'https://iloveshorty.github.io/html/pokemonfirered/game/Pokemon%20-%20FireRed%20Version%20(USA,%20Europe).gba')" class="px-2.5 py-1 rounded-lg bg-slate-900 border border-slate-800 hover:border-slate-600 text-slate-300 hover:text-white transition-all cursor-pointer">
@@ -290,9 +290,14 @@
       document.getElementById('emu-title').textContent = gameName || 'Retro Classic';
       document.getElementById('emu-core-badge').textContent = core.toUpperCase();
 
+      let fullRom = romUrl;
+      try {
+        fullRom = new URL(romUrl, window.location.href).href;
+      } catch (e) {}
+
       window.EJS_player = '#game';
       window.EJS_core = core;
-      window.EJS_gameUrl = romUrl;
+      window.EJS_gameUrl = fullRom;
       window.EJS_gameName = gameName;
       window.EJS_pathtodata = 'https://cdn.emulatorjs.org/stable/data/';
       window.EJS_startOnLoaded = true;
@@ -350,7 +355,7 @@
     }
 
     // Check URL parameters for direct boot
-    window.addEventListener('DOMContentLoaded', () => {
+    function bootFromParams() {
       const params = new URLSearchParams(window.location.search);
       const core = params.get('core');
       const rom = params.get('rom');
@@ -359,7 +364,13 @@
       if (core && rom) {
         initEmulator(core, rom, title);
       }
-    });
+    }
+
+    if (document.readyState === 'loading') {
+      window.addEventListener('DOMContentLoaded', bootFromParams);
+    } else {
+      bootFromParams();
+    }
 
     // Gamepad detection indicator
     window.addEventListener('gamepadconnected', (e) => {

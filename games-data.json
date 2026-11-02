@@ -604,7 +604,7 @@
     "slug": "super-mario-world",
     "name": "Super Mario World (SNES)",
     "category": "emulator",
-    "playableUrl": "./emulator.html?core=snes&rom=./assets/roms/super-mario-world.smc&title=Super+Mario+World",
+    "playableUrl": "./emulator.html?core=snes&rom=https://iloveshorty.github.io/strongdog3/html/super%20mario%20world/game/Super%20Mario%20World%20(U)%20%5B!%5D.smc&title=Super+Mario+World",
     "logoUrl": "./assets/logos/super-mario-world.png",
     "isFeatured": true,
     "localLogo": "./assets/logos/super-mario-world.png"
@@ -2374,7 +2374,7 @@
     "slug": "super-mario-world",
     "name": "Super Mario World",
     "category": "platformer",
-    "playableUrl": "https://iloveshorty.github.io/strongdog3/html/super%20mario%20world/game/index.html",
+    "playableUrl": "./emulator.html?core=snes&rom=https://iloveshorty.github.io/strongdog3/html/super%20mario%20world/game/Super%20Mario%20World%20(U)%20%5B!%5D.smc&title=Super+Mario+World",
     "logoUrl": "https://iloveshorty.github.io/strongdog3/img/super%20mario%20world.jpg",
     "page": 3,
     "isFeatured": false
