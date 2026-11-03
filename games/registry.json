@@ -2291,7 +2291,7 @@
     "id": 249,
     "slug": "super-mario-64",
     "name": "Super Mario 64",
-    "category": "emulator",
+    "category": "retro",
     "description": "Play Super Mario 64 unblocked on Lunamix.",
     "author": "StrongDog XP",
     "icon": "./games/s/super-mario-64/icon.jpg",
@@ -2301,7 +2301,7 @@
     "isFeatured": true,
     "openInNewTab": false,
     "aspectRatio": "16:9",
-    "targetUrl": "./play.html?game=sm64"
+    "targetUrl": "./play.html?game=super-mario-64"
   },
   {
     "id": 235,
@@ -11443,7 +11443,7 @@
     "id": 773,
     "slug": "pokemon-emerald",
     "name": "Pokemon Emerald",
-    "category": "emulator",
+    "category": "adventure",
     "description": "Play Pokemon Emerald unblocked on Lunamix.",
     "author": "StrongDog XP",
     "icon": "./games/p/pokemon-emerald/icon.svg",
@@ -11453,13 +11453,13 @@
     "isFeatured": false,
     "openInNewTab": false,
     "aspectRatio": "16:9",
-    "targetUrl": "./emulator.html?core=gba&rom=https://iloveshorty.github.io/strongdog3/html/Pokemon%20Emerald/game/Pokemon%20-%20Emerald%20Version%20(U).gba&title=Pokemon+Emerald"
+    "targetUrl": "./play.html?game=pokemon-emerald"
   },
   {
     "id": 52,
     "slug": "pokemon-fire-red",
     "name": "Pokemon Fire Red",
-    "category": "emulator",
+    "category": "adventure",
     "description": "Play Pokemon Fire Red unblocked on Lunamix.",
     "author": "StrongDog XP",
     "icon": "./games/p/pokemon-fire-red/icon.svg",
@@ -11469,13 +11469,13 @@
     "isFeatured": false,
     "openInNewTab": false,
     "aspectRatio": "16:9",
-    "targetUrl": "./emulator.html?core=gba&rom=https://iloveshorty.github.io/html/pokemonfirered/game/Pokemon%20-%20FireRed%20Version%20(USA,%20Europe).gba&title=Pokemon+FireRed"
+    "targetUrl": "./play.html?game=pokemon-fire-red"
   },
   {
     "id": 774,
     "slug": "pokemon-unbound",
     "name": "Pokemon Unbound",
-    "category": "emulator",
+    "category": "adventure",
     "description": "Play Pokemon Unbound unblocked on Lunamix.",
     "author": "StrongDog XP",
     "icon": "./games/p/pokemon-unbound/icon.svg",
@@ -11485,7 +11485,7 @@
     "isFeatured": false,
     "openInNewTab": false,
     "aspectRatio": "16:9",
-    "targetUrl": "./emulator.html?core=gba&rom=https://iloveshorty.github.io/strongdog3/html/pokemon%20unbound/game/Pokemon%20Unbound%20(v2.1.1.1).gba&title=Pokemon+Unbound"
+    "targetUrl": "./play.html?game=pokemon-unbound"
   },
   {
     "id": 620,
@@ -13987,7 +13987,7 @@
     "id": 971,
     "slug": "super-mario-world",
     "name": "Super Mario World",
-    "category": "emulator",
+    "category": "platformer",
     "description": "Play Super Mario World unblocked on Lunamix.",
     "author": "StrongDog XP",
     "icon": "./games/s/super-mario-world/icon.svg",
@@ -13997,7 +13997,7 @@
     "isFeatured": false,
     "openInNewTab": false,
     "aspectRatio": "16:9",
-    "targetUrl": "./emulator.html?core=snes&rom=https://iloveshorty.github.io/strongdog3/html/super%20mario%20world/game/Super%20Mario%20World%20(U)%20%5B!%5D.smc&title=Super+Mario+World"
+    "targetUrl": "./play.html?game=super-mario-world"
   },
   {
     "id": 843,
