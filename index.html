@@ -124,7 +124,7 @@
         <div class="login-avatar">
           <i class="fa-solid fa-user"></i>
         </div>
-        <div class="login-title">Welcome Student</div>
+        <div class="login-title" id="loginTitle">Welcome Student</div>
         <div class="login-subtitle">Sign in to your Lunamix workspace</div>
 
         <input type="text" id="loginUserInput" class="login-input" value="Student" placeholder="Enter username..." autocomplete="off" />
@@ -409,10 +409,58 @@
   <script src="./assets/js/nautilus-os.js"></script>
 
   <script>
-    // Synchronize Login Clock & Date
-    (function syncLoginClock() {
+    // Synchronize Login Username, Clock & Date
+    (function syncLoginUserAndClock() {
       const clockEl = document.getElementById('loginClock');
       const dateEl = document.getElementById('loginDate');
+      const userInp = document.getElementById('loginUserInput');
+      const loginTitle = document.getElementById('loginTitle');
+      const startUser = document.getElementById('startUsername');
+      const loginBtn = document.getElementById('loginBtn');
+      const guestBtn = document.getElementById('guestLoginBtn');
+      const loginEl = document.getElementById('login');
+
+      // 1. Sync saved username from localStorage across refreshes
+      const savedUser = localStorage.getItem('lunamix_username') || localStorage.getItem('lunamix_chat_username') || 'Student';
+      if (userInp) userInp.value = savedUser;
+      if (loginTitle) loginTitle.textContent = 'Welcome ' + savedUser;
+      if (startUser) startUser.textContent = savedUser;
+
+      if (userInp) {
+        userInp.addEventListener('input', () => {
+          const val = userInp.value.trim() || 'Student';
+          if (loginTitle) loginTitle.textContent = 'Welcome ' + val;
+        });
+        userInp.addEventListener('keydown', (e) => {
+          if (e.key === 'Enter') {
+            e.preventDefault();
+            commitLogin();
+          }
+        });
+      }
+
+      function commitLogin(overrideName) {
+        const username = overrideName || (userInp ? userInp.value.trim() : '') || 'Student';
+        localStorage.setItem('lunamix_username', username);
+        localStorage.setItem('lunamix_chat_username', username);
+        if (startUser) startUser.textContent = username;
+        if (loginTitle) loginTitle.textContent = 'Welcome ' + username;
+        if (loginEl) {
+          loginEl.style.opacity = '0';
+          setTimeout(() => loginEl.style.display = 'none', 300);
+        }
+      }
+
+      window.commitStartupLogin = commitLogin;
+
+      if (loginBtn) {
+        loginBtn.addEventListener('click', () => commitLogin());
+      }
+
+      if (guestBtn) {
+        guestBtn.addEventListener('click', () => commitLogin('Guest'));
+      }
+
       const update = () => {
         const now = new Date();
         if (clockEl) {
@@ -424,16 +472,6 @@
       };
       update();
       setInterval(update, 1000);
-
-      // Guest Login Button
-      const guestBtn = document.getElementById('guestLoginBtn');
-      const loginEl = document.getElementById('login');
-      if (guestBtn && loginEl) {
-        guestBtn.addEventListener('click', () => {
-          loginEl.style.opacity = '0';
-          setTimeout(() => loginEl.style.display = 'none', 300);
-        });
-      }
     })();
 
     // Real-Time Hardware & System Diagnostics for Average Users

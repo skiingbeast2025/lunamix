@@ -698,6 +698,11 @@
       const menu = document.getElementById('startMenu');
       const searchInput = document.getElementById('startSearchInput');
       const appItems = document.querySelectorAll('.start-menu .app-item');
+      const startUsernameEl = document.getElementById('startUsername');
+      if (startUsernameEl) {
+        const u = localStorage.getItem('lunamix_username') || localStorage.getItem('lunamix_chat_username') || 'Student';
+        startUsernameEl.textContent = u;
+      }
 
       if (searchInput) {
         searchInput.addEventListener('input', (e) => {
@@ -1131,6 +1136,9 @@
       }
     }
     localStorage.setItem('lunamix_chat_username', myUsername);
+    localStorage.setItem('lunamix_username', myUsername);
+    const startUserEl = document.getElementById('startUsername');
+    if (startUserEl) startUserEl.textContent = myUsername;
 
     // Initial State
     let conversations = [];
@@ -3070,11 +3078,21 @@
       if (loginBtn) {
         loginBtn.addEventListener('click', () => {
           SoundFX.click();
-          if (login) {
-            login.style.opacity = '0';
-            setTimeout(() => {
-              login.style.display = 'none';
-            }, 300);
+          if (window.commitStartupLogin) {
+            window.commitStartupLogin();
+          } else {
+            const userInp = document.getElementById('loginUserInput');
+            const username = (userInp ? userInp.value.trim() : '') || 'Student';
+            localStorage.setItem('lunamix_username', username);
+            localStorage.setItem('lunamix_chat_username', username);
+            const startUser = document.getElementById('startUsername');
+            if (startUser) startUser.textContent = username;
+            if (login) {
+              login.style.opacity = '0';
+              setTimeout(() => {
+                login.style.display = 'none';
+              }, 300);
+            }
           }
         });
       }
