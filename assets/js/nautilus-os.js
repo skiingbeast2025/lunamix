@@ -1186,15 +1186,6 @@
           <div id="chatDmsList" class="chat-channels-list" style="flex: 1;">
             <div style="padding: 0.5rem 0.75rem; font-size: 0.76rem; color: var(--text-secondary);">Loading messages...</div>
           </div>
-
-          <!-- Connection Footer -->
-          <div style="margin-top: auto; padding: 0.75rem; border-top: 1px solid rgba(255,255,255,0.06); font-size: 0.72rem; display: flex; align-items: center; justify-content: space-between;">
-            <div style="display: flex; align-items: center; gap: 0.4rem;">
-              <div class="status-dot"></div>
-              <span style="color: var(--text-secondary);">Cloud Synced</span>
-            </div>
-            <span id="chatUsersCountBadge" style="color: var(--accent); font-weight: 600;">Live</span>
-          </div>
         </div>
 
         <!-- 2. Main Chat Area -->
@@ -1259,7 +1250,7 @@
         const { data } = await sb.from('profiles').select('id, username, created_at').order('username');
         if (data) {
           registeredProfiles = data;
-          usersCountBadge.textContent = `${data.length} Registered`;
+          if (usersCountBadge) usersCountBadge.textContent = `${data.length} Registered`;
         }
       } catch (e) {
         console.error('Error loading profiles:', e);
