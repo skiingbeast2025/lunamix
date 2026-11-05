@@ -390,8 +390,8 @@
       'web-dashers': {
         name: 'Web-Dashers',
         category: 'Geometry Dash',
-        url: 'https://skiingbeast2025.github.io/webdickers/',
-        altUrls: ['https://web-dashers.github.io/'],
+        url: 'https://web-dashers.github.io/',
+        altUrls: ['https://skiingbeast2025.github.io/webdickers/'],
         openInNewTab: true,
         isLocal: true
       },
@@ -562,6 +562,20 @@
         aspectRatio: '16:9',
         isLocal: false
       },
+      'smash-karts': {
+        name: 'Smash Karts',
+        category: 'Action',
+        url: 'https://iloveshorty.github.io/html/smash%20karts/game/index.html',
+        openInNewTab: false,
+        isLocal: false
+      },
+      '1v1lol': {
+        name: '1v1.LOL',
+        category: 'Action',
+        url: 'https://iloveshorty.github.io/html/1v1/game/index.html',
+        openInNewTab: false,
+        isLocal: false
+      },
       'emulator': {
         name: 'Universal Retro Emulator',
         category: 'Emulator',
@@ -590,6 +604,9 @@
     LOCAL_GAMES_DICT['retrobowl'] = LOCAL_GAMES_DICT['retro-bowl'];
     LOCAL_GAMES_DICT['subway'] = LOCAL_GAMES_DICT['subway-surfers'];
     LOCAL_GAMES_DICT['subwaysurfers'] = LOCAL_GAMES_DICT['subway-surfers'];
+    LOCAL_GAMES_DICT['smashkarts'] = LOCAL_GAMES_DICT['smash-karts'];
+    LOCAL_GAMES_DICT['1v1'] = LOCAL_GAMES_DICT['1v1lol'];
+    LOCAL_GAMES_DICT['1v1-lol'] = LOCAL_GAMES_DICT['1v1lol'];
     LOCAL_GAMES_DICT['eaglercraft'] = LOCAL_GAMES_DICT['eaglercraft-hbwmc'];
     LOCAL_GAMES_DICT['minecraft'] = LOCAL_GAMES_DICT['eaglercraft-hbwmc'];
     LOCAL_GAMES_DICT['eagler'] = LOCAL_GAMES_DICT['eaglercraft-hbwmc'];
@@ -607,8 +624,8 @@
     let currentGameEffectiveUrl = '';
     let currentAspectRatio = '16:9';
 
-    // GUST Proxy State for restricted environments (persisted)
-    let gustProxyEnabled = localStorage.getItem('lunamix_gust_proxy') !== 'false';
+    // GUST Proxy State for restricted environments (persisted, default false for native direct loading)
+    let gustProxyEnabled = localStorage.getItem('lunamix_gust_proxy') === 'true';
 
     function toggleGustProxy() {
       gustProxyEnabled = !gustProxyEnabled;
@@ -839,19 +856,12 @@
         if (idNum === 170) {
           window.location.replace(LOCAL_GAMES_DICT['geometry-dash'].url);
           return;
-        } else if (idNum === 1009) {
-          window.location.replace(LOCAL_GAMES_DICT['web-dashers'].url);
-          return;
         } else if (idNum === 49) {
           gameData = LOCAL_GAMES_DICT['retro-bowl'];
         } else if (idNum === 171) {
           gameData = LOCAL_GAMES_DICT['geometry-dash-subzero'];
         } else if (idNum === 172) {
           gameData = LOCAL_GAMES_DICT['geometry-dash-meltdown'];
-        } else if (idNum === 173) {
-          gameData = LOCAL_GAMES_DICT['geometry-dash-scratch'];
-        } else if (idNum === 174) {
-          gameData = LOCAL_GAMES_DICT['geodash'];
         }
         if (!gameData) {
           try {
@@ -898,19 +908,19 @@
       }
 
       // If still not found, check if a direct slug exists in games-data.json
-      if (!gameData && params.has('slug')) {
-        const directSlug = params.get('slug').toLowerCase();
+      const targetSlug = (params.get('game') || params.get('slug') || '').toLowerCase();
+      if (!gameData && targetSlug) {
         try {
           const res = await fetch('./games-data.json');
           if (res.ok) {
             const data = await res.json();
-            const found = data.find(g => g.slug === directSlug);
+            const found = data.find(g => (g.slug || '').toLowerCase() === targetSlug);
             if (found) {
               gameData = {
                 name: found.name,
                 category: found.category || 'Game',
                 url: found.playableUrl,
-                aspectRatio: found.aspectRatio || ((directSlug === 'geodash-classic' || directSlug === 'geometry-dash-scratch') ? '4:3' : '16:9'),
+                aspectRatio: found.aspectRatio || ((targetSlug === 'geodash-classic' || targetSlug === 'geometry-dash-scratch') ? '4:3' : '16:9'),
                 isLocal: false
               };
             }

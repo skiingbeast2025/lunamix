@@ -16,7 +16,7 @@
     "targetUrl": "https://skiingbeast2025.github.io/geometry-dash-wasm-proxy/"
   },
   {
-    "id": 173,
+    "id": "geometry-dash-scratch",
     "slug": "geometry-dash-scratch",
     "name": "Geometry Dash Scratch",
     "category": "geometry-dash",
@@ -32,7 +32,7 @@
     "targetUrl": "./play.html?game=geometry-dash-scratch"
   },
   {
-    "id": 174,
+    "id": "geodash",
     "slug": "geodash",
     "name": "GeoDash",
     "category": "geometry-dash",
@@ -64,7 +64,7 @@
     "targetUrl": "./play.html?game=retro-bowl"
   },
   {
-    "id": 1009,
+    "id": "web-dashers",
     "slug": "web-dashers",
     "name": "Web-Dashers",
     "category": "geometry-dash",
@@ -72,12 +72,12 @@
     "author": "Web-Dashers Community",
     "icon": "./games/w/web-dashers/icon.png",
     "remoteIcon": "",
-    "entrypoint": "https://skiingbeast2025.github.io/webdickers/",
+    "entrypoint": "https://web-dashers.github.io/",
     "isLocal": true,
     "isFeatured": true,
     "openInNewTab": true,
     "aspectRatio": "16:9",
-    "targetUrl": "https://skiingbeast2025.github.io/webdickers/"
+    "targetUrl": "https://web-dashers.github.io/"
   },
   {
     "id": 171,
