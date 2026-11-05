@@ -1,1557 +1,427 @@
 <!DOCTYPE html>
-<html lang="en" class="dark">
+<html lang="en" data-theme="nautilus">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Lunamix | Unblocked Games</title>
-  <meta name="description" content="Free unblocked web games to play directly in your browser. Fast loading, no installs, stealth tab cloaking, and panic key.">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Lunamix OS | Nautilus Desktop Environment</title>
+  <meta name="description" content="Lunamix OS - A web-based desktop operating system inspired by NautilusOS. Includes 1,072+ unblocked games, multi-channel chat, Penumbra proxy browser, web app creator, and retro emulators.">
   <meta name="google-site-verification" content="9gcLHnT_jGP9RU4-Xe0kHbZEUVnZnGssskO0wYWx9oI" />
   <link rel="canonical" href="https://skiingbeast2025.github.io/lunamix/">
-  <meta name="keywords" content="Lunamix, unblocked games, Geometry Dash, Retro Bowl, Web-Dashers, Slope, OvO, Eaglercraft, HTML5 games, browser games">
+  <meta name="keywords" content="Lunamix, NautilusOS, unblocked games, web desktop, Penumbra Browser, Eaglercraft, Retro Emulator, HTML5 games, browser games">
   
   <!-- Open Graph / SEO -->
-  <meta property="og:title" content="Lunamix | Unblocked Games">
-  <meta property="og:description" content="Free unblocked web games. Fast loading, clean player, and stealth tab cloaking.">
+  <meta property="og:title" content="Lunamix OS | Nautilus Desktop Environment">
+  <meta property="og:description" content="Authentic web-based desktop OS with window manager, taskbar dock, multi-tier chat, Penumbra browser, and 1,072+ unblocked games.">
   <meta property="og:url" content="https://skiingbeast2025.github.io/lunamix/">
   <meta property="og:type" content="website">
-  
-  <!-- Schema.org JSON-LD -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "WebApplication",
-    "name": "Lunamix",
-    "url": "https://skiingbeast2025.github.io/lunamix/",
-    "description": "Free unblocked web games including Geometry Dash, Retro Bowl, Web-Dashers, Slope, and Eaglercraft.",
-    "applicationCategory": "GameApplication",
-    "operatingSystem": "All"
-  }
-  </script>
 
   <!-- Favicon -->
   <link rel="shortcut icon" href="./assets/logos/favicon.svg" type="image/svg+xml">
 
-  <!-- Tailwind CSS CDN -->
-  <script src="https://cdn.tailwindcss.com/3.4.17"></script>
-
-  <!-- Google Fonts: Space Grotesk, Inter & JetBrains Mono -->
+  <!-- Google Fonts: Inter & JetBrains Mono -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
 
-  <script>
-    tailwind.config = {
-      darkMode: 'class',
-      theme: {
-        extend: {
-          fontFamily: {
-            sans: ['"Space Grotesk"', 'Inter', 'sans-serif'],
-            display: ['"Space Grotesk"', 'sans-serif'],
-            mono: ['JetBrains Mono', 'monospace'],
-          }
-        }
-      }
-    }
-  </script>
+  <!-- Font Awesome 6 Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
-  <style>
-    /* Custom scrollbar */
-    ::-webkit-scrollbar {
-      width: 8px;
-    }
-    ::-webkit-scrollbar-track {
-      background: rgba(15, 23, 42, 0.6);
-    }
-    ::-webkit-scrollbar-thumb {
-      background: rgba(148, 163, 184, 0.25);
-      border-radius: 4px;
-    }
-    ::-webkit-scrollbar-thumb:hover {
-      background: rgba(148, 163, 184, 0.4);
-    }
-
-    :root {
-      --lx-bg: #050714;
-      --lx-surface: #0a0f26;
-      --lx-border: rgba(99, 102, 241, 0.35);
-      --lx-accent: #6366f1;
-      --lx-glow: rgba(99, 102, 241, 0.45);
-    }
-
-    body {
-      background-color: var(--lx-bg) !important;
-      transition: background-color 0.3s ease;
-    }
-
-    header {
-      background-color: var(--lx-surface) !important;
-      border-color: var(--lx-border) !important;
-      transition: background-color 0.3s ease, border-color 0.3s ease;
-    }
-
-    .game-card {
-      transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.2s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.2s ease;
-    }
-    .game-card:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 12px 24px -6px rgba(0, 0, 0, 0.7);
-      border-color: var(--lx-accent) !important;
-    }
-    .featured-card {
-      transition: transform 0.2s ease, border-color 0.2s ease;
-    }
-    .featured-card:hover {
-      transform: translateY(-3px);
-    }
-
-    /* Standard Navbar modeled after hbwmcofficial.xyz */
-    .desktop_navbar {
-      position: sticky;
-      top: 0;
-      display: flex;
-      height: 4.25rem;
-      width: 100%;
-      background-color: rgba(5, 7, 20, 0.8);
-      backdrop-filter: blur(15px);
-      -webkit-backdrop-filter: blur(15px);
-      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-      z-index: 40;
-      align-items: center;
-      justify-content: space-between;
-      padding: 0 1.5rem;
-      font-family: 'Space Grotesk', sans-serif;
-      transition: background-color 0.3s ease, border-color 0.3s ease;
-    }
-
-    .desktop_navbar_logo_a {
-      display: flex;
-      align-items: center;
-      gap: 0.75rem;
-      text-decoration: none;
-      color: #fff;
-    }
-
-    .desktop_navbar_logo_img {
-      width: 2.25rem;
-      height: 2.25rem;
-    }
-
-    .desktop_navbar_brand {
-      font-size: 1.25rem;
-      font-weight: 700;
-      letter-spacing: 0.06em;
-      color: #ffffff;
-      font-family: 'Space Grotesk', sans-serif;
-    }
-
-    .desktop_navbar_links {
-      display: flex;
-      align-items: center;
-      gap: 1.75rem;
-    }
-
-    .desktop_navbar_link {
-      font-size: 1rem;
-      font-weight: 500;
-      padding: 0.5rem 0.25rem;
-      transition: color 0.3s ease, transform 0.2s ease;
-      text-decoration: none;
-      color: rgba(255, 255, 255, 0.82);
-      cursor: pointer;
-      background: none;
-      border: none;
-      font-family: 'Space Grotesk', sans-serif;
-    }
-
-    .desktop_navbar_link:hover {
-      color: var(--lx-accent, #6366f1);
-    }
-
-    .desktop_navbar_right {
-      display: flex;
-      align-items: center;
-      gap: 0.75rem;
-    }
-
-    .desktop_navbar_link2_div {
-      font-size: 0.95rem;
-      font-weight: 700;
-      padding: 0.45rem 1.15rem;
-      transition: all 0.3s ease;
-      border: 1px solid var(--lx-accent, #6366f1);
-      border-radius: 0.75rem;
-      text-align: center;
-      cursor: pointer;
-      color: #ffffff;
-      background-color: rgba(99, 102, 241, 0.12);
-      text-decoration: none;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      font-family: 'Space Grotesk', sans-serif;
-    }
-
-    .desktop_navbar_link2_div:hover {
-      border: 1px solid var(--lx-accent, #6366f1);
-      background-color: var(--lx-accent, #6366f1);
-      color: #ffffff;
-      transform: scale(1.04);
-      box-shadow: 0 4px 14px var(--lx-glow, rgba(99, 102, 241, 0.35));
-    }
-
-    .nav-util-btn {
-      font-size: 0.85rem;
-      font-weight: 500;
-      padding: 0.4rem 0.75rem;
-      border-radius: 0.5rem;
-      color: rgba(255, 255, 255, 0.8);
-      background-color: rgba(255, 255, 255, 0.05);
-      border: 1px solid rgba(255, 255, 255, 0.1);
-      transition: all 0.2s ease;
-      cursor: pointer;
-      display: inline-flex;
-      align-items: center;
-      gap: 0.4rem;
-      font-family: 'Space Grotesk', sans-serif;
-    }
-    .nav-util-btn:hover {
-      color: #ffffff;
-      background-color: rgba(255, 255, 255, 0.1);
-      border-color: rgba(255, 255, 255, 0.22);
-    }
-
-    .nav-cloak-select {
-      appearance: none;
-      background-color: rgba(255, 255, 255, 0.05);
-      border: 1px solid rgba(255, 255, 255, 0.1);
-      color: rgba(255, 255, 255, 0.8);
-      font-size: 0.85rem;
-      font-weight: 500;
-      font-family: 'Space Grotesk', sans-serif;
-      padding: 0.4rem 1.75rem 0.4rem 0.75rem;
-      border-radius: 0.5rem;
-      cursor: pointer;
-      transition: all 0.2s ease;
-    }
-    .nav-cloak-select:hover, .nav-cloak-select:focus {
-      color: #ffffff;
-      background-color: rgba(255, 255, 255, 0.1);
-      border-color: rgba(255, 255, 255, 0.22);
-      outline: none;
-    }
-
-    .nav-panic-btn {
-      font-size: 0.85rem;
-      font-weight: 600;
-      padding: 0.4rem 0.75rem;
-      border-radius: 0.5rem;
-      color: #fca5a5;
-      background-color: rgba(239, 68, 68, 0.12);
-      border: 1px solid rgba(239, 68, 68, 0.35);
-      transition: all 0.2s ease;
-      cursor: pointer;
-      display: inline-flex;
-      align-items: center;
-      gap: 0.4rem;
-      font-family: 'Space Grotesk', sans-serif;
-    }
-    .nav-panic-btn:hover {
-      background-color: rgba(239, 68, 68, 0.25);
-      border-color: rgba(239, 68, 68, 0.6);
-      color: #fee2e2;
-    }
-
-    /* Mobile Navbar */
-    .mobile_navbar {
-      display: none;
-      position: sticky;
-      top: 0;
-      width: 100%;
-      background-color: rgba(5, 7, 20, 0.85);
-      backdrop-filter: blur(15px);
-      -webkit-backdrop-filter: blur(15px);
-      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-      z-index: 40;
-      font-family: 'Space Grotesk', sans-serif;
-    }
-
-    .mobile_navbar_header {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      height: 3.75rem;
-      padding: 0 1.25rem;
-    }
-
-    .mobile_navbar_icon_btn {
-      background: rgba(255, 255, 255, 0.06);
-      border: 1px solid rgba(255, 255, 255, 0.1);
-      border-radius: 0.5rem;
-      padding: 0.5rem;
-      cursor: pointer;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      transition: background 0.2s ease;
-    }
-    .mobile_navbar_icon_btn:hover {
-      background: rgba(255, 255, 255, 0.12);
-    }
-
-    #mobile_navbar_links {
-      display: none;
-      flex-direction: column;
-      gap: 0.5rem;
-      padding: 1rem 1.25rem 1.5rem;
-      border-top: 1px solid rgba(255, 255, 255, 0.08);
-      background-color: rgba(5, 7, 20, 0.96);
-    }
-
-    .mobile_navbar_link {
-      font-size: 1.05rem;
-      font-weight: 500;
-      color: rgba(255, 255, 255, 0.85);
-      text-decoration: none;
-      padding: 0.55rem 0.25rem;
-      transition: color 0.2s ease;
-      cursor: pointer;
-      background: none;
-      border: none;
-      font-family: 'Space Grotesk', sans-serif;
-    }
-    .mobile_navbar_link:hover {
-      color: var(--lx-accent, #6366f1);
-    }
-
-    .mobile_navbar_actions {
-      display: flex;
-      flex-wrap: wrap;
-      align-items: center;
-      gap: 0.5rem;
-      padding-top: 0.75rem;
-      border-top: 1px solid rgba(255, 255, 255, 0.08);
-    }
-
-    @media (max-width: 960px) {
-      .desktop_navbar {
-        display: none !important;
-      }
-      .mobile_navbar {
-        display: block !important;
-      }
-    }
-  </style>
+  <!-- NautilusOS Design System Stylesheet -->
+  <link rel="stylesheet" href="./assets/css/nautilus.css">
 </head>
-<body class="bg-black text-neutral-100 min-h-screen relative font-sans selection:bg-white selection:text-black antialiased overflow-x-hidden flex flex-col justify-between">
+<body>
 
-  <!-- Background Animated Canvas (Controlled by Toggle) -->
-  <canvas id="background" class="fixed inset-0 w-full h-full pointer-events-none z-0" aria-hidden="true"></canvas>
+  <!-- ======================================================================
+       1. Bootloader Screen (GRUB / NautilusOS Boot Sequence)
+       ====================================================================== -->
+  <div id="bootloader">
+    <div class="boot-logo">
+      <i class="fa-solid fa-cube"></i>
+    </div>
+    <div class="boot-title">LUNAMIX OS</div>
+    <div class="boot-version">Nautilus Desktop Environment v3.0.0</div>
 
-  <!-- Desktop Navigation Bar (Standard Header modeled after hbwmcofficial.xyz) -->
-  <header class="desktop_navbar">
-    <!-- Brand Logo -->
-    <a href="./index.html" class="desktop_navbar_logo_a">
-      <img src="./assets/logos/favicon.svg" alt="Lunamix Logo" class="desktop_navbar_logo_img">
-      <span class="desktop_navbar_brand">LUNAMIX</span>
-    </a>
-
-    <!-- Center Navigation Links -->
-    <nav class="desktop_navbar_links">
-      <a href="./games.html" class="desktop_navbar_link">Games</a>
-      <a href="./eaglercraft.html" class="desktop_navbar_link">Minecraft</a>
-      <a href="./gust.html" class="desktop_navbar_link">Proxy</a>
-      <button type="button" onclick="LunamixTheme.openModal()" class="desktop_navbar_link">Themes</button>
-      <button type="button" onclick="openSettingsModal()" class="desktop_navbar_link">Settings</button>
-    </nav>
-
-    <!-- Right Utility & CTA Actions -->
-    <div class="desktop_navbar_right">
-      <!-- Background FX Toggle -->
-      <button 
-        type="button" 
-        onclick="LunamixBackground.toggle()"
-        class="bg-fx-toggle-btn nav-util-btn"
-        title="Toggle Background FX"
-      >
-        <svg class="w-3.5 h-3.5 text-indigo-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z" />
-        </svg>
-        <span class="bg-fx-label">FX On</span>
-      </button>
-
-      <!-- Stealth Tab Cloak -->
-      <div class="relative flex items-center">
-        <select 
-          id="nav-tab-cloak" 
-          class="tab-cloak-select nav-cloak-select"
-          onchange="LunamixCloak.apply(this.value)"
-          title="Stealth Tab Cloak"
-        >
-          <option value="default">Cloak: Off</option>
-          <option value="classroom">Google Classroom</option>
-          <option value="drive">Google Drive</option>
-          <option value="canvas">Canvas LMS</option>
-          <option value="docs">Google Docs</option>
-        </select>
-        <div class="pointer-events-none absolute right-2 flex items-center text-slate-400">
-          <svg class="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
-          </svg>
+    <div class="boot-options">
+      <div class="boot-option selected" id="bootOptDefault">
+        <i class="fa-solid fa-play"></i>
+        <div>
+          <div style="font-weight: 700;">Lunamix OS (Standard Desktop Mode)</div>
+          <div style="font-size: 0.75rem; opacity: 0.8;">Full window manager, games hub, and chat engine</div>
         </div>
       </div>
-
-      <!-- Panic Button -->
-      <button 
-        type="button" 
-        onclick="LunamixPanic.trigger()"
-        class="nav-panic-btn"
-        title="Panic Exit (Hotkey: ~ or Esc)"
-      >
-        <svg class="w-3.5 h-3.5 text-rose-400 animate-pulse" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
-        </svg>
-        <span>Panic</span>
-        <kbd class="px-1 text-[10px] font-mono bg-rose-950/80 rounded border border-rose-800 panic-key-label">~</kbd>
-      </button>
-
-      <!-- Primary Action Button (Modeled after hbwmcofficial.xyz desktop_navbar_link2_div) -->
-      <a href="./games.html" class="desktop_navbar_link2_div">
-        <span>Play Now!</span>
-      </a>
-    </div>
-  </header>
-
-  <!-- Mobile Navigation Bar (Modeled after hbwmcofficial.xyz mobile_navbar) -->
-  <div class="mobile_navbar">
-    <div class="mobile_navbar_header">
-      <a href="./index.html" class="desktop_navbar_logo_a">
-        <img src="./assets/logos/favicon.svg" alt="Lunamix Logo" class="desktop_navbar_logo_img">
-        <span class="desktop_navbar_brand">LUNAMIX</span>
-      </a>
-      <button 
-        type="button" 
-        class="mobile_navbar_icon_btn" 
-        onclick="mobile_navbar_link_hider()" 
-        aria-label="Toggle navigation menu"
-      >
-        <svg class="w-6 h-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
-        </svg>
-      </button>
-    </div>
-
-    <!-- Mobile Dropdown Links -->
-    <div id="mobile_navbar_links">
-      <a class="mobile_navbar_link" onclick="mobile_navbar_link_hider()" href="./games.html">Games</a>
-      <a class="mobile_navbar_link" href="./eaglercraft.html">Minecraft (Eaglercraft)</a>
-      <a class="mobile_navbar_link" onclick="mobile_navbar_link_hider()" href="./gust.html">Proxy (GUST)</a>
-      <button type="button" class="mobile_navbar_link text-left w-full" onclick="LunamixTheme.openModal(); mobile_navbar_link_hider();">Themes</button>
-      <button type="button" class="mobile_navbar_link text-left w-full" onclick="openSettingsModal(); mobile_navbar_link_hider();">Settings</button>
-
-      <div class="mobile_navbar_actions">
-        <!-- FX Toggle -->
-        <button 
-          type="button" 
-          onclick="LunamixBackground.toggle()"
-          class="bg-fx-toggle-btn nav-util-btn"
-          title="Toggle Background FX"
-        >
-          <svg class="w-3.5 h-3.5 text-indigo-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z" />
-          </svg>
-          <span class="bg-fx-label">FX On</span>
-        </button>
-
-        <!-- Cloak Select -->
-        <div class="relative flex items-center">
-          <select 
-            id="mobile-nav-tab-cloak" 
-            class="tab-cloak-select nav-cloak-select"
-            onchange="LunamixCloak.apply(this.value)"
-            title="Stealth Tab Cloak"
-          >
-            <option value="default">Cloak: Off</option>
-            <option value="classroom">Google Classroom</option>
-            <option value="drive">Google Drive</option>
-            <option value="canvas">Canvas LMS</option>
-            <option value="docs">Google Docs</option>
-          </select>
-          <div class="pointer-events-none absolute right-2 flex items-center text-slate-400">
-            <svg class="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
-            </svg>
-          </div>
+      <div class="boot-option" id="bootOptSafe">
+        <i class="fa-solid fa-shield-halved"></i>
+        <div>
+          <div style="font-weight: 700;">Safe Stealth Mode (High Anonymity)</div>
+          <div style="font-size: 0.75rem; opacity: 0.8;">Instant tab cloaking and silent audio enabled</div>
         </div>
-
-        <!-- Panic Button -->
-        <button 
-          type="button" 
-          onclick="LunamixPanic.trigger()"
-          class="nav-panic-btn"
-          title="Panic Exit"
-        >
-          <svg class="w-3.5 h-3.5 text-rose-400 animate-pulse" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
-          </svg>
-          <span>Panic</span>
-        </button>
       </div>
+    </div>
 
-      <div class="pt-2">
-        <a href="./games.html" class="desktop_navbar_link2_div w-full justify-center text-center">
-          Play Now!
-        </a>
+    <div class="boot-loading active" style="margin-top: 2rem;">
+      <div class="loading-bar-container">
+        <div class="loading-bar" id="bootBar"></div>
       </div>
+      <div class="boot-messages" id="bootMsg">Initializing Nautilus kernel modules and desktop window manager...</div>
+    </div>
+
+    <div class="boot-hint">
+      <button id="bootSkipBtn" class="guest-btn" style="border: none; background: transparent;">
+        Press [ENTER] or Click Here to Fast Boot
+      </button>
     </div>
   </div>
 
-  <!-- Main Content Container -->
-  <main class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 sm:py-8 flex-1 w-full">
-
-    <!-- Search Controls & Category Filter Bar -->
-    <div class="sticky top-20 z-20 mb-8 p-3.5 sm:p-4 rounded-2xl bg-slate-900/90 border border-slate-800 shadow-2xl backdrop-blur-xl">
-      
-      <!-- Top Row: Search Input & Status Counter -->
-      <div class="flex flex-col sm:flex-row gap-3 items-stretch sm:items-center justify-between mb-3.5">
-        
-        <!-- Live Search Input -->
-        <div class="relative flex-1">
-          <div class="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-slate-400">
-            <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
-            </svg>
-          </div>
-          <input 
-            id="search-input" 
-            type="text" 
-            placeholder="Search 1,000+ games (Press '/' to focus)..." 
-            class="w-full pl-10 pr-20 py-2.5 bg-slate-950/80 border border-slate-800 rounded-xl text-sm text-slate-100 placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-white/40 focus:border-transparent transition-all"
-            autocomplete="off"
-          >
-          <div class="absolute inset-y-0 right-0 pr-2.5 flex items-center gap-1.5">
-            <button 
-              id="search-clear-btn" 
-              type="button" 
-              onclick="clearSearch()"
-              class="hidden text-slate-500 hover:text-slate-300 p-1 cursor-pointer"
-              title="Clear search"
-            >
-              <svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
-              </svg>
-            </button>
-            <kbd class="hidden sm:inline-block px-1.5 py-0.5 text-[10px] font-mono text-slate-400 bg-slate-800/80 rounded border border-slate-700">/</kbd>
-          </div>
-        </div>
-
-        <!-- Live Status Counter -->
-        <div id="status-counter" class="text-xs text-slate-300 font-mono px-3 py-1.5 bg-slate-950/60 border border-slate-800/80 rounded-xl text-center sm:text-right shrink-0">
-          Loading catalog...
-        </div>
-
-      </div>
-
-      <!-- Bottom Row: Category Filter Pills -->
-      <div class="flex items-center gap-1.5 overflow-x-auto pb-1 sm:pb-0 scrollbar-none" id="category-pills">
-        <button 
-          type="button" 
-          data-category="all" 
-          onclick="setCategory('all')" 
-          class="cat-pill px-3 py-1.5 rounded-xl text-xs font-semibold transition-all whitespace-nowrap bg-white text-black shadow-sm cursor-pointer"
-        >
-          All
-        </button>
-        <button 
-          type="button" 
-          data-category="featured" 
-          onclick="setCategory('featured')" 
-          class="cat-pill px-3 py-1.5 rounded-xl text-xs font-semibold transition-all whitespace-nowrap bg-slate-950/70 text-slate-300 hover:text-white hover:bg-slate-850 border border-slate-800 cursor-pointer"
-        >
-          Featured
-        </button>
-        <button 
-          type="button" 
-          data-category="geometry-dash" 
-          onclick="setCategory('geometry-dash')" 
-          class="cat-pill px-3 py-1.5 rounded-xl text-xs font-semibold transition-all whitespace-nowrap bg-slate-950/70 text-amber-300 hover:text-amber-200 hover:bg-slate-850 border border-slate-800 cursor-pointer"
-        >
-          Geometry Dash
-        </button>
-        <button 
-          type="button" 
-          data-category="minecraft" 
-          onclick="setCategory('minecraft')" 
-          class="cat-pill px-3 py-1.5 rounded-xl text-xs font-semibold transition-all whitespace-nowrap bg-slate-950/70 text-emerald-400 hover:text-emerald-300 hover:bg-slate-850 border border-slate-800 cursor-pointer"
-        >
-          Minecraft
-        </button>
-        <button 
-          type="button" 
-          data-category="emulator" 
-          onclick="setCategory('emulator')" 
-          class="cat-pill px-3 py-1.5 rounded-xl text-xs font-semibold transition-all whitespace-nowrap bg-slate-950/70 text-purple-400 hover:text-purple-300 hover:bg-slate-850 border border-slate-800 cursor-pointer"
-        >
-          Emulators
-        </button>
-        <button 
-          type="button" 
-          data-category="action" 
-          onclick="setCategory('action')" 
-          class="cat-pill px-3 py-1.5 rounded-xl text-xs font-semibold transition-all whitespace-nowrap bg-slate-950/70 text-slate-300 hover:text-white hover:bg-slate-850 border border-slate-800 cursor-pointer"
-        >
-          Action
-        </button>
-        <button 
-          type="button" 
-          data-category="platformer" 
-          onclick="setCategory('platformer')" 
-          class="cat-pill px-3 py-1.5 rounded-xl text-xs font-semibold transition-all whitespace-nowrap bg-slate-950/70 text-slate-300 hover:text-white hover:bg-slate-850 border border-slate-800 cursor-pointer"
-        >
-          Platformer
-        </button>
-        <button 
-          type="button" 
-          data-category="driving" 
-          onclick="setCategory('driving')" 
-          class="cat-pill px-3 py-1.5 rounded-xl text-xs font-semibold transition-all whitespace-nowrap bg-slate-950/70 text-slate-300 hover:text-white hover:bg-slate-850 border border-slate-800 cursor-pointer"
-        >
-          Driving
-        </button>
-        <button 
-          type="button" 
-          data-category="sports" 
-          onclick="setCategory('sports')" 
-          class="cat-pill px-3 py-1.5 rounded-xl text-xs font-semibold transition-all whitespace-nowrap bg-slate-950/70 text-slate-300 hover:text-white hover:bg-slate-850 border border-slate-800 cursor-pointer"
-        >
-          Sports
-        </button>
-        <button 
-          type="button" 
-          data-category="puzzle" 
-          onclick="setCategory('puzzle')" 
-          class="cat-pill px-3 py-1.5 rounded-xl text-xs font-semibold transition-all whitespace-nowrap bg-slate-950/70 text-slate-300 hover:text-white hover:bg-slate-850 border border-slate-800 cursor-pointer"
-        >
-          Puzzle
-        </button>
-        <button 
-          type="button" 
-          data-category="retro" 
-          onclick="setCategory('retro')" 
-          class="cat-pill px-3 py-1.5 rounded-xl text-xs font-semibold transition-all whitespace-nowrap bg-slate-950/70 text-slate-300 hover:text-white hover:bg-slate-850 border border-slate-800 cursor-pointer"
-        >
-          Retro
-        </button>
-        <button 
-          type="button" 
-          data-category="other" 
-          onclick="setCategory('other')" 
-          class="cat-pill px-3 py-1.5 rounded-xl text-xs font-semibold transition-all whitespace-nowrap bg-slate-950/70 text-slate-300 hover:text-white hover:bg-slate-850 border border-slate-800 cursor-pointer"
-        >
-          Other
-        </button>
-      </div>
-
-    </div>
-
-    <!-- Quick Play / Featured Picks Row -->
-    <div id="quick-picks-section" class="mb-8">
-      <div class="flex items-center justify-between mb-3 px-1">
-        <h2 class="text-sm font-bold tracking-wide uppercase font-mono text-slate-400">Popular Games</h2>
-        <span class="text-xs text-slate-500 font-mono">Instant Play</span>
-      </div>
-      <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 xl:grid-cols-12 gap-2.5">
-        
-        <a href="./play.html?game=geometry-dash" class="featured-card group p-2 rounded-xl bg-slate-900/70 border border-slate-800 hover:border-amber-400/80 flex flex-col items-center text-center">
-          <div class="aspect-square w-full rounded-lg overflow-hidden bg-slate-950 mb-1.5">
-            <img src="./assets/logos/geometry-dash.png" alt="Geometry Dash" class="w-full h-full object-cover group-hover:scale-105 transition-transform">
-          </div>
-          <span class="text-xs font-bold text-slate-200 group-hover:text-amber-300 truncate w-full">Geometry Dash</span>
-          <span class="text-[9px] font-mono text-amber-400">WASM 2.2</span>
-        </a>
-
-        <a href="./eaglercraft.html" class="featured-card group p-2 rounded-xl bg-slate-900/70 border border-slate-800 hover:border-emerald-400/80 flex flex-col items-center text-center">
-          <div class="aspect-square w-full rounded-lg overflow-hidden bg-slate-950 mb-1.5">
-            <img src="./assets/logos/eaglercraft.png" alt="Eaglercraft Launcher" class="w-full h-full object-cover group-hover:scale-105 transition-transform">
-          </div>
-          <span class="text-xs font-bold text-slate-200 group-hover:text-emerald-300 truncate w-full">Eaglercraft</span>
-          <span class="text-[9px] font-mono text-emerald-400">HBWMC & 68 Clients</span>
-        </a>
-
-        <a href="./play.html?game=slope" class="featured-card group p-2 rounded-xl bg-slate-900/70 border border-slate-800 hover:border-indigo-400/80 flex flex-col items-center text-center">
-          <div class="aspect-square w-full rounded-lg overflow-hidden bg-slate-950 mb-1.5">
-            <img src="./assets/logos/slope.png" alt="Slope" class="w-full h-full object-cover group-hover:scale-105 transition-transform">
-          </div>
-          <span class="text-xs font-bold text-slate-200 group-hover:text-indigo-300 truncate w-full">Slope</span>
-          <span class="text-[9px] font-mono text-slate-400">Speed 3D</span>
-        </a>
-
-        <a href="./play.html?game=ovo" class="featured-card group p-2 rounded-xl bg-slate-900/70 border border-slate-800 hover:border-indigo-400/80 flex flex-col items-center text-center">
-          <div class="aspect-square w-full rounded-lg overflow-hidden bg-slate-950 mb-1.5">
-            <img src="./assets/logos/ovo.png" alt="OvO" class="w-full h-full object-cover group-hover:scale-105 transition-transform">
-          </div>
-          <span class="text-xs font-bold text-slate-200 group-hover:text-indigo-300 truncate w-full">OvO</span>
-          <span class="text-[9px] font-mono text-slate-400">Parkour</span>
-        </a>
-
-        <a href="./play.html?game=subway-surfers" class="featured-card group p-2 rounded-xl bg-slate-900/70 border border-slate-800 hover:border-indigo-400/80 flex flex-col items-center text-center">
-          <div class="aspect-square w-full rounded-lg overflow-hidden bg-slate-950 mb-1.5">
-            <img src="./assets/logos/subway-surfers.png" alt="Subway Surfers" class="w-full h-full object-cover group-hover:scale-105 transition-transform">
-          </div>
-          <span class="text-xs font-bold text-slate-200 group-hover:text-indigo-300 truncate w-full">Subway Surfers</span>
-          <span class="text-[9px] font-mono text-slate-400">Runner</span>
-        </a>
-
-        <a href="./play.html?game=polytrack" class="featured-card group p-2 rounded-xl bg-slate-900/70 border border-slate-800 hover:border-indigo-400/80 flex flex-col items-center text-center">
-          <div class="aspect-square w-full rounded-lg overflow-hidden bg-slate-950 mb-1.5">
-            <img src="./assets/logos/polytrack.png" alt="PolyTrack" class="w-full h-full object-cover group-hover:scale-105 transition-transform">
-          </div>
-          <span class="text-xs font-bold text-slate-200 group-hover:text-indigo-300 truncate w-full">PolyTrack</span>
-          <span class="text-[9px] font-mono text-slate-400">Racing</span>
-        </a>
-
-        <a href="./play.html?game=retro-bowl" class="featured-card group p-2 rounded-xl bg-slate-900/70 border border-slate-800 hover:border-indigo-400/80 flex flex-col items-center text-center">
-          <div class="aspect-square w-full rounded-lg overflow-hidden bg-slate-950 mb-1.5">
-            <img src="./assets/logos/retro-bowl.webp" alt="Retro Bowl" class="w-full h-full object-cover group-hover:scale-105 transition-transform" onerror="handleGameLogoError(this)">
-          </div>
-          <span class="text-xs font-bold text-slate-200 group-hover:text-indigo-300 truncate w-full">Retro Bowl</span>
-          <span class="text-[9px] font-mono text-slate-400">Football</span>
-        </a>
-
-        <a href="https://web-dashers.github.io/" target="_blank" rel="noopener noreferrer" class="featured-card group p-2 rounded-xl bg-slate-900/70 border border-slate-800 hover:border-cyan-400/80 flex flex-col items-center text-center">
-          <div class="aspect-square w-full rounded-lg overflow-hidden bg-slate-950 mb-1.5">
-            <img src="./assets/logos/web-dashers.png" alt="Web Dashers" class="w-full h-full object-cover group-hover:scale-105 transition-transform">
-          </div>
-          <span class="text-xs font-bold text-slate-200 group-hover:text-cyan-300 truncate w-full">Web Dashers</span>
-          <span class="text-[9px] font-mono text-cyan-400">Standalone ↗</span>
-        </a>
-
-        <a href="./play.html?game=sm64" class="featured-card group p-2 rounded-xl bg-slate-900/70 border border-slate-800 hover:border-rose-400/80 flex flex-col items-center text-center">
-          <div class="aspect-square w-full rounded-lg overflow-hidden bg-slate-950 mb-1.5">
-            <img src="./assets/logos/super-mario-64.jpg" alt="Super Mario 64" class="w-full h-full object-cover group-hover:scale-105 transition-transform" onerror="handleGameLogoError(this)">
-          </div>
-          <span class="text-xs font-bold text-slate-200 group-hover:text-rose-300 truncate w-full">Super Mario 64</span>
-          <span class="text-[9px] font-mono text-rose-400">60FPS Port</span>
-        </a>
-
-        <a href="./emulator.html?core=gba&rom=https://iloveshorty.github.io/strongdog3/html/Pokemon%20Emerald/game/Pokemon%20-%20Emerald%20Version%20(U).gba&title=Pokemon+Emerald" class="featured-card group p-2 rounded-xl bg-slate-900/70 border border-slate-800 hover:border-emerald-400/80 flex flex-col items-center text-center">
-          <div class="aspect-square w-full rounded-lg overflow-hidden bg-slate-950 mb-1.5">
-            <img src="./assets/logos/pokemon-emerald.png" alt="Pokémon Emerald" class="w-full h-full object-cover group-hover:scale-105 transition-transform" onerror="handleGameLogoError(this)">
-          </div>
-          <span class="text-xs font-bold text-slate-200 group-hover:text-emerald-300 truncate w-full">Pokémon Emerald</span>
-          <span class="text-[9px] font-mono text-emerald-400">GBA RPG</span>
-        </a>
-
-        <a href="./play.html?game=smash-karts" class="featured-card group p-2 rounded-xl bg-slate-900/70 border border-slate-800 hover:border-amber-400/80 flex flex-col items-center text-center">
-          <div class="aspect-square w-full rounded-lg overflow-hidden bg-slate-950 mb-1.5">
-            <img src="./assets/logos/smash-karts.avif" alt="Smash Karts" class="w-full h-full object-cover group-hover:scale-105 transition-transform" onerror="handleGameLogoError(this)">
-          </div>
-          <span class="text-xs font-bold text-slate-200 group-hover:text-amber-300 truncate w-full">Smash Karts</span>
-          <span class="text-[9px] font-mono text-amber-400">3D Battle</span>
-        </a>
-
-        <a href="./play.html?game=1v1lol" class="featured-card group p-2 rounded-xl bg-slate-900/70 border border-slate-800 hover:border-violet-400/80 flex flex-col items-center text-center">
-          <div class="aspect-square w-full rounded-lg overflow-hidden bg-slate-950 mb-1.5">
-            <img src="./assets/logos/1v1lol.webp" alt="1v1.LOL" class="w-full h-full object-cover group-hover:scale-105 transition-transform" onerror="handleGameLogoError(this)">
-          </div>
-          <span class="text-xs font-bold text-slate-200 group-hover:text-violet-300 truncate w-full">1v1.LOL</span>
-          <span class="text-[9px] font-mono text-violet-400">Shooter</span>
-        </a>
-
-      </div>
-    </div>
-
-    <!-- Dynamic Game Cards Grid -->
-    <div 
-      id="games-grid" 
-      class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-3 sm:gap-4 mb-10"
-    >
-      <!-- Cards rendered via JavaScript -->
-    </div>
-
-    <!-- Empty State -->
-    <div id="empty-state" class="hidden flex flex-col items-center justify-center py-16 text-center">
-      <div class="w-12 h-12 rounded-xl bg-slate-900 border border-slate-800 flex items-center justify-center text-slate-500 mb-3">
-        <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.172 16.172a4 4 0 015.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-        </svg>
-      </div>
-      <h3 class="text-sm font-bold text-white mb-1">No Games Found</h3>
-      <p class="text-xs text-slate-400 max-w-sm mb-4">
-        No titles match your search criteria. Try a different search query or reset filters.
-      </p>
-      <button 
-        type="button" 
-        onclick="clearSearch()"
-        class="px-4 py-2 rounded-xl bg-white text-black font-semibold text-xs hover:bg-neutral-200 transition-colors cursor-pointer"
-      >
-        Reset Filters
-      </button>
-    </div>
-
-    <!-- Infinite Scroll Sentinel & Load More Fallback -->
-    <div id="scroll-sentinel" class="py-6 flex flex-col items-center justify-center">
-      <button 
-        id="load-more-btn" 
-        type="button" 
-        onclick="renderNextChunk()" 
-        class="hidden px-5 py-2.5 rounded-xl bg-slate-900 border border-slate-800 text-xs font-semibold text-slate-300 hover:text-white hover:bg-slate-800 transition-colors cursor-pointer"
-      >
-        Load More Games
-      </button>
-      <div id="catalog-end" class="hidden text-xs text-slate-500 font-mono py-4">
-        You have reached the end of the catalog
-      </div>
-    </div>
-
-  </main>
-
-
-
-  <!-- Quick Settings & Cloak Customizer Modal -->
-  <div id="settings-modal" class="fixed inset-0 z-50 flex items-center justify-center bg-black/80 backdrop-blur-md p-4 hidden">
-    <div class="w-full max-w-md rounded-2xl bg-slate-900 border border-slate-800 shadow-2xl p-6 relative">
-      <div class="flex items-center justify-between mb-5">
-        <h3 class="text-base font-bold text-white flex items-center gap-2">
-          Settings & Stealth Controls
-        </h3>
-        <button type="button" onclick="closeSettingsModal()" class="text-slate-400 hover:text-white p-1 rounded-lg hover:bg-slate-800 cursor-pointer">
-          <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
-          </svg>
-        </button>
-      </div>
-
-      <div class="space-y-4 text-left">
+  <!-- ======================================================================
+       2. Login / Lock Screen
+       ====================================================================== -->
+  <div id="login">
+    <div class="login-wrapper">
+      <!-- Left side: Digital Clock & System Specs Card -->
+      <div class="login-left">
         <div>
-          <label class="block text-xs font-mono text-slate-400 mb-1.5 uppercase tracking-wider">Tab Cloaking Preset</label>
-          <select 
-            id="modal-tab-cloak" 
-            class="tab-cloak-select w-full bg-slate-950 border border-slate-700 text-sm text-slate-200 rounded-xl px-3 py-2.5 focus:outline-none focus:ring-1 focus:ring-white"
-            onchange="LunamixCloak.apply(this.value)"
-          >
-            <option value="default">Default (Lunamix)</option>
-            <option value="classroom">Google Classroom (Classes)</option>
-            <option value="drive">Google Drive (My Drive)</option>
-            <option value="canvas">Canvas LMS (Dashboard)</option>
-            <option value="docs">Google Docs (Documents)</option>
-          </select>
-          <p class="text-[11px] text-slate-500 mt-1">Disguises the browser tab title and favicon.</p>
+          <div class="login-time-main" id="loginClock">12:00</div>
+          <div class="login-time-date" id="loginDate">Monday, November 5</div>
         </div>
 
-        <div>
-          <label class="block text-xs font-mono text-slate-400 mb-1.5 uppercase tracking-wider">Panic Emergency Key</label>
-          <div class="flex gap-2">
-            <input 
-              id="modal-panic-key" 
-              type="text" 
-              value="~" 
-              maxlength="10" 
-              class="w-24 bg-slate-950 border border-slate-700 text-sm font-mono text-center text-rose-400 rounded-xl px-3 py-2.5 focus:outline-none focus:ring-1 focus:ring-rose-400"
-            >
-            <button 
-              type="button" 
-              onclick="savePanicKey()"
-              class="flex-1 bg-slate-800 hover:bg-slate-700 text-slate-200 text-xs font-semibold rounded-xl px-4 py-2.5 transition-colors cursor-pointer"
-            >
-              Update Key
-            </button>
+        <div class="login-info-card">
+          <div class="info-card-title">
+            <i class="fa-solid fa-server"></i>
+            <span>System Hardware Status</span>
           </div>
-          <p class="text-[11px] text-slate-500 mt-1">Pressing this key redirects away to safety.</p>
-        </div>
-
-        <div>
-          <label class="block text-xs font-mono text-slate-400 mb-1.5 uppercase tracking-wider">Panic Redirect Destination</label>
-          <input 
-            id="modal-panic-url" 
-            type="url" 
-            value="https://www.apsva.us" 
-            class="w-full bg-slate-950 border border-slate-700 text-xs font-mono text-slate-300 rounded-xl px-3 py-2.5 focus:outline-none focus:ring-1 focus:ring-white"
-          >
-        </div>
-
-        <!-- Cloudflare Turnstile Security Gate -->
-        <div class="pt-3 border-t border-slate-800">
-          <div class="flex items-center justify-between mb-2">
-            <div>
-              <span class="block text-xs font-mono text-slate-200 uppercase tracking-wider font-semibold">Cloudflare Security Gate</span>
-              <p class="text-[11px] text-slate-500">Require Turnstile verification before entering.</p>
-            </div>
-            <label class="relative inline-flex items-center cursor-pointer">
-              <input id="modal-cf-toggle" type="checkbox" class="sr-only peer" onchange="LunamixTurnstile.toggle(this.checked)">
-              <div class="w-11 h-6 bg-slate-800 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-slate-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-orange-500"></div>
-            </label>
+          <div class="info-stat">
+            <span class="info-stat-label">Operating System</span>
+            <span class="info-stat-value">Lunamix v3.0</span>
           </div>
-          <div class="mt-2.5">
-            <label class="block text-[11px] font-mono text-slate-400 mb-1">Custom Site Key (Optional)</label>
-            <div class="flex gap-2">
-              <input 
-                id="modal-cf-sitekey" 
-                type="text" 
-                placeholder="0x4AAAAAAF08muvs9Bw8n3Yz (Active)" 
-                class="flex-1 bg-slate-950 border border-slate-700 text-xs font-mono text-slate-200 rounded-xl px-3 py-2 focus:outline-none focus:ring-1 focus:ring-orange-400"
-              >
-              <button 
-                type="button" 
-                onclick="LunamixTurnstile.saveSiteKey(document.getElementById('modal-cf-sitekey').value)"
-                class="bg-slate-800 hover:bg-slate-700 text-slate-200 text-xs font-semibold rounded-xl px-3 py-2 transition-colors cursor-pointer"
-              >
-                Save Key
-              </button>
-            </div>
-            <p class="text-[10px] text-slate-500 mt-1">Official Cloudflare production key configured. Paste another key anytime to override.</p>
+          <div class="info-stat">
+            <span class="info-stat-label">Architecture</span>
+            <span class="info-stat-value">WebAssembly / x86_64</span>
           </div>
-          <div class="mt-2.5 flex justify-end">
-            <button 
-              type="button" 
-              onclick="closeSettingsModal(); LunamixTurnstile.reset();" 
-              class="text-xs text-orange-400 hover:text-orange-300 underline font-mono cursor-pointer"
-            >
-              Test Security Challenge Now →
-            </button>
+          <div class="info-stat">
+            <span class="info-stat-label">Status</span>
+            <span class="info-stat-value" style="color: var(--accent);">Ready</span>
+          </div>
+          <div class="info-stat">
+            <span class="info-stat-label">Chat Server</span>
+            <span class="info-stat-value">PebbleHost Ready</span>
           </div>
         </div>
       </div>
 
-      <div class="mt-6 flex justify-end gap-2">
-        <button 
-          type="button" 
-          onclick="closeSettingsModal()" 
-          class="px-4 py-2 rounded-xl bg-white text-black font-semibold text-xs hover:bg-neutral-200 transition-colors cursor-pointer"
-        >
-          Save & Close
+      <!-- Right side: User Login Card -->
+      <div class="login-container">
+        <div class="login-avatar">
+          <i class="fa-solid fa-user"></i>
+        </div>
+        <div class="login-title">Welcome Student</div>
+        <div class="login-subtitle">Sign in to your Lunamix workspace</div>
+
+        <input type="text" id="loginUserInput" class="login-input" value="Student" placeholder="Enter username..." autocomplete="off" />
+        <button id="loginBtn" class="login-btn">
+          Enter Desktop <i class="fa-solid fa-arrow-right" style="margin-left: 6px;"></i>
+        </button>
+
+        <button class="guest-btn" id="guestLoginBtn" style="border: none; background: transparent;">
+          Continue as Guest
         </button>
       </div>
     </div>
   </div>
 
-  <!-- Lunamix Core Library -->
+  <!-- ======================================================================
+       3. Desktop Environment (Wallpaper Watermark, Canvas, Desktop Icons)
+       ====================================================================== -->
+  <div id="desktop">
+    <!-- Centered Nautilus Watermark Background -->
+    <div class="wallpaper">
+      <div class="wallpaper-icon">
+        <i class="fa-solid fa-cube"></i>
+      </div>
+      <div class="wallpaper-text">LUNAMIX OS</div>
+      <div class="wallpaper-byline">NAUTILUS DESKTOP ENVIRONMENT</div>
+    </div>
+
+    <!-- Desktop Icons Grid -->
+    <div class="desktop-icons" id="desktopIcons">
+      <div class="desktop-icon" data-app="games" title="Games Hub">
+        <i class="fa-solid fa-gamepad" style="color: #7dd3c0;"></i>
+        <span>Games Hub</span>
+      </div>
+      <div class="desktop-icon" data-app="chat" title="Lunamix Chat">
+        <i class="fa-solid fa-comments" style="color: #38bdf8;"></i>
+        <span>Lunamix Chat</span>
+      </div>
+      <div class="desktop-icon" data-app="browser" title="Penumbra Browser">
+        <i class="fa-solid fa-compass" style="color: #a855f7;"></i>
+        <span>Penumbra Browser</span>
+      </div>
+      <div class="desktop-icon" data-app="creator" title="Web App Creator">
+        <i class="fa-solid fa-code" style="color: #f59e0b;"></i>
+        <span>App Creator</span>
+      </div>
+      <div class="desktop-icon" data-app="terminal" title="Terminal">
+        <i class="fa-solid fa-terminal" style="color: #00ff88;"></i>
+        <span>Terminal</span>
+      </div>
+      <div class="desktop-icon" data-app="eaglercraft" title="Eaglercraft Launcher">
+        <i class="fa-solid fa-cube" style="color: #10b981;"></i>
+        <span>Eaglercraft GX</span>
+      </div>
+      <div class="desktop-icon" data-app="emulator" title="Retro Emulator">
+        <i class="fa-solid fa-ghost" style="color: #ec4899;"></i>
+        <span>Retro Emulator</span>
+      </div>
+      <div class="desktop-icon" data-app="files" title="Files & Notes">
+        <i class="fa-solid fa-folder-open" style="color: #fbbf24;"></i>
+        <span>Files & Notes</span>
+      </div>
+      <div class="desktop-icon" data-app="calculator" title="Calculator">
+        <i class="fa-solid fa-calculator" style="color: #f43f5e;"></i>
+        <span>Calculator</span>
+      </div>
+      <div class="desktop-icon" data-app="settings" title="Settings & Personalization">
+        <i class="fa-solid fa-gear" style="color: #94a3b8;"></i>
+        <span>Settings</span>
+      </div>
+      <div class="desktop-icon" data-app="about" title="About OS">
+        <i class="fa-solid fa-circle-info" style="color: #7dd3c0;"></i>
+        <span>About OS</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ======================================================================
+       4. Floating Pill Dock / Taskbar
+       ====================================================================== -->
+  <div class="taskbar" id="taskbar">
+    <!-- Start Menu Launcher Button -->
+    <button class="taskbar-icon" id="startBtn" title="Start Menu">
+      <i class="fa-solid fa-shapes"></i>
+    </button>
+
+    <div class="taskbar-divider"></div>
+
+    <!-- Pinned Desktop App Launchers -->
+    <button class="taskbar-icon" data-app="games" title="Games Hub">
+      <i class="fa-solid fa-gamepad" style="color: #7dd3c0;"></i>
+    </button>
+    <button class="taskbar-icon" data-app="chat" title="Lunamix Chat">
+      <i class="fa-solid fa-comments" style="color: #38bdf8;"></i>
+    </button>
+    <button class="taskbar-icon" data-app="browser" title="Penumbra Browser">
+      <i class="fa-solid fa-compass" style="color: #a855f7;"></i>
+    </button>
+    <button class="taskbar-icon" data-app="creator" title="Web App Creator">
+      <i class="fa-solid fa-code" style="color: #f59e0b;"></i>
+    </button>
+    <button class="taskbar-icon" data-app="terminal" title="Terminal">
+      <i class="fa-solid fa-terminal" style="color: #00ff88;"></i>
+    </button>
+    <button class="taskbar-icon" data-app="settings" title="Settings">
+      <i class="fa-solid fa-gear" style="color: #94a3b8;"></i>
+    </button>
+
+    <div class="taskbar-divider"></div>
+
+    <!-- System Tray -->
+    <div class="system-tray">
+      <button class="taskbar-icon" id="trayActionsBtn" title="Quick Actions Flyout" style="width: 34px; height: 34px; font-size: 1rem;">
+        <i class="fa-solid fa-sliders"></i>
+      </button>
+      <div class="system-tray-clock" id="trayClock">12:00 PM</div>
+    </div>
+  </div>
+
+  <!-- ======================================================================
+       5. Start Menu (Avatar, Real-Time App Search, App Tiles Grid)
+       ====================================================================== -->
+  <div class="start-menu" id="startMenu">
+    <div class="start-header">
+      <div class="start-avatar">
+        <i class="fa-solid fa-user"></i>
+      </div>
+      <div class="start-user-info">
+        <div class="start-username" id="startUsername">Student</div>
+        <div class="start-status"><i class="fa-solid fa-circle" style="font-size: 0.5rem; margin-right: 4px;"></i>Online • PebbleHost Ready</div>
+      </div>
+      <button class="start-power-btn" id="startPowerBtn" title="Reboot OS" onclick="window.location.reload();">
+        <i class="fa-solid fa-power-off"></i>
+      </button>
+    </div>
+
+    <div class="start-search">
+      <i class="fa-solid fa-magnifying-glass start-search-icon"></i>
+      <input type="text" id="startSearchInput" placeholder="Search apps, games, settings..." autocomplete="off" />
+    </div>
+
+    <div class="app-grid">
+      <div class="app-item" data-app="games">
+        <i class="fa-solid fa-gamepad" style="color: #7dd3c0;"></i>
+        <span>Games Hub</span>
+      </div>
+      <div class="app-item" data-app="chat">
+        <i class="fa-solid fa-comments" style="color: #38bdf8;"></i>
+        <span>Chat</span>
+      </div>
+      <div class="app-item" data-app="browser">
+        <i class="fa-solid fa-compass" style="color: #a855f7;"></i>
+        <span>Browser</span>
+      </div>
+      <div class="app-item" data-app="creator">
+        <i class="fa-solid fa-code" style="color: #f59e0b;"></i>
+        <span>Creator</span>
+      </div>
+      <div class="app-item" data-app="terminal">
+        <i class="fa-solid fa-terminal" style="color: #00ff88;"></i>
+        <span>Terminal</span>
+      </div>
+      <div class="app-item" data-app="eaglercraft">
+        <i class="fa-solid fa-cube" style="color: #10b981;"></i>
+        <span>Eaglercraft</span>
+      </div>
+      <div class="app-item" data-app="emulator">
+        <i class="fa-solid fa-ghost" style="color: #ec4899;"></i>
+        <span>Emulator</span>
+      </div>
+      <div class="app-item" data-app="files">
+        <i class="fa-solid fa-folder-open" style="color: #fbbf24;"></i>
+        <span>Files</span>
+      </div>
+      <div class="app-item" data-app="calculator">
+        <i class="fa-solid fa-calculator" style="color: #f43f5e;"></i>
+        <span>Calculator</span>
+      </div>
+      <div class="app-item" data-app="settings">
+        <i class="fa-solid fa-gear" style="color: #94a3b8;"></i>
+        <span>Settings</span>
+      </div>
+      <div class="app-item" data-app="about">
+        <i class="fa-solid fa-circle-info" style="color: #7dd3c0;"></i>
+        <span>About</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ======================================================================
+       6. Right-Click Desktop Context Menu
+       ====================================================================== -->
+  <div id="contextMenu">
+    <div class="context-item" data-action="refresh">
+      <i class="fa-solid fa-rotate-right"></i>
+      <span>Refresh Desktop</span>
+    </div>
+    <div class="context-divider"></div>
+    <div class="context-item" data-action="games">
+      <i class="fa-solid fa-gamepad" style="color: #7dd3c0;"></i>
+      <span>Open Games Hub</span>
+    </div>
+    <div class="context-item" data-action="chat">
+      <i class="fa-solid fa-comments" style="color: #38bdf8;"></i>
+      <span>Open Lunamix Chat</span>
+    </div>
+    <div class="context-item" data-action="creator">
+      <i class="fa-solid fa-code" style="color: #f59e0b;"></i>
+      <span>Open App Creator</span>
+    </div>
+    <div class="context-item" data-action="terminal">
+      <i class="fa-solid fa-terminal" style="color: #00ff88;"></i>
+      <span>Open Terminal</span>
+    </div>
+    <div class="context-divider"></div>
+    <div class="context-item" data-action="fullscreen">
+      <i class="fa-solid fa-expand"></i>
+      <span>Toggle Fullscreen</span>
+    </div>
+    <div class="context-item" data-action="settings">
+      <i class="fa-solid fa-gear" style="color: #94a3b8;"></i>
+      <span>System Settings</span>
+    </div>
+  </div>
+
+  <!-- ======================================================================
+       7. Quick Actions Flyout
+       ====================================================================== -->
+  <div id="quickActions">
+    <div style="font-weight: 700; font-size: 0.95rem; margin-bottom: 0.75rem; display: flex; align-items: center; justify-content: space-between;">
+      <span>Quick Controls</span>
+      <span style="font-size: 0.75rem; color: var(--accent);">Lunamix OS</span>
+    </div>
+
+    <!-- Emergency Panic Redirect -->
+    <div style="margin-bottom: 1rem;">
+      <button onclick="if(window.LunamixPanic) window.LunamixPanic.trigger();" style="width: 100%; padding: 0.65rem; background: rgba(239, 68, 68, 0.2); border: 1px solid #ef4444; border-radius: 8px; color: #ef4444; font-weight: 700; font-size: 0.85rem; display: flex; align-items: center; justify-content: center; gap: 0.5rem;">
+        <i class="fa-solid fa-triangle-exclamation"></i> Emergency Panic (Esc / ~)
+      </button>
+    </div>
+
+    <!-- Quick Tab Cloak Presets -->
+    <div style="font-size: 0.76rem; color: var(--text-secondary); margin-bottom: 0.4rem; font-weight: 600; text-transform: uppercase;">
+      Tab Disguise Cloak
+    </div>
+    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.4rem; margin-bottom: 1rem;">
+      <button onclick="if(window.LunamixCloak) window.LunamixCloak.apply('classroom');" style="padding: 0.4rem; background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.1); border-radius: 6px; font-size: 0.75rem; color: var(--text-primary); text-align: left;">
+        <i class="fa-solid fa-graduation-cap" style="color: #4ade80;"></i> Classroom
+      </button>
+      <button onclick="if(window.LunamixCloak) window.LunamixCloak.apply('drive');" style="padding: 0.4rem; background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.1); border-radius: 6px; font-size: 0.75rem; color: var(--text-primary); text-align: left;">
+        <i class="fa-brands fa-google-drive" style="color: #38bdf8;"></i> Drive
+      </button>
+      <button onclick="if(window.LunamixCloak) window.LunamixCloak.apply('canvas');" style="padding: 0.4rem; background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.1); border-radius: 6px; font-size: 0.75rem; color: var(--text-primary); text-align: left;">
+        <i class="fa-solid fa-circle" style="color: #ef4444;"></i> Canvas
+      </button>
+      <button onclick="if(window.LunamixCloak) window.LunamixCloak.apply('default');" style="padding: 0.4rem; background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.1); border-radius: 6px; font-size: 0.75rem; color: var(--text-primary); text-align: left;">
+        <i class="fa-solid fa-rotate-left"></i> Reset
+      </button>
+    </div>
+
+    <!-- Quick Theme Selection -->
+    <div style="font-size: 0.76rem; color: var(--text-secondary); margin-bottom: 0.4rem; font-weight: 600; text-transform: uppercase;">
+      Accent Theme
+    </div>
+    <div style="display: flex; gap: 0.5rem; justify-content: space-between;">
+      <button onclick="document.documentElement.setAttribute('data-theme', 'nautilus'); localStorage.setItem('nautilus_theme', 'nautilus');" style="width: 28px; height: 28px; border-radius: 50%; background: #7dd3c0; border: 2px solid rgba(255,255,255,0.2);" title="Nautilus Mint"></button>
+      <button onclick="document.documentElement.setAttribute('data-theme', 'obsidian'); localStorage.setItem('nautilus_theme', 'obsidian');" style="width: 28px; height: 28px; border-radius: 50%; background: #ff5252; border: 2px solid rgba(255,255,255,0.2);" title="Obsidian Red"></button>
+      <button onclick="document.documentElement.setAttribute('data-theme', 'matrix'); localStorage.setItem('nautilus_theme', 'matrix');" style="width: 28px; height: 28px; border-radius: 50%; background: #00ff88; border: 2px solid rgba(255,255,255,0.2);" title="Matrix Emerald"></button>
+      <button onclick="document.documentElement.setAttribute('data-theme', 'midnight'); localStorage.setItem('nautilus_theme', 'midnight');" style="width: 28px; height: 28px; border-radius: 50%; background: #a855f7; border: 2px solid rgba(255,255,255,0.2);" title="Midnight Purple"></button>
+      <button onclick="document.documentElement.setAttribute('data-theme', 'sunset'); localStorage.setItem('nautilus_theme', 'sunset');" style="width: 28px; height: 28px; border-radius: 50%; background: #f59e0b; border: 2px solid rgba(255,255,255,0.2);" title="Sunset Gold"></button>
+      <button onclick="document.documentElement.setAttribute('data-theme', 'ocean'); localStorage.setItem('nautilus_theme', 'ocean');" style="width: 28px; height: 28px; border-radius: 50%; background: #38bdf8; border: 2px solid rgba(255,255,255,0.2);" title="Ocean Glacial"></button>
+    </div>
+  </div>
+
+  <!-- ======================================================================
+       8. Core Engines & Nautilus Desktop Scripts
+       ====================================================================== -->
+  <!-- Lunamix Core (Cloaking, Panic Key, Turnstile) -->
   <script src="./assets/js/lunamix-core.js"></script>
+  <!-- NautilusOS Desktop Environment Engine -->
+  <script src="./assets/js/nautilus-os.js"></script>
 
-  <!-- Catalog Management Script -->
   <script>
-    const CHUNK_SIZE = 36;
-    let allGames = [];
-    let filteredGames = [];
-    let renderedCount = 0;
-    let currentCategory = 'all';
-    let searchQuery = '';
-    let intersectionObserver = null;
-
-    const LOCAL_GAMES = [
-      {
-        id: "gd-wasm",
-        slug: "geometry-dash",
-        name: "Geometry Dash",
-        category: "geometry-dash",
-        targetUrl: "./play.html?game=geometry-dash",
-        logo: "./assets/logos/geometry-dash.png",
-        isLocal: true,
-        isFeatured: true
-      },
-      {
-        id: "eagler-hbwmc",
-        slug: "eaglercraft-hbwmc",
-        name: "HBWMC Eaglercraft Client (Official)",
-        category: "minecraft",
-        targetUrl: "https://skiingbeast2025.github.io/lunamix-eaglercraft/downloads/hbwmc.html",
-        logo: "./assets/logos/eaglercraft.png",
-        isLocal: true,
-        isFeatured: true,
-        openInNewTab: false
-      },
-      {
-        id: "eagler-hub",
-        slug: "eaglercraft-hub",
-        name: "Eaglercraft GX-Launcher (68-in-1)",
-        category: "minecraft",
-        targetUrl: "./eaglercraft.html",
-        logo: "./assets/logos/eaglercraft.png",
-        isLocal: true,
-        isFeatured: true,
-        openInNewTab: false
-      },
-      {
-        id: "eagler-26-3",
-        slug: "eaglercraft-26-3",
-        name: "Eaglercraft 26.3 (Latest Minecraft)",
-        category: "minecraft",
-        targetUrl: "./play.html?game=eaglercraft-26-3",
-        logo: "./assets/logos/eaglercraft.png",
-        isLocal: true,
-        isFeatured: true,
-        openInNewTab: false
-      },
-      {
-        id: "web-dashers",
-        slug: "web-dashers",
-        name: "Web Dashers",
-        category: "geometry-dash",
-        targetUrl: "https://web-dashers.github.io/",
-        logo: "./assets/logos/web-dashers.png",
-        isLocal: true,
-        isFeatured: true,
-        openInNewTab: true
-      },
-      {
-        id: "gd-scratch",
-        slug: "geometry-dash-scratch",
-        name: "Geometry Dash Scratch",
-        category: "geometry-dash",
-        targetUrl: "./play.html?game=geometry-dash-scratch",
-        logo: "./assets/logos/geometry-dash.png",
-        isLocal: true,
-        isFeatured: true
-      },
-      {
-        id: "gd-classic",
-        slug: "geodash",
-        name: "GeoDash Classic",
-        category: "geometry-dash",
-        targetUrl: "./play.html?game=geodash",
-        logo: "./assets/logos/geometry-dash.png",
-        isLocal: true,
-        isFeatured: false
-      },
-      {
-        id: "slope",
-        slug: "slope",
-        name: "Slope",
-        category: "action",
-        targetUrl: "./play.html?game=slope",
-        logo: "./assets/logos/slope.png",
-        isLocal: true,
-        isFeatured: true
-      },
-      {
-        id: "ovo",
-        slug: "ovo",
-        name: "OvO",
-        category: "platformer",
-        targetUrl: "./play.html?game=ovo",
-        logo: "./assets/logos/ovo.png",
-        isLocal: true,
-        isFeatured: true
-      },
-      {
-        id: "subway-surfers",
-        slug: "subway-surfers",
-        name: "Subway Surfers",
-        category: "action",
-        targetUrl: "./play.html?game=subway-surfers",
-        logo: "./assets/logos/subway-surfers.png",
-        isLocal: true,
-        isFeatured: true
-      },
-      {
-        id: "polytrack",
-        slug: "polytrack",
-        name: "PolyTrack",
-        category: "driving",
-        targetUrl: "./play.html?game=polytrack",
-        logo: "./assets/logos/polytrack.png",
-        isLocal: true,
-        isFeatured: true
-      },
-      {
-        id: 2019,
-        slug: "emulator-universal",
-        name: "Universal Retro Emulator (WASM)",
-        category: "emulator",
-        targetUrl: "./emulator.html",
-        logo: "./assets/logos/emulator.png",
-        isLocal: true,
-        isFeatured: true
-      },
-      {
-        id: 2020,
-        slug: "sm64",
-        name: "Super Mario 64 (WASM 60FPS)",
-        category: "emulator",
-        targetUrl: "./play.html?game=sm64",
-        logo: "./assets/logos/super-mario-64.jpg",
-        isLocal: true,
-        isFeatured: true
-      },
-      {
-        id: 2021,
-        slug: "pokemon-emerald",
-        name: "Pokémon Emerald (GBA)",
-        category: "emulator",
-        targetUrl: "./emulator.html?core=gba&rom=https://iloveshorty.github.io/strongdog3/html/Pokemon%20Emerald/game/Pokemon%20-%20Emerald%20Version%20(U).gba&title=Pokemon+Emerald",
-        logo: "./assets/logos/pokemon-emerald.png",
-        isLocal: true,
-        isFeatured: true
-      },
-      {
-        id: 2022,
-        slug: "super-mario-world",
-        name: "Super Mario World (SNES)",
-        category: "emulator",
-        targetUrl: "./emulator.html?core=snes&rom=https://iloveshorty.github.io/strongdog3/html/super%20mario%20world/game/Super%20Mario%20World%20(U)%20%5B!%5D.smc&title=Super+Mario+World",
-        logo: "./assets/logos/super-mario-world.png",
-        isLocal: true,
-        isFeatured: true
-      },
-      {
-        id: 2023,
-        slug: "pokemon-firered",
-        name: "Pokémon FireRed (GBA)",
-        category: "emulator",
-        targetUrl: "./emulator.html?core=gba&rom=https://iloveshorty.github.io/html/pokemonfirered/game/Pokemon%20-%20FireRed%20Version%20(USA,%20Europe).gba&title=Pokemon+FireRed",
-        logo: "./assets/logos/pokemon-firered.webp",
-        isLocal: true,
-        isFeatured: true
-      },
-      {
-        id: 2024,
-        slug: "pokemon-unbound",
-        name: "Pokémon Unbound (GBA)",
-        category: "emulator",
-        targetUrl: "./emulator.html?core=gba&rom=https://iloveshorty.github.io/strongdog3/html/pokemon%20unbound/game/Pokemon%20Unbound%20(v2.1.1.1).gba&title=Pokemon+Unbound",
-        logo: "./assets/logos/pokemon-unbound.jpg",
-        isLocal: true,
-        isFeatured: true
-      },
-      {
-        id: 2025,
-        slug: "1080-snowboarding",
-        name: "1080 Snowboarding (N64)",
-        category: "emulator",
-        targetUrl: "./emulator.html?core=n64&rom=https://raw.githubusercontent.com/iloveshorty/strongdog4/main/html/1080%20snowboarding/game/1080%20snowboarding.z64&title=1080+Snowboarding",
-        logo: "./assets/logos/1080-snowboarding.jpg",
-        isLocal: true,
-        isFeatured: true
-      },
-      {
-        id: 2026,
-        slug: "web-retro",
-        name: "WebRetro Multi-System Console",
-        category: "emulator",
-        targetUrl: "https://iloveshorty.github.io/html/webretro/game/index.html",
-        logo: "./assets/logos/emulator.png",
-        isLocal: true,
-        isFeatured: true
-      },
-      {
-        id: "celeste",
-        slug: "celeste",
-        name: "Celeste Classic (WASM)",
-        category: "platformer",
-        targetUrl: "./play.html?game=celeste",
-        logo: "./assets/logos/celeste.webp",
-        isLocal: true,
-        isFeatured: true
-      }
-    ];
-
-    function getGameLogo(game) {
-      if (game.logo) return game.logo;
-      if (game.localLogo) return game.localLogo;
-      const lower = (game.name || '').toLowerCase();
-      if (lower.includes('geometry dash') || lower.includes('geodash') || lower.includes('dash')) {
-        return './assets/logos/geometry-dash.png';
-      }
-      if (lower.includes('eaglercraft') || lower.includes('minecraft')) {
-        return './assets/logos/eaglercraft.png';
-      }
-      if (lower.includes('super mario 64')) {
-        return './assets/logos/super-mario-64.jpg';
-      }
-      if (lower.includes('pokemon emerald')) {
-        return './assets/logos/pokemon-emerald.png';
-      }
-      if (lower.includes('super mario world')) {
-        return './assets/logos/super-mario-world.png';
-      }
-      if (lower.includes('smash bros') || lower.includes('smash 64')) {
-        return './assets/logos/smash-64.png';
-      }
-      if (lower.includes('celeste')) {
-        return './assets/logos/celeste.webp';
-      }
-      if (lower.includes('balatro')) {
-        return './assets/logos/balatro.png';
-      }
-      if (lower.includes('retro bowl')) {
-        return './assets/logos/retro-bowl.webp';
-      }
-      if (lower.includes('emulator') || lower.includes('gba') || lower.includes('snes') || lower.includes('n64')) {
-        return './assets/logos/emulator.png';
-      }
-      if (game.logoUrl) return game.logoUrl;
-      return './assets/logos/eaglercraft.png';
-    }
-
-    async function initCatalog() {
-      try {
-        const res = await fetch('./games-data.json');
-        if (!res.ok) throw new Error('HTTP ' + res.status);
-        const data = await res.json();
-
-        const localIds = new Set(LOCAL_GAMES.filter(g => g.id).map(g => g.id));
-        const localSlugs = new Set(LOCAL_GAMES.map(g => (g.slug || '').toLowerCase()));
-
-        const catalogGames = data
-          .filter(g => !localIds.has(g.id) && !localSlugs.has((g.slug || '').toLowerCase()))
-          .map(g => {
-            let target = `./play.html?id=${g.id}`;
-            if (g.category === 'minecraft' && g.playableUrl && g.playableUrl.startsWith('https://skiingbeast2025.github.io/lunamix-eaglercraft/')) {
-              target = g.playableUrl;
-            } else if (g.category === 'emulator' || (g.playableUrl && g.playableUrl.includes('emulator.html'))) {
-              target = g.playableUrl;
-            } else if (g.targetUrl) {
-              target = g.targetUrl;
-            }
-            return {
-              ...g,
-              targetUrl: target,
-              logo: getGameLogo(g),
-              isLocal: false,
-              isFeatured: false
-            };
-          });
-
-        allGames = [...LOCAL_GAMES, ...catalogGames];
-      } catch (err) {
-        console.warn('Fallback to local games list:', err);
-        allGames = [...LOCAL_GAMES];
-      }
-
-      initCategoryFromURL();
-      initSearch();
-      applyFilters();
-      initObserver();
-    }
-
-    function initCategoryFromURL() {
-      const params = new URLSearchParams(window.location.search);
-      const cat = params.get('category');
-      if (cat) {
-        currentCategory = cat;
-        updateCategoryPillUI();
-      }
-      const q = params.get('q');
-      if (q) {
-        searchQuery = q.toLowerCase().trim();
-        const input = document.getElementById('search-input');
-        if (input) input.value = q;
-        document.getElementById('search-clear-btn').classList.remove('hidden');
-      }
-    }
-
-    function applyFilters() {
-      const q = searchQuery.toLowerCase().trim();
-
-      filteredGames = allGames.filter(game => {
-        const name = (game.name || '').toLowerCase();
-        const cat = (game.category || '').toLowerCase();
-
-        let matchesCategory = true;
-        if (currentCategory === 'all') {
-          matchesCategory = true;
-        } else if (currentCategory === 'featured') {
-          matchesCategory = !!game.isFeatured || !!game.isLocal;
-        } else if (currentCategory === 'geometry-dash') {
-          matchesCategory = cat === 'geometry-dash' || name.includes('geometry dash') || name.includes('geodash') || name.includes('dash');
-        } else if (currentCategory === 'minecraft') {
-          matchesCategory = cat === 'minecraft' || name.includes('minecraft') || name.includes('eaglercraft');
-        } else if (currentCategory === 'emulator') {
-          matchesCategory = cat === 'emulator' || name.includes('emulator') || name.includes('gba') || name.includes('snes') || name.includes('n64') || /\bnds\b/i.test(name) || name.includes('webretro');
-        } else {
-          matchesCategory = cat === currentCategory;
+    // Synchronize Login Clock & Date
+    (function syncLoginClock() {
+      const clockEl = document.getElementById('loginClock');
+      const dateEl = document.getElementById('loginDate');
+      const update = () => {
+        const now = new Date();
+        if (clockEl) {
+          clockEl.textContent = now.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', hour12: false });
         }
-
-        if (!matchesCategory) return false;
-
-        if (q) {
-          const matchesName = name.includes(q);
-          const matchesCat = cat.includes(q);
-          const matchesSlug = (game.slug || '').toLowerCase().includes(q);
-          return matchesName || matchesCat || matchesSlug;
+        if (dateEl) {
+          dateEl.textContent = now.toLocaleDateString([], { weekday: 'long', month: 'long', day: 'numeric' });
         }
+      };
+      update();
+      setInterval(update, 1000);
 
-        return true;
-      });
-
-      const quickPicks = document.getElementById('quick-picks-section');
-      if (quickPicks) {
-        if (q || currentCategory !== 'all') {
-          quickPicks.classList.add('hidden');
-        } else {
-          quickPicks.classList.remove('hidden');
-        }
-      }
-
-      const grid = document.getElementById('games-grid');
-      grid.innerHTML = '';
-      renderedCount = 0;
-
-      const counter = document.getElementById('status-counter');
-      counter.textContent = `Showing ${filteredGames.length} of ${allGames.length} games`;
-
-      const emptyState = document.getElementById('empty-state');
-      const sentinel = document.getElementById('scroll-sentinel');
-      if (filteredGames.length === 0) {
-        emptyState.classList.remove('hidden');
-        sentinel.classList.add('hidden');
-      } else {
-        emptyState.classList.add('hidden');
-        sentinel.classList.remove('hidden');
-        renderNextChunk();
-      }
-    }
-
-    function renderNextChunk() {
-      if (renderedCount >= filteredGames.length) {
-        document.getElementById('load-more-btn').classList.add('hidden');
-        document.getElementById('catalog-end').classList.remove('hidden');
-        return;
-      }
-
-      const grid = document.getElementById('games-grid');
-      const nextBatch = filteredGames.slice(renderedCount, renderedCount + CHUNK_SIZE);
-      const fragment = document.createDocumentFragment();
-
-      nextBatch.forEach(game => {
-        const card = createGameCard(game);
-        fragment.appendChild(card);
-      });
-
-      grid.appendChild(fragment);
-      renderedCount += nextBatch.length;
-
-      const loadMoreBtn = document.getElementById('load-more-btn');
-      const catalogEnd = document.getElementById('catalog-end');
-      if (renderedCount >= filteredGames.length) {
-        loadMoreBtn.classList.add('hidden');
-        catalogEnd.classList.remove('hidden');
-      } else {
-        loadMoreBtn.classList.remove('hidden');
-        catalogEnd.classList.add('hidden');
-      }
-    }
-
-    function createGameCard(game) {
-      const a = document.createElement('a');
-      a.href = game.targetUrl;
-      if (game.openInNewTab) {
-        a.target = '_blank';
-        a.rel = 'noopener noreferrer';
-      }
-      a.className = 'game-card group relative flex flex-col bg-slate-900/60 hover:bg-slate-900/95 border border-slate-800/80 hover:border-slate-600 rounded-xl overflow-hidden backdrop-blur-md shadow-md';
-      a.setAttribute('data-name', game.name || '');
-      a.setAttribute('data-category', game.category || 'other');
-
-      const logoSrc = game.logo || getGameLogo(game);
-
-      const imgContainer = document.createElement('div');
-      imgContainer.className = 'relative aspect-video w-full overflow-hidden bg-slate-950 flex items-center justify-center';
-
-      const img = document.createElement('img');
-      img.src = logoSrc;
-      img.alt = game.name;
-      img.loading = 'lazy';
-      img.className = 'w-full h-full object-cover group-hover:scale-105 transition-transform duration-300';
-      img.setAttribute('onerror', 'handleGameLogoError(this)');
-      imgContainer.appendChild(img);
-
-      if (game.openInNewTab) {
-        const tabBadge = document.createElement('span');
-        tabBadge.className = 'absolute top-1.5 left-1.5 px-1.5 py-0.5 text-[9px] font-mono font-medium text-cyan-300 bg-cyan-950/90 border border-cyan-800/70 rounded shadow flex items-center gap-1';
-        tabBadge.innerHTML = '<span>↗</span><span>TAB</span>';
-        imgContainer.appendChild(tabBadge);
-      }
-
-      if (game.isFeatured) {
-        const featBadge = document.createElement('span');
-        featBadge.className = 'absolute top-1.5 right-1.5 px-1.5 py-0.5 text-[9px] font-mono font-bold uppercase bg-amber-400/90 text-black rounded shadow flex items-center gap-0.5';
-        featBadge.textContent = 'TOP';
-        imgContainer.appendChild(featBadge);
-      }
-
-      const playOverlay = document.createElement('div');
-      playOverlay.className = 'absolute inset-0 bg-black/40 backdrop-blur-[1px] opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center';
-      if (game.openInNewTab) {
-        playOverlay.innerHTML = '<span class="w-9 h-9 rounded-full bg-white/95 text-black flex items-center justify-center shadow-lg transform group-hover:scale-110 transition-transform" title="Opens in clean standalone tab"><svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" /></svg></span>';
-      } else {
-        playOverlay.innerHTML = '<span class="w-9 h-9 rounded-full bg-white/95 text-black flex items-center justify-center shadow-lg transform group-hover:scale-110 transition-transform"><svg class="w-4 h-4 ml-0.5" fill="currentColor" viewBox="0 0 20 20"><path d="M4.5 3.5l11 6.5-11 6.5v-13z"/></svg></span>';
-      }
-      imgContainer.appendChild(playOverlay);
-
-      a.appendChild(imgContainer);
-
-      const info = document.createElement('div');
-      info.className = 'p-2.5 sm:p-3 flex flex-col justify-between flex-1';
-
-      const title = document.createElement('h3');
-      title.className = 'text-xs sm:text-sm font-semibold text-slate-100 group-hover:text-white truncate mb-1';
-      title.textContent = game.name;
-      title.title = game.name;
-      info.appendChild(title);
-
-      const metaRow = document.createElement('div');
-      metaRow.className = 'flex items-center justify-between text-[10px] font-mono text-slate-400';
-      
-      const catBadge = document.createElement('span');
-      if (game.category === 'minecraft') {
-        catBadge.className = 'uppercase px-1.5 py-0.5 rounded bg-emerald-500/20 text-emerald-300 border border-emerald-500/40 truncate max-w-[90px]';
-      } else if (game.category === 'emulator') {
-        catBadge.className = 'uppercase px-1.5 py-0.5 rounded bg-purple-500/20 text-purple-300 border border-purple-500/40 truncate max-w-[90px]';
-      } else {
-        catBadge.className = 'uppercase px-1.5 py-0.5 rounded bg-slate-800/80 border border-slate-700/60 truncate max-w-[90px]';
-      }
-      catBadge.textContent = game.category || 'OTHER';
-      metaRow.appendChild(catBadge);
-
-      const playHint = document.createElement('span');
-      playHint.className = 'text-neutral-500 group-hover:text-neutral-200 transition-colors hidden sm:inline';
-      playHint.textContent = game.openInNewTab ? 'Open ↗' : 'Play →';
-      metaRow.appendChild(playHint);
-
-      info.appendChild(metaRow);
-      a.appendChild(info);
-
-      return a;
-    }
-
-    function initObserver() {
-      if ('IntersectionObserver' in window) {
-        const sentinel = document.getElementById('scroll-sentinel');
-        intersectionObserver = new IntersectionObserver((entries) => {
-          entries.forEach(entry => {
-            if (entry.isIntersecting && renderedCount < filteredGames.length) {
-              renderNextChunk();
-            }
-          });
-        }, {
-          rootMargin: '400px'
+      // Guest Login Button
+      const guestBtn = document.getElementById('guestLoginBtn');
+      const loginEl = document.getElementById('login');
+      if (guestBtn && loginEl) {
+        guestBtn.addEventListener('click', () => {
+          loginEl.style.opacity = '0';
+          setTimeout(() => loginEl.style.display = 'none', 300);
         });
-
-        if (sentinel) {
-          intersectionObserver.observe(sentinel);
-        }
-      } else {
-        document.getElementById('load-more-btn').classList.remove('hidden');
       }
-    }
-
-    function setCategory(cat) {
-      currentCategory = cat;
-      updateCategoryPillUI();
-      applyFilters();
-
-      const url = new URL(window.location);
-      if (cat === 'all') {
-        url.searchParams.delete('category');
-      } else {
-        url.searchParams.set('category', cat);
-      }
-      window.history.replaceState({}, '', url);
-    }
-
-    function updateCategoryPillUI() {
-      document.querySelectorAll('.cat-pill').forEach(btn => {
-        const cat = btn.getAttribute('data-category');
-        if (cat === currentCategory) {
-          btn.className = 'cat-pill px-3 py-1.5 rounded-xl text-xs font-semibold transition-all whitespace-nowrap bg-white text-black shadow-sm cursor-pointer';
-        } else {
-          btn.className = 'cat-pill px-3 py-1.5 rounded-xl text-xs font-semibold transition-all whitespace-nowrap bg-slate-950/70 text-slate-300 hover:text-white hover:bg-slate-850 border border-slate-800 cursor-pointer';
-        }
-      });
-    }
-
-    const searchInput = document.getElementById('search-input');
-    const searchClearBtn = document.getElementById('search-clear-btn');
-    let searchDebounce = null;
-
-    function initSearch() {
-      searchInput.addEventListener('input', (e) => {
-        const val = e.target.value;
-        if (val) {
-          searchClearBtn.classList.remove('hidden');
-        } else {
-          searchClearBtn.classList.add('hidden');
-        }
-
-        clearTimeout(searchDebounce);
-        searchDebounce = setTimeout(() => {
-          searchQuery = val;
-          applyFilters();
-
-          const url = new URL(window.location);
-          if (val.trim()) {
-            url.searchParams.set('q', val.trim());
-          } else {
-            url.searchParams.delete('q');
-          }
-          window.history.replaceState({}, '', url);
-        }, 150);
-      });
-
-      document.addEventListener('keydown', (e) => {
-        if (e.key === '/' && document.activeElement !== searchInput && document.activeElement.tagName !== 'INPUT' && document.activeElement.tagName !== 'TEXTAREA') {
-          e.preventDefault();
-          searchInput.focus();
-          searchInput.select();
-        }
-      });
-    }
-
-    function clearSearch() {
-      searchInput.value = '';
-      searchClearBtn.classList.add('hidden');
-      searchQuery = '';
-      currentCategory = 'all';
-      updateCategoryPillUI();
-      applyFilters();
-
-      const url = new URL(window.location);
-      url.searchParams.delete('q');
-      url.searchParams.delete('category');
-      window.history.replaceState({}, '', url);
-    }
-
-    function mobile_navbar_link_hider() {
-      const x = document.getElementById("mobile_navbar_links");
-      if (!x) return;
-      if (x.style.display === "flex") {
-        x.style.display = "none";
-      } else {
-        x.style.display = "flex";
-      }
-    }
-
-    function openSettingsModal() {
-      const modal = document.getElementById('settings-modal');
-      if (modal) {
-        modal.classList.remove('hidden');
-        document.getElementById('modal-panic-key').value = LunamixPanic.panicKey;
-        document.getElementById('modal-panic-url').value = LunamixPanic.panicUrl;
-        if (window.LunamixTurnstile) {
-          const cfToggle = document.getElementById('modal-cf-toggle');
-          if (cfToggle) cfToggle.checked = LunamixTurnstile.isEnabled();
-          const cfKey = document.getElementById('modal-cf-sitekey');
-          if (cfKey) cfKey.value = localStorage.getItem(LunamixTurnstile.siteKeyStorage) || '';
-        }
-      }
-    }
-    function closeSettingsModal() {
-      const modal = document.getElementById('settings-modal');
-      if (modal) {
-        modal.classList.add('hidden');
-        const url = document.getElementById('modal-panic-url').value;
-        if (url) LunamixPanic.setUrl(url);
-      }
-    }
-    function savePanicKey() {
-      const k = document.getElementById('modal-panic-key').value.trim();
-      if (k) {
-        LunamixPanic.setKey(k);
-        alert('Panic key updated to: ' + k);
-      }
-    }
-
-    document.addEventListener('DOMContentLoaded', initCatalog);
+    })();
   </script>
 </body>
 </html>
