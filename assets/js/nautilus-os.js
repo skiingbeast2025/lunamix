@@ -2363,17 +2363,24 @@
   // ==========================================================================
   // 6. Bootloader & Login Screen Manager
   // ==========================================================================
+  // 6. Bootloader & Login Screen Manager
+  // ==========================================================================
   const BootManager = {
     init() {
       const bootloader = document.getElementById('bootloader');
       const login = document.getElementById('login');
       const bootBar = document.getElementById('bootBar');
-      const bootSkip = document.getElementById('bootSkipBtn');
+      const bootMsg = document.getElementById('bootMsg');
+      const countdownSec = document.getElementById('bootCountdownSec');
+      const bootStartBtn = document.getElementById('bootStartBtn');
+      const bootSkipBtn = document.getElementById('bootSkipBtn');
       const loginBtn = document.getElementById('loginBtn');
+      const optDefault = document.getElementById('bootOptDefault');
+      const optSafe = document.getElementById('bootOptSafe');
 
       if (!bootloader) return;
 
-      // Check if user disabled bootloader
+      // Check if user disabled bootloader in settings
       const skipBoot = localStorage.getItem('nautilus_skip_boot') === 'true';
       if (skipBoot) {
         bootloader.style.display = 'none';
@@ -2381,19 +2388,66 @@
         return;
       }
 
-      // Animate progress bar
-      let progress = 0;
-      const interval = setInterval(() => {
-        progress += 4;
-        if (bootBar) bootBar.style.width = `${progress}%`;
-        if (progress >= 100) {
-          clearInterval(interval);
-          finishBoot();
-        }
-      }, 50);
+      let selectedMode = 'standard';
+      let paused = false;
+      const totalDuration = 5000; // 5 seconds
+      let elapsed = 0;
+      const step = 50;
 
-      const finishBoot = () => {
-        clearInterval(interval);
+      function updateOptionUI(mode) {
+        selectedMode = mode;
+        if (mode === 'standard') {
+          optDefault?.classList.add('selected');
+          optSafe?.classList.remove('selected');
+        } else {
+          optSafe?.classList.add('selected');
+          optDefault?.classList.remove('selected');
+        }
+      }
+
+      function selectOption(mode, userInitiated = true) {
+        updateOptionUI(mode);
+        if (userInitiated) {
+          SoundFX.click();
+          paused = true;
+          if (bootMsg) {
+            const label = mode === 'standard' ? 'Standard Desktop Mode' : 'Safe Stealth Mode';
+            bootMsg.innerHTML = `<span style="color: var(--accent); font-weight: 700;">${label}</span> selected. Press <b>[ENTER]</b> or click <b>Boot Now</b> to start.`;
+          }
+        }
+      }
+
+      // Option click listeners
+      optDefault?.addEventListener('click', () => selectOption('standard', true));
+      optSafe?.addEventListener('click', () => selectOption('safe', true));
+
+      // Countdown interval
+      const timer = setInterval(() => {
+        if (!paused) {
+          elapsed += step;
+          const pct = Math.min(100, (elapsed / totalDuration) * 100);
+          if (bootBar) bootBar.style.width = `${pct}%`;
+
+          const secondsLeft = Math.max(1, Math.ceil((totalDuration - elapsed) / 1000));
+          if (countdownSec) countdownSec.textContent = secondsLeft;
+
+          if (elapsed >= totalDuration) {
+            clearInterval(timer);
+            finishBoot();
+          }
+        }
+      }, step);
+
+      function finishBoot() {
+        clearInterval(timer);
+
+        // Apply Safe Stealth Mode settings if selected
+        if (selectedMode === 'safe') {
+          if (window.LunamixCloak) window.LunamixCloak.apply('classroom');
+          SoundFX.enabled = false;
+          document.documentElement.setAttribute('data-theme', 'obsidian');
+        }
+
         bootloader.style.opacity = '0';
         bootloader.style.transition = 'opacity 0.4s ease';
         setTimeout(() => {
@@ -2403,14 +2457,31 @@
             setTimeout(() => login.style.opacity = '1', 20);
           }
         }, 400);
-      };
-
-      if (bootSkip) {
-        bootSkip.addEventListener('click', finishBoot);
       }
 
+      if (bootStartBtn) {
+        bootStartBtn.addEventListener('click', finishBoot);
+      }
+
+      if (bootSkipBtn) {
+        bootSkipBtn.addEventListener('click', () => {
+          localStorage.setItem('nautilus_skip_boot', 'true');
+          finishBoot();
+        });
+      }
+
+      // Keyboard navigation (ArrowUp, ArrowDown, Enter)
       document.addEventListener('keydown', function onBootKey(e) {
-        if (bootloader.style.display !== 'none' && (e.key === 'Enter' || e.key === ' ')) {
+        if (bootloader.style.display === 'none') return;
+
+        if (e.key === 'ArrowUp' || e.key === 'ArrowLeft') {
+          e.preventDefault();
+          selectOption('standard', true);
+        } else if (e.key === 'ArrowDown' || e.key === 'ArrowRight' || e.key === 'Tab') {
+          e.preventDefault();
+          selectOption('safe', true);
+        } else if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
           document.removeEventListener('keydown', onBootKey);
           finishBoot();
         }

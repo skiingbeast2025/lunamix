@@ -42,14 +42,14 @@
     <div class="boot-version">Web GI (Web Gaming Interface) v3.0.0</div>
 
     <div class="boot-options">
-      <div class="boot-option selected" id="bootOptDefault">
+      <div class="boot-option selected" id="bootOptDefault" data-mode="standard">
         <i class="fa-solid fa-play"></i>
         <div>
           <div style="font-weight: 700;">Lunamix OS (Standard Desktop Mode)</div>
           <div style="font-size: 0.75rem; opacity: 0.8;">Full window manager, games hub, and chat engine</div>
         </div>
       </div>
-      <div class="boot-option" id="bootOptSafe">
+      <div class="boot-option" id="bootOptSafe" data-mode="safe">
         <i class="fa-solid fa-shield-halved"></i>
         <div>
           <div style="font-weight: 700;">Safe Stealth Mode (High Anonymity)</div>
@@ -58,16 +58,19 @@
       </div>
     </div>
 
-    <div class="boot-loading active" style="margin-top: 2rem;">
+    <div class="boot-loading active" style="margin-top: 1.5rem;">
       <div class="loading-bar-container">
         <div class="loading-bar" id="bootBar"></div>
       </div>
-      <div class="boot-messages" id="bootMsg">Initializing Nautilus kernel modules and desktop window manager...</div>
+      <div class="boot-messages" id="bootMsg">Auto-booting into selected mode in <b id="bootCountdownSec">5</b>s... (Press [↑] / [↓] to choose)</div>
     </div>
 
-    <div class="boot-hint">
-      <button id="bootSkipBtn" class="guest-btn" style="border: none; background: transparent;">
-        Press [ENTER] or Click Here to Fast Boot
+    <div class="boot-hint" style="display: flex; gap: 1rem; align-items: center; justify-content: center; flex-wrap: wrap;">
+      <button id="bootStartBtn" style="padding: 0.55rem 1.25rem; background: var(--accent); color: var(--bg-primary); border-radius: 8px; font-weight: 700; font-size: 0.85rem; cursor: pointer; border: none;">
+        <i class="fa-solid fa-play" style="margin-right: 4px;"></i> Boot Now [ENTER]
+      </button>
+      <button id="bootSkipBtn" class="guest-btn" style="border: none; background: transparent; font-size: 0.82rem;">
+        Don't Show Next Time
       </button>
     </div>
   </div>
