@@ -919,522 +919,1111 @@
   }
 
   // --------------------------------------------------------------------------
-  // App: Lunamix Multi-Tier Chat (Global, Groups, DMs, PebbleHost WSS)
+  // App: Lunamix Cloud Chat (Supabase Multi-Device Auth, Groups, DMs & Realtime)
   // --------------------------------------------------------------------------
+  const SB_CHAT_URL = 'https://kpdnoxmnycrtbklvuluu.supabase.co';
+  const SB_CHAT_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImtwZG5veG1ueWNydGJrbHZ1bHV1Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3OTMyMTY3NjIsImV4cCI6MjEwODc5Mjc2Mn0.6wukT9y083X1Br89EKmB0iKgAWrhpgHcZJDxuGrYYtY';
+
+  let sbChatInstance = null;
+  function getSbClient() {
+    if (!sbChatInstance && window.supabase) {
+      sbChatInstance = window.supabase.createClient(SB_CHAT_URL, SB_CHAT_ANON_KEY, {
+        auth: {
+          persistSession: true,
+          autoRefreshToken: true
+        }
+      });
+    }
+    return sbChatInstance;
+  }
+
+  function usernameToChatEmail(username) {
+    return username.trim().toLowerCase() + '@chat.app';
+  }
+
+  function formatChatTimestamp(isoStr) {
+    if (!isoStr) return 'Just now';
+    try {
+      const d = new Date(isoStr);
+      return d.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+    } catch (e) {
+      return '';
+    }
+  }
+
   function renderChatApp(container, winObj) {
-    const savedUsername = localStorage.getItem('lunamix_chat_username') || `Student-${Math.floor(1000 + Math.random() * 9000)}`;
-    const savedServer = localStorage.getItem('lunamix_chat_server') || '';
+    const sb = getSbClient();
+    if (!sb) {
+      container.innerHTML = `
+        <div style="height: 100%; display: flex; align-items: center; justify-content: center; flex-direction: column; padding: 2rem; text-align: center;">
+          <i class="fa-solid fa-triangle-exclamation" style="font-size: 2.5rem; color: #f59e0b; margin-bottom: 1rem;"></i>
+          <h3 style="font-size: 1.1rem; font-weight: 700; margin-bottom: 0.5rem;">Supabase Client Not Loaded</h3>
+          <p style="font-size: 0.85rem; color: var(--text-secondary); max-width: 360px;">Please check your internet connection or reload the page to initialize the chat engine.</p>
+        </div>
+      `;
+      return;
+    }
+
+    // Check for active session
+    sb.auth.getSession().then(({ data: { session } }) => {
+      if (session && session.user) {
+        renderChatMainLayout(container, session.user);
+      } else {
+        renderChatAuthScreen(container);
+      }
+    }).catch(err => {
+      console.error('Error fetching chat session:', err);
+      renderChatAuthScreen(container);
+    });
+  }
+
+  // 1. Authentication View (Sign In & Account Creation)
+  function renderChatAuthScreen(container) {
+    let mode = 'signin'; // 'signin' or 'signup'
+    container.innerHTML = `
+      <div class="chat-auth-container">
+        <div class="chat-auth-card">
+          <div style="display: inline-flex; align-items: center; justify-content: center; width: 56px; height: 56px; border-radius: 16px; background: rgba(125, 211, 192, 0.15); color: var(--accent); font-size: 1.6rem; margin-bottom: 1rem; border: 1px solid rgba(125, 211, 192, 0.3);">
+            <i class="fa-solid fa-comments"></i>
+          </div>
+          <h2 style="font-size: 1.25rem; font-weight: 800; color: var(--text-primary); margin-bottom: 0.25rem;">Lunamix Chat</h2>
+          <p style="font-size: 0.82rem; color: var(--text-secondary); margin-bottom: 1.25rem;">Personal accounts synced live across all devices</p>
+
+          <div class="chat-auth-tabs">
+            <button class="chat-auth-tab active" id="authTabSignIn">Sign In</button>
+            <button class="chat-auth-tab" id="authTabSignUp">Create Account</button>
+          </div>
+
+          <div class="chat-auth-error" id="authErrorBanner"></div>
+
+          <form id="chatAuthForm">
+            <div class="chat-auth-field">
+              <label for="authUsernameInput">Username</label>
+              <input type="text" id="authUsernameInput" placeholder="e.g. shadowgamer" required autocomplete="username" spellcheck="false" />
+            </div>
+
+            <div class="chat-auth-field">
+              <label for="authPasswordInput">Password</label>
+              <input type="password" id="authPasswordInput" placeholder="••••••••" required autocomplete="current-password" minlength="6" />
+            </div>
+
+            <button type="submit" class="chat-auth-btn" id="authSubmitBtn">
+              Sign In to Chat
+            </button>
+          </form>
+
+          <p style="font-size: 0.74rem; color: var(--text-secondary); margin-top: 1.25rem; line-height: 1.4;" id="authHintText">
+            Enter your personal username and password to sync your messages, squad groups, and DMs.
+          </p>
+        </div>
+      </div>
+    `;
+
+    const tabSignIn = container.querySelector('#authTabSignIn');
+    const tabSignUp = container.querySelector('#authTabSignUp');
+    const errorBanner = container.querySelector('#authErrorBanner');
+    const form = container.querySelector('#chatAuthForm');
+    const usernameInput = container.querySelector('#authUsernameInput');
+    const passwordInput = container.querySelector('#authPasswordInput');
+    const submitBtn = container.querySelector('#authSubmitBtn');
+    const hintText = container.querySelector('#authHintText');
+
+    function setAuthMode(newMode) {
+      mode = newMode;
+      errorBanner.style.display = 'none';
+      if (mode === 'signin') {
+        tabSignIn.classList.add('active');
+        tabSignUp.classList.remove('active');
+        submitBtn.textContent = 'Sign In to Chat';
+        hintText.textContent = 'Enter your personal username and password to sync your messages, squad groups, and DMs.';
+      } else {
+        tabSignUp.classList.add('active');
+        tabSignIn.classList.remove('active');
+        submitBtn.textContent = 'Create Personal Account';
+        hintText.textContent = 'Pick a unique username (letters, numbers, underscores) and password (min 6 characters).';
+      }
+    }
+
+    tabSignIn.addEventListener('click', () => setAuthMode('signin'));
+    tabSignUp.addEventListener('click', () => setAuthMode('signup'));
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const username = usernameInput.value.trim();
+      const password = passwordInput.value;
+
+      if (!username || username.length < 3) {
+        errorBanner.textContent = 'Username must be at least 3 characters.';
+        errorBanner.style.display = 'block';
+        return;
+      }
+      if (!password || password.length < 6) {
+        errorBanner.textContent = 'Password must be at least 6 characters.';
+        errorBanner.style.display = 'block';
+        return;
+      }
+
+      submitBtn.disabled = true;
+      submitBtn.textContent = mode === 'signin' ? 'Signing in...' : 'Creating account...';
+      errorBanner.style.display = 'none';
+
+      const sb = getSbClient();
+      try {
+        if (mode === 'signup') {
+          const { data, error } = await sb.auth.signUp({
+            email: usernameToChatEmail(username),
+            password: password,
+            options: { data: { username: username } }
+          });
+          if (error) throw error;
+
+          if (!data.session) {
+            if (data.user && data.user.identities && data.user.identities.length === 0) {
+              throw new Error('That username is already taken. Please choose another.');
+            }
+          }
+
+          // Ensure profile row
+          if (data.user) {
+            await sb.from('profiles').upsert({ id: data.user.id, username: username });
+          }
+
+          localStorage.setItem('lunamix_chat_username', username);
+          renderChatMainLayout(container, data.user || { id: data.session?.user?.id, username });
+        } else {
+          const { data, error } = await sb.auth.signInWithPassword({
+            email: usernameToChatEmail(username),
+            password: password
+          });
+          if (error) {
+            if (error.message.includes('Invalid login credentials')) {
+              throw new Error('Invalid username or password. Check your spelling or click Create Account.');
+            }
+            throw error;
+          }
+
+          localStorage.setItem('lunamix_chat_username', username);
+          renderChatMainLayout(container, data.user);
+        }
+      } catch (err) {
+        errorBanner.textContent = err.message || 'Authentication error. Please try again.';
+        errorBanner.style.display = 'block';
+        submitBtn.disabled = false;
+        submitBtn.textContent = mode === 'signin' ? 'Sign In to Chat' : 'Create Personal Account';
+      }
+    });
+  }
+
+  // 2. Main Chat Interface
+  async function renderChatMainLayout(container, authUser) {
+    const sb = getSbClient();
+    const myId = authUser.id;
+    let myUsername = authUser.user_metadata?.username;
+
+    // Load or resolve profile username
+    if (!myUsername) {
+      const { data: prof } = await sb.from('profiles').select('username').eq('id', myId).maybeSingle();
+      if (prof && prof.username) {
+        myUsername = prof.username;
+      } else {
+        myUsername = (authUser.email || 'student@chat.app').split('@')[0];
+        await sb.from('profiles').upsert({ id: myId, username: myUsername });
+      }
+    }
+    localStorage.setItem('lunamix_chat_username', myUsername);
+
+    // Initial State
+    let conversations = [];
+    let activeConv = null;
+    let messages = [];
+    let registeredProfiles = [];
+    let realtimeChannel = null;
 
     container.innerHTML = `
       <div class="chat-app-layout">
-        <!-- 1. Left Channel & Navigation Sidebar -->
+        <!-- 1. Left Channels & Navigation Sidebar -->
         <div class="chat-sidebar">
           <div class="chat-sidebar-header">
-            <div style="display: flex; align-items: center; gap: 0.5rem;">
-              <div class="chat-msg-avatar" style="width: 28px; height: 28px; font-size: 0.75rem;">
-                ${savedUsername.substring(0, 2).toUpperCase()}
+            <div style="display: flex; align-items: center; gap: 0.5rem; overflow: hidden;">
+              <div class="chat-msg-avatar" style="width: 30px; height: 30px; font-size: 0.76rem;" id="chatSelfAvatar">
+                ${escapeHtml(myUsername.substring(0, 2).toUpperCase())}
               </div>
-              <div style="font-size: 0.82rem; font-weight: 700; max-width: 110px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;" id="chatSelfUser">
-                ${savedUsername}
+              <div style="display: flex; flex-direction: column; overflow: hidden;">
+                <span style="font-size: 0.82rem; font-weight: 700; color: var(--text-primary); text-overflow: ellipsis; overflow: hidden; white-space: nowrap;">
+                  @${escapeHtml(myUsername)}
+                </span>
+                <span style="font-size: 0.68rem; color: #4ade80;">Online</span>
               </div>
             </div>
-            <button id="chatConfigGear" title="Chat Server Settings" style="color: var(--text-secondary); padding: 4px; border-radius: 6px;">
-              <i class="fa-solid fa-gear"></i>
-            </button>
+            <div style="display: flex; gap: 4px; align-items: center;">
+              <button id="chatNewConvBtn" title="New Chat or Squad" class="chat-action-btn" style="padding: 4px 8px; font-size: 0.82rem;">
+                <i class="fa-solid fa-plus"></i>
+              </button>
+              <button id="chatSignOutBtn" title="Sign Out" class="chat-action-btn" style="padding: 4px 8px; font-size: 0.82rem; color: #f87171;">
+                <i class="fa-solid fa-arrow-right-from-bracket"></i>
+              </button>
+            </div>
           </div>
 
-          <div class="chat-sidebar-section">
-            <span>Public Channels</span>
-          </div>
-          <div class="chat-channel-item active" data-room="global" id="roomGlobalItem">
-            <i class="fa-solid fa-globe" style="color: var(--accent);"></i>
-            <span>#global</span>
-          </div>
-
+          <!-- Section: Groups & Squads -->
           <div class="chat-sidebar-section">
             <span>Squad Groups</span>
-            <button id="chatCreateGroupBtn" title="Create Group" style="color: var(--accent); font-size: 0.85rem; padding: 2px 4px;">
+            <button id="chatPlusGroupBtn" title="Create Squad Group" style="color: var(--accent); font-size: 0.82rem; padding: 2px 4px;">
               <i class="fa-solid fa-plus"></i>
             </button>
           </div>
-          <div id="chatGroupsList" style="display: flex; flex-direction: column; gap: 2px; padding: 0 0.4rem;">
-            <!-- Group Channels populated dynamically -->
+          <div id="chatGroupsList" class="chat-channels-list" style="max-height: 40%; flex: none;">
+            <div style="padding: 0.5rem 0.75rem; font-size: 0.76rem; color: var(--text-secondary);">Loading squads...</div>
           </div>
 
-          <div class="chat-sidebar-section" style="margin-top: 0.5rem;">
+          <!-- Section: Direct Messages -->
+          <div class="chat-sidebar-section" style="margin-top: 0.4rem;">
             <span>Direct Messages</span>
+            <button id="chatPlusDmBtn" title="Start Direct Message" style="color: var(--accent); font-size: 0.82rem; padding: 2px 4px;">
+              <i class="fa-solid fa-user-plus"></i>
+            </button>
           </div>
-          <div id="chatDmsList" style="display: flex; flex-direction: column; gap: 2px; padding: 0 0.4rem;">
-            <!-- Direct message users dynamically populated -->
+          <div id="chatDmsList" class="chat-channels-list" style="flex: 1;">
+            <div style="padding: 0.5rem 0.75rem; font-size: 0.76rem; color: var(--text-secondary);">Loading messages...</div>
           </div>
 
-          <div style="margin-top: auto; padding: 0.75rem; border-top: 1px solid rgba(255,255,255,0.06); font-size: 0.72rem; display: flex; align-items: center; gap: 0.4rem;">
-            <div class="status-dot" id="chatConnIndicator" style="background: #eab308; box-shadow: 0 0 6px #eab308;"></div>
-            <span id="chatConnLabel" style="color: var(--text-secondary);">Local Lobby</span>
+          <!-- Connection Footer -->
+          <div style="margin-top: auto; padding: 0.75rem; border-top: 1px solid rgba(255,255,255,0.06); font-size: 0.72rem; display: flex; align-items: center; justify-content: space-between;">
+            <div style="display: flex; align-items: center; gap: 0.4rem;">
+              <div class="status-dot"></div>
+              <span style="color: var(--text-secondary);">Cloud Synced</span>
+            </div>
+            <span id="chatUsersCountBadge" style="color: var(--accent); font-weight: 600;">Live</span>
           </div>
         </div>
 
         <!-- 2. Main Chat Area -->
         <div class="chat-main-area">
           <div class="chat-main-header">
-            <div style="display: flex; align-items: center; gap: 0.6rem;">
-              <i class="fa-solid fa-hashtag" id="chatActiveRoomIcon" style="color: var(--accent);"></i>
-              <span style="font-weight: 700; font-size: 0.92rem;" id="chatActiveRoomTitle">global</span>
-              <span style="font-size: 0.75rem; color: var(--text-secondary); margin-left: 0.5rem;" id="chatActiveRoomDesc">Public school-wide channel</span>
+            <div style="display: flex; align-items: center; gap: 0.6rem; overflow: hidden;" id="chatHeaderTitleArea">
+              <i class="fa-solid fa-hashtag" id="chatHeaderIcon" style="color: var(--accent);"></i>
+              <span style="font-weight: 700; font-size: 0.94rem;" id="chatHeaderTitle">Select a Chat</span>
+              <span style="font-size: 0.74rem; color: var(--text-secondary); margin-left: 0.4rem;" id="chatHeaderDesc"></span>
             </div>
-            <div style="display: flex; align-items: center; gap: 0.6rem;">
-              <button id="chatToggleRosterBtn" title="Toggle Members" style="color: var(--text-secondary); font-size: 0.9rem;">
-                <i class="fa-solid fa-users"></i>
-              </button>
+            <div style="display: flex; align-items: center; gap: 0.5rem;" id="chatHeaderActionsArea">
+              <!-- Dynamically populated: Delete Group (for creators), Manage Group, Leave Group -->
             </div>
           </div>
 
           <div class="chat-messages-container" id="chatMessages">
-            <div style="text-align: center; padding: 2rem; color: var(--text-secondary); font-size: 0.85rem;">
-              <i class="fa-solid fa-comments" style="font-size: 2rem; color: var(--accent); margin-bottom: 0.75rem; display: block;"></i>
-              <div style="font-weight: 700; color: var(--text-primary); margin-bottom: 0.25rem;">Welcome to Lunamix Chat!</div>
-              <div>Connected to multi-channel chat room. Respect others and play fair!</div>
+            <div style="text-align: center; padding: 3rem 1.5rem; color: var(--text-secondary); font-size: 0.86rem;">
+              <i class="fa-solid fa-comments" style="font-size: 2.2rem; color: var(--accent); margin-bottom: 0.75rem; display: block; opacity: 0.7;"></i>
+              <div style="font-weight: 700; color: var(--text-primary); margin-bottom: 0.25rem;">Welcome to Lunamix Chat, @${escapeHtml(myUsername)}!</div>
+              <div>Select a squad group, direct message a friend, or create your own group!</div>
             </div>
           </div>
 
-          <!-- Typing indicator -->
-          <div id="chatTypingNotice" style="height: 18px; padding: 0 1.25rem; font-size: 0.72rem; color: var(--accent); display: none;"></div>
-
-          <form class="chat-composer" id="chatForm">
-            <input type="text" id="chatInput" placeholder="Message #global... (Press Enter to send)" autocomplete="off" maxlength="450" />
-            <button type="submit" class="chat-send-btn" title="Send Message">
+          <form class="chat-composer" id="chatComposerForm">
+            <input type="text" id="chatMessageInput" placeholder="Select or start a chat to send messages..." autocomplete="off" maxlength="1000" disabled />
+            <button type="submit" class="chat-send-btn" id="chatSendBtn" title="Send Message" disabled>
               <i class="fa-solid fa-paper-plane"></i>
             </button>
           </form>
         </div>
-
-        <!-- 3. Real-Time Online Roster Sidebar -->
-        <div class="chat-roster-sidebar" id="chatRosterSidebar">
-          <div style="font-size: 0.72rem; font-weight: 700; color: var(--text-secondary); text-transform: uppercase; margin-bottom: 0.6rem;">
-            Online Students (<span id="chatOnlineCount">1</span>)
-          </div>
-          <div id="chatRosterList" style="display: flex; flex-direction: column; gap: 2px;">
-            <!-- Roster populated dynamically -->
-          </div>
-        </div>
       </div>
 
-      <!-- In-App Server Config Modal -->
-      <div id="chatConfigModal" style="display: none; position: absolute; inset: 0; background: rgba(0,0,0,0.75); backdrop-filter: blur(10px); z-index: 50; align-items: center; justify-content: center; padding: 1.5rem;">
-        <div style="background: #121826; border: 1px solid var(--border); border-radius: 14px; width: min(92vw, 420px); padding: 1.5rem; box-shadow: var(--shadow-heavy);">
-          <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 1rem;">
-            <h3 style="font-size: 1rem; font-weight: 700; color: var(--text-primary);">PebbleHost Chat Settings</h3>
-            <button id="closeChatConfigBtn" style="color: var(--text-secondary);"><i class="fa-solid fa-xmark"></i></button>
-          </div>
-          <p style="font-size: 0.8rem; color: var(--text-secondary); margin-bottom: 1rem; line-height: 1.4;">
-            Connect directly to your PebbleHost server terminal WebSocket endpoint or custom Cloudflare tunnel (e.g. <code style="color: var(--accent);">wss://chat.yourdomain.xyz:25580</code>).
-          </p>
-          <div style="margin-bottom: 1rem;">
-            <label style="display: block; font-size: 0.76rem; color: var(--text-secondary); margin-bottom: 0.35rem;">Chat Username</label>
-            <input type="text" id="cfgChatUsername" value="${savedUsername}" style="width: 100%; padding: 0.6rem 0.8rem; background: #0a0e1a; border: 1px solid rgba(255,255,255,0.15); border-radius: 8px; color: var(--text-primary); font-size: 0.88rem;" />
-          </div>
-          <div style="margin-bottom: 1.25rem;">
-            <label style="display: block; font-size: 0.76rem; color: var(--text-secondary); margin-bottom: 0.35rem;">PebbleHost WSS URL</label>
-            <input type="text" id="cfgChatWssUrl" value="${savedServer}" placeholder="wss://your-tunnel-domain:25580" style="width: 100%; padding: 0.6rem 0.8rem; background: #0a0e1a; border: 1px solid rgba(255,255,255,0.15); border-radius: 8px; color: var(--text-primary); font-size: 0.88rem;" />
-          </div>
-          <div style="display: flex; justify-content: flex-end; gap: 0.6rem;">
-            <button id="chatConfigSaveBtn" style="padding: 0.6rem 1.2rem; background: var(--accent); color: var(--bg-primary); font-weight: 700; border-radius: 8px; font-size: 0.85rem;">
-              Save & Reconnect
-            </button>
-          </div>
-        </div>
-      </div>
+      <!-- Modal Container (for New Chat, Manage Group) -->
+      <div id="chatModalRoot" style="display: none;"></div>
     `;
 
-    // Initialize Chat Client Logic
-    initChatLogic(container);
-  }
-
-  function initChatLogic(container) {
-    let ws = null;
-    let myId = 'u_' + Math.random().toString(36).substring(2, 8);
-    let myUsername = localStorage.getItem('lunamix_chat_username') || `Student-${Math.floor(1000 + Math.random() * 9000)}`;
-    let serverUrl = localStorage.getItem('lunamix_chat_server') || '';
-    let currentTarget = { type: 'room', id: 'global', name: 'global' };
-    const unreadDms = {};
-    const localStoreDms = {};
-    const localStoreRooms = { global: [] };
-
-    const messagesEl = container.querySelector('#chatMessages');
-    const inputEl = container.querySelector('#chatInput');
-    const formEl = container.querySelector('#chatForm');
-    const rosterListEl = container.querySelector('#chatRosterList');
-    const onlineCountEl = container.querySelector('#chatOnlineCount');
     const groupsListEl = container.querySelector('#chatGroupsList');
     const dmsListEl = container.querySelector('#chatDmsList');
-    const connDot = container.querySelector('#chatConnIndicator');
-    const connLabel = container.querySelector('#chatConnLabel');
-    const roomTitleEl = container.querySelector('#chatActiveRoomTitle');
-    const roomDescEl = container.querySelector('#chatActiveRoomDesc');
-    const roomIconEl = container.querySelector('#chatActiveRoomIcon');
+    const messagesEl = container.querySelector('#chatMessages');
+    const inputEl = container.querySelector('#chatMessageInput');
+    const sendBtn = container.querySelector('#chatSendBtn');
+    const formEl = container.querySelector('#chatComposerForm');
+    const headerIconEl = container.querySelector('#chatHeaderIcon');
+    const headerTitleEl = container.querySelector('#chatHeaderTitle');
+    const headerDescEl = container.querySelector('#chatHeaderDesc');
+    const headerActionsEl = container.querySelector('#chatHeaderActionsArea');
+    const modalRoot = container.querySelector('#chatModalRoot');
+    const usersCountBadge = container.querySelector('#chatUsersCountBadge');
 
-    // UI Configuration Modal
-    const configModal = container.querySelector('#chatConfigModal');
-    const gearBtn = container.querySelector('#chatConfigGear');
-    const closeCfgBtn = container.querySelector('#closeChatConfigBtn');
-    const saveCfgBtn = container.querySelector('#chatConfigSaveBtn');
-    const cfgUsername = container.querySelector('#cfgChatUsername');
-    const cfgWss = container.querySelector('#cfgChatWssUrl');
+    // Sign Out
+    container.querySelector('#chatSignOutBtn').addEventListener('click', async () => {
+      if (confirm('Sign out of your Lunamix Chat account?')) {
+        if (realtimeChannel) sb.removeChannel(realtimeChannel);
+        await sb.auth.signOut();
+        renderChatAuthScreen(container);
+      }
+    });
 
-    if (gearBtn) gearBtn.addEventListener('click', () => configModal.style.display = 'flex');
-    if (closeCfgBtn) closeCfgBtn.addEventListener('click', () => configModal.style.display = 'none');
-    if (saveCfgBtn) {
-      saveCfgBtn.addEventListener('click', () => {
-        myUsername = cfgUsername.value.trim() || myUsername;
-        serverUrl = cfgWss.value.trim();
-        localStorage.setItem('lunamix_chat_username', myUsername);
-        localStorage.setItem('lunamix_chat_server', serverUrl);
-        container.querySelector('#chatSelfUser').textContent = myUsername;
-        configModal.style.display = 'none';
-        connectWs();
-      });
-    }
-
-    // Toggle Roster
-    const toggleRosterBtn = container.querySelector('#chatToggleRosterBtn');
-    const rosterSidebar = container.querySelector('#chatRosterSidebar');
-    if (toggleRosterBtn && rosterSidebar) {
-      toggleRosterBtn.addEventListener('click', () => {
-        rosterSidebar.style.display = (rosterSidebar.style.display === 'none') ? 'block' : 'none';
-      });
-    }
-
-    // Create Group Channel Button
-    const createGroupBtn = container.querySelector('#chatCreateGroupBtn');
-    if (createGroupBtn) {
-      createGroupBtn.addEventListener('click', () => {
-        const name = prompt('Enter Group Name (e.g. Squad-A):');
-        if (!name) return;
-        const pin = prompt('Optional 4-digit PIN for private room (leave blank for open):') || '';
-        if (ws && ws.readyState === WebSocket.OPEN) {
-          ws.send(JSON.stringify({ type: 'create_group', name, pin }));
-        } else {
-          // Local fallback simulation
-          const gId = 'g_' + Math.random().toString(36).substring(2, 7);
-          addGroupToSidebar(gId, name, !!pin);
-          switchRoom('room', gId, name);
+    // Load registered profiles
+    async function loadRegisteredProfiles() {
+      try {
+        const { data } = await sb.from('profiles').select('id, username, created_at').order('username');
+        if (data) {
+          registeredProfiles = data;
+          usersCountBadge.textContent = `${data.length} Registered`;
         }
-      });
-    }
-
-    // Switch between rooms or DMs
-    function switchRoom(type, id, name) {
-      currentTarget = { type, id, name };
-      container.querySelectorAll('.chat-channel-item').forEach(i => i.classList.remove('active'));
-
-      if (type === 'room') {
-        roomIconEl.className = 'fa-solid fa-hashtag';
-        roomTitleEl.textContent = name;
-        roomDescEl.textContent = id === 'global' ? 'Public school-wide channel' : 'Group room channel';
-        inputEl.placeholder = `Message #${name}... (Press Enter to send)`;
-
-        const item = container.querySelector(`[data-room="${id}"]`);
-        if (item) item.classList.add('active');
-
-        if (ws && ws.readyState === WebSocket.OPEN) {
-          ws.send(JSON.stringify({ type: 'switch_room', roomId: id }));
-        } else {
-          renderMessages(localStoreRooms[id] || []);
-        }
-      } else if (type === 'dm') {
-        roomIconEl.className = 'fa-solid fa-lock';
-        roomTitleEl.textContent = `@${name}`;
-        roomDescEl.textContent = 'Private 1-on-1 Direct Message';
-        inputEl.placeholder = `Direct message @${name}...`;
-
-        // Clear unread badge
-        delete unreadDms[id];
-        renderDmsList();
-
-        const item = container.querySelector(`[data-dm="${id}"]`);
-        if (item) item.classList.add('active');
-
-        if (ws && ws.readyState === WebSocket.OPEN) {
-          ws.send(JSON.stringify({ type: 'get_dm_history', targetUserId: id }));
-        } else {
-          renderMessages(localStoreDms[id] || []);
-        }
+      } catch (e) {
+        console.error('Error loading profiles:', e);
       }
     }
 
-    const globalItem = container.querySelector('#roomGlobalItem');
-    if (globalItem) {
-      globalItem.addEventListener('click', () => switchRoom('room', 'global', 'global'));
-    }
+    // Load Conversations
+    async function loadConversationsList() {
+      try {
+        const { data, error } = await sb.rpc('list_conversations');
+        if (error) throw error;
+        conversations = data || [];
+        renderSidebarChannels();
 
-    function addGroupToSidebar(groupId, name, hasPin) {
-      let existing = container.querySelector(`[data-room="${groupId}"]`);
-      if (existing) return;
-
-      const div = document.createElement('div');
-      div.className = 'chat-channel-item';
-      div.setAttribute('data-room', groupId);
-      div.innerHTML = `
-        <i class="fa-solid ${hasPin ? 'fa-lock' : 'fa-users'}" style="color: var(--accent); font-size: 0.8rem;"></i>
-        <span style="overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">#${name}</span>
-      `;
-      div.addEventListener('click', () => {
-        if (hasPin) {
-          const pin = prompt(`Enter PIN for #${name}:`);
-          if (ws && ws.readyState === WebSocket.OPEN) {
-            ws.send(JSON.stringify({ type: 'switch_room', roomId: groupId, pin }));
+        // If active conversation still exists in updated list, update its reference
+        if (activeConv) {
+          const fresh = conversations.find(c => c.id === activeConv.id);
+          if (fresh) {
+            activeConv = fresh;
+            updateHeaderUI();
+          } else {
+            // Active conversation was deleted or user left
+            activeConv = conversations.length ? conversations[0] : null;
+            if (activeConv) selectConversation(activeConv.id);
+            else renderEmptyChatPlaceholder();
           }
+        } else if (conversations.length > 0) {
+          selectConversation(conversations[0].id);
+        } else {
+          renderEmptyChatPlaceholder();
         }
-        switchRoom('room', groupId, name);
-      });
-      groupsListEl.appendChild(div);
+      } catch (err) {
+        console.error('Error loading conversations:', err);
+      }
     }
 
-    function renderDmsList() {
-      dmsListEl.innerHTML = '';
-      Object.keys(localStoreDms).forEach(targetId => {
-        const count = unreadDms[targetId] || 0;
-        const item = document.createElement('div');
-        item.className = `chat-channel-item ${currentTarget.type === 'dm' && currentTarget.id === targetId ? 'active' : ''}`;
-        item.setAttribute('data-dm', targetId);
-        item.innerHTML = `
-          <i class="fa-solid fa-user" style="font-size: 0.78rem;"></i>
-          <span style="overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">${targetId}</span>
-          ${count > 0 ? `<span class="chat-badge">${count}</span>` : ''}
-        `;
-        item.addEventListener('click', () => switchRoom('dm', targetId, targetId));
-        dmsListEl.appendChild(item);
-      });
-    }
+    // Render Sidebar Channels (Groups & DMs)
+    function renderSidebarChannels() {
+      const groups = conversations.filter(c => c.kind === 'group');
+      const dms = conversations.filter(c => c.kind === 'dm');
 
-    function appendMessage(msg) {
-      const isMe = msg.senderId === myId || msg.username === myUsername;
-      const row = document.createElement('div');
-      row.className = 'chat-message-row';
-      const timeStr = msg.timestamp ? new Date(msg.timestamp).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }) : 'now';
-      const initials = (msg.username || 'U').substring(0, 2).toUpperCase();
-
-      row.innerHTML = `
-        <div class="chat-msg-avatar" style="background: ${msg.color || 'var(--accent)'};">
-          ${initials}
-        </div>
-        <div class="chat-msg-body">
-          <div class="chat-msg-meta">
-            <span class="chat-msg-author" style="color: ${msg.color || 'var(--text-primary)'};">${escapeHtml(msg.username || 'Student')}</span>
-            <span class="chat-msg-time">${timeStr}</span>
+      // 1. Render Groups
+      groupsListEl.innerHTML = '';
+      if (groups.length === 0) {
+        groupsListEl.innerHTML = `
+          <div style="padding: 0.5rem 0.75rem; font-size: 0.75rem; color: var(--text-secondary);">
+            No squads yet. Click + to create one!
           </div>
-          <div class="chat-msg-text">${escapeHtml(msg.text)}</div>
+        `;
+      } else {
+        groups.forEach(g => {
+          const isCreator = g.created_by === myId;
+          const isActive = activeConv && activeConv.id === g.id;
+          const item = document.createElement('div');
+          item.className = `chat-channel-item ${isActive ? 'active' : ''}`;
+          item.innerHTML = `
+            <i class="fa-solid fa-users" style="color: var(--accent); font-size: 0.8rem;"></i>
+            <span style="flex: 1; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">#${escapeHtml(g.name || 'Unnamed Squad')}</span>
+            ${isCreator ? `<span class="chat-roster-badge" title="You are the creator of this squad">Owner</span>` : ''}
+          `;
+          item.addEventListener('click', () => selectConversation(g.id));
+          groupsListEl.appendChild(item);
+        });
+      }
+
+      // 2. Render DMs
+      dmsListEl.innerHTML = '';
+      if (dms.length === 0) {
+        dmsListEl.innerHTML = `
+          <div style="padding: 0.5rem 0.75rem; font-size: 0.75rem; color: var(--text-secondary);">
+            No DMs yet. Click + to message someone!
+          </div>
+        `;
+      } else {
+        dms.forEach(d => {
+          const other = (d.members || []).find(m => m.id !== myId);
+          const otherName = other ? other.username : 'Friend';
+          const isActive = activeConv && activeConv.id === d.id;
+          const item = document.createElement('div');
+          item.className = `chat-channel-item ${isActive ? 'active' : ''}`;
+          item.innerHTML = `
+            <i class="fa-solid fa-user" style="font-size: 0.78rem;"></i>
+            <span style="flex: 1; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">@${escapeHtml(otherName)}</span>
+          `;
+          item.addEventListener('click', () => selectConversation(d.id));
+          dmsListEl.appendChild(item);
+        });
+      }
+    }
+
+    // Select Conversation
+    async function selectConversation(convId) {
+      const found = conversations.find(c => c.id === convId);
+      if (!found) return;
+      activeConv = found;
+      renderSidebarChannels();
+      updateHeaderUI();
+
+      inputEl.disabled = false;
+      sendBtn.disabled = false;
+      const targetName = activeConv.kind === 'group'
+        ? `#${activeConv.name || 'squad'}`
+        : `@${((activeConv.members || []).find(m => m.id !== myId)?.username || 'friend')}`;
+      inputEl.placeholder = `Message ${targetName}... (Press Enter to send)`;
+      inputEl.focus();
+
+      // Load Messages
+      messagesEl.innerHTML = `
+        <div style="text-align: center; padding: 2rem; color: var(--text-secondary); font-size: 0.85rem;">
+          <i class="fa-solid fa-spinner fa-spin" style="font-size: 1.5rem; color: var(--accent); margin-bottom: 0.5rem; display: block;"></i>
+          Loading conversation messages...
         </div>
       `;
-      messagesEl.appendChild(row);
-      messagesEl.scrollTop = messagesEl.scrollHeight;
 
-      if (!isMe) SoundFX.notify();
+      try {
+        const { data, error } = await sb
+          .from('messages')
+          .select('*')
+          .eq('conversation_id', convId)
+          .order('created_at', { ascending: true })
+          .limit(300);
+
+        if (error) throw error;
+        messages = data || [];
+        renderMessagesList();
+      } catch (err) {
+        console.error('Error fetching messages:', err);
+        messagesEl.innerHTML = `
+          <div style="text-align: center; padding: 2rem; color: #f87171; font-size: 0.85rem;">
+            Failed to load messages: ${escapeHtml(err.message)}
+          </div>
+        `;
+      }
     }
 
-    function renderMessages(list) {
+    // Update Header UI for Active Conversation
+    function updateHeaderUI() {
+      if (!activeConv) {
+        renderEmptyChatPlaceholder();
+        return;
+      }
+
+      headerActionsEl.innerHTML = '';
+      if (activeConv.kind === 'group') {
+        const isCreator = activeConv.created_by === myId;
+        const memberCount = (activeConv.members || []).length;
+        headerIconEl.className = 'fa-solid fa-users';
+        headerTitleEl.textContent = `#${activeConv.name || 'squad'}`;
+        headerDescEl.textContent = `${memberCount} ${memberCount === 1 ? 'member' : 'members'}`;
+
+        // Manage Members Button
+        const manageBtn = document.createElement('button');
+        manageBtn.className = 'chat-action-btn';
+        manageBtn.innerHTML = '<i class="fa-solid fa-user-group"></i> Manage';
+        manageBtn.title = 'View members or invite people';
+        manageBtn.addEventListener('click', () => openManageGroupModal(activeConv));
+        headerActionsEl.appendChild(manageBtn);
+
+        // Creator Delete Group Button
+        if (isCreator) {
+          const deleteBtn = document.createElement('button');
+          deleteBtn.className = 'chat-danger-btn';
+          deleteBtn.innerHTML = '<i class="fa-solid fa-trash-can"></i> Delete Group';
+          deleteBtn.title = 'Permanently delete this group chat and all its messages';
+          deleteBtn.addEventListener('click', () => deleteGroupChat(activeConv));
+          headerActionsEl.appendChild(deleteBtn);
+        } else {
+          // Leave Group Button
+          const leaveBtn = document.createElement('button');
+          leaveBtn.className = 'chat-action-btn';
+          leaveBtn.innerHTML = '<i class="fa-solid fa-door-open"></i> Leave';
+          leaveBtn.title = 'Leave this squad group';
+          leaveBtn.addEventListener('click', () => leaveGroupChat(activeConv));
+          headerActionsEl.appendChild(leaveBtn);
+        }
+      } else {
+        const other = (activeConv.members || []).find(m => m.id !== myId);
+        const otherName = other ? other.username : 'Friend';
+        headerIconEl.className = 'fa-solid fa-user';
+        headerTitleEl.textContent = `@${otherName}`;
+        headerDescEl.textContent = 'Direct Message';
+      }
+    }
+
+    function renderEmptyChatPlaceholder() {
+      headerIconEl.className = 'fa-solid fa-hashtag';
+      headerTitleEl.textContent = 'No Chat Selected';
+      headerDescEl.textContent = '';
+      headerActionsEl.innerHTML = '';
+      inputEl.disabled = true;
+      sendBtn.disabled = true;
+      inputEl.placeholder = 'Select or start a chat to send messages...';
+      messagesEl.innerHTML = `
+        <div style="text-align: center; padding: 3rem 1.5rem; color: var(--text-secondary); font-size: 0.86rem;">
+          <i class="fa-solid fa-comments" style="font-size: 2.2rem; color: var(--accent); margin-bottom: 0.75rem; display: block; opacity: 0.7;"></i>
+          <div style="font-weight: 700; color: var(--text-primary); margin-bottom: 0.25rem;">No conversation selected</div>
+          <div>Choose a squad group or DM from the left sidebar, or create a new one!</div>
+        </div>
+      `;
+    }
+
+    // Render Messages List
+    function renderMessagesList() {
       messagesEl.innerHTML = '';
-      if (!list || list.length === 0) {
+      if (messages.length === 0) {
         messagesEl.innerHTML = `
-          <div style="text-align: center; padding: 2.5rem; color: var(--text-secondary); font-size: 0.85rem;">
+          <div style="text-align: center; padding: 3rem 1.5rem; color: var(--text-secondary); font-size: 0.85rem;">
             <i class="fa-solid fa-message" style="font-size: 1.8rem; color: var(--accent); opacity: 0.5; margin-bottom: 0.5rem; display: block;"></i>
-            No messages yet. Say hi!
+            No messages here yet. Be the first to say hi!
           </div>
         `;
         return;
       }
-      list.forEach(m => appendMessage(m));
+
+      messages.forEach(msg => appendMessageDOM(msg));
+      messagesEl.scrollTop = messagesEl.scrollHeight;
     }
 
-    // Submit Message
-    formEl.addEventListener('submit', (e) => {
+    // Append Message DOM
+    function appendMessageDOM(msg) {
+      const isMine = msg.sender_id === myId;
+      const isGroup = activeConv && activeConv.kind === 'group';
+      const isGroupOwner = isGroup && activeConv.created_by === myId;
+      const canDelete = isMine || isGroupOwner;
+
+      // Find author name
+      let authorName = isMine ? myUsername : 'Student';
+      if (!isMine && activeConv && activeConv.members) {
+        const mem = activeConv.members.find(m => m.id === msg.sender_id);
+        if (mem && mem.username) authorName = mem.username;
+        else {
+          const prof = registeredProfiles.find(p => p.id === msg.sender_id);
+          if (prof) authorName = prof.username;
+        }
+      }
+
+      const row = document.createElement('div');
+      row.className = 'chat-message-row';
+      row.setAttribute('data-msg-id', msg.id);
+
+      const timeStr = formatChatTimestamp(msg.created_at);
+      const initials = (authorName || 'U').substring(0, 2).toUpperCase();
+
+      row.innerHTML = `
+        <div class="chat-msg-avatar" style="${isMine ? 'background: var(--accent); color: var(--bg-primary);' : 'background: rgba(255,255,255,0.12); color: var(--text-primary);'}">
+          ${escapeHtml(initials)}
+        </div>
+        <div class="chat-msg-body">
+          <div class="chat-msg-meta">
+            <span class="chat-msg-author" style="${isMine ? 'color: var(--accent);' : 'color: var(--text-primary);'}">
+              ${escapeHtml(authorName)} ${isMine ? '<span style="font-size: 0.72rem; opacity: 0.7;">(you)</span>' : ''}
+            </span>
+            <span class="chat-msg-time">${escapeHtml(timeStr)}</span>
+          </div>
+          <div class="chat-msg-text">${escapeHtml(msg.body || '')}</div>
+        </div>
+        ${canDelete ? `
+          <button class="chat-msg-del-btn" title="Delete message">
+            <i class="fa-solid fa-trash-can"></i>
+          </button>
+        ` : ''}
+      `;
+
+      if (canDelete) {
+        const delBtn = row.querySelector('.chat-msg-del-btn');
+        delBtn?.addEventListener('click', async (e) => {
+          e.stopPropagation();
+          if (confirm('Delete this message?')) {
+            const { error } = await sb.from('messages').delete().eq('id', msg.id);
+            if (error) alert('Error deleting message: ' + error.message);
+            else {
+              messages = messages.filter(m => m.id !== msg.id);
+              row.remove();
+            }
+          }
+        });
+      }
+
+      messagesEl.appendChild(row);
+      messagesEl.scrollTop = messagesEl.scrollHeight;
+    }
+
+    // Send Message
+    formEl.addEventListener('submit', async (e) => {
       e.preventDefault();
+      if (!activeConv) return;
       const text = inputEl.value.trim();
       if (!text) return;
       inputEl.value = '';
 
-      if (ws && ws.readyState === WebSocket.OPEN) {
-        if (currentTarget.type === 'room') {
-          ws.send(JSON.stringify({ type: 'room_message', roomId: currentTarget.id, text }));
-        } else {
-          ws.send(JSON.stringify({ type: 'dm_message', recipientId: currentTarget.id, text }));
-        }
-      } else {
-        // Fallback local message handling
-        const fakeMsg = {
-          id: Date.now(),
-          senderId: myId,
-          username: myUsername,
-          color: 'var(--accent)',
-          text: text,
-          timestamp: Date.now()
-        };
-        if (currentTarget.type === 'room') {
-          if (!localStoreRooms[currentTarget.id]) localStoreRooms[currentTarget.id] = [];
-          localStoreRooms[currentTarget.id].push(fakeMsg);
-        } else {
-          if (!localStoreDms[currentTarget.id]) localStoreDms[currentTarget.id] = [];
-          localStoreDms[currentTarget.id].push(fakeMsg);
-        }
-        appendMessage(fakeMsg);
+      try {
+        const { data, error } = await sb.from('messages').insert({
+          conversation_id: activeConv.id,
+          sender_id: myId,
+          body: text
+        }).select().single();
 
-        // Friendly simulated school lobby bot reply
-        if (currentTarget.id === 'global' && Math.random() > 0.4) {
-          setTimeout(() => {
-            const bots = ['PixelKnight', 'ShadowGamer', 'NovaAstral', 'LunamixAdmin'];
-            const bot = bots[Math.floor(Math.random() * bots.length)];
-            const replies = [
-              'Anyone down for OvO or Slope?',
-              'Who is on Eaglercraft right now?',
-              'Retro Bowl updated!',
-              'Join my squad in chat settings!'
-            ];
-            const reply = replies[Math.floor(Math.random() * replies.length)];
-            const botMsg = {
-              id: Date.now(),
-              senderId: 'bot_' + bot,
-              username: bot,
-              color: '#38bdf8',
-              text: reply,
-              timestamp: Date.now()
-            };
-            localStoreRooms.global.push(botMsg);
-            if (currentTarget.id === 'global') appendMessage(botMsg);
-          }, 1200);
+        if (error) throw error;
+        if (data && !messages.some(m => m.id === data.id)) {
+          messages.push(data);
+          appendMessageDOM(data);
         }
+      } catch (err) {
+        console.error('Failed to send message:', err);
+        alert('Could not send message: ' + err.message);
       }
     });
 
-    // WebSocket Connection Function
-    function connectWs() {
-      if (!serverUrl) {
-        connDot.style.background = '#eab308';
-        connDot.style.boxShadow = '0 0 6px #eab308';
-        connLabel.textContent = 'Local Lobby';
-        setupLocalFallbackRoster();
-        return;
-      }
+    // ── DELETION & GROUP MANAGEMENT FUNCTIONS ──────────────────────────
+
+    // Creator Delete Group Chat
+    async function deleteGroupChat(conv) {
+      if (!conv || conv.created_by !== myId) return;
+      const ok = confirm(`Permanently delete group "#${conv.name}"?\n\nThis will remove all members, erase all messages, and delete this group chat for everyone.`);
+      if (!ok) return;
 
       try {
-        connLabel.textContent = 'Connecting...';
-        connDot.style.background = '#38bdf8';
-        if (ws) {
-          ws.onclose = null;
-          ws.close();
+        // 1. Remove all other members
+        if (conv.members && conv.members.length > 0) {
+          for (const member of conv.members) {
+            if (member.id !== myId) {
+              await sb.rpc('remove_group_member', {
+                p_conversation: conv.id,
+                p_user: member.id
+              });
+            }
+          }
         }
 
-        ws = new WebSocket(serverUrl);
+        // 2. Delete all messages
+        await sb.from('messages').delete().eq('conversation_id', conv.id);
 
-        ws.onopen = () => {
-          connDot.style.background = '#4ade80';
-          connDot.style.boxShadow = '0 0 8px #4ade80';
-          connLabel.textContent = 'PebbleHost Live';
-          ws.send(JSON.stringify({
-            type: 'join',
-            username: myUsername,
-            color: 'var(--accent)'
-          }));
-        };
+        // 3. Leave and clean up group
+        await sb.rpc('leave_group', { p_conversation: conv.id });
 
-        ws.onmessage = (event) => {
-          try {
-            const data = JSON.parse(event.data);
-            if (data.type === 'welcome') {
-              myId = data.yourId;
-              if (currentTarget.type === 'room' && currentTarget.id === 'global') {
-                renderMessages(data.history || []);
-              }
-            } else if (data.type === 'roster_update') {
-              updateLiveRoster(data.users || []);
-              if (data.groups) {
-                data.groups.forEach(g => addGroupToSidebar(g.id, g.name, g.hasPin));
-              }
-            } else if (data.type === 'message') {
-              if (currentTarget.type === 'room' && currentTarget.id === data.roomId) {
-                appendMessage(data);
-              }
-            } else if (data.type === 'dm_message') {
-              const partnerId = data.senderId === myId ? data.recipientId : data.senderId;
-              if (!localStoreDms[partnerId]) localStoreDms[partnerId] = [];
-              localStoreDms[partnerId].push(data);
-
-              if (currentTarget.type === 'dm' && currentTarget.id === partnerId) {
-                appendMessage(data);
-              } else {
-                unreadDms[partnerId] = (unreadDms[partnerId] || 0) + 1;
-                renderDmsList();
-                SoundFX.notify();
-              }
-            } else if (data.type === 'room_switched') {
-              renderMessages(data.history || []);
-            } else if (data.type === 'dm_history') {
-              localStoreDms[data.targetUserId] = data.messages || [];
-              if (currentTarget.type === 'dm' && currentTarget.id === data.targetUserId) {
-                renderMessages(data.messages || []);
-              }
-            } else if (data.type === 'error') {
-              alert(data.message);
-            }
-          } catch (e) {
-            console.error('Chat ws parse error', e);
-          }
-        };
-
-        ws.onerror = () => {
-          connDot.style.background = '#ef4444';
-          connDot.style.boxShadow = '0 0 6px #ef4444';
-          connLabel.textContent = 'Server Offline';
-          setupLocalFallbackRoster();
-        };
-
-        ws.onclose = () => {
-          connDot.style.background = '#eab308';
-          connLabel.textContent = 'Disconnected';
-          setupLocalFallbackRoster();
-        };
+        // 4. Reload conversations
+        activeConv = null;
+        await loadConversationsList();
       } catch (err) {
-        connDot.style.background = '#ef4444';
-        connLabel.textContent = 'Config Error';
-        setupLocalFallbackRoster();
+        console.error('Failed to delete group:', err);
+        alert('Could not delete group: ' + err.message);
       }
     }
 
-    function updateLiveRoster(users) {
-      rosterListEl.innerHTML = '';
-      onlineCountEl.textContent = users.length;
+    // Member Leave Group Chat
+    async function leaveGroupChat(conv) {
+      if (!conv) return;
+      const ok = confirm(`Leave group "#${conv.name}"? You will stop receiving messages from this squad.`);
+      if (!ok) return;
 
-      users.forEach(u => {
-        const item = document.createElement('div');
-        item.className = 'chat-roster-item';
-        const isSelf = u.id === myId;
-        item.innerHTML = `
-          <div class="status-dot"></div>
-          <span style="flex: 1; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; ${isSelf ? 'font-weight: 700; color: var(--accent);' : ''}">${escapeHtml(u.username)}</span>
-          ${!isSelf ? '<i class="fa-solid fa-message" title="Direct Message" style="font-size: 0.72rem; color: var(--text-secondary); opacity: 0.7;"></i>' : ''}
-        `;
-        if (!isSelf) {
-          item.addEventListener('click', () => {
-            if (!localStoreDms[u.username]) localStoreDms[u.username] = [];
-            renderDmsList();
-            switchRoom('dm', u.username, u.username);
-          });
+      try {
+        await sb.rpc('leave_group', { p_conversation: conv.id });
+        activeConv = null;
+        await loadConversationsList();
+      } catch (err) {
+        console.error('Failed to leave group:', err);
+        alert('Could not leave group: ' + err.message);
+      }
+    }
+
+    // Open Manage Group Modal
+    function openManageGroupModal(conv) {
+      const isCreator = conv.created_by === myId;
+      modalRoot.innerHTML = `
+        <div class="chat-modal-backdrop" id="manageModalBackdrop">
+          <div class="chat-modal-card">
+            <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 1rem;">
+              <h3 style="font-size: 1.05rem; font-weight: 700; color: var(--text-primary); display: flex; align-items: center; gap: 0.5rem;">
+                <i class="fa-solid fa-users-gear" style="color: var(--accent);"></i>
+                #${escapeHtml(conv.name)}
+              </h3>
+              <button id="closeManageModalBtn" style="color: var(--text-secondary); font-size: 1rem;"><i class="fa-solid fa-xmark"></i></button>
+            </div>
+
+            <div style="font-size: 0.76rem; color: var(--text-secondary); text-transform: uppercase; font-weight: 700; margin-bottom: 0.5rem;">
+              Members (${(conv.members || []).length})
+            </div>
+            <div style="overflow-y: auto; max-height: 180px; display: flex; flex-direction: column; gap: 4px; margin-bottom: 1rem; padding-right: 4px;" id="manageMembersList">
+              <!-- Members List -->
+            </div>
+
+            ${isCreator ? `
+              <div style="font-size: 0.76rem; color: var(--text-secondary); text-transform: uppercase; font-weight: 700; margin-bottom: 0.5rem;">
+                Add Friends to Squad
+              </div>
+              <input type="text" id="manageSearchAddInput" placeholder="Search usernames to add..." style="width: 100%; padding: 0.5rem 0.8rem; background: #0a0e1a; border: 1px solid rgba(255,255,255,0.15); border-radius: 8px; color: var(--text-primary); font-size: 0.84rem; margin-bottom: 0.6rem;" />
+              <div style="overflow-y: auto; max-height: 140px; display: flex; flex-direction: column; gap: 4px; margin-bottom: 1.25rem;" id="manageCandidatesList">
+                <!-- Add candidates -->
+              </div>
+
+              <div style="margin-top: auto; padding-top: 1rem; border-top: 1px solid rgba(255,255,255,0.08); display: flex; justify-content: space-between; align-items: center;">
+                <span style="font-size: 0.76rem; color: #f87171;">Squad Owner Actions</span>
+                <button id="modalDeleteGroupBtn" class="chat-danger-btn">
+                  <i class="fa-solid fa-trash-can"></i> Delete Entire Squad
+                </button>
+              </div>
+            ` : `
+              <div style="margin-top: auto; padding-top: 1rem; border-top: 1px solid rgba(255,255,255,0.08); display: flex; justify-content: flex-end;">
+                <button id="modalLeaveGroupBtn" class="chat-action-btn">
+                  <i class="fa-solid fa-door-open"></i> Leave Squad
+                </button>
+              </div>
+            `}
+          </div>
+        </div>
+      `;
+      modalRoot.style.display = 'block';
+
+      const closeBtn = modalRoot.querySelector('#closeManageModalBtn');
+      const backdrop = modalRoot.querySelector('#manageModalBackdrop');
+      const membersListEl = modalRoot.querySelector('#manageMembersList');
+      const candidatesListEl = modalRoot.querySelector('#manageCandidatesList');
+      const searchAddInput = modalRoot.querySelector('#manageSearchAddInput');
+      const modalDeleteBtn = modalRoot.querySelector('#modalDeleteGroupBtn');
+      const modalLeaveBtn = modalRoot.querySelector('#modalLeaveGroupBtn');
+
+      function closeModal() {
+        modalRoot.style.display = 'none';
+        modalRoot.innerHTML = '';
+      }
+
+      closeBtn.addEventListener('click', closeModal);
+      backdrop.addEventListener('click', (e) => {
+        if (e.target === backdrop) closeModal();
+      });
+
+      // Render Members
+      function renderModalMembers() {
+        membersListEl.innerHTML = '';
+        (conv.members || []).forEach(m => {
+          const isMemberCreator = m.id === conv.created_by;
+          const isMe = m.id === myId;
+          const row = document.createElement('div');
+          row.style.cssText = 'display: flex; align-items: center; justify-content: space-between; padding: 0.4rem 0.6rem; background: rgba(255,255,255,0.04); border-radius: 8px; font-size: 0.84rem;';
+          row.innerHTML = `
+            <div style="display: flex; align-items: center; gap: 0.5rem;">
+              <div class="chat-msg-avatar" style="width: 24px; height: 24px; font-size: 0.68rem;">
+                ${escapeHtml((m.username || 'U').substring(0, 2).toUpperCase())}
+              </div>
+              <span>@${escapeHtml(m.username || 'user')} ${isMe ? '<em style="opacity: 0.7; font-size: 0.75rem;">(you)</em>' : ''}</span>
+              ${isMemberCreator ? '<span class="chat-roster-badge">Creator</span>' : ''}
+            </div>
+            ${isCreator && !isMe ? `
+              <button class="kick-member-btn" data-user="${m.id}" style="color: #f87171; font-size: 0.76rem; padding: 2px 6px; border-radius: 4px; background: rgba(239,68,68,0.12);">
+                Remove
+              </button>
+            ` : ''}
+          `;
+
+          if (isCreator && !isMe) {
+            row.querySelector('.kick-member-btn')?.addEventListener('click', async () => {
+              if (confirm(`Remove @${m.username} from #${conv.name}?`)) {
+                const { error } = await sb.rpc('remove_group_member', {
+                  p_conversation: conv.id,
+                  p_user: m.id
+                });
+                if (error) alert('Error: ' + error.message);
+                else {
+                  conv.members = conv.members.filter(x => x.id !== m.id);
+                  renderModalMembers();
+                  renderCandidates();
+                  updateHeaderUI();
+                }
+              }
+            });
+          }
+          membersListEl.appendChild(row);
+        });
+      }
+
+      // Render Candidates to Add (Creator only)
+      function renderCandidates() {
+        if (!candidatesListEl) return;
+        const currentIds = new Set((conv.members || []).map(m => m.id));
+        const query = (searchAddInput?.value || '').trim().toLowerCase();
+        const available = registeredProfiles.filter(p => !currentIds.has(p.id) && (!query || p.username.toLowerCase().includes(query)));
+
+        candidatesListEl.innerHTML = '';
+        if (available.length === 0) {
+          candidatesListEl.innerHTML = `<div style="font-size: 0.78rem; color: var(--text-secondary); padding: 0.4rem;">No other users found to add.</div>`;
+          return;
         }
-        rosterListEl.appendChild(item);
+
+        available.slice(0, 15).forEach(p => {
+          const row = document.createElement('div');
+          row.style.cssText = 'display: flex; align-items: center; justify-content: space-between; padding: 0.35rem 0.6rem; background: rgba(255,255,255,0.03); border-radius: 7px; font-size: 0.82rem;';
+          row.innerHTML = `
+            <span>@${escapeHtml(p.username)}</span>
+            <button class="add-candidate-btn" data-id="${p.id}" style="color: var(--accent); font-weight: 700; font-size: 0.76rem; padding: 2px 8px; border-radius: 5px; background: rgba(125,211,192,0.15);">
+              + Add
+            </button>
+          `;
+          row.querySelector('.add-candidate-btn')?.addEventListener('click', async (e) => {
+            e.target.disabled = true;
+            e.target.textContent = 'Adding...';
+            const { error } = await sb.rpc('add_group_members', {
+              p_conversation: conv.id,
+              p_member_ids: [p.id]
+            });
+            if (error) {
+              alert('Error adding user: ' + error.message);
+              e.target.disabled = false;
+              e.target.textContent = '+ Add';
+            } else {
+              conv.members.push({ id: p.id, username: p.username });
+              renderModalMembers();
+              renderCandidates();
+              updateHeaderUI();
+            }
+          });
+          candidatesListEl.appendChild(row);
+        });
+      }
+
+      renderModalMembers();
+      renderCandidates();
+      searchAddInput?.addEventListener('input', renderCandidates);
+
+      if (modalDeleteBtn) {
+        modalDeleteBtn.addEventListener('click', () => {
+          closeModal();
+          deleteGroupChat(conv);
+        });
+      }
+      if (modalLeaveBtn) {
+        modalLeaveBtn.addEventListener('click', () => {
+          closeModal();
+          leaveGroupChat(conv);
+        });
+      }
+    }
+
+    // Open New Conversation Dialog (DM or Squad Group)
+    function openNewConversationDialog(initialTab = 'dm') {
+      let activeTab = initialTab;
+      const selectedMemberIds = new Set();
+
+      modalRoot.innerHTML = `
+        <div class="chat-modal-backdrop" id="newChatModalBackdrop">
+          <div class="chat-modal-card">
+            <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 1rem;">
+              <h3 style="font-size: 1.05rem; font-weight: 700; color: var(--text-primary);">New Conversation</h3>
+              <button id="closeNewChatBtn" style="color: var(--text-secondary); font-size: 1rem;"><i class="fa-solid fa-xmark"></i></button>
+            </div>
+
+            <div class="chat-auth-tabs" style="margin-bottom: 1rem;">
+              <button class="chat-auth-tab ${activeTab === 'dm' ? 'active' : ''}" id="tabNewDm">Direct Message</button>
+              <button class="chat-auth-tab ${activeTab === 'group' ? 'active' : ''}" id="tabNewGroup">Squad Group</button>
+            </div>
+
+            <div id="newChatError" class="chat-auth-error" style="margin-bottom: 0.75rem;"></div>
+
+            <!-- Group Name Field (Only in Group tab) -->
+            <div id="groupNameField" style="display: ${activeTab === 'group' ? 'block' : 'none'}; margin-bottom: 1rem;">
+              <label style="display: block; font-size: 0.76rem; font-weight: 600; color: var(--text-secondary); margin-bottom: 0.35rem; text-transform: uppercase;">
+                Squad Name
+              </label>
+              <input type="text" id="newGroupNameInput" placeholder="e.g. Slope Pros, OvO Speedrunners" maxlength="50" style="width: 100%; padding: 0.6rem 0.8rem; background: #0a0e1a; border: 1px solid rgba(255,255,255,0.15); border-radius: 8px; color: var(--text-primary); font-size: 0.88rem;" />
+            </div>
+
+            <!-- User Search Input -->
+            <div style="margin-bottom: 0.75rem;">
+              <label style="display: block; font-size: 0.76rem; font-weight: 600; color: var(--text-secondary); margin-bottom: 0.35rem; text-transform: uppercase;" id="searchFieldLabel">
+                ${activeTab === 'dm' ? 'Find Someone to Message' : 'Invite Members to Squad'}
+              </label>
+              <input type="text" id="newChatSearchInput" placeholder="Search usernames..." autocomplete="off" style="width: 100%; padding: 0.6rem 0.8rem; background: #0a0e1a; border: 1px solid rgba(255,255,255,0.15); border-radius: 8px; color: var(--text-primary); font-size: 0.88rem;" />
+            </div>
+
+            <!-- Users List -->
+            <div style="overflow-y: auto; max-height: 220px; display: flex; flex-direction: column; gap: 4px; margin-bottom: 1.25rem;" id="newChatUsersList">
+              <!-- Users populated dynamically -->
+            </div>
+
+            <!-- Group Submit Button (Group tab only) -->
+            <div id="groupSubmitArea" style="display: ${activeTab === 'group' ? 'flex' : 'none'}; justify-content: flex-end; gap: 0.6rem; padding-top: 0.75rem; border-top: 1px solid rgba(255,255,255,0.08);">
+              <button id="submitCreateGroupBtn" class="chat-auth-btn" style="margin-top: 0; width: auto; padding: 0.6rem 1.4rem;">
+                Create Squad Group
+              </button>
+            </div>
+          </div>
+        </div>
+      `;
+      modalRoot.style.display = 'block';
+
+      const closeBtn = modalRoot.querySelector('#closeNewChatBtn');
+      const backdrop = modalRoot.querySelector('#newChatModalBackdrop');
+      const tabDm = modalRoot.querySelector('#tabNewDm');
+      const tabGroup = modalRoot.querySelector('#tabNewGroup');
+      const groupNameField = modalRoot.querySelector('#groupNameField');
+      const groupSubmitArea = modalRoot.querySelector('#groupSubmitArea');
+      const searchInput = modalRoot.querySelector('#newChatSearchInput');
+      const searchLabel = modalRoot.querySelector('#searchFieldLabel');
+      const usersListEl = modalRoot.querySelector('#newChatUsersList');
+      const errorEl = modalRoot.querySelector('#newChatError');
+      const groupNameInput = modalRoot.querySelector('#newGroupNameInput');
+      const submitGroupBtn = modalRoot.querySelector('#submitCreateGroupBtn');
+
+      function closeModal() {
+        modalRoot.style.display = 'none';
+        modalRoot.innerHTML = '';
+      }
+
+      closeBtn.addEventListener('click', closeModal);
+      backdrop.addEventListener('click', (e) => {
+        if (e.target === backdrop) closeModal();
+      });
+
+      function switchTab(t) {
+        activeTab = t;
+        tabDm.classList.toggle('active', t === 'dm');
+        tabGroup.classList.toggle('active', t === 'group');
+        groupNameField.style.display = t === 'group' ? 'block' : 'none';
+        groupSubmitArea.style.display = t === 'group' ? 'flex' : 'none';
+        searchLabel.textContent = t === 'dm' ? 'Find Someone to Message' : 'Invite Members to Squad';
+        renderUsers();
+      }
+
+      tabDm.addEventListener('click', () => switchTab('dm'));
+      tabGroup.addEventListener('click', () => switchTab('group'));
+
+      function renderUsers() {
+        const query = searchInput.value.trim().toLowerCase();
+        const matches = registeredProfiles.filter(p => p.id !== myId && (!query || p.username.toLowerCase().includes(query)));
+
+        usersListEl.innerHTML = '';
+        if (matches.length === 0) {
+          usersListEl.innerHTML = `
+            <div style="text-align: center; padding: 1.5rem; color: var(--text-secondary); font-size: 0.82rem;">
+              No other registered users found.
+            </div>
+          `;
+          return;
+        }
+
+        matches.forEach(p => {
+          const row = document.createElement('div');
+          row.style.cssText = 'display: flex; align-items: center; justify-content: space-between; padding: 0.5rem 0.75rem; background: rgba(255,255,255,0.04); border-radius: 8px; font-size: 0.84rem; cursor: pointer; transition: background 0.15s;';
+          row.addEventListener('mouseenter', () => row.style.background = 'rgba(255,255,255,0.08)');
+          row.addEventListener('mouseleave', () => row.style.background = 'rgba(255,255,255,0.04)');
+
+          if (activeTab === 'dm') {
+            row.innerHTML = `
+              <div style="display: flex; align-items: center; gap: 0.6rem;">
+                <div class="chat-msg-avatar" style="width: 26px; height: 26px; font-size: 0.72rem;">
+                  ${escapeHtml(p.username.substring(0, 2).toUpperCase())}
+                </div>
+                <span style="font-weight: 600;">@${escapeHtml(p.username)}</span>
+              </div>
+              <button style="padding: 3px 8px; border-radius: 6px; background: var(--accent); color: var(--bg-primary); font-size: 0.75rem; font-weight: 700;">
+                Message
+              </button>
+            `;
+            row.addEventListener('click', async () => {
+              try {
+                const { data: convId, error } = await sb.rpc('start_dm', { p_other: p.id });
+                if (error) throw error;
+                closeModal();
+                await loadConversationsList();
+                if (convId) selectConversation(convId);
+              } catch (err) {
+                errorEl.textContent = 'Failed to start DM: ' + err.message;
+                errorEl.style.display = 'block';
+              }
+            });
+          } else {
+            const isChecked = selectedMemberIds.has(p.id);
+            row.innerHTML = `
+              <div style="display: flex; align-items: center; gap: 0.6rem;">
+                <input type="checkbox" ${isChecked ? 'checked' : ''} style="cursor: pointer;" />
+                <div class="chat-msg-avatar" style="width: 26px; height: 26px; font-size: 0.72rem;">
+                  ${escapeHtml(p.username.substring(0, 2).toUpperCase())}
+                </div>
+                <span style="font-weight: 600;">@${escapeHtml(p.username)}</span>
+              </div>
+            `;
+            row.addEventListener('click', (e) => {
+              if (selectedMemberIds.has(p.id)) selectedMemberIds.delete(p.id);
+              else selectedMemberIds.add(p.id);
+              renderUsers();
+            });
+          }
+          usersListEl.appendChild(row);
+        });
+      }
+
+      searchInput.addEventListener('input', renderUsers);
+      renderUsers();
+
+      // Submit Create Group
+      submitGroupBtn?.addEventListener('click', async () => {
+        const name = groupNameInput.value.trim();
+        if (!name) {
+          errorEl.textContent = 'Please provide a name for your squad group.';
+          errorEl.style.display = 'block';
+          groupNameInput.focus();
+          return;
+        }
+
+        submitGroupBtn.disabled = true;
+        submitGroupBtn.textContent = 'Creating Squad...';
+
+        try {
+          const { data: newGroupId, error } = await sb.rpc('create_group', {
+            p_name: name,
+            p_member_ids: Array.from(selectedMemberIds)
+          });
+          if (error) throw error;
+          closeModal();
+          await loadConversationsList();
+          if (newGroupId) selectConversation(newGroupId);
+        } catch (err) {
+          errorEl.textContent = 'Failed to create squad: ' + err.message;
+          errorEl.style.display = 'block';
+          submitGroupBtn.disabled = false;
+          submitGroupBtn.textContent = 'Create Squad Group';
+        }
       });
     }
 
-    function setupLocalFallbackRoster() {
-      const mockUsers = [
-        { id: myId, username: myUsername },
-        { id: 'u_alex', username: 'PixelKnight' },
-        { id: 'u_maya', username: 'ShadowGamer' },
-        { id: 'u_sam', username: 'NovaAstral' }
-      ];
-      updateLiveRoster(mockUsers);
+    // Connect Action Buttons
+    container.querySelector('#chatNewConvBtn')?.addEventListener('click', () => openNewConversationDialog('dm'));
+    container.querySelector('#chatPlusGroupBtn')?.addEventListener('click', () => openNewConversationDialog('group'));
+    container.querySelector('#chatPlusDmBtn')?.addEventListener('click', () => openNewConversationDialog('dm'));
+
+    // Real-Time Subscriptions
+    function setupRealtimeListener() {
+      if (realtimeChannel) {
+        sb.removeChannel(realtimeChannel);
+      }
+
+      realtimeChannel = sb.channel('chat-sync-' + myId)
+        .on('postgres_changes', { event: 'INSERT', schema: 'public', table: 'messages' }, (payload) => {
+          const msg = payload.new;
+          if (activeConv && msg.conversation_id === activeConv.id) {
+            if (!messages.some(m => m.id === msg.id)) {
+              messages.push(msg);
+              appendMessageDOM(msg);
+              if (msg.sender_id !== myId) SoundFX.notify();
+            }
+          }
+          // Update sidebar previews
+          loadConversationsList();
+        })
+        .on('postgres_changes', { event: 'DELETE', schema: 'public', table: 'messages' }, (payload) => {
+          const oldMsg = payload.old;
+          if (oldMsg && oldMsg.id) {
+            messages = messages.filter(m => m.id !== oldMsg.id);
+            const row = messagesEl.querySelector(`[data-msg-id="${oldMsg.id}"]`);
+            if (row) row.remove();
+          }
+        })
+        .on('postgres_changes', { event: '*', schema: 'public', table: 'conversation_members' }, () => {
+          loadConversationsList();
+        })
+        .on('postgres_changes', { event: '*', schema: 'public', table: 'conversations' }, () => {
+          loadConversationsList();
+        })
+        .subscribe();
     }
 
-    // Connect immediately
-    connectWs();
+    // Initial Data Fetch
+    await loadRegisteredProfiles();
+    await loadConversationsList();
+    setupRealtimeListener();
   }
 
   // --------------------------------------------------------------------------
@@ -1972,8 +2561,8 @@
   // --------------------------------------------------------------------------
   function renderFilesApp(container, winObj) {
     const defaultFiles = {
-      'readme.txt': `Welcome to Lunamix OS (Nautilus Edition)!\n\nThis is your private, in-browser filesystem persisted in localStorage.\nYou can write notes, save game codes, or jot down notes securely.`,
-      'todo.txt': `1. Beat high score in Slope\n2. Check out Penumbra Browser\n3. Set up PebbleHost chat tunnel`,
+      'readme.txt': `Welcome to Lunamix OS (Web GI Edition)!\n\nThis is your private, in-browser filesystem persisted in localStorage.\nYou can write notes, save game codes, or jot down notes securely.`,
+      'todo.txt': `1. Beat high score in Slope\n2. Check out Penumbra Browser\n3. Create squad group in Lunamix Chat`,
       'notes.txt': `School proxy bypass notes:\n- Always keep Panic Key enabled (default: ~)\n- Set tab cloak to Google Classroom or Drive`
     };
 

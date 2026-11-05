@@ -1,6 +1,6 @@
 # Lunamix Games Architecture
 
-This directory houses all discrete games deployed in the Lunamix arcade. Every game lives in its own dedicated subfolder with its own code (`index.html`), icon asset (`icon.<ext>`), and metadata manifest (`game.json`).
+This directory houses all discrete games deployed in the Lunamix catalog. Every game lives in its own dedicated subfolder with its own code (`index.html`), icon asset (`icon.<ext>`), and metadata manifest (`game.json`).
 
 ---
 

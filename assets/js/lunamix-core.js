@@ -313,7 +313,7 @@ const LunamixCloak = {
 
 const LunamixPanic = {
   panicKey: '~',
-  panicUrl: 'https://www.apsva.us',
+  panicUrl: 'https://classroom.google.com',
   storageKeyPanicKey: 'lunamix_panic_key',
   storageKeyPanicUrl: 'lunamix_panic_url',
 
@@ -322,10 +322,10 @@ const LunamixPanic = {
       const savedKey = localStorage.getItem(this.storageKeyPanicKey);
       if (savedKey) this.panicKey = savedKey;
       const savedUrl = localStorage.getItem(this.storageKeyPanicUrl);
-      if (savedUrl && !savedUrl.includes('classroom.google.com')) {
+      if (savedUrl && !savedUrl.includes('apsva.us')) {
         this.panicUrl = savedUrl;
       } else {
-        this.panicUrl = 'https://www.apsva.us';
+        this.panicUrl = 'https://classroom.google.com';
       }
     } catch (e) {}
 
