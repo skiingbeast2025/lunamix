@@ -616,7 +616,7 @@ function handleGameLogoError(img) {
 
 // Cloudflare Turnstile Gate & Bot Protection Engine
 const LunamixTurnstile = {
-  defaultSiteKey: '3x00000000000000000000FF', // Cloudflare interactive test key (always passes)
+  defaultSiteKey: '0x4AAAAAAF08muvs9Bw8n3Yz', // Official Cloudflare Production Site Key
   storageKey: 'lunamix_cf_verified_v1',
   siteKeyStorage: 'lunamix_cf_sitekey',
   enabledStorage: 'lunamix_cf_enabled',
@@ -640,7 +640,10 @@ const LunamixTurnstile = {
 
   getSiteKey() {
     const custom = (localStorage.getItem(this.siteKeyStorage) || '').trim();
-    return custom || this.defaultSiteKey;
+    if (!custom || custom.startsWith('1x') || custom.startsWith('2x') || custom.startsWith('3x')) {
+      return this.defaultSiteKey;
+    }
+    return custom;
   },
 
   saveSiteKey(key) {
