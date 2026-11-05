@@ -614,11 +614,303 @@ function handleGameLogoError(img) {
   container.appendChild(banner);
 }
 
+// Cloudflare Turnstile Gate & Bot Protection Engine
+const LunamixTurnstile = {
+  defaultSiteKey: '3x00000000000000000000FF', // Cloudflare interactive test key (always passes)
+  storageKey: 'lunamix_cf_verified_v1',
+  siteKeyStorage: 'lunamix_cf_sitekey',
+  enabledStorage: 'lunamix_cf_enabled',
+  widgetId: null,
+
+  isEnabled() {
+    const val = localStorage.getItem(this.enabledStorage);
+    return val === null ? true : val === 'true';
+  },
+
+  toggle(enabled) {
+    localStorage.setItem(this.enabledStorage, enabled ? 'true' : 'false');
+    if (!enabled) {
+      const gate = document.getElementById('cf-turnstile-gate');
+      if (gate) {
+        gate.remove();
+        document.body.style.overflow = '';
+      }
+    }
+  },
+
+  getSiteKey() {
+    const custom = (localStorage.getItem(this.siteKeyStorage) || '').trim();
+    return custom || this.defaultSiteKey;
+  },
+
+  saveSiteKey(key) {
+    const trimmed = (key || '').trim();
+    if (trimmed) {
+      localStorage.setItem(this.siteKeyStorage, trimmed);
+    } else {
+      localStorage.removeItem(this.siteKeyStorage);
+    }
+    alert('Cloudflare Turnstile site key saved!');
+  },
+
+  isVerified() {
+    try {
+      const ts = sessionStorage.getItem(this.storageKey);
+      if (!ts) return false;
+      const age = Date.now() - parseInt(ts, 10);
+      return age < 2 * 60 * 60 * 1000; // 2 hours
+    } catch (e) {
+      return false;
+    }
+  },
+
+  init() {
+    if (!this.isEnabled()) return;
+    if (this.isVerified()) return;
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', () => this.injectGate());
+    } else {
+      this.injectGate();
+    }
+  },
+
+  injectStyles() {
+    if (document.getElementById('cf-gate-styles')) return;
+    const style = document.createElement('style');
+    style.id = 'cf-gate-styles';
+    style.textContent = `
+      .cf-gate-overlay {
+        position: fixed;
+        inset: 0;
+        z-index: 999999;
+        background: radial-gradient(circle at 50% 20%, #151926 0%, #07090e 100%);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 1.25rem;
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+        color: #f3f4f6;
+        user-select: none;
+      }
+      .cf-gate-card {
+        width: 100%;
+        max-width: 460px;
+        background: rgba(17, 24, 39, 0.9);
+        border: 1px solid rgba(255, 255, 255, 0.12);
+        border-radius: 1.25rem;
+        padding: 2rem;
+        box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.8), 0 0 35px rgba(246, 130, 31, 0.12);
+        backdrop-filter: blur(16px);
+        text-align: left;
+      }
+      .cf-logo-row {
+        display: flex;
+        align-items: center;
+        gap: 0.65rem;
+        margin-bottom: 1.25rem;
+      }
+      .cf-cloud-svg {
+        width: 2.2rem;
+        height: 2.2rem;
+        color: #f6821f;
+        filter: drop-shadow(0 2px 8px rgba(246, 130, 31, 0.45));
+      }
+      .cf-brand-text {
+        font-size: 1.25rem;
+        font-weight: 800;
+        letter-spacing: -0.02em;
+        color: #ffffff;
+      }
+      .cf-gate-heading {
+        font-size: 1.35rem;
+        font-weight: 700;
+        line-height: 1.3;
+        color: #ffffff;
+        margin: 0 0 0.5rem 0;
+      }
+      .cf-gate-subtext {
+        font-size: 0.85rem;
+        color: #9ca3af;
+        line-height: 1.45;
+        margin: 0 0 1.5rem 0;
+      }
+      .cf-widget-box {
+        background: rgba(3, 7, 18, 0.7);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        border-radius: 0.85rem;
+        padding: 1.25rem;
+        margin-bottom: 1.5rem;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        min-height: 110px;
+      }
+      .cf-status-label {
+        font-size: 0.78rem;
+        font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+        color: #9ca3af;
+        margin-top: 0.75rem;
+        text-align: center;
+        line-height: 1.4;
+      }
+      .cf-gate-footer {
+        border-top: 1px solid rgba(255, 255, 255, 0.08);
+        padding-top: 1rem;
+        display: flex;
+        flex-direction: column;
+        gap: 0.35rem;
+      }
+      .cf-ray {
+        font-size: 0.75rem;
+        font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+        color: #6b7280;
+      }
+      .cf-ray code {
+        color: #d1d5db;
+        background: rgba(255, 255, 255, 0.06);
+        padding: 0.15rem 0.35rem;
+        border-radius: 0.25rem;
+      }
+      .cf-sec-note {
+        font-size: 0.75rem;
+        color: #9ca3af;
+      }
+    `;
+    document.head.appendChild(style);
+  },
+
+  injectGate() {
+    if (document.getElementById('cf-turnstile-gate')) return;
+    this.injectStyles();
+
+    const gate = document.createElement('div');
+    gate.id = 'cf-turnstile-gate';
+    gate.className = 'cf-gate-overlay';
+
+    const rayId = Array.from({ length: 16 }, () => Math.floor(Math.random() * 16).toString(16)).join('');
+
+    gate.innerHTML = `
+      <div class="cf-gate-card">
+        <div class="cf-logo-row">
+          <svg class="cf-cloud-svg" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M19.35 10.04C18.67 6.59 15.64 4 12 4 9.11 4 6.6 5.64 5.35 8.04 2.34 8.36 0 10.91 0 14c0 3.31 2.69 6 6 6h13c2.76 0 5-2.24 5-5 0-2.64-2.05-4.78-4.65-4.96zM19 18H6c-2.21 0-4-1.79-4-4 0-2.05 1.53-3.76 3.56-3.97l1.07-.11.5-.95C8.08 7.14 9.94 6 12 6c2.62 0 4.88 1.86 5.39 4.43l.3 1.5 1.53.11c1.56.1 2.78 1.41 2.78 2.96 0 1.65-1.35 3-3 3z"/>
+          </svg>
+          <span class="cf-brand-text">Cloudflare</span>
+        </div>
+
+        <h2 class="cf-gate-heading">Checking if the site connection is secure</h2>
+        <p class="cf-gate-subtext">Lunamix needs to review the security of your connection before proceeding.</p>
+
+        <div class="cf-widget-box">
+          <div id="cf-turnstile-widget"></div>
+          <div id="cf-status-text" class="cf-status-label">Verifying you are human. This may take a few seconds...</div>
+        </div>
+
+        <div class="cf-gate-footer">
+          <div class="cf-ray">Ray ID: <code>${rayId}</code></div>
+          <div class="cf-sec-note">Performance &amp; security by Cloudflare</div>
+        </div>
+      </div>
+    `;
+
+    document.body.appendChild(gate);
+    document.body.style.overflow = 'hidden';
+
+    this.loadScriptAndRender();
+  },
+
+  loadScriptAndRender() {
+    if (window.turnstile) {
+      this.renderWidget();
+      return;
+    }
+
+    if (!document.getElementById('cf-turnstile-script')) {
+      const script = document.createElement('script');
+      script.id = 'cf-turnstile-script';
+      script.src = 'https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit';
+      script.async = true;
+      script.defer = true;
+      script.onload = () => {
+        this.renderWidget();
+      };
+      document.head.appendChild(script);
+    } else {
+      const checkInterval = setInterval(() => {
+        if (window.turnstile) {
+          clearInterval(checkInterval);
+          this.renderWidget();
+        }
+      }, 100);
+    }
+  },
+
+  renderWidget() {
+    const container = document.getElementById('cf-turnstile-widget');
+    if (!container || !window.turnstile) return;
+    container.innerHTML = '';
+    try {
+      this.widgetId = window.turnstile.render('#cf-turnstile-widget', {
+        sitekey: this.getSiteKey(),
+        theme: 'dark',
+        callback: (token) => {
+          this.onSuccess(token);
+        },
+        'error-callback': () => {
+          const lbl = document.getElementById('cf-status-text');
+          if (lbl) {
+            lbl.textContent = 'Challenge timed out or invalid key. Retrying...';
+            lbl.style.color = '#f87171';
+          }
+          setTimeout(() => {
+            if (window.turnstile && this.widgetId !== null) {
+              try { window.turnstile.reset(this.widgetId); } catch (e) {}
+            }
+          }, 3000);
+        }
+      });
+    } catch (e) {
+      console.warn('Turnstile render:', e);
+    }
+  },
+
+  onSuccess(token) {
+    try {
+      sessionStorage.setItem(this.storageKey, Date.now().toString());
+    } catch (e) {}
+
+    const lbl = document.getElementById('cf-status-text');
+    if (lbl) {
+      lbl.innerHTML = '<span style="color:#22c55e;font-weight:bold;">✓ Verification successful! Unlocking Lunamix...</span>';
+    }
+
+    const gate = document.getElementById('cf-turnstile-gate');
+    if (gate) {
+      gate.style.transition = 'opacity 0.4s ease, transform 0.4s ease';
+      gate.style.opacity = '0';
+      gate.style.transform = 'scale(0.98)';
+      setTimeout(() => {
+        gate.remove();
+        document.body.style.overflow = '';
+      }, 400);
+    }
+  },
+
+  reset() {
+    try {
+      sessionStorage.removeItem(this.storageKey);
+    } catch (e) {}
+    this.injectGate();
+  }
+};
+
 // Auto-run on boot
 (function() {
   LunamixTheme.init();
   LunamixCloak.init();
   LunamixPanic.init();
+  LunamixTurnstile.init();
   if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', () => LunamixBackground.init());
   } else {

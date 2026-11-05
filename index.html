@@ -868,6 +868,48 @@
             class="w-full bg-slate-950 border border-slate-700 text-xs font-mono text-slate-300 rounded-xl px-3 py-2.5 focus:outline-none focus:ring-1 focus:ring-white"
           >
         </div>
+
+        <!-- Cloudflare Turnstile Security Gate -->
+        <div class="pt-3 border-t border-slate-800">
+          <div class="flex items-center justify-between mb-2">
+            <div>
+              <span class="block text-xs font-mono text-slate-200 uppercase tracking-wider font-semibold">Cloudflare Security Gate</span>
+              <p class="text-[11px] text-slate-500">Require Turnstile verification before entering.</p>
+            </div>
+            <label class="relative inline-flex items-center cursor-pointer">
+              <input id="modal-cf-toggle" type="checkbox" class="sr-only peer" onchange="LunamixTurnstile.toggle(this.checked)">
+              <div class="w-11 h-6 bg-slate-800 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-slate-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-orange-500"></div>
+            </label>
+          </div>
+          <div class="mt-2.5">
+            <label class="block text-[11px] font-mono text-slate-400 mb-1">Custom Site Key (Optional)</label>
+            <div class="flex gap-2">
+              <input 
+                id="modal-cf-sitekey" 
+                type="text" 
+                placeholder="Default: Cloudflare Test Key" 
+                class="flex-1 bg-slate-950 border border-slate-700 text-xs font-mono text-slate-200 rounded-xl px-3 py-2 focus:outline-none focus:ring-1 focus:ring-orange-400"
+              >
+              <button 
+                type="button" 
+                onclick="LunamixTurnstile.saveSiteKey(document.getElementById('modal-cf-sitekey').value)"
+                class="bg-slate-800 hover:bg-slate-700 text-slate-200 text-xs font-semibold rounded-xl px-3 py-2 transition-colors cursor-pointer"
+              >
+                Save Key
+              </button>
+            </div>
+            <p class="text-[10px] text-slate-500 mt-1">Leave empty to use test mode, or paste your Cloudflare dashboard Site Key.</p>
+          </div>
+          <div class="mt-2.5 flex justify-end">
+            <button 
+              type="button" 
+              onclick="closeSettingsModal(); LunamixTurnstile.reset();" 
+              class="text-xs text-orange-400 hover:text-orange-300 underline font-mono cursor-pointer"
+            >
+              Test Security Challenge Now →
+            </button>
+          </div>
+        </div>
       </div>
 
       <div class="mt-6 flex justify-end gap-2">
@@ -1485,6 +1527,12 @@
         modal.classList.remove('hidden');
         document.getElementById('modal-panic-key').value = LunamixPanic.panicKey;
         document.getElementById('modal-panic-url').value = LunamixPanic.panicUrl;
+        if (window.LunamixTurnstile) {
+          const cfToggle = document.getElementById('modal-cf-toggle');
+          if (cfToggle) cfToggle.checked = LunamixTurnstile.isEnabled();
+          const cfKey = document.getElementById('modal-cf-sitekey');
+          if (cfKey) cfKey.value = localStorage.getItem(LunamixTurnstile.siteKeyStorage) || '';
+        }
       }
     }
     function closeSettingsModal() {
