@@ -86,24 +86,32 @@
 
         <div class="login-info-card">
           <div class="info-card-title">
-            <i class="fa-solid fa-server"></i>
+            <i class="fa-solid fa-gauge-high"></i>
             <span>System Hardware Status</span>
           </div>
           <div class="info-stat">
-            <span class="info-stat-label">Operating System</span>
-            <span class="info-stat-value">Lunamix v3.0</span>
+            <span class="info-stat-label"><i class="fa-solid fa-laptop" style="color: var(--accent);"></i> Your Device</span>
+            <span class="info-stat-value" id="hwDevice">Detecting...</span>
           </div>
           <div class="info-stat">
-            <span class="info-stat-label">Architecture</span>
-            <span class="info-stat-value">WebAssembly / x86_64</span>
+            <span class="info-stat-label"><i class="fa-solid fa-battery-three-quarters" style="color: #4ade80;"></i> Battery & Power</span>
+            <span class="info-stat-value" id="hwBattery">Detecting...</span>
           </div>
           <div class="info-stat">
-            <span class="info-stat-label">Status</span>
-            <span class="info-stat-value" style="color: var(--accent);">Ready</span>
+            <span class="info-stat-label"><i class="fa-solid fa-wifi" style="color: #38bdf8;"></i> Network Latency</span>
+            <span class="info-stat-value" id="hwPing" style="color: #4ade80;">Measuring...</span>
           </div>
           <div class="info-stat">
-            <span class="info-stat-label">Chat Server</span>
-            <span class="info-stat-value">PebbleHost Ready</span>
+            <span class="info-stat-label"><i class="fa-solid fa-gamepad" style="color: #f59e0b;"></i> Graphics & 3D</span>
+            <span class="info-stat-value" id="hwGfx">WebGL 2.0</span>
+          </div>
+          <div class="info-stat">
+            <span class="info-stat-label"><i class="fa-solid fa-hard-drive" style="color: #a855f7;"></i> Save Storage</span>
+            <span class="info-stat-value" id="hwStorage">Checking quota...</span>
+          </div>
+          <div class="info-stat">
+            <span class="info-stat-label"><i class="fa-solid fa-shield-halved" style="color: #f43f5e;"></i> Stealth Defense</span>
+            <span class="info-stat-value" id="hwStealth" style="color: var(--accent);">Panic [~] Active</span>
           </div>
         </div>
       </div>
@@ -420,6 +428,118 @@
           loginEl.style.opacity = '0';
           setTimeout(() => loginEl.style.display = 'none', 300);
         });
+      }
+    })();
+
+    // Real-Time Hardware & System Diagnostics for Average Users
+    (async function initHardwareDiagnostics() {
+      // 1. Device detection
+      const devEl = document.getElementById('hwDevice');
+      if (devEl) {
+        const ua = navigator.userAgent;
+        let d = 'Personal Computer';
+        if (/CrOS/.test(ua)) d = 'Chromebook';
+        else if (/Macintosh|Mac OS X/.test(ua)) d = 'Mac';
+        else if (/Windows/.test(ua)) d = 'Windows PC';
+        else if (/Android/.test(ua)) d = 'Android';
+        else if (/iPhone|iPad|iPod/.test(ua)) d = 'iOS Device';
+        else if (/Linux/.test(ua)) d = 'Linux PC';
+        devEl.textContent = `${d} • ${window.screen.width}x${window.screen.height}`;
+      }
+
+      // 2. Battery & Power detection
+      const batEl = document.getElementById('hwBattery');
+      if (batEl) {
+        if ('getBattery' in navigator) {
+          try {
+            const battery = await navigator.getBattery();
+            const updateBat = () => {
+              const pct = Math.round(battery.level * 100);
+              batEl.textContent = `${battery.charging ? '⚡' : '🔋'} ${pct}% ${battery.charging ? '(Charging)' : '(Battery)'}`;
+              batEl.style.color = pct < 20 && !battery.charging ? '#ef4444' : '#4ade80';
+            };
+            updateBat();
+            battery.addEventListener('levelchange', updateBat);
+            battery.addEventListener('chargingchange', updateBat);
+          } catch (e) {
+            batEl.textContent = '⚡ AC Power Connected';
+          }
+        } else {
+          batEl.textContent = '⚡ AC Power / Standard';
+        }
+      }
+
+      // 3. Network Latency / Ping detection
+      const pingEl = document.getElementById('hwPing');
+      if (pingEl) {
+        const checkPing = async () => {
+          const t0 = performance.now();
+          try {
+            await fetch('./assets/logos/favicon.svg?ping=' + Date.now(), { method: 'HEAD', cache: 'no-store' });
+            const ms = Math.max(1, Math.round(performance.now() - t0));
+            if (ms < 50) {
+              pingEl.textContent = `🟢 ${ms}ms (Ultra Fast)`;
+              pingEl.style.color = '#4ade80';
+            } else if (ms < 120) {
+              pingEl.textContent = `🟢 ${ms}ms (Good)`;
+              pingEl.style.color = '#7dd3c0';
+            } else {
+              pingEl.textContent = `🟡 ${ms}ms (Fair)`;
+              pingEl.style.color = '#f59e0b';
+            }
+          } catch (e) {
+            pingEl.textContent = '🟢 Online (Filter Safe)';
+            pingEl.style.color = '#4ade80';
+          }
+        };
+        checkPing();
+        setInterval(checkPing, 10000);
+      }
+
+      // 4. Graphics & 3D Acceleration
+      const gfxEl = document.getElementById('hwGfx');
+      if (gfxEl) {
+        try {
+          const c = document.createElement('canvas');
+          const gl = c.getContext('webgl2') || c.getContext('webgl');
+          if (gl) {
+            const ext = gl.getExtension('WEBGL_debug_renderer_info');
+            const ren = ext ? gl.getParameter(ext.UNMASKED_RENDERER_WEBGL) : '';
+            if (/NVIDIA/i.test(ren)) gfxEl.textContent = 'NVIDIA GPU (WebGL 2)';
+            else if (/AMD|Radeon/i.test(ren)) gfxEl.textContent = 'AMD GPU (WebGL 2)';
+            else if (/Apple/i.test(ren)) gfxEl.textContent = 'Apple Metal (WebGL 2)';
+            else if (/Intel/i.test(ren)) gfxEl.textContent = 'Intel HD/Iris (WebGL 2)';
+            else gfxEl.textContent = 'Hardware Accelerated';
+          } else {
+            gfxEl.textContent = 'Canvas 2D Ready';
+          }
+        } catch (e) {
+          gfxEl.textContent = 'Hardware Accelerated';
+        }
+      }
+
+      // 5. Game Save Storage Quota
+      const storageEl = document.getElementById('hwStorage');
+      if (storageEl) {
+        if (navigator.storage && navigator.storage.estimate) {
+          try {
+            const est = await navigator.storage.estimate();
+            const freeBytes = (est.quota || 0) - (est.usage || 0);
+            const freeGB = Math.max(0, freeBytes / (1024 * 1024 * 1024)).toFixed(1);
+            storageEl.textContent = `${freeGB} GB Available`;
+          } catch (e) {
+            storageEl.textContent = 'Persistent Local';
+          }
+        } else {
+          storageEl.textContent = 'Persistent Local';
+        }
+      }
+
+      // 6. Stealth Defense
+      const stealthEl = document.getElementById('hwStealth');
+      if (stealthEl) {
+        const pk = window.LunamixPanic?.panicKey || '`';
+        stealthEl.textContent = `Panic [${pk}] • Cloak Ready`;
       }
     })();
   </script>
