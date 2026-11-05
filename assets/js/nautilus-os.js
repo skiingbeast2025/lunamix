@@ -1,5 +1,5 @@
 /**
- * Lunamix OS - NautilusOS Desktop Environment Engine
+ * Lunamix OS - Web GI (Web Gaming Interface) Engine
  * Inspired by https://github.com/nautilus-os/NautilusOS
  * 
  * Features:
@@ -1871,7 +1871,7 @@
         const ascii = `
       <span style="color:var(--accent);">.---.</span>            <span style="color:var(--accent); font-weight:700;">user@lunamix-os</span>
      <span style="color:var(--accent);">/     \\</span>           -----------------
-    <span style="color:var(--accent);">| () () |</span>          <span style="color:#38bdf8;">OS:</span> Lunamix OS v3.0 Nautilus Edition
+    <span style="color:var(--accent);">| () () |</span>          <span style="color:#38bdf8;">OS:</span> Lunamix OS v3.0 • Web GI (Web Gaming Interface)
      <span style="color:var(--accent);">\\  _  /</span>           <span style="color:#38bdf8;">Kernel:</span> 6.8.0-web-nautilus
       <span style="color:var(--accent);">'---'</span>            <span style="color:#38bdf8;">Uptime:</span> ${Math.floor(performance.now() / 60000)} minutes
                        <span style="color:#38bdf8;">Shell:</span> nautilus-sh 2.4
@@ -2343,9 +2343,9 @@
           <i class="fa-solid fa-shield-halved"></i>
         </div>
         <h2 style="font-size: 1.6rem; font-weight: 800; color: var(--text-primary); margin-bottom: 0.35rem;">Lunamix OS</h2>
-        <div style="font-size: 0.85rem; color: var(--accent); font-weight: 600; margin-bottom: 1rem;">Version 3.0.0 (Nautilus Edition)</div>
+        <div style="font-size: 0.85rem; color: var(--accent); font-weight: 600; margin-bottom: 1rem;">Version 3.0.0 • Web GI (Web Gaming Interface)</div>
         <p style="font-size: 0.86rem; color: var(--text-secondary); max-width: 460px; line-height: 1.5; margin-bottom: 1.5rem;">
-          A high-performance, web-based operating system designed for unblocked gaming, stealth communication, and safe browser exploration. Inspired by the authentic look and feel of NautilusOS.
+          A high-performance Web Gaming Interface designed for unblocked gaming, stealth communication, and safe browser exploration.
         </p>
 
         <div style="display: flex; gap: 0.8rem;">
