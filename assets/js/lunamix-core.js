@@ -571,8 +571,8 @@ const LunamixBackground = {
 };
 
 /**
- * Robust image fallback for game cards
- * Renders a clean, styled cover banner with the game's actual title if an image fails to load
+ * Fallback for game card images
+ * Renders a clean styled cover banner with the game's actual title if an image fails to load
  */
 function handleGameLogoError(img) {
   if (img.dataset.fallbackTried) return;

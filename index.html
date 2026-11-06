@@ -253,7 +253,7 @@
       </div>
       <div class="start-user-info">
         <div class="start-username" id="startUsername">Student</div>
-        <div class="start-status"><i class="fa-solid fa-circle" style="font-size: 0.5rem; margin-right: 4px;"></i>Online • Cloud Synced</div>
+        <div class="start-status"><i class="fa-solid fa-circle" style="font-size: 0.5rem; margin-right: 4px;"></i>Online (Cloud Synced)</div>
       </div>
       <button class="start-power-btn" id="startPowerBtn" title="Reboot OS" onclick="window.location.reload();">
         <i class="fa-solid fa-power-off"></i>
@@ -487,7 +487,7 @@
         else if (/Android/.test(ua)) d = 'Android';
         else if (/iPhone|iPad|iPod/.test(ua)) d = 'iOS Device';
         else if (/Linux/.test(ua)) d = 'Linux PC';
-        devEl.textContent = `${d} • ${window.screen.width}x${window.screen.height}`;
+        devEl.textContent = `${d}, ${window.screen.width}x${window.screen.height}`;
       }
 
       // 2. Battery & Power detection
@@ -582,7 +582,7 @@
       const stealthEl = document.getElementById('hwStealth');
       if (stealthEl) {
         const pk = window.LunamixPanic?.panicKey || '`';
-        stealthEl.textContent = `Panic [${pk}] • Cloak Ready`;
+        stealthEl.textContent = `Panic [${pk}] / Cloak Ready`;
       }
     })();
   </script>

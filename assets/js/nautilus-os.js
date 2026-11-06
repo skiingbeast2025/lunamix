@@ -1009,7 +1009,7 @@
 
             <div class="chat-auth-field">
               <label for="authPasswordInput">Password</label>
-              <input type="password" id="authPasswordInput" placeholder="••••••••" required autocomplete="current-password" minlength="6" />
+              <input type="password" id="authPasswordInput" placeholder="Password" required autocomplete="current-password" minlength="6" />
             </div>
 
             <button type="submit" class="chat-auth-btn" id="authSubmitBtn">
@@ -2050,7 +2050,7 @@
               </div>
               <h2 style="font-size: 1.5rem; font-weight: 700; color: var(--text-primary); margin-bottom: 0.5rem;">Penumbra Browser & Proxy Hub</h2>
               <p style="font-size: 0.88rem; color: var(--text-secondary); max-width: 580px; margin: 0 auto;">
-                Official web proxy browser engine powered by LunamixMC. Evade school web filters, Lightspeed, and GoGuardian with stealth unblock technology.
+                Web browser and proxy links for unblocked search and sites.
               </p>
             </div>
 
@@ -2058,7 +2058,7 @@
             <div style="background: rgba(25, 30, 45, 0.7); border: 1px solid var(--accent); border-radius: 14px; padding: 1.25rem; margin-bottom: 1.5rem; display: flex; align-items: center; justify-content: space-between; gap: 1rem;">
               <div>
                 <div style="display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.25rem;">
-                  <span style="background: var(--accent); color: var(--bg-primary); font-size: 0.7rem; font-weight: 700; padding: 2px 8px; border-radius: 6px;">FLAGSHIP</span>
+                  <span style="background: var(--accent); color: var(--bg-primary); font-size: 0.7rem; font-weight: 700; padding: 2px 8px; border-radius: 6px;">PENUMBRA</span>
                   <h3 style="font-size: 1.1rem; font-weight: 700;">Penumbra Browser v2.0</h3>
                 </div>
                 <p style="font-size: 0.82rem; color: var(--text-secondary);">
@@ -2072,7 +2072,7 @@
 
             <!-- Proxy Mirrors Grid -->
             <h3 style="font-size: 0.95rem; font-weight: 700; margin-bottom: 0.8rem; color: var(--text-primary);">
-              Verified Proxy Mirrors & Unblock Engines
+              Verified Proxy Mirrors
             </h3>
             <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1rem; margin-bottom: 1.5rem;">
               <div class="proxy-card" style="background: rgba(20, 25, 38, 0.7); border: 1px solid rgba(255,255,255,0.08); border-radius: 12px; padding: 1rem; cursor: pointer; transition: all 0.2s;" data-url="https://duckduckgo.com">
@@ -2080,8 +2080,8 @@
                   <span style="font-weight: 700; font-size: 0.95rem;">DuckDuckGo Privacy</span>
                   <div class="status-dot"></div>
                 </div>
-                <p style="font-size: 0.78rem; color: var(--text-secondary); margin-bottom: 0.75rem;">Private search engine without school tracker tracking.</p>
-                <button style="font-size: 0.78rem; color: var(--accent); font-weight: 600;">Launch Search →</button>
+                <p style="font-size: 0.78rem; color: var(--text-secondary); margin-bottom: 0.75rem;">Private search without tracking.</p>
+                <button style="font-size: 0.78rem; color: var(--accent); font-weight: 600;">Launch Search &rarr;</button>
               </div>
 
               <div class="proxy-card" style="background: rgba(20, 25, 38, 0.7); border: 1px solid rgba(255,255,255,0.08); border-radius: 12px; padding: 1rem; cursor: pointer; transition: all 0.2s;" data-url="https://en.m.wikipedia.org">
@@ -2089,8 +2089,8 @@
                   <span style="font-weight: 700; font-size: 0.95rem;">Wikipedia Mobile</span>
                   <div class="status-dot"></div>
                 </div>
-                <p style="font-size: 0.78rem; color: var(--text-secondary); margin-bottom: 0.75rem;">Unrestricted encyclopedia research portal.</p>
-                <button style="font-size: 0.78rem; color: var(--accent); font-weight: 600;">Open Wikipedia →</button>
+                <p style="font-size: 0.78rem; color: var(--text-secondary); margin-bottom: 0.75rem;">Free online encyclopedia.</p>
+                <button style="font-size: 0.78rem; color: var(--accent); font-weight: 600;">Open Wikipedia &rarr;</button>
               </div>
 
               <div class="proxy-card" style="background: rgba(20, 25, 38, 0.7); border: 1px solid rgba(255,255,255,0.08); border-radius: 12px; padding: 1rem; cursor: pointer; transition: all 0.2s;" data-url="https://archive.org">
@@ -2098,8 +2098,8 @@
                   <span style="font-weight: 700; font-size: 0.95rem;">Wayback Machine</span>
                   <div class="status-dot"></div>
                 </div>
-                <p style="font-size: 0.78rem; color: var(--text-secondary); margin-bottom: 0.75rem;">Internet Archive snapshots of blocked websites.</p>
-                <button style="font-size: 0.78rem; color: var(--accent); font-weight: 600;">Explore Archive →</button>
+                <p style="font-size: 0.78rem; color: var(--text-secondary); margin-bottom: 0.75rem;">Internet Archive snapshots of saved websites.</p>
+                <button style="font-size: 0.78rem; color: var(--accent); font-weight: 600;">Explore Archive &rarr;</button>
               </div>
             </div>
 
@@ -2107,7 +2107,7 @@
             <div style="background: rgba(20, 25, 38, 0.7); border: 1px solid rgba(255,255,255,0.08); border-radius: 12px; padding: 1.25rem;">
               <h4 style="font-size: 0.9rem; font-weight: 700; margin-bottom: 0.4rem;"><i class="fa-solid fa-shield-halved" style="color: var(--accent);"></i> Stealth about:blank Cloaker</h4>
               <p style="font-size: 0.8rem; color: var(--text-secondary); margin-bottom: 0.8rem;">
-                Open any URL hidden inside a stealth <code style="color: var(--accent);">about:blank</code> tab so browser history and teacher monitoring software show zero evidence.
+                Open any URL inside an about:blank tab so it does not appear in your browsing history.
               </p>
               <div style="display: flex; gap: 0.6rem;">
                 <input type="text" id="stealthUrlInput" placeholder="https://example.com" style="flex: 1; padding: 0.55rem 0.8rem; background: #0a0e1a; border: 1px solid rgba(255,255,255,0.15); border-radius: 8px; color: var(--text-primary); font-size: 0.85rem;" />
@@ -2459,7 +2459,7 @@
         const ascii = `
       <span style="color:var(--accent);">.---.</span>            <span style="color:var(--accent); font-weight:700;">user@lunamix-os</span>
      <span style="color:var(--accent);">/     \\</span>           -----------------
-    <span style="color:var(--accent);">| () () |</span>          <span style="color:#38bdf8;">OS:</span> Lunamix OS v3.0 • Web GI (Web Gaming Interface)
+    <span style="color:var(--accent);">| () () |</span>          <span style="color:#38bdf8;">OS:</span> Lunamix OS v3.0 (Web GI)
      <span style="color:var(--accent);">\\  _  /</span>           <span style="color:#38bdf8;">Kernel:</span> 6.8.0-web-nautilus
       <span style="color:var(--accent);">'---'</span>            <span style="color:#38bdf8;">Uptime:</span> ${Math.floor(performance.now() / 60000)} minutes
                        <span style="color:#38bdf8;">Shell:</span> nautilus-sh 2.4
@@ -2560,9 +2560,9 @@
   // --------------------------------------------------------------------------
   function renderFilesApp(container, winObj) {
     const defaultFiles = {
-      'readme.txt': `Welcome to Lunamix OS (Web GI Edition)!\n\nThis is your private, in-browser filesystem persisted in localStorage.\nYou can write notes, save game codes, or jot down notes securely.`,
-      'todo.txt': `1. Beat high score in Slope\n2. Check out Penumbra Browser\n3. Create squad group in Lunamix Chat`,
-      'notes.txt': `School proxy bypass notes:\n- Always keep Panic Key enabled (default: ~)\n- Set tab cloak to Google Classroom or Drive`
+      'readme.txt': `Welcome to Lunamix OS.\nThis is your private local storage for notes and game codes.`,
+      'todo.txt': `Beat high score in Slope, check out the proxy hub, and invite people to squad chat.`,
+      'notes.txt': `Keep the panic key set to ~ for quick escapes and turn on tab cloaking when needed.`
     };
 
     let files = JSON.parse(localStorage.getItem('lunamix_virtual_files') || 'null') || defaultFiles;
@@ -2844,7 +2844,7 @@
           <!-- 3. Tab Cloaking & Stealth -->
           <div style="background: rgba(20, 25, 38, 0.7); border: 1px solid rgba(255,255,255,0.08); border-radius: 12px; padding: 1.25rem; margin-bottom: 1.25rem;">
             <h3 style="font-size: 0.95rem; font-weight: 700; margin-bottom: 0.35rem;">Stealth Tab Cloak</h3>
-            <p style="font-size: 0.8rem; color: var(--text-secondary); margin-bottom: 0.8rem;">Disguise browser tab title and favicon to look like school assignments.</p>
+            <p style="font-size: 0.8rem; color: var(--text-secondary); margin-bottom: 0.8rem;">Disguise browser tab title and favicon as school apps.</p>
             <div style="display: flex; gap: 0.6rem; flex-wrap: wrap;">
               <button class="cloak-btn" data-preset="classroom" style="padding: 0.45rem 0.85rem; background: rgba(30,35,48,0.8); border: 1px solid rgba(255,255,255,0.15); border-radius: 8px; font-size: 0.8rem;">
                 <i class="fa-solid fa-graduation-cap" style="color: #4ade80;"></i> Google Classroom
@@ -2864,7 +2864,7 @@
           <!-- 4. Panic Key Configuration -->
           <div style="background: rgba(20, 25, 38, 0.7); border: 1px solid rgba(255,255,255,0.08); border-radius: 12px; padding: 1.25rem;">
             <h3 style="font-size: 0.95rem; font-weight: 700; margin-bottom: 0.35rem;">Panic Key Shortcut</h3>
-            <p style="font-size: 0.8rem; color: var(--text-secondary); margin-bottom: 0.8rem;">Instant emergency redirect when a teacher walks behind your desk.</p>
+            <p style="font-size: 0.8rem; color: var(--text-secondary); margin-bottom: 0.8rem;">Instant redirect shortcut and destination URL.</p>
             <div style="display: flex; gap: 0.8rem; align-items: center;">
               <input type="text" id="panicKeyInput" value="${window.LunamixPanic?.panicKey || '`'}" style="width: 80px; text-align: center; font-weight: 700; padding: 0.5rem; background: #0a0e1a; border: 1px solid rgba(255,255,255,0.2); border-radius: 8px; color: var(--accent);" />
               <input type="text" id="panicUrlInput" value="${window.LunamixPanic?.panicUrl || 'https://www.apsva.us/parentvue-canvas/#canvas'}" style="flex: 1; padding: 0.5rem 0.8rem; background: #0a0e1a; border: 1px solid rgba(255,255,255,0.2); border-radius: 8px; color: var(--text-primary); font-size: 0.85rem;" />
@@ -2931,9 +2931,9 @@
           <i class="fa-solid fa-shield-halved"></i>
         </div>
         <h2 style="font-size: 1.6rem; font-weight: 800; color: var(--text-primary); margin-bottom: 0.35rem;">Lunamix OS</h2>
-        <div style="font-size: 0.85rem; color: var(--accent); font-weight: 600; margin-bottom: 1rem;">Version 3.0.0 • Web GI (Web Gaming Interface)</div>
+        <div style="font-size: 0.85rem; color: var(--accent); font-weight: 600; margin-bottom: 1rem;">Version 3.0.0 (Web Gaming Interface)</div>
         <p style="font-size: 0.86rem; color: var(--text-secondary); max-width: 460px; line-height: 1.5; margin-bottom: 1.5rem;">
-          A high-performance Web Gaming Interface designed for unblocked gaming, stealth communication, and safe browser exploration.
+          Web gaming interface with unblocked games, cloud chat, and browser tools.
         </p>
 
         <div style="display: flex; gap: 0.8rem;">
