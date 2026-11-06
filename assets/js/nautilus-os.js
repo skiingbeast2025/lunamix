@@ -2665,14 +2665,11 @@
               const totalLinks = p.mirrors.length + getCustomMirrors(p.id).length;
               return `
                 <div class="proxy-hub-card open-proxy-detail-card" data-id="${p.id}">
-                  <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 0.5rem;">
-                    <div style="display: flex; align-items: center; gap: 0.5rem;">
-                      <div style="width: 30px; height: 30px; border-radius: 8px; background: rgba(255,255,255,0.06); display: flex; align-items: center; justify-content: center; color: ${p.badgeColor}; font-size: 0.95rem;">
-                        <i class="fa-solid ${p.icon}"></i>
-                      </div>
-                      <span style="font-weight: 700; font-size: 0.96rem;">${p.title}</span>
+                  <div style="display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.5rem;">
+                    <div style="width: 30px; height: 30px; border-radius: 8px; background: rgba(255,255,255,0.06); display: flex; align-items: center; justify-content: center; color: ${p.badgeColor}; font-size: 0.95rem;">
+                      <i class="fa-solid ${p.icon}"></i>
                     </div>
-                    <div class="status-dot" title="Network Verified"></div>
+                    <span style="font-weight: 700; font-size: 0.96rem;">${p.title}</span>
                   </div>
                   <div style="display: flex; gap: 0.4rem; margin-bottom: 0.6rem; flex-wrap: wrap;">
                     <span class="proxy-badge" style="background: rgba(255,255,255,0.06); color: ${p.badgeColor}; border: 1px solid rgba(255,255,255,0.08);">${p.badge}</span>
@@ -2805,7 +2802,6 @@
               <div class="proxy-link-row">
                 <div style="flex: 1; min-width: 0; padding-right: 0.5rem;">
                   <div style="display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.2rem;">
-                    <div class="status-dot"></div>
                     <span style="font-weight: 700; font-size: 0.88rem; color: var(--text-primary);">${escapeHtml(m.label)}</span>
                     <span class="proxy-badge" style="background: rgba(255,255,255,0.05); color: ${m.isCustom ? '#fbbf24' : 'var(--text-secondary)'}; font-size: 0.65rem;">
                       ${escapeHtml(m.type || 'Mirror')}
@@ -3903,7 +3899,7 @@
                 <i class="fa-brands fa-google-drive" style="color: #38bdf8;"></i> Google Drive
               </button>
               <button class="cloak-btn" data-preset="canvas" style="padding: 0.45rem 0.85rem; background: rgba(30,35,48,0.8); border: 1px solid rgba(255,255,255,0.15); border-radius: 8px; font-size: 0.8rem; color: var(--text-primary); cursor: pointer;">
-                <i class="fa-solid fa-circle" style="color: #ef4444;"></i> Canvas LMS
+                <i class="fa-solid fa-chalkboard" style="color: #ef4444;"></i> Canvas LMS
               </button>
               <button class="cloak-btn" data-preset="docs" style="padding: 0.45rem 0.85rem; background: rgba(30,35,48,0.8); border: 1px solid rgba(255,255,255,0.15); border-radius: 8px; font-size: 0.8rem; color: var(--text-primary); cursor: pointer;">
                 <i class="fa-solid fa-file-lines" style="color: #38bdf8;"></i> Google Docs

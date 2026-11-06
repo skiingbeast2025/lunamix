@@ -1354,10 +1354,7 @@ button {
 }
 
 .status-dot {
-  width: 8px;
-  height: 8px;
-  border-radius: 50%;
-  background: var(--success-green);
+  display: none !important;
 }
 
 /* Chat Authentication & Account Creation */
