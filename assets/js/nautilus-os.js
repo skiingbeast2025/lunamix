@@ -173,8 +173,8 @@
     emulator: {
       id: 'emulator',
       name: 'Retro Emulator',
-      icon: 'fa-ghost',
-      color: '#ec4899',
+      icon: 'fa-gamepad',
+      color: '#7dd3c0',
       width: 980,
       height: 640,
       minWidth: 460,
@@ -3576,8 +3576,8 @@
     container.innerHTML = `
       <div style="height: 100%; display: flex; flex-direction: column;">
         <div class="browser-chrome" style="background: rgba(15, 20, 32, 0.95); display: flex; justify-content: space-between; align-items: center; padding: 0.4rem 0.8rem; border-bottom: 1px solid rgba(255,255,255,0.08);">
-          <div style="display: flex; align-items: center; gap: 0.5rem; font-size: 0.85rem; font-weight: 600; color: #ec4899;">
-            <i class="fa-solid fa-ghost"></i>
+          <div style="display: flex; align-items: center; gap: 0.5rem; font-size: 0.85rem; font-weight: 600; color: var(--accent, #7dd3c0);">
+            <i class="fa-solid fa-gamepad"></i>
             <span>WebRetro Universal Emulator (RetroArch Libretro WASM)</span>
           </div>
           <div style="display: flex; gap: 0.4rem;">
@@ -3586,7 +3586,7 @@
             </a>
           </div>
         </div>
-        <iframe src="./emulator.html" style="flex: 1; width: 100%; border: none; background: #000;"
+        <iframe src="./emulator.html?embed=1" style="flex: 1; width: 100%; border: none; background: #000;"
           allow="autoplay; fullscreen; gamepad; focus-without-user-activation *"
           sandbox="allow-scripts allow-same-origin allow-forms allow-popups">
         </iframe>

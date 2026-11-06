@@ -513,17 +513,17 @@
             const battery = await navigator.getBattery();
             const updateBat = () => {
               const pct = Math.round(battery.level * 100);
-              batEl.textContent = `${battery.charging ? '⚡' : '🔋'} ${pct}% ${battery.charging ? '(Charging)' : '(Battery)'}`;
+              batEl.textContent = `${pct}% ${battery.charging ? '(Charging)' : '(Battery)'}`;
               batEl.style.color = pct < 20 && !battery.charging ? '#ef4444' : '#4ade80';
             };
             updateBat();
             battery.addEventListener('levelchange', updateBat);
             battery.addEventListener('chargingchange', updateBat);
           } catch (e) {
-            batEl.textContent = '⚡ AC Power Connected';
+            batEl.textContent = 'AC Power Connected';
           }
         } else {
-          batEl.textContent = '⚡ AC Power / Standard';
+          batEl.textContent = 'AC Power / Standard';
         }
       }
 
@@ -536,17 +536,17 @@
             await fetch('./assets/logos/favicon.svg?ping=' + Date.now(), { method: 'HEAD', cache: 'no-store' });
             const ms = Math.max(1, Math.round(performance.now() - t0));
             if (ms < 50) {
-              pingEl.textContent = `🟢 ${ms}ms (Ultra Fast)`;
+              pingEl.textContent = `${ms}ms (Low Latency)`;
               pingEl.style.color = '#4ade80';
             } else if (ms < 120) {
-              pingEl.textContent = `🟢 ${ms}ms (Good)`;
+              pingEl.textContent = `${ms}ms (Normal)`;
               pingEl.style.color = '#7dd3c0';
             } else {
-              pingEl.textContent = `🟡 ${ms}ms (Fair)`;
+              pingEl.textContent = `${ms}ms (High)`;
               pingEl.style.color = '#f59e0b';
             }
           } catch (e) {
-            pingEl.textContent = '🟢 Online (Filter Safe)';
+            pingEl.textContent = 'Connected (Filter Safe)';
             pingEl.style.color = '#4ade80';
           }
         };
