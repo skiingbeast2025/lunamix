@@ -313,7 +313,7 @@ const LunamixCloak = {
 
 const LunamixPanic = {
   panicKey: '~',
-  panicUrl: 'https://classroom.google.com',
+  panicUrl: 'https://www.apsva.us/parentvue-canvas/#canvas',
   storageKeyPanicKey: 'lunamix_panic_key',
   storageKeyPanicUrl: 'lunamix_panic_url',
 
@@ -322,10 +322,10 @@ const LunamixPanic = {
       const savedKey = localStorage.getItem(this.storageKeyPanicKey);
       if (savedKey) this.panicKey = savedKey;
       const savedUrl = localStorage.getItem(this.storageKeyPanicUrl);
-      if (savedUrl && !savedUrl.includes('apsva.us')) {
+      if (savedUrl && savedUrl !== 'https://www.apsva.us' && savedUrl !== 'https://classroom.google.com') {
         this.panicUrl = savedUrl;
       } else {
-        this.panicUrl = 'https://classroom.google.com';
+        this.panicUrl = 'https://www.apsva.us/parentvue-canvas/#canvas';
       }
     } catch (e) {}
 
