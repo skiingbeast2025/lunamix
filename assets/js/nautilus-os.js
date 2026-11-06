@@ -751,7 +751,7 @@
       const appItems = document.querySelectorAll('.start-menu .app-item');
       const startUsernameEl = document.getElementById('startUsername');
       if (startUsernameEl) {
-        const u = localStorage.getItem('lunamix_username') || localStorage.getItem('lunamix_chat_username') || 'Student';
+        const u = localStorage.getItem('lunamix_username') || localStorage.getItem('lunamix_chat_username') || 'User';
         startUsernameEl.textContent = u;
       }
 
@@ -1180,7 +1180,7 @@
       if (prof && prof.username) {
         myUsername = prof.username;
       } else {
-        myUsername = (authUser.email || 'student@chat.app').split('@')[0];
+        myUsername = (authUser.email || 'user@chat.app').split('@')[0];
         await sb.from('profiles').upsert({ id: myId, username: myUsername });
       }
     }
@@ -1572,7 +1572,7 @@
       const canDelete = isMine || isGroupOwner;
 
       // Find author name
-      let authorName = isMine ? myUsername : 'Student';
+      let authorName = isMine ? myUsername : 'User';
       if (!isMine && activeConv && activeConv.members) {
         const mem = activeConv.members.find(m => m.id === msg.sender_id);
         if (mem && mem.username) authorName = mem.username;
@@ -3178,6 +3178,11 @@
   // App: Interactive Unix Terminal
   // --------------------------------------------------------------------------
   function renderTerminalApp(container, winObj) {
+    const getTermUser = () => {
+      const raw = localStorage.getItem('lunamix_username') || 'user';
+      return raw.toLowerCase().replace(/[^a-z0-9_-]/g, '') || 'user';
+    };
+
     container.innerHTML = `
       <div class="terminal-window" id="termWindow">
         <div id="termOutput">
@@ -3189,7 +3194,7 @@
           </div>
         </div>
         <div class="terminal-input-line">
-          <span class="terminal-prompt">user@lunamix-os:~$</span>
+          <span class="terminal-prompt" id="termPrompt">${getTermUser()}@lunamix-os:~$</span>
           <input type="text" class="terminal-input" id="termInput" autocomplete="off" autofocus />
         </div>
       </div>
@@ -3225,6 +3230,7 @@
   <span style="color:var(--accent);">reboot</span>       - Reboot operating system
   <span style="color:var(--accent);">uptime</span>       - Show system uptime
   <span style="color:var(--accent);">whoami</span>       - Display logged in user
+  <span style="color:var(--accent);">sudo &lt;cmd&gt;</span>   - Execute command as superuser (restricted)
   <span style="color:var(--accent);">date</span>         - Print current system date and time`);
       },
       games: () => {
@@ -3252,8 +3258,9 @@
         }
       },
       neofetch: () => {
+        const u = getTermUser();
         const ascii = `
-      <span style="color:var(--accent);">.---.</span>            <span style="color:var(--accent); font-weight:700;">user@lunamix-os</span>
+      <span style="color:var(--accent);">.---.</span>            <span style="color:var(--accent); font-weight:700;">${u}@lunamix-os</span>
      <span style="color:var(--accent);">/     \\</span>           -----------------
     <span style="color:var(--accent);">| () () |</span>          <span style="color:#38bdf8;">OS:</span> Lunamix OS v3.0 (Web GI)
      <span style="color:var(--accent);">\\  _  /</span>           <span style="color:#38bdf8;">Kernel:</span> 6.8.0-web-nautilus
@@ -3304,7 +3311,15 @@
         print(`Uptime: ${Math.floor(performance.now() / 1000)} seconds`);
       },
       whoami: () => {
-        print('student (uid=1000 gid=1000 groups=sudo,students,lunamix)');
+        const curUser = getTermUser();
+        print(`${curUser} (uid=1000 gid=1000 groups=users,lunamix)`);
+      },
+      sudo: (args) => {
+        const curUser = getTermUser();
+        print(`[sudo] password for ${curUser}:`);
+        setTimeout(() => {
+          print(`${curUser} is not in the sudoers file. This incident will be reported.`, '#ef4444');
+        }, 300);
       },
       date: () => {
         print(new Date().toString());
@@ -3320,7 +3335,8 @@
         history.push(line);
         histIdx = history.length;
 
-        print(`<span style="color:var(--accent);">user@lunamix-os:~$</span> ${escapeHtml(line)}`);
+        const termUser = getTermUser();
+        print(`<span style="color:var(--accent);">${termUser}@lunamix-os:~$</span> ${escapeHtml(line)}`);
         const parts = line.split(/\s+/);
         const cmd = parts[0].toLowerCase();
         const args = parts.slice(1);
@@ -4014,8 +4030,8 @@
         login.style.pointerEvents = 'none';
       }
 
-      // 2. Initialize student session username immediately
-      const savedUser = localStorage.getItem('lunamix_username') || localStorage.getItem('lunamix_chat_username') || 'Student';
+      // 2. Initialize user session username immediately
+      const savedUser = localStorage.getItem('lunamix_username') || localStorage.getItem('lunamix_chat_username') || 'User';
       const startUser = document.getElementById('startUsername');
       if (startUser) startUser.textContent = savedUser;
 
@@ -4036,7 +4052,7 @@
             window.commitStartupLogin();
           } else {
             const userInp = document.getElementById('loginUserInput');
-            const username = (userInp ? userInp.value.trim() : '') || 'Student';
+            const username = (userInp ? userInp.value.trim() : '') || 'User';
             localStorage.setItem('lunamix_username', username);
             localStorage.setItem('lunamix_chat_username', username);
             if (startUser) startUser.textContent = username;

@@ -124,10 +124,10 @@
         <div class="login-avatar">
           <i class="fa-solid fa-user"></i>
         </div>
-        <div class="login-title" id="loginTitle">Welcome Student</div>
+        <div class="login-title" id="loginTitle">Welcome User</div>
         <div class="login-subtitle">Sign in to your Lunamix workspace</div>
 
-        <input type="text" id="loginUserInput" class="login-input" value="Student" placeholder="Enter username..." autocomplete="off" />
+        <input type="text" id="loginUserInput" class="login-input" value="User" placeholder="Enter username..." autocomplete="off" />
         <button id="loginBtn" class="login-btn">
           Enter Desktop <i class="fa-solid fa-arrow-right" style="margin-left: 6px;"></i>
         </button>
@@ -256,7 +256,7 @@
         <i class="fa-solid fa-user"></i>
       </div>
       <div class="start-user-info">
-        <div class="start-username" id="startUsername">Student</div>
+        <div class="start-username" id="startUsername">User</div>
         <div class="start-status"><i class="fa-solid fa-circle" style="font-size: 0.5rem; margin-right: 4px;"></i>Online (Cloud Synced)</div>
       </div>
       <button class="start-power-btn" id="startPowerBtn" title="Reboot OS" onclick="window.location.reload();">
@@ -436,14 +436,14 @@
       const loginEl = document.getElementById('login');
 
       // 1. Sync saved username from localStorage across refreshes
-      const savedUser = localStorage.getItem('lunamix_username') || localStorage.getItem('lunamix_chat_username') || 'Student';
+      const savedUser = localStorage.getItem('lunamix_username') || localStorage.getItem('lunamix_chat_username') || 'User';
       if (userInp) userInp.value = savedUser;
       if (loginTitle) loginTitle.textContent = 'Welcome ' + savedUser;
       if (startUser) startUser.textContent = savedUser;
 
       if (userInp) {
         userInp.addEventListener('input', () => {
-          const val = userInp.value.trim() || 'Student';
+          const val = userInp.value.trim() || 'User';
           if (loginTitle) loginTitle.textContent = 'Welcome ' + val;
         });
         userInp.addEventListener('keydown', (e) => {
@@ -455,7 +455,7 @@
       }
 
       function commitLogin(overrideName) {
-        const username = overrideName || (userInp ? userInp.value.trim() : '') || 'Student';
+        const username = overrideName || (userInp ? userInp.value.trim() : '') || 'User';
         localStorage.setItem('lunamix_username', username);
         localStorage.setItem('lunamix_chat_username', username);
         if (startUser) startUser.textContent = username;
