@@ -3490,25 +3490,68 @@
   // App: Eaglercraft Native Window Launcher
   // --------------------------------------------------------------------------
   function renderEaglercraftApp(container, winObj) {
+    const savedTheme = localStorage.getItem('eagler_theme_choice') || 'nautilus';
+    const isNautilus = savedTheme === 'nautilus';
+    const initialSrc = isNautilus ? './eaglercraft-test.html' : './eaglercraft.html';
+
     container.innerHTML = `
       <div style="height: 100%; display: flex; flex-direction: column;">
-        <div class="browser-chrome" style="background: rgba(15, 20, 32, 0.95); display: flex; justify-content: space-between; align-items: center; padding: 0.4rem 0.8rem;">
-          <div style="display: flex; align-items: center; gap: 0.5rem; font-size: 0.85rem; font-weight: 600; color: #10b981;">
+        <div class="browser-chrome" style="background: rgba(15, 20, 32, 0.95); display: flex; justify-content: space-between; align-items: center; padding: 0.4rem 0.8rem; border-bottom: 1px solid rgba(255,255,255,0.08);">
+          <div style="display: flex; align-items: center; gap: 0.5rem; font-size: 0.85rem; font-weight: 600; color: var(--accent);">
             <i class="fa-solid fa-cube"></i>
-            <span>Eaglercraft GX-Launcher (68 Clients + HBWMC Server)</span>
+            <span id="eaglerTitleText">Eaglercraft Launcher (68 Clients)</span>
           </div>
-          <div style="display: flex; gap: 0.4rem;">
-            <a href="./eaglercraft.html" target="_blank" class="browser-btn" title="Open Fullscreen in New Tab" style="text-decoration: none;">
+          <div style="display: flex; align-items: center; gap: 0.5rem;">
+            <div style="display: inline-flex; background: rgba(0,0,0,0.35); border: 1px solid rgba(255,255,255,0.1); border-radius: 6px; padding: 2px;">
+              <button id="eaglerNautilusBtn" class="browser-btn" style="padding: 0.2rem 0.55rem; font-size: 0.72rem; border-radius: 4px; ${isNautilus ? 'background: var(--accent); color: #0a0e1a; font-weight: 700;' : 'color: var(--text-secondary);'}" title="Switch to NautilusOS Test Theme">
+                NautilusOS
+              </button>
+              <button id="eaglerClassicBtn" class="browser-btn" style="padding: 0.2rem 0.55rem; font-size: 0.72rem; border-radius: 4px; ${!isNautilus ? 'background: var(--accent); color: #0a0e1a; font-weight: 700;' : 'color: var(--text-secondary);'}" title="Switch to Classic GX Theme">
+                Classic GX
+              </button>
+            </div>
+            <a id="eaglerExtLink" href="${initialSrc}" target="_blank" class="browser-btn" title="Open Fullscreen in New Tab" style="text-decoration: none;">
               <i class="fa-solid fa-arrow-up-right-from-square"></i>
             </a>
           </div>
         </div>
-        <iframe src="./eaglercraft.html" style="flex: 1; width: 100%; border: none; background: #000;"
+        <iframe id="eaglerIframe" src="${initialSrc}" style="flex: 1; width: 100%; border: none; background: #000;"
           allow="autoplay; fullscreen; gamepad; focus-without-user-activation *"
           sandbox="allow-scripts allow-same-origin allow-forms allow-popups">
         </iframe>
       </div>
     `;
+
+    const iframe = container.querySelector('#eaglerIframe');
+    const extLink = container.querySelector('#eaglerExtLink');
+    const nautilusBtn = container.querySelector('#eaglerNautilusBtn');
+    const classicBtn = container.querySelector('#eaglerClassicBtn');
+
+    if (nautilusBtn && classicBtn && iframe && extLink) {
+      nautilusBtn.addEventListener('click', () => {
+        iframe.src = './eaglercraft-test.html';
+        extLink.href = './eaglercraft-test.html';
+        localStorage.setItem('eagler_theme_choice', 'nautilus');
+        nautilusBtn.style.background = 'var(--accent)';
+        nautilusBtn.style.color = '#0a0e1a';
+        nautilusBtn.style.fontWeight = '700';
+        classicBtn.style.background = 'transparent';
+        classicBtn.style.color = 'var(--text-secondary)';
+        classicBtn.style.fontWeight = 'normal';
+      });
+
+      classicBtn.addEventListener('click', () => {
+        iframe.src = './eaglercraft.html';
+        extLink.href = './eaglercraft.html';
+        localStorage.setItem('eagler_theme_choice', 'classic');
+        classicBtn.style.background = 'var(--accent)';
+        classicBtn.style.color = '#0a0e1a';
+        classicBtn.style.fontWeight = '700';
+        nautilusBtn.style.background = 'transparent';
+        nautilusBtn.style.color = 'var(--text-secondary)';
+        nautilusBtn.style.fontWeight = 'normal';
+      });
+    }
   }
 
   // --------------------------------------------------------------------------
