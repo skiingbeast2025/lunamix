@@ -314,7 +314,34 @@
         element: winEl,
         app: app,
         prevBounds: null,
-        isMaximized: false
+        isMaximized: false,
+        addHeaderButton: function({ icon, title, onClick, href, className = '' }) {
+          const controls = winEl.querySelector('.window-controls');
+          if (!controls) return null;
+          const btn = document.createElement(href ? 'a' : 'button');
+          btn.className = `window-btn ${className}`.trim();
+          if (title) btn.title = title;
+          if (href) {
+            btn.href = href;
+            btn.target = '_blank';
+            btn.rel = 'noopener noreferrer';
+            btn.style.textDecoration = 'none';
+          }
+          btn.innerHTML = `<i class="fa-solid ${icon}"></i>`;
+          if (onClick) {
+            btn.addEventListener('click', (e) => {
+              e.stopPropagation();
+              onClick(e, btn);
+            });
+          }
+          const minBtn = controls.querySelector('[data-action="minimize"]');
+          if (minBtn) {
+            controls.insertBefore(btn, minBtn);
+          } else {
+            controls.appendChild(btn);
+          }
+          return btn;
+        }
       };
       this.windows[appId] = winObj;
 
@@ -917,36 +944,32 @@
   // App: Games Hub
   // --------------------------------------------------------------------------
   function renderGamesHubApp(container, winObj) {
-    container.innerHTML = `
-      <div style="height: 100%; display: flex; flex-direction: column;">
-        <div class="browser-chrome" style="background: rgba(15, 20, 32, 0.95); border-bottom: 1px solid rgba(255,255,255,0.08); padding: 0.4rem 0.8rem; display: flex; align-items: center; justify-content: space-between; gap: 0.6rem;">
-          <div style="display: flex; align-items: center; gap: 0.5rem; font-size: 0.85rem; font-weight: 600; color: var(--accent);">
-            <i class="fa-solid fa-gamepad"></i>
-            <span>Lunamix Games Library (1,072+ Verified Games)</span>
-          </div>
-          <div style="display: flex; align-items: center; gap: 0.4rem;">
-            <button class="browser-btn" id="gamesHubReloadBtn" title="Reload Catalog">
-              <i class="fa-solid fa-rotate-right"></i>
-            </button>
-            <a href="./games.html" target="_blank" class="browser-btn" title="Open Fullscreen in New Tab" style="text-decoration: none;">
-              <i class="fa-solid fa-arrow-up-right-from-square"></i>
-            </a>
-          </div>
-        </div>
-        <iframe src="./games.html" id="gamesHubIframe" style="flex: 1; width: 100%; border: none; background: #050714;"
-          allow="autoplay; fullscreen; gamepad; focus-without-user-activation *"
-          sandbox="allow-scripts allow-same-origin allow-forms allow-popups allow-modals">
-        </iframe>
-      </div>
-    `;
-
-    const reloadBtn = container.querySelector('#gamesHubReloadBtn');
-    const iframe = container.querySelector('#gamesHubIframe');
-    if (reloadBtn && iframe) {
-      reloadBtn.addEventListener('click', () => {
-        iframe.src = './games.html';
+    if (winObj && typeof winObj.addHeaderButton === 'function') {
+      winObj.addHeaderButton({
+        icon: 'fa-rotate-right',
+        title: 'Reload Catalog',
+        onClick: () => {
+          const iframe = container.querySelector('#gamesHubIframe');
+          if (iframe) {
+            const currentSrc = iframe.src;
+            iframe.src = 'about:blank';
+            setTimeout(() => { iframe.src = currentSrc; }, 50);
+          }
+        }
+      });
+      winObj.addHeaderButton({
+        icon: 'fa-arrow-up-right-from-square',
+        title: 'Open Fullscreen in New Tab',
+        href: './games.html'
       });
     }
+
+    container.innerHTML = `
+      <iframe src="./games.html?embed=1" id="gamesHubIframe" style="width: 100%; height: 100%; border: none; background: #050714; display: block;"
+        allow="autoplay; fullscreen; gamepad; focus-without-user-activation *"
+        sandbox="allow-scripts allow-same-origin allow-forms allow-popups allow-modals">
+      </iframe>
+    `;
   }
 
   // --------------------------------------------------------------------------
@@ -3505,92 +3528,60 @@
   // App: Eaglercraft Native Window Launcher
   // --------------------------------------------------------------------------
   function renderEaglercraftApp(container, winObj) {
-    const savedTheme = localStorage.getItem('eagler_theme_choice') || 'nautilus';
-    const isNautilus = savedTheme === 'nautilus';
-    const initialSrc = isNautilus ? './eaglercraft-test.html' : './eaglercraft.html';
+    let savedTheme = localStorage.getItem('eagler_theme_choice') || 'nautilus';
+    let isNautilus = savedTheme === 'nautilus';
+    let currentSrc = isNautilus ? './eaglercraft-test.html' : './eaglercraft.html';
 
-    container.innerHTML = `
-      <div style="height: 100%; display: flex; flex-direction: column;">
-        <div class="browser-chrome" style="background: rgba(15, 20, 32, 0.95); display: flex; justify-content: space-between; align-items: center; padding: 0.4rem 0.8rem; border-bottom: 1px solid rgba(255,255,255,0.08);">
-          <div style="display: flex; align-items: center; gap: 0.5rem; font-size: 0.85rem; font-weight: 600; color: var(--accent);">
-            <i class="fa-solid fa-cube"></i>
-            <span id="eaglerTitleText">Eaglercraft Launcher (68 Clients)</span>
-          </div>
-          <div style="display: flex; align-items: center; gap: 0.5rem;">
-            <div style="display: inline-flex; background: rgba(0,0,0,0.35); border: 1px solid rgba(255,255,255,0.1); border-radius: 6px; padding: 2px;">
-              <button id="eaglerNautilusBtn" class="browser-btn" style="padding: 0.2rem 0.55rem; font-size: 0.72rem; border-radius: 4px; ${isNautilus ? 'background: var(--accent); color: #0a0e1a; font-weight: 700;' : 'color: var(--text-secondary);'}" title="Switch to NautilusOS Test Theme">
-                NautilusOS
-              </button>
-              <button id="eaglerClassicBtn" class="browser-btn" style="padding: 0.2rem 0.55rem; font-size: 0.72rem; border-radius: 4px; ${!isNautilus ? 'background: var(--accent); color: #0a0e1a; font-weight: 700;' : 'color: var(--text-secondary);'}" title="Switch to Classic GX Theme">
-                Classic GX
-              </button>
-            </div>
-            <a id="eaglerExtLink" href="${initialSrc}" target="_blank" class="browser-btn" title="Open Fullscreen in New Tab" style="text-decoration: none;">
-              <i class="fa-solid fa-arrow-up-right-from-square"></i>
-            </a>
-          </div>
-        </div>
-        <iframe id="eaglerIframe" src="${initialSrc}" style="flex: 1; width: 100%; border: none; background: #000;"
-          allow="autoplay; fullscreen; gamepad; focus-without-user-activation *"
-          sandbox="allow-scripts allow-same-origin allow-forms allow-popups">
-        </iframe>
-      </div>
-    `;
+    let extLinkBtn = null;
+    let themeBtn = null;
 
-    const iframe = container.querySelector('#eaglerIframe');
-    const extLink = container.querySelector('#eaglerExtLink');
-    const nautilusBtn = container.querySelector('#eaglerNautilusBtn');
-    const classicBtn = container.querySelector('#eaglerClassicBtn');
-
-    if (nautilusBtn && classicBtn && iframe && extLink) {
-      nautilusBtn.addEventListener('click', () => {
-        iframe.src = './eaglercraft-test.html';
-        extLink.href = './eaglercraft-test.html';
-        localStorage.setItem('eagler_theme_choice', 'nautilus');
-        nautilusBtn.style.background = 'var(--accent)';
-        nautilusBtn.style.color = '#0a0e1a';
-        nautilusBtn.style.fontWeight = '700';
-        classicBtn.style.background = 'transparent';
-        classicBtn.style.color = 'var(--text-secondary)';
-        classicBtn.style.fontWeight = 'normal';
+    if (winObj && typeof winObj.addHeaderButton === 'function') {
+      themeBtn = winObj.addHeaderButton({
+        icon: 'fa-palette',
+        title: `Switch Theme (Current: ${isNautilus ? 'NautilusOS' : 'Classic'})`,
+        onClick: (e, btn) => {
+          isNautilus = !isNautilus;
+          currentSrc = isNautilus ? './eaglercraft-test.html' : './eaglercraft.html';
+          localStorage.setItem('eagler_theme_choice', isNautilus ? 'nautilus' : 'classic');
+          const iframe = container.querySelector('#eaglerIframe');
+          if (iframe) iframe.src = currentSrc;
+          if (extLinkBtn) extLinkBtn.href = currentSrc;
+          btn.title = `Switch Theme (Current: ${isNautilus ? 'NautilusOS' : 'Classic'})`;
+        }
       });
 
-      classicBtn.addEventListener('click', () => {
-        iframe.src = './eaglercraft.html';
-        extLink.href = './eaglercraft.html';
-        localStorage.setItem('eagler_theme_choice', 'classic');
-        classicBtn.style.background = 'var(--accent)';
-        classicBtn.style.color = '#0a0e1a';
-        classicBtn.style.fontWeight = '700';
-        nautilusBtn.style.background = 'transparent';
-        nautilusBtn.style.color = 'var(--text-secondary)';
-        nautilusBtn.style.fontWeight = 'normal';
+      extLinkBtn = winObj.addHeaderButton({
+        icon: 'fa-arrow-up-right-from-square',
+        title: 'Open Fullscreen in New Tab',
+        href: currentSrc
       });
     }
+
+    container.innerHTML = `
+      <iframe id="eaglerIframe" src="${currentSrc}" style="width: 100%; height: 100%; border: none; background: #000; display: block;"
+        allow="autoplay; fullscreen; gamepad; focus-without-user-activation *"
+        sandbox="allow-scripts allow-same-origin allow-forms allow-popups">
+      </iframe>
+    `;
   }
 
   // --------------------------------------------------------------------------
   // App: Retro Emulator Launcher (WebRetro Libretro WASM)
   // --------------------------------------------------------------------------
   function renderEmulatorApp(container, winObj) {
+    if (winObj && typeof winObj.addHeaderButton === 'function') {
+      winObj.addHeaderButton({
+        icon: 'fa-arrow-up-right-from-square',
+        title: 'Open Fullscreen in New Tab',
+        href: './emulator.html'
+      });
+    }
+
     container.innerHTML = `
-      <div style="height: 100%; display: flex; flex-direction: column;">
-        <div class="browser-chrome" style="background: rgba(15, 20, 32, 0.95); display: flex; justify-content: space-between; align-items: center; padding: 0.4rem 0.8rem; border-bottom: 1px solid rgba(255,255,255,0.08);">
-          <div style="display: flex; align-items: center; gap: 0.5rem; font-size: 0.85rem; font-weight: 600; color: var(--accent, #7dd3c0);">
-            <i class="fa-solid fa-gamepad"></i>
-            <span>WebRetro Universal Emulator (RetroArch Libretro WASM)</span>
-          </div>
-          <div style="display: flex; gap: 0.4rem;">
-            <a href="./emulator.html" target="_blank" class="browser-btn" title="Open Fullscreen in New Tab" style="text-decoration: none;">
-              <i class="fa-solid fa-arrow-up-right-from-square"></i>
-            </a>
-          </div>
-        </div>
-        <iframe src="./emulator.html?embed=1" style="flex: 1; width: 100%; border: none; background: #000;"
-          allow="autoplay; fullscreen; gamepad; focus-without-user-activation *"
-          sandbox="allow-scripts allow-same-origin allow-forms allow-popups">
-        </iframe>
-      </div>
+      <iframe src="./emulator.html?embed=1" style="width: 100%; height: 100%; border: none; background: #000; display: block;"
+        allow="autoplay; fullscreen; gamepad; focus-without-user-activation *"
+        sandbox="allow-scripts allow-same-origin allow-forms allow-popups">
+      </iframe>
     `;
   }
 

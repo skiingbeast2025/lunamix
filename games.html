@@ -34,10 +34,43 @@
           }
         }
       }
-    }
+    };
+
+    // Immediate embedded detection for NautilusOS window integration
+    (function() {
+      try {
+        const p = new URLSearchParams(window.location.search);
+        if (p.get('embed') === '1' || window.self !== window.top) {
+          document.documentElement.classList.add('is-embedded');
+          document.addEventListener('DOMContentLoaded', () => {
+            if (document.body) document.body.classList.add('is-embedded');
+          });
+        }
+      } catch (e) {}
+    })();
   </script>
 
   <style>
+    /* Embedded OS Mode (when loaded in NautilusOS window) */
+    html.is-embedded .desktop_navbar,
+    html.is-embedded .mobile_navbar,
+    html.is-embedded #background,
+    body.is-embedded .desktop_navbar,
+    body.is-embedded .mobile_navbar,
+    body.is-embedded #background {
+      display: none !important;
+    }
+    html.is-embedded body,
+    body.is-embedded {
+      min-height: 100vh;
+      background-color: #050714 !important;
+    }
+    html.is-embedded main,
+    body.is-embedded main {
+      padding-top: 1rem !important;
+      padding-bottom: 2rem !important;
+    }
+
     /* Custom scrollbar */
     ::-webkit-scrollbar {
       width: 8px;
