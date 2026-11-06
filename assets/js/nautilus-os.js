@@ -1217,8 +1217,36 @@
             </div>
           </div>
 
+          <!-- GIF Picker Popover -->
+          <div class="chat-gif-popover" id="chatGifPopover" style="display: none;">
+            <div class="chat-gif-header">
+              <div class="chat-gif-search-wrap">
+                <i class="fa-solid fa-magnifying-glass"></i>
+                <input type="text" id="chatGifSearchInput" placeholder="Search GIFs or paste URL..." autocomplete="off" />
+              </div>
+              <button type="button" class="chat-gif-hdr-btn" id="chatGifKeyBtn" title="Set GIPHY or Klipy API Key">
+                <i class="fa-solid fa-key"></i>
+              </button>
+              <button type="button" class="chat-gif-hdr-btn" id="chatGifCloseBtn" title="Close GIF picker">
+                <i class="fa-solid fa-xmark"></i>
+              </button>
+            </div>
+            <div class="chat-gif-categories" id="chatGifCategories">
+              <button type="button" class="chat-gif-cat-pill active" data-cat="trending">Trending</button>
+              <button type="button" class="chat-gif-cat-pill" data-cat="gaming">Gaming</button>
+              <button type="button" class="chat-gif-cat-pill" data-cat="reactions">Reactions</button>
+              <button type="button" class="chat-gif-cat-pill" data-cat="memes">Memes</button>
+              <button type="button" class="chat-gif-cat-pill" data-cat="dance">Dance</button>
+              <button type="button" class="chat-gif-cat-pill" data-cat="anime">Anime</button>
+            </div>
+            <div class="chat-gif-grid" id="chatGifGrid"></div>
+          </div>
+
           <form class="chat-composer" id="chatComposerForm">
             <input type="text" id="chatMessageInput" placeholder="Select or start a chat to send messages..." autocomplete="off" maxlength="1000" disabled />
+            <button type="button" class="chat-tool-btn" id="chatGifBtn" title="Send a GIF" disabled>
+              GIF
+            </button>
             <button type="submit" class="chat-send-btn" id="chatSendBtn" title="Send Message" disabled>
               <i class="fa-solid fa-paper-plane"></i>
             </button>
@@ -1235,6 +1263,13 @@
     const messagesEl = container.querySelector('#chatMessages');
     const inputEl = container.querySelector('#chatMessageInput');
     const sendBtn = container.querySelector('#chatSendBtn');
+    const gifBtn = container.querySelector('#chatGifBtn');
+    const gifPopover = container.querySelector('#chatGifPopover');
+    const gifSearchInput = container.querySelector('#chatGifSearchInput');
+    const gifCloseBtn = container.querySelector('#chatGifCloseBtn');
+    const gifKeyBtn = container.querySelector('#chatGifKeyBtn');
+    const gifCategoriesEl = container.querySelector('#chatGifCategories');
+    const gifGridEl = container.querySelector('#chatGifGrid');
     const formEl = container.querySelector('#chatComposerForm');
     const headerIconEl = container.querySelector('#chatHeaderIcon');
     const headerTitleEl = container.querySelector('#chatHeaderTitle');
@@ -1359,6 +1394,7 @@
 
       inputEl.disabled = false;
       sendBtn.disabled = false;
+      if (gifBtn) gifBtn.disabled = false;
       const targetName = activeConv.kind === 'group'
         ? `#${activeConv.name || 'squad'}`
         : `@${((activeConv.members || []).find(m => m.id !== myId)?.username || 'friend')}`;
@@ -1450,6 +1486,8 @@
       headerActionsEl.innerHTML = '';
       inputEl.disabled = true;
       sendBtn.disabled = true;
+      if (gifBtn) gifBtn.disabled = true;
+      if (gifPopover) gifPopover.style.display = 'none';
       inputEl.placeholder = 'Select or start a chat to send messages...';
       messagesEl.innerHTML = `
         <div style="text-align: center; padding: 3rem 1.5rem; color: var(--text-secondary); font-size: 0.86rem;">
@@ -1513,7 +1551,7 @@
             </span>
             <span class="chat-msg-time">${escapeHtml(timeStr)}</span>
           </div>
-          <div class="chat-msg-text">${escapeHtml(msg.body || '')}</div>
+          <div class="chat-msg-text">${renderChatBody(msg.body || '')}</div>
         </div>
         ${canDelete ? `
           <button class="chat-msg-del-btn" title="Delete message">
@@ -1567,7 +1605,250 @@
       }
     });
 
-    // ── DELETION & GROUP MANAGEMENT FUNCTIONS ──────────────────────────
+    // Render Chat Message Body (Supports Text & Inline Animated GIFs)
+    function isGifUrl(url) {
+      if (!url || typeof url !== 'string') return false;
+      const s = url.trim();
+      if (!/^https?:\/\//i.test(s)) return false;
+      if (/\.(gif|webp)($|\?)/i.test(s)) return true;
+      if (/giphy\.com\//i.test(s) && (/\.gif/i.test(s) || /media/i.test(s))) return true;
+      if (/tenor\.com\//i.test(s)) return true;
+      if (/klipy\.com\//i.test(s)) return true;
+      return false;
+    }
+
+    function renderChatBody(body) {
+      if (!body) return '';
+      const trimmed = body.trim();
+      if (isGifUrl(trimmed)) {
+        return `<div class="chat-msg-gif-wrap"><img src="${escapeHtml(trimmed)}" alt="GIF" loading="lazy" onerror="this.parentElement.innerHTML='<span style=\\'color:#f87171;font-size:0.75rem;\\'>Failed to load GIF</span>'" /></div>`;
+      }
+      return escapeHtml(body);
+    }
+
+    // Send GIF Message
+    async function sendGifMessage(gifUrl) {
+      if (!activeConv || !gifUrl) return;
+      if (gifPopover) gifPopover.style.display = 'none';
+      try {
+        const { data, error } = await sb.from('messages').insert({
+          conversation_id: activeConv.id,
+          sender_id: myId,
+          body: gifUrl
+        }).select().single();
+
+        if (error) throw error;
+        if (data && !messages.some(m => m.id === data.id)) {
+          messages.push(data);
+          appendMessageDOM(data);
+        }
+      } catch (err) {
+        console.error('Failed to send GIF:', err);
+        alert('Could not send GIF: ' + err.message);
+      }
+    }
+
+    // Curated GIF Library
+    const CURATED_GIFS = [
+      // Trending
+      { id: 't1', title: 'Popcat', cat: 'trending', tags: ['popcat', 'cat', 'meme'], url: 'https://media.giphy.com/media/rdma0nDFRMR32/giphy.gif' },
+      { id: 't2', title: 'Cat Vibing', cat: 'trending', tags: ['cat', 'vibing', 'vibe', 'jamming'], url: 'https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExM3Zva2NmdHNlYm9ocmlyZXk2ZG8xbWJyd2p4OXo2ZWx3dzdpZnB2ayZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/jpbnoe3UIa8TU8LM13/giphy.gif' },
+      { id: 't3', title: 'Party Crab', cat: 'trending', tags: ['crab', 'rave', 'party', 'dance'], url: 'https://media.giphy.com/media/blSTtZehjAZ8I/giphy.gif' },
+      { id: 't4', title: 'Rick Roll', cat: 'trending', tags: ['rick', 'astley', 'roll', 'meme'], url: 'https://media.giphy.com/media/Ju7l5y9osyymQ/giphy.gif' },
+
+      // Gaming
+      { id: 'g1', title: 'Victory Royale', cat: 'gaming', tags: ['victory', 'fortnite', 'win', 'gamer'], url: 'https://media.giphy.com/media/13HgwGsXF0aiGY/giphy.gif' },
+      { id: 'g2', title: 'Good Game', cat: 'gaming', tags: ['gg', 'wp', 'gaming', 'game'], url: 'https://media.giphy.com/media/artj92V8o75VPL7AeQ/giphy.gif' },
+      { id: 'g3', title: 'Level Up', cat: 'gaming', tags: ['level', 'up', 'xp', 'win'], url: 'https://media.giphy.com/media/l41lI4bYmcsPJX9Go/giphy.gif' },
+      { id: 'g4', title: 'Among Us Sus', cat: 'gaming', tags: ['sus', 'impostor', 'among', 'us'], url: 'https://media.giphy.com/media/li6fUAPIbMhpwDcvEN/giphy.gif' },
+      { id: 'g5', title: 'Minecraft Dance', cat: 'gaming', tags: ['minecraft', 'steve', 'block', 'dance'], url: 'https://media.giphy.com/media/mKMGLhoD8L4yc/giphy.gif' },
+      { id: 'g6', title: 'Retro Controller', cat: 'gaming', tags: ['controller', 'console', 'gamepad', 'retro'], url: 'https://media.giphy.com/media/3oKIPnAiaMCws8nOsE/giphy.gif' },
+
+      // Reactions
+      { id: 'r1', title: 'Thumbs Up', cat: 'reactions', tags: ['thumbs', 'up', 'yes', 'approve', 'nice'], url: 'https://media.giphy.com/media/111ebonMs90YLu/giphy.gif' },
+      { id: 'r2', title: 'Mind Blown', cat: 'reactions', tags: ['mind', 'blown', 'shock', 'wow', 'crazy'], url: 'https://media.giphy.com/media/26ufdipQqU2lhNA4g/giphy.gif' },
+      { id: 'r3', title: 'Facepalm', cat: 'reactions', tags: ['facepalm', 'smh', 'fail', 'disappointed'], url: 'https://media.giphy.com/media/3og0INyCmHlNylks9O/giphy.gif' },
+      { id: 'r4', title: 'Confused', cat: 'reactions', tags: ['confused', 'travolta', 'lost', 'what', 'where'], url: 'https://media.giphy.com/media/g01ZnwAUvutuK8GIQn/giphy.gif' },
+      { id: 'r5', title: 'Laughing', cat: 'reactions', tags: ['laugh', 'lol', 'lmao', 'funny', 'haha'], url: 'https://media.giphy.com/media/CoDp6NnSmItoY/giphy.gif' },
+      { id: 'r6', title: 'Excited Dog', cat: 'reactions', tags: ['excited', 'happy', 'dog', 'hype'], url: 'https://media.giphy.com/media/3o7TKSjRrfIPjeiVyM/giphy.gif' },
+      { id: 'r7', title: 'Yes Nod', cat: 'reactions', tags: ['nod', 'yes', 'agree', 'correct'], url: 'https://media.giphy.com/media/xT0xeJpnrWC4XWblEk/giphy.gif' },
+      { id: 'r8', title: 'Shocked Pikachu', cat: 'reactions', tags: ['pikachu', 'shocked', 'surprised', 'pokemon'], url: 'https://media.giphy.com/media/6nWhy3ulBL7GSCvKw6/giphy.gif' },
+
+      // Memes
+      { id: 'm1', title: 'Deal With It', cat: 'memes', tags: ['deal', 'glasses', 'cool', 'boss'], url: 'https://media.giphy.com/media/krewXUB6LBja/giphy.gif' },
+      { id: 'm2', title: 'Popcat', cat: 'memes', tags: ['popcat', 'mouth', 'meme'], url: 'https://media.giphy.com/media/rdma0nDFRMR32/giphy.gif' },
+      { id: 'm3', title: 'Rick Roll', cat: 'memes', tags: ['rickroll', 'never', 'gonna', 'give', 'you', 'up'], url: 'https://media.giphy.com/media/Ju7l5y9osyymQ/giphy.gif' },
+
+      // Dance
+      { id: 'd1', title: 'Baby Groot Dance', cat: 'dance', tags: ['groot', 'dance', 'marvel', 'groove'], url: 'https://media.giphy.com/media/l0MYt5jPR6QX5pnqM/giphy.gif' },
+      { id: 'd2', title: 'SpongeBob Dance', cat: 'dance', tags: ['spongebob', 'dance', 'fun', 'happy'], url: 'https://media.giphy.com/media/slVWEctHZKvWU/giphy.gif' },
+      { id: 'd3', title: 'Party Crab', cat: 'dance', tags: ['crab', 'dance', 'party'], url: 'https://media.giphy.com/media/blSTtZehjAZ8I/giphy.gif' },
+      { id: 'd4', title: 'Minecraft Dance', cat: 'dance', tags: ['minecraft', 'dance'], url: 'https://media.giphy.com/media/mKMGLhoD8L4yc/giphy.gif' },
+
+      // Anime
+      { id: 'a1', title: 'Anime Dance', cat: 'anime', tags: ['anime', 'dance', 'cute'], url: 'https://media.giphy.com/media/bC9czlgCMtw4cj8RgH/giphy.gif' },
+      { id: 'a2', title: 'Anime Slap', cat: 'anime', tags: ['anime', 'slap', 'reaction'], url: 'https://media.giphy.com/media/Gf3AUz3eBNbTW/giphy.gif' },
+      { id: 'a3', title: 'Shocked Pikachu', cat: 'anime', tags: ['pikachu', 'anime'], url: 'https://media.giphy.com/media/6nWhy3ulBL7GSCvKw6/giphy.gif' }
+    ];
+
+    let currentGifCategory = 'trending';
+
+    function renderGifGrid(items) {
+      if (!gifGridEl) return;
+      gifGridEl.innerHTML = '';
+      if (!items || items.length === 0) {
+        gifGridEl.innerHTML = `
+          <div style="grid-column: 1 / -1; text-align: center; padding: 2rem 1rem; color: var(--text-secondary); font-size: 0.8rem;">
+            No GIFs found. Paste any direct GIF link in the search bar above to send it!
+          </div>
+        `;
+        return;
+      }
+
+      items.forEach(g => {
+        const card = document.createElement('div');
+        card.className = 'chat-gif-card';
+        card.title = g.title || 'GIF';
+        card.innerHTML = `<img src="${escapeHtml(g.url)}" alt="${escapeHtml(g.title || 'GIF')}" loading="lazy" />`;
+        card.addEventListener('click', () => {
+          sendGifMessage(g.url);
+        });
+        gifGridEl.appendChild(card);
+      });
+    }
+
+    async function handleGifSearch(query) {
+      if (!gifGridEl) return;
+      const q = (query || '').trim();
+
+      // Check if user pasted a direct link
+      if (/^https?:\/\/.+/i.test(q)) {
+        gifGridEl.innerHTML = `
+          <div class="chat-gif-card" style="grid-column: 1 / -1; aspect-ratio: auto; min-height: 120px; padding: 10px; display: flex; flex-direction: column; gap: 8px;">
+            <div style="font-size: 0.75rem; color: var(--accent); font-weight: 700;">Send Custom GIF Link</div>
+            <img src="${escapeHtml(q)}" alt="Preview" style="max-height: 100px; object-fit: contain; border-radius: 6px;" onerror="this.style.display='none'" />
+            <button class="chat-action-btn" id="sendCustomGifLinkBtn" style="width: 100%; justify-content: center; font-size: 0.78rem;">
+              <i class="fa-solid fa-paper-plane"></i> Send this GIF
+            </button>
+          </div>
+        `;
+        const sendCustomBtn = gifGridEl.querySelector('#sendCustomGifLinkBtn');
+        sendCustomBtn?.addEventListener('click', () => {
+          sendGifMessage(q);
+        });
+        return;
+      }
+
+      // Check if user configured a GIPHY API key
+      const userKey = localStorage.getItem('lunamix_giphy_key');
+      if (userKey && q.length > 1) {
+        gifGridEl.innerHTML = `
+          <div style="grid-column: 1 / -1; text-align: center; padding: 1.5rem; color: var(--text-secondary); font-size: 0.8rem;">
+            <i class="fa-solid fa-spinner fa-spin" style="margin-right: 6px; color: var(--accent);"></i> Searching GIPHY...
+          </div>
+        `;
+        try {
+          const res = await fetch(`https://api.giphy.com/v1/gifs/search?api_key=${encodeURIComponent(userKey)}&q=${encodeURIComponent(q)}&limit=21&rating=g`);
+          const data = await res.json();
+          if (data && data.data && data.data.length > 0) {
+            const apiGifs = data.data.map(item => ({
+              id: item.id,
+              title: item.title || 'GIPHY',
+              url: (item.images?.fixed_height?.url || item.images?.original?.url || '').replace(/^http:/, 'https:')
+            })).filter(item => Boolean(item.url));
+            renderGifGrid(apiGifs);
+            return;
+          }
+        } catch (e) {
+          console.warn('Giphy search failed, falling back to local library:', e);
+        }
+      }
+
+      // Filter curated local library
+      if (!q) {
+        const filtered = CURATED_GIFS.filter(g => g.cat === currentGifCategory);
+        renderGifGrid(filtered);
+      } else {
+        const lower = q.toLowerCase();
+        const filtered = CURATED_GIFS.filter(g => {
+          if (g.title.toLowerCase().includes(lower)) return true;
+          if (g.cat.toLowerCase().includes(lower)) return true;
+          if (g.tags.some(t => t.toLowerCase().includes(lower))) return true;
+          return false;
+        });
+        renderGifGrid(filtered);
+      }
+    }
+
+    // GIF Popover Event Listeners
+    if (gifBtn && gifPopover) {
+      gifBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        if (!activeConv) return;
+        const isHidden = gifPopover.style.display !== 'flex';
+        gifPopover.style.display = isHidden ? 'flex' : 'none';
+        if (isHidden) {
+          if (gifSearchInput) {
+            gifSearchInput.value = '';
+            gifSearchInput.focus();
+          }
+          handleGifSearch('');
+        }
+      });
+
+      gifCloseBtn?.addEventListener('click', (e) => {
+        e.stopPropagation();
+        gifPopover.style.display = 'none';
+      });
+
+      document.addEventListener('click', (e) => {
+        if (gifPopover.style.display === 'flex' && !gifPopover.contains(e.target) && e.target !== gifBtn && !gifBtn.contains(e.target)) {
+          gifPopover.style.display = 'none';
+        }
+      });
+
+      // Category Switching
+      if (gifCategoriesEl) {
+        gifCategoriesEl.querySelectorAll('.chat-gif-cat-pill').forEach(pill => {
+          pill.addEventListener('click', () => {
+            gifCategoriesEl.querySelectorAll('.chat-gif-cat-pill').forEach(p => p.classList.remove('active'));
+            pill.classList.add('active');
+            currentGifCategory = pill.dataset.cat || 'trending';
+            if (gifSearchInput) gifSearchInput.value = '';
+            handleGifSearch('');
+          });
+        });
+      }
+
+      // Search input debounce
+      let searchTimeout = null;
+      gifSearchInput?.addEventListener('input', () => {
+        clearTimeout(searchTimeout);
+        searchTimeout = setTimeout(() => {
+          handleGifSearch(gifSearchInput.value);
+        }, 250);
+      });
+
+      // API Key button
+      gifKeyBtn?.addEventListener('click', (e) => {
+        e.stopPropagation();
+        const existingKey = localStorage.getItem('lunamix_giphy_key') || '';
+        const entered = prompt('Enter your free GIPHY API key for unlimited live GIF searches (or leave blank to use the built-in curated library):', existingKey);
+        if (entered !== null) {
+          const cleanKey = entered.trim();
+          if (cleanKey) {
+            localStorage.setItem('lunamix_giphy_key', cleanKey);
+            alert('GIPHY API key saved! You can now search live animated GIFs.');
+          } else {
+            localStorage.removeItem('lunamix_giphy_key');
+            alert('Using built-in curated GIF library.');
+          }
+          handleGifSearch(gifSearchInput?.value || '');
+        }
+      });
+    }
+
+    // DELETION & GROUP MANAGEMENT FUNCTIONS
 
     // Creator Delete Group Chat
     async function deleteGroupChat(conv) {
