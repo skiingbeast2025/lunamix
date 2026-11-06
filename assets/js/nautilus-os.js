@@ -1029,7 +1029,7 @@
           </form>
 
           <p style="font-size: 0.74rem; color: var(--text-secondary); margin-top: 1.25rem; line-height: 1.4;" id="authHintText">
-            Enter your personal username and password to sync your messages, squad groups, and DMs.
+            Enter your personal username and password to sync your messages, group chats, and DMs.
           </p>
         </div>
       </div>
@@ -1051,7 +1051,7 @@
         tabSignIn.classList.add('active');
         tabSignUp.classList.remove('active');
         submitBtn.textContent = 'Sign In to Chat';
-        hintText.textContent = 'Enter your personal username and password to sync your messages, squad groups, and DMs.';
+        hintText.textContent = 'Enter your personal username and password to sync your messages, group chats, and DMs.';
       } else {
         tabSignUp.classList.add('active');
         tabSignIn.classList.remove('active');
@@ -1175,7 +1175,7 @@
               </div>
             </div>
             <div style="display: flex; gap: 4px; align-items: center;">
-              <button id="chatNewConvBtn" title="New Chat or Squad" class="chat-action-btn" style="padding: 4px 8px; font-size: 0.82rem;">
+              <button id="chatNewConvBtn" title="New Chat or Group" class="chat-action-btn" style="padding: 4px 8px; font-size: 0.82rem;">
                 <i class="fa-solid fa-plus"></i>
               </button>
               <button id="chatSignOutBtn" title="Sign Out" class="chat-action-btn" style="padding: 4px 8px; font-size: 0.82rem; color: #f87171;">
@@ -1184,15 +1184,15 @@
             </div>
           </div>
 
-          <!-- Section: Groups & Squads -->
+          <!-- Section: Group Chats -->
           <div class="chat-sidebar-section">
-            <span>Squad Groups</span>
-            <button id="chatPlusGroupBtn" title="Create Squad Group" style="color: var(--accent); font-size: 0.82rem; padding: 2px 4px;">
+            <span>Group Chats</span>
+            <button id="chatPlusGroupBtn" title="Create Group Chat" style="color: var(--accent); font-size: 0.82rem; padding: 2px 4px;">
               <i class="fa-solid fa-plus"></i>
             </button>
           </div>
           <div id="chatGroupsList" class="chat-channels-list" style="max-height: 40%; flex: none;">
-            <div style="padding: 0.5rem 0.75rem; font-size: 0.76rem; color: var(--text-secondary);">Loading squads...</div>
+            <div style="padding: 0.5rem 0.75rem; font-size: 0.76rem; color: var(--text-secondary);">Loading groups...</div>
           </div>
 
           <!-- Section: Direct Messages -->
@@ -1224,7 +1224,7 @@
             <div style="text-align: center; padding: 3rem 1.5rem; color: var(--text-secondary); font-size: 0.86rem;">
               <i class="fa-solid fa-comments" style="font-size: 2.2rem; color: var(--accent); margin-bottom: 0.75rem; display: block; opacity: 0.7;"></i>
               <div style="font-weight: 700; color: var(--text-primary); margin-bottom: 0.25rem;">Welcome to Lunamix Chat, @${escapeHtml(myUsername)}!</div>
-              <div>Select a squad group, direct message a friend, or create your own group!</div>
+              <div>Select a group chat, direct message a friend, or create your own group!</div>
             </div>
           </div>
 
@@ -1351,7 +1351,7 @@
       if (groups.length === 0) {
         groupsListEl.innerHTML = `
           <div style="padding: 0.5rem 0.75rem; font-size: 0.75rem; color: var(--text-secondary);">
-            No squads yet. Click + to create one!
+            No group chats yet. Click + to create one!
           </div>
         `;
       } else {
@@ -1362,8 +1362,8 @@
           item.className = `chat-channel-item ${isActive ? 'active' : ''}`;
           item.innerHTML = `
             <i class="fa-solid fa-users" style="color: var(--accent); font-size: 0.8rem;"></i>
-            <span style="flex: 1; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">#${escapeHtml(g.name || 'Unnamed Squad')}</span>
-            ${isCreator ? `<span class="chat-roster-badge" title="You are the creator of this squad">Owner</span>` : ''}
+            <span style="flex: 1; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">#${escapeHtml(g.name || 'Unnamed Group')}</span>
+            ${isCreator ? `<span class="chat-roster-badge" title="You are the creator of this group">Owner</span>` : ''}
           `;
           item.addEventListener('click', () => selectConversation(g.id));
           groupsListEl.appendChild(item);
@@ -1407,7 +1407,7 @@
       sendBtn.disabled = false;
       if (gifBtn) gifBtn.disabled = false;
       const targetName = activeConv.kind === 'group'
-        ? `#${activeConv.name || 'squad'}`
+        ? `#${activeConv.name || 'group'}`
         : `@${((activeConv.members || []).find(m => m.id !== myId)?.username || 'friend')}`;
       inputEl.placeholder = `Message ${targetName}... (Press Enter to send)`;
       inputEl.focus();
@@ -1453,7 +1453,7 @@
         const isCreator = activeConv.created_by === myId;
         const memberCount = (activeConv.members || []).length;
         headerIconEl.className = 'fa-solid fa-users';
-        headerTitleEl.textContent = `#${activeConv.name || 'squad'}`;
+        headerTitleEl.textContent = `#${activeConv.name || 'group'}`;
         headerDescEl.textContent = `${memberCount} ${memberCount === 1 ? 'member' : 'members'}`;
 
         // Manage Members Button
@@ -1477,7 +1477,7 @@
           const leaveBtn = document.createElement('button');
           leaveBtn.className = 'chat-action-btn';
           leaveBtn.innerHTML = '<i class="fa-solid fa-door-open"></i> Leave';
-          leaveBtn.title = 'Leave this squad group';
+          leaveBtn.title = 'Leave this group chat';
           leaveBtn.addEventListener('click', () => leaveGroupChat(activeConv));
           headerActionsEl.appendChild(leaveBtn);
         }
@@ -1504,7 +1504,7 @@
         <div style="text-align: center; padding: 3rem 1.5rem; color: var(--text-secondary); font-size: 0.86rem;">
           <i class="fa-solid fa-comments" style="font-size: 2.2rem; color: var(--accent); margin-bottom: 0.75rem; display: block; opacity: 0.7;"></i>
           <div style="font-weight: 700; color: var(--text-primary); margin-bottom: 0.25rem;">No conversation selected</div>
-          <div>Choose a squad group or DM from the left sidebar, or create a new one!</div>
+          <div>Choose a group chat or DM from the left sidebar, or create a new one!</div>
         </div>
       `;
     }
@@ -1898,7 +1898,7 @@
     // Member Leave Group Chat
     async function leaveGroupChat(conv) {
       if (!conv) return;
-      const ok = confirm(`Leave group "#${conv.name}"? You will stop receiving messages from this squad.`);
+      const ok = confirm(`Leave group "#${conv.name}"? You will stop receiving messages from this group.`);
       if (!ok) return;
 
       try {
@@ -1934,7 +1934,7 @@
 
             ${isCreator ? `
               <div style="font-size: 0.76rem; color: var(--text-secondary); text-transform: uppercase; font-weight: 700; margin-bottom: 0.5rem;">
-                Add Friends to Squad
+                Add Friends to Group
               </div>
               <input type="text" id="manageSearchAddInput" placeholder="Search usernames to add..." style="width: 100%; padding: 0.5rem 0.8rem; background: #0a0e1a; border: 1px solid rgba(255,255,255,0.15); border-radius: 8px; color: var(--text-primary); font-size: 0.84rem; margin-bottom: 0.6rem;" />
               <div style="overflow-y: auto; max-height: 140px; display: flex; flex-direction: column; gap: 4px; margin-bottom: 1.25rem;" id="manageCandidatesList">
@@ -1942,15 +1942,15 @@
               </div>
 
               <div style="margin-top: auto; padding-top: 1rem; border-top: 1px solid rgba(255,255,255,0.08); display: flex; justify-content: space-between; align-items: center;">
-                <span style="font-size: 0.76rem; color: #f87171;">Squad Owner Actions</span>
+                <span style="font-size: 0.76rem; color: #f87171;">Group Owner Actions</span>
                 <button id="modalDeleteGroupBtn" class="chat-danger-btn">
-                  <i class="fa-solid fa-trash-can"></i> Delete Entire Squad
+                  <i class="fa-solid fa-trash-can"></i> Delete Entire Group
                 </button>
               </div>
             ` : `
               <div style="margin-top: auto; padding-top: 1rem; border-top: 1px solid rgba(255,255,255,0.08); display: flex; justify-content: flex-end;">
                 <button id="modalLeaveGroupBtn" class="chat-action-btn">
-                  <i class="fa-solid fa-door-open"></i> Leave Squad
+                  <i class="fa-solid fa-door-open"></i> Leave Group
                 </button>
               </div>
             `}
@@ -2083,7 +2083,7 @@
       }
     }
 
-    // Open New Conversation Dialog (DM or Squad Group)
+    // Open New Conversation Dialog (DM or Group Chat)
     function openNewConversationDialog(initialTab = 'dm') {
       let activeTab = initialTab;
       const selectedMemberIds = new Set();
@@ -2098,7 +2098,7 @@
 
             <div class="chat-auth-tabs" style="margin-bottom: 1rem;">
               <button class="chat-auth-tab ${activeTab === 'dm' ? 'active' : ''}" id="tabNewDm">Direct Message</button>
-              <button class="chat-auth-tab ${activeTab === 'group' ? 'active' : ''}" id="tabNewGroup">Squad Group</button>
+              <button class="chat-auth-tab ${activeTab === 'group' ? 'active' : ''}" id="tabNewGroup">Group Chat</button>
             </div>
 
             <div id="newChatError" class="chat-auth-error" style="margin-bottom: 0.75rem;"></div>
@@ -2106,7 +2106,7 @@
             <!-- Group Name Field (Only in Group tab) -->
             <div id="groupNameField" style="display: ${activeTab === 'group' ? 'block' : 'none'}; margin-bottom: 1rem;">
               <label style="display: block; font-size: 0.76rem; font-weight: 600; color: var(--text-secondary); margin-bottom: 0.35rem; text-transform: uppercase;">
-                Squad Name
+                Group Name
               </label>
               <input type="text" id="newGroupNameInput" placeholder="e.g. Slope Pros, OvO Speedrunners" maxlength="50" style="width: 100%; padding: 0.6rem 0.8rem; background: #0a0e1a; border: 1px solid rgba(255,255,255,0.15); border-radius: 8px; color: var(--text-primary); font-size: 0.88rem;" />
             </div>
@@ -2114,7 +2114,7 @@
             <!-- User Search Input -->
             <div style="margin-bottom: 0.75rem;">
               <label style="display: block; font-size: 0.76rem; font-weight: 600; color: var(--text-secondary); margin-bottom: 0.35rem; text-transform: uppercase;" id="searchFieldLabel">
-                ${activeTab === 'dm' ? 'Find Someone to Message' : 'Invite Members to Squad'}
+                ${activeTab === 'dm' ? 'Find Someone to Message' : 'Invite Members to Group'}
               </label>
               <input type="text" id="newChatSearchInput" placeholder="Search usernames..." autocomplete="off" style="width: 100%; padding: 0.6rem 0.8rem; background: #0a0e1a; border: 1px solid rgba(255,255,255,0.15); border-radius: 8px; color: var(--text-primary); font-size: 0.88rem;" />
             </div>
@@ -2127,7 +2127,7 @@
             <!-- Group Submit Button (Group tab only) -->
             <div id="groupSubmitArea" style="display: ${activeTab === 'group' ? 'flex' : 'none'}; justify-content: flex-end; gap: 0.6rem; padding-top: 0.75rem; border-top: 1px solid rgba(255,255,255,0.08);">
               <button id="submitCreateGroupBtn" class="chat-auth-btn" style="margin-top: 0; width: auto; padding: 0.6rem 1.4rem;">
-                Create Squad Group
+                Create Group Chat
               </button>
             </div>
           </div>
@@ -2164,7 +2164,7 @@
         tabGroup.classList.toggle('active', t === 'group');
         groupNameField.style.display = t === 'group' ? 'block' : 'none';
         groupSubmitArea.style.display = t === 'group' ? 'flex' : 'none';
-        searchLabel.textContent = t === 'dm' ? 'Find Someone to Message' : 'Invite Members to Squad';
+        searchLabel.textContent = t === 'dm' ? 'Find Someone to Message' : 'Invite Members to Group';
         renderUsers();
       }
 
@@ -2243,14 +2243,14 @@
       submitGroupBtn?.addEventListener('click', async () => {
         const name = groupNameInput.value.trim();
         if (!name) {
-          errorEl.textContent = 'Please provide a name for your squad group.';
+          errorEl.textContent = 'Please provide a name for your group chat.';
           errorEl.style.display = 'block';
           groupNameInput.focus();
           return;
         }
 
         submitGroupBtn.disabled = true;
-        submitGroupBtn.textContent = 'Creating Squad...';
+        submitGroupBtn.textContent = 'Creating Group...';
 
         try {
           const { data: newGroupId, error } = await sb.rpc('create_group', {
@@ -2262,10 +2262,10 @@
           await loadConversationsList();
           if (newGroupId) selectConversation(newGroupId);
         } catch (err) {
-          errorEl.textContent = 'Failed to create squad: ' + err.message;
+          errorEl.textContent = 'Failed to create group: ' + err.message;
           errorEl.style.display = 'block';
           submitGroupBtn.disabled = false;
-          submitGroupBtn.textContent = 'Create Squad Group';
+          submitGroupBtn.textContent = 'Create Group Chat';
         }
       });
     }
@@ -3319,7 +3319,7 @@
   function renderFilesApp(container, winObj) {
     const defaultFiles = {
       'readme.txt': `Welcome to Lunamix OS.\nThis is your private local storage for notes and game codes.`,
-      'todo.txt': `Beat high score in Slope, check out the proxy hub, and invite people to squad chat.`,
+      'todo.txt': `Beat high score in Slope, check out the proxy hub, and invite people to group chat.`,
       'notes.txt': `Keep the panic key set to ~ for quick escapes and turn on tab cloaking when needed.`
     };
 
