@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-  <title>Lunamix OS | Web GI (Web Gaming Interface)</title>
+  <title>Lunamix OS</title>
   <meta name="description" content="Lunamix OS - Web GI (Web Gaming Interface). Includes 1,072+ unblocked games, multi-channel chat, Penumbra proxy browser, web app creator, and retro emulators.">
   <meta name="google-site-verification" content="9gcLHnT_jGP9RU4-Xe0kHbZEUVnZnGssskO0wYWx9oI" />
   <link rel="canonical" href="https://skiingbeast2025.github.io/lunamix/">
@@ -32,9 +32,9 @@
 <body>
 
   <!-- ======================================================================
-       1. Bootloader Screen (GRUB / NautilusOS Boot Sequence)
+       1. Bootloader Screen (Removed from startup flow)
        ====================================================================== -->
-  <div id="bootloader">
+  <div id="bootloader" style="display: none !important;">
     <div class="boot-logo">
       <i class="fa-solid fa-cube"></i>
     </div>
@@ -76,9 +76,9 @@
   </div>
 
   <!-- ======================================================================
-       2. Login / Lock Screen
+       2. Login / Lock Screen (Removed from startup flow)
        ====================================================================== -->
-  <div id="login">
+  <div id="login" style="display: none !important;">
     <div class="login-wrapper">
       <!-- Left side: Digital Clock & System Specs Card -->
       <div class="login-left">
@@ -189,6 +189,10 @@
       <div class="desktop-icon" data-app="calculator" title="Calculator">
         <i class="fa-solid fa-calculator" style="color: #f43f5e;"></i>
         <span>Calculator</span>
+      </div>
+      <div class="desktop-icon" data-app="cloak" title="Tab Cloak & Disguise Settings">
+        <i class="fa-solid fa-shield-halved" style="color: #38bdf8;"></i>
+        <span>Tab Cloak</span>
       </div>
       <div class="desktop-icon" data-app="settings" title="Settings & Personalization">
         <i class="fa-solid fa-gear" style="color: #94a3b8;"></i>
@@ -302,6 +306,10 @@
         <i class="fa-solid fa-calculator" style="color: #f43f5e;"></i>
         <span>Calculator</span>
       </div>
+      <div class="app-item" data-app="cloak">
+        <i class="fa-solid fa-shield-halved" style="color: #38bdf8;"></i>
+        <span>Tab Cloak</span>
+      </div>
       <div class="app-item" data-app="settings">
         <i class="fa-solid fa-gear" style="color: #94a3b8;"></i>
         <span>Settings</span>
@@ -347,6 +355,10 @@
       <i class="fa-solid fa-gear" style="color: #94a3b8;"></i>
       <span>System Settings</span>
     </div>
+    <div class="context-item" data-action="cloak">
+      <i class="fa-solid fa-shield-halved" style="color: #38bdf8;"></i>
+      <span>Tab Cloak Settings</span>
+    </div>
   </div>
 
   <!-- ======================================================================
@@ -381,6 +393,9 @@
       </button>
       <button onclick="if(window.LunamixCloak) window.LunamixCloak.apply('default');" style="padding: 0.4rem; background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.1); border-radius: 6px; font-size: 0.75rem; color: var(--text-primary); text-align: left;">
         <i class="fa-solid fa-rotate-left"></i> Reset
+      </button>
+      <button onclick="if(window.LunamixOS) window.LunamixOS.openApp('cloak');" style="grid-column: span 2; padding: 0.45rem; background: rgba(56, 189, 248, 0.12); border: 1px solid rgba(56, 189, 248, 0.25); border-radius: 6px; font-size: 0.75rem; color: #38bdf8; text-align: center; font-weight: 600; cursor: pointer;">
+        <i class="fa-solid fa-shield-halved" style="margin-right: 4px;"></i> More Cloak Options...
       </button>
     </div>
 

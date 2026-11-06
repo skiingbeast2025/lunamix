@@ -181,6 +181,19 @@
       minHeight: 380,
       render: renderEmulatorApp
     },
+    cloak: {
+      id: 'cloak',
+      name: 'Tab Cloak Settings',
+      icon: 'fa-shield-halved',
+      color: '#38bdf8',
+      category: 'System',
+      desc: 'Tab disguise and stealth title & favicon cloaking',
+      width: 700,
+      height: 540,
+      minWidth: 420,
+      minHeight: 380,
+      render: renderCloakApp
+    },
     settings: {
       id: 'settings',
       name: 'Settings & Themes',
@@ -811,6 +824,8 @@
             WindowManager.open('terminal');
           } else if (action === 'settings') {
             WindowManager.open('settings');
+          } else if (action === 'cloak') {
+            WindowManager.open('cloak');
           } else if (action === 'fullscreen') {
             if (!document.fullscreenElement) {
               document.documentElement.requestFullscreen().catch(() => {});
@@ -3580,6 +3595,225 @@
   }
 
   // --------------------------------------------------------------------------
+  // App: Tab Cloak & Disguise Settings
+  // --------------------------------------------------------------------------
+  function renderCloakApp(container, winObj) {
+    const presets = window.LUNAMIX_CLOAK_PRESETS || {
+      default: { id: 'default', name: 'Lunamix OS (Default)', title: 'Lunamix OS', favicon: './assets/logos/favicon.svg', domain: 'lunamix.os' },
+      classroom: { id: 'classroom', name: 'Google Classroom', title: 'Classes', favicon: 'https://ssl.gstatic.com/classroom/favicon.png', domain: 'classroom.google.com' },
+      drive: { id: 'drive', name: 'Google Drive', title: 'My Drive - Google Drive', favicon: 'https://ssl.gstatic.com/images/branding/product/1x/drive_2020q4_32dp.png', domain: 'drive.google.com' },
+      canvas: { id: 'canvas', name: 'Canvas LMS', title: 'Dashboard', favicon: 'https://du11hjcvx0uqb.cloudfront.net/dist/images/favicon-e10d657a73.ico', domain: 'instructure.com' },
+      docs: { id: 'docs', name: 'Google Docs', title: 'Google Docs', favicon: 'https://ssl.gstatic.com/docs/documents/images/kix-favicon7.ico', domain: 'docs.google.com' },
+      khan: { id: 'khan', name: 'Khan Academy', title: 'Dashboard | Khan Academy', favicon: 'https://www.khanacademy.org/favicon.ico', domain: 'khanacademy.org' },
+      wikipedia: { id: 'wikipedia', name: 'Wikipedia', title: 'Wikipedia, the free encyclopedia', favicon: 'https://en.wikipedia.org/static/favicon/wikipedia.ico', domain: 'wikipedia.org' }
+    };
+
+    const currentPreset = (window.LunamixCloak && window.LunamixCloak.currentPreset) || localStorage.getItem('lunamix_cloak_preset') || 'default';
+    const currentTitle = document.title || 'Lunamix OS';
+    const currentFavicon = (document.querySelector("link[rel*='icon']")?.href) || './assets/logos/favicon.svg';
+
+    container.innerHTML = `
+      <div style="height: 100%; overflow-y: auto; padding: 1.5rem; background: #0a0e1a; color: var(--text-primary); font-family: 'Inter', -apple-system, sans-serif;">
+        <div style="max-width: 680px; margin: 0 auto; display: flex; flex-direction: column; gap: 1.25rem;">
+
+          <!-- Header -->
+          <div style="display: flex; align-items: center; justify-content: space-between; border-bottom: 1px solid rgba(255,255,255,0.08); padding-bottom: 1rem;">
+            <div style="display: flex; align-items: center; gap: 0.75rem;">
+              <div style="width: 40px; height: 40px; border-radius: 10px; background: rgba(56, 189, 248, 0.15); border: 1px solid rgba(56, 189, 248, 0.3); display: flex; align-items: center; justify-content: center; font-size: 1.25rem; color: #38bdf8;">
+                <i class="fa-solid fa-shield-halved"></i>
+              </div>
+              <div>
+                <h2 style="font-size: 1.15rem; font-weight: 700; margin: 0; color: var(--text-primary);">Tab Disguise & Cloak Settings</h2>
+                <div style="font-size: 0.78rem; color: var(--text-secondary); margin-top: 2px;">Disguise your browser tab title and favicon as school apps or keep it uncloaked.</div>
+              </div>
+            </div>
+            <button id="cloakQuickResetBtn" style="padding: 0.45rem 0.85rem; background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.12); border-radius: 8px; font-size: 0.78rem; color: var(--text-primary); cursor: pointer; display: flex; align-items: center; gap: 0.4rem;">
+              <i class="fa-solid fa-rotate-left"></i> Reset Default
+            </button>
+          </div>
+
+          <!-- Live Mock Browser Tab Preview -->
+          <div style="background: rgba(20, 25, 38, 0.7); border: 1px solid rgba(255,255,255,0.08); border-radius: 12px; padding: 1.25rem;">
+            <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 0.85rem;">
+              <span style="font-size: 0.8rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; color: var(--text-secondary);">Live Tab Disguise Preview</span>
+              <span id="cloakPreviewStatusBadge" style="font-size: 0.72rem; padding: 2px 8px; border-radius: 6px; font-weight: 600; background: rgba(125, 211, 192, 0.15); color: var(--accent); border: 1px solid rgba(125, 211, 192, 0.3);">
+                ${currentPreset === 'default' ? 'Uncloaked (Default)' : 'Disguise Active'}
+              </span>
+            </div>
+
+            <!-- Browser Mockup Window Header -->
+            <div style="background: #121622; border: 1px solid rgba(255,255,255,0.1); border-radius: 8px 8px 0 0; padding: 8px 12px; display: flex; align-items: center; gap: 8px;">
+              <div style="display: flex; gap: 6px;">
+                <div style="width: 10px; height: 10px; border-radius: 50%; background: #ef4444; opacity: 0.8;"></div>
+                <div style="width: 10px; height: 10px; border-radius: 50%; background: #f59e0b; opacity: 0.8;"></div>
+                <div style="width: 10px; height: 10px; border-radius: 50%; background: #10b981; opacity: 0.8;"></div>
+              </div>
+
+              <!-- Active Mock Tab -->
+              <div style="display: flex; align-items: center; gap: 8px; background: #1a2030; border: 1px solid rgba(255,255,255,0.12); border-bottom: none; border-radius: 8px 8px 0 0; padding: 6px 14px; margin-left: 8px; max-width: 320px;">
+                <img id="cloakLiveFavicon" src="${escapeHtml(currentFavicon)}" alt="Favicon" style="width: 16px; height: 16px; object-fit: contain; border-radius: 2px;" onerror="this.src='./assets/logos/favicon.svg';" />
+                <span id="cloakLiveTitle" style="font-size: 0.8rem; font-weight: 500; color: #f1f5f9; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">
+                  ${escapeHtml(currentTitle)}
+                </span>
+                <i class="fa-solid fa-xmark" style="font-size: 0.7rem; color: var(--text-secondary); margin-left: 6px; cursor: pointer;"></i>
+              </div>
+            </div>
+            <!-- Mock Address Bar -->
+            <div style="background: #151926; border: 1px solid rgba(255,255,255,0.1); border-top: none; border-radius: 0 0 8px 8px; padding: 6px 12px; display: flex; align-items: center; gap: 8px; font-size: 0.75rem; color: var(--text-secondary);">
+              <i class="fa-solid fa-lock" style="font-size: 0.68rem; color: #10b981;"></i>
+              <span id="cloakLiveDomain" style="color: #cbd5e1;">${presets[currentPreset]?.domain || 'lunamix.os'}</span>
+            </div>
+          </div>
+
+          <!-- Presets Section -->
+          <div style="background: rgba(20, 25, 38, 0.7); border: 1px solid rgba(255,255,255,0.08); border-radius: 12px; padding: 1.25rem;">
+            <div style="font-size: 0.88rem; font-weight: 700; margin-bottom: 0.35rem;">1-Click Preset Disguises</div>
+            <p style="font-size: 0.78rem; color: var(--text-secondary); margin-bottom: 1rem;">Select a pre-configured disguise to update this tab instantly.</p>
+
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 0.75rem;" id="cloakPresetsGrid">
+              ${Object.values(presets).map(p => {
+                const isActive = (currentPreset === p.id);
+                return `
+                  <div class="cloak-card ${isActive ? 'active' : ''}" data-preset-id="${p.id}" style="padding: 0.85rem; background: ${isActive ? 'rgba(56, 189, 248, 0.12)' : 'rgba(255,255,255,0.03)'}; border: 1.5px solid ${isActive ? '#38bdf8' : 'rgba(255,255,255,0.1)'}; border-radius: 10px; cursor: pointer; transition: all 0.2s ease;">
+                    <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 0.45rem;">
+                      <div style="display: flex; align-items: center; gap: 0.5rem;">
+                        <img src="${escapeHtml(p.favicon)}" alt="" style="width: 18px; height: 18px; object-fit: contain;" onerror="this.style.display='none';" />
+                        <span style="font-size: 0.85rem; font-weight: 700; color: var(--text-primary);">${escapeHtml(p.name)}</span>
+                      </div>
+                      ${isActive ? '<span style="font-size: 0.65rem; font-weight: 700; padding: 1px 6px; border-radius: 4px; background: #38bdf8; color: #0a0e1a;">ACTIVE</span>' : ''}
+                    </div>
+                    <div style="font-size: 0.75rem; color: var(--text-secondary); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; margin-bottom: 2px;">
+                      Title: <span style="color: #cbd5e1;">${escapeHtml(p.title)}</span>
+                    </div>
+                    <div style="font-size: 0.72rem; color: var(--accent); font-family: monospace;">
+                      ${escapeHtml(p.domain || '')}
+                    </div>
+                  </div>
+                `;
+              }).join('')}
+            </div>
+          </div>
+
+          <!-- Custom Cloak Form -->
+          <div style="background: rgba(20, 25, 38, 0.7); border: 1px solid rgba(255,255,255,0.08); border-radius: 12px; padding: 1.25rem;">
+            <div style="font-size: 0.88rem; font-weight: 700; margin-bottom: 0.35rem;">Custom Disguise</div>
+            <p style="font-size: 0.78rem; color: var(--text-secondary); margin-bottom: 0.85rem;">Set a personalized title and favicon image URL for any specific platform.</p>
+
+            <div style="display: flex; flex-direction: column; gap: 0.75rem;">
+              <div>
+                <label style="display: block; font-size: 0.75rem; color: var(--text-secondary); margin-bottom: 4px;">Tab Title</label>
+                <input type="text" id="cloakCustomTitleInput" placeholder="e.g. Science Project - Google Docs" value="${currentPreset === 'custom' ? escapeHtml(currentTitle) : ''}" style="width: 100%; padding: 0.55rem 0.85rem; background: #0a0e1a; border: 1px solid rgba(255,255,255,0.18); border-radius: 8px; color: var(--text-primary); font-size: 0.82rem;" />
+              </div>
+              <div>
+                <label style="display: block; font-size: 0.75rem; color: var(--text-secondary); margin-bottom: 4px;">Favicon Image URL</label>
+                <input type="text" id="cloakCustomFaviconInput" placeholder="e.g. https://ssl.gstatic.com/docs/documents/images/kix-favicon7.ico" value="${currentPreset === 'custom' ? escapeHtml(currentFavicon) : ''}" style="width: 100%; padding: 0.55rem 0.85rem; background: #0a0e1a; border: 1px solid rgba(255,255,255,0.18); border-radius: 8px; color: var(--text-primary); font-size: 0.82rem;" />
+              </div>
+              <div style="display: flex; justify-content: flex-end; gap: 0.5rem; margin-top: 0.25rem;">
+                <button id="cloakApplyCustomBtn" style="padding: 0.55rem 1.25rem; background: #38bdf8; color: #0a0e1a; border: none; border-radius: 8px; font-size: 0.82rem; font-weight: 700; cursor: pointer;">
+                  Apply Custom Disguise
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Panic Shortcut Reminder -->
+          <div style="background: rgba(239, 68, 68, 0.08); border: 1px solid rgba(239, 68, 68, 0.25); border-radius: 12px; padding: 1rem; display: flex; align-items: center; justify-content: space-between;">
+            <div style="display: flex; align-items: center; gap: 0.75rem;">
+              <i class="fa-solid fa-triangle-exclamation" style="color: #ef4444; font-size: 1.25rem;"></i>
+              <div>
+                <div style="font-size: 0.82rem; font-weight: 700; color: #ef4444;">Emergency Panic Shortcut Active</div>
+                <div style="font-size: 0.75rem; color: var(--text-secondary);">Press <b>[Esc]</b> or <b>[~]</b> at any time to instantly redirect this tab to Canvas.</div>
+              </div>
+            </div>
+            <button onclick="if(window.LunamixPanic) window.LunamixPanic.trigger();" style="padding: 0.45rem 0.85rem; background: rgba(239, 68, 68, 0.2); border: 1px solid #ef4444; border-radius: 6px; color: #ef4444; font-weight: 700; font-size: 0.75rem; cursor: pointer;">
+              Test Panic
+            </button>
+          </div>
+
+        </div>
+      </div>
+    `;
+
+    function updatePreview(title, faviconUrl, domain, presetId) {
+      const liveTitle = container.querySelector('#cloakLiveTitle');
+      const liveFavicon = container.querySelector('#cloakLiveFavicon');
+      const liveDomain = container.querySelector('#cloakLiveDomain');
+      const badge = container.querySelector('#cloakPreviewStatusBadge');
+
+      if (liveTitle) liveTitle.textContent = title;
+      if (liveFavicon) {
+        liveFavicon.src = faviconUrl;
+        liveFavicon.style.display = 'inline-block';
+      }
+      if (liveDomain) liveDomain.textContent = domain || 'lunamix.os';
+      if (badge) {
+        badge.textContent = (presetId === 'default' ? 'Uncloaked (Default)' : 'Disguise Active');
+        badge.style.color = (presetId === 'default' ? 'var(--accent)' : '#38bdf8');
+        badge.style.borderColor = (presetId === 'default' ? 'rgba(125, 211, 192, 0.3)' : 'rgba(56, 189, 248, 0.3)');
+        badge.style.background = (presetId === 'default' ? 'rgba(125, 211, 192, 0.15)' : 'rgba(56, 189, 248, 0.15)');
+      }
+
+      container.querySelectorAll('.cloak-card').forEach(card => {
+        const id = card.getAttribute('data-preset-id');
+        const isMatch = (id === presetId);
+        card.style.background = isMatch ? 'rgba(56, 189, 248, 0.12)' : 'rgba(255,255,255,0.03)';
+        card.style.borderColor = isMatch ? '#38bdf8' : 'rgba(255,255,255,0.1)';
+      });
+    }
+
+    // Preset clicks
+    container.querySelectorAll('.cloak-card').forEach(card => {
+      card.addEventListener('click', () => {
+        const pid = card.getAttribute('data-preset-id');
+        if (window.LunamixCloak) {
+          window.LunamixCloak.apply(pid, true);
+          const p = presets[pid];
+          if (p) updatePreview(p.title, p.favicon, p.domain, pid);
+        }
+        SoundFX.click();
+      });
+    });
+
+    // Custom Apply
+    container.querySelector('#cloakApplyCustomBtn')?.addEventListener('click', () => {
+      const t = container.querySelector('#cloakCustomTitleInput')?.value.trim();
+      const f = container.querySelector('#cloakCustomFaviconInput')?.value.trim();
+      if (window.LunamixCloak) {
+        window.LunamixCloak.applyCustom(t || 'Lunamix OS', f || './assets/logos/favicon.svg', true);
+        updatePreview(t || 'Lunamix OS', f || './assets/logos/favicon.svg', 'custom', 'custom');
+      }
+      SoundFX.click();
+    });
+
+    // Quick Reset
+    container.querySelector('#cloakQuickResetBtn')?.addEventListener('click', () => {
+      if (window.LunamixCloak) {
+        window.LunamixCloak.reset();
+        const p = presets.default;
+        if (p) updatePreview(p.title, p.favicon, p.domain, 'default');
+      }
+      SoundFX.click();
+    });
+
+    // Event listener for external changes
+    const onCloakChanged = (e) => {
+      const detail = e.detail || {};
+      const p = presets[detail.preset] || { title: detail.title, favicon: detail.favicon, domain: 'custom' };
+      updatePreview(detail.title || p.title, detail.favicon || p.favicon, p.domain, detail.preset);
+    };
+    window.addEventListener('lunamix-cloak-changed', onCloakChanged);
+
+    // Clean up event listener when window closes
+    if (winObj) {
+      const origClose = winObj.onClose;
+      winObj.onClose = () => {
+        window.removeEventListener('lunamix-cloak-changed', onCloakChanged);
+        if (typeof origClose === 'function') origClose();
+      };
+    }
+  }
+
+  // --------------------------------------------------------------------------
   // App: Settings & Themes & Personalization
   // --------------------------------------------------------------------------
   function renderSettingsApp(container, winObj) {
@@ -3597,7 +3831,7 @@
           <!-- 1. Color Palette -->
           <div style="background: rgba(20, 25, 38, 0.7); border: 1px solid rgba(255,255,255,0.08); border-radius: 12px; padding: 1.25rem; margin-bottom: 1.25rem;">
             <h3 style="font-size: 0.95rem; font-weight: 700; margin-bottom: 0.35rem;">Desktop Theme Colorway</h3>
-            <p style="font-size: 0.8rem; color: var(--text-secondary); margin-bottom: 1rem;">Select your preferred NautilusOS neon accent token.</p>
+            <p style="font-size: 0.8rem; color: var(--text-secondary); margin-bottom: 1rem;">Select your preferred NautilusOS accent token.</p>
             <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); gap: 0.75rem;">
               <div class="theme-picker-tile ${currentTheme === 'nautilus' ? 'active' : ''}" data-theme="nautilus" style="padding: 0.75rem; border: 1px solid ${currentTheme === 'nautilus' ? '#7dd3c0' : 'rgba(255,255,255,0.1)'}; border-radius: 8px; cursor: pointer; text-align: center;">
                 <div style="width: 24px; height: 24px; border-radius: 50%; background: #7dd3c0; margin: 0 auto 0.4rem;"></div>
@@ -3609,7 +3843,7 @@
               </div>
               <div class="theme-picker-tile ${currentTheme === 'matrix' ? 'active' : ''}" data-theme="matrix" style="padding: 0.75rem; border: 1px solid ${currentTheme === 'matrix' ? '#00ff88' : 'rgba(255,255,255,0.1)'}; border-radius: 8px; cursor: pointer; text-align: center;">
                 <div style="width: 24px; height: 24px; border-radius: 50%; background: #00ff88; margin: 0 auto 0.4rem;"></div>
-                <div style="font-size: 0.82rem; font-weight: 600;">Matrix Neon</div>
+                <div style="font-size: 0.82rem; font-weight: 600;">Matrix Green</div>
               </div>
               <div class="theme-picker-tile ${currentTheme === 'midnight' ? 'active' : ''}" data-theme="midnight" style="padding: 0.75rem; border: 1px solid ${currentTheme === 'midnight' ? '#a855f7' : 'rgba(255,255,255,0.1)'}; border-radius: 8px; cursor: pointer; text-align: center;">
                 <div style="width: 24px; height: 24px; border-radius: 50%; background: #a855f7; margin: 0 auto 0.4rem;"></div>
@@ -3644,20 +3878,34 @@
 
           <!-- 3. Tab Cloaking & Stealth -->
           <div style="background: rgba(20, 25, 38, 0.7); border: 1px solid rgba(255,255,255,0.08); border-radius: 12px; padding: 1.25rem; margin-bottom: 1.25rem;">
-            <h3 style="font-size: 0.95rem; font-weight: 700; margin-bottom: 0.35rem;">Stealth Tab Cloak</h3>
-            <p style="font-size: 0.8rem; color: var(--text-secondary); margin-bottom: 0.8rem;">Disguise browser tab title and favicon as school apps.</p>
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.35rem; flex-wrap: wrap; gap: 0.5rem;">
+              <h3 style="font-size: 0.95rem; font-weight: 700; margin: 0;">Stealth Tab Cloak</h3>
+              <button id="openCloakWindowBtn" style="padding: 0.35rem 0.75rem; background: rgba(56, 189, 248, 0.15); color: #38bdf8; border: 1px solid rgba(56, 189, 248, 0.3); border-radius: 6px; font-size: 0.75rem; font-weight: 600; cursor: pointer;">
+                <i class="fa-solid fa-shield-halved" style="margin-right: 4px;"></i> Open Tab Cloak Window
+              </button>
+            </div>
+            <p style="font-size: 0.8rem; color: var(--text-secondary); margin-bottom: 0.8rem;">Disguise browser tab title and favicon as school apps or keep authentic default.</p>
             <div style="display: flex; gap: 0.6rem; flex-wrap: wrap;">
-              <button class="cloak-btn" data-preset="classroom" style="padding: 0.45rem 0.85rem; background: rgba(30,35,48,0.8); border: 1px solid rgba(255,255,255,0.15); border-radius: 8px; font-size: 0.8rem;">
+              <button class="cloak-btn" data-preset="default" style="padding: 0.45rem 0.85rem; background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.15); border-radius: 8px; font-size: 0.8rem; color: var(--text-primary); cursor: pointer;">
+                <i class="fa-solid fa-rotate-left"></i> Default (Lunamix OS)
+              </button>
+              <button class="cloak-btn" data-preset="classroom" style="padding: 0.45rem 0.85rem; background: rgba(30,35,48,0.8); border: 1px solid rgba(255,255,255,0.15); border-radius: 8px; font-size: 0.8rem; color: var(--text-primary); cursor: pointer;">
                 <i class="fa-solid fa-graduation-cap" style="color: #4ade80;"></i> Google Classroom
               </button>
-              <button class="cloak-btn" data-preset="drive" style="padding: 0.45rem 0.85rem; background: rgba(30,35,48,0.8); border: 1px solid rgba(255,255,255,0.15); border-radius: 8px; font-size: 0.8rem;">
+              <button class="cloak-btn" data-preset="drive" style="padding: 0.45rem 0.85rem; background: rgba(30,35,48,0.8); border: 1px solid rgba(255,255,255,0.15); border-radius: 8px; font-size: 0.8rem; color: var(--text-primary); cursor: pointer;">
                 <i class="fa-brands fa-google-drive" style="color: #38bdf8;"></i> Google Drive
               </button>
-              <button class="cloak-btn" data-preset="canvas" style="padding: 0.45rem 0.85rem; background: rgba(30,35,48,0.8); border: 1px solid rgba(255,255,255,0.15); border-radius: 8px; font-size: 0.8rem;">
+              <button class="cloak-btn" data-preset="canvas" style="padding: 0.45rem 0.85rem; background: rgba(30,35,48,0.8); border: 1px solid rgba(255,255,255,0.15); border-radius: 8px; font-size: 0.8rem; color: var(--text-primary); cursor: pointer;">
                 <i class="fa-solid fa-circle" style="color: #ef4444;"></i> Canvas LMS
               </button>
-              <button class="cloak-btn" data-preset="default" style="padding: 0.45rem 0.85rem; background: rgba(255,255,255,0.1); border-radius: 8px; font-size: 0.8rem;">
-                Reset Default
+              <button class="cloak-btn" data-preset="docs" style="padding: 0.45rem 0.85rem; background: rgba(30,35,48,0.8); border: 1px solid rgba(255,255,255,0.15); border-radius: 8px; font-size: 0.8rem; color: var(--text-primary); cursor: pointer;">
+                <i class="fa-solid fa-file-lines" style="color: #38bdf8;"></i> Google Docs
+              </button>
+              <button class="cloak-btn" data-preset="khan" style="padding: 0.45rem 0.85rem; background: rgba(30,35,48,0.8); border: 1px solid rgba(255,255,255,0.15); border-radius: 8px; font-size: 0.8rem; color: var(--text-primary); cursor: pointer;">
+                <i class="fa-solid fa-leaf" style="color: #10b981;"></i> Khan Academy
+              </button>
+              <button class="cloak-btn" data-preset="wikipedia" style="padding: 0.45rem 0.85rem; background: rgba(30,35,48,0.8); border: 1px solid rgba(255,255,255,0.15); border-radius: 8px; font-size: 0.8rem; color: var(--text-primary); cursor: pointer;">
+                <i class="fa-solid fa-book" style="color: #e2e8f0;"></i> Wikipedia
               </button>
             </div>
           </div>
@@ -3710,6 +3958,12 @@
       });
     });
 
+    // Open full Tab Cloak App window
+    container.querySelector('#openCloakWindowBtn')?.addEventListener('click', () => {
+      WindowManager.open('cloak');
+      SoundFX.click();
+    });
+
     // Panic Key save
     container.querySelector('#savePanicBtn')?.addEventListener('click', () => {
       const k = container.querySelector('#panicKeyInput').value.trim();
@@ -3750,132 +4004,40 @@
   }
 
   // ==========================================================================
-  // 6. Bootloader & Login Screen Manager
-  // ==========================================================================
-  // 6. Bootloader & Login Screen Manager
+  // 6. Bootloader & Session Manager
   // ==========================================================================
   const BootManager = {
     init() {
       const bootloader = document.getElementById('bootloader');
       const login = document.getElementById('login');
-      const bootBar = document.getElementById('bootBar');
-      const bootMsg = document.getElementById('bootMsg');
-      const countdownSec = document.getElementById('bootCountdownSec');
-      const bootStartBtn = document.getElementById('bootStartBtn');
-      const bootSkipBtn = document.getElementById('bootSkipBtn');
-      const loginBtn = document.getElementById('loginBtn');
-      const optDefault = document.getElementById('bootOptDefault');
-      const optSafe = document.getElementById('bootOptSafe');
 
-      if (!bootloader) return;
-
-      // Check if user disabled bootloader in settings
-      const skipBoot = localStorage.getItem('nautilus_skip_boot') === 'true';
-      if (skipBoot) {
+      // 1. Immediately hide startup overlays so user lands straight on the desktop
+      if (bootloader) {
         bootloader.style.display = 'none';
-        if (login) login.style.display = 'none';
-        return;
-      }
-
-      let selectedMode = 'standard';
-      let paused = false;
-      const totalDuration = 5000; // 5 seconds
-      let elapsed = 0;
-      const step = 50;
-
-      function updateOptionUI(mode) {
-        selectedMode = mode;
-        if (mode === 'standard') {
-          optDefault?.classList.add('selected');
-          optSafe?.classList.remove('selected');
-        } else {
-          optSafe?.classList.add('selected');
-          optDefault?.classList.remove('selected');
-        }
-      }
-
-      function selectOption(mode, userInitiated = true) {
-        updateOptionUI(mode);
-        if (userInitiated) {
-          SoundFX.click();
-          paused = true;
-          if (bootMsg) {
-            const label = mode === 'standard' ? 'Standard Desktop Mode' : 'Safe Stealth Mode';
-            bootMsg.innerHTML = `<span style="color: var(--accent); font-weight: 700;">${label}</span> selected. Press <b>[ENTER]</b> or click <b>Boot Now</b> to start.`;
-          }
-        }
-      }
-
-      // Option click listeners
-      optDefault?.addEventListener('click', () => selectOption('standard', true));
-      optSafe?.addEventListener('click', () => selectOption('safe', true));
-
-      // Countdown interval
-      const timer = setInterval(() => {
-        if (!paused) {
-          elapsed += step;
-          const pct = Math.min(100, (elapsed / totalDuration) * 100);
-          if (bootBar) bootBar.style.width = `${pct}%`;
-
-          const secondsLeft = Math.max(1, Math.ceil((totalDuration - elapsed) / 1000));
-          if (countdownSec) countdownSec.textContent = secondsLeft;
-
-          if (elapsed >= totalDuration) {
-            clearInterval(timer);
-            finishBoot();
-          }
-        }
-      }, step);
-
-      function finishBoot() {
-        clearInterval(timer);
-
-        // Apply Safe Stealth Mode settings if selected
-        if (selectedMode === 'safe') {
-          if (window.LunamixCloak) window.LunamixCloak.apply('classroom');
-          SoundFX.enabled = false;
-          document.documentElement.setAttribute('data-theme', 'obsidian');
-        }
-
         bootloader.style.opacity = '0';
-        bootloader.style.transition = 'opacity 0.4s ease';
-        setTimeout(() => {
-          bootloader.style.display = 'none';
-          if (login) {
-            login.style.display = 'flex';
-            setTimeout(() => login.style.opacity = '1', 20);
-          }
-        }, 400);
+        bootloader.style.pointerEvents = 'none';
+      }
+      if (login) {
+        login.style.display = 'none';
+        login.style.opacity = '0';
+        login.style.pointerEvents = 'none';
       }
 
-      if (bootStartBtn) {
-        bootStartBtn.addEventListener('click', finishBoot);
-      }
+      // 2. Initialize student session username immediately
+      const savedUser = localStorage.getItem('lunamix_username') || localStorage.getItem('lunamix_chat_username') || 'Student';
+      const startUser = document.getElementById('startUsername');
+      if (startUser) startUser.textContent = savedUser;
 
-      if (bootSkipBtn) {
-        bootSkipBtn.addEventListener('click', () => {
-          localStorage.setItem('nautilus_skip_boot', 'true');
-          finishBoot();
-        });
-      }
-
-      // Keyboard navigation (ArrowUp, ArrowDown, Enter)
-      document.addEventListener('keydown', function onBootKey(e) {
-        if (bootloader.style.display === 'none') return;
-
-        if (e.key === 'ArrowUp' || e.key === 'ArrowLeft') {
-          e.preventDefault();
-          selectOption('standard', true);
-        } else if (e.key === 'ArrowDown' || e.key === 'ArrowRight' || e.key === 'Tab') {
-          e.preventDefault();
-          selectOption('safe', true);
-        } else if (e.key === 'Enter' || e.key === ' ') {
-          e.preventDefault();
-          document.removeEventListener('keydown', onBootKey);
-          finishBoot();
+      // 3. Ensure tab is authentic Lunamix OS (uncloaked by default) unless user explicitly saved a preset
+      if (window.LunamixCloak) {
+        const savedPreset = localStorage.getItem('lunamix_cloak_preset');
+        if (!savedPreset || savedPreset === 'default') {
+          window.LunamixCloak.apply('default', false);
         }
-      });
+      }
 
+      // Wire login button if login screen is ever manually displayed
+      const loginBtn = document.getElementById('loginBtn');
       if (loginBtn) {
         loginBtn.addEventListener('click', () => {
           SoundFX.click();
@@ -3886,7 +4048,6 @@
             const username = (userInp ? userInp.value.trim() : '') || 'Student';
             localStorage.setItem('lunamix_username', username);
             localStorage.setItem('lunamix_chat_username', username);
-            const startUser = document.getElementById('startUsername');
             if (startUser) startUser.textContent = username;
             if (login) {
               login.style.opacity = '0';

@@ -109,17 +109,11 @@ button {
    1. Bootloader Screen
    ========================================================================== */
 #bootloader {
-  position: fixed;
-  inset: 0;
-  background: var(--bg-primary);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  z-index: 10000;
-  opacity: 1;
-  transition: opacity var(--transition-slow);
-  font-family: 'JetBrains Mono', 'SUSE Mono', monospace;
+  display: none !important;
+}
+
+#login {
+  display: none !important;
 }
 
 #bootloader.hidden {

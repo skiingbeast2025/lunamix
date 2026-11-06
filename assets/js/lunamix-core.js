@@ -247,24 +247,53 @@ const LunamixTheme = {
 
 const LUNAMIX_CLOAK_PRESETS = {
   default: {
-    title: 'Lunamix | Unblocked Games',
-    favicon: './assets/logos/favicon.svg'
+    id: 'default',
+    name: 'Lunamix OS (Default)',
+    title: 'Lunamix OS',
+    favicon: './assets/logos/favicon.svg',
+    domain: 'lunamix.os'
   },
   classroom: {
+    id: 'classroom',
+    name: 'Google Classroom',
     title: 'Classes',
-    favicon: 'https://ssl.gstatic.com/classroom/favicon.png'
+    favicon: 'https://ssl.gstatic.com/classroom/favicon.png',
+    domain: 'classroom.google.com'
   },
   drive: {
+    id: 'drive',
+    name: 'Google Drive',
     title: 'My Drive - Google Drive',
-    favicon: 'https://ssl.gstatic.com/images/branding/product/1x/drive_2020q4_32dp.png'
+    favicon: 'https://ssl.gstatic.com/images/branding/product/1x/drive_2020q4_32dp.png',
+    domain: 'drive.google.com'
   },
   canvas: {
+    id: 'canvas',
+    name: 'Canvas LMS',
     title: 'Dashboard',
-    favicon: 'https://du11hjcvx0uqb.cloudfront.net/dist/images/favicon-e10d657a73.ico'
+    favicon: 'https://du11hjcvx0uqb.cloudfront.net/dist/images/favicon-e10d657a73.ico',
+    domain: 'instructure.com'
   },
   docs: {
+    id: 'docs',
+    name: 'Google Docs',
     title: 'Google Docs',
-    favicon: 'https://ssl.gstatic.com/docs/documents/images/kix-favicon7.ico'
+    favicon: 'https://ssl.gstatic.com/docs/documents/images/kix-favicon7.ico',
+    domain: 'docs.google.com'
+  },
+  khan: {
+    id: 'khan',
+    name: 'Khan Academy',
+    title: 'Dashboard | Khan Academy',
+    favicon: 'https://www.khanacademy.org/favicon.ico',
+    domain: 'khanacademy.org'
+  },
+  wikipedia: {
+    id: 'wikipedia',
+    name: 'Wikipedia',
+    title: 'Wikipedia, the free encyclopedia',
+    favicon: 'https://en.wikipedia.org/static/favicon/wikipedia.ico',
+    domain: 'wikipedia.org'
   }
 };
 
@@ -275,7 +304,11 @@ const LunamixCloak = {
   init() {
     try {
       const saved = localStorage.getItem(this.storageKey);
-      if (saved && LUNAMIX_CLOAK_PRESETS[saved]) {
+      if (saved === 'custom') {
+        const customTitle = localStorage.getItem('lunamix_cloak_custom_title') || 'Lunamix OS';
+        const customFavicon = localStorage.getItem('lunamix_cloak_custom_favicon') || './assets/logos/favicon.svg';
+        this.applyCustom(customTitle, customFavicon, false);
+      } else if (saved && LUNAMIX_CLOAK_PRESETS[saved]) {
         this.apply(saved, false);
       } else {
         this.apply('default', false);
@@ -308,8 +341,49 @@ const LunamixCloak = {
     document.querySelectorAll('.tab-cloak-select').forEach(sel => {
       sel.value = presetKey;
     });
+
+    try {
+      window.dispatchEvent(new CustomEvent('lunamix-cloak-changed', {
+        detail: { preset: presetKey, title: preset.title, favicon: preset.favicon }
+      }));
+    } catch (e) {}
+  },
+
+  applyCustom(title, faviconUrl, save = true) {
+    this.currentPreset = 'custom';
+    const finalTitle = title ? title.trim() : 'Lunamix OS';
+    const finalFavicon = faviconUrl ? faviconUrl.trim() : './assets/logos/favicon.svg';
+    document.title = finalTitle;
+
+    let link = document.querySelector("link[rel*='icon']");
+    if (!link) {
+      link = document.createElement('link');
+      link.rel = 'shortcut icon';
+      document.head.appendChild(link);
+    }
+    link.href = finalFavicon;
+
+    if (save) {
+      try {
+        localStorage.setItem(this.storageKey, 'custom');
+        localStorage.setItem('lunamix_cloak_custom_title', finalTitle);
+        localStorage.setItem('lunamix_cloak_custom_favicon', finalFavicon);
+      } catch (e) {}
+    }
+
+    try {
+      window.dispatchEvent(new CustomEvent('lunamix-cloak-changed', {
+        detail: { preset: 'custom', title: finalTitle, favicon: finalFavicon }
+      }));
+    } catch (e) {}
+  },
+
+  reset() {
+    this.apply('default', true);
   }
 };
+window.LunamixCloak = LunamixCloak;
+window.LUNAMIX_CLOAK_PRESETS = LUNAMIX_CLOAK_PRESETS;
 
 const LunamixPanic = {
   panicKey: '~',
