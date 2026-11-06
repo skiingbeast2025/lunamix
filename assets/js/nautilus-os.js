@@ -95,14 +95,25 @@
     },
     browser: {
       id: 'browser',
-      name: 'Penumbra Browser',
+      name: 'Proxy Hub & Penumbra Browser',
       icon: 'fa-compass',
       color: '#a855f7',
-      width: 1000,
-      height: 640,
+      width: 1020,
+      height: 650,
       minWidth: 440,
       minHeight: 360,
-      render: renderBrowserApp
+      render: renderProxyHubApp
+    },
+    proxyhub: {
+      id: 'proxyhub',
+      name: 'Proxy Hub',
+      icon: 'fa-globe',
+      color: '#a855f7',
+      width: 1020,
+      height: 650,
+      minWidth: 440,
+      minHeight: 360,
+      render: renderProxyHubApp
     },
     creator: {
       id: 'creator',
@@ -2307,168 +2318,634 @@
   }
 
   // --------------------------------------------------------------------------
-  // App: Penumbra Browser & Proxy Mirror Directory
+  // App: Proxy Hub & Penumbra Browser
   // --------------------------------------------------------------------------
-  function renderBrowserApp(container, winObj) {
+  const PROXY_CATALOG = [
+    {
+      id: 'penumbra',
+      title: 'Penumbra Browser',
+      engine: 'Custom Stealth Browser',
+      badge: 'Flagship',
+      badgeColor: '#a855f7',
+      isFlagship: true,
+      icon: 'fa-compass',
+      desc: 'Primary Lunamix custom browser with built-in tab disguise, anti-tracking, and discreet unblocked search.',
+      github: 'https://github.com/lunamixmc/Penumbra-Browser',
+      lightspeed: 'Verified Compatible',
+      mirrors: [
+        { label: 'Official GitHub Repository', url: 'https://github.com/lunamixmc/Penumbra-Browser', type: 'Source' },
+        { label: 'GitHub Pages Deployment', url: 'https://lunamixmc.github.io/Penumbra-Browser/', type: 'Web App' },
+        { label: 'DuckDuckGo Privacy Search', url: 'https://duckduckgo.com', type: 'Search' },
+        { label: 'Wikipedia Encyclopedia', url: 'https://en.m.wikipedia.org', type: 'Reference' },
+        { label: 'Wayback Machine Archive', url: 'https://archive.org', type: 'Archive' }
+      ]
+    },
+    {
+      id: 'rammerhead',
+      title: 'Rammerhead Proxy',
+      engine: 'Browser-in-Browser (WebSockets)',
+      badge: 'High Resilience',
+      badgeColor: '#38bdf8',
+      icon: 'fa-shield-halved',
+      desc: 'Renders a complete Chromium browser session through WebSockets. Highly effective against Deep Packet Inspection and strict URL path filters.',
+      lightspeed: 'Verified Compatible',
+      mirrors: [
+        { label: 'Official Gateway', url: 'https://browser.rammerhead.org', type: 'Primary' },
+        { label: 'Demo Cluster', url: 'https://demo.rammerhead.org', type: 'Cluster' },
+        { label: 'Math Quiz Study Mask', url: 'https://rh.mathquiz.net', type: 'Mask' },
+        { label: 'Biology Hub Mask Node', url: 'https://rh.biologyhub.org', type: 'Mask' }
+      ]
+    },
+    {
+      id: 'ultraviolet',
+      title: 'Ultraviolet (UV)',
+      engine: 'ServiceWorker Interception',
+      badge: 'Fast Intercept',
+      badgeColor: '#7dd3c0',
+      icon: 'fa-bolt',
+      desc: 'Industry standard web proxy engine using Service Workers with client-side XOR encoding to bypass domain keyword matching.',
+      lightspeed: 'Verified Compatible',
+      mirrors: [
+        { label: 'TitaniumNetwork Reference Node', url: 'https://uv.titaniumnetwork.org', type: 'Reference' },
+        { label: 'Algebra Curriculum Node', url: 'https://learnalgebra.org', type: 'Mask' },
+        { label: 'History Review Node', url: 'https://studyhistory.net', type: 'Mask' },
+        { label: 'Math Helper Portal', url: 'https://mathhelper.online', type: 'Mask' }
+      ]
+    },
+    {
+      id: 'interstellar',
+      title: 'Interstellar Network',
+      engine: 'Ultraviolet / Wisp Protocol',
+      badge: 'Popular',
+      badgeColor: '#f59e0b',
+      icon: 'fa-rocket',
+      desc: 'Polished web proxy suite with multi-tab browsing, stealth cloaking, and fast Wisp backend transport.',
+      lightspeed: 'Verified Compatible',
+      mirrors: [
+        { label: 'Primary App Gateway', url: 'https://gointerstellar.app', type: 'Primary' },
+        { label: 'Learning Portal Node', url: 'https://interstellar-learning.org', type: 'Educational' },
+        { label: 'Network Cluster Mirror', url: 'https://interstellar-proxy.net', type: 'Cluster' },
+        { label: 'Chemistry Study Guide', url: 'https://chemstudyguide.com', type: 'Mask' }
+      ]
+    },
+    {
+      id: 'doge',
+      title: 'Doge Unblocker',
+      engine: 'Ultraviolet / Scramjet',
+      badge: 'V5 Stealth',
+      badgeColor: '#fbbf24',
+      icon: 'fa-dog',
+      desc: 'Fast unblocker platform with tab disguise, custom user themes, and extensive community mirror lists.',
+      lightspeed: 'Verified Compatible',
+      mirrors: [
+        { label: 'Primary Network Domain', url: 'https://dogeunblocker.com', type: 'Primary' },
+        { label: 'Backup Secure Gateway', url: 'https://dogeub.org', type: 'Backup' },
+        { label: 'Chemistry Practice Mirror', url: 'https://chemistrypractice.net', type: 'Mask' },
+        { label: 'World History Hub', url: 'https://worldhistorynotes.org', type: 'Mask' }
+      ]
+    },
+    {
+      id: 'incognito',
+      title: 'Incognito Web',
+      engine: 'Ultraviolet & Stealth Worker',
+      badge: 'Cloaked',
+      badgeColor: '#94a3b8',
+      icon: 'fa-user-secret',
+      desc: 'Minimalist stealth proxy built with automated about:blank tab generation and discrete Google Drive and Classroom cloaks.',
+      lightspeed: 'Verified Compatible',
+      mirrors: [
+        { label: 'Primary Incognito Node', url: 'https://incognitoweb.org', type: 'Primary' },
+        { label: 'Study Mask Node', url: 'https://studywithincognito.com', type: 'Mask' },
+        { label: 'Homework Helper Portal', url: 'https://homeworkhelper.space', type: 'Mask' }
+      ]
+    },
+    {
+      id: 'nebula',
+      title: 'Nebula Proxy',
+      engine: 'Scramjet / WASM Worker',
+      badge: 'Next-Gen',
+      badgeColor: '#60a5fa',
+      icon: 'fa-meteor',
+      desc: 'Next-generation web proxy architecture leveraging Scramjet WebAssembly workers for minimal buffering and fast speeds.',
+      lightspeed: 'Verified Compatible',
+      mirrors: [
+        { label: 'Official Nebula Node', url: 'https://nebulaproxy.io', type: 'Official' },
+        { label: 'Classroom Study Node', url: 'https://nebula-study.net', type: 'Mask' },
+        { label: 'Physics Laboratory Mirror', url: 'https://physicslabonline.com', type: 'Mask' }
+      ]
+    },
+    {
+      id: 'invisiproxy',
+      title: 'Invisiproxy & Lucid',
+      engine: 'Edge Network Routing',
+      badge: 'Low Latency',
+      badgeColor: '#00ff88',
+      icon: 'fa-network-wired',
+      desc: 'High-speed edge-routed web proxy network engineered for low buffering and bypass persistence.',
+      lightspeed: 'Verified Compatible',
+      mirrors: [
+        { label: 'Invisiproxy Gateway', url: 'https://invisiproxy.com', type: 'Primary' },
+        { label: 'Lucid Proxy Node', url: 'https://lucidproxy.org', type: 'Lucid' },
+        { label: 'Calculus Study Network', url: 'https://fastcalculus.net', type: 'Mask' }
+      ]
+    },
+    {
+      id: 'holyunblocker',
+      title: 'Holy Unblocker',
+      engine: 'Ultraviolet + Bare Transport',
+      badge: 'Classic',
+      badgeColor: '#ec4899',
+      icon: 'fa-cross',
+      desc: 'Long-standing community web proxy hub featuring multiple proxy backend selectors and customizable cloaks.',
+      lightspeed: 'Verified Compatible',
+      mirrors: [
+        { label: 'Official Portal', url: 'https://holyub.org', type: 'Primary' },
+        { label: 'Network Mirror Node', url: 'https://holyunblocker.net', type: 'Backup' },
+        { label: 'Algebra Online Study', url: 'https://algebraonline.org', type: 'Mask' }
+      ]
+    }
+  ];
+
+  function getCustomMirrors(proxyId) {
+    try {
+      const raw = localStorage.getItem('lunamix_custom_mirrors_' + proxyId);
+      return raw ? JSON.parse(raw) : [];
+    } catch (e) {
+      return [];
+    }
+  }
+
+  function saveCustomMirror(proxyId, mirror) {
+    try {
+      const list = getCustomMirrors(proxyId);
+      list.push(mirror);
+      localStorage.setItem('lunamix_custom_mirrors_' + proxyId, JSON.stringify(list));
+    } catch (e) {
+      console.error('Error saving custom mirror:', e);
+    }
+  }
+
+  function deleteCustomMirror(proxyId, mirrorId) {
+    try {
+      const list = getCustomMirrors(proxyId).filter(m => m.id !== mirrorId);
+      localStorage.setItem('lunamix_custom_mirrors_' + proxyId, JSON.stringify(list));
+    } catch (e) {
+      console.error('Error deleting custom mirror:', e);
+    }
+  }
+
+  function launchAboutBlankTab(url) {
+    if (!url) return;
+    const cleanUrl = url.trim();
+    if (!cleanUrl.startsWith('https://') && !cleanUrl.startsWith('http://')) {
+      alert('Security error: Only HTTPS or HTTP links can be launched.');
+      return;
+    }
+    const win = window.open('about:blank', '_blank');
+    if (win) {
+      const doc = win.document;
+      doc.open();
+      doc.write(`
+        <!DOCTYPE html>
+        <html>
+        <head>
+          <title>Google Drive</title>
+          <link rel="icon" href="https://ssl.gstatic.com/docs/doclist/images/drive_2022q3_32dp.png">
+          <style>html,body{margin:0;padding:0;height:100%;overflow:hidden;background:#000;}iframe{width:100%;height:100%;border:none;}</style>
+        </head>
+        <body>
+          <iframe src="${cleanUrl.replace(/"/g, '&quot;')}" allow="autoplay; fullscreen; gamepad; focus-without-user-activation *" sandbox="allow-scripts allow-same-origin allow-forms allow-popups"></iframe>
+        </body>
+        </html>
+      `);
+      doc.close();
+    }
+  }
+
+  function renderProxyHubApp(container, winObj) {
     container.innerHTML = `
-      <div style="height: 100%; display: flex; flex-direction: column; background: #0a0e1a;">
+      <div class="proxy-hub-container">
         <div class="browser-chrome">
-          <button class="browser-btn" id="bBackBtn" title="Back"><i class="fa-solid fa-arrow-left"></i></button>
-          <button class="browser-btn" id="bForwardBtn" title="Forward"><i class="fa-solid fa-arrow-right"></i></button>
-          <button class="browser-btn" id="bReloadBtn" title="Reload"><i class="fa-solid fa-rotate-right"></i></button>
-          <button class="browser-btn" id="bHomeBtn" title="Proxy Hub Home"><i class="fa-solid fa-house"></i></button>
-          <input type="text" class="browser-url-input" id="bUrlInput" value="penumbra://hub" placeholder="Search the web or type a URL..." />
-          <button class="browser-btn" id="bGoBtn" title="Go" style="color: var(--accent);"><i class="fa-solid fa-arrow-turn-down-left"></i></button>
-          <button class="browser-btn" id="bNewTabBtn" title="Open in Stealth Tab"><i class="fa-solid fa-arrow-up-right-from-square"></i></button>
+          <button class="browser-btn" id="pBackBtn" title="Back"><i class="fa-solid fa-arrow-left"></i></button>
+          <button class="browser-btn" id="pReloadBtn" title="Reload"><i class="fa-solid fa-rotate-right"></i></button>
+          <button class="browser-btn" id="pHomeBtn" title="Proxy Hub Home"><i class="fa-solid fa-house"></i></button>
+          <input type="text" class="browser-url-input" id="pUrlInput" value="penumbra://hub" placeholder="Search proxies, type a URL, or paste a link..." />
+          <button class="browser-btn" id="pGoBtn" title="Go" style="color: var(--accent);"><i class="fa-solid fa-arrow-turn-down-left"></i></button>
+          <button class="browser-btn" id="pNewTabBtn" title="Open in Stealth Tab"><i class="fa-solid fa-arrow-up-right-from-square"></i></button>
         </div>
+        <div id="proxyHubViewport" class="proxy-hub-body"></div>
+      </div>
+    `;
 
-        <div id="browserViewport" style="flex: 1; overflow-y: auto; padding: 1.5rem; background: radial-gradient(circle at 50% 20%, #151b2b 0%, #080c16 80%);">
-          <!-- Hub Default View -->
-          <div style="max-width: 820px; margin: 0 auto;">
-            <div style="text-align: center; margin-bottom: 2rem;">
-              <div style="display: inline-flex; align-items: center; justify-content: center; width: 64px; height: 64px; border-radius: 18px; background: rgba(168, 85, 247, 0.15); color: #a855f7; font-size: 2rem; margin-bottom: 1rem; border: 1px solid rgba(168, 85, 247, 0.3);">
-                <i class="fa-solid fa-compass"></i>
-              </div>
-              <h2 style="font-size: 1.5rem; font-weight: 700; color: var(--text-primary); margin-bottom: 0.5rem;">Penumbra Browser & Proxy Hub</h2>
-              <p style="font-size: 0.88rem; color: var(--text-secondary); max-width: 580px; margin: 0 auto;">
-                Web browser and proxy links for unblocked search and sites.
-              </p>
+    const urlInput = container.querySelector('#pUrlInput');
+    const viewport = container.querySelector('#proxyHubViewport');
+    const homeBtn = container.querySelector('#pHomeBtn');
+    const goBtn = container.querySelector('#pGoBtn');
+    const reloadBtn = container.querySelector('#pReloadBtn');
+    const backBtn = container.querySelector('#pBackBtn');
+    const newTabBtn = container.querySelector('#pNewTabBtn');
+
+    let currentView = 'hub';
+    let currentProxyId = null;
+
+    function renderHubView(filterQuery = '') {
+      currentView = 'hub';
+      currentProxyId = null;
+      urlInput.value = 'penumbra://hub';
+
+      const q = filterQuery.toLowerCase().trim();
+      const filtered = PROXY_CATALOG.filter(p => {
+        if (!q) return true;
+        if (p.title.toLowerCase().includes(q)) return true;
+        if (p.engine.toLowerCase().includes(q)) return true;
+        if (p.desc.toLowerCase().includes(q)) return true;
+        if (p.mirrors.some(m => m.label.toLowerCase().includes(q) || m.url.toLowerCase().includes(q))) return true;
+        return false;
+      });
+
+      const flagship = PROXY_CATALOG.find(p => p.isFlagship);
+      const otherProxies = filtered.filter(p => !p.isFlagship);
+
+      viewport.innerHTML = `
+        <div style="max-width: 900px; margin: 0 auto;">
+          <div style="text-align: center; margin-bottom: 1.5rem;">
+            <div style="display: inline-flex; align-items: center; justify-content: center; width: 56px; height: 56px; border-radius: 14px; background: rgba(168, 85, 247, 0.12); color: #a855f7; font-size: 1.8rem; margin-bottom: 0.75rem; border: 1px solid rgba(168, 85, 247, 0.25);">
+              <i class="fa-solid fa-compass"></i>
             </div>
+            <h2 style="font-size: 1.45rem; font-weight: 700; color: var(--text-primary); margin-bottom: 0.35rem;">Proxy Hub & Mirror Directory</h2>
+            <p style="font-size: 0.86rem; color: var(--text-secondary); max-width: 600px; margin: 0 auto;">
+              Verified web proxy mirrors and unblocked gateways. Click any card to inspect all active mirror links.
+            </p>
+          </div>
 
-            <!-- Flagship Penumbra Card -->
-            <div style="background: rgba(25, 30, 45, 0.7); border: 1px solid var(--accent); border-radius: 14px; padding: 1.25rem; margin-bottom: 1.5rem; display: flex; align-items: center; justify-content: space-between; gap: 1rem;">
-              <div>
-                <div style="display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.25rem;">
-                  <span style="background: var(--accent); color: var(--bg-primary); font-size: 0.7rem; font-weight: 700; padding: 2px 8px; border-radius: 6px;">PENUMBRA</span>
-                  <h3 style="font-size: 1.1rem; font-weight: 700;">Penumbra Browser v2.0</h3>
+          <div class="proxy-search-bar">
+            <i class="fa-solid fa-magnifying-glass" style="color: var(--text-secondary); font-size: 0.85rem;"></i>
+            <input type="text" id="proxySearchInput" value="${escapeHtml(filterQuery)}" placeholder="Search proxies, engines, or mirror links..." autocomplete="off" />
+            ${filterQuery ? `<button id="clearSearchBtn" style="color: var(--text-secondary); font-size: 0.8rem; padding: 2px 6px;"><i class="fa-solid fa-xmark"></i></button>` : ''}
+          </div>
+
+          ${(!q && flagship) ? `
+            <div class="proxy-hub-featured-card">
+              <div style="flex: 1;">
+                <div style="display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.3rem;">
+                  <span class="proxy-badge" style="background: rgba(168, 85, 247, 0.18); color: #c084fc; border: 1px solid rgba(168, 85, 247, 0.3);">${flagship.badge}</span>
+                  <span class="proxy-badge" style="background: rgba(125, 211, 192, 0.12); color: #7dd3c0; border: 1px solid rgba(125, 211, 192, 0.25);">${flagship.lightspeed}</span>
+                  <h3 style="font-size: 1.15rem; font-weight: 700; margin: 0;">${flagship.title}</h3>
                 </div>
-                <p style="font-size: 0.82rem; color: var(--text-secondary);">
-                  Repository: <a href="https://github.com/lunamixmc/Penumbra-Browser" target="_blank" style="color: var(--accent); text-decoration: underline;">github.com/lunamixmc/Penumbra-Browser</a>
+                <p style="font-size: 0.84rem; color: var(--text-secondary); margin-bottom: 0.75rem; line-height: 1.4;">
+                  ${flagship.desc}
                 </p>
+                <div style="display: flex; gap: 0.5rem; flex-wrap: wrap;">
+                  <button class="proxy-btn proxy-btn-primary open-proxy-detail-btn" data-id="${flagship.id}">
+                    <i class="fa-solid fa-list-ul"></i> View ${flagship.mirrors.length + getCustomMirrors(flagship.id).length} Mirrors
+                  </button>
+                  <a href="${flagship.github}" target="_blank" rel="noopener noreferrer" class="proxy-btn">
+                    <i class="fa-brands fa-github"></i> Repository
+                  </a>
+                  <button class="proxy-btn launch-about-blank-btn" data-url="https://lunamixmc.github.io/Penumbra-Browser/">
+                    <i class="fa-solid fa-shield-halved"></i> Stealth Launch
+                  </button>
+                </div>
               </div>
-              <a href="https://github.com/lunamixmc/Penumbra-Browser" target="_blank" style="background: var(--accent); color: var(--bg-primary); padding: 0.6rem 1.2rem; border-radius: 8px; font-weight: 700; font-size: 0.85rem; text-decoration: none; white-space: nowrap;">
-                <i class="fa-brands fa-github"></i> View Repo
-              </a>
             </div>
+          ` : ''}
 
-            <!-- Proxy Mirrors Grid -->
-            <h3 style="font-size: 0.95rem; font-weight: 700; margin-bottom: 0.8rem; color: var(--text-primary);">
-              Verified Proxy Mirrors
+          <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 0.85rem;">
+            <h3 style="font-size: 0.92rem; font-weight: 700; color: var(--text-primary); text-transform: uppercase; letter-spacing: 0.5px;">
+              ${q ? `Search Results (${filtered.length})` : 'Proxy Networks & Gateways'}
             </h3>
-            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1rem; margin-bottom: 1.5rem;">
-              <div class="proxy-card" style="background: rgba(20, 25, 38, 0.7); border: 1px solid rgba(255,255,255,0.08); border-radius: 12px; padding: 1rem; cursor: pointer; transition: all 0.2s;" data-url="https://duckduckgo.com">
-                <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 0.5rem;">
-                  <span style="font-weight: 700; font-size: 0.95rem;">DuckDuckGo Privacy</span>
-                  <div class="status-dot"></div>
-                </div>
-                <p style="font-size: 0.78rem; color: var(--text-secondary); margin-bottom: 0.75rem;">Private search without tracking.</p>
-                <button style="font-size: 0.78rem; color: var(--accent); font-weight: 600;">Launch Search &rarr;</button>
-              </div>
+            <span style="font-size: 0.78rem; color: var(--text-secondary);">${filtered.length} Services Available</span>
+          </div>
 
-              <div class="proxy-card" style="background: rgba(20, 25, 38, 0.7); border: 1px solid rgba(255,255,255,0.08); border-radius: 12px; padding: 1rem; cursor: pointer; transition: all 0.2s;" data-url="https://en.m.wikipedia.org">
-                <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 0.5rem;">
-                  <span style="font-weight: 700; font-size: 0.95rem;">Wikipedia Mobile</span>
-                  <div class="status-dot"></div>
-                </div>
-                <p style="font-size: 0.78rem; color: var(--text-secondary); margin-bottom: 0.75rem;">Free online encyclopedia.</p>
-                <button style="font-size: 0.78rem; color: var(--accent); font-weight: 600;">Open Wikipedia &rarr;</button>
+          <div class="proxy-hub-grid">
+            ${filtered.length === 0 ? `
+              <div style="grid-column: 1 / -1; text-align: center; padding: 2.5rem 1rem; color: var(--text-secondary); font-size: 0.88rem;">
+                No proxy networks match "${escapeHtml(filterQuery)}". Try searching by proxy engine, school mask, or keyword.
               </div>
-
-              <div class="proxy-card" style="background: rgba(20, 25, 38, 0.7); border: 1px solid rgba(255,255,255,0.08); border-radius: 12px; padding: 1rem; cursor: pointer; transition: all 0.2s;" data-url="https://archive.org">
-                <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 0.5rem;">
-                  <span style="font-weight: 700; font-size: 0.95rem;">Wayback Machine</span>
-                  <div class="status-dot"></div>
+            ` : ''}
+            ${(q ? filtered : otherProxies).map(p => {
+              const totalLinks = p.mirrors.length + getCustomMirrors(p.id).length;
+              return `
+                <div class="proxy-hub-card open-proxy-detail-card" data-id="${p.id}">
+                  <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 0.5rem;">
+                    <div style="display: flex; align-items: center; gap: 0.5rem;">
+                      <div style="width: 30px; height: 30px; border-radius: 8px; background: rgba(255,255,255,0.06); display: flex; align-items: center; justify-content: center; color: ${p.badgeColor}; font-size: 0.95rem;">
+                        <i class="fa-solid ${p.icon}"></i>
+                      </div>
+                      <span style="font-weight: 700; font-size: 0.96rem;">${p.title}</span>
+                    </div>
+                    <div class="status-dot" title="Network Verified"></div>
+                  </div>
+                  <div style="display: flex; gap: 0.4rem; margin-bottom: 0.6rem; flex-wrap: wrap;">
+                    <span class="proxy-badge" style="background: rgba(255,255,255,0.06); color: ${p.badgeColor}; border: 1px solid rgba(255,255,255,0.08);">${p.badge}</span>
+                    <span class="proxy-badge" style="background: rgba(125, 211, 192, 0.1); color: #7dd3c0; border: 1px solid rgba(125, 211, 192, 0.2);">${p.lightspeed}</span>
+                  </div>
+                  <p style="font-size: 0.8rem; color: var(--text-secondary); margin-bottom: 0.9rem; flex: 1; line-height: 1.4;">
+                    ${p.desc}
+                  </p>
+                  <div style="display: flex; align-items: center; justify-content: space-between; border-top: 1px solid rgba(255,255,255,0.06); padding-top: 0.6rem; font-size: 0.78rem;">
+                    <span style="color: var(--text-secondary); font-family: monospace;">${p.engine}</span>
+                    <span style="color: var(--accent); font-weight: 700;">${totalLinks} Mirrors &rarr;</span>
+                  </div>
                 </div>
-                <p style="font-size: 0.78rem; color: var(--text-secondary); margin-bottom: 0.75rem;">Internet Archive snapshots of saved websites.</p>
-                <button style="font-size: 0.78rem; color: var(--accent); font-weight: 600;">Explore Archive &rarr;</button>
+              `;
+            }).join('')}
+          </div>
+
+          <div style="background: #101524; border: 1px solid rgba(255,255,255,0.08); border-radius: 12px; padding: 1.15rem; margin-top: 1rem;">
+            <div style="display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.35rem;">
+              <i class="fa-solid fa-shield-halved" style="color: var(--accent);"></i>
+              <h4 style="font-size: 0.92rem; font-weight: 700; margin: 0;">Stealth about:blank Tab Cloaker</h4>
+            </div>
+            <p style="font-size: 0.8rem; color: var(--text-secondary); margin-bottom: 0.75rem;">
+              Open any destination URL inside an unlogged about:blank tab disguised as Google Drive.
+            </p>
+            <div style="display: flex; gap: 0.5rem;">
+              <input type="text" id="universalStealthInput" placeholder="https://example.com" style="flex: 1; padding: 0.5rem 0.8rem; background: #0a0e1a; border: 1px solid rgba(255,255,255,0.12); border-radius: 8px; color: var(--text-primary); font-size: 0.84rem;" />
+              <button id="universalStealthBtn" class="proxy-btn proxy-btn-primary">
+                <i class="fa-solid fa-arrow-up-right-from-square"></i> Stealth Launch
+              </button>
+            </div>
+          </div>
+        </div>
+      `;
+
+      // Hub Event Handlers
+      const searchInput = viewport.querySelector('#proxySearchInput');
+      searchInput?.addEventListener('input', (e) => {
+        renderHubView(e.target.value);
+        const newIn = viewport.querySelector('#proxySearchInput');
+        newIn?.focus();
+        newIn?.setSelectionRange(newIn.value.length, newIn.value.length);
+      });
+
+      viewport.querySelector('#clearSearchBtn')?.addEventListener('click', () => {
+        renderHubView('');
+      });
+
+      viewport.querySelectorAll('.open-proxy-detail-btn, .open-proxy-detail-card').forEach(el => {
+        el.addEventListener('click', (e) => {
+          if (e.target.closest('a') || e.target.closest('.launch-about-blank-btn')) return;
+          const pid = el.getAttribute('data-id');
+          if (pid) renderDetailView(pid);
+        });
+      });
+
+      viewport.querySelectorAll('.launch-about-blank-btn').forEach(btn => {
+        btn.addEventListener('click', (e) => {
+          e.stopPropagation();
+          const u = btn.getAttribute('data-url');
+          launchAboutBlankTab(u);
+        });
+      });
+
+      const stealthIn = viewport.querySelector('#universalStealthInput');
+      const stealthBtn = viewport.querySelector('#universalStealthBtn');
+      if (stealthBtn && stealthIn) {
+        stealthBtn.addEventListener('click', () => {
+          launchAboutBlankTab(stealthIn.value || 'https://duckduckgo.com');
+        });
+        stealthIn.addEventListener('keydown', (e) => {
+          if (e.key === 'Enter') launchAboutBlankTab(stealthIn.value || 'https://duckduckgo.com');
+        });
+      }
+    }
+
+    function renderDetailView(proxyId) {
+      const p = PROXY_CATALOG.find(item => item.id === proxyId);
+      if (!p) {
+        renderHubView();
+        return;
+      }
+
+      currentView = 'detail';
+      currentProxyId = proxyId;
+      urlInput.value = `penumbra://hub/${proxyId}`;
+
+      const customMirrors = getCustomMirrors(proxyId);
+      const allMirrors = [
+        ...p.mirrors.map((m, idx) => ({ ...m, isCustom: false, id: `def_${idx}` })),
+        ...customMirrors.map(m => ({ ...m, isCustom: true }))
+      ];
+
+      viewport.innerHTML = `
+        <div style="max-width: 860px; margin: 0 auto;">
+          <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 1.25rem;">
+            <button id="backToHubBtn" class="proxy-btn">
+              <i class="fa-solid fa-arrow-left"></i> Back to Hub
+            </button>
+            <div style="display: flex; gap: 0.4rem;">
+              <span class="proxy-badge" style="background: rgba(255,255,255,0.06); color: ${p.badgeColor}; border: 1px solid rgba(255,255,255,0.08);">${p.badge}</span>
+              <span class="proxy-badge" style="background: rgba(125, 211, 192, 0.1); color: #7dd3c0; border: 1px solid rgba(125, 211, 192, 0.2);">${p.lightspeed}</span>
+            </div>
+          </div>
+
+          <div style="background: #111625; border: 1px solid rgba(255,255,255,0.1); border-radius: 12px; padding: 1.25rem; margin-bottom: 1.25rem;">
+            <div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 0.5rem;">
+              <div style="width: 38px; height: 38px; border-radius: 10px; background: rgba(255,255,255,0.08); display: flex; align-items: center; justify-content: center; color: ${p.badgeColor}; font-size: 1.15rem;">
+                <i class="fa-solid ${p.icon}"></i>
+              </div>
+              <div>
+                <h2 style="font-size: 1.25rem; font-weight: 700; margin: 0;">${p.title}</h2>
+                <span style="font-size: 0.8rem; color: var(--text-secondary); font-family: monospace;">Architecture: ${p.engine}</span>
               </div>
             </div>
+            <p style="font-size: 0.85rem; color: var(--text-secondary); line-height: 1.45; margin: 0;">
+              ${p.desc}
+            </p>
+          </div>
 
-            <!-- Stealth Tab Launcher Card -->
-            <div style="background: rgba(20, 25, 38, 0.7); border: 1px solid rgba(255,255,255,0.08); border-radius: 12px; padding: 1.25rem;">
-              <h4 style="font-size: 0.9rem; font-weight: 700; margin-bottom: 0.4rem;"><i class="fa-solid fa-shield-halved" style="color: var(--accent);"></i> Stealth about:blank Cloaker</h4>
-              <p style="font-size: 0.8rem; color: var(--text-secondary); margin-bottom: 0.8rem;">
-                Open any URL inside an about:blank tab so it does not appear in your browsing history.
-              </p>
-              <div style="display: flex; gap: 0.6rem;">
-                <input type="text" id="stealthUrlInput" placeholder="https://example.com" style="flex: 1; padding: 0.55rem 0.8rem; background: #0a0e1a; border: 1px solid rgba(255,255,255,0.15); border-radius: 8px; color: var(--text-primary); font-size: 0.85rem;" />
-                <button id="stealthLaunchBtn" style="padding: 0.55rem 1.1rem; background: var(--accent); color: var(--bg-primary); font-weight: 700; border-radius: 8px; font-size: 0.85rem; white-space: nowrap;">
-                  Launch in about:blank
+          <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 0.75rem;">
+            <h3 style="font-size: 0.92rem; font-weight: 700; color: var(--text-primary); text-transform: uppercase; letter-spacing: 0.5px;">
+              Active Mirror Endpoints (${allMirrors.length})
+            </h3>
+            <span style="font-size: 0.78rem; color: var(--text-secondary);">Direct and disguise endpoints</span>
+          </div>
+
+          <div style="margin-bottom: 1.5rem;">
+            ${allMirrors.map(m => `
+              <div class="proxy-link-row">
+                <div style="flex: 1; min-width: 0; padding-right: 0.5rem;">
+                  <div style="display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.2rem;">
+                    <div class="status-dot"></div>
+                    <span style="font-weight: 700; font-size: 0.88rem; color: var(--text-primary);">${escapeHtml(m.label)}</span>
+                    <span class="proxy-badge" style="background: rgba(255,255,255,0.05); color: ${m.isCustom ? '#fbbf24' : 'var(--text-secondary)'}; font-size: 0.65rem;">
+                      ${escapeHtml(m.type || 'Mirror')}
+                    </span>
+                  </div>
+                  <div style="font-family: monospace; font-size: 0.78rem; color: var(--text-secondary); overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">
+                    ${escapeHtml(m.url)}
+                  </div>
+                </div>
+                <div style="display: flex; gap: 0.4rem; flex-shrink: 0;">
+                  <a href="${escapeHtml(m.url)}" target="_blank" rel="noopener noreferrer" class="proxy-btn" title="Open in new browser tab">
+                    <i class="fa-solid fa-arrow-up-right-from-square"></i> Tab
+                  </a>
+                  <button class="proxy-btn detail-stealth-btn" data-url="${escapeHtml(m.url)}" title="Launch in cloaked about:blank">
+                    <i class="fa-solid fa-shield-halved"></i> Stealth
+                  </button>
+                  <button class="proxy-btn detail-window-btn" data-url="${escapeHtml(m.url)}" title="Open inside this OS window">
+                    <i class="fa-solid fa-window-maximize"></i> Window
+                  </button>
+                  <button class="proxy-btn detail-copy-btn" data-url="${escapeHtml(m.url)}" title="Copy mirror URL">
+                    <i class="fa-solid fa-copy"></i>
+                  </button>
+                  ${m.isCustom ? `
+                    <button class="proxy-btn detail-del-custom-btn" data-id="${m.id}" title="Remove custom link" style="color: #f87171;">
+                      <i class="fa-solid fa-trash-can"></i>
+                    </button>
+                  ` : ''}
+                </div>
+              </div>
+            `).join('')}
+          </div>
+
+          <!-- Add Custom Mirror Section -->
+          <div style="background: #101524; border: 1px solid rgba(255,255,255,0.08); border-radius: 12px; padding: 1.15rem;">
+            <h4 style="font-size: 0.9rem; font-weight: 700; margin-bottom: 0.35rem; display: flex; align-items: center; gap: 0.5rem;">
+              <i class="fa-solid fa-plus" style="color: var(--accent);"></i> Add Personal Mirror Endpoint
+            </h4>
+            <p style="font-size: 0.8rem; color: var(--text-secondary); margin-bottom: 0.75rem;">
+              Found a working unblocked domain for ${p.title}? Save it locally into your browser for instant one-click access.
+            </p>
+            <div style="display: flex; flex-direction: column; gap: 0.5rem;">
+              <div style="display: flex; gap: 0.5rem;">
+                <input type="text" id="customMirrorUrlInput" placeholder="https://my-working-proxy.example.com" style="flex: 2; padding: 0.5rem 0.8rem; background: #0a0e1a; border: 1px solid rgba(255,255,255,0.12); border-radius: 8px; color: var(--text-primary); font-size: 0.84rem;" />
+                <input type="text" id="customMirrorLabelInput" placeholder="Endpoint Label (e.g. Science Class Mirror)" style="flex: 1; padding: 0.5rem 0.8rem; background: #0a0e1a; border: 1px solid rgba(255,255,255,0.12); border-radius: 8px; color: var(--text-primary); font-size: 0.84rem;" />
+                <button id="saveCustomMirrorBtn" class="proxy-btn proxy-btn-primary">
+                  <i class="fa-solid fa-floppy-disk"></i> Save Link
                 </button>
               </div>
             </div>
           </div>
         </div>
-      </div>
-    `;
+      `;
 
-    const urlInput = container.querySelector('#bUrlInput');
-    const viewport = container.querySelector('#browserViewport');
-    const homeBtn = container.querySelector('#bHomeBtn');
-    const goBtn = container.querySelector('#bGoBtn');
-    const reloadBtn = container.querySelector('#bReloadBtn');
-    const newTabBtn = container.querySelector('#bNewTabBtn');
+      // Detail Event Handlers
+      viewport.querySelector('#backToHubBtn')?.addEventListener('click', () => {
+        renderHubView();
+      });
 
-    function navigate(url) {
+      viewport.querySelectorAll('.detail-stealth-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+          const u = btn.getAttribute('data-url');
+          launchAboutBlankTab(u);
+        });
+      });
+
+      viewport.querySelectorAll('.detail-window-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+          const u = btn.getAttribute('data-url');
+          navigateWeb(u);
+        });
+      });
+
+      viewport.querySelectorAll('.detail-copy-btn').forEach(btn => {
+        btn.addEventListener('click', async () => {
+          const u = btn.getAttribute('data-url');
+          if (u) {
+            try {
+              await navigator.clipboard.writeText(u);
+              btn.innerHTML = '<i class="fa-solid fa-check"></i>';
+              setTimeout(() => { btn.innerHTML = '<i class="fa-solid fa-copy"></i>'; }, 1500);
+            } catch (err) {
+              alert('Copied URL: ' + u);
+            }
+          }
+        });
+      });
+
+      viewport.querySelectorAll('.detail-del-custom-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+          const mid = btn.getAttribute('data-id');
+          if (mid && confirm('Remove this personal mirror link?')) {
+            deleteCustomMirror(proxyId, mid);
+            renderDetailView(proxyId);
+          }
+        });
+      });
+
+      const addBtn = viewport.querySelector('#saveCustomMirrorBtn');
+      const urlIn = viewport.querySelector('#customMirrorUrlInput');
+      const labelIn = viewport.querySelector('#customMirrorLabelInput');
+      if (addBtn && urlIn) {
+        addBtn.addEventListener('click', () => {
+          let u = (urlIn.value || '').trim();
+          if (!u) return;
+          if (!u.startsWith('https://') && !u.startsWith('http://')) {
+            u = 'https://' + u;
+          }
+          const label = (labelIn?.value || '').trim() || 'Personal Mirror';
+          saveCustomMirror(proxyId, {
+            id: 'cust_' + Date.now(),
+            label: label,
+            url: u,
+            type: 'Custom'
+          });
+          renderDetailView(proxyId);
+        });
+      }
+    }
+
+    function navigateWeb(url) {
       if (!url) return;
       if (url === 'penumbra://hub' || url === 'home') {
-        renderBrowserApp(container, winObj);
+        renderHubView();
+        return;
+      }
+      if (url.startsWith('penumbra://hub/')) {
+        const pid = url.replace('penumbra://hub/', '').trim();
+        renderDetailView(pid);
         return;
       }
       if (!url.startsWith('http://') && !url.startsWith('https://')) {
         url = 'https://' + url;
       }
+      currentView = 'web';
       urlInput.value = url;
       viewport.innerHTML = `
-        <iframe src="${url}" style="width: 100%; height: 100%; border: none;"
-          allow="autoplay; fullscreen; gamepad"
+        <iframe src="${escapeHtml(url)}" style="width: 100%; height: 100%; border: none; display: block;"
+          allow="autoplay; fullscreen; gamepad; focus-without-user-activation *"
           sandbox="allow-scripts allow-same-origin allow-forms allow-popups">
         </iframe>
       `;
     }
 
-    if (goBtn) goBtn.addEventListener('click', () => navigate(urlInput.value.trim()));
+    // Top Chrome Event Handlers
+    if (goBtn) goBtn.addEventListener('click', () => navigateWeb(urlInput.value.trim()));
     if (urlInput) {
       urlInput.addEventListener('keydown', (e) => {
-        if (e.key === 'Enter') navigate(urlInput.value.trim());
+        if (e.key === 'Enter') navigateWeb(urlInput.value.trim());
       });
     }
-    if (homeBtn) homeBtn.addEventListener('click', () => navigate('penumbra://hub'));
-    if (reloadBtn) reloadBtn.addEventListener('click', () => navigate(urlInput.value.trim()));
+    if (homeBtn) homeBtn.addEventListener('click', () => renderHubView());
+    if (reloadBtn) {
+      reloadBtn.addEventListener('click', () => {
+        if (currentView === 'hub') renderHubView();
+        else if (currentView === 'detail' && currentProxyId) renderDetailView(currentProxyId);
+        else navigateWeb(urlInput.value.trim());
+      });
+    }
+    if (backBtn) {
+      backBtn.addEventListener('click', () => {
+        if (currentView === 'detail' || currentView === 'web') renderHubView();
+      });
+    }
     if (newTabBtn) {
       newTabBtn.addEventListener('click', () => {
         const u = urlInput.value.trim();
-        if (u && u !== 'penumbra://hub') window.open(u, '_blank');
+        if (u && !u.startsWith('penumbra://')) launchAboutBlankTab(u);
+        else launchAboutBlankTab('https://lunamixmc.github.io/Penumbra-Browser/');
       });
     }
 
-    container.querySelectorAll('.proxy-card').forEach(card => {
-      card.addEventListener('click', () => {
-        const target = card.getAttribute('data-url');
-        navigate(target);
-      });
-    });
+    // Start on Hub view
+    renderHubView();
+  }
 
-    const stealthInput = container.querySelector('#stealthUrlInput');
-    const stealthBtn = container.querySelector('#stealthLaunchBtn');
-    if (stealthBtn && stealthInput) {
-      stealthBtn.addEventListener('click', () => {
-        const u = stealthInput.value.trim() || 'https://duckduckgo.com';
-        const win = window.open('about:blank', '_blank');
-        if (win) {
-          const doc = win.document;
-          doc.open();
-          doc.write(`
-            <!DOCTYPE html>
-            <html>
-            <head><title>Google Drive</title><link rel="icon" href="https://ssl.gstatic.com/docs/doclist/images/drive_2022q3_32dp.png"><style>html,body{margin:0;padding:0;height:100%;overflow:hidden;}iframe{width:100%;height:100%;border:none;}</style></head>
-            <body><iframe src="${u}"></iframe></body>
-            </html>
-          `);
-          doc.close();
-        }
-      });
-    }
+  // Alias for backward compatibility
+  function renderBrowserApp(container, winObj) {
+    return renderProxyHubApp(container, winObj);
   }
 
   // --------------------------------------------------------------------------
