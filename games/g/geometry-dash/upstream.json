@@ -1,9 +1,9 @@
 {
   "upstream": "https://github.com/skiingbeast2025/geometry-dash-wasm-proxy",
   "live_url": "https://skiingbeast2025.github.io/geometry-dash-wasm-proxy/",
-  "last_synced_sha": "8a31d4b1f2680db62b23f9b67c1d7f2c687c6076",
-  "commit_message": "fix(fullscreen): lock Escape key in fullscreen using Keyboard Lock API and prevent auto-exit",
+  "last_synced_sha": "937a901aab99a0da465e3928fb52f9d9186ac8f4",
+  "commit_message": "feat(save): fix save persistence across reloads, add autosave, save game button, and export/import",
   "commit_author": "skiingbeast2025",
-  "commit_date": "2026-11-02T14:10:32Z",
+  "commit_date": "2026-11-06T00:47:53Z",
   "auto_sync_method": "Live GitHub Pages iframe proxy with repository_dispatch workflow"
 }
