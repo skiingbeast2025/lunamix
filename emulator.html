@@ -183,23 +183,23 @@
           🕹️
         </div>
 
-        <h2 class="text-2xl sm:text-3xl font-extrabold text-white mb-2">Retro WebAssembly Runner</h2>
+        <h2 class="text-2xl sm:text-3xl font-extrabold text-white mb-2">WebRetro Universal Emulator</h2>
         <p class="text-sm text-slate-400 mb-6 max-w-md mx-auto">
-          Play classic titles in 60 FPS WebAssembly. Drag & drop any ROM file from your computer or select a system below.
+          Play classic titles in full-speed WebAssembly powered by WebRetro and Libretro cores. Drag & drop any ROM file from your computer or select a system below.
         </p>
 
         <!-- Core / System Selector -->
         <div class="flex flex-col sm:flex-row items-center justify-center gap-3 mb-6 max-w-md mx-auto">
           <label for="system-select" class="text-xs font-mono text-slate-400 shrink-0">System:</label>
           <select id="system-select" class="w-full bg-slate-950 border border-slate-700 rounded-xl px-3 py-2 text-xs text-white focus:outline-none focus:ring-1 focus:ring-indigo-500 cursor-pointer">
-            <option value="gba">Game Boy Advance (GBA)</option>
-            <option value="snes">Super Nintendo (SNES)</option>
-            <option value="n64">Nintendo 64 (N64)</option>
-            <option value="nds">Nintendo DS (NDS)</option>
-            <option value="nes">Nintendo NES (NES)</option>
-            <option value="segaMD">Sega Genesis / Mega Drive</option>
-            <option value="psx">Sony PlayStation 1 (PS1)</option>
-            <option value="gb">Game Boy / Color (GB/GBC)</option>
+            <option value="gba">Game Boy Advance (mGBA)</option>
+            <option value="snes">Super Nintendo (Snes9x)</option>
+            <option value="n64">Nintendo 64 (Mupen64Plus-Next)</option>
+            <option value="nds">Nintendo DS (melonDS)</option>
+            <option value="nes">Nintendo NES (Nestopia UE)</option>
+            <option value="segaMD">Sega Genesis / Mega Drive (Genesis Plus GX)</option>
+            <option value="psx">Sony PlayStation 1 (Beetle PSX HW)</option>
+            <option value="gb">Game Boy / Color (mGBA)</option>
           </select>
         </div>
 
@@ -209,8 +209,15 @@
         <div class="flex flex-col sm:flex-row items-center justify-center gap-3">
           <button 
             type="button" 
-            onclick="document.getElementById('rom-file-input').click()"
+            onclick="openWebRetroHub(document.getElementById('system-select').value)"
             class="w-full sm:w-auto px-6 py-3 rounded-xl bg-white text-black font-bold text-xs hover:bg-neutral-200 transition-all shadow-lg flex items-center justify-center gap-2 cursor-pointer"
+          >
+            Launch WebRetro Hub
+          </button>
+          <button 
+            type="button" 
+            onclick="document.getElementById('rom-file-input').click()"
+            class="w-full sm:w-auto px-6 py-3 rounded-xl bg-slate-800 text-slate-200 font-bold text-xs hover:bg-slate-700 border border-slate-700 transition-all shadow-lg flex items-center justify-center gap-2 cursor-pointer"
           >
             <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l-4-4m0 0L8 8m4-4v12" />
@@ -273,6 +280,20 @@
       'gbc': 'gb'
     };
 
+    const CORE_MAP = {
+      'gba': 'mgba',
+      'gb': 'mgba',
+      'gbc': 'mgba',
+      'snes': 'snes9x',
+      'n64': 'mupen64plus_next',
+      'nes': 'nestopia',
+      'genesis': 'genesis_plus_gx',
+      'segaMD': 'genesis_plus_gx',
+      'nds': 'melonds',
+      'psx': 'mednafen_psx_hw',
+      'ps1': 'mednafen_psx_hw'
+    };
+
     function detectCoreFromFile(filename) {
       const parts = filename.split('.');
       if (parts.length > 1) {
@@ -288,25 +309,40 @@
       gameTarget.classList.remove('hidden');
 
       document.getElementById('emu-title').textContent = gameName || 'Retro Classic';
-      document.getElementById('emu-core-badge').textContent = core.toUpperCase();
+      const mappedCore = CORE_MAP[core] || core || 'autodetect';
+      document.getElementById('emu-core-badge').textContent = mappedCore.toUpperCase();
 
-      let fullRom = romUrl;
-      try {
-        fullRom = new URL(romUrl, window.location.href).href;
-      } catch (e) {}
+      let targetUrl = './webretro/index.html?core=' + encodeURIComponent(mappedCore);
+      if (romUrl) {
+        let fullRom = romUrl;
+        try {
+          fullRom = new URL(romUrl, window.location.href).href;
+        } catch (e) {}
+        targetUrl += '&rom=' + encodeURIComponent(fullRom);
+      }
 
-      window.EJS_player = '#game';
-      window.EJS_core = core;
-      window.EJS_gameUrl = fullRom;
-      window.EJS_gameName = gameName;
-      window.EJS_pathtodata = 'https://cdn.emulatorjs.org/stable/data/';
-      window.EJS_startOnLoaded = true;
-      window.EJS_color = '#6366f1';
+      gameTarget.innerHTML = `
+        <iframe src="${targetUrl}" style="width: 100%; height: 100%; border: none; background: #000;"
+          allow="autoplay; fullscreen; gamepad; focus-without-user-activation *"
+          sandbox="allow-scripts allow-same-origin allow-forms allow-popups">
+        </iframe>
+      `;
+    }
 
-      const script = document.createElement('script');
-      script.src = 'https://cdn.emulatorjs.org/stable/data/loader.js';
-      script.async = true;
-      document.body.appendChild(script);
+    function openWebRetroHub(system) {
+      document.getElementById('rom-loader-view').classList.add('hidden');
+      const gameTarget = document.getElementById('game');
+      gameTarget.classList.remove('hidden');
+      const mappedCore = system ? (CORE_MAP[system] || system) : '';
+      const url = './webretro/index.html' + (mappedCore ? '?core=' + encodeURIComponent(mappedCore) : '');
+      document.getElementById('emu-title').textContent = 'WebRetro Core Hub';
+      document.getElementById('emu-core-badge').textContent = (mappedCore || 'HUB').toUpperCase();
+      gameTarget.innerHTML = `
+        <iframe src="${url}" style="width: 100%; height: 100%; border: none; background: #000;"
+          allow="autoplay; fullscreen; gamepad; focus-without-user-activation *"
+          sandbox="allow-scripts allow-same-origin allow-forms allow-popups">
+        </iframe>
+      `;
     }
 
     function launchPreset(core, name, url) {

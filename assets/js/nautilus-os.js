@@ -3570,15 +3570,15 @@
   }
 
   // --------------------------------------------------------------------------
-  // App: Retro Emulator Launcher
+  // App: Retro Emulator Launcher (WebRetro Libretro WASM)
   // --------------------------------------------------------------------------
   function renderEmulatorApp(container, winObj) {
     container.innerHTML = `
       <div style="height: 100%; display: flex; flex-direction: column;">
-        <div class="browser-chrome" style="background: rgba(15, 20, 32, 0.95); display: flex; justify-content: space-between; align-items: center; padding: 0.4rem 0.8rem;">
+        <div class="browser-chrome" style="background: rgba(15, 20, 32, 0.95); display: flex; justify-content: space-between; align-items: center; padding: 0.4rem 0.8rem; border-bottom: 1px solid rgba(255,255,255,0.08);">
           <div style="display: flex; align-items: center; gap: 0.5rem; font-size: 0.85rem; font-weight: 600; color: #ec4899;">
             <i class="fa-solid fa-ghost"></i>
-            <span>Retro Systems Universal Emulator (GBA, SNES, N64)</span>
+            <span>WebRetro Universal Emulator (RetroArch Libretro WASM)</span>
           </div>
           <div style="display: flex; gap: 0.4rem;">
             <a href="./emulator.html" target="_blank" class="browser-btn" title="Open Fullscreen in New Tab" style="text-decoration: none;">
