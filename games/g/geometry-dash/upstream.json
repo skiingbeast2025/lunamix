@@ -1,9 +1,9 @@
 {
   "upstream": "https://github.com/skiingbeast2025/geometry-dash-wasm-proxy",
   "live_url": "https://skiingbeast2025.github.io/geometry-dash-wasm-proxy/",
-  "last_synced_sha": "c1e04d72fcf9b4eca05e6258fbbc49e82318b057",
-  "commit_message": "fix(net): restore online level browsing across proxy failover, Wisp tunneling, and Cloudflare Pages",
+  "last_synced_sha": "4d9e7b6b5c8602513cfed25f76fe10f1312e32f7",
+  "commit_message": "feat: add Unlock All option to unlock all icons, colors, vaults, and levels",
   "commit_author": "skiingbeast2025",
-  "commit_date": "2026-11-06T21:57:40Z",
+  "commit_date": "2026-11-09T23:17:18Z",
   "auto_sync_method": "Live GitHub Pages iframe proxy with repository_dispatch workflow"
 }
