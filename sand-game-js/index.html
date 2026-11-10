@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Sand Game JS - Lunamix</title>
+  <link rel="shortcut icon" href="../assets/logos/favicon.svg" type="image/svg+xml">
+
+  <link rel="stylesheet" href="./bootstrap.min.css">
+  <link rel="stylesheet" href="./dist/sand-game-js.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+  <style>
+    * { box-sizing: border-box; }
+    html, body {
+      margin: 0;
+      padding: 0;
+      width: 100%;
+      height: 100%;
+      background: #0a0e1a;
+      color: #e8eaed;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .sand-header {
+      height: 48px;
+      background: rgba(13, 17, 30, 0.95);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 16px;
+      user-select: none;
+      flex-shrink: 0;
+    }
+
+    .sand-brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: #fff;
+    }
+
+    .sand-brand i {
+      color: #f59e0b;
+    }
+
+    .sand-badge {
+      font-size: 0.7rem;
+      padding: 2px 7px;
+      background: rgba(245, 158, 11, 0.15);
+      border: 1px solid rgba(245, 158, 11, 0.35);
+      color: #f59e0b;
+      border-radius: 6px;
+      font-weight: 600;
+    }
+
+    .sand-controls {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .sand-btn {
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      color: #e8eaed;
+      border-radius: 6px;
+      padding: 5px 12px;
+      font-size: 0.8rem;
+      font-weight: 500;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      text-decoration: none;
+      transition: all 0.15s ease;
+    }
+
+    .sand-btn:hover {
+      background: rgba(255, 255, 255, 0.12);
+      color: #fff;
+    }
+
+    #sand-game-root {
+      flex: 1;
+      width: 100%;
+      height: calc(100% - 48px);
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+      padding: 8px;
+    }
+
+    /* Custom overrides for SandGame canvas container */
+    #sand-game-root .container {
+      max-width: 100% !important;
+      padding: 0 !important;
+      margin: 0 !important;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+    }
+
+    canvas {
+      image-rendering: pixelated;
+      border-radius: 8px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+    }
+  </style>
+
+  <script src="./bootstrap.bundle.min.js"></script>
+  <script defer src="./dist/sand-game-js.umd.min.js"></script>
+</head>
+<body>
+  <div class="sand-header">
+    <div class="sand-brand">
+      <i class="fa-solid fa-hourglass-half"></i>
+      <span>Sand Game JS</span>
+      <span class="sand-badge">WebGL 2 Falling-Sand Engine</span>
+    </div>
+    <div class="sand-controls">
+      <button type="button" class="sand-btn" id="fsBtn" title="Toggle Fullscreen">
+        <i class="fa-solid fa-expand"></i> Fullscreen
+      </button>
+      <a href="https://github.com/Hartrik/sand-game-js" target="_blank" rel="noopener noreferrer" class="sand-btn" title="View Source on GitHub">
+        <i class="fa-brands fa-github"></i> GitHub
+      </a>
+    </div>
+  </div>
+
+  <div id="sand-game-root">
+    <div style="user-select: none; display: flex; align-items: center; justify-content: center; height: 100%;">
+      <div id="sand-game-placeholder-content" style="color: #94a3b8; font-weight: 500;">
+        Initializing WebGL 2 physics canvas...
+      </div>
+    </div>
+  </div>
+
+  <script>
+    var sandGame = null;
+    var brushes = null;
+
+    document.addEventListener('DOMContentLoaded', () => {
+      // Fullscreen handler
+      const fsBtn = document.getElementById('fsBtn');
+      if (fsBtn) {
+        fsBtn.addEventListener('click', () => {
+          if (!document.fullscreenElement) {
+            document.documentElement.requestFullscreen().catch(() => {});
+          } else {
+            document.exitFullscreen().catch(() => {});
+          }
+        });
+      }
+
+      // Initialize SandGameJS
+      function initSandGame() {
+        if (window.SandGameJS !== undefined) {
+          const root = document.getElementById('sand-game-root');
+          root.innerHTML = '';
+          const config = { version: '1.0.0', debug: false };
+          const controller = window.SandGameJS.init(root, config);
+          sandGame = controller.getSandGame();
+          controller.addOnInitialized(s => {
+            sandGame = s;
+          });
+          brushes = window.SandGameJS.brushes;
+        } else {
+          setTimeout(initSandGame, 50);
+        }
+      }
+      setTimeout(initSandGame, 100);
+    });
+  </script>
+</body>
+</html>

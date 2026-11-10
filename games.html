@@ -600,6 +600,14 @@
         </button>
         <button 
           type="button" 
+          data-category="sand" 
+          onclick="setCategory('sand')" 
+          class="cat-pill px-3 py-1.5 rounded-xl text-xs font-semibold transition-all whitespace-nowrap bg-slate-950/70 text-amber-400 hover:text-amber-300 hover:bg-slate-850 border border-slate-800"
+        >
+          Sand Games
+        </button>
+        <button 
+          type="button" 
           data-category="action" 
           onclick="setCategory('action')" 
           class="cat-pill px-3 py-1.5 rounded-xl text-xs font-semibold transition-all whitespace-nowrap bg-slate-950/70 text-slate-300 hover:text-white hover:bg-slate-850 border border-slate-800"
@@ -981,6 +989,72 @@
         targetUrl: 'https://iloveshorty.github.io/html/webretro/game/index.html'
       },
       {
+        id: 2100,
+        slug: 'sand-game-js',
+        name: 'Sand Game JS (Hartrik Engine)',
+        category: 'sand',
+        logo: './assets/logos/sand-game.svg',
+        isLocal: true,
+        isFeatured: true,
+        openInNewTab: false,
+        targetUrl: './sand-game-js/index.html'
+      },
+      {
+        id: 2101,
+        slug: 'sandboxels',
+        name: 'Sandboxels (500+ Elements)',
+        category: 'sand',
+        logo: './assets/logos/sand-game.svg',
+        isLocal: true,
+        isFeatured: true,
+        openInNewTab: false,
+        targetUrl: 'https://sandboxels.r74n.com/'
+      },
+      {
+        id: 2102,
+        slug: 'sandsaga',
+        name: 'SandSaga Physics Sandbox',
+        category: 'sand',
+        logo: './assets/logos/sand-game.svg',
+        isLocal: true,
+        isFeatured: true,
+        openInNewTab: false,
+        targetUrl: 'https://sandsaga.com/'
+      },
+      {
+        id: 2103,
+        slug: 'sandspiel',
+        name: 'Sandspiel Cellular Automata',
+        category: 'sand',
+        logo: './assets/logos/sand-game.svg',
+        isLocal: true,
+        isFeatured: true,
+        openInNewTab: false,
+        targetUrl: 'https://sandspiel.club/'
+      },
+      {
+        id: 2105,
+        slug: 'danball-powder-game',
+        name: 'Dan-Ball Powder Game (Original Dust)',
+        category: 'sand',
+        logo: './assets/logos/sand-game.svg',
+        isLocal: true,
+        isFeatured: true,
+        openInNewTab: false,
+        targetUrl: 'https://dan-ball.jp/en/javagame/dust/'
+      },
+      {
+        id: 2106,
+        slug: 'danball-powder-game-2',
+        name: 'Dan-Ball Powder Game 2 (Dust 2)',
+        category: 'sand',
+        logo: './assets/logos/sand-game.svg',
+        isLocal: true,
+        isFeatured: true,
+        openInNewTab: false,
+        targetUrl: 'https://dan-ball.jp/en/javagame/dust2/'
+      },
+      {
         slug: 'celeste',
         name: 'Celeste Classic (WASM)',
         category: 'platformer',
@@ -1032,6 +1106,11 @@
       // 4. Emulator variants fallback
       if (catLower === 'emulator' || nameLower.includes('emulator') || nameLower.includes('gba') || nameLower.includes('snes') || nameLower.includes('n64')) {
         return './assets/logos/emulator.png';
+      }
+
+      // 5. Sand games fallback
+      if (catLower === 'sand' || nameLower.includes('sand') || nameLower.includes('powder') || nameLower.includes('dust')) {
+        return './assets/logos/sand-game.svg';
       }
 
       // 5. StrongDog game cached localLogo or logoUrl
@@ -1162,6 +1241,8 @@
           matchesCategory = cat === 'minecraft' || name.includes('minecraft') || name.includes('eaglercraft');
         } else if (currentCategory === 'emulator') {
           matchesCategory = cat === 'emulator' || name.includes('emulator') || name.includes('gba') || name.includes('snes') || name.includes('n64') || /\bnds\b/i.test(name) || name.includes('webretro');
+        } else if (currentCategory === 'sand') {
+          matchesCategory = cat === 'sand' || name.includes('sand') || name.includes('powder') || name.includes('dust') || name.includes('sandboxels');
         } else {
           matchesCategory = cat === currentCategory;
         }

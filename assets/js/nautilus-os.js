@@ -24,7 +24,7 @@
   // ==========================================================================
   // Global Version
   // ==========================================================================
-  const OS_VERSION = 'v1.1.0';
+  const OS_VERSION = 'v1.2.0';
   window.LUNAMIX_VERSION = OS_VERSION;
 
   // ==========================================================================
@@ -2722,7 +2722,7 @@
   3. OvO
   4. Subway Surfers
   5. PolyTrack
-  6. Retro Bowl
+  6. Sand Game JS & Sandboxels (Sand Games)
   7. Eaglercraft 1.8.8 & 1.5.2
   Use: <span style="color:var(--accent);">launch games</span> or <span style="color:var(--accent);">launch eaglercraft</span>`);
       },

@@ -592,7 +592,7 @@
   {
     "id": 2024,
     "slug": "pokemon-unbound",
-    "name": "Pokémon Unbound (GBA)",
+    "name": "Pok\u00e9mon Unbound (GBA)",
     "category": "emulator",
     "playableUrl": "./emulator.html?core=gba&rom=https://iloveshorty.github.io/strongdog3/html/pokemon%20unbound/game/Pokemon%20Unbound%20(v2.1.1.1).gba&title=Pokemon+Unbound",
     "logoUrl": "./assets/logos/pokemon-unbound.jpg",
@@ -602,7 +602,7 @@
   {
     "id": 2023,
     "slug": "pokemon-firered",
-    "name": "Pokémon FireRed (GBA)",
+    "name": "Pok\u00e9mon FireRed (GBA)",
     "category": "emulator",
     "playableUrl": "./emulator.html?core=gba&rom=https://iloveshorty.github.io/html/pokemonfirered/game/Pokemon%20-%20FireRed%20Version%20(USA,%20Europe).gba&title=Pokemon+FireRed",
     "logoUrl": "./assets/logos/pokemon-firered.webp",
@@ -622,7 +622,7 @@
   {
     "id": 2021,
     "slug": "pokemon-emerald",
-    "name": "Pokémon Emerald (GBA)",
+    "name": "Pok\u00e9mon Emerald (GBA)",
     "category": "emulator",
     "playableUrl": "./emulator.html?core=gba&rom=https://iloveshorty.github.io/strongdog3/html/Pokemon%20Emerald/game/Pokemon%20-%20Emerald%20Version%20(U).gba&title=Pokemon+Emerald",
     "logoUrl": "./assets/logos/pokemon-emerald.png",
@@ -3560,7 +3560,7 @@
     "id": 732,
     "slug": "sandtris",
     "name": "Sandtris",
-    "category": "retro",
+    "category": "sand",
     "playableUrl": "https://iloveshorty.github.io/strongdog3/html/sandtris/game/index.html",
     "logoUrl": "https://iloveshorty.github.io/strongdog3/img/sandtris.jpg",
     "page": 3,
@@ -9417,7 +9417,7 @@
     "id": 143,
     "slug": "sand-and-water",
     "name": "Sand and Water",
-    "category": "other",
+    "category": "sand",
     "playableUrl": "https://iloveshorty.github.io/html/Sand%20and%20Water%20v3.html",
     "logoUrl": "https://iloveshorty.github.io/img/sand.png",
     "page": 1,
@@ -10881,5 +10881,125 @@
     "page": 1,
     "isFeatured": true,
     "localLogo": "./assets/logos/tank-trouble-2.png"
+  },
+  {
+    "id": 2100,
+    "slug": "sand-game-js",
+    "name": "Sand Game JS (Hartrik Engine)",
+    "category": "sand",
+    "playableUrl": "./sand-game-js/index.html",
+    "logoUrl": "./assets/logos/sand-game.svg",
+    "isFeatured": true,
+    "localLogo": "./assets/logos/sand-game.svg"
+  },
+  {
+    "id": 2101,
+    "slug": "sandboxels",
+    "name": "Sandboxels (500+ Elements)",
+    "category": "sand",
+    "playableUrl": "https://sandboxels.r74n.com/",
+    "logoUrl": "./assets/logos/sand-game.svg",
+    "isFeatured": true,
+    "localLogo": "./assets/logos/sand-game.svg"
+  },
+  {
+    "id": 2102,
+    "slug": "sandsaga",
+    "name": "SandSaga Physics Sandbox",
+    "category": "sand",
+    "playableUrl": "https://sandsaga.com/",
+    "logoUrl": "./assets/logos/sand-game.svg",
+    "isFeatured": true,
+    "localLogo": "./assets/logos/sand-game.svg"
+  },
+  {
+    "id": 2103,
+    "slug": "sandspiel",
+    "name": "Sandspiel Cellular Automata",
+    "category": "sand",
+    "playableUrl": "https://sandspiel.club/",
+    "logoUrl": "./assets/logos/sand-game.svg",
+    "isFeatured": true,
+    "localLogo": "./assets/logos/sand-game.svg"
+  },
+  {
+    "id": 2104,
+    "slug": "sandspiel-studio",
+    "name": "Sandspiel Studio (Logic Sandbox)",
+    "category": "sand",
+    "playableUrl": "https://sandspiel.club/studio",
+    "logoUrl": "./assets/logos/sand-game.svg",
+    "isFeatured": false,
+    "localLogo": "./assets/logos/sand-game.svg"
+  },
+  {
+    "id": 2105,
+    "slug": "danball-powder-game",
+    "name": "Dan-Ball Powder Game (Original Dust)",
+    "category": "sand",
+    "playableUrl": "https://dan-ball.jp/en/javagame/dust/",
+    "logoUrl": "./assets/logos/sand-game.svg",
+    "isFeatured": true,
+    "localLogo": "./assets/logos/sand-game.svg"
+  },
+  {
+    "id": 2106,
+    "slug": "danball-powder-game-2",
+    "name": "Dan-Ball Powder Game 2 (Dust 2)",
+    "category": "sand",
+    "playableUrl": "https://dan-ball.jp/en/javagame/dust2/",
+    "logoUrl": "./assets/logos/sand-game.svg",
+    "isFeatured": true,
+    "localLogo": "./assets/logos/sand-game.svg"
+  },
+  {
+    "id": 2107,
+    "slug": "physbox",
+    "name": "Physbox Falling Sand & Powder",
+    "category": "sand",
+    "playableUrl": "https://radioactiverocket.github.io/physbox/",
+    "logoUrl": "./assets/logos/sand-game.svg",
+    "isFeatured": false,
+    "localLogo": "./assets/logos/sand-game.svg"
+  },
+  {
+    "id": 2108,
+    "slug": "falling-sand-alchemy",
+    "name": "Falling Sand Alchemy (WebGL2)",
+    "category": "sand",
+    "playableUrl": "https://matthew-kissinger.github.io/falling-sand-alchemy/",
+    "logoUrl": "./assets/logos/sand-game.svg",
+    "isFeatured": false,
+    "localLogo": "./assets/logos/sand-game.svg"
+  },
+  {
+    "id": 2109,
+    "slug": "html5-dust",
+    "name": "HTML5 Dust (Fluid Dynamics Sand)",
+    "category": "sand",
+    "playableUrl": "https://maxbittker.github.io/dust/",
+    "logoUrl": "./assets/logos/sand-game.svg",
+    "isFeatured": false,
+    "localLogo": "./assets/logos/sand-game.svg"
+  },
+  {
+    "id": 2110,
+    "slug": "thisissand",
+    "name": "ThisIsSand (Artistic Sand Canvas)",
+    "category": "sand",
+    "playableUrl": "https://thisissand.com/",
+    "logoUrl": "./assets/logos/sand-game.svg",
+    "isFeatured": false,
+    "localLogo": "./assets/logos/sand-game.svg"
+  },
+  {
+    "id": 2111,
+    "slug": "falling-sand-simulator",
+    "name": "Falling Sand Particle Simulator",
+    "category": "sand",
+    "playableUrl": "https://mohanad-80.github.io/Falling_sand_simulator/",
+    "logoUrl": "./assets/logos/sand-game.svg",
+    "isFeatured": false,
+    "localLogo": "./assets/logos/sand-game.svg"
   }
 ]
