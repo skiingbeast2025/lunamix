@@ -22,6 +22,12 @@
   'use strict';
 
   // ==========================================================================
+  // Global Version
+  // ==========================================================================
+  const OS_VERSION = 'v1.0.0';
+  window.LUNAMIX_VERSION = OS_VERSION;
+
+  // ==========================================================================
   // 1. Audio System (Gentle UI sound effects via Web Audio API)
   // ==========================================================================
   const SoundFX = {
@@ -2595,7 +2601,7 @@
       <div class="terminal-window" id="termWindow">
         <div id="termOutput">
           <div style="color: var(--accent); font-weight: 700; margin-bottom: 0.4rem;">
-            Lunamix OS [Version 3.0.0-Nautilus]
+            Lunamix OS [Version ${OS_VERSION.replace(/^v/, '')}-Nautilus]
           </div>
           <div style="color: var(--text-secondary); margin-bottom: 0.8rem;">
             Type <span style="color: #fff; font-weight: 700;">help</span> for a list of commands. Type <span style="color: #fff; font-weight: 700;">games</span> to view available games.
@@ -2670,7 +2676,7 @@
         const ascii = `
       <span style="color:var(--accent);">.---.</span>            <span style="color:var(--accent); font-weight:700;">${u}@lunamix-os</span>
      <span style="color:var(--accent);">/     \\</span>           -----------------
-    <span style="color:var(--accent);">| () () |</span>          <span style="color:#38bdf8;">OS:</span> Lunamix OS v3.0 (Web GI)
+    <span style="color:var(--accent);">| () () |</span>          <span style="color:#38bdf8;">OS:</span> Lunamix OS ${OS_VERSION} (Web GI)
      <span style="color:var(--accent);">\\  _  /</span>           <span style="color:#38bdf8;">Kernel:</span> 6.8.0-web-nautilus
       <span style="color:var(--accent);">'---'</span>            <span style="color:#38bdf8;">Uptime:</span> ${Math.floor(performance.now() / 60000)} minutes
                        <span style="color:#38bdf8;">Shell:</span> nautilus-sh 2.4
@@ -3401,7 +3407,7 @@
           <i class="fa-solid fa-shield-halved"></i>
         </div>
         <h2 style="font-size: 1.6rem; font-weight: 800; color: var(--text-primary); margin-bottom: 0.35rem;">Lunamix OS</h2>
-        <div style="font-size: 0.85rem; color: var(--accent); font-weight: 600; margin-bottom: 1rem;">Version 3.0.0 (Web Gaming Interface)</div>
+        <div style="font-size: 0.85rem; color: var(--accent); font-weight: 600; margin-bottom: 1rem;">Version ${OS_VERSION.replace(/^v/, '')} (Web Gaming Interface)</div>
         <p style="font-size: 0.86rem; color: var(--text-secondary); max-width: 460px; line-height: 1.5; margin-bottom: 1.5rem;">
           Web gaming interface with unblocked games, cloud chat, and browser tools.
         </p>
@@ -3425,6 +3431,8 @@
     init() {
       const bootloader = document.getElementById('bootloader');
       const login = document.getElementById('login');
+      const bootVerEl = document.querySelector('.boot-version');
+      if (bootVerEl) bootVerEl.textContent = `Web GI (Web Gaming Interface) ${OS_VERSION}`;
 
       // 1. Immediately hide startup overlays so user lands straight on the desktop
       if (bootloader) {
