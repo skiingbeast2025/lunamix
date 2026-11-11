@@ -1,9 +1,9 @@
 {
   "upstream": "https://github.com/skiingbeast2025/geometry-dash-wasm-proxy",
   "live_url": "https://skiingbeast2025.github.io/geometry-dash-wasm-proxy/",
-  "last_synced_sha": "4d9e7b6b5c8602513cfed25f76fe10f1312e32f7",
-  "commit_message": "feat: add Unlock All option to unlock all icons, colors, vaults, and levels",
+  "last_synced_sha": "e96cf4ad1393fc31dc5d2bc049a0f76a92add879",
+  "commit_message": "feat(network): add obscure non-blacklisted wisp endpoints to pool",
   "commit_author": "skiingbeast2025",
-  "commit_date": "2026-11-09T23:17:18Z",
+  "commit_date": "2026-11-10T17:17:52Z",
   "auto_sync_method": "Live GitHub Pages iframe proxy with repository_dispatch workflow"
 }
