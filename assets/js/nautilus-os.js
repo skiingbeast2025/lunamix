@@ -24,7 +24,7 @@
   // ==========================================================================
   // Global Version
   // ==========================================================================
-  const OS_VERSION = 'v1.2.0';
+  const OS_VERSION = 'v1.2.1';
   window.LUNAMIX_VERSION = OS_VERSION;
 
   // ==========================================================================
@@ -3066,19 +3066,33 @@
   // --------------------------------------------------------------------------
   // App: Retro Emulator Launcher (WebRetro Libretro WASM)
   // --------------------------------------------------------------------------
+  const WEBRETRO_EMULATOR_URL = 'https://skiingbeast2025.github.io/webretro/';
+
   function renderEmulatorApp(container, winObj) {
     if (winObj && typeof winObj.addHeaderButton === 'function') {
       winObj.addHeaderButton({
+        icon: 'fa-rotate-right',
+        title: 'Reload Emulator',
+        onClick: () => {
+          const iframe = container.querySelector('#emulatorIframe');
+          if (iframe) {
+            const currentSrc = iframe.src;
+            iframe.src = 'about:blank';
+            setTimeout(() => { iframe.src = currentSrc; }, 50);
+          }
+        }
+      });
+      winObj.addHeaderButton({
         icon: 'fa-arrow-up-right-from-square',
         title: 'Open Fullscreen in New Tab',
-        href: './emulator.html'
+        href: WEBRETRO_EMULATOR_URL
       });
     }
 
     container.innerHTML = `
-      <iframe src="./emulator.html?embed=1" style="width: 100%; height: 100%; border: none; background: #000; display: block;"
+      <iframe id="emulatorIframe" src="${WEBRETRO_EMULATOR_URL}" style="width: 100%; height: 100%; border: none; background: #000; display: block;"
         allow="autoplay; fullscreen; gamepad; focus-without-user-activation *"
-        sandbox="allow-scripts allow-same-origin allow-forms allow-popups">
+        sandbox="allow-scripts allow-same-origin allow-forms allow-popups allow-downloads allow-modals">
       </iframe>
     `;
   }

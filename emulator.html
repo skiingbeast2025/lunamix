@@ -51,7 +51,6 @@
       user-select: none;
     }
 
-    /* Embedded OS mode: hide standalone header inside desktop window */
     body.is-embedded header {
       display: none !important;
     }
@@ -59,7 +58,6 @@
       height: 100vh !important;
     }
 
-    /* Header Chrome */
     header {
       height: 48px;
       background: var(--window-chrome);
@@ -98,96 +96,74 @@
       color: var(--text-secondary);
       text-decoration: none;
       cursor: pointer;
-      transition: background 0.15s ease, color 0.15s ease, border-color 0.15s ease;
+      transition: all 0.15s ease;
     }
+
     .nav-btn:hover {
       background: rgba(255, 255, 255, 0.08);
-      border-color: var(--border-strong);
       color: var(--text-primary);
+      border-color: var(--border-strong);
     }
 
     .header-title-box {
       display: flex;
       align-items: center;
-      gap: 0.45rem;
+      gap: 0.5rem;
     }
+
     .header-icon {
       color: var(--accent);
-      font-size: 0.95rem;
+      font-size: 0.9rem;
     }
+
     .title-text {
-      font-size: 0.85rem;
+      font-size: 0.82rem;
       font-weight: 600;
       color: var(--text-primary);
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
-      max-width: 220px;
     }
+
     .core-pill {
       font-family: 'JetBrains Mono', monospace;
       font-size: 0.65rem;
+      font-weight: 600;
       padding: 0.15rem 0.45rem;
       border-radius: 4px;
       background: rgba(125, 211, 192, 0.12);
-      border: 1px solid rgba(125, 211, 192, 0.3);
       color: var(--accent);
-      font-weight: 600;
-      text-transform: uppercase;
-      letter-spacing: 0.03em;
-    }
-
-    .status-chip {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.35rem;
-      padding: 0.3rem 0.55rem;
-      border-radius: 6px;
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 0.7rem;
-      background: rgba(255, 255, 255, 0.04);
-      border: 1px solid var(--border-subtle);
-      color: var(--text-secondary);
-    }
-    .status-chip.connected {
-      color: #4ade80;
-      border-color: rgba(74, 222, 128, 0.3);
-      background: rgba(74, 222, 128, 0.08);
+      border: 1px solid rgba(125, 211, 192, 0.25);
     }
 
     .cloak-select-wrap {
       position: relative;
-      display: inline-flex;
+      display: flex;
       align-items: center;
     }
-    .cloak-select-wrap i.select-icon {
+
+    .select-icon {
       position: absolute;
       left: 0.55rem;
-      font-size: 0.72rem;
-      color: var(--text-secondary);
+      font-size: 0.7rem;
+      color: var(--accent);
       pointer-events: none;
     }
+
     .cloak-select {
       appearance: none;
       background: rgba(255, 255, 255, 0.04);
       border: 1px solid var(--border-subtle);
       border-radius: 6px;
-      padding: 0.35rem 1.6rem 0.35rem 1.7rem;
-      font-size: 0.75rem;
+      padding: 0.32rem 1.6rem 0.32rem 1.65rem;
+      font-size: 0.72rem;
+      font-weight: 500;
       color: var(--text-secondary);
       cursor: pointer;
-      transition: all 0.15s ease;
-    }
-    .cloak-select:hover, .cloak-select:focus {
-      background: rgba(255, 255, 255, 0.08);
-      border-color: var(--border-strong);
-      color: var(--text-primary);
       outline: none;
     }
+
     .cloak-arrow {
       position: absolute;
-      right: 0.5rem;
-      font-size: 0.65rem;
+      right: 0.55rem;
+      font-size: 0.6rem;
       color: var(--text-secondary);
       pointer-events: none;
     }
@@ -196,267 +172,48 @@
       display: inline-flex;
       align-items: center;
       gap: 0.35rem;
-      padding: 0.35rem 0.65rem;
-      border-radius: 6px;
-      font-size: 0.75rem;
-      font-weight: 600;
+      padding: 0.32rem 0.65rem;
       background: var(--danger-bg);
       border: 1px solid var(--danger-border);
-      color: var(--danger);
-      cursor: pointer;
-      transition: background 0.15s ease, border-color 0.15s ease;
-    }
-    .panic-btn:hover {
-      background: rgba(239, 68, 68, 0.2);
-      border-color: rgba(239, 68, 68, 0.5);
-    }
-    .panic-btn kbd {
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 0.65rem;
-      padding: 0.1rem 0.3rem;
-      border-radius: 3px;
-      background: rgba(0, 0, 0, 0.4);
-      border: 1px solid rgba(239, 68, 68, 0.3);
-      color: var(--danger);
-    }
-
-    /* Main Container */
-    #game-container {
-      flex: 1;
-      height: calc(100vh - 48px);
-      width: 100%;
-      background: #000000;
-      position: relative;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      overflow-y: auto;
-    }
-
-    #rom-loader-view {
-      max-width: 680px;
-      width: calc(100% - 2rem);
-      margin: 1.5rem auto;
-      padding: 1.75rem;
-      background: var(--bg-secondary);
-      border: 1px solid var(--border-subtle);
-      border-radius: 8px;
-      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
-      text-align: center;
-    }
-
-    .loader-header-icon {
-      width: 44px;
-      height: 44px;
-      border-radius: 8px;
-      background: rgba(125, 211, 192, 0.1);
-      border: 1px solid rgba(125, 211, 192, 0.25);
-      color: var(--accent);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 1.25rem;
-      margin: 0 auto 0.9rem;
-    }
-
-    .loader-title {
-      font-size: 1.25rem;
-      font-weight: 700;
-      color: var(--text-primary);
-      margin-bottom: 0.35rem;
-    }
-
-    .loader-desc {
-      font-size: 0.82rem;
-      color: var(--text-secondary);
-      line-height: 1.45;
-      max-width: 500px;
-      margin: 0 auto 1.25rem;
-    }
-
-    /* Drop Zone */
-    .drop-zone {
-      border: 1px dashed var(--border-strong);
-      background: rgba(10, 14, 26, 0.6);
       border-radius: 6px;
-      padding: 1.5rem 1rem;
-      margin-bottom: 1.25rem;
-      transition: border-color 0.15s ease, background-color 0.15s ease;
-      cursor: pointer;
-    }
-    .drop-zone.dragover {
-      border-color: var(--accent);
-      background: rgba(125, 211, 192, 0.06);
-    }
-    .drop-zone-icon {
-      font-size: 1.5rem;
-      color: var(--text-secondary);
-      margin-bottom: 0.5rem;
-    }
-    .drop-zone-text {
-      font-size: 0.85rem;
-      color: var(--text-primary);
-      font-weight: 500;
-      margin-bottom: 0.25rem;
-    }
-    .drop-zone-sub {
-      font-size: 0.72rem;
-      font-family: 'JetBrains Mono', monospace;
-      color: var(--text-secondary);
-    }
-
-    /* System Selector */
-    .system-select-row {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 0.6rem;
-      margin-bottom: 1.25rem;
-      max-width: 440px;
-      margin-left: auto;
-      margin-right: auto;
-    }
-    .system-label {
-      font-size: 0.75rem;
-      font-family: 'JetBrains Mono', monospace;
-      color: var(--text-secondary);
-      white-space: nowrap;
-    }
-    .system-select {
-      flex: 1;
-      background: rgba(10, 14, 26, 0.9);
-      border: 1px solid var(--border-strong);
-      color: var(--text-primary);
-      font-size: 0.8rem;
-      padding: 0.45rem 0.75rem;
-      border-radius: 6px;
-      cursor: pointer;
-      outline: none;
-    }
-    .system-select:focus {
-      border-color: var(--accent);
-    }
-
-    /* Action Buttons */
-    .btn-group {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 0.6rem;
-      flex-wrap: wrap;
-      margin-bottom: 1.25rem;
-    }
-    .btn-primary {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.45rem;
-      background: var(--accent);
-      color: #0a0e1a;
-      font-size: 0.8rem;
+      font-size: 0.74rem;
       font-weight: 600;
-      padding: 0.55rem 1.1rem;
-      border-radius: 6px;
-      border: none;
-      cursor: pointer;
-      transition: background 0.15s ease;
-    }
-    .btn-primary:hover {
-      background: var(--accent-hover);
-    }
-    .btn-secondary {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.45rem;
-      background: rgba(255, 255, 255, 0.05);
-      border: 1px solid var(--border-strong);
-      color: var(--text-primary);
-      font-size: 0.8rem;
-      font-weight: 600;
-      padding: 0.55rem 1.1rem;
-      border-radius: 6px;
-      cursor: pointer;
-      transition: background 0.15s ease, border-color 0.15s ease;
-    }
-    .btn-secondary:hover {
-      background: rgba(255, 255, 255, 0.1);
-      border-color: var(--text-secondary);
-    }
-
-    /* Quick Preset Titles */
-    .presets-box {
-      border-top: 1px solid var(--border-subtle);
-      padding-top: 1rem;
-      margin-top: 0.5rem;
-    }
-    .presets-label {
-      font-size: 0.72rem;
-      font-family: 'JetBrains Mono', monospace;
-      color: var(--text-secondary);
-      text-transform: uppercase;
-      letter-spacing: 0.04em;
-      margin-bottom: 0.6rem;
-      display: block;
-    }
-    .presets-list {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 0.4rem;
-    }
-    .preset-chip {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.35rem;
-      padding: 0.35rem 0.65rem;
-      background: rgba(255, 255, 255, 0.03);
-      border: 1px solid var(--border-subtle);
-      border-radius: 5px;
-      font-size: 0.75rem;
-      color: var(--text-secondary);
+      color: var(--danger);
       cursor: pointer;
       transition: all 0.15s ease;
     }
-    .preset-chip:hover {
-      background: rgba(255, 255, 255, 0.08);
-      border-color: var(--border-strong);
-      color: var(--text-primary);
+
+    .panic-btn:hover {
+      background: rgba(239, 68, 68, 0.22);
     }
-    .preset-tag {
+
+    .panic-key-label {
       font-family: 'JetBrains Mono', monospace;
       font-size: 0.65rem;
-      color: var(--accent);
-      background: rgba(125, 211, 192, 0.1);
-      padding: 0.1rem 0.3rem;
+      background: rgba(0, 0, 0, 0.3);
+      padding: 0.05rem 0.3rem;
       border-radius: 3px;
     }
 
-    /* Active Game Canvas Target */
-    #game {
+    #game-container {
+      flex: 1;
       width: 100%;
-      height: 100%;
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
+      height: calc(100vh - 48px);
       background: #000;
+      position: relative;
     }
-    #game iframe {
+
+    #webretro-iframe {
       width: 100%;
       height: 100%;
       border: none;
       background: #000;
       display: block;
-    }
-
-    .hidden {
-      display: none !important;
     }
   </style>
 </head>
 <body class="nautilus-theme">
 
-  <!-- Standalone Header Chrome -->
   <header>
     <div class="header-left">
       <a href="./games.html" class="nav-btn" title="Back to Games catalog">
@@ -467,15 +224,15 @@
       <div class="header-title-box">
         <i class="fa-solid fa-gamepad header-icon"></i>
         <span id="emu-title" class="title-text">Universal Retro Emulator</span>
-        <span id="emu-core-badge" class="core-pill">LIBRETRO WASM</span>
+        <span id="emu-core-badge" class="core-pill">WEBRETRO</span>
       </div>
     </div>
 
     <div class="header-right">
-      <div id="gamepad-badge" class="status-chip hidden">
-        <i class="fa-solid fa-gamepad"></i>
-        <span id="gamepad-status">Gamepad Ready</span>
-      </div>
+      <a href="https://skiingbeast2025.github.io/webretro/" target="_blank" rel="noopener noreferrer" class="nav-btn" title="Open Fullscreen in New Tab">
+        <i class="fa-solid fa-arrow-up-right-from-square"></i>
+        <span>New Tab</span>
+      </a>
 
       <button type="button" onclick="LunamixTheme.openModal()" class="nav-btn" title="Select Theme">
         <i class="fa-solid fa-palette"></i>
@@ -502,272 +259,63 @@
     </div>
   </header>
 
-  <!-- Main View Area -->
   <main id="game-container">
-    <div id="rom-loader-view">
-      <div class="loader-header-icon">
-        <i class="fa-solid fa-gamepad"></i>
-      </div>
-
-      <h2 class="loader-title">Universal Retro Emulator</h2>
-      <p class="loader-desc">
-        Hardware-accelerated Libretro WebAssembly runtime. Load any local ROM file or launch the WebRetro interface directly.
-      </p>
-
-      <!-- Drop Zone -->
-      <div class="drop-zone" id="drop-zone" onclick="document.getElementById('rom-file-input').click()">
-        <div class="drop-zone-icon">
-          <i class="fa-solid fa-file-arrow-up"></i>
-        </div>
-        <div class="drop-zone-text">Drop ROM file here or click to browse</div>
-        <div class="drop-zone-sub">Supported: .gba, .snes, .n64, .nds, .nes, .md, .bin, .zip</div>
-      </div>
-
-      <input type="file" id="rom-file-input" class="hidden" accept=".gba,.snes,.smc,.sfc,.n64,.z64,.v64,.nds,.nes,.md,.bin,.gen,.iso,.chd,.zip,.7z">
-
-      <!-- System Selector Row -->
-      <div class="system-select-row">
-        <label for="system-select" class="system-label">System:</label>
-        <select id="system-select" class="system-select">
-          <option value="gba">Game Boy Advance (mGBA)</option>
-          <option value="snes">Super Nintendo (Snes9x)</option>
-          <option value="n64">Nintendo 64 (Mupen64Plus-Next)</option>
-          <option value="nds">Nintendo DS (melonDS)</option>
-          <option value="nes">Nintendo NES (Nestopia UE)</option>
-          <option value="segaMD">Sega Genesis / Mega Drive (Genesis Plus GX)</option>
-          <option value="psx">Sony PlayStation 1 (Beetle PSX HW)</option>
-          <option value="gb">Game Boy / Color (mGBA)</option>
-        </select>
-      </div>
-
-      <!-- Action Buttons -->
-      <div class="btn-group">
-        <button type="button" onclick="openWebRetroHub(document.getElementById('system-select').value)" class="btn-primary">
-          <i class="fa-solid fa-play"></i>
-          <span>Launch WebRetro Hub</span>
-        </button>
-        <button type="button" onclick="document.getElementById('rom-file-input').click()" class="btn-secondary">
-          <i class="fa-solid fa-folder-open"></i>
-          <span>Choose ROM File</span>
-        </button>
-      </div>
-
-      <!-- Quick Preset Verified Titles -->
-      <div class="presets-box">
-        <span class="presets-label">Preset Titles:</span>
-        <div class="presets-list">
-          <button type="button" onclick="launchPreset('gba', 'Pokémon Emerald', 'https://iloveshorty.github.io/strongdog3/html/Pokemon%20Emerald/game/Pokemon%20-%20Emerald%20Version%20(U).gba')" class="preset-chip">
-            <span class="preset-tag">GBA</span>
-            <span>Pokémon Emerald</span>
-          </button>
-          <button type="button" onclick="launchPreset('snes', 'Super Mario World', 'https://iloveshorty.github.io/strongdog3/html/super%20mario%20world/game/Super%20Mario%20World%20(U)%20%5B!%5D.smc')" class="preset-chip">
-            <span class="preset-tag">SNES</span>
-            <span>Super Mario World</span>
-          </button>
-          <button type="button" onclick="launchPreset('gba', 'Pokémon FireRed', 'https://iloveshorty.github.io/html/pokemonfirered/game/Pokemon%20-%20FireRed%20Version%20(USA,%20Europe).gba')" class="preset-chip">
-            <span class="preset-tag">GBA</span>
-            <span>Pokémon FireRed</span>
-          </button>
-          <button type="button" onclick="launchPreset('gba', 'Pokémon Unbound', 'https://iloveshorty.github.io/strongdog3/html/pokemon%20unbound/game/Pokemon%20Unbound%20(v2.1.1.1).gba')" class="preset-chip">
-            <span class="preset-tag">GBA</span>
-            <span>Pokémon Unbound</span>
-          </button>
-          <button type="button" onclick="launchPreset('n64', '1080 Snowboarding', 'https://raw.githubusercontent.com/iloveshorty/strongdog4/main/html/1080%20snowboarding/game/1080%20snowboarding.z64')" class="preset-chip">
-            <span class="preset-tag">N64</span>
-            <span>1080 Snowboarding</span>
-          </button>
-        </div>
-      </div>
-    </div>
-
-    <!-- Active Emulator Canvas Target -->
-    <div id="game" class="hidden"></div>
+    <iframe
+      id="webretro-iframe"
+      src="https://skiingbeast2025.github.io/webretro/"
+      allow="autoplay; fullscreen; gamepad; focus-without-user-activation *"
+      sandbox="allow-scripts allow-same-origin allow-forms allow-popups allow-downloads allow-modals">
+    </iframe>
   </main>
 
-  <!-- Lunamix Core Library -->
   <script src="./assets/js/lunamix-core.js"></script>
-
   <script>
-    // Embedded Mode Detection
-    (function checkEmbed() {
+    (function initWebRetroEmbed() {
       const urlParams = new URLSearchParams(window.location.search);
       if (urlParams.get('embed') === '1' || window.self !== window.top) {
         document.body.classList.add('is-embedded');
       }
+
+      const CORE_MAP = {
+        'gba': 'mgba',
+        'gb': 'mgba',
+        'gbc': 'mgba',
+        'snes': 'snes9x',
+        'n64': 'mupen64plus_next',
+        'nes': 'nestopia',
+        'genesis': 'genesis_plus_gx',
+        'segaMD': 'genesis_plus_gx',
+        'nds': 'melonds',
+        'psx': 'mednafen_psx_hw',
+        'ps1': 'mednafen_psx_hw'
+      };
+
+      const core = urlParams.get('core');
+      const rom = urlParams.get('rom');
+      const title = urlParams.get('title');
+      const iframe = document.getElementById('webretro-iframe');
+
+      if (title) {
+        const titleEl = document.getElementById('emu-title');
+        if (titleEl) titleEl.textContent = title;
+      }
+
+      if (core || rom) {
+        const forwardParams = new URLSearchParams();
+        if (core) {
+          const mappedCore = CORE_MAP[core] || core;
+          forwardParams.set('core', mappedCore);
+          const badgeEl = document.getElementById('emu-core-badge');
+          if (badgeEl) badgeEl.textContent = mappedCore.toUpperCase();
+        }
+        if (rom) {
+          forwardParams.set('rom', rom);
+        }
+        if (iframe) {
+          iframe.src = 'https://skiingbeast2025.github.io/webretro/?' + forwardParams.toString();
+        }
+      }
     })();
-
-    const SYSTEM_EXT_MAP = {
-      'gba': 'gba',
-      'snes': 'snes',
-      'smc': 'snes',
-      'sfc': 'snes',
-      'n64': 'n64',
-      'z64': 'n64',
-      'v64': 'n64',
-      'nds': 'nds',
-      'nes': 'nes',
-      'md': 'segaMD',
-      'gen': 'segaMD',
-      'bin': 'segaMD',
-      'psx': 'psx',
-      'iso': 'psx',
-      'gb': 'gb',
-      'gbc': 'gb'
-    };
-
-    const CORE_MAP = {
-      'gba': 'mgba',
-      'gb': 'mgba',
-      'gbc': 'mgba',
-      'snes': 'snes9x',
-      'n64': 'mupen64plus_next',
-      'nes': 'nestopia',
-      'genesis': 'genesis_plus_gx',
-      'segaMD': 'genesis_plus_gx',
-      'nds': 'melonds',
-      'psx': 'mednafen_psx_hw',
-      'ps1': 'mednafen_psx_hw'
-    };
-
-    function detectCoreFromFile(filename) {
-      const parts = filename.split('.');
-      if (parts.length > 1) {
-        const ext = parts.pop().toLowerCase();
-        return SYSTEM_EXT_MAP[ext] || 'gba';
-      }
-      return 'gba';
-    }
-
-    function initEmulator(core, romUrl, gameName) {
-      const loaderView = document.getElementById('rom-loader-view');
-      if (loaderView) loaderView.classList.add('hidden');
-      const gameTarget = document.getElementById('game');
-      if (gameTarget) gameTarget.classList.remove('hidden');
-
-      const titleEl = document.getElementById('emu-title');
-      if (titleEl) titleEl.textContent = gameName || 'Retro Classic';
-
-      const mappedCore = CORE_MAP[core] || core || 'autodetect';
-      const badgeEl = document.getElementById('emu-core-badge');
-      if (badgeEl) badgeEl.textContent = mappedCore.toUpperCase();
-
-      let targetUrl = './webretro/index.html?core=' + encodeURIComponent(mappedCore);
-      if (romUrl) {
-        let fullRom = romUrl;
-        try {
-          fullRom = new URL(romUrl, window.location.href).href;
-        } catch (e) {}
-        targetUrl += '&rom=' + encodeURIComponent(fullRom);
-      }
-
-      gameTarget.innerHTML = `
-        <iframe src="${targetUrl}" style="width: 100%; height: 100%; border: none; background: #000;"
-          allow="autoplay; fullscreen; gamepad; focus-without-user-activation *"
-          sandbox="allow-scripts allow-same-origin allow-forms allow-popups">
-        </iframe>
-      `;
-    }
-
-    function openWebRetroHub(system) {
-      const loaderView = document.getElementById('rom-loader-view');
-      if (loaderView) loaderView.classList.add('hidden');
-      const gameTarget = document.getElementById('game');
-      if (gameTarget) gameTarget.classList.remove('hidden');
-
-      const mappedCore = system ? (CORE_MAP[system] || system) : '';
-      const url = './webretro/index.html' + (mappedCore ? '?core=' + encodeURIComponent(mappedCore) : '');
-      const titleEl = document.getElementById('emu-title');
-      if (titleEl) titleEl.textContent = 'WebRetro Core Hub';
-      const badgeEl = document.getElementById('emu-core-badge');
-      if (badgeEl) badgeEl.textContent = (mappedCore || 'HUB').toUpperCase();
-
-      gameTarget.innerHTML = `
-        <iframe src="${url}" style="width: 100%; height: 100%; border: none; background: #000;"
-          allow="autoplay; fullscreen; gamepad; focus-without-user-activation *"
-          sandbox="allow-scripts allow-same-origin allow-forms allow-popups">
-        </iframe>
-      `;
-    }
-
-    function launchPreset(core, name, url) {
-      initEmulator(core, url, name);
-    }
-
-    // Drag and drop handlers
-    const dropZone = document.getElementById('drop-zone');
-    const fileInput = document.getElementById('rom-file-input');
-    const systemSelect = document.getElementById('system-select');
-
-    if (dropZone) {
-      ['dragenter', 'dragover'].forEach(eventName => {
-        dropZone.addEventListener(eventName, (e) => {
-          e.preventDefault();
-          e.stopPropagation();
-          dropZone.classList.add('dragover');
-        }, false);
-      });
-
-      ['dragleave', 'drop'].forEach(eventName => {
-        dropZone.addEventListener(eventName, (e) => {
-          e.preventDefault();
-          e.stopPropagation();
-          dropZone.classList.remove('dragover');
-        }, false);
-      });
-
-      dropZone.addEventListener('drop', (e) => {
-        const dt = e.dataTransfer;
-        const files = dt.files;
-        if (files && files.length > 0) {
-          handleFile(files[0]);
-        }
-      });
-    }
-
-    if (fileInput) {
-      fileInput.addEventListener('change', (e) => {
-        if (e.target.files && e.target.files.length > 0) {
-          handleFile(e.target.files[0]);
-        }
-      });
-    }
-
-    function handleFile(file) {
-      const detected = detectCoreFromFile(file.name);
-      const chosenSystem = (systemSelect && systemSelect.value) ? systemSelect.value : detected;
-      const objectUrl = URL.createObjectURL(file);
-      const cleanName = file.name.replace(/\.[^/.]+$/, "");
-      initEmulator(chosenSystem, objectUrl, cleanName);
-    }
-
-    // Check URL parameters for direct boot
-    function bootFromParams() {
-      const params = new URLSearchParams(window.location.search);
-      const core = params.get('core');
-      const rom = params.get('rom');
-      const title = params.get('title') || 'Retro Game';
-
-      if (core && rom) {
-        initEmulator(core, rom, title);
-      }
-    }
-
-    if (document.readyState === 'loading') {
-      window.addEventListener('DOMContentLoaded', bootFromParams);
-    } else {
-      bootFromParams();
-    }
-
-    // Gamepad detection indicator
-    window.addEventListener('gamepadconnected', (e) => {
-      const badge = document.getElementById('gamepad-badge');
-      const status = document.getElementById('gamepad-status');
-      if (badge && status) {
-        badge.classList.remove('hidden');
-        badge.classList.add('connected');
-        status.textContent = `${e.gamepad.id.slice(0, 16)} Ready`;
-      }
-    });
   </script>
 </body>
 </html>
