@@ -758,9 +758,14 @@
       const icons = document.querySelectorAll('.desktop-icon');
       icons.forEach(icon => {
         const appId = icon.getAttribute('data-app');
-        icon.addEventListener('click', () => {
-          icons.forEach(i => i.classList.remove('selected'));
-          icon.classList.add('selected');
+        icon.addEventListener('click', (e) => {
+          if (window.LunamixDesktopGrid && Date.now() < window.LunamixDesktopGrid._suppressClickUntil) {
+            return;
+          }
+          if (!e.ctrlKey && !e.metaKey && !e.shiftKey) {
+            icons.forEach(i => i.classList.remove('selected'));
+            icon.classList.add('selected');
+          }
         });
 
         // Double click to open app
@@ -1020,6 +1025,8 @@
             WindowManager.open('notes');
           } else if (action === 'appstore') {
             WindowManager.open('appstore');
+          } else if (action === 'reset-icons') {
+            window.LunamixDesktopGrid?.resetLayout();
           } else if (action === 'toggle-icons') {
             const iconsGrid = document.getElementById('desktopIcons');
             if (iconsGrid) {

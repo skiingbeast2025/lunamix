@@ -1149,13 +1149,280 @@
   };
 
   // ==========================================================================
-  // 5. Bootstrap & Global Exports
+  // 5. Desktop Marquee Selection & Draggable Icons (window.LunamixDesktopGrid)
+  // ==========================================================================
+  const LunamixDesktopGrid = {
+    CELL_W: 98,
+    CELL_H: 108,
+    PAD_X: 18,
+    PAD_Y: 18,
+    _initialized: false,
+    _suppressClickUntil: 0,
+
+    init() {
+      if (this._initialized) return;
+      this._initialized = true;
+
+      const grid = document.getElementById('desktopIcons');
+      const desktop = document.getElementById('desktop');
+      if (!grid || !desktop) return;
+
+      grid.classList.add('lm-free-grid');
+      this._ensureSelectBox();
+      this.applyLayout();
+
+      let dragState = null;
+      let marqueeState = null;
+
+      grid.addEventListener('pointerdown', (e) => {
+        if (e.button !== 0) return;
+        const icon = e.target.closest('.desktop-icon');
+        if (!icon) return;
+
+        e.stopPropagation();
+        if (e.ctrlKey || e.metaKey) {
+          icon.classList.toggle('selected');
+        } else if (e.shiftKey) {
+          icon.classList.add('selected');
+        } else if (!icon.classList.contains('selected')) {
+          grid.querySelectorAll('.desktop-icon.selected').forEach((el) => el.classList.remove('selected'));
+          icon.classList.add('selected');
+        }
+
+        const selected = Array.from(grid.querySelectorAll('.desktop-icon.selected')).filter(
+          (el) => el.style.display !== 'none'
+        );
+        const targets = selected.length > 0 ? selected : [icon];
+        dragState = {
+          startX: e.clientX,
+          startY: e.clientY,
+          moved: false,
+          items: targets.map((el) => ({
+            el,
+            appId: el.getAttribute('data-app'),
+            initLeft: parseFloat(el.style.left) || this.PAD_X,
+            initTop: parseFloat(el.style.top) || this.PAD_Y
+          }))
+        };
+      });
+
+      desktop.addEventListener('pointerdown', (e) => {
+        if (e.button !== 0) return;
+        if (
+          e.target.closest('.desktop-icon') ||
+          e.target.closest('.window, .os-window') ||
+          e.target.closest('#taskbar, .taskbar') ||
+          e.target.closest('#startMenu, .start-menu') ||
+          e.target.closest('#contextMenu') ||
+          e.target.closest('#notificationCenter') ||
+          e.target.closest('#quickActions') ||
+          e.target.closest('#bootloader, #login, #setup, #biosModal')
+        ) {
+          return;
+        }
+
+        if (!e.ctrlKey && !e.metaKey && !e.shiftKey) {
+          grid.querySelectorAll('.desktop-icon.selected').forEach((el) => el.classList.remove('selected'));
+        }
+
+        marqueeState = {
+          startX: e.clientX,
+          startY: e.clientY,
+          moved: false,
+          baseSelected: new Set(
+            e.ctrlKey || e.metaKey || e.shiftKey
+              ? Array.from(grid.querySelectorAll('.desktop-icon.selected'))
+              : []
+          )
+        };
+      });
+
+      document.addEventListener('pointermove', (e) => {
+        if (dragState) {
+          const dx = e.clientX - dragState.startX;
+          const dy = e.clientY - dragState.startY;
+          if (!dragState.moved && Math.hypot(dx, dy) > 5) {
+            dragState.moved = true;
+            dragState.items.forEach((item) => item.el.classList.add('dragging'));
+          }
+          if (dragState.moved) {
+            const maxX = Math.max(8, window.innerWidth - 94);
+            const maxY = Math.max(8, window.innerHeight - 170);
+            dragState.items.forEach((item) => {
+              const nx = Math.max(8, Math.min(maxX, item.initLeft + dx));
+              const ny = Math.max(8, Math.min(maxY, item.initTop + dy));
+              item.el.style.left = `${nx}px`;
+              item.el.style.top = `${ny}px`;
+            });
+          }
+        } else if (marqueeState) {
+          const dx = e.clientX - marqueeState.startX;
+          const dy = e.clientY - marqueeState.startY;
+          if (!marqueeState.moved && Math.hypot(dx, dy) > 4) {
+            marqueeState.moved = true;
+          }
+          if (marqueeState.moved) {
+            const left = Math.min(marqueeState.startX, e.clientX);
+            const top = Math.min(marqueeState.startY, e.clientY);
+            const width = Math.abs(dx);
+            const height = Math.abs(dy);
+            const box = this._ensureSelectBox();
+            box.style.left = `${left}px`;
+            box.style.top = `${top}px`;
+            box.style.width = `${width}px`;
+            box.style.height = `${height}px`;
+            box.style.display = 'block';
+
+            const right = left + width;
+            const bottom = top + height;
+            grid.querySelectorAll('.desktop-icon').forEach((icon) => {
+              if (icon.style.display === 'none') return;
+              const r = icon.getBoundingClientRect();
+              const hits = !(r.right < left || r.left > right || r.bottom < top || r.top > bottom);
+              if (hits || marqueeState.baseSelected.has(icon)) {
+                icon.classList.add('selected');
+              } else {
+                icon.classList.remove('selected');
+              }
+            });
+          }
+        }
+      });
+
+      document.addEventListener('pointerup', () => {
+        if (dragState) {
+          if (dragState.moved) {
+            this._suppressClickUntil = Date.now() + 250;
+            const positions = this._getSavedPositions();
+            const maxX = Math.max(8, window.innerWidth - 94);
+            const maxY = Math.max(8, window.innerHeight - 170);
+            dragState.items.forEach((item) => {
+              item.el.classList.remove('dragging');
+              const rawX = parseFloat(item.el.style.left) || item.initLeft;
+              const rawY = parseFloat(item.el.style.top) || item.initTop;
+              const snappedX = Math.max(
+                8,
+                Math.min(maxX, Math.round((rawX - this.PAD_X) / this.CELL_W) * this.CELL_W + this.PAD_X)
+              );
+              const snappedY = Math.max(
+                8,
+                Math.min(maxY, Math.round((rawY - this.PAD_Y) / this.CELL_H) * this.CELL_H + this.PAD_Y)
+              );
+              item.el.style.left = `${snappedX}px`;
+              item.el.style.top = `${snappedY}px`;
+              if (item.appId) {
+                positions[item.appId] = { x: snappedX, y: snappedY };
+              }
+            });
+            this._savePositions(positions);
+          }
+          dragState = null;
+        }
+        if (marqueeState) {
+          const box = document.getElementById('desktopSelectBox');
+          if (box) box.style.display = 'none';
+          marqueeState = null;
+        }
+      });
+
+      document.addEventListener('keydown', (e) => {
+        if (e.key !== 'Enter') return;
+        const tag = (document.activeElement && document.activeElement.tagName) || '';
+        if (tag === 'INPUT' || tag === 'TEXTAREA' || document.activeElement?.isContentEditable) return;
+        if (document.querySelector('.window.active, .os-window.active')) return;
+        const selected = grid.querySelectorAll('.desktop-icon.selected');
+        if (selected.length > 0 && window.WindowManager) {
+          selected.forEach((icon) => {
+            const appId = icon.getAttribute('data-app');
+            if (appId) window.WindowManager.open(appId);
+          });
+        }
+      });
+
+      window.addEventListener('lunamix-apps-changed', () => this.applyLayout());
+      window.addEventListener('lunamix-apps-updated', () => this.applyLayout());
+      window.addEventListener('lunamix-account-changed', () => this.applyLayout());
+      window.addEventListener('resize', () => this.applyLayout());
+    },
+
+    _ensureSelectBox() {
+      let box = document.getElementById('desktopSelectBox');
+      if (!box) {
+        box = document.createElement('div');
+        box.id = 'desktopSelectBox';
+        document.body.appendChild(box);
+      }
+      return box;
+    },
+
+    _getSavedPositions() {
+      const saved = readAccountData('icon_positions', {});
+      return saved && typeof saved === 'object' ? { ...saved } : {};
+    },
+
+    _savePositions(positions) {
+      writeAccountData('icon_positions', positions);
+    },
+
+    applyLayout() {
+      const grid = document.getElementById('desktopIcons');
+      if (!grid) return;
+
+      const saved = this._getSavedPositions();
+      const visibleIcons = Array.from(grid.querySelectorAll('.desktop-icon')).filter(
+        (el) => el.style.display !== 'none'
+      );
+
+      const maxRows = Math.max(1, Math.floor((window.innerHeight - 110 - this.PAD_Y) / this.CELL_H));
+      const maxX = Math.max(8, window.innerWidth - 94);
+      const maxY = Math.max(8, window.innerHeight - 170);
+
+      const used = new Set();
+      visibleIcons.forEach((icon) => {
+        const appId = icon.getAttribute('data-app');
+        const pos = appId && saved[appId];
+        if (pos && typeof pos.x === 'number' && typeof pos.y === 'number') {
+          const x = Math.max(8, Math.min(maxX, pos.x));
+          const y = Math.max(8, Math.min(maxY, pos.y));
+          icon.style.left = `${x}px`;
+          icon.style.top = `${y}px`;
+          used.add(`${Math.round((x - this.PAD_X) / this.CELL_W)},${Math.round((y - this.PAD_Y) / this.CELL_H)}`);
+        }
+      });
+
+      let slot = 0;
+      visibleIcons.forEach((icon) => {
+        const appId = icon.getAttribute('data-app');
+        if (appId && saved[appId] && typeof saved[appId].x === 'number') return;
+        let col = Math.floor(slot / maxRows);
+        let row = slot % maxRows;
+        while (used.has(`${col},${row}`)) {
+          slot += 1;
+          col = Math.floor(slot / maxRows);
+          row = slot % maxRows;
+        }
+        used.add(`${col},${row}`);
+        slot += 1;
+        icon.style.left = `${Math.min(maxX, this.PAD_X + col * this.CELL_W)}px`;
+        icon.style.top = `${Math.min(maxY, this.PAD_Y + row * this.CELL_H)}px`;
+      });
+    },
+
+    resetLayout() {
+      this._savePositions({});
+      this.applyLayout();
+    }
+  };
+
+  // ==========================================================================
+  // 6. Bootstrap & Global Exports
   // ==========================================================================
   function initLunamixUX() {
     LunamixAppStore.init();
     LunamixSnap.init();
     LunamixNotifications.init();
     LunamixQuickActions.init();
+    LunamixDesktopGrid.init();
   }
 
   window.LunamixAppStore = LunamixAppStore;
@@ -1163,6 +1430,7 @@
   window.LunamixSnap = LunamixSnap;
   window.LunamixNotifications = LunamixNotifications;
   window.LunamixQuickActions = LunamixQuickActions;
+  window.LunamixDesktopGrid = LunamixDesktopGrid;
 
   if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', initLunamixUX);
