@@ -24,7 +24,7 @@
   // ==========================================================================
   // Global Version
   // ==========================================================================
-  const OS_VERSION = 'v1.3.1';
+  const OS_VERSION = 'v2.0.0';
   window.LUNAMIX_VERSION = OS_VERSION;
 
   // ==========================================================================
@@ -232,6 +232,61 @@
       minWidth: 340,
       minHeight: 300,
       render: renderAboutApp
+    },
+    appstore: {
+      id: 'appstore',
+      name: 'App Store',
+      icon: 'fa-bag-shopping',
+      color: '#7dd3c0',
+      width: 960,
+      height: 640,
+      minWidth: 460,
+      minHeight: 380,
+      render: (container) => window.LunamixAppStore?.renderAppStoreApp?.(container)
+    },
+    achievements: {
+      id: 'achievements',
+      name: 'Achievements',
+      icon: 'fa-trophy',
+      color: '#fbbf24',
+      width: 780,
+      height: 560,
+      minWidth: 420,
+      minHeight: 360,
+      render: (container, winObj) => window.renderAchievementsApp?.(container, winObj)
+    },
+    notes: {
+      id: 'notes',
+      name: 'Notes',
+      icon: 'fa-note-sticky',
+      color: '#f59e0b',
+      width: 760,
+      height: 520,
+      minWidth: 440,
+      minHeight: 340,
+      render: (container, winObj) => window.renderNotesApp?.(container, winObj)
+    },
+    music: {
+      id: 'music',
+      name: 'Music Player',
+      icon: 'fa-music',
+      color: '#ec4899',
+      width: 520,
+      height: 580,
+      minWidth: 380,
+      minHeight: 440,
+      render: (container, winObj) => window.renderMusicApp?.(container, winObj)
+    },
+    mediaviewer: {
+      id: 'mediaviewer',
+      name: 'Media Viewer',
+      icon: 'fa-image',
+      color: '#38bdf8',
+      width: 820,
+      height: 580,
+      minWidth: 440,
+      minHeight: 360,
+      render: (container, winObj) => window.renderMediaViewerApp?.(container, winObj)
     }
   };
 
@@ -397,6 +452,10 @@
       const contentEl = winEl.querySelector(`#win-body-${appId}`);
       if (typeof app.render === 'function') {
         app.render(contentEl, winObj, customOpts);
+      }
+
+      if (window.LunamixAchievements && typeof window.LunamixAchievements.trackAppOpen === 'function') {
+        window.LunamixAchievements.trackAppOpen(appId);
       }
 
       this.focus(appId);
@@ -766,16 +825,71 @@
       const menu = document.getElementById('startMenu');
       const searchInput = document.getElementById('startSearchInput');
       const appItems = document.querySelectorAll('.start-menu .app-item');
-      const startUsernameEl = document.getElementById('startUsername');
-      if (startUsernameEl) {
-        const u = localStorage.getItem('lunamix_username') || localStorage.getItem('lunamix_chat_username') || 'User';
-        startUsernameEl.textContent = u;
+
+      this.syncUserProfile();
+      this.syncInstalledAppsVisibility();
+
+      const switchBtn = document.getElementById('startSwitchUserBtn');
+      const lockBtn = document.getElementById('startLockBtn');
+      const logoutBtn = document.getElementById('startLogoutBtn');
+
+      if (switchBtn) {
+        switchBtn.addEventListener('click', (e) => {
+          e.stopPropagation();
+          this.closeStartMenu();
+          if (window.LunamixLogin && typeof window.LunamixLogin.show === 'function') {
+            window.LunamixLogin.show();
+          } else if (window.AccountManager && typeof window.AccountManager.logout === 'function') {
+            window.AccountManager.logout();
+          }
+        });
       }
+
+      if (lockBtn) {
+        lockBtn.addEventListener('click', (e) => {
+          e.stopPropagation();
+          this.closeStartMenu();
+          if (window.LunamixLogin && typeof window.LunamixLogin.lock === 'function') {
+            window.LunamixLogin.lock();
+          } else if (window.LunamixLogin && typeof window.LunamixLogin.show === 'function') {
+            window.LunamixLogin.show();
+          }
+        });
+      }
+
+      if (logoutBtn) {
+        logoutBtn.addEventListener('click', (e) => {
+          e.stopPropagation();
+          this.closeStartMenu();
+          if (window.AccountManager && typeof window.AccountManager.logout === 'function') {
+            window.AccountManager.logout();
+          } else if (window.LunamixLogin && typeof window.LunamixLogin.show === 'function') {
+            window.LunamixLogin.show();
+          }
+        });
+      }
+
+      window.addEventListener('lunamix-account-changed', () => {
+        this.syncUserProfile();
+        this.syncInstalledAppsVisibility();
+      });
+
+      window.addEventListener('lunamix-apps-updated', () => {
+        this.syncInstalledAppsVisibility();
+      });
+
+      window.addEventListener('lunamix-apps-changed', () => {
+        this.syncInstalledAppsVisibility();
+      });
 
       if (searchInput) {
         searchInput.addEventListener('input', (e) => {
           const q = e.target.value.toLowerCase().trim();
           appItems.forEach(item => {
+            if (item.getAttribute('data-app-hidden') === 'true') {
+              item.style.display = 'none';
+              return;
+            }
             const name = item.querySelector('span')?.textContent.toLowerCase() || '';
             item.style.display = name.includes(q) ? 'flex' : 'none';
           });
@@ -795,6 +909,50 @@
         if (this.startOpen && !e.target.closest('#startMenu') && !e.target.closest('#startBtn')) {
           this.closeStartMenu();
         }
+      });
+    },
+
+    syncUserProfile() {
+      const acct = window.AccountManager && typeof window.AccountManager.getCurrentAccount === 'function'
+        ? window.AccountManager.getCurrentAccount()
+        : null;
+      const username = (acct && acct.username) || localStorage.getItem('lunamix_username') || localStorage.getItem('lunamix_chat_username') || 'User';
+      const avatar = (acct && acct.avatar) || '';
+
+      const startUsernameEl = document.getElementById('startUsername');
+      if (startUsernameEl) startUsernameEl.textContent = username;
+
+      const startAvatarEl = document.getElementById('startAvatar');
+      if (startAvatarEl) {
+        if (avatar) {
+          startAvatarEl.textContent = avatar;
+        } else {
+          startAvatarEl.innerHTML = '<i class="fa-solid fa-user"></i>';
+        }
+      }
+
+      const startRoleEl = document.getElementById('startRoleBadge');
+      if (startRoleEl) startRoleEl.textContent = 'student';
+    },
+
+    syncInstalledAppsVisibility() {
+      if (window.LunamixAppStore && typeof window.LunamixAppStore.syncDesktopAndStartMenu === 'function') {
+        window.LunamixAppStore.syncDesktopAndStartMenu();
+        return;
+      }
+      const acct = window.AccountManager && typeof window.AccountManager.getCurrentAccount === 'function'
+        ? window.AccountManager.getCurrentAccount()
+        : null;
+      if (!acct || !Array.isArray(acct.starterApps)) return;
+
+      const coreAlwaysAllowed = new Set(['settings', 'about', 'cloak', 'appstore', 'achievements']);
+      const allowed = new Set(acct.starterApps.map(id => (id === 'proxy' ? 'browser' : id)));
+
+      document.querySelectorAll('.desktop-icon[data-app], .start-menu .app-item[data-app]').forEach(el => {
+        const appId = el.getAttribute('data-app');
+        const visible = coreAlwaysAllowed.has(appId) || allowed.has(appId);
+        el.style.display = visible ? '' : 'none';
+        el.setAttribute('data-app-hidden', visible ? 'false' : 'true');
       });
     },
 
@@ -858,6 +1016,16 @@
 
           if (action === 'refresh') {
             window.location.reload();
+          } else if (action === 'new-note') {
+            WindowManager.open('notes');
+          } else if (action === 'appstore') {
+            WindowManager.open('appstore');
+          } else if (action === 'toggle-icons') {
+            const iconsGrid = document.getElementById('desktopIcons');
+            if (iconsGrid) {
+              const hidden = iconsGrid.style.display === 'none';
+              iconsGrid.style.display = hidden ? '' : 'none';
+            }
           } else if (action === 'games') {
             WindowManager.open('games');
           } else if (action === 'chat') {
@@ -2667,7 +2835,10 @@
   // --------------------------------------------------------------------------
   function renderTerminalApp(container, winObj) {
     const getTermUser = () => {
-      const raw = localStorage.getItem('lunamix_username') || 'user';
+      const acct = window.AccountManager && typeof window.AccountManager.getCurrentAccount === 'function'
+        ? window.AccountManager.getCurrentAccount()
+        : null;
+      const raw = (acct && acct.username) || localStorage.getItem('lunamix_username') || 'user';
       return raw.toLowerCase().replace(/[^a-z0-9_-]/g, '') || 'user';
     };
 
@@ -2800,13 +2971,13 @@
       },
       whoami: () => {
         const curUser = getTermUser();
-        print(`${curUser} (uid=1000 gid=1000 groups=users,lunamix)`);
+        print(`${curUser} (role=student uid=1000 gid=1000 groups=users,lunamix,student)`);
       },
       sudo: (args) => {
         const curUser = getTermUser();
         print(`[sudo] password for ${curUser}:`);
         setTimeout(() => {
-          print(`${curUser} is not in the sudoers file. This incident will be reported.`, '#ef4444');
+          print(`${curUser} (role: student) is not in the sudoers file. Access denied.`, '#ef4444');
         }, 300);
       },
       date: () => {
@@ -3442,6 +3613,9 @@
         container.querySelectorAll('.theme-picker-tile').forEach(tl => tl.classList.remove('active'));
         tile.classList.add('active');
         SoundFX.click();
+        if (window.LunamixAchievements && typeof window.LunamixAchievements.unlock === 'function') {
+          window.LunamixAchievements.unlock('theme_customizer');
+        }
       });
     });
 
@@ -3490,22 +3664,26 @@
   // --------------------------------------------------------------------------
   function renderAboutApp(container, winObj) {
     container.innerHTML = `
-      <div style="height: 100%; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 2rem; text-align: center; background: radial-gradient(circle at center, #151926 0%, #0a0e1a 100%);">
+      <div style="height: 100%; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 2rem; text-align: center; background: radial-gradient(circle at center, #151926 0%, #0a0e1a 100%); overflow-y: auto;">
         <div style="width: 72px; height: 72px; border-radius: 20px; background: rgba(125, 211, 192, 0.15); border: 1px solid var(--accent); display: flex; align-items: center; justify-content: center; font-size: 2.2rem; color: var(--accent); margin-bottom: 1.25rem;">
           <i class="fa-solid fa-shield-halved"></i>
         </div>
         <h2 style="font-size: 1.6rem; font-weight: 800; color: var(--text-primary); margin-bottom: 0.35rem;">Lunamix OS</h2>
-        <div style="font-size: 0.85rem; color: var(--accent); font-weight: 600; margin-bottom: 1rem;">Version ${OS_VERSION.replace(/^v/, '')} (Web Gaming Interface)</div>
-        <p style="font-size: 0.86rem; color: var(--text-secondary); max-width: 460px; line-height: 1.5; margin-bottom: 1.5rem;">
+        <div style="font-size: 0.85rem; color: var(--accent); font-weight: 600; margin-bottom: 0.75rem;">Version ${OS_VERSION.replace(/^v/, '')} (Web Gaming Interface)</div>
+        <p style="font-size: 0.86rem; color: var(--text-secondary); max-width: 460px; line-height: 1.5; margin-bottom: 1rem;">
           Web gaming interface with unblocked games, cloud chat, and browser tools.
         </p>
+        <div style="font-size: 0.78rem; color: var(--text-secondary); background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08); border-radius: 10px; padding: 0.75rem 1rem; max-width: 460px; width: 100%; margin-bottom: 1.25rem; line-height: 1.55;">
+          <div><strong>License:</strong> GNU Affero General Public License v3.0 (AGPL-3.0)</div>
+          <div><strong>Attribution:</strong> Modified from NautilusOS (2026-11-15)</div>
+        </div>
 
-        <div style="display: flex; gap: 0.8rem;">
+        <div style="display: flex; gap: 0.8rem; flex-wrap: wrap; justify-content: center;">
           <a href="https://github.com/skiingbeast2025/lunamix" target="_blank" style="padding: 0.55rem 1.1rem; background: var(--accent); color: var(--bg-primary); border-radius: 8px; font-weight: 700; font-size: 0.82rem; text-decoration: none;">
             <i class="fa-brands fa-github"></i> Lunamix Repo
           </a>
           <a href="https://github.com/nautilus-os/NautilusOS" target="_blank" style="padding: 0.55rem 1.1rem; background: rgba(255,255,255,0.08); color: var(--text-primary); border-radius: 8px; font-weight: 700; font-size: 0.82rem; text-decoration: none;">
-            NautilusOS Source
+            NautilusOS Source (AGPL-3.0)
           </a>
         </div>
       </div>
@@ -3517,57 +3695,23 @@
   // ==========================================================================
   const BootManager = {
     init() {
-      const bootloader = document.getElementById('bootloader');
-      const login = document.getElementById('login');
       const bootVerEl = document.querySelector('.boot-version');
       if (bootVerEl) bootVerEl.textContent = `Web GI (Web Gaming Interface) ${OS_VERSION}`;
 
-      // 1. Immediately hide startup overlays so user lands straight on the desktop
-      if (bootloader) {
-        bootloader.style.display = 'none';
-        bootloader.style.opacity = '0';
-        bootloader.style.pointerEvents = 'none';
-      }
-      if (login) {
-        login.style.display = 'none';
-        login.style.opacity = '0';
-        login.style.pointerEvents = 'none';
-      }
-
-      // 2. Initialize user session username immediately
-      const savedUser = localStorage.getItem('lunamix_username') || localStorage.getItem('lunamix_chat_username') || 'User';
+      // 1. Initialize user session username immediately
+      const acct = window.AccountManager && typeof window.AccountManager.getCurrentAccount === 'function'
+        ? window.AccountManager.getCurrentAccount()
+        : null;
+      const savedUser = (acct && acct.username) || localStorage.getItem('lunamix_username') || localStorage.getItem('lunamix_chat_username') || 'User';
       const startUser = document.getElementById('startUsername');
       if (startUser) startUser.textContent = savedUser;
 
-      // 3. Ensure tab is authentic Lunamix OS (uncloaked by default) unless user explicitly saved a preset
+      // 2. Ensure tab is authentic Lunamix OS (uncloaked by default) unless user explicitly saved a preset
       if (window.LunamixCloak) {
         const savedPreset = localStorage.getItem('lunamix_cloak_preset');
         if (!savedPreset || savedPreset === 'default') {
           window.LunamixCloak.apply('default', false);
         }
-      }
-
-      // Wire login button if login screen is ever manually displayed
-      const loginBtn = document.getElementById('loginBtn');
-      if (loginBtn) {
-        loginBtn.addEventListener('click', () => {
-          SoundFX.click();
-          if (window.commitStartupLogin) {
-            window.commitStartupLogin();
-          } else {
-            const userInp = document.getElementById('loginUserInput');
-            const username = (userInp ? userInp.value.trim() : '') || 'User';
-            localStorage.setItem('lunamix_username', username);
-            localStorage.setItem('lunamix_chat_username', username);
-            if (startUser) startUser.textContent = username;
-            if (login) {
-              login.style.opacity = '0';
-              setTimeout(() => {
-                login.style.display = 'none';
-              }, 300);
-            }
-          }
-        });
       }
     }
   };
@@ -3605,6 +3749,7 @@
     BootManager.init();
 
     // Expose Global API for buttons or extensions
+    window.SoundFX = SoundFX;
     window.LunamixOS = {
       openApp: (id, opts) => WindowManager.open(id, opts),
       closeApp: (id) => WindowManager.close(id),

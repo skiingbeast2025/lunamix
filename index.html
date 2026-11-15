@@ -28,18 +28,22 @@
 
   <!-- NautilusOS Design System Stylesheet -->
   <link rel="stylesheet" href="./assets/css/nautilus.css">
+  <!-- Lunamix OS v2.0.0 Modules -->
+  <link rel="stylesheet" href="./assets/css/lunamix-auth.css">
+  <link rel="stylesheet" href="./assets/css/lunamix-ux.css">
+  <link rel="stylesheet" href="./assets/css/lunamix-apps-v2.css">
 </head>
 <body>
 
   <!-- ======================================================================
-       1. Bootloader Screen (Removed from startup flow)
+       1. Bootloader Screen
        ====================================================================== -->
-  <div id="bootloader" style="display: none !important;">
+  <div id="bootloader">
     <div class="boot-logo">
       <i class="fa-solid fa-cube"></i>
     </div>
     <div class="boot-title">LUNAMIX OS</div>
-    <div class="boot-version">Web GI (Web Gaming Interface) v1.3.1</div>
+    <div class="boot-version">Web GI (Web Gaming Interface) v2.0.0</div>
 
     <div class="boot-options">
       <div class="boot-option selected" id="bootOptDefault" data-mode="standard">
@@ -62,25 +66,89 @@
       <div class="loading-bar-container">
         <div class="loading-bar" id="bootBar"></div>
       </div>
-      <div class="boot-messages" id="bootMsg">Auto-booting into selected mode in <b id="bootCountdownSec">5</b>s... (Press [↑] / [↓] to choose)</div>
+      <div class="boot-messages" id="bootMsg">Auto-booting into selected mode in <b id="bootCountdownSec">3</b>s... (Press [↑] / [↓] to choose)</div>
     </div>
 
-    <div class="boot-hint" style="display: flex; gap: 1rem; align-items: center; justify-content: center; flex-wrap: wrap;">
-      <button id="bootStartBtn" style="padding: 0.55rem 1.25rem; background: var(--accent); color: var(--bg-primary); border-radius: 8px; font-weight: 700; font-size: 0.85rem; cursor: pointer; border: none;">
-        <i class="fa-solid fa-play" style="margin-right: 4px;"></i> Boot Now [ENTER]
-      </button>
-      <button id="bootSkipBtn" class="guest-btn" style="border: none; background: transparent; font-size: 0.82rem;">
-        Don't Show Next Time
-      </button>
+    <div class="boot-hint" style="display: flex; flex-direction: column; gap: 0.6rem; align-items: center;">
+      <div style="display: flex; gap: 0.75rem; align-items: center; justify-content: center; flex-wrap: wrap;">
+        <button id="bootStartBtn" class="boot-btn-primary">
+          <i class="fa-solid fa-play" style="margin-right: 4px;"></i> Boot Now / Skip [ENTER]
+        </button>
+        <button id="bootBiosBtn" class="boot-btn-secondary">
+          <i class="fa-solid fa-sliders" style="margin-right: 4px;"></i> BIOS Settings [F2]
+        </button>
+      </div>
+      <div class="boot-bios-hint">Press <kbd>F2</kbd> or <kbd>Shift</kbd> to open BIOS Settings</div>
     </div>
   </div>
 
   <!-- ======================================================================
-       2. Login / Lock Screen (Removed from startup flow)
+       1b. BIOS Settings Modal
        ====================================================================== -->
-  <div id="login" style="display: none !important;">
+  <div id="biosModal" role="dialog" aria-modal="true" aria-labelledby="biosModalTitle">
+    <div class="bios-dialog">
+      <div class="bios-header">
+        <div class="bios-header-title" id="biosModalTitle">
+          <i class="fa-solid fa-microchip"></i>
+          <span>LUNAMIX BIOS / UEFI SETUP</span>
+        </div>
+        <button id="biosCloseBtn" class="bios-close-btn" aria-label="Close BIOS">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+      </div>
+      <div class="bios-body">
+        <div class="bios-section">
+          <div class="bios-section-title">Boot Configuration</div>
+          <div class="bios-row">
+            <label for="biosBootDelaySelect">Bootloader Countdown Delay</label>
+            <select id="biosBootDelaySelect" class="bios-select">
+              <option value="1">1 Second</option>
+              <option value="3" selected>3 Seconds (Default)</option>
+              <option value="5">5 Seconds</option>
+              <option value="10">10 Seconds</option>
+            </select>
+          </div>
+        </div>
+        <div class="bios-section">
+          <div class="bios-section-title">System Diagnostics</div>
+          <div class="bios-diag-grid">
+            <div class="bios-diag-item">
+              <span class="bios-diag-label">Local Accounts</span>
+              <span class="bios-diag-value" id="biosDiagAccounts">0</span>
+            </div>
+            <div class="bios-diag-item">
+              <span class="bios-diag-label">Storage Usage</span>
+              <span class="bios-diag-value" id="biosDiagStorage">Checking...</span>
+            </div>
+            <div class="bios-diag-item">
+              <span class="bios-diag-label">Platform</span>
+              <span class="bios-diag-value" id="biosDiagPlatform">Web</span>
+            </div>
+            <div class="bios-diag-item">
+              <span class="bios-diag-label">Stealth Engine</span>
+              <span class="bios-diag-value" id="biosDiagStealth">Ready</span>
+            </div>
+          </div>
+        </div>
+        <div class="bios-section">
+          <div class="bios-section-title">Account Maintenance</div>
+          <div class="bios-row">
+            <span>Clear all local student accounts</span>
+            <button id="biosResetAccountsBtn" class="bios-danger-btn">Reset Accounts</button>
+          </div>
+        </div>
+      </div>
+      <div class="bios-footer">
+        <button id="biosSaveBtn" class="boot-btn-primary">Save &amp; Resume Boot</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ======================================================================
+       2. Login / Lock Screen
+       ====================================================================== -->
+  <div id="login">
     <div class="login-wrapper">
-      <!-- Left side: Digital Clock & System Specs Card -->
       <div class="login-left">
         <div>
           <div class="login-time-main" id="loginClock">12:00</div>
@@ -97,7 +165,7 @@
             <span class="info-stat-value" id="hwDevice">Detecting...</span>
           </div>
           <div class="info-stat">
-            <span class="info-stat-label"><i class="fa-solid fa-battery-three-quarters" style="color: #4ade80;"></i> Battery & Power</span>
+            <span class="info-stat-label"><i class="fa-solid fa-battery-three-quarters" style="color: #4ade80;"></i> Battery &amp; Power</span>
             <span class="info-stat-value" id="hwBattery">Detecting...</span>
           </div>
           <div class="info-stat">
@@ -105,7 +173,7 @@
             <span class="info-stat-value" id="hwPing" style="color: #4ade80;">Measuring...</span>
           </div>
           <div class="info-stat">
-            <span class="info-stat-label"><i class="fa-solid fa-gamepad" style="color: #f59e0b;"></i> Graphics & 3D</span>
+            <span class="info-stat-label"><i class="fa-solid fa-gamepad" style="color: #f59e0b;"></i> Graphics &amp; 3D</span>
             <span class="info-stat-value" id="hwGfx">WebGL 2.0</span>
           </div>
           <div class="info-stat">
@@ -119,22 +187,135 @@
         </div>
       </div>
 
-      <!-- Right side: User Login Card -->
       <div class="login-container">
-        <div class="login-avatar">
-          <i class="fa-solid fa-user"></i>
-        </div>
-        <div class="login-title" id="loginTitle">Welcome User</div>
-        <div class="login-subtitle">Sign in to your Lunamix workspace</div>
+        <div class="login-avatar" id="loginAvatar">🚀</div>
+        <div class="login-title" id="loginTitle">Welcome</div>
+        <div class="login-role-badge">Student Account</div>
 
-        <input type="text" id="loginUserInput" class="login-input" value="User" placeholder="Enter username..." autocomplete="off" />
+        <div class="login-account-switcher" id="loginAccountSwitcher"></div>
+
+        <div class="login-error" id="loginError"></div>
+        <input type="password" id="loginPasswordInput" class="login-input" placeholder="Enter password..." autocomplete="current-password" />
         <button id="loginBtn" class="login-btn">
-          Enter Desktop <i class="fa-solid fa-arrow-right" style="margin-left: 6px;"></i>
+          Sign In <i class="fa-solid fa-arrow-right" style="margin-left: 6px;"></i>
         </button>
 
-        <button class="guest-btn" id="guestLoginBtn" style="border: none; background: transparent;">
-          Continue as Guest
-        </button>
+        <div class="login-actions-row">
+          <button type="button" class="login-link-btn" id="loginCreateAccountBtn">
+            <i class="fa-solid fa-user-plus"></i> Create New Account
+          </button>
+          <button type="button" class="login-link-btn" id="guestLoginBtn">
+            Guest (student)
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ======================================================================
+       2b. 4-Step Account Creation Wizard
+       ====================================================================== -->
+  <div id="setup" role="dialog" aria-modal="true" aria-labelledby="setupBrandTitle">
+    <div class="setup-card">
+      <div class="setup-header">
+        <div class="setup-brand" id="setupBrandTitle">
+          <i class="fa-solid fa-cube"></i>
+          <span>Lunamix OS Setup</span>
+        </div>
+        <div class="setup-steps-indicator">
+          <div class="setup-step-pip active" id="setupPip1"></div>
+          <div class="setup-step-pip" id="setupPip2"></div>
+          <div class="setup-step-pip" id="setupPip3"></div>
+          <div class="setup-step-pip" id="setupPip4"></div>
+        </div>
+      </div>
+
+      <div class="setup-body">
+        <!-- Step 1: Welcome, Username & Avatar -->
+        <div class="setup-step-pane active" id="setupStep1">
+          <div class="setup-heading">Create Your Student Account</div>
+          <div class="setup-subheading">Choose a display username and avatar for your Lunamix workspace.</div>
+          <label class="setup-label" for="setupUsernameInput">Username</label>
+          <input type="text" id="setupUsernameInput" class="setup-input" placeholder="e.g. Alex" maxlength="24" autocomplete="off" />
+          <label class="setup-label">Pick an Avatar</label>
+          <div class="setup-avatar-grid" id="setupAvatarGrid"></div>
+        </div>
+
+        <!-- Step 2: Security & Import -->
+        <div class="setup-step-pane" id="setupStep2">
+          <div class="setup-heading">Account Security</div>
+          <div class="setup-subheading">Set a local password or enable 1-click passwordless sign-in.</div>
+          <label class="setup-checkbox-row">
+            <input type="checkbox" id="setupPasswordlessCheck" />
+            <span>Passwordless (1-click sign-in on this device)</span>
+          </label>
+          <label class="setup-label" for="setupPasswordInput">Password</label>
+          <input type="password" id="setupPasswordInput" class="setup-input" placeholder="At least 4 characters..." autocomplete="new-password" />
+          <label class="setup-label" for="setupConfirmInput">Confirm Password</label>
+          <input type="password" id="setupConfirmInput" class="setup-input" placeholder="Re-enter password..." autocomplete="new-password" />
+          <div class="setup-import-box">
+            <div>
+              <div style="font-weight: 600; font-size: 0.86rem;">Have an exported profile?</div>
+              <div style="font-size: 0.76rem; color: var(--text-secondary);">Import a Lunamix JSON profile (student role enforced)</div>
+            </div>
+            <button type="button" id="setupImportBtn" class="boot-btn-secondary">Import Profile JSON</button>
+            <input type="file" id="setupImportFile" accept="application/json,.json" style="display: none;" />
+          </div>
+        </div>
+
+        <!-- Step 3: Starter Apps -->
+        <div class="setup-step-pane" id="setupStep3">
+          <div class="setup-heading">Choose Starter Apps</div>
+          <div class="setup-subheading">Select the apps you want ready on your desktop.</div>
+          <div class="setup-apps-grid" id="setupAppsGrid">
+            <div class="setup-app-card selected" data-app="games"><i class="fa-solid fa-gamepad"></i><span>Games Hub</span></div>
+            <div class="setup-app-card selected" data-app="chat"><i class="fa-solid fa-comments"></i><span>Lunamix Chat</span></div>
+            <div class="setup-app-card selected" data-app="proxy"><i class="fa-solid fa-globe"></i><span>Proxy Hub</span></div>
+            <div class="setup-app-card selected" data-app="notes"><i class="fa-solid fa-note-sticky"></i><span>Notes</span></div>
+            <div class="setup-app-card selected" data-app="music"><i class="fa-solid fa-music"></i><span>Music Player</span></div>
+            <div class="setup-app-card selected" data-app="appstore"><i class="fa-solid fa-store"></i><span>App Store</span></div>
+            <div class="setup-app-card selected" data-app="achievements"><i class="fa-solid fa-trophy"></i><span>Achievements</span></div>
+          </div>
+        </div>
+
+        <!-- Step 4: Theme Picker -->
+        <div class="setup-step-pane" id="setupStep4">
+          <div class="setup-heading">Pick Your Theme</div>
+          <div class="setup-subheading">Personalize your Lunamix OS accent palette.</div>
+          <div class="setup-theme-grid" id="setupThemeGrid">
+            <div class="setup-theme-card selected" data-theme="nautilus">
+              <div class="setup-theme-swatch" style="background: #7dd3c0;"></div>
+              <span>Nautilus Dark</span>
+            </div>
+            <div class="setup-theme-card" data-theme="midnight">
+              <div class="setup-theme-swatch" style="background: #a855f7;"></div>
+              <span>Midnight</span>
+            </div>
+            <div class="setup-theme-card" data-theme="ocean">
+              <div class="setup-theme-swatch" style="background: #38bdf8;"></div>
+              <span>Ocean</span>
+            </div>
+            <div class="setup-theme-card" data-theme="forest">
+              <div class="setup-theme-swatch" style="background: #34d399;"></div>
+              <span>Forest</span>
+            </div>
+            <div class="setup-theme-card" data-theme="sunset">
+              <div class="setup-theme-swatch" style="background: #f59e0b;"></div>
+              <span>Sunset</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="setup-error" id="setupError"></div>
+      </div>
+
+      <div class="setup-footer">
+        <button type="button" id="setupBackBtn" class="boot-btn-secondary">Back</button>
+        <span id="setupStepLabel" style="font-size: 0.8rem; color: var(--text-secondary);">Step 1 of 4</span>
+        <div>
+          <button type="button" id="setupNextBtn" class="boot-btn-primary">Next</button>
+          <button type="button" id="setupFinishBtn" class="boot-btn-primary" style="display: none;">Finish &amp; Launch</button>
+        </div>
       </div>
     </div>
   </div>
@@ -202,6 +383,26 @@
         <i class="fa-solid fa-circle-info" style="color: #7dd3c0;"></i>
         <span>About OS</span>
       </div>
+      <div class="desktop-icon" data-app="appstore" title="App Store">
+        <i class="fa-solid fa-bag-shopping" style="color: #7dd3c0;"></i>
+        <span>App Store</span>
+      </div>
+      <div class="desktop-icon" data-app="achievements" title="Achievements">
+        <i class="fa-solid fa-trophy" style="color: #fbbf24;"></i>
+        <span>Achievements</span>
+      </div>
+      <div class="desktop-icon" data-app="notes" title="Notes">
+        <i class="fa-solid fa-note-sticky" style="color: #f59e0b;"></i>
+        <span>Notes</span>
+      </div>
+      <div class="desktop-icon" data-app="music" title="Music Player">
+        <i class="fa-solid fa-music" style="color: #ec4899;"></i>
+        <span>Music Player</span>
+      </div>
+      <div class="desktop-icon" data-app="mediaviewer" title="Media Viewer">
+        <i class="fa-solid fa-image" style="color: #38bdf8;"></i>
+        <span>Media Viewer</span>
+      </div>
     </div>
   </div>
 
@@ -232,6 +433,9 @@
     <button class="taskbar-icon" data-app="terminal" title="Terminal">
       <i class="fa-solid fa-terminal" style="color: #00ff88;"></i>
     </button>
+    <button class="taskbar-icon" data-app="appstore" title="App Store">
+      <i class="fa-solid fa-bag-shopping" style="color: #7dd3c0;"></i>
+    </button>
     <button class="taskbar-icon" data-app="settings" title="Settings">
       <i class="fa-solid fa-gear" style="color: #94a3b8;"></i>
     </button>
@@ -240,6 +444,10 @@
 
     <!-- System Tray -->
     <div class="system-tray">
+      <button class="taskbar-icon lm-notif-trigger" id="trayNotifBtn" title="Notifications" style="width: 34px; height: 34px; font-size: 1rem;">
+        <i class="fa-solid fa-bell"></i>
+        <span class="lm-notif-badge is-empty" id="notifBadge">0</span>
+      </button>
       <button class="taskbar-icon" id="trayActionsBtn" title="Quick Actions Flyout" style="width: 34px; height: 34px; font-size: 1rem;">
         <i class="fa-solid fa-sliders"></i>
       </button>
@@ -248,16 +456,23 @@
   </div>
 
   <!-- ======================================================================
-       5. Start Menu (Avatar, Real-Time App Search, App Tiles Grid)
+       5. Start Menu (User Profile Card, Real-Time App Search, App Tiles Grid)
        ====================================================================== -->
   <div class="start-menu" id="startMenu">
     <div class="start-header">
-      <div class="start-avatar">
+      <div class="start-avatar" id="startAvatar">
         <i class="fa-solid fa-user"></i>
       </div>
       <div class="start-user-info">
-        <div class="start-username" id="startUsername">User</div>
-        <div class="start-status">Online (Cloud Synced)</div>
+        <div class="start-username-row" style="display: flex; align-items: center; gap: 0.45rem;">
+          <span class="start-username" id="startUsername">User</span>
+          <span class="start-role-badge" id="startRoleBadge" style="font-size: 0.65rem; font-weight: 700; text-transform: uppercase; padding: 0.1rem 0.45rem; border-radius: 999px; background: rgba(125, 211, 192, 0.16); color: var(--accent); border: 1px solid rgba(125, 211, 192, 0.35);">student</span>
+        </div>
+        <div class="start-account-actions" style="display: flex; gap: 0.35rem; margin-top: 0.3rem; flex-wrap: wrap;">
+          <button type="button" id="startSwitchUserBtn" class="start-acct-btn" title="Switch User" style="font-size: 0.68rem; padding: 0.15rem 0.45rem; border-radius: 5px; background: rgba(255,255,255,0.07); border: 1px solid rgba(255,255,255,0.12); color: var(--text-secondary); cursor: pointer;">Switch User</button>
+          <button type="button" id="startLockBtn" class="start-acct-btn" title="Lock Screen" style="font-size: 0.68rem; padding: 0.15rem 0.45rem; border-radius: 5px; background: rgba(255,255,255,0.07); border: 1px solid rgba(255,255,255,0.12); color: var(--text-secondary); cursor: pointer;">Lock</button>
+          <button type="button" id="startLogoutBtn" class="start-acct-btn" title="Logout" style="font-size: 0.68rem; padding: 0.15rem 0.45rem; border-radius: 5px; background: rgba(239,68,68,0.14); border: 1px solid rgba(239,68,68,0.28); color: #fca5a5; cursor: pointer;">Logout</button>
+        </div>
       </div>
       <button class="start-power-btn" id="startPowerBtn" title="Reboot OS" onclick="window.location.reload();">
         <i class="fa-solid fa-power-off"></i>
@@ -322,6 +537,26 @@
         <i class="fa-solid fa-circle-info" style="color: #7dd3c0;"></i>
         <span>About</span>
       </div>
+      <div class="app-item" data-app="appstore">
+        <i class="fa-solid fa-bag-shopping" style="color: #7dd3c0;"></i>
+        <span>App Store</span>
+      </div>
+      <div class="app-item" data-app="achievements">
+        <i class="fa-solid fa-trophy" style="color: #fbbf24;"></i>
+        <span>Achievements</span>
+      </div>
+      <div class="app-item" data-app="notes">
+        <i class="fa-solid fa-note-sticky" style="color: #f59e0b;"></i>
+        <span>Notes</span>
+      </div>
+      <div class="app-item" data-app="music">
+        <i class="fa-solid fa-music" style="color: #ec4899;"></i>
+        <span>Music Player</span>
+      </div>
+      <div class="app-item" data-app="mediaviewer">
+        <i class="fa-solid fa-image" style="color: #38bdf8;"></i>
+        <span>Media Viewer</span>
+      </div>
     </div>
   </div>
 
@@ -333,6 +568,14 @@
       <i class="fa-solid fa-rotate-right"></i>
       <span>Refresh Desktop</span>
     </div>
+    <div class="context-item" data-action="new-note">
+      <i class="fa-solid fa-note-sticky" style="color: #f59e0b;"></i>
+      <span>New Note</span>
+    </div>
+    <div class="context-item" data-action="appstore">
+      <i class="fa-solid fa-bag-shopping" style="color: #7dd3c0;"></i>
+      <span>Open App Store</span>
+    </div>
     <div class="context-divider"></div>
     <div class="context-item" data-action="games">
       <i class="fa-solid fa-gamepad" style="color: #7dd3c0;"></i>
@@ -342,22 +585,22 @@
       <i class="fa-solid fa-comments" style="color: #38bdf8;"></i>
       <span>Open Lunamix Chat</span>
     </div>
-    <div class="context-item" data-action="creator">
-      <i class="fa-solid fa-code" style="color: #f59e0b;"></i>
-      <span>Open App Creator</span>
-    </div>
     <div class="context-item" data-action="terminal">
       <i class="fa-solid fa-terminal" style="color: #00ff88;"></i>
       <span>Open Terminal</span>
     </div>
     <div class="context-divider"></div>
+    <div class="context-item" data-action="settings">
+      <i class="fa-solid fa-palette" style="color: #a855f7;"></i>
+      <span>Personalize Theme</span>
+    </div>
+    <div class="context-item" data-action="toggle-icons">
+      <i class="fa-solid fa-eye-slash" style="color: #94a3b8;"></i>
+      <span>Toggle Desktop Icons</span>
+    </div>
     <div class="context-item" data-action="fullscreen">
       <i class="fa-solid fa-expand"></i>
       <span>Toggle Fullscreen</span>
-    </div>
-    <div class="context-item" data-action="settings">
-      <i class="fa-solid fa-gear" style="color: #94a3b8;"></i>
-      <span>System Settings</span>
     </div>
     <div class="context-item" data-action="cloak">
       <i class="fa-solid fa-shield-halved" style="color: #38bdf8;"></i>
@@ -418,81 +661,27 @@
   </div>
 
   <!-- ======================================================================
+       7b. UX Overlays (Window Snap Preview, Notification Center, Toast Stack)
+       ====================================================================== -->
+  <div id="snapPreview"></div>
+  <div id="notificationCenter"></div>
+  <div id="toastContainer" aria-live="polite"></div>
+
+  <!-- ======================================================================
        8. Core Engines & Web GI Desktop Scripts
        ====================================================================== -->
   <!-- Supabase JS Client for Multi-Device Chat & Realtime Sync -->
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.js"></script>
   <!-- Lunamix Core (Cloaking, Panic Key, Turnstile) -->
   <script src="./assets/js/lunamix-core.js"></script>
+  <!-- Lunamix OS v2.0.0 Account, Boot, UX & App Modules -->
+  <script src="./assets/js/lunamix-accounts.js"></script>
+  <script src="./assets/js/lunamix-ux.js"></script>
+  <script src="./assets/js/lunamix-apps-v2.js"></script>
   <!-- Web GI (Web Gaming Interface) Desktop Engine -->
   <script src="./assets/js/nautilus-os.js"></script>
 
   <script>
-    // Synchronize Login Username, Clock & Date
-    (function syncLoginUserAndClock() {
-      const clockEl = document.getElementById('loginClock');
-      const dateEl = document.getElementById('loginDate');
-      const userInp = document.getElementById('loginUserInput');
-      const loginTitle = document.getElementById('loginTitle');
-      const startUser = document.getElementById('startUsername');
-      const loginBtn = document.getElementById('loginBtn');
-      const guestBtn = document.getElementById('guestLoginBtn');
-      const loginEl = document.getElementById('login');
-
-      // 1. Sync saved username from localStorage across refreshes
-      const savedUser = localStorage.getItem('lunamix_username') || localStorage.getItem('lunamix_chat_username') || 'User';
-      if (userInp) userInp.value = savedUser;
-      if (loginTitle) loginTitle.textContent = 'Welcome ' + savedUser;
-      if (startUser) startUser.textContent = savedUser;
-
-      if (userInp) {
-        userInp.addEventListener('input', () => {
-          const val = userInp.value.trim() || 'User';
-          if (loginTitle) loginTitle.textContent = 'Welcome ' + val;
-        });
-        userInp.addEventListener('keydown', (e) => {
-          if (e.key === 'Enter') {
-            e.preventDefault();
-            commitLogin();
-          }
-        });
-      }
-
-      function commitLogin(overrideName) {
-        const username = overrideName || (userInp ? userInp.value.trim() : '') || 'User';
-        localStorage.setItem('lunamix_username', username);
-        localStorage.setItem('lunamix_chat_username', username);
-        if (startUser) startUser.textContent = username;
-        if (loginTitle) loginTitle.textContent = 'Welcome ' + username;
-        if (loginEl) {
-          loginEl.style.opacity = '0';
-          setTimeout(() => loginEl.style.display = 'none', 300);
-        }
-      }
-
-      window.commitStartupLogin = commitLogin;
-
-      if (loginBtn) {
-        loginBtn.addEventListener('click', () => commitLogin());
-      }
-
-      if (guestBtn) {
-        guestBtn.addEventListener('click', () => commitLogin('Guest'));
-      }
-
-      const update = () => {
-        const now = new Date();
-        if (clockEl) {
-          clockEl.textContent = now.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', hour12: false });
-        }
-        if (dateEl) {
-          dateEl.textContent = now.toLocaleDateString([], { weekday: 'long', month: 'long', day: 'numeric' });
-        }
-      };
-      update();
-      setInterval(update, 1000);
-    })();
-
     // Real-Time Hardware & System Diagnostics for Average Users
     (async function initHardwareDiagnostics() {
       // 1. Device detection

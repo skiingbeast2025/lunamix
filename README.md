@@ -160,3 +160,11 @@ Lunamix requires no build step and can be hosted immediately on any static web h
 
 > [!NOTE]
 > Lunamix is developed for educational, recreational, and web preservation purposes. Users are responsible for complying with the local network usage policies and terms of service of the environments in which they access this platform.
+
+---
+
+## License & Attribution
+
+Lunamix OS v2.0.0 is licensed under the **GNU Affero General Public License v3.0 (AGPL-3.0)**. See [LICENSE](./LICENSE) for the full license text.
+
+- **Modified from NautilusOS (AGPL-3.0)** ([https://github.com/nautilus-os/NautilusOS](https://github.com/nautilus-os/NautilusOS)) - Modified on `2026-11-15`.

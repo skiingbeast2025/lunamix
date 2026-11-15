@@ -1,0 +1,640 @@
+/* ==========================================================================
+   SPDX-License-Identifier: AGPL-3.0-or-later
+   Lunamix OS v2.0.0 - App Store, Themes, Window Snap, Notifications & Quick Actions
+   Modified from NautilusOS (https://github.com/nautilus-os/NautilusOS)
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   1. Theme Definitions
+   -------------------------------------------------------------------------- */
+[data-theme="nautilus"] {
+  --accent: #7dd3c0;
+  --accent-hover: #6bc4b0;
+  --accent-dark: #469483;
+  --bg-primary: #0a0e1a;
+  --bg-secondary: #121724;
+  --text-primary: #e8eaed;
+  --text-secondary: #9aa0a6;
+  --border: #7dd3c0;
+  --glass-bg: rgba(21, 25, 35, 0.82);
+  --glass-border: rgba(255, 255, 255, 0.09);
+  --window-header-bg: rgba(30, 35, 48, 0.88);
+  --window-content-bg: rgba(10, 14, 26, 0.78);
+}
+
+[data-theme="midnight"] {
+  --accent: #a855f7;
+  --accent-hover: #9333ea;
+  --accent-dark: #7e22ce;
+  --bg-primary: #0b0816;
+  --bg-secondary: #140f26;
+  --text-primary: #ede9fe;
+  --text-secondary: #a78bfa;
+  --border: #a855f7;
+  --glass-bg: rgba(20, 15, 38, 0.84);
+  --glass-border: rgba(168, 85, 247, 0.18);
+  --window-header-bg: rgba(28, 21, 52, 0.9);
+  --window-content-bg: rgba(11, 8, 22, 0.8);
+}
+
+[data-theme="ocean"] {
+  --accent: #38bdf8;
+  --accent-hover: #0ea5e9;
+  --accent-dark: #0284c7;
+  --bg-primary: #06131f;
+  --bg-secondary: #0c1e30;
+  --text-primary: #e0f2fe;
+  --text-secondary: #7dd3fc;
+  --border: #38bdf8;
+  --glass-bg: rgba(10, 25, 41, 0.84);
+  --glass-border: rgba(56, 189, 248, 0.18);
+  --window-header-bg: rgba(14, 34, 56, 0.9);
+  --window-content-bg: rgba(6, 19, 31, 0.8);
+}
+
+[data-theme="emerald"] {
+  --accent: #10b981;
+  --accent-hover: #059669;
+  --accent-dark: #047857;
+  --bg-primary: #061611;
+  --bg-secondary: #0c241c;
+  --text-primary: #ecfdf5;
+  --text-secondary: #6ee7b7;
+  --border: #10b981;
+  --glass-bg: rgba(10, 30, 23, 0.84);
+  --glass-border: rgba(16, 185, 129, 0.18);
+  --window-header-bg: rgba(14, 42, 32, 0.9);
+  --window-content-bg: rgba(6, 22, 17, 0.8);
+}
+
+[data-theme="crimson"] {
+  --accent: #f43f5e;
+  --accent-hover: #e11d48;
+  --accent-dark: #be123c;
+  --bg-primary: #16090e;
+  --bg-secondary: #240f17;
+  --text-primary: #ffe4e6;
+  --text-secondary: #fda4af;
+  --border: #f43f5e;
+  --glass-bg: rgba(32, 13, 20, 0.84);
+  --glass-border: rgba(244, 63, 94, 0.2);
+  --window-header-bg: rgba(45, 18, 28, 0.9);
+  --window-content-bg: rgba(22, 9, 14, 0.8);
+}
+
+[data-theme="light-frosted"] {
+  --accent: #0284c7;
+  --accent-hover: #0369a1;
+  --accent-dark: #075985;
+  --bg-primary: #e8eef5;
+  --bg-secondary: #f8fafc;
+  --text-primary: #0f172a;
+  --text-secondary: #475569;
+  --border: rgba(2, 132, 199, 0.45);
+  --glass-bg: rgba(248, 250, 252, 0.82);
+  --glass-border: rgba(15, 23, 42, 0.12);
+  --window-header-bg: rgba(241, 245, 249, 0.92);
+  --window-content-bg: rgba(255, 255, 255, 0.86);
+}
+
+[data-theme="light-frosted"] .window-header {
+  border-bottom-color: rgba(15, 23, 42, 0.1);
+}
+
+[data-theme="light-frosted"] .desktop-icon-label {
+  color: #0f172a;
+  text-shadow: 0 1px 3px rgba(255, 255, 255, 0.85);
+}
+
+/* --------------------------------------------------------------------------
+   2. Window Snap Preview Overlay & Snapped States
+   -------------------------------------------------------------------------- */
+#snapPreview {
+  position: fixed;
+  z-index: 1990;
+  pointer-events: none;
+  border-radius: 14px;
+  background: rgba(125, 211, 192, 0.14);
+  border: 2px dashed var(--accent);
+  backdrop-filter: blur(8px);
+  box-shadow: 0 0 32px rgba(0, 0, 0, 0.25);
+  opacity: 0;
+  transform: scale(0.97);
+  transition: opacity 0.14s ease, transform 0.14s ease, left 0.12s ease, top 0.12s ease, width 0.12s ease, height 0.12s ease;
+  display: none;
+}
+
+#snapPreview.active {
+  display: block;
+  opacity: 1;
+  transform: scale(1);
+}
+
+.window.snapped-left,
+.os-window.snapped-left {
+  left: 0 !important;
+  top: 0 !important;
+  width: 50vw !important;
+  height: calc(100vh - 74px) !important;
+  border-radius: 0 12px 12px 0 !important;
+}
+
+.window.snapped-right,
+.os-window.snapped-right {
+  left: 50vw !important;
+  top: 0 !important;
+  width: 50vw !important;
+  height: calc(100vh - 74px) !important;
+  border-radius: 12px 0 0 12px !important;
+}
+
+/* --------------------------------------------------------------------------
+   3. App Store UI
+   -------------------------------------------------------------------------- */
+.lm-store {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  width: 100%;
+  background: var(--window-content-bg);
+  color: var(--text-primary);
+  overflow: hidden;
+}
+
+.lm-store-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.9rem 1.25rem;
+  border-bottom: 1px solid var(--glass-border);
+  background: rgba(255, 255, 255, 0.02);
+  flex-wrap: wrap;
+}
+
+.lm-store-title {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  font-size: 1.05rem;
+  font-weight: 700;
+}
+
+.lm-store-title i {
+  color: var(--accent);
+}
+
+.lm-store-tabs {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  background: rgba(255, 255, 255, 0.05);
+  padding: 0.25rem;
+  border-radius: 10px;
+  border: 1px solid var(--glass-border);
+}
+
+.lm-store-tab {
+  padding: 0.42rem 0.95rem;
+  border-radius: 8px;
+  font-size: 0.84rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+  transition: var(--transition-fast);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+}
+
+.lm-store-tab:hover {
+  color: var(--text-primary);
+}
+
+.lm-store-tab.active {
+  background: var(--accent);
+  color: #09101a;
+}
+
+.lm-store-search {
+  position: relative;
+  min-width: 200px;
+  flex: 1;
+  max-width: 280px;
+}
+
+.lm-store-search i {
+  position: absolute;
+  left: 0.75rem;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--text-secondary);
+  font-size: 0.82rem;
+  pointer-events: none;
+}
+
+.lm-store-search input {
+  width: 100%;
+  padding: 0.48rem 0.8rem 0.48rem 2.15rem;
+  border-radius: 9px;
+  border: 1px solid var(--glass-border);
+  background: rgba(255, 255, 255, 0.05);
+  color: var(--text-primary);
+  font-size: 0.84rem;
+  outline: none;
+  transition: var(--transition-fast);
+}
+
+.lm-store-search input:focus {
+  border-color: var(--accent);
+}
+
+.lm-store-body {
+  flex: 1;
+  overflow-y: auto;
+  padding: 1.25rem;
+}
+
+.lm-store-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(245px, 1fr));
+  gap: 1rem;
+}
+
+.lm-store-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 0.85rem;
+  padding: 1rem;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid var(--glass-border);
+  transition: transform var(--transition-fast), border-color var(--transition-fast), background var(--transition-fast);
+}
+
+.lm-store-card:hover {
+  transform: translateY(-2px);
+  border-color: var(--accent);
+  background: rgba(255, 255, 255, 0.06);
+}
+
+.lm-store-card-top {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.8rem;
+}
+
+.lm-store-icon {
+  width: 44px;
+  height: 44px;
+  border-radius: 11px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.25rem;
+  flex-shrink: 0;
+  background: rgba(255, 255, 255, 0.07);
+  border: 1px solid var(--glass-border);
+}
+
+.lm-store-meta {
+  min-width: 0;
+  flex: 1;
+}
+
+.lm-store-name {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 0.2rem;
+}
+
+.lm-store-cat {
+  display: inline-block;
+  font-size: 0.7rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--text-secondary);
+  background: rgba(255, 255, 255, 0.06);
+  padding: 0.14rem 0.45rem;
+  border-radius: 5px;
+}
+
+.lm-store-desc {
+  font-size: 0.81rem;
+  line-height: 1.45;
+  color: var(--text-secondary);
+}
+
+.lm-store-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.lm-btn {
+  padding: 0.48rem 0.85rem;
+  border-radius: 8px;
+  font-size: 0.81rem;
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+  transition: var(--transition-fast);
+}
+
+.lm-btn-primary {
+  background: var(--accent);
+  color: #09101a;
+  flex: 1;
+}
+
+.lm-btn-primary:hover {
+  background: var(--accent-hover);
+}
+
+.lm-btn-secondary {
+  background: rgba(255, 255, 255, 0.08);
+  color: var(--text-primary);
+  border: 1px solid var(--glass-border);
+}
+
+.lm-btn-secondary:hover {
+  border-color: var(--accent);
+}
+
+.lm-btn-danger {
+  background: rgba(239, 68, 68, 0.14);
+  color: #f87171;
+  border: 1px solid rgba(239, 68, 68, 0.3);
+}
+
+.lm-btn-danger:hover {
+  background: rgba(239, 68, 68, 0.24);
+}
+
+.lm-theme-swatch {
+  width: 100%;
+  height: 72px;
+  border-radius: 9px;
+  border: 1px solid var(--glass-border);
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: flex-end;
+  padding: 0.5rem 0.65rem;
+}
+
+.lm-theme-swatch-pill {
+  height: 18px;
+  padding: 0 0.55rem;
+  border-radius: 999px;
+  font-size: 0.68rem;
+  font-weight: 700;
+  display: inline-flex;
+  align-items: center;
+}
+
+.lm-store-card.is-active-theme {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 1px var(--accent);
+}
+
+/* --------------------------------------------------------------------------
+   4. Notification Center Popover & Count Badge
+   -------------------------------------------------------------------------- */
+.lm-notif-trigger {
+  position: relative;
+}
+
+.lm-notif-badge {
+  position: absolute;
+  top: -3px;
+  right: -4px;
+  min-width: 17px;
+  height: 17px;
+  padding: 0 4px;
+  border-radius: 999px;
+  background: var(--accent);
+  color: #09101a;
+  font-size: 0.65rem;
+  font-weight: 800;
+  line-height: 17px;
+  text-align: center;
+  pointer-events: none;
+}
+
+.lm-notif-badge.is-empty {
+  display: none;
+}
+
+#notificationCenter {
+  position: fixed;
+  bottom: 74px;
+  right: 18px;
+  width: 340px;
+  max-height: 460px;
+  display: none;
+  flex-direction: column;
+  background: var(--glass-bg);
+  backdrop-filter: blur(40px) saturate(180%);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  box-shadow: var(--shadow-heavy);
+  z-index: 2500;
+  overflow: hidden;
+  color: var(--text-primary);
+}
+
+#notificationCenter.active {
+  display: flex;
+}
+
+.lm-notif-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.9rem 1.05rem;
+  border-bottom: 1px solid var(--glass-border);
+}
+
+.lm-notif-header-title {
+  font-size: 0.92rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.lm-notif-clear {
+  font-size: 0.76rem;
+  font-weight: 600;
+  color: var(--accent);
+  padding: 0.25rem 0.55rem;
+  border-radius: 6px;
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.lm-notif-clear:hover {
+  background: rgba(255, 255, 255, 0.12);
+}
+
+.lm-notif-list {
+  flex: 1;
+  overflow-y: auto;
+  padding: 0.65rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.lm-notif-empty {
+  padding: 2rem 1rem;
+  text-align: center;
+  color: var(--text-secondary);
+  font-size: 0.84rem;
+}
+
+.lm-notif-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.7rem;
+  padding: 0.72rem 0.8rem;
+  border-radius: 11px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid var(--glass-border);
+}
+
+.lm-notif-item-icon {
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.07);
+  color: var(--accent);
+  flex-shrink: 0;
+  font-size: 0.9rem;
+}
+
+.lm-notif-item-content {
+  flex: 1;
+  min-width: 0;
+}
+
+.lm-notif-item-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+  margin-bottom: 0.18rem;
+}
+
+.lm-notif-item-title {
+  font-size: 0.83rem;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.lm-notif-item-time {
+  font-size: 0.68rem;
+  color: var(--text-secondary);
+  flex-shrink: 0;
+}
+
+.lm-notif-item-body {
+  font-size: 0.78rem;
+  line-height: 1.4;
+  color: var(--text-secondary);
+  word-break: break-word;
+}
+
+.lm-notif-dismiss {
+  color: var(--text-secondary);
+  font-size: 0.78rem;
+  padding: 0.2rem 0.35rem;
+  border-radius: 5px;
+  flex-shrink: 0;
+}
+
+.lm-notif-dismiss:hover {
+  color: var(--text-primary);
+  background: rgba(255, 255, 255, 0.08);
+}
+
+/* --------------------------------------------------------------------------
+   5. Quick Actions Popover Enhancements
+   -------------------------------------------------------------------------- */
+#quickActions.lm-qa-enhanced {
+  width: 310px;
+}
+
+.lm-qa-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 0.85rem;
+  font-weight: 700;
+  font-size: 0.94rem;
+}
+
+.lm-qa-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.55rem;
+  margin-bottom: 0.85rem;
+}
+
+.lm-qa-tile {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.35rem;
+  padding: 0.7rem 0.75rem;
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--glass-border);
+  color: var(--text-primary);
+  font-size: 0.78rem;
+  font-weight: 600;
+  text-align: left;
+  transition: var(--transition-fast);
+}
+
+.lm-qa-tile:hover {
+  border-color: var(--accent);
+  background: rgba(255, 255, 255, 0.09);
+}
+
+.lm-qa-tile.is-active {
+  background: rgba(125, 211, 192, 0.16);
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+.lm-qa-tile i {
+  font-size: 1rem;
+}
+
+.lm-qa-panic-btn {
+  width: 100%;
+  padding: 0.65rem 0.8rem;
+  background: rgba(239, 68, 68, 0.18);
+  border: 1px solid #ef4444;
+  border-radius: 10px;
+  color: #f87171;
+  font-weight: 700;
+  font-size: 0.82rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  transition: var(--transition-fast);
+}
+
+.lm-qa-panic-btn:hover {
+  background: rgba(239, 68, 68, 0.3);
+}

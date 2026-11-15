@@ -1,0 +1,610 @@
+/*
+ * SPDX-License-Identifier: AGPL-3.0-or-later
+ * Lunamix OS v2.0.0 - Bootloader, BIOS, Login & Setup Wizard Styles
+ * Modified from NautilusOS (https://github.com/nautilus-os/NautilusOS)
+ */
+
+/* Additional Theme: Forest */
+[data-theme="forest"] {
+  --accent: #34d399;
+  --accent-hover: #10b981;
+  --accent-dark: #059669;
+  --border: #34d399;
+}
+
+/* ==========================================================================
+   1. Bootloader Screen (Overrides nautilus.css display: none !important)
+   ========================================================================== */
+#bootloader {
+  position: fixed !important;
+  inset: 0 !important;
+  background: radial-gradient(circle at 50% 35%, #151b2b 0%, #070a12 100%) !important;
+  display: none !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  justify-content: center !important;
+  z-index: 10050 !important;
+  opacity: 0;
+  transition: opacity 0.35s ease;
+  padding: 2rem;
+}
+
+#bootloader.active {
+  display: flex !important;
+  opacity: 1 !important;
+  pointer-events: auto !important;
+}
+
+#bootloader.hidden {
+  opacity: 0 !important;
+  pointer-events: none !important;
+}
+
+.boot-bios-hint {
+  margin-top: 0.75rem;
+  font-size: 0.78rem;
+  color: var(--text-secondary);
+  letter-spacing: 0.3px;
+}
+
+.boot-bios-hint kbd {
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 4px;
+  padding: 0.1rem 0.4rem;
+  font-family: monospace;
+  font-size: 0.75rem;
+  color: var(--accent);
+}
+
+.boot-btn-primary {
+  padding: 0.6rem 1.35rem;
+  background: var(--accent);
+  color: var(--bg-primary);
+  border-radius: 8px;
+  font-weight: 700;
+  font-size: 0.85rem;
+  cursor: pointer;
+  border: none;
+  transition: transform 0.15s ease, filter 0.15s ease;
+}
+
+.boot-btn-primary:hover {
+  transform: translateY(-1px);
+  filter: brightness(1.08);
+}
+
+.boot-btn-secondary {
+  padding: 0.6rem 1.1rem;
+  background: rgba(255, 255, 255, 0.07);
+  color: var(--text-primary);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 0.82rem;
+  cursor: pointer;
+  transition: background 0.15s ease;
+}
+
+.boot-btn-secondary:hover {
+  background: rgba(255, 255, 255, 0.14);
+}
+
+/* ==========================================================================
+   2. BIOS Settings Modal
+   ========================================================================== */
+#biosModal {
+  position: fixed;
+  inset: 0;
+  background: rgba(4, 7, 15, 0.88);
+  backdrop-filter: blur(12px);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 10100;
+  padding: 1.5rem;
+}
+
+#biosModal.active {
+  display: flex;
+}
+
+.bios-dialog {
+  width: min(92vw, 560px);
+  background: #0d121f;
+  border: 1.5px solid var(--accent);
+  border-radius: 14px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.75);
+  overflow: hidden;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+.bios-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 1.35rem;
+  background: rgba(125, 211, 192, 0.08);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.bios-header-title {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-weight: 700;
+  font-size: 1rem;
+  color: var(--accent);
+  letter-spacing: 0.5px;
+}
+
+.bios-close-btn {
+  color: var(--text-secondary);
+  font-size: 1.1rem;
+  padding: 0.25rem 0.5rem;
+  border-radius: 6px;
+}
+
+.bios-close-btn:hover {
+  background: rgba(255, 255, 255, 0.1);
+  color: var(--text-primary);
+}
+
+.bios-body {
+  padding: 1.35rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  max-height: 75vh;
+  overflow-y: auto;
+}
+
+.bios-section {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 10px;
+  padding: 1rem;
+}
+
+.bios-section-title {
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  color: var(--accent);
+  margin-bottom: 0.75rem;
+}
+
+.bios-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  font-size: 0.86rem;
+  padding: 0.35rem 0;
+}
+
+.bios-select {
+  background: #161d2f;
+  color: var(--text-primary);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 8px;
+  padding: 0.45rem 0.75rem;
+  font-size: 0.85rem;
+}
+
+.bios-diag-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.55rem 1rem;
+  font-size: 0.8rem;
+}
+
+.bios-diag-item {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+  background: rgba(0, 0, 0, 0.25);
+  padding: 0.5rem 0.7rem;
+  border-radius: 8px;
+}
+
+.bios-diag-label {
+  color: var(--text-secondary);
+  font-size: 0.72rem;
+}
+
+.bios-diag-value {
+  color: var(--text-primary);
+  font-family: monospace;
+  font-size: 0.78rem;
+  word-break: break-all;
+}
+
+.bios-danger-btn {
+  padding: 0.55rem 1rem;
+  background: rgba(239, 68, 68, 0.16);
+  color: #f87171;
+  border: 1px solid rgba(239, 68, 68, 0.4);
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 0.82rem;
+  cursor: pointer;
+}
+
+.bios-danger-btn:hover {
+  background: rgba(239, 68, 68, 0.28);
+}
+
+.bios-footer {
+  display: flex;
+  justify-content: flex-end;
+  gap: 0.75rem;
+  padding: 0.9rem 1.35rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(0, 0, 0, 0.2);
+}
+
+/* ==========================================================================
+   3. Login / Lock Screen (Overrides nautilus.css display: none !important)
+   ========================================================================== */
+#login {
+  display: none !important;
+  z-index: 10020 !important;
+}
+
+#login.active {
+  display: flex !important;
+  opacity: 1 !important;
+  pointer-events: auto !important;
+}
+
+.login-account-switcher {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  justify-content: center;
+  margin-bottom: 1.1rem;
+  max-height: 128px;
+  overflow-y: auto;
+}
+
+.login-account-pill {
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.42rem 0.78rem;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  color: var(--text-primary);
+  font-size: 0.82rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.login-account-pill:hover {
+  background: rgba(255, 255, 255, 0.12);
+}
+
+.login-account-pill.selected {
+  background: rgba(125, 211, 192, 0.18);
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+.login-role-badge {
+  font-size: 0.68rem;
+  text-transform: uppercase;
+  letter-spacing: 0.6px;
+  padding: 0.15rem 0.5rem;
+  border-radius: 999px;
+  background: rgba(125, 211, 192, 0.14);
+  color: var(--accent);
+  border: 1px solid rgba(125, 211, 192, 0.35);
+  margin-bottom: 1rem;
+}
+
+.login-error {
+  width: 100%;
+  color: #f87171;
+  background: rgba(239, 68, 68, 0.12);
+  border: 1px solid rgba(239, 68, 68, 0.35);
+  border-radius: 8px;
+  padding: 0.5rem 0.75rem;
+  font-size: 0.8rem;
+  margin-bottom: 0.75rem;
+  text-align: center;
+  display: none;
+}
+
+.login-error.visible {
+  display: block;
+}
+
+.login-actions-row {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.75rem;
+  margin-top: 1rem;
+  flex-wrap: wrap;
+}
+
+.login-link-btn {
+  color: var(--accent);
+  font-size: 0.82rem;
+  font-weight: 600;
+  cursor: pointer;
+  background: transparent;
+  border: none;
+  padding: 0.25rem 0;
+}
+
+.login-link-btn:hover {
+  text-decoration: underline;
+}
+
+/* ==========================================================================
+   4. 4-Step Account Creation Setup Wizard
+   ========================================================================== */
+#setup {
+  position: fixed;
+  inset: 0;
+  background: radial-gradient(circle at center, #151923 0%, #080c16 100%);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 10040;
+  padding: 1.5rem;
+}
+
+#setup.active {
+  display: flex;
+}
+
+.setup-card {
+  width: min(94vw, 640px);
+  background: var(--glass-bg);
+  backdrop-filter: blur(36px) saturate(180%);
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  box-shadow: var(--shadow-heavy);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.setup-header {
+  padding: 1.25rem 1.6rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.setup-brand {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  font-weight: 700;
+  font-size: 1.05rem;
+  color: var(--text-primary);
+}
+
+.setup-brand i {
+  color: var(--accent);
+  font-size: 1.25rem;
+}
+
+.setup-steps-indicator {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.setup-step-pip {
+  width: 28px;
+  height: 6px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.14);
+  transition: background 0.2s ease, width 0.2s ease;
+}
+
+.setup-step-pip.active {
+  background: var(--accent);
+  width: 40px;
+}
+
+.setup-step-pip.done {
+  background: var(--accent-dark);
+}
+
+.setup-body {
+  padding: 1.6rem;
+  min-height: 320px;
+  max-height: 68vh;
+  overflow-y: auto;
+}
+
+.setup-step-pane {
+  display: none;
+}
+
+.setup-step-pane.active {
+  display: block;
+}
+
+.setup-heading {
+  font-size: 1.3rem;
+  font-weight: 700;
+  margin-bottom: 0.35rem;
+  color: var(--text-primary);
+}
+
+.setup-subheading {
+  font-size: 0.86rem;
+  color: var(--text-secondary);
+  margin-bottom: 1.25rem;
+}
+
+.setup-label {
+  display: block;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+  margin-bottom: 0.45rem;
+}
+
+.setup-input {
+  width: 100%;
+  padding: 0.78rem 1rem;
+  background: rgba(30, 35, 48, 0.75);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 10px;
+  color: var(--text-primary);
+  font-size: 0.92rem;
+  margin-bottom: 1rem;
+}
+
+.setup-input:focus {
+  outline: none;
+  border-color: var(--accent);
+}
+
+.setup-avatar-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(54px, 1fr));
+  gap: 0.6rem;
+}
+
+.setup-avatar-option {
+  height: 54px;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1.5px solid rgba(255, 255, 255, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.setup-avatar-option:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.setup-avatar-option.selected {
+  border-color: var(--accent);
+  background: rgba(125, 211, 192, 0.18);
+  transform: scale(1.04);
+}
+
+.setup-checkbox-row {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-size: 0.88rem;
+  color: var(--text-primary);
+  margin-bottom: 1rem;
+  cursor: pointer;
+}
+
+.setup-import-box {
+  margin-top: 1rem;
+  padding: 0.9rem 1rem;
+  border-radius: 10px;
+  border: 1px dashed rgba(255, 255, 255, 0.2);
+  background: rgba(0, 0, 0, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.setup-apps-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(165px, 1fr));
+  gap: 0.7rem;
+}
+
+.setup-app-card {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  padding: 0.75rem 0.85rem;
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1.5px solid rgba(255, 255, 255, 0.1);
+  cursor: pointer;
+  transition: all 0.15s ease;
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+.setup-app-card.selected {
+  border-color: var(--accent);
+  background: rgba(125, 211, 192, 0.15);
+}
+
+.setup-app-card i {
+  font-size: 1.05rem;
+  color: var(--accent);
+  width: 20px;
+  text-align: center;
+}
+
+.setup-theme-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  gap: 0.75rem;
+}
+
+.setup-theme-card {
+  padding: 0.9rem;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1.5px solid rgba(255, 255, 255, 0.12);
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  transition: all 0.15s ease;
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+.setup-theme-card.selected {
+  border-color: var(--accent);
+  background: rgba(125, 211, 192, 0.14);
+}
+
+.setup-theme-swatch {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  border: 2px solid rgba(255, 255, 255, 0.25);
+}
+
+.setup-error {
+  color: #f87171;
+  font-size: 0.82rem;
+  margin-top: 0.5rem;
+  min-height: 1.1rem;
+}
+
+.setup-footer {
+  padding: 1rem 1.6rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: rgba(0, 0, 0, 0.2);
+}
