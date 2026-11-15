@@ -1,5 +1,5 @@
 /**
- * Lunamix OS - Web GI (Web Gaming Interface) Engine
+ * Lunamix OS - WebOS Engine
  * Inspired by https://github.com/nautilus-os/NautilusOS
  * 
  * Features:
@@ -2928,7 +2928,7 @@
         const ascii = `
       <span style="color:var(--accent);">.---.</span>            <span style="color:var(--accent); font-weight:700;">${u}@lunamix-os</span>
      <span style="color:var(--accent);">/     \\</span>           -----------------
-    <span style="color:var(--accent);">| () () |</span>          <span style="color:#38bdf8;">OS:</span> Lunamix OS ${OS_VERSION} (Web GI)
+    <span style="color:var(--accent);">| () () |</span>          <span style="color:#38bdf8;">OS:</span> Lunamix OS ${OS_VERSION} (WebOS)
      <span style="color:var(--accent);">\\  _  /</span>           <span style="color:#38bdf8;">Kernel:</span> 6.8.0-web-nautilus
       <span style="color:var(--accent);">'---'</span>            <span style="color:#38bdf8;">Uptime:</span> ${Math.floor(performance.now() / 60000)} minutes
                        <span style="color:#38bdf8;">Shell:</span> nautilus-sh 2.4
@@ -3676,9 +3676,9 @@
           <i class="fa-solid fa-shield-halved"></i>
         </div>
         <h2 style="font-size: 1.6rem; font-weight: 800; color: var(--text-primary); margin-bottom: 0.35rem;">Lunamix OS</h2>
-        <div style="font-size: 0.85rem; color: var(--accent); font-weight: 600; margin-bottom: 0.75rem;">Version ${OS_VERSION.replace(/^v/, '')} (Web Gaming Interface)</div>
+        <div style="font-size: 0.85rem; color: var(--accent); font-weight: 600; margin-bottom: 0.75rem;">Version ${OS_VERSION.replace(/^v/, '')} (WebOS)</div>
         <p style="font-size: 0.86rem; color: var(--text-secondary); max-width: 460px; line-height: 1.5; margin-bottom: 1rem;">
-          Web gaming interface with unblocked games, cloud chat, and browser tools.
+          Browser-based WebOS with unblocked games, cloud chat, and browser tools.
         </p>
         <div style="font-size: 0.78rem; color: var(--text-secondary); background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08); border-radius: 10px; padding: 0.75rem 1rem; max-width: 460px; width: 100%; margin-bottom: 1.25rem; line-height: 1.55;">
           <div><strong>License:</strong> GNU Affero General Public License v3.0 (AGPL-3.0)</div>
@@ -3703,7 +3703,7 @@
   const BootManager = {
     init() {
       const bootVerEl = document.querySelector('.boot-version');
-      if (bootVerEl) bootVerEl.textContent = `Web GI (Web Gaming Interface) ${OS_VERSION}`;
+      if (bootVerEl) bootVerEl.textContent = `WebOS ${OS_VERSION}`;
 
       // 1. Initialize user session username immediately
       const acct = window.AccountManager && typeof window.AccountManager.getCurrentAccount === 'function'
