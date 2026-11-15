@@ -24,7 +24,7 @@
   // ==========================================================================
   // Global Version
   // ==========================================================================
-  const OS_VERSION = 'v1.2.2';
+  const OS_VERSION = 'v1.3.0';
   window.LUNAMIX_VERSION = OS_VERSION;
 
   // ==========================================================================
@@ -1022,36 +1022,35 @@
     }
   }
 
-  function renderChatApp(container, winObj) {
-    const lumaFallbackUrl = 'https://lunamixmc.github.io/Luma/';
+  const CINNY_CHAT_URL = 'https://skiingbeast2025.github.io/cinny/';
 
+  function renderChatApp(container, winObj) {
     if (winObj && typeof winObj.addHeaderButton === 'function') {
       winObj.addHeaderButton({
+        icon: 'fa-rotate-right',
+        title: 'Reload Chat',
+        onClick: () => {
+          const iframe = container.querySelector('#chatIframe');
+          if (iframe) {
+            const currentSrc = iframe.src;
+            iframe.src = 'about:blank';
+            setTimeout(() => { iframe.src = currentSrc; }, 50);
+          }
+        }
+      });
+      winObj.addHeaderButton({
         icon: 'fa-arrow-up-right-from-square',
-        title: 'Open Luma Chat in New Tab',
-        href: lumaFallbackUrl
+        title: 'Open Lunamix Chat in New Tab',
+        href: CINNY_CHAT_URL
       });
     }
 
     container.innerHTML = `
-      <div style="height: 100%; display: flex; align-items: center; justify-content: center; flex-direction: column; padding: 2rem; text-align: center; background: var(--bg-primary, #0a0e1a);">
-        <div style="max-width: 420px; width: 100%; padding: 2rem 1.75rem; border-radius: 16px; background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 255, 255, 0.08); box-shadow: 0 16px 40px rgba(0, 0, 0, 0.35);">
-          <div style="display: inline-flex; align-items: center; justify-content: center; width: 58px; height: 58px; border-radius: 16px; background: rgba(245, 158, 11, 0.14); color: #f59e0b; font-size: 1.65rem; margin-bottom: 1.1rem; border: 1px solid rgba(245, 158, 11, 0.3);">
-            <i class="fa-solid fa-wrench"></i>
-          </div>
-          <h3 style="font-size: 1.2rem; font-weight: 800; color: var(--text-primary, #e8eaed); margin-bottom: 0.55rem;">Chat Under Maintenance</h3>
-          <p style="font-size: 0.88rem; color: var(--text-secondary, #9aa0a6); line-height: 1.55; margin-bottom: 1.35rem;">
-            Lunamix Chat is currently in maintenance while we upgrade to the new chat system. For now, please use Luma Chat at:
-          </p>
-          <a href="${lumaFallbackUrl}" target="_blank" rel="noopener noreferrer" style="display: inline-flex; align-items: center; justify-content: center; gap: 0.55rem; width: 100%; padding: 0.72rem 1.1rem; border-radius: 10px; background: var(--accent, #7dd3c0); color: #0a0e1a; font-weight: 700; font-size: 0.9rem; text-decoration: none; transition: opacity 0.15s ease;">
-            <i class="fa-solid fa-arrow-up-right-from-square"></i>
-            <span>Open Luma Chat</span>
-          </a>
-          <div style="margin-top: 0.9rem; font-family: 'JetBrains Mono', monospace; font-size: 0.74rem; color: var(--text-secondary, #9aa0a6); word-break: break-all;">
-            ${lumaFallbackUrl}
-          </div>
-        </div>
-      </div>
+      <iframe id="chatIframe" src="${CINNY_CHAT_URL}" title="Lunamix Chat"
+        style="width: 100%; height: 100%; border: none; background: var(--bg-primary, #0a0e1a); display: block;"
+        allow="autoplay; fullscreen; clipboard-read; clipboard-write; microphone; camera; display-capture; focus-without-user-activation *"
+        sandbox="allow-scripts allow-same-origin allow-forms allow-popups allow-downloads allow-modals">
+      </iframe>
     `;
   }
 
