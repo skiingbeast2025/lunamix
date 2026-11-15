@@ -775,17 +775,22 @@
 
       if (switcher) {
         switcher.innerHTML = '';
-        accounts.forEach((acc) => {
-          const pill = document.createElement('button');
-          pill.type = 'button';
-          pill.className = 'login-account-pill' + (acc.username === this.selectedUsername ? ' selected' : '');
-          pill.textContent = acc.avatar + ' ' + acc.username;
-          pill.addEventListener('click', () => {
-            this.selectedUsername = acc.username;
-            this.renderAccounts(acc.username);
+        if (accounts.length > 1) {
+          switcher.style.display = 'flex';
+          accounts.forEach((acc) => {
+            const pill = document.createElement('button');
+            pill.type = 'button';
+            pill.className = 'login-account-pill' + (acc.username === this.selectedUsername ? ' selected' : '');
+            pill.textContent = acc.avatar + ' ' + acc.username;
+            pill.addEventListener('click', () => {
+              this.selectedUsername = acc.username;
+              this.renderAccounts(acc.username);
+            });
+            switcher.appendChild(pill);
           });
-          switcher.appendChild(pill);
-        });
+        } else {
+          switcher.style.display = 'none';
+        }
       }
 
       this.updateSelectedAccountUI(matched);
@@ -808,9 +813,11 @@
         }
       }
       if (loginBtn) {
-        loginBtn.innerHTML = account.hasPassword
-          ? 'Sign In <i class="fa-solid fa-arrow-right" style="margin-left: 6px;"></i>'
-          : '1-Click Sign In <i class="fa-solid fa-arrow-right" style="margin-left: 6px;"></i>';
+        loginBtn.textContent = account.hasPassword ? 'Sign In' : 'Continue';
+      }
+      const subtitleEl = document.getElementById('loginSubtitle');
+      if (subtitleEl) {
+        subtitleEl.textContent = account.hasPassword ? 'Sign in to continue' : 'Click Continue to unlock';
       }
       this.hideError();
     },

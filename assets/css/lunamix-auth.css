@@ -295,16 +295,10 @@
   color: var(--accent);
 }
 
-.login-role-badge {
-  font-size: 0.68rem;
-  text-transform: uppercase;
-  letter-spacing: 0.6px;
-  padding: 0.15rem 0.5rem;
-  border-radius: 999px;
-  background: rgba(125, 211, 192, 0.14);
-  color: var(--accent);
-  border: 1px solid rgba(125, 211, 192, 0.35);
-  margin-bottom: 1rem;
+.login-subtitle {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  margin: 0.15rem 0 1.25rem;
 }
 
 .login-error {
