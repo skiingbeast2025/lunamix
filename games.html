@@ -549,9 +549,27 @@
           </div>
         </div>
 
-        <!-- Live Status Counter -->
-        <div id="status-counter" class="text-xs text-slate-300 font-mono px-3 py-1.5 bg-slate-950/60 border border-slate-800/80 rounded-xl text-center sm:text-right shrink-0">
-          Loading catalog...
+        <!-- Live Status Counter & New Window Toggle -->
+        <div class="flex items-center gap-2 shrink-0 justify-between sm:justify-end">
+          <button
+            id="new-window-toggle"
+            type="button"
+            role="switch"
+            aria-checked="false"
+            onclick="toggleNewWindowMode()"
+            title="Toggle opening games in a new window"
+            class="inline-flex items-center gap-2 px-3 py-1.5 rounded-xl text-xs font-medium bg-slate-950/60 border border-slate-800/80 text-slate-300 hover:border-slate-600 hover:text-white transition-all cursor-pointer select-none"
+          >
+            <svg class="w-3.5 h-3.5 text-slate-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+            </svg>
+            <span>New Window</span>
+            <span id="new-window-pill" class="px-1.5 py-0.5 rounded text-[10px] font-mono font-bold bg-slate-800 text-slate-400">OFF</span>
+          </button>
+
+          <div id="status-counter" class="text-xs text-slate-300 font-mono px-3 py-1.5 bg-slate-950/60 border border-slate-800/80 rounded-xl text-center sm:text-right shrink-0">
+            Loading catalog...
+          </div>
         </div>
 
       </div>
@@ -1073,6 +1091,44 @@
     let searchQuery = '';
     let renderedCount = 0;
     const CHUNK_SIZE = 48;
+    const NEW_WINDOW_STORAGE_KEY = 'lunamix_open_in_new_window';
+    let openInNewWindow = localStorage.getItem(NEW_WINDOW_STORAGE_KEY) === 'true';
+
+    function updateNewWindowToggleUI() {
+      const btn = document.getElementById('new-window-toggle');
+      const pill = document.getElementById('new-window-pill');
+      if (!btn || !pill) return;
+      btn.setAttribute('aria-checked', openInNewWindow ? 'true' : 'false');
+      if (openInNewWindow) {
+        btn.classList.remove('border-slate-800/80', 'text-slate-300');
+        btn.classList.add('border-emerald-500/50', 'text-emerald-300');
+        pill.textContent = 'ON';
+        pill.classList.remove('bg-slate-800', 'text-slate-400');
+        pill.classList.add('bg-emerald-500/20', 'text-emerald-300');
+      } else {
+        btn.classList.remove('border-emerald-500/50', 'text-emerald-300');
+        btn.classList.add('border-slate-800/80', 'text-slate-300');
+        pill.textContent = 'OFF';
+        pill.classList.remove('bg-emerald-500/20', 'text-emerald-300');
+        pill.classList.add('bg-slate-800', 'text-slate-400');
+      }
+    }
+
+    function toggleNewWindowMode() {
+      openInNewWindow = !openInNewWindow;
+      localStorage.setItem(NEW_WINDOW_STORAGE_KEY, openInNewWindow ? 'true' : 'false');
+      updateNewWindowToggleUI();
+      const targetCount = Math.max(renderedCount, CHUNK_SIZE);
+      renderedCount = 0;
+      gamesGrid.innerHTML = '';
+      const restoreEnd = Math.min(targetCount, filteredGames.length);
+      for (let i = 0; i < restoreEnd; i++) {
+        gamesGrid.appendChild(createGameCard(filteredGames[i]));
+      }
+      renderedCount = restoreEnd;
+    }
+
+    updateNewWindowToggleUI();
 
     /**
      * Determine accurate logo for any game
@@ -1320,9 +1376,10 @@
      * Create individual game card element
      */
     function createGameCard(game) {
+      const useNewTab = openInNewWindow;
       const a = document.createElement('a');
       a.href = game.targetUrl;
-      if (game.openInNewTab) {
+      if (useNewTab) {
         a.target = '_blank';
         a.rel = 'noopener noreferrer';
       }
@@ -1345,7 +1402,7 @@
       imgContainer.appendChild(img);
 
       // Badges
-      if (game.openInNewTab) {
+      if (useNewTab) {
         const tabBadge = document.createElement('span');
         tabBadge.className = 'absolute top-1.5 left-1.5 px-1.5 py-0.5 text-[9px] font-mono font-medium text-cyan-300 bg-cyan-950/90 border border-cyan-800/70 rounded shadow flex items-center gap-1';
         tabBadge.innerHTML = '<span>↗</span><span>TAB</span>';
@@ -1362,7 +1419,7 @@
       // Play hover overlay
       const playOverlay = document.createElement('div');
       playOverlay.className = 'absolute inset-0 bg-black/40 backdrop-blur-[1px] opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center';
-      if (game.openInNewTab) {
+      if (useNewTab) {
         playOverlay.innerHTML = '<span class="w-9 h-9 rounded-full bg-white/95 text-black flex items-center justify-center shadow-lg transform group-hover:scale-110 transition-transform" title="Opens in clean standalone tab"><svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" /></svg></span>';
       } else {
         playOverlay.innerHTML = '<span class="w-9 h-9 rounded-full bg-white/95 text-black flex items-center justify-center shadow-lg transform group-hover:scale-110 transition-transform"><svg class="w-4 h-4 ml-0.5" fill="currentColor" viewBox="0 0 20 20"><path d="M4.5 3.5l11 6.5-11 6.5v-13z"/></svg></span>';
@@ -1397,7 +1454,7 @@
 
       const playHint = document.createElement('span');
       playHint.className = 'text-neutral-500 group-hover:text-neutral-200 transition-colors hidden sm:inline';
-      playHint.textContent = game.openInNewTab ? 'Open ↗' : 'Play →';
+      playHint.textContent = useNewTab ? 'Open ↗' : 'Play →';
       metaRow.appendChild(playHint);
 
       info.appendChild(metaRow);
