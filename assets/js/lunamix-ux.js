@@ -979,7 +979,17 @@
       if (this._initialized) return;
       this._initialized = true;
       this._syncSoundState();
+      this._syncNewTabBtn();
       this.render();
+
+      const trayNewTabBtn = document.getElementById('trayNewTabBtn');
+      if (trayNewTabBtn) {
+        trayNewTabBtn.addEventListener('click', (e) => {
+          e.stopPropagation();
+          playClickSound();
+          this.toggleNewTabMode();
+        });
+      }
 
       document.addEventListener('pointerdown', (e) => {
         if (this._isOpen && !e.target.closest('#quickActions') && !e.target.closest('#trayActionsBtn')) {
@@ -1007,6 +1017,32 @@
       const stored = readAccountData('sound_muted', null);
       if (typeof stored === 'boolean') return stored;
       return localStorage.getItem('lunamix_sound_muted') === 'true';
+    },
+
+    isNewTabMode() {
+      return localStorage.getItem('lunamix_open_new_tab') === 'true';
+    },
+
+    setNewTabMode(enabled) {
+      const next = Boolean(enabled);
+      localStorage.setItem('lunamix_open_new_tab', String(next));
+      this._syncNewTabBtn();
+      this.render();
+      window.dispatchEvent(new CustomEvent('lunamix-newtab-mode-changed', { detail: { enabled: next } }));
+    },
+
+    toggleNewTabMode() {
+      this.setNewTabMode(!this.isNewTabMode());
+    },
+
+    _syncNewTabBtn() {
+      const active = this.isNewTabMode();
+      const btn = document.getElementById('trayNewTabBtn');
+      if (btn) {
+        btn.classList.toggle('is-active', active);
+        btn.setAttribute('aria-pressed', String(active));
+        btn.title = active ? 'Open Everything in New Tab: ON' : 'Open Everything in New Tab: Off';
+      }
     },
 
     _syncSoundState() {
@@ -1086,6 +1122,7 @@
     render() {
       const el = this._ensureContainer();
       const muted = this.isMuted();
+      const newTabOn = this.isNewTabMode();
       const isFs = Boolean(document.fullscreenElement);
       const activeTheme = THEMES_CATALOG.find((t) => t.id === LunamixAppStore.getTheme()) || THEMES_CATALOG[0];
 
@@ -1095,6 +1132,10 @@
           <span style="font-size: 0.75rem; color: var(--accent);">Lunamix OS</span>
         </div>
         <div class="lm-qa-grid">
+          <button class="lm-qa-tile ${newTabOn ? 'is-active' : ''}" id="lmQaNewTabBtn">
+            <i class="fa-solid fa-arrow-up-right-from-square"></i>
+            <span>${newTabOn ? 'New Tab: ON' : 'New Tab: Off'}</span>
+          </button>
           <button class="lm-qa-tile ${muted ? 'is-active' : ''}" id="lmQaMuteBtn">
             <i class="fa-solid ${muted ? 'fa-volume-xmark' : 'fa-volume-high'}"></i>
             <span>${muted ? 'Sound Muted' : 'Sound On'}</span>
@@ -1107,7 +1148,7 @@
             <i class="fa-solid ${isFs ? 'fa-compress' : 'fa-expand'}"></i>
             <span>${isFs ? 'Exit Fullscreen' : 'Fullscreen'}</span>
           </button>
-          <button class="lm-qa-tile" id="lmQaLockBtn">
+          <button class="lm-qa-tile" id="lmQaLockBtn" style="grid-column: span 2;">
             <i class="fa-solid fa-lock"></i>
             <span>Lock Screen</span>
           </button>
@@ -1117,6 +1158,12 @@
           <span>Stealth / Panic Redirect</span>
         </button>
       `;
+
+      el.querySelector('#lmQaNewTabBtn')?.addEventListener('click', (e) => {
+        e.stopPropagation();
+        playClickSound();
+        this.toggleNewTabMode();
+      });
 
       el.querySelector('#lmQaMuteBtn')?.addEventListener('click', (e) => {
         e.stopPropagation();

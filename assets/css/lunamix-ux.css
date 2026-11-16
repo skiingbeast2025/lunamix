@@ -679,3 +679,9 @@
   z-index: 15;
   display: none;
 }
+
+.lm-newtab-toggle.is-active {
+  background: rgba(125, 211, 192, 0.22);
+  border: 1px solid var(--accent);
+  color: var(--accent);
+}

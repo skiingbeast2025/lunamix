@@ -321,6 +321,22 @@
       const app = APPS[appId];
       if (!app) return;
 
+      if (!customOpts.forceWindow && localStorage.getItem('lunamix_open_new_tab') === 'true') {
+        const directUrls = {
+          games: './games.html',
+          chat: CINNY_CHAT_URL,
+          browser: PROXY_LIST_URL,
+          fern: FERN_PROXY_URL,
+          eaglercraft: (localStorage.getItem('eagler_theme_choice') || 'nautilus') === 'nautilus'
+            ? './eaglercraft-test.html'
+            : './eaglercraft.html',
+          emulator: WEBRETRO_EMULATOR_URL
+        };
+        const targetUrl = customOpts.url || directUrls[appId] || `./?app=${encodeURIComponent(appId)}`;
+        window.open(targetUrl, '_blank', 'noopener,noreferrer');
+        return null;
+      }
+
       // If already open, restore/unminimize & focus
       if (this.windows[appId]) {
         const win = this.windows[appId];
@@ -874,9 +890,15 @@
         });
       }
 
+      let pendingUrlApp = new URLSearchParams(window.location.search).get('app');
       window.addEventListener('lunamix-account-changed', () => {
         this.syncUserProfile();
         this.syncInstalledAppsVisibility();
+        if (pendingUrlApp && APPS[pendingUrlApp]) {
+          const target = pendingUrlApp;
+          pendingUrlApp = null;
+          setTimeout(() => WindowManager.open(target, { forceWindow: true }), 120);
+        }
       });
 
       window.addEventListener('lunamix-apps-updated', () => {
