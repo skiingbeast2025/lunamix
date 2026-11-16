@@ -36,54 +36,7 @@
 <body>
 
   <!-- ======================================================================
-       1. Bootloader Screen
-       ====================================================================== -->
-  <div id="bootloader">
-    <div class="boot-logo">
-      <i class="fa-solid fa-cube"></i>
-    </div>
-    <div class="boot-title">LUNAMIX OS</div>
-    <div class="boot-version">WebOS v2.0.0</div>
-
-    <div class="boot-options">
-      <div class="boot-option selected" id="bootOptDefault" data-mode="standard">
-        <i class="fa-solid fa-play"></i>
-        <div>
-          <div style="font-weight: 700;">Lunamix OS (Standard Desktop Mode)</div>
-          <div style="font-size: 0.75rem; opacity: 0.8;">Full window manager, games hub, and chat engine</div>
-        </div>
-      </div>
-      <div class="boot-option" id="bootOptSafe" data-mode="safe">
-        <i class="fa-solid fa-shield-halved"></i>
-        <div>
-          <div style="font-weight: 700;">Safe Stealth Mode (High Anonymity)</div>
-          <div style="font-size: 0.75rem; opacity: 0.8;">Instant tab cloaking and silent audio enabled</div>
-        </div>
-      </div>
-    </div>
-
-    <div class="boot-loading active" style="margin-top: 1.5rem;">
-      <div class="loading-bar-container">
-        <div class="loading-bar" id="bootBar"></div>
-      </div>
-      <div class="boot-messages" id="bootMsg">Auto-booting into selected mode in <b id="bootCountdownSec">3</b>s... (Press [↑] / [↓] to choose)</div>
-    </div>
-
-    <div class="boot-hint" style="display: flex; flex-direction: column; gap: 0.6rem; align-items: center;">
-      <div style="display: flex; gap: 0.75rem; align-items: center; justify-content: center; flex-wrap: wrap;">
-        <button id="bootStartBtn" class="boot-btn-primary">
-          <i class="fa-solid fa-play" style="margin-right: 4px;"></i> Boot Now / Skip [ENTER]
-        </button>
-        <button id="bootBiosBtn" class="boot-btn-secondary">
-          <i class="fa-solid fa-sliders" style="margin-right: 4px;"></i> BIOS Settings [F2]
-        </button>
-      </div>
-      <div class="boot-bios-hint">Press <kbd>F2</kbd> or <kbd>Shift</kbd> to open BIOS Settings</div>
-    </div>
-  </div>
-
-  <!-- ======================================================================
-       1b. BIOS Settings Modal
+       1. BIOS Settings Modal
        ====================================================================== -->
   <div id="biosModal" role="dialog" aria-modal="true" aria-labelledby="biosModalTitle">
     <div class="bios-dialog">

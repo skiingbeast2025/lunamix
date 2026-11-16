@@ -552,23 +552,23 @@
     booted: false,
 
     init() {
-      const bootloader = document.getElementById('bootloader');
-      if (!bootloader) return;
-
-      this.booted = false;
+      this.booted = true;
       this.selectedMode = 'standard';
-      const settings = getBootSettings();
-      this.totalMs = settings.bootDelaySec * 1000;
-      this.remainingMs = this.totalMs;
+      localStorage.removeItem('lunamix_silent_mode');
 
-      // Always show bootloader on every page load (no auto-login)
-      bootloader.classList.remove('hidden');
-      bootloader.classList.add('active');
-      bootloader.style.setProperty('display', 'flex', 'important');
+      const bootloader = document.getElementById('bootloader');
+      if (bootloader) {
+        bootloader.classList.add('hidden');
+        bootloader.classList.remove('active');
+        bootloader.style.setProperty('display', 'none', 'important');
+      }
 
-      this.bindEvents();
-      this.updateModeUI();
-      this.startCountdown();
+      // Go straight to Setup Wizard if 0 accounts exist, otherwise Login Screen
+      if (AccountManager.getAccounts().length === 0) {
+        LunamixSetup.open();
+      } else {
+        LunamixLogin.open();
+      }
     },
 
     bindEvents() {
@@ -736,16 +736,7 @@
       if (this.booted) return;
       this.booted = true;
       this.stopCountdown();
-
-      // Apply Safe Stealth Mode if selected
-      if (this.selectedMode === 'safe') {
-        localStorage.setItem('lunamix_silent_mode', '1');
-        if (window.LunamixCloak && typeof window.LunamixCloak.apply === 'function') {
-          window.LunamixCloak.apply('google', true);
-        }
-      } else {
-        localStorage.removeItem('lunamix_silent_mode');
-      }
+      localStorage.removeItem('lunamix_silent_mode');
 
       const bootloader = document.getElementById('bootloader');
       if (bootloader) {
