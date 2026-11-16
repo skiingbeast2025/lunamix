@@ -1124,25 +1124,37 @@
     },
 
     bindKeyboardShortcuts() {
+      const kbOn = (key, def = true) => {
+        if (localStorage.getItem('lunamix_keybinds_enabled') === 'false') return false;
+        const val = localStorage.getItem(key);
+        return val === null ? def : val === 'true';
+      };
+
       document.addEventListener('keydown', (e) => {
         // Meta/Windows key toggles Start Menu
-        if (e.key === 'Meta') {
+        if (e.key === 'Meta' && kbOn('lunamix_kb_meta')) {
           this.toggleStartMenu();
         }
         // Alt + T: Open Terminal
-        if (e.altKey && (e.key === 't' || e.key === 'T')) {
+        if (e.altKey && (e.key === 't' || e.key === 'T') && kbOn('lunamix_kb_terminal')) {
           e.preventDefault();
           WindowManager.open('terminal');
         }
         // Alt + C: Open Chat
-        if (e.altKey && (e.key === 'c' || e.key === 'C')) {
+        if (e.altKey && (e.key === 'c' || e.key === 'C') && kbOn('lunamix_kb_chat')) {
           e.preventDefault();
           WindowManager.open('chat');
         }
+        // Alt + G: Open Games Hub
+        if (e.altKey && (e.key === 'g' || e.key === 'G') && kbOn('lunamix_kb_games')) {
+          e.preventDefault();
+          WindowManager.open('games');
+        }
         // Escape closes start menu and context menu
-        if (e.key === 'Escape') {
+        if (e.key === 'Escape' && kbOn('lunamix_kb_esc')) {
           this.closeStartMenu();
           this.closeQuickActions();
+          window.LunamixNotifications?.close();
           const cm = document.getElementById('contextMenu');
           if (cm) cm.style.display = 'none';
         }
@@ -3528,136 +3540,301 @@
   function renderSettingsApp(container, winObj) {
     const currentTheme = document.documentElement.getAttribute('data-theme') || 'nautilus';
     const isFullDock = localStorage.getItem('nautilus_dock_mode') === 'full';
+    const iconsGrid = document.getElementById('desktopIcons');
+    const iconsVisible = !iconsGrid || iconsGrid.style.display !== 'none';
+    const snapEnabled = localStorage.getItem('lunamix_snap_enabled') !== 'false';
+    const soundEnabled = window.LunamixQuickActions ? !window.LunamixQuickActions.isMuted() : true;
+    const newTabEnabled = localStorage.getItem('lunamix_open_new_tab') === 'true';
+    const kbMaster = localStorage.getItem('lunamix_keybinds_enabled') !== 'false';
+    const kbBool = (k) => localStorage.getItem(k) !== 'false';
+
+    const themes = [
+      { id: 'nautilus', name: 'Nautilus Mint', color: '#7dd3c0' },
+      { id: 'midnight', name: 'Midnight Purple', color: '#a855f7' },
+      { id: 'ocean', name: 'Ocean Glacial', color: '#38bdf8' },
+      { id: 'emerald', name: 'Emerald Forest', color: '#10b981' },
+      { id: 'crimson', name: 'Crimson Dusk', color: '#f43f5e' },
+      { id: 'obsidian', name: 'Obsidian Cyber', color: '#ff5252' },
+      { id: 'matrix', name: 'Matrix Green', color: '#00ff88' },
+      { id: 'sunset', name: 'Sunset Gold', color: '#f59e0b' },
+      { id: 'light-frosted', name: 'Light Frosted', color: '#0ea5e9' }
+    ];
+
+    const toggleSwitchHtml = (id, checked) => `
+      <label style="position: relative; display: inline-block; width: 42px; height: 24px; cursor: pointer; flex-shrink: 0;">
+        <input type="checkbox" id="${id}" ${checked ? 'checked' : ''} style="opacity: 0; width: 0; height: 0;" />
+        <span class="lm-set-slider" style="position: absolute; inset: 0; border-radius: 999px; background: ${checked ? 'var(--accent)' : 'rgba(255,255,255,0.16)'}; transition: 0.2s;">
+          <span style="position: absolute; top: 3px; left: ${checked ? '21px' : '3px'}; width: 18px; height: 18px; border-radius: 50%; background: ${checked ? '#0a0e1a' : '#fff'}; transition: 0.2s;"></span>
+        </span>
+      </label>
+    `;
+
+    const rowStyle = 'display: flex; align-items: center; justify-content: space-between; gap: 1rem; padding: 0.75rem 0; border-bottom: 1px solid rgba(255,255,255,0.06);';
+    const cardStyle = 'background: rgba(20, 25, 38, 0.7); border: 1px solid rgba(255,255,255,0.08); border-radius: 12px; padding: 1.15rem; margin-bottom: 1rem;';
 
     container.innerHTML = `
-      <div style="height: 100%; overflow-y: auto; padding: 1.5rem; background: #0a0e1a;">
-        <div style="max-width: 680px; margin: 0 auto;">
-          <h2 style="font-size: 1.3rem; font-weight: 700; margin-bottom: 1.5rem; display: flex; align-items: center; gap: 0.6rem;">
+      <div style="height: 100%; display: flex; flex-direction: column; background: #0a0e1a; color: var(--text-primary);">
+        <div style="display: flex; align-items: center; justify-content: space-between; padding: 1rem 1.25rem; border-bottom: 1px solid rgba(255,255,255,0.08); flex-wrap: wrap; gap: 0.75rem;">
+          <div style="display: flex; align-items: center; gap: 0.6rem; font-size: 1.05rem; font-weight: 700;">
             <i class="fa-solid fa-gear" style="color: var(--accent);"></i>
-            <span>System Settings & Personalization</span>
-          </h2>
-
-          <!-- 1. Color Palette -->
-          <div style="background: rgba(20, 25, 38, 0.7); border: 1px solid rgba(255,255,255,0.08); border-radius: 12px; padding: 1.25rem; margin-bottom: 1.25rem;">
-            <h3 style="font-size: 0.95rem; font-weight: 700; margin-bottom: 0.35rem;">Desktop Theme Colorway</h3>
-            <p style="font-size: 0.8rem; color: var(--text-secondary); margin-bottom: 1rem;">Select your preferred NautilusOS accent token.</p>
-            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); gap: 0.75rem;">
-              <div class="theme-picker-tile ${currentTheme === 'nautilus' ? 'active' : ''}" data-theme="nautilus" style="padding: 0.75rem; border: 1px solid ${currentTheme === 'nautilus' ? '#7dd3c0' : 'rgba(255,255,255,0.1)'}; border-radius: 8px; cursor: pointer; text-align: center;">
-                <div style="width: 24px; height: 24px; border-radius: 50%; background: #7dd3c0; margin: 0 auto 0.4rem;"></div>
-                <div style="font-size: 0.82rem; font-weight: 600;">Nautilus Mint</div>
-              </div>
-              <div class="theme-picker-tile ${currentTheme === 'obsidian' ? 'active' : ''}" data-theme="obsidian" style="padding: 0.75rem; border: 1px solid ${currentTheme === 'obsidian' ? '#ff5252' : 'rgba(255,255,255,0.1)'}; border-radius: 8px; cursor: pointer; text-align: center;">
-                <div style="width: 24px; height: 24px; border-radius: 50%; background: #ff5252; margin: 0 auto 0.4rem;"></div>
-                <div style="font-size: 0.82rem; font-weight: 600;">Obsidian Cyber</div>
-              </div>
-              <div class="theme-picker-tile ${currentTheme === 'matrix' ? 'active' : ''}" data-theme="matrix" style="padding: 0.75rem; border: 1px solid ${currentTheme === 'matrix' ? '#00ff88' : 'rgba(255,255,255,0.1)'}; border-radius: 8px; cursor: pointer; text-align: center;">
-                <div style="width: 24px; height: 24px; border-radius: 50%; background: #00ff88; margin: 0 auto 0.4rem;"></div>
-                <div style="font-size: 0.82rem; font-weight: 600;">Matrix Green</div>
-              </div>
-              <div class="theme-picker-tile ${currentTheme === 'midnight' ? 'active' : ''}" data-theme="midnight" style="padding: 0.75rem; border: 1px solid ${currentTheme === 'midnight' ? '#a855f7' : 'rgba(255,255,255,0.1)'}; border-radius: 8px; cursor: pointer; text-align: center;">
-                <div style="width: 24px; height: 24px; border-radius: 50%; background: #a855f7; margin: 0 auto 0.4rem;"></div>
-                <div style="font-size: 0.82rem; font-weight: 600;">Midnight Purple</div>
-              </div>
-              <div class="theme-picker-tile ${currentTheme === 'sunset' ? 'active' : ''}" data-theme="sunset" style="padding: 0.75rem; border: 1px solid ${currentTheme === 'sunset' ? '#f59e0b' : 'rgba(255,255,255,0.1)'}; border-radius: 8px; cursor: pointer; text-align: center;">
-                <div style="width: 24px; height: 24px; border-radius: 50%; background: #f59e0b; margin: 0 auto 0.4rem;"></div>
-                <div style="font-size: 0.82rem; font-weight: 600;">Sunset Gold</div>
-              </div>
-              <div class="theme-picker-tile ${currentTheme === 'ocean' ? 'active' : ''}" data-theme="ocean" style="padding: 0.75rem; border: 1px solid ${currentTheme === 'ocean' ? '#38bdf8' : 'rgba(255,255,255,0.1)'}; border-radius: 8px; cursor: pointer; text-align: center;">
-                <div style="width: 24px; height: 24px; border-radius: 50%; background: #38bdf8; margin: 0 auto 0.4rem;"></div>
-                <div style="font-size: 0.82rem; font-weight: 600;">Ocean Glacial</div>
-              </div>
-            </div>
+            <span>Settings</span>
           </div>
-
-          <!-- 2. Dock Style -->
-          <div style="background: rgba(20, 25, 38, 0.7); border: 1px solid rgba(255,255,255,0.08); border-radius: 12px; padding: 1.25rem; margin-bottom: 1.25rem;">
-            <h3 style="font-size: 0.95rem; font-weight: 700; margin-bottom: 0.35rem;">Dock & Taskbar Style</h3>
-            <p style="font-size: 0.8rem; color: var(--text-secondary); margin-bottom: 0.8rem;">Switch between floating pill dock (macOS/Nautilus style) and full-width taskbar (Windows style).</p>
-            <div style="display: flex; gap: 1rem;">
-              <label style="display: flex; align-items: center; gap: 0.5rem; font-size: 0.85rem; cursor: pointer;">
-                <input type="radio" name="dockMode" value="pill" ${!isFullDock ? 'checked' : ''} id="dockModePill" />
-                <span>Floating Pill Dock</span>
-              </label>
-              <label style="display: flex; align-items: center; gap: 0.5rem; font-size: 0.85rem; cursor: pointer;">
-                <input type="radio" name="dockMode" value="full" ${isFullDock ? 'checked' : ''} id="dockModeFull" />
-                <span>Full-Width Taskbar</span>
-              </label>
-            </div>
+          <div style="display: flex; gap: 0.4rem; flex-wrap: wrap;">
+            <button class="lm-set-tab active" data-tab="appearance" style="padding: 0.4rem 0.8rem; border-radius: 8px; border: 1px solid var(--accent); background: rgba(125,211,192,0.16); color: var(--accent); font-size: 0.8rem; font-weight: 600; cursor: pointer;">Themes &amp; UI</button>
+            <button class="lm-set-tab" data-tab="behavior" style="padding: 0.4rem 0.8rem; border-radius: 8px; border: 1px solid rgba(255,255,255,0.1); background: rgba(255,255,255,0.04); color: var(--text-secondary); font-size: 0.8rem; font-weight: 600; cursor: pointer;">Behavior</button>
+            <button class="lm-set-tab" data-tab="keybinds" style="padding: 0.4rem 0.8rem; border-radius: 8px; border: 1px solid rgba(255,255,255,0.1); background: rgba(255,255,255,0.04); color: var(--text-secondary); font-size: 0.8rem; font-weight: 600; cursor: pointer;">Keybinds</button>
+            <button class="lm-set-tab" data-tab="stealth" style="padding: 0.4rem 0.8rem; border-radius: 8px; border: 1px solid rgba(255,255,255,0.1); background: rgba(255,255,255,0.04); color: var(--text-secondary); font-size: 0.8rem; font-weight: 600; cursor: pointer;">Stealth</button>
           </div>
+        </div>
 
-          <!-- 3. Tab Cloaking & Stealth -->
-          <div style="background: rgba(20, 25, 38, 0.7); border: 1px solid rgba(255,255,255,0.08); border-radius: 12px; padding: 1.25rem; margin-bottom: 1.25rem;">
-            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.35rem; flex-wrap: wrap; gap: 0.5rem;">
-              <h3 style="font-size: 0.95rem; font-weight: 700; margin: 0;">Stealth Tab Cloak</h3>
-              <button id="openCloakWindowBtn" style="padding: 0.35rem 0.75rem; background: rgba(56, 189, 248, 0.15); color: #38bdf8; border: 1px solid rgba(56, 189, 248, 0.3); border-radius: 6px; font-size: 0.75rem; font-weight: 600; cursor: pointer;">
-                <i class="fa-solid fa-shield-halved" style="margin-right: 4px;"></i> Open Tab Cloak Window
-              </button>
-            </div>
-            <p style="font-size: 0.8rem; color: var(--text-secondary); margin-bottom: 0.8rem;">Disguise browser tab title and favicon as school apps or keep authentic default.</p>
-            <div style="display: flex; gap: 0.6rem; flex-wrap: wrap;">
-              <button class="cloak-btn" data-preset="default" style="padding: 0.45rem 0.85rem; background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.15); border-radius: 8px; font-size: 0.8rem; color: var(--text-primary); cursor: pointer;">
-                <i class="fa-solid fa-rotate-left"></i> Default (Lunamix OS)
-              </button>
-              <button class="cloak-btn" data-preset="classroom" style="padding: 0.45rem 0.85rem; background: rgba(30,35,48,0.8); border: 1px solid rgba(255,255,255,0.15); border-radius: 8px; font-size: 0.8rem; color: var(--text-primary); cursor: pointer;">
-                <i class="fa-solid fa-graduation-cap" style="color: #4ade80;"></i> Google Classroom
-              </button>
-              <button class="cloak-btn" data-preset="drive" style="padding: 0.45rem 0.85rem; background: rgba(30,35,48,0.8); border: 1px solid rgba(255,255,255,0.15); border-radius: 8px; font-size: 0.8rem; color: var(--text-primary); cursor: pointer;">
-                <i class="fa-brands fa-google-drive" style="color: #38bdf8;"></i> Google Drive
-              </button>
-              <button class="cloak-btn" data-preset="canvas" style="padding: 0.45rem 0.85rem; background: rgba(30,35,48,0.8); border: 1px solid rgba(255,255,255,0.15); border-radius: 8px; font-size: 0.8rem; color: var(--text-primary); cursor: pointer;">
-                <i class="fa-solid fa-chalkboard" style="color: #ef4444;"></i> Canvas LMS
-              </button>
-              <button class="cloak-btn" data-preset="docs" style="padding: 0.45rem 0.85rem; background: rgba(30,35,48,0.8); border: 1px solid rgba(255,255,255,0.15); border-radius: 8px; font-size: 0.8rem; color: var(--text-primary); cursor: pointer;">
-                <i class="fa-solid fa-file-lines" style="color: #38bdf8;"></i> Google Docs
-              </button>
-              <button class="cloak-btn" data-preset="khan" style="padding: 0.45rem 0.85rem; background: rgba(30,35,48,0.8); border: 1px solid rgba(255,255,255,0.15); border-radius: 8px; font-size: 0.8rem; color: var(--text-primary); cursor: pointer;">
-                <i class="fa-solid fa-leaf" style="color: #10b981;"></i> Khan Academy
-              </button>
-              <button class="cloak-btn" data-preset="wikipedia" style="padding: 0.45rem 0.85rem; background: rgba(30,35,48,0.8); border: 1px solid rgba(255,255,255,0.15); border-radius: 8px; font-size: 0.8rem; color: var(--text-primary); cursor: pointer;">
-                <i class="fa-solid fa-book" style="color: #e2e8f0;"></i> Wikipedia
-              </button>
-            </div>
-          </div>
+        <div style="flex: 1; overflow-y: auto; padding: 1.25rem;">
+          <div style="max-width: 680px; margin: 0 auto;">
+            <!-- TAB: APPEARANCE -->
+            <div class="lm-set-pane" data-pane="appearance">
+              <div style="${cardStyle}">
+                <h3 style="font-size: 0.95rem; font-weight: 700; margin-bottom: 0.3rem;">Desktop Theme</h3>
+                <p style="font-size: 0.78rem; color: var(--text-secondary); margin-bottom: 0.9rem;">Choose your accent palette and desktop look.</p>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(125px, 1fr)); gap: 0.65rem;">
+                  ${themes.map(t => `
+                    <div class="theme-picker-tile ${currentTheme === t.id ? 'active' : ''}" data-theme="${t.id}" style="padding: 0.7rem; border: 1px solid ${currentTheme === t.id ? t.color : 'rgba(255,255,255,0.1)'}; border-radius: 8px; cursor: pointer; text-align: center; background: ${currentTheme === t.id ? 'rgba(255,255,255,0.06)' : 'transparent'};">
+                      <div style="width: 22px; height: 22px; border-radius: 50%; background: ${t.color}; margin: 0 auto 0.35rem;"></div>
+                      <div style="font-size: 0.8rem; font-weight: 600;">${t.name}</div>
+                    </div>
+                  `).join('')}
+                </div>
+              </div>
 
-          <!-- 4. Panic Key Configuration -->
-          <div style="background: rgba(20, 25, 38, 0.7); border: 1px solid rgba(255,255,255,0.08); border-radius: 12px; padding: 1.25rem;">
-            <h3 style="font-size: 0.95rem; font-weight: 700; margin-bottom: 0.35rem;">Panic Key Shortcut</h3>
-            <p style="font-size: 0.8rem; color: var(--text-secondary); margin-bottom: 0.8rem;">Instant redirect shortcut and destination URL.</p>
-            <div style="display: flex; gap: 0.8rem; align-items: center;">
-              <input type="text" id="panicKeyInput" value="${window.LunamixPanic?.panicKey || '`'}" style="width: 80px; text-align: center; font-weight: 700; padding: 0.5rem; background: #0a0e1a; border: 1px solid rgba(255,255,255,0.2); border-radius: 8px; color: var(--accent);" />
-              <input type="text" id="panicUrlInput" value="${window.LunamixPanic?.panicUrl || 'https://www.apsva.us/parentvue-canvas/#canvas'}" style="flex: 1; padding: 0.5rem 0.8rem; background: #0a0e1a; border: 1px solid rgba(255,255,255,0.2); border-radius: 8px; color: var(--text-primary); font-size: 0.85rem;" />
-              <button id="savePanicBtn" style="padding: 0.5rem 1rem; background: var(--accent); color: var(--bg-primary); font-weight: 700; border-radius: 8px; font-size: 0.82rem;">Save</button>
+              <div style="${cardStyle}">
+                <h3 style="font-size: 0.95rem; font-weight: 700; margin-bottom: 0.3rem;">Dock &amp; Desktop</h3>
+                <div style="${rowStyle}">
+                  <div>
+                    <div style="font-size: 0.85rem; font-weight: 600;">Full-Width Taskbar</div>
+                    <div style="font-size: 0.76rem; color: var(--text-secondary);">Switch between floating pill dock and full-width taskbar</div>
+                  </div>
+                  ${toggleSwitchHtml('setDockFullToggle', isFullDock)}
+                </div>
+                <div style="${rowStyle}">
+                  <div>
+                    <div style="font-size: 0.85rem; font-weight: 600;">Show Desktop Icons</div>
+                    <div style="font-size: 0.76rem; color: var(--text-secondary);">Toggle desktop icon visibility</div>
+                  </div>
+                  ${toggleSwitchHtml('setDesktopIconsToggle', iconsVisible)}
+                </div>
+                <div style="${rowStyle} border-bottom: none; padding-bottom: 0;">
+                  <div>
+                    <div style="font-size: 0.85rem; font-weight: 600;">Align Desktop Icons</div>
+                    <div style="font-size: 0.76rem; color: var(--text-secondary);">Reset dragged icons back to the default grid</div>
+                  </div>
+                  <button id="setAlignIconsBtn" style="padding: 0.4rem 0.8rem; background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.15); border-radius: 8px; color: var(--text-primary); font-size: 0.78rem; font-weight: 600; cursor: pointer;">Align Grid</button>
+                </div>
+              </div>
+            </div>
+
+            <!-- TAB: BEHAVIOR -->
+            <div class="lm-set-pane" data-pane="behavior" style="display: none;">
+              <div style="${cardStyle}">
+                <h3 style="font-size: 0.95rem; font-weight: 700; margin-bottom: 0.3rem;">Navigation &amp; Windows</h3>
+                <div style="${rowStyle}">
+                  <div>
+                    <div style="font-size: 0.85rem; font-weight: 600;">Open Everything in New Tab</div>
+                    <div style="font-size: 0.76rem; color: var(--text-secondary);">Launch all apps and links in a new browser tab instead of desktop windows</div>
+                  </div>
+                  ${toggleSwitchHtml('setNewTabToggle', newTabEnabled)}
+                </div>
+                <div style="${rowStyle}">
+                  <div>
+                    <div style="font-size: 0.85rem; font-weight: 600;">Window Edge Snapping</div>
+                    <div style="font-size: 0.76rem; color: var(--text-secondary);">Snap windows to left, right, or maximize when dragged to screen edges</div>
+                  </div>
+                  ${toggleSwitchHtml('setSnapToggle', snapEnabled)}
+                </div>
+                <div style="${rowStyle} border-bottom: none; padding-bottom: 0;">
+                  <div>
+                    <div style="font-size: 0.85rem; font-weight: 600;">UI Sound Effects</div>
+                    <div style="font-size: 0.76rem; color: var(--text-secondary);">Play subtle clicks and notification chimes</div>
+                  </div>
+                  ${toggleSwitchHtml('setSoundToggle', soundEnabled)}
+                </div>
+              </div>
+            </div>
+
+            <!-- TAB: KEYBINDS -->
+            <div class="lm-set-pane" data-pane="keybinds" style="display: none;">
+              <div style="${cardStyle}">
+                <h3 style="font-size: 0.95rem; font-weight: 700; margin-bottom: 0.3rem;">Desktop Keybinds</h3>
+                <div style="${rowStyle}">
+                  <div>
+                    <div style="font-size: 0.85rem; font-weight: 600;">Enable Keyboard Shortcuts</div>
+                    <div style="font-size: 0.76rem; color: var(--text-secondary);">Master toggle for all OS keyboard shortcuts</div>
+                  </div>
+                  ${toggleSwitchHtml('setKbMasterToggle', kbMaster)}
+                </div>
+                <div style="${rowStyle}">
+                  <div>
+                    <div style="font-size: 0.85rem; font-weight: 600;"><code>Meta / Super</code> &rarr; Start Menu</div>
+                    <div style="font-size: 0.76rem; color: var(--text-secondary);">Toggle the Start Menu with the Windows / Command key</div>
+                  </div>
+                  ${toggleSwitchHtml('setKbMetaToggle', kbBool('lunamix_kb_meta'))}
+                </div>
+                <div style="${rowStyle}">
+                  <div>
+                    <div style="font-size: 0.85rem; font-weight: 600;"><code>Alt + T</code> &rarr; Terminal</div>
+                    <div style="font-size: 0.76rem; color: var(--text-secondary);">Quick-launch the Terminal app</div>
+                  </div>
+                  ${toggleSwitchHtml('setKbTermToggle', kbBool('lunamix_kb_terminal'))}
+                </div>
+                <div style="${rowStyle}">
+                  <div>
+                    <div style="font-size: 0.85rem; font-weight: 600;"><code>Alt + C</code> &rarr; Lunamix Chat</div>
+                    <div style="font-size: 0.76rem; color: var(--text-secondary);">Quick-launch Lunamix Chat</div>
+                  </div>
+                  ${toggleSwitchHtml('setKbChatToggle', kbBool('lunamix_kb_chat'))}
+                </div>
+                <div style="${rowStyle}">
+                  <div>
+                    <div style="font-size: 0.85rem; font-weight: 600;"><code>Alt + G</code> &rarr; Games Hub</div>
+                    <div style="font-size: 0.76rem; color: var(--text-secondary);">Quick-launch Games Hub</div>
+                  </div>
+                  ${toggleSwitchHtml('setKbGamesToggle', kbBool('lunamix_kb_games'))}
+                </div>
+                <div style="${rowStyle} border-bottom: none; padding-bottom: 0;">
+                  <div>
+                    <div style="font-size: 0.85rem; font-weight: 600;"><code>Esc</code> &rarr; Close Menus</div>
+                    <div style="font-size: 0.76rem; color: var(--text-secondary);">Dismiss Start Menu, Notification Center, and Context Menu</div>
+                  </div>
+                  ${toggleSwitchHtml('setKbEscToggle', kbBool('lunamix_kb_esc'))}
+                </div>
+              </div>
+
+              <div style="${cardStyle}">
+                <h3 style="font-size: 0.95rem; font-weight: 700; margin-bottom: 0.35rem;">Panic Key Shortcut</h3>
+                <p style="font-size: 0.78rem; color: var(--text-secondary); margin-bottom: 0.8rem;">Instant redirect key and destination URL.</p>
+                <div style="display: flex; gap: 0.7rem; align-items: center; flex-wrap: wrap;">
+                  <input type="text" id="panicKeyInput" value="${window.LunamixPanic?.panicKey || '`'}" style="width: 72px; text-align: center; font-weight: 700; padding: 0.5rem; background: #0a0e1a; border: 1px solid rgba(255,255,255,0.2); border-radius: 8px; color: var(--accent);" />
+                  <input type="text" id="panicUrlInput" value="${window.LunamixPanic?.panicUrl || 'https://www.apsva.us/parentvue-canvas/#canvas'}" style="flex: 1; min-width: 200px; padding: 0.5rem 0.8rem; background: #0a0e1a; border: 1px solid rgba(255,255,255,0.2); border-radius: 8px; color: var(--text-primary); font-size: 0.84rem;" />
+                  <button id="savePanicBtn" style="padding: 0.5rem 1rem; background: var(--accent); color: var(--bg-primary); font-weight: 700; border-radius: 8px; font-size: 0.82rem; cursor: pointer;">Save</button>
+                </div>
+                <div id="panicSavedMsg" style="display: none; margin-top: 0.6rem; font-size: 0.78rem; color: #4ade80; font-weight: 600;">Panic shortcut saved!</div>
+              </div>
+            </div>
+
+            <!-- TAB: STEALTH -->
+            <div class="lm-set-pane" data-pane="stealth" style="display: none;">
+              <div style="${cardStyle}">
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.35rem; flex-wrap: wrap; gap: 0.5rem;">
+                  <h3 style="font-size: 0.95rem; font-weight: 700; margin: 0;">Stealth Tab Cloak</h3>
+                  <button id="openCloakWindowBtn" style="padding: 0.35rem 0.75rem; background: rgba(56, 189, 248, 0.15); color: #38bdf8; border: 1px solid rgba(56, 189, 248, 0.3); border-radius: 6px; font-size: 0.75rem; font-weight: 600; cursor: pointer;">
+                    <i class="fa-solid fa-shield-halved" style="margin-right: 4px;"></i> Open Tab Cloak Window
+                  </button>
+                </div>
+                <p style="font-size: 0.78rem; color: var(--text-secondary); margin-bottom: 0.8rem;">Disguise browser tab title and favicon as school apps or keep the default.</p>
+                <div style="display: flex; gap: 0.6rem; flex-wrap: wrap;">
+                  <button class="cloak-btn" data-preset="default" style="padding: 0.45rem 0.85rem; background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.15); border-radius: 8px; font-size: 0.8rem; color: var(--text-primary); cursor: pointer;"><i class="fa-solid fa-rotate-left"></i> Default (Lunamix OS)</button>
+                  <button class="cloak-btn" data-preset="classroom" style="padding: 0.45rem 0.85rem; background: rgba(30,35,48,0.8); border: 1px solid rgba(255,255,255,0.15); border-radius: 8px; font-size: 0.8rem; color: var(--text-primary); cursor: pointer;"><i class="fa-solid fa-graduation-cap" style="color: #4ade80;"></i> Google Classroom</button>
+                  <button class="cloak-btn" data-preset="drive" style="padding: 0.45rem 0.85rem; background: rgba(30,35,48,0.8); border: 1px solid rgba(255,255,255,0.15); border-radius: 8px; font-size: 0.8rem; color: var(--text-primary); cursor: pointer;"><i class="fa-brands fa-google-drive" style="color: #38bdf8;"></i> Google Drive</button>
+                  <button class="cloak-btn" data-preset="canvas" style="padding: 0.45rem 0.85rem; background: rgba(30,35,48,0.8); border: 1px solid rgba(255,255,255,0.15); border-radius: 8px; font-size: 0.8rem; color: var(--text-primary); cursor: pointer;"><i class="fa-solid fa-chalkboard" style="color: #ef4444;"></i> Canvas LMS</button>
+                  <button class="cloak-btn" data-preset="docs" style="padding: 0.45rem 0.85rem; background: rgba(30,35,48,0.8); border: 1px solid rgba(255,255,255,0.15); border-radius: 8px; font-size: 0.8rem; color: var(--text-primary); cursor: pointer;"><i class="fa-solid fa-file-lines" style="color: #38bdf8;"></i> Google Docs</button>
+                  <button class="cloak-btn" data-preset="khan" style="padding: 0.45rem 0.85rem; background: rgba(30,35,48,0.8); border: 1px solid rgba(255,255,255,0.15); border-radius: 8px; font-size: 0.8rem; color: var(--text-primary); cursor: pointer;"><i class="fa-solid fa-leaf" style="color: #10b981;"></i> Khan Academy</button>
+                  <button class="cloak-btn" data-preset="wikipedia" style="padding: 0.45rem 0.85rem; background: rgba(30,35,48,0.8); border: 1px solid rgba(255,255,255,0.15); border-radius: 8px; font-size: 0.8rem; color: var(--text-primary); cursor: pointer;"><i class="fa-solid fa-book" style="color: #e2e8f0;"></i> Wikipedia</button>
+                </div>
+              </div>
             </div>
           </div>
         </div>
       </div>
     `;
 
-    // Theme Switcher clicks
-    container.querySelectorAll('.theme-picker-tile').forEach(tile => {
-      tile.addEventListener('click', () => {
-        const t = tile.getAttribute('data-theme');
-        document.documentElement.setAttribute('data-theme', t);
-        localStorage.setItem('nautilus_theme', t);
-        container.querySelectorAll('.theme-picker-tile').forEach(tl => tl.classList.remove('active'));
-        tile.classList.add('active');
-        SoundFX.click();
-        if (window.LunamixAchievements && typeof window.LunamixAchievements.unlock === 'function') {
-          window.LunamixAchievements.unlock('theme_customizer');
+    // Helper to visually sync toggle switches
+    const wireToggle = (id, onChange) => {
+      const inp = container.querySelector('#' + id);
+      if (!inp) return;
+      inp.addEventListener('change', () => {
+        const track = inp.nextElementSibling;
+        const knob = track?.firstElementChild;
+        if (track) track.style.background = inp.checked ? 'var(--accent)' : 'rgba(255,255,255,0.16)';
+        if (knob) {
+          knob.style.left = inp.checked ? '21px' : '3px';
+          knob.style.background = inp.checked ? '#0a0e1a' : '#fff';
         }
+        SoundFX.click();
+        onChange(inp.checked);
+      });
+    };
+
+    // Tab switching
+    container.querySelectorAll('.lm-set-tab').forEach(tabBtn => {
+      tabBtn.addEventListener('click', () => {
+        const target = tabBtn.getAttribute('data-tab');
+        container.querySelectorAll('.lm-set-tab').forEach(b => {
+          const active = b.getAttribute('data-tab') === target;
+          b.style.borderColor = active ? 'var(--accent)' : 'rgba(255,255,255,0.1)';
+          b.style.background = active ? 'rgba(125,211,192,0.16)' : 'rgba(255,255,255,0.04)';
+          b.style.color = active ? 'var(--accent)' : 'var(--text-secondary)';
+        });
+        container.querySelectorAll('.lm-set-pane').forEach(p => {
+          p.style.display = p.getAttribute('data-pane') === target ? 'block' : 'none';
+        });
+        SoundFX.click();
       });
     });
 
-    // Dock Mode Radios
+    // Theme Switcher
+    container.querySelectorAll('.theme-picker-tile').forEach(tile => {
+      tile.addEventListener('click', () => {
+        const t = tile.getAttribute('data-theme');
+        if (window.LunamixAppStore && typeof window.LunamixAppStore.setTheme === 'function') {
+          window.LunamixAppStore.setTheme(t);
+        } else {
+          document.documentElement.setAttribute('data-theme', t);
+          localStorage.setItem('nautilus_theme', t);
+        }
+        container.querySelectorAll('.theme-picker-tile').forEach(tl => {
+          const isMatch = tl.getAttribute('data-theme') === t;
+          tl.classList.toggle('active', isMatch);
+          tl.style.borderColor = isMatch ? 'var(--accent)' : 'rgba(255,255,255,0.1)';
+          tl.style.background = isMatch ? 'rgba(255,255,255,0.06)' : 'transparent';
+        });
+        SoundFX.click();
+        window.LunamixAchievements?.unlock('theme_customizer');
+      });
+    });
+
+    // Appearance & Behavior toggles
     const taskbarEl = document.querySelector('.taskbar');
-    container.querySelector('#dockModePill')?.addEventListener('change', () => {
-      if (taskbarEl) taskbarEl.classList.remove('full-mode');
-      localStorage.setItem('nautilus_dock_mode', 'pill');
+    wireToggle('setDockFullToggle', (checked) => {
+      if (taskbarEl) taskbarEl.classList.toggle('full-mode', checked);
+      localStorage.setItem('nautilus_dock_mode', checked ? 'full' : 'pill');
     });
-    container.querySelector('#dockModeFull')?.addEventListener('change', () => {
-      if (taskbarEl) taskbarEl.classList.add('full-mode');
-      localStorage.setItem('nautilus_dock_mode', 'full');
+    wireToggle('setDesktopIconsToggle', (checked) => {
+      if (iconsGrid) iconsGrid.style.display = checked ? '' : 'none';
     });
+    container.querySelector('#setAlignIconsBtn')?.addEventListener('click', () => {
+      SoundFX.click();
+      window.LunamixDesktopGrid?.resetLayout();
+    });
+    wireToggle('setNewTabToggle', (checked) => {
+      if (window.LunamixQuickActions?.setNewTabMode) {
+        window.LunamixQuickActions.setNewTabMode(checked);
+      } else {
+        localStorage.setItem('lunamix_open_new_tab', String(checked));
+      }
+    });
+    wireToggle('setSnapToggle', (checked) => {
+      localStorage.setItem('lunamix_snap_enabled', String(checked));
+    });
+    wireToggle('setSoundToggle', (checked) => {
+      if (window.LunamixQuickActions?.setMuted) {
+        window.LunamixQuickActions.setMuted(!checked);
+      }
+    });
+
+    // Keybinds toggles
+    wireToggle('setKbMasterToggle', (checked) => localStorage.setItem('lunamix_keybinds_enabled', String(checked)));
+    wireToggle('setKbMetaToggle', (checked) => localStorage.setItem('lunamix_kb_meta', String(checked)));
+    wireToggle('setKbTermToggle', (checked) => localStorage.setItem('lunamix_kb_terminal', String(checked)));
+    wireToggle('setKbChatToggle', (checked) => localStorage.setItem('lunamix_kb_chat', String(checked)));
+    wireToggle('setKbGamesToggle', (checked) => localStorage.setItem('lunamix_kb_games', String(checked)));
+    wireToggle('setKbEscToggle', (checked) => localStorage.setItem('lunamix_kb_esc', String(checked)));
 
     // Cloaking presets
     container.querySelectorAll('.cloak-btn').forEach(btn => {
@@ -3672,7 +3849,7 @@
 
     // Open full Tab Cloak App window
     container.querySelector('#openCloakWindowBtn')?.addEventListener('click', () => {
-      WindowManager.open('cloak');
+      WindowManager.open('cloak', { forceWindow: true });
       SoundFX.click();
     });
 
@@ -3684,7 +3861,11 @@
         if (k) window.LunamixPanic.setKey(k);
         if (u) window.LunamixPanic.setUrl(u);
       }
-      alert('Panic settings saved!');
+      const msg = container.querySelector('#panicSavedMsg');
+      if (msg) {
+        msg.style.display = 'block';
+        setTimeout(() => { msg.style.display = 'none'; }, 2500);
+      }
     });
   }
 

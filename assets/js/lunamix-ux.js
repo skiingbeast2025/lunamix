@@ -675,6 +675,7 @@
 
       document.addEventListener('pointermove', (e) => {
         if (!this._activeWin) return;
+        if (localStorage.getItem('lunamix_snap_enabled') === 'false') return;
         if (this._activeWin.classList.contains('maximized')) return;
 
         let zone = null;
