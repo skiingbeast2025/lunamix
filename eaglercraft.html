@@ -866,6 +866,16 @@
     }
 
     /* In-App Theater Player */
+    body.playing-game::before {
+      display: none !important;
+    }
+    body.playing-game .launcher {
+      display: none !important;
+    }
+    body.playing-game .title-dot {
+      animation: none !important;
+      box-shadow: none !important;
+    }
     #theater-player {
       position: fixed;
       inset: 0;
@@ -873,6 +883,7 @@
       z-index: 9500;
       display: none;
       flex-direction: column;
+      contain: strict;
     }
     #theater-player.active {
       display: flex;
@@ -933,6 +944,7 @@
       height: 100%;
       border: none;
       background: #000;
+      display: block;
     }
 
     /* Toast */
@@ -2936,7 +2948,7 @@
       </button>
     </div>
   </div>
-  <iframe id="theater-iframe" src="" allow="autoplay; fullscreen; gamepad; focus-without-user-activation; pointer-lock *; keyboard-map *; clipboard-read; clipboard-write" sandbox="allow-scripts allow-same-origin allow-forms allow-popups allow-modals allow-downloads allow-pointer-lock"></iframe>
+  <iframe id="theater-iframe" src="" tabindex="0" allowfullscreen allow="autoplay *; fullscreen *; gamepad *; focus-without-user-activation *; pointer-lock *; keyboard-map *; clipboard-read; clipboard-write" sandbox="allow-scripts allow-same-origin allow-forms allow-popups allow-modals allow-downloads allow-pointer-lock"></iframe>
 </div>
 
 <!-- TOAST -->
@@ -2959,6 +2971,16 @@
   document.getElementById('profile-display').textContent = savedUser;
   const userInput = document.getElementById('username-input');
   if (userInput) userInput.value = savedUser;
+
+  // Mode cycle & set
+  const MODES = ['in-app', 'about-blank', 'blob', 'popup', 'regular'];
+  const MODE_LABELS = {
+    'in-app': 'IN-APP THEATER',
+    'about-blank': 'ABOUT:BLANK',
+    'blob': 'BLOB URL',
+    'popup': 'POPUP',
+    'regular': 'REGULAR'
+  };
 
   // Set initial mode badge
   updateModeBadge();
@@ -3039,16 +3061,6 @@
     switchTab('game');
     launchActiveClient();
   }
-
-  // Mode cycle & set
-  const MODES = ['in-app', 'about-blank', 'blob', 'popup', 'regular'];
-  const MODE_LABELS = {
-    'in-app': 'IN-APP THEATER',
-    'about-blank': 'ABOUT:BLANK',
-    'blob': 'BLOB URL',
-    'popup': 'POPUP',
-    'regular': 'REGULAR'
-  };
 
   function updateModeBadge() {
     const el = document.getElementById('mode-label-text');
@@ -3153,6 +3165,7 @@
         const blob = new Blob([html], { type: 'text/html' });
         const blobUrl = URL.createObjectURL(blob);
         window.open(blobUrl, '_blank');
+        setTimeout(() => URL.revokeObjectURL(blobUrl), 60000);
         document.getElementById('status-line').innerHTML = 'STATUS: <span class="hl">' + name + '</span> // LAUNCHED BLOB';
       }).catch(e => {
         window.open(url, '_blank');
@@ -3161,20 +3174,40 @@
   }
 
   // Theater modal controls
+  function focusGameIframe() {
+    const iframe = document.getElementById('theater-iframe');
+    if (!iframe) return;
+    try { iframe.focus(); } catch(e) {}
+    try { iframe.contentWindow?.focus(); } catch(e) {}
+  }
+
+  document.getElementById('theater-iframe')?.addEventListener('load', () => {
+    if (document.getElementById('theater-player')?.classList.contains('active')) {
+      focusGameIframe();
+    }
+  });
+
   function openTheater(url, title) {
     document.getElementById('theater-title').textContent = title;
     const iframe = document.getElementById('theater-iframe');
-    iframe.src = url;
+    document.body.classList.add('playing-game');
     document.getElementById('theater-player').classList.add('active');
-    setTimeout(() => {
-      try { iframe.contentWindow?.focus(); } catch(e) {}
-    }, 400);
+    iframe.src = url;
+    focusGameIframe();
+    setTimeout(focusGameIframe, 400);
   }
 
   function closeTheater() {
+    if (document.pointerLockElement) {
+      try { document.exitPointerLock(); } catch(e) {}
+    }
+    if (document.fullscreenElement) {
+      try { document.exitFullscreen().catch(() => {}); } catch(e) {}
+    }
     const iframe = document.getElementById('theater-iframe');
     iframe.src = 'about:blank';
     document.getElementById('theater-player').classList.remove('active');
+    document.body.classList.remove('playing-game');
     document.getElementById('status-line').innerHTML = 'STATUS: <span class="hl">' + currentClient.name + '</span> // READY';
   }
 
@@ -3190,10 +3223,17 @@
 
   function requestGameFullscreen() {
     const el = document.getElementById('theater-player');
+    if (document.activeElement && document.activeElement.blur) {
+      document.activeElement.blur();
+    }
     if (!document.fullscreenElement) {
-      el.requestFullscreen().catch(() => {});
+      el.requestFullscreen().then(() => {
+        setTimeout(focusGameIframe, 100);
+      }).catch(() => {});
     } else {
-      document.exitFullscreen().catch(() => {});
+      document.exitFullscreen().then(() => {
+        setTimeout(focusGameIframe, 100);
+      }).catch(() => {});
     }
   }
 

@@ -565,6 +565,9 @@
       });
       win.element.classList.add('focused');
       this.updateTaskbar();
+      if (typeof win.onFocus === 'function') {
+        win.onFocus();
+      }
     },
 
     blurAll() {
@@ -3255,6 +3258,19 @@
     let extLinkBtn = null;
     let themeBtn = null;
 
+    const focusEaglerIframe = () => {
+      const iframe = container.querySelector('#eaglerIframe');
+      if (!iframe) return;
+      try {
+        iframe.focus({ preventScroll: true });
+        if (iframe.contentWindow) {
+          iframe.contentWindow.focus();
+        }
+      } catch (err) {
+        // Ignore cross-origin focus errors if any
+      }
+    };
+
     if (winObj && typeof winObj.addHeaderButton === 'function') {
       themeBtn = winObj.addHeaderButton({
         icon: 'fa-palette',
@@ -3270,6 +3286,22 @@
         }
       });
 
+      winObj.addHeaderButton({
+        icon: 'fa-expand',
+        title: 'Fullscreen Eaglercraft (Recommended for Pointer Lock)',
+        onClick: () => {
+          const iframe = container.querySelector('#eaglerIframe');
+          const target = iframe || winObj.element;
+          if (document.fullscreenElement) {
+            document.exitFullscreen().catch(() => {});
+          } else if (target && target.requestFullscreen) {
+            target.requestFullscreen().then(() => {
+              focusEaglerIframe();
+            }).catch(() => {});
+          }
+        }
+      });
+
       extLinkBtn = winObj.addHeaderButton({
         icon: 'fa-arrow-up-right-from-square',
         title: 'Open Fullscreen in New Tab',
@@ -3279,10 +3311,27 @@
 
     container.innerHTML = `
       <iframe id="eaglerIframe" src="${currentSrc}" style="width: 100%; height: 100%; border: none; background: #000; display: block;"
-        allow="autoplay; fullscreen; gamepad; focus-without-user-activation *"
-        sandbox="allow-scripts allow-same-origin allow-forms allow-popups">
+        allow="autoplay; fullscreen; gamepad; pointer-lock; focus-without-user-activation *"
+        sandbox="allow-scripts allow-same-origin allow-forms allow-popups allow-pointer-lock">
       </iframe>
     `;
+
+    const iframe = container.querySelector('#eaglerIframe');
+    if (iframe) {
+      iframe.addEventListener('load', focusEaglerIframe);
+    }
+
+    if (winObj) {
+      winObj.onFocus = focusEaglerIframe;
+      if (winObj.element) {
+        winObj.element.tabIndex = -1;
+        winObj.element.addEventListener('focus', focusEaglerIframe);
+        winObj.element.addEventListener('click', (e) => {
+          if (e.target.closest('.window-controls') || e.target.closest('button') || e.target.closest('a')) return;
+          focusEaglerIframe();
+        });
+      }
+    }
   }
 
   // --------------------------------------------------------------------------
