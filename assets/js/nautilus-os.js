@@ -332,8 +332,11 @@
             : './eaglercraft.html',
           emulator: WEBRETRO_EMULATOR_URL
         };
-        const targetUrl = customOpts.url || directUrls[appId] || `./?app=${encodeURIComponent(appId)}`;
-        window.open(targetUrl, '_blank', 'noopener,noreferrer');
+        const rawTargetUrl = customOpts.url || directUrls[appId] || `./?app=${encodeURIComponent(appId)}`;
+        const targetUrl = sanitizeUrl(rawTargetUrl);
+        if (targetUrl) {
+          window.open(targetUrl, '_blank', 'noopener,noreferrer');
+        }
         return null;
       }
 
@@ -368,8 +371,8 @@
       winEl.innerHTML = `
         <div class="window-header" data-drag-handle="true">
           <div class="window-title">
-            <i class="fa-solid ${app.icon}" style="color: ${app.color};"></i>
-            <span>${customOpts.title || app.name}</span>
+            <i class="fa-solid ${escapeHtml(app.icon)}" style="color: ${escapeHtml(app.color)};"></i>
+            <span>${escapeHtml(customOpts.title || app.name)}</span>
           </div>
           <div class="window-controls">
             <button class="window-btn minimize" title="Minimize" data-action="minimize">
@@ -2860,6 +2863,7 @@
       stealthBtn.addEventListener('click', () => {
         const win = window.open('about:blank', '_blank');
         if (win) {
+          win.opener = null;
           win.document.open();
           win.document.write(codeArea.value);
           win.document.close();
@@ -2951,10 +2955,10 @@
           return;
         }
         if (APPS[target]) {
-          print(`Launching ${APPS[target].name}...`, 'var(--accent)');
+          print(`Launching ${escapeHtml(APPS[target].name)}...`, 'var(--accent)');
           WindowManager.open(target);
         } else {
-          print(`App '${target}' not found. Type 'help' to see valid apps.`, '#f43f5e');
+          print(`App '${escapeHtml(target)}' not found. Type 'help' to see valid apps.`, '#f43f5e');
         }
       },
       neofetch: () => {
@@ -2967,7 +2971,7 @@
       <span style="color:var(--accent);">'---'</span>            <span style="color:#38bdf8;">Uptime:</span> ${Math.floor(performance.now() / 60000)} minutes
                        <span style="color:#38bdf8;">Shell:</span> nautilus-sh 2.4
                        <span style="color:#38bdf8;">Resolution:</span> ${window.innerWidth}x${window.innerHeight}
-                       <span style="color:#38bdf8;">Theme:</span> ${document.documentElement.getAttribute('data-theme') || 'nautilus'}
+                       <span style="color:#38bdf8;">Theme:</span> ${escapeHtml(document.documentElement.getAttribute('data-theme') || 'nautilus')}
                        <span style="color:#38bdf8;">Memory:</span> 4096MB / 16384MB (Virtual)
         `;
         print(ascii);
@@ -2984,9 +2988,9 @@
         try {
           if (!/^[0-9+\-*/().\s^%]+$/.test(expr)) throw new Error('Invalid math syntax');
           const res = Function(`'use strict'; return (${expr})`)();
-          print(`${expr} = <span style="color:var(--accent); font-weight:700;">${res}</span>`);
+          print(`${escapeHtml(expr)} = <span style="color:var(--accent); font-weight:700;">${escapeHtml(String(res))}</span>`);
         } catch (e) {
-          print('Error evaluating expression: ' + e.message, '#f43f5e');
+          print('Error evaluating expression: ' + escapeHtml(e.message), '#f43f5e');
         }
       },
       theme: (args) => {
@@ -3041,7 +3045,7 @@
         const cmd = parts[0].toLowerCase();
         const args = parts.slice(1);
 
-        if (commands[cmd]) {
+        if (Object.prototype.hasOwnProperty.call(commands, cmd)) {
           commands[cmd](args);
         } else {
           print(`bash: ${escapeHtml(cmd)}: command not found. Type 'help' for options.`, '#f43f5e');
@@ -3120,7 +3124,7 @@
       Object.keys(files).forEach(fn => {
         const item = document.createElement('div');
         item.className = `chat-channel-item ${fn === activeFile ? 'active' : ''}`;
-        item.innerHTML = `<i class="fa-solid fa-file-lines"></i> <span style="overflow: hidden; text-overflow: ellipsis;">${fn}</span>`;
+        item.innerHTML = `<i class="fa-solid fa-file-lines"></i> <span style="overflow: hidden; text-overflow: ellipsis;">${escapeHtml(fn)}</span>`;
         item.addEventListener('click', () => {
           activeFile = fn;
           nameEl.textContent = fn;
@@ -3710,8 +3714,8 @@
                 <h3 style="font-size: 0.95rem; font-weight: 700; margin-bottom: 0.35rem;">Panic Key Shortcut</h3>
                 <p style="font-size: 0.78rem; color: var(--text-secondary); margin-bottom: 0.8rem;">Instant redirect key and destination URL.</p>
                 <div style="display: flex; gap: 0.7rem; align-items: center; flex-wrap: wrap;">
-                  <input type="text" id="panicKeyInput" value="${window.LunamixPanic?.panicKey || '`'}" style="width: 72px; text-align: center; font-weight: 700; padding: 0.5rem; background: #0a0e1a; border: 1px solid rgba(255,255,255,0.2); border-radius: 8px; color: var(--accent);" />
-                  <input type="text" id="panicUrlInput" value="${window.LunamixPanic?.panicUrl || 'https://www.apsva.us/parentvue-canvas/#canvas'}" style="flex: 1; min-width: 200px; padding: 0.5rem 0.8rem; background: #0a0e1a; border: 1px solid rgba(255,255,255,0.2); border-radius: 8px; color: var(--text-primary); font-size: 0.84rem;" />
+                  <input type="text" id="panicKeyInput" value="${escapeHtml(window.LunamixPanic?.panicKey || '`')}" style="width: 72px; text-align: center; font-weight: 700; padding: 0.5rem; background: #0a0e1a; border: 1px solid rgba(255,255,255,0.2); border-radius: 8px; color: var(--accent);" />
+                  <input type="text" id="panicUrlInput" value="${escapeHtml(window.LunamixPanic?.panicUrl || 'https://www.apsva.us/parentvue-canvas/#canvas')}" style="flex: 1; min-width: 200px; padding: 0.5rem 0.8rem; background: #0a0e1a; border: 1px solid rgba(255,255,255,0.2); border-radius: 8px; color: var(--text-primary); font-size: 0.84rem;" />
                   <button id="savePanicBtn" style="padding: 0.5rem 1rem; background: var(--accent); color: var(--bg-primary); font-weight: 700; border-radius: 8px; font-size: 0.82rem; cursor: pointer;">Save</button>
                 </div>
                 <div id="panicSavedMsg" style="display: none; margin-top: 0.6rem; font-size: 0.78rem; color: #4ade80; font-weight: 600;">Panic shortcut saved!</div>
@@ -3857,12 +3861,23 @@
     container.querySelector('#savePanicBtn')?.addEventListener('click', () => {
       const k = container.querySelector('#panicKeyInput').value.trim();
       const u = container.querySelector('#panicUrlInput').value.trim();
+      const msg = container.querySelector('#panicSavedMsg');
+      let urlValid = true;
+      if (u && !sanitizeUrl(u)) {
+        urlValid = false;
+      }
       if (window.LunamixPanic) {
         if (k) window.LunamixPanic.setKey(k);
-        if (u) window.LunamixPanic.setUrl(u);
+        if (u && urlValid) window.LunamixPanic.setUrl(u);
       }
-      const msg = container.querySelector('#panicSavedMsg');
       if (msg) {
+        if (!urlValid) {
+          msg.textContent = 'Invalid Panic URL: only http://, https://, or ./ paths are allowed.';
+          msg.style.color = '#f87171';
+        } else {
+          msg.textContent = 'Panic shortcut saved!';
+          msg.style.color = '#4ade80';
+        }
         msg.style.display = 'block';
         setTimeout(() => { msg.style.display = 'none'; }, 2500);
       }
@@ -3889,10 +3904,10 @@
         </div>
 
         <div style="display: flex; gap: 0.8rem; flex-wrap: wrap; justify-content: center;">
-          <a href="https://github.com/skiingbeast2025/lunamix" target="_blank" style="padding: 0.55rem 1.1rem; background: var(--accent); color: var(--bg-primary); border-radius: 8px; font-weight: 700; font-size: 0.82rem; text-decoration: none;">
+          <a href="https://github.com/skiingbeast2025/lunamix" target="_blank" rel="noopener noreferrer" style="padding: 0.55rem 1.1rem; background: var(--accent); color: var(--bg-primary); border-radius: 8px; font-weight: 700; font-size: 0.82rem; text-decoration: none;">
             <i class="fa-brands fa-github"></i> Lunamix Repo
           </a>
-          <a href="https://github.com/nautilus-os/NautilusOS" target="_blank" style="padding: 0.55rem 1.1rem; background: rgba(255,255,255,0.08); color: var(--text-primary); border-radius: 8px; font-weight: 700; font-size: 0.82rem; text-decoration: none;">
+          <a href="https://github.com/nautilus-os/NautilusOS" target="_blank" rel="noopener noreferrer" style="padding: 0.55rem 1.1rem; background: rgba(255,255,255,0.08); color: var(--text-primary); border-radius: 8px; font-weight: 700; font-size: 0.82rem; text-decoration: none;">
             NautilusOS Source (AGPL-3.0)
           </a>
         </div>
@@ -3935,6 +3950,20 @@
       .replace(/>/g, '&gt;')
       .replace(/"/g, '&quot;')
       .replace(/'/g, '&#39;');
+  }
+
+  function sanitizeUrl(url) {
+    if (!url || typeof url !== 'string') return '';
+    const trimmed = url.trim();
+    if (!trimmed) return '';
+    if (trimmed.startsWith('./')) return trimmed;
+    try {
+      const parsed = new URL(trimmed);
+      if (parsed.protocol === 'http:' || parsed.protocol === 'https:') {
+        return trimmed;
+      }
+    } catch (e) {}
+    return '';
   }
 
   // ==========================================================================

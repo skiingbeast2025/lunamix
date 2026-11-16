@@ -2,6 +2,30 @@
  * Lunamix Theme Engine
  * Themes: Midnight Violet, Cyberpunk Emerald, AMOLED Onyx, Solar Flare, Arctic Frost, Rose Quartz
  */
+function lunamixEscapeHtml(str) {
+  return String(str || '')
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
+    .replace(/'/g, '&#39;');
+}
+
+function lunamixSanitizeUrl(url) {
+  if (!url || typeof url !== 'string') return '';
+  const trimmed = url.trim();
+  if (!trimmed) return '';
+  // Allow relative ./ paths (but not // protocol-relative)
+  if (trimmed.startsWith('./')) return trimmed;
+  try {
+    const parsed = new URL(trimmed);
+    if (parsed.protocol === 'http:' || parsed.protocol === 'https:') {
+      return trimmed;
+    }
+  } catch (e) {}
+  return '';
+}
+
 const LUNAMIX_THEMES = {
   midnight: {
     id: 'midnight',
@@ -352,7 +376,8 @@ const LunamixCloak = {
   applyCustom(title, faviconUrl, save = true) {
     this.currentPreset = 'custom';
     const finalTitle = title ? title.trim() : 'Lunamix OS';
-    const finalFavicon = faviconUrl ? faviconUrl.trim() : './assets/logos/favicon.svg';
+    const rawFavicon = faviconUrl ? faviconUrl.trim() : '';
+    const finalFavicon = lunamixSanitizeUrl(rawFavicon) || './assets/logos/favicon.svg';
     document.title = finalTitle;
 
     let link = document.querySelector("link[rel*='icon']");
@@ -396,8 +421,9 @@ const LunamixPanic = {
       const savedKey = localStorage.getItem(this.storageKeyPanicKey);
       if (savedKey) this.panicKey = savedKey;
       const savedUrl = localStorage.getItem(this.storageKeyPanicUrl);
-      if (savedUrl && savedUrl !== 'https://www.apsva.us' && savedUrl !== 'https://classroom.google.com') {
-        this.panicUrl = savedUrl;
+      const safeSavedUrl = lunamixSanitizeUrl(savedUrl);
+      if (safeSavedUrl && safeSavedUrl !== 'https://www.apsva.us' && safeSavedUrl !== 'https://classroom.google.com') {
+        this.panicUrl = safeSavedUrl;
       } else {
         this.panicUrl = 'https://www.apsva.us/parentvue-canvas/#canvas';
       }
@@ -423,10 +449,11 @@ const LunamixPanic = {
   },
 
   trigger() {
+    const targetUrl = lunamixSanitizeUrl(this.panicUrl) || 'https://www.apsva.us/parentvue-canvas/#canvas';
     try {
-      window.location.replace(this.panicUrl);
+      window.location.replace(targetUrl);
     } catch (e) {
-      window.location.href = this.panicUrl;
+      window.location.href = targetUrl;
     }
   },
 
@@ -441,10 +468,13 @@ const LunamixPanic = {
   },
 
   setUrl(url) {
-    this.panicUrl = url;
+    const safeUrl = lunamixSanitizeUrl(url);
+    if (!safeUrl) return false;
+    this.panicUrl = safeUrl;
     try {
-      localStorage.setItem(this.storageKeyPanicUrl, url);
+      localStorage.setItem(this.storageKeyPanicUrl, safeUrl);
     } catch (e) {}
+    return true;
   }
 };
 
@@ -682,8 +712,8 @@ function handleGameLogoError(img) {
         <path d="M10 2a8 8 0 100 16 8 8 0 000-16zm-1 5a1 1 0 012 0v2h2a1 1 0 110 2h-2v2a1 1 0 11-2 0v-2H7a1 1 0 110-2h2V7z"/>
       </svg>
     </div>
-    <span class="text-xs font-black text-white tracking-wide leading-tight line-clamp-2 px-1">${title}</span>
-    <span class="text-[9px] font-mono text-slate-400 uppercase tracking-widest mt-1">${cat}</span>
+    <span class="text-xs font-black text-white tracking-wide leading-tight line-clamp-2 px-1">${lunamixEscapeHtml(title)}</span>
+    <span class="text-[9px] font-mono text-slate-400 uppercase tracking-widest mt-1">${lunamixEscapeHtml(cat)}</span>
   `;
   container.appendChild(banner);
 }

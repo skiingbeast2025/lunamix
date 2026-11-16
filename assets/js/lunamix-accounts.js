@@ -15,6 +15,19 @@
   const DEFAULT_APPS = ['games', 'chat', 'proxy', 'notes', 'music', 'appstore', 'achievements'];
   const AVATAR_CHOICES = ['🚀', '🌙', '🦊', '🐱', '🐼', '🎮', '🎧', '⚡', '🌊', '🌲', '✨', '🛸'];
 
+  const MIN_USERNAME_LENGTH = 2;
+  const MAX_USERNAME_LENGTH = 24;
+  const MAX_PASSWORD_LENGTH = 128;
+  const MAX_PROFILE_JSON_BYTES = 65536;
+  const DANGEROUS_KEYS = new Set(['__proto__', 'constructor', 'prototype']);
+
+  function safeJsonParse(jsonString) {
+    return JSON.parse(jsonString, (key, value) => {
+      if (DANGEROUS_KEYS.has(key)) return undefined;
+      return value;
+    });
+  }
+
   // Compact pure-JS SHA-256 for synchronous password hashing
   function sha256Hex(ascii) {
     function rightRotate(value, amount) {
@@ -99,7 +112,33 @@
 
   function hashPassword(username, password) {
     if (!password) return null;
-    return sha256Hex('lunamix_v2:' + String(username).toLowerCase() + ':' + String(password));
+    const raw = 'lunamix_v2:' + String(username).toLowerCase() + ':' + String(password);
+    // Encode as UTF-8 byte string so non-ASCII characters never trigger sha256Hex's >255 early return
+    const utf8 = unescape(encodeURIComponent(raw));
+    return sha256Hex(utf8);
+  }
+
+  function sanitizeUsername(rawName) {
+    if (typeof rawName !== 'string') return '';
+    return rawName
+      .replace(/[\x00-\x1f\x7f<>"'`\\]/g, '')
+      .trim()
+      .slice(0, MAX_USERNAME_LENGTH);
+  }
+
+  function sanitizeAvatar(rawAvatar) {
+    if (typeof rawAvatar !== 'string') return '🚀';
+    const cleaned = rawAvatar
+      .replace(/[\x00-\x1f\x7f<>"'&`\\]/g, '')
+      .trim()
+      .slice(0, 8);
+    return cleaned || '🚀';
+  }
+
+  function sanitizePasswordHash(hash) {
+    if (typeof hash !== 'string') return null;
+    const trimmed = hash.trim();
+    return /^[0-9a-f]{64}$/i.test(trimmed) ? trimmed.toLowerCase() : null;
   }
 
   function sanitizeTheme(theme) {
@@ -108,23 +147,31 @@
 
   function sanitizeApps(apps) {
     if (!Array.isArray(apps) || apps.length === 0) return DEFAULT_APPS.slice();
-    return Array.from(new Set(apps.filter((a) => typeof a === 'string' && a.trim().length > 0)));
+    const cleaned = Array.from(
+      new Set(
+        apps
+          .filter((a) => typeof a === 'string')
+          .map((a) => a.trim())
+          .filter((a) => /^[a-z0-9_-]{1,32}$/i.test(a))
+      )
+    ).slice(0, 50);
+    return cleaned.length > 0 ? cleaned : DEFAULT_APPS.slice();
   }
 
   function sanitizeAccount(raw) {
-    if (!raw || typeof raw !== 'object') return null;
-    const username = String(raw.username || '').trim().slice(0, 24);
+    if (!raw || typeof raw !== 'object' || Array.isArray(raw)) return null;
+    const username = sanitizeUsername(raw.username);
     if (!username) return null;
     return {
       username: username,
-      passwordHash: typeof raw.passwordHash === 'string' && raw.passwordHash ? raw.passwordHash : null,
-      avatar: typeof raw.avatar === 'string' && raw.avatar.trim() ? raw.avatar.trim() : '🚀',
+      passwordHash: sanitizePasswordHash(raw.passwordHash),
+      avatar: sanitizeAvatar(raw.avatar),
       role: 'student', // Strict security enforcement: never admin or sudo
       starterApps: sanitizeApps(raw.starterApps),
       theme: sanitizeTheme(raw.theme),
       isGuest: Boolean(raw.isGuest),
-      createdAt: raw.createdAt || new Date().toISOString(),
-      lastLoginAt: raw.lastLoginAt || null
+      createdAt: typeof raw.createdAt === 'string' && raw.createdAt ? raw.createdAt.slice(0, 64) : new Date().toISOString(),
+      lastLoginAt: typeof raw.lastLoginAt === 'string' && raw.lastLoginAt ? raw.lastLoginAt.slice(0, 64) : null
     };
   }
 
@@ -132,7 +179,7 @@
     try {
       const raw = localStorage.getItem(ACCOUNTS_KEY);
       if (!raw) return [];
-      const parsed = JSON.parse(raw);
+      const parsed = safeJsonParse(raw);
       if (!Array.isArray(parsed)) return [];
       return parsed.map(sanitizeAccount).filter(Boolean);
     } catch (e) {
@@ -199,6 +246,7 @@
     if (desktop) {
       desktop.style.display = 'block';
     }
+    LunamixLogin.stopClock();
   }
 
   // ==========================================================================
@@ -224,9 +272,9 @@
     },
 
     createAccount(options) {
-      const opts = options || {};
-      const username = String(opts.username || '').trim().slice(0, 24);
-      if (!username || username.length < 2) {
+      const opts = options && typeof options === 'object' && !Array.isArray(options) ? options : {};
+      const username = sanitizeUsername(opts.username);
+      if (!username || username.length < MIN_USERNAME_LENGTH) {
         throw new Error('Username must be at least 2 characters.');
       }
 
@@ -235,7 +283,14 @@
         throw new Error('An account with that username already exists.');
       }
 
-      const password = opts.password ? String(opts.password) : '';
+      if (opts.password !== undefined && opts.password !== null && typeof opts.password !== 'string') {
+        throw new Error('Invalid password.');
+      }
+      const password = typeof opts.password === 'string' ? opts.password : '';
+      if (password.length > MAX_PASSWORD_LENGTH) {
+        throw new Error('Password must be 128 characters or fewer.');
+      }
+
       const newAcc = sanitizeAccount({
         username: username,
         passwordHash: password ? hashPassword(username, password) : null,
@@ -254,8 +309,11 @@
     },
 
     authenticate(username, password) {
-      const target = String(username || '').trim().toLowerCase();
+      if (typeof username !== 'string') return null;
+      const target = sanitizeUsername(username).toLowerCase();
       if (!target) return null;
+      if (password !== undefined && password !== null && typeof password !== 'string') return null;
+      if (typeof password === 'string' && password.length > MAX_PASSWORD_LENGTH) return null;
 
       const accounts = readAccountsRaw();
       const idx = accounts.findIndex((a) => a.username.toLowerCase() === target);
@@ -329,14 +387,14 @@
     },
 
     updateAccount(username, patch) {
-      if (!patch || typeof patch !== 'object') return null;
+      if (!patch || typeof patch !== 'object' || Array.isArray(patch)) return null;
       const accounts = readAccountsRaw();
       const idx = accounts.findIndex((a) => a.username.toLowerCase() === String(username || '').toLowerCase());
       if (idx === -1) return null;
 
       const acc = accounts[idx];
       if (typeof patch.avatar === 'string' && patch.avatar.trim()) {
-        acc.avatar = patch.avatar.trim();
+        acc.avatar = sanitizeAvatar(patch.avatar);
       }
       if (typeof patch.theme === 'string') {
         acc.theme = sanitizeTheme(patch.theme);
@@ -345,7 +403,13 @@
         acc.starterApps = sanitizeApps(patch.starterApps);
       }
       if (patch.password !== undefined) {
-        acc.passwordHash = patch.password ? hashPassword(acc.username, patch.password) : null;
+        if (patch.password === null || patch.password === '') {
+          acc.passwordHash = null;
+        } else if (typeof patch.password !== 'string' || patch.password.length > MAX_PASSWORD_LENGTH) {
+          throw new Error('Invalid password.');
+        } else {
+          acc.passwordHash = hashPassword(acc.username, patch.password);
+        }
       }
       // Strictly ignore any role patch; always student
       acc.role = 'student';
@@ -398,18 +462,25 @@
 
     importProfile(jsonString) {
       let parsed;
-      try {
-        parsed = typeof jsonString === 'string' ? JSON.parse(jsonString) : jsonString;
-      } catch (e) {
-        throw new Error('Invalid profile JSON.');
+      if (typeof jsonString === 'string') {
+        if (jsonString.length > MAX_PROFILE_JSON_BYTES) {
+          throw new Error('Profile JSON is too large.');
+        }
+        try {
+          parsed = safeJsonParse(jsonString);
+        } catch (e) {
+          throw new Error('Invalid profile JSON.');
+        }
+      } else {
+        parsed = jsonString;
       }
 
-      if (!parsed || typeof parsed !== 'object' || !parsed.username) {
+      if (!parsed || typeof parsed !== 'object' || Array.isArray(parsed) || typeof parsed.username !== 'string') {
         throw new Error('Profile JSON is missing a valid username.');
       }
 
-      const username = String(parsed.username).trim().slice(0, 24);
-      if (username.length < 2) {
+      const username = sanitizeUsername(parsed.username);
+      if (username.length < MIN_USERNAME_LENGTH) {
         throw new Error('Imported username must be at least 2 characters.');
       }
 
@@ -428,13 +499,27 @@
 
       const accounts = readAccountsRaw();
       const existingIdx = accounts.findIndex((a) => a.username.toLowerCase() === username.toLowerCase());
+      let resultAccount = sanitized;
       if (existingIdx !== -1) {
-        accounts[existingIdx] = Object.assign({}, accounts[existingIdx], sanitized, { role: 'student' });
+        const existing = accounts[existingIdx];
+        // Preserve existing credentials and timestamps so profile import cannot wipe a password
+        resultAccount = sanitizeAccount({
+          username: existing.username,
+          passwordHash: existing.passwordHash,
+          avatar: sanitized.avatar,
+          role: 'student',
+          starterApps: sanitized.starterApps,
+          theme: sanitized.theme,
+          isGuest: existing.isGuest,
+          createdAt: existing.createdAt,
+          lastLoginAt: existing.lastLoginAt
+        });
+        accounts[existingIdx] = resultAccount;
       } else {
-        accounts.push(sanitized);
+        accounts.push(resultAccount);
       }
       writeAccountsRaw(accounts);
-      return publicAccount(sanitized);
+      return publicAccount(resultAccount);
     }
   };
 
@@ -444,8 +529,8 @@
   function getBootSettings() {
     try {
       const raw = localStorage.getItem(BOOT_SETTINGS_KEY);
-      const parsed = raw ? JSON.parse(raw) : {};
-      const delay = Number(parsed.bootDelaySec);
+      const parsed = raw ? safeJsonParse(raw) : {};
+      const delay = Number(parsed && parsed.bootDelaySec);
       return {
         bootDelaySec: [1, 3, 5, 10].includes(delay) ? delay : 3
       };
@@ -523,7 +608,8 @@
         biosSave.addEventListener('click', () => {
           const delaySel = document.getElementById('biosBootDelaySelect');
           if (delaySel) {
-            const val = parseInt(delaySel.value, 10) || 3;
+            const parsedVal = parseInt(delaySel.value, 10);
+            const val = [1, 3, 5, 10].includes(parsedVal) ? parsedVal : 3;
             saveBootSettings({ bootDelaySec: val });
             this.totalMs = val * 1000;
             this.remainingMs = this.totalMs;
@@ -704,6 +790,22 @@
       this.renderAccounts(preselectUsername);
     },
 
+    show(preselectUsername) {
+      return this.open(preselectUsername);
+    },
+
+    lock() {
+      const current = AccountManager.getCurrentAccount();
+      return this.open(current ? current.username : undefined);
+    },
+
+    stopClock() {
+      if (this.clockInterval) {
+        clearInterval(this.clockInterval);
+        this.clockInterval = null;
+      }
+    },
+
     bindEvents() {
       if (this._bound) return;
       this._bound = true;
@@ -864,6 +966,7 @@
     open() {
       const setup = document.getElementById('setup');
       const login = document.getElementById('login');
+      LunamixLogin.stopClock();
       if (login) {
         login.classList.remove('active');
         login.style.setProperty('display', 'none', 'important');
@@ -954,6 +1057,11 @@
         importFile.addEventListener('change', (e) => {
           const file = e.target.files && e.target.files[0];
           if (!file) return;
+          if (file.size > MAX_PROFILE_JSON_BYTES) {
+            this.setError('Profile file is too large (max 64 KB).');
+            importFile.value = '';
+            return;
+          }
           const reader = new FileReader();
           reader.onload = () => {
             try {

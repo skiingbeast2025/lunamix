@@ -19,6 +19,23 @@
       .replace(/'/g, '&#39;');
   }
 
+  function sanitizeMediaUrl(url) {
+    if (!url || typeof url !== 'string') return '';
+    const trimmed = url.trim();
+    if (!trimmed) return '';
+    if (trimmed.startsWith('./')) return trimmed;
+    if (/^data:image\/(png|jpe?g|gif|webp|bmp|x-icon|vnd\.microsoft\.icon);base64,[a-z0-9+/=]+$/i.test(trimmed)) {
+      return trimmed;
+    }
+    try {
+      const parsed = new URL(trimmed);
+      if (parsed.protocol === 'http:' || parsed.protocol === 'https:') {
+        return trimmed;
+      }
+    } catch (_) {}
+    return '';
+  }
+
   function getAccountKey() {
     try {
       const am = window.AccountManager;
@@ -1053,7 +1070,13 @@
       const urlInput = winBody.querySelector('.lm-media-url-input');
       urlInput.addEventListener('keydown', (e) => {
         if (e.key === 'Enter' && urlInput.value.trim()) {
-          items.push({ name: 'Image URL', src: urlInput.value.trim() });
+          const safeSrc = sanitizeMediaUrl(urlInput.value);
+          if (!safeSrc) {
+            urlInput.value = '';
+            urlInput.placeholder = 'Invalid URL (only http/https, ./, or raster image data URLs allowed)';
+            return;
+          }
+          items.push({ name: 'Image URL', src: safeSrc });
           activeIdx = items.length - 1;
           zoom = 1;
           rotation = 0;
