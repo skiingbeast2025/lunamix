@@ -62,6 +62,7 @@
     enabled: true,
 
     init() {
+      this.enabled = localStorage.getItem('lunamix_sound_muted') !== 'true';
       try {
         const AudioCtx = window.AudioContext || window.webkitAudioContext;
         if (AudioCtx) this.ctx = new AudioCtx();
@@ -809,6 +810,12 @@
 
     init() {
       const dashboardMode = isDashboardMode();
+      if (!dashboardMode) {
+        const iconsGrid = document.getElementById('desktopIcons');
+        if (iconsGrid && localStorage.getItem('lunamix_show_desktop_icons') === 'false') {
+          iconsGrid.style.display = 'none';
+        }
+      }
       if (!dashboardMode && document.querySelector('.desktop-icon')) {
         this.bindDesktopIcons();
       }
@@ -1119,8 +1126,9 @@
           } else if (action === 'toggle-icons') {
             const iconsGrid = document.getElementById('desktopIcons');
             if (iconsGrid) {
-              const hidden = iconsGrid.style.display === 'none';
-              iconsGrid.style.display = hidden ? '' : 'none';
+              const showNext = iconsGrid.style.display === 'none';
+              iconsGrid.style.display = showNext ? '' : 'none';
+              localStorage.setItem('lunamix_show_desktop_icons', showNext ? 'true' : 'false');
             }
           } else if (action === 'games') {
             WindowManager.open('games');
@@ -3932,6 +3940,30 @@
                   ${toggleSwitchHtml('setSoundToggle', soundEnabled)}
                 </div>
               </div>
+
+              <div style="${cardStyle}">
+                <h3 style="font-size: 0.95rem; font-weight: 700; margin-bottom: 0.3rem;">Settings &amp; Game Save Persistence</h3>
+                <p style="font-size: 0.76rem; color: var(--text-secondary); margin-bottom: 0.85rem;">All preferences and browser game saves (localStorage &amp; IndexedDB) save automatically between sessions. You can also protect browser storage or export a backup file.</p>
+                <div style="${rowStyle}">
+                  <div>
+                    <div style="font-size: 0.84rem; font-weight: 600;">Browser Persistent Storage</div>
+                    <div id="setPersistStatus" style="font-size: 0.75rem; color: var(--text-secondary);">Checking persistent storage...</div>
+                  </div>
+                  <button type="button" id="setPersistBtn" style="padding: 0.4rem 0.8rem; background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.16); border-radius: 8px; color: var(--text-primary); font-size: 0.78rem; font-weight: 600; cursor: pointer;">Protect Saves</button>
+                </div>
+                <div style="${rowStyle} border-bottom: none; padding-bottom: 0; flex-wrap: wrap;">
+                  <div>
+                    <div style="font-size: 0.84rem; font-weight: 600;">Full Backup &amp; Restore</div>
+                    <div style="font-size: 0.75rem; color: var(--text-secondary);">Export or restore all OS settings, notes, pins, and localStorage game saves</div>
+                  </div>
+                  <div style="display: flex; gap: 0.5rem; flex-wrap: wrap;">
+                    <button type="button" id="setExportDataBtn" style="padding: 0.42rem 0.85rem; background: var(--accent); color: var(--bg-primary); border: none; border-radius: 8px; font-size: 0.78rem; font-weight: 700; cursor: pointer;">Export Backup</button>
+                    <label for="setImportDataFile" style="padding: 0.42rem 0.85rem; background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.16); border-radius: 8px; color: var(--text-primary); font-size: 0.78rem; font-weight: 600; cursor: pointer;">Import Backup</label>
+                    <input type="file" id="setImportDataFile" accept="application/json,.json" style="display: none;" />
+                  </div>
+                </div>
+                <div id="setDataBackupMsg" style="display: none; margin-top: 0.6rem; font-size: 0.76rem; font-weight: 600;"></div>
+              </div>
             </div>
 
             <!-- TAB: KEYBINDS -->
@@ -4202,6 +4234,7 @@
     });
     wireToggle('setDesktopIconsToggle', (checked) => {
       if (iconsGrid) iconsGrid.style.display = checked ? '' : 'none';
+      localStorage.setItem('lunamix_show_desktop_icons', checked ? 'true' : 'false');
     });
     container.querySelector('#setAlignIconsBtn')?.addEventListener('click', () => {
       SoundFX.click();
@@ -4220,7 +4253,128 @@
     wireToggle('setSoundToggle', (checked) => {
       if (window.LunamixQuickActions?.setMuted) {
         window.LunamixQuickActions.setMuted(!checked);
+      } else {
+        localStorage.setItem('lunamix_sound_muted', String(!checked));
+        SoundFX.enabled = Boolean(checked);
       }
+    });
+
+    // Storage Persistence & Backup
+    const persistStatusEl = container.querySelector('#setPersistStatus');
+    const persistBtn = container.querySelector('#setPersistBtn');
+    const refreshPersistStatus = async () => {
+      if (!persistStatusEl) return;
+      try {
+        if (navigator.storage && navigator.storage.persisted) {
+          const isPersisted = await navigator.storage.persisted();
+          const est = navigator.storage.estimate ? await navigator.storage.estimate() : null;
+          const usedMb = est && typeof est.usage === 'number' ? (est.usage / (1024 * 1024)).toFixed(2) + ' MB used' : '';
+          persistStatusEl.textContent = (isPersisted ? 'Protected (Persistent)' : 'Standard Browser Storage') + (usedMb ? ' - ' + usedMb : '');
+          persistStatusEl.style.color = isPersisted ? '#4ade80' : 'var(--text-secondary)';
+          if (persistBtn && isPersisted) {
+            persistBtn.textContent = 'Protected';
+          }
+        } else {
+          persistStatusEl.textContent = 'localStorage Active';
+        }
+      } catch (e) {
+        persistStatusEl.textContent = 'localStorage Active';
+      }
+    };
+    refreshPersistStatus();
+
+    persistBtn?.addEventListener('click', async () => {
+      SoundFX.click();
+      try {
+        if (navigator.storage && navigator.storage.persist) {
+          await navigator.storage.persist();
+        }
+      } catch (e) {}
+      refreshPersistStatus();
+    });
+
+    const showDataMsg = (msg, ok = true) => {
+      const el = container.querySelector('#setDataBackupMsg');
+      if (!el) return;
+      el.textContent = msg;
+      el.style.color = ok ? '#4ade80' : '#f87171';
+      el.style.display = 'block';
+    };
+
+    container.querySelector('#setExportDataBtn')?.addEventListener('click', () => {
+      SoundFX.click();
+      const snapshot = {};
+      for (let i = 0; i < localStorage.length; i++) {
+        const k = localStorage.key(i);
+        if (k && k !== '__proto__' && k !== 'constructor' && k !== 'prototype') {
+          snapshot[k] = localStorage.getItem(k);
+        }
+      }
+      const payload = {
+        lunamixBackupVersion: '2.0.0',
+        exportedAt: new Date().toISOString(),
+        localStorage: snapshot
+      };
+      const blob = new Blob([JSON.stringify(payload, null, 2)], { type: 'application/json' });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = `lunamix-backup-${new Date().toISOString().slice(0, 10)}.json`;
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+      setTimeout(() => URL.revokeObjectURL(url), 1000);
+      showDataMsg('Backup exported (' + Object.keys(snapshot).length + ' saved entries).');
+    });
+
+    container.querySelector('#setImportDataFile')?.addEventListener('change', (e) => {
+      const file = e.target.files && e.target.files[0];
+      if (!file) return;
+      if (file.size > 4 * 1024 * 1024) {
+        showDataMsg('Backup file must be under 4 MB.', false);
+        return;
+      }
+      const reader = new FileReader();
+      reader.onload = () => {
+        try {
+          const parsed = JSON.parse(String(reader.result || ''), (key, value) => {
+            if (key === '__proto__' || key === 'constructor' || key === 'prototype') return undefined;
+            return value;
+          });
+          if (!parsed || typeof parsed !== 'object' || !parsed.localStorage || typeof parsed.localStorage !== 'object' || Array.isArray(parsed.localStorage)) {
+            showDataMsg('Invalid Lunamix backup file.', false);
+            return;
+          }
+          let restored = 0;
+          Object.keys(parsed.localStorage).forEach((k) => {
+            if (k === '__proto__' || k === 'constructor' || k === 'prototype') return;
+            const v = parsed.localStorage[k];
+            if (typeof v !== 'string') return;
+            // Enforce student role on any imported accounts payload
+            if (k === 'lunamix_accounts_v2') {
+              try {
+                const accts = JSON.parse(v, (ak, av) => (ak === '__proto__' || ak === 'constructor' || ak === 'prototype') ? undefined : av);
+                if (Array.isArray(accts)) {
+                  accts.forEach((a) => { if (a && typeof a === 'object') a.role = 'student'; });
+                  localStorage.setItem(k, JSON.stringify(accts));
+                  restored++;
+                }
+              } catch (err) {}
+              return;
+            }
+            localStorage.setItem(k, v);
+            restored++;
+          });
+          const theme = localStorage.getItem('nautilus_theme') || 'nautilus';
+          document.documentElement.setAttribute('data-theme', theme);
+          loadAndApplyWallpaper();
+          window.LunamixCloak?.init?.();
+          showDataMsg('Restored ' + restored + ' saved entries! Reload to apply everywhere.');
+        } catch (err) {
+          showDataMsg('Could not parse backup file.', false);
+        }
+      };
+      reader.readAsText(file);
     });
 
     const layoutSelect = container.querySelector('#setPreferredLayoutSelect');
@@ -4388,6 +4542,15 @@
     const savedTheme = localStorage.getItem('nautilus_theme') || 'nautilus';
     document.documentElement.setAttribute('data-theme', savedTheme);
     loadAndApplyWallpaper();
+
+    // Ask browser to mark origin storage (IndexedDB & localStorage game saves) as persistent
+    try {
+      if (navigator.storage && typeof navigator.storage.persist === 'function') {
+        navigator.storage.persisted?.().then((already) => {
+          if (!already) navigator.storage.persist().catch(() => {});
+        }).catch(() => {});
+      }
+    } catch (e) {}
 
     // Restore Dock Mode (Desktop only)
     if (!isDashboardMode()) {

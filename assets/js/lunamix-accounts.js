@@ -333,6 +333,7 @@
       } else {
         existing.theme = sanitizeTheme(localStorage.getItem('nautilus_theme') || existing.theme);
         existing.role = 'student';
+        writeAccountsRaw(accounts);
       }
       localStorage.setItem(CURRENT_ACCOUNT_KEY, existing.username);
       localStorage.setItem('lunamix_username', existing.username);
