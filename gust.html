@@ -12583,7 +12583,7 @@ let activeTabId = 1;
                                 const globe = faviconImg.nextElementSibling;
                                 if (globe) globe.style.display = 'none';
                             };
-                            faviconImg.src = src;
+                            if (typeof src === "string" && (/^(https?:|blob:)/i.test(src) || /^data:image\/(png|jpeg|jpg|gif|webp|x-icon|vnd\.microsoft\.icon);/i.test(src))) faviconImg.src = src;
                         }).catch(() => {});
                     }
 
@@ -13318,7 +13318,7 @@ let activeTabId = 1;
                                 const globe = bmFavImg.nextElementSibling;
                                 if (globe) globe.style.display = 'none';
                             };
-                            bmFavImg.src = src;
+                            if (typeof src === "string" && (/^(https?:|blob:)/i.test(src) || /^data:image\/(png|jpeg|jpg|gif|webp|x-icon|vnd\.microsoft\.icon);/i.test(src))) bmFavImg.src = src;
                         }).catch(() => {});
                     }
 
@@ -13738,7 +13738,7 @@ let activeTabId = 1;
 
                         const favImg = a.querySelector('img[data-favicon-url]');
                         if (favImg) {
-                            resolveFaviconSrc(favImg.getAttribute('data-favicon-url')).then(src => { if (src) favImg.src = src; }).catch(() => {});
+                            resolveFaviconSrc(favImg.getAttribute('data-favicon-url')).then(src => { if (typeof src === "string" && (/^(https?:|blob:)/i.test(src) || /^data:image\/(png|jpeg|jpg|gif|webp|x-icon|vnd\.microsoft\.icon);/i.test(src))) favImg.src = src; }).catch(() => {});
                         }
 
                         const titleSpan = document.createElement("span");
@@ -14399,10 +14399,13 @@ let activeTabId = 1;
                     const content = $('elemDetailContent');
                     if (!content) return;
                     const b = e.data.box || {};
-                    const mt = b.marginTop ?? 0, mr = b.marginRight ?? 0, mb = b.marginBottom ?? 0, ml = b.marginLeft ?? 0;
-                    const pt = b.paddingTop ?? 0, pr = b.paddingRight ?? 0, pb = b.paddingBottom ?? 0, pl = b.paddingLeft ?? 0;
-                    const w = b.width?.toFixed(1) ?? '-';
-                    const h = b.height?.toFixed(1) ?? '-';
+                    const boxInt = (v) => { const n = Number(v); return Number.isFinite(n) ? Math.round(n) : 0; };
+                    const boxFix = (v) => { const n = Number(v); return Number.isFinite(n) ? n.toFixed(1) : '-'; };
+                    const mt = boxInt(b.marginTop), mr = boxInt(b.marginRight), mb = boxInt(b.marginBottom), ml = boxInt(b.marginLeft);
+                    const pt = boxInt(b.paddingTop), pr = boxInt(b.paddingRight), pb = boxInt(b.paddingBottom), pl = boxInt(b.paddingLeft);
+                    const w = boxFix(b.width);
+                    const h = boxFix(b.height);
+                    const bTop = boxFix(b.top), bLeft = boxFix(b.left), bBottom = boxFix(b.bottom), bRight = boxFix(b.right);
                     content.innerHTML = `
                         <div style="display:flex;flex-direction:column;align-items:center;gap:0;padding:6px 2px;font-size:10px;">
                             <div style="width:100%;max-width:220px;">
@@ -14431,10 +14434,10 @@ let activeTabId = 1;
                                 </div>
                             </div>
                             <div style="margin-top:8px;display:grid;grid-template-columns:1fr 1fr;gap:3px 12px;font-size:10.5px;width:100%;max-width:220px;">
-                                <div><span style="color:var(--tx3)">top: </span><span style="color:#f8dc75">${b.top?.toFixed(1) ?? '-'}px</span></div>
-                                <div><span style="color:var(--tx3)">left: </span><span style="color:#f8dc75">${b.left?.toFixed(1) ?? '-'}px</span></div>
-                                <div><span style="color:var(--tx3)">bottom: </span><span style="color:#f8dc75">${b.bottom?.toFixed(1) ?? '-'}px</span></div>
-                                <div><span style="color:var(--tx3)">right: </span><span style="color:#f8dc75">${b.right?.toFixed(1) ?? '-'}px</span></div>
+                                <div><span style="color:var(--tx3)">top: </span><span style="color:#f8dc75">${bTop}px</span></div>
+                                <div><span style="color:var(--tx3)">left: </span><span style="color:#f8dc75">${bLeft}px</span></div>
+                                <div><span style="color:var(--tx3)">bottom: </span><span style="color:#f8dc75">${bBottom}px</span></div>
+                                <div><span style="color:var(--tx3)">right: </span><span style="color:#f8dc75">${bRight}px</span></div>
                             </div>
                         </div>`;
                 }
@@ -21256,15 +21259,15 @@ _VIEWER_DL_JS +
                         <!-- Second row: network | storage | page performance -->
                         <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;">
                             ${metricSection('Network',
-                                metricRow('WISP endpoint', (WISP || '-').replace('wss://', '').replace(/\/$/, '')) +
-                                metricRow('Connection type', connType) +
-                                metricRow('Round-trip time', rtt) +
-                                metricRow('Downlink', downlink)
+                                metricRow('WISP endpoint', escapeHtml(String(WISP || '-').replace('wss://', '').replace(/\/$/, ''))) +
+                                metricRow('Connection type', escapeHtml(String(connType))) +
+                                metricRow('Round-trip time', escapeHtml(String(rtt))) +
+                                metricRow('Downlink', escapeHtml(String(downlink)))
                             )}
                             ${metricSection('Storage',
-                                metricRow('Used', idbSize) +
-                                metricRow('Quota', idbQuota) +
-                                metricRow('localStorage', lsSize)
+                                metricRow('Used', escapeHtml(String(idbSize))) +
+                                metricRow('Quota', escapeHtml(String(idbQuota))) +
+                                metricRow('localStorage', escapeHtml(String(lsSize)))
                             )}
                             ${metricSection('Page Performance',
                                 (pageLoadMs != null ? metricRow('Page load time', pageLoadMs + ' ms') : '') +

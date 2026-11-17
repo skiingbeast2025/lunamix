@@ -318,7 +318,7 @@
   // 3. Window Manager (Floating Windows, 8-Handle Resizing, Dragging, Snapping)
   // ==========================================================================
   const WindowManager = {
-    windows: {},
+    windows: Object.create(null),
     activeId: null,
     zIndexSeq: 100,
     container: null,
@@ -518,6 +518,7 @@
 
     close(appId) {
       SoundFX.close();
+      if (!Object.prototype.hasOwnProperty.call(this.windows, appId)) return;
       const win = this.windows[appId];
       if (!win) return;
 
@@ -538,6 +539,7 @@
 
     minimize(appId) {
       SoundFX.click();
+      if (!Object.prototype.hasOwnProperty.call(this.windows, appId)) return;
       const win = this.windows[appId];
       if (!win) return;
 
@@ -552,6 +554,7 @@
 
     toggleMaximize(appId) {
       SoundFX.click();
+      if (!Object.prototype.hasOwnProperty.call(this.windows, appId)) return;
       const win = this.windows[appId];
       if (!win) return;
 
@@ -583,6 +586,7 @@
     },
 
     focus(appId) {
+      if (!Object.prototype.hasOwnProperty.call(this.windows, appId)) return;
       const win = this.windows[appId];
       if (!win) return;
 
