@@ -1199,15 +1199,33 @@
     },
 
     bindKeyboardShortcuts() {
+      const isMacPlatform = /Mac|iPhone|iPad|iPod/i.test(navigator.platform || navigator.userAgent || '');
       const kbOn = (key, def = true) => {
         if (localStorage.getItem('lunamix_keybinds_enabled') === 'false') return false;
         const val = localStorage.getItem(key);
         return val === null ? def : val === 'true';
       };
 
+      let metaSoloPending = false;
+      const cancelMetaSolo = () => { metaSoloPending = false; };
+      document.addEventListener('pointerdown', cancelMetaSolo, true);
+      window.addEventListener('blur', cancelMetaSolo);
+
       document.addEventListener('keydown', (e) => {
-        // Meta/Windows key toggles Start Menu
-        if (!isDashboardMode() && e.key === 'Meta' && kbOn('lunamix_kb_meta')) {
+        // Track solo Meta press (so Cmd+C / Cmd+V / Cmd+Click never open Start Menu)
+        if (e.key === 'Meta') {
+          if (!e.repeat && !e.ctrlKey && !e.altKey && !e.shiftKey) {
+            metaSoloPending = true;
+          } else {
+            metaSoloPending = false;
+          }
+        } else {
+          metaSoloPending = false;
+        }
+
+        // Alt + Space: Safe Start Menu shortcut on all platforms including Mac
+        if (!isDashboardMode() && e.altKey && e.code === 'Space' && kbOn('lunamix_kb_master', true)) {
+          e.preventDefault();
           this.toggleStartMenu();
         }
         // Alt + T: Open Terminal
@@ -1233,6 +1251,17 @@
           window.LunamixNotifications?.close();
           const cm = document.getElementById('contextMenu');
           if (cm) cm.style.display = 'none';
+        }
+      });
+
+      document.addEventListener('keyup', (e) => {
+        if (e.key === 'Meta' && metaSoloPending) {
+          metaSoloPending = false;
+          if (!isDashboardMode() && kbOn('lunamix_kb_meta', !isMacPlatform)) {
+            this.toggleStartMenu();
+          }
+        } else if (e.key !== 'Meta') {
+          metaSoloPending = false;
         }
       });
     }
@@ -3759,7 +3788,11 @@
     const preferredLayout = localStorage.getItem('lunamix_default_layout') === 'dashboard' ? 'dashboard' : 'desktop';
     const onDashboard = isDashboardMode();
     const kbMaster = localStorage.getItem('lunamix_keybinds_enabled') !== 'false';
-    const kbBool = (k) => localStorage.getItem(k) !== 'false';
+    const isMacPlatform = /Mac|iPhone|iPad|iPod/i.test(navigator.platform || navigator.userAgent || '');
+    const kbBool = (k, def = true) => {
+      const v = localStorage.getItem(k);
+      return v === null ? def : v === 'true';
+    };
 
     const themes = [
       { id: 'nautilus', name: 'Nautilus Mint', color: '#7dd3c0' },
@@ -3980,9 +4013,9 @@
                 <div style="${rowStyle}">
                   <div>
                     <div style="font-size: 0.85rem; font-weight: 600;"><code>Meta / Super</code> &rarr; Start Menu</div>
-                    <div style="font-size: 0.76rem; color: var(--text-secondary);">Toggle the Start Menu with the Windows / Command key</div>
+                    <div style="font-size: 0.76rem; color: var(--text-secondary);">Solo-tap Meta/Windows key (off by default on Mac so Command copy/paste works; use Alt+Space)</div>
                   </div>
-                  ${toggleSwitchHtml('setKbMetaToggle', kbBool('lunamix_kb_meta'))}
+                  ${toggleSwitchHtml('setKbMetaToggle', kbBool('lunamix_kb_meta', !isMacPlatform))}
                 </div>
                 <div style="${rowStyle}">
                   <div>
