@@ -320,24 +320,23 @@
        3. Dashboard Mode Shell (Hidden Until Auth Unlocks)
        ====================================================================== -->
   <div id="dashShell" class="dash-shell">
-    <!-- Top Statusbar -->
+    <!-- Top Statusbar (HBU2 Minimal Style) -->
     <header class="dash-statusbar" id="dashStatusbar">
       <div class="dash-status-left">
         <div class="dash-brand">
           <span class="dash-brand-icon" aria-hidden="true">
             <i class="fa-solid fa-cube"></i>
           </span>
-          <span class="dash-brand-name">LUNAMIX OS</span>
-          <span class="dash-brand-pill">Dashboard</span>
+          <span class="dash-brand-name">Lunamix OS</span>
         </div>
-
-        <a href="./index.html?mode=desktop" id="dashSwitchDesktopBtn" class="dash-nav-btn" title="Switch to Desktop Mode">
-          <i class="fa-solid fa-desktop"></i>
-          <span>Desktop Mode</span>
-        </a>
       </div>
 
       <div class="dash-status-right">
+        <a href="./index.html?mode=desktop" id="dashSwitchDesktopBtn" class="dash-nav-btn" title="Switch to Desktop Mode">
+          <i class="fa-solid fa-desktop"></i>
+          <span>Desktop</span>
+        </a>
+
         <button type="button" class="dash-icon-btn lm-newtab-toggle" id="trayNewTabBtn" title="Open Everything in New Tab: Off" aria-pressed="false">
           <i class="fa-solid fa-arrow-up-right-from-square"></i>
         </button>
@@ -355,101 +354,53 @@
           <i class="fa-solid fa-sliders"></i>
         </button>
 
-        <div class="dash-user-pill">
+        <button type="button" id="dashSwitchUserBtn" class="dash-user-pill" title="Switch Account">
           <span class="dash-user-avatar" id="dashUserAvatar">🚀</span>
           <span class="dash-user-name" id="dashUserName">User</span>
-          <button type="button" id="dashSwitchUserBtn" class="dash-switch-user-btn" title="Switch User">
-            <i class="fa-solid fa-right-left"></i>
-            <span>Switch</span>
-          </button>
-        </div>
+        </button>
 
         <div class="dash-clock" id="dashClock">12:00 PM</div>
       </div>
     </header>
 
-    <!-- Main Dashboard Home View -->
+    <!-- Main Dashboard Home View (HBU2 Centered Open Layout) -->
     <main class="dash-home" id="dashHome">
-      <!-- Hero Greeting Section -->
       <section class="dash-hero" aria-labelledby="dashHeroTitle">
-        <div class="dash-hero-content">
-          <div class="dash-hero-eyebrow">
-            <i class="fa-solid fa-sparkles"></i>
-            <span>LUNAMIX WEBOS</span>
-          </div>
-          <h1 class="dash-hero-title" id="dashHeroTitle">Welcome, User</h1>
-          <p class="dash-hero-sub">
-            Ready to launch apps, games, and tools in full-screen clarity. Active Theme:
-            <span class="dash-theme-badge" id="dashThemeLabel">Nautilus Mint</span>
-          </p>
-
-          <div class="dash-hero-actions">
-            <button type="button" id="dashPrimaryCta" class="dash-cta-btn">
-              <i class="fa-solid fa-gamepad"></i>
-              <span>Open Games Hub</span>
-            </button>
-
-            <div class="dash-stats-row">
-              <div class="dash-stat-pill">
-                <i class="fa-solid fa-thumbtack"></i>
-                <span>Pinned:</span>
-                <strong id="dashPinnedCount">0</strong>
-              </div>
-              <div class="dash-stat-pill">
-                <i class="fa-solid fa-trophy"></i>
-                <span>Achievements:</span>
-                <strong id="dashAchCount">0</strong>
-              </div>
-            </div>
-          </div>
-        </div>
+        <span class="dash-hero-eyebrow"><span aria-hidden="true">✧</span> LUNAMIX WEBOS</span>
+        <h1 class="dash-hero-title" id="dashHeroTitle">Welcome,<br><span>User.</span></h1>
+        <p class="dash-hero-sub">Apps, games, chat, and tools in one place.</p>
+        <button type="button" id="dashPrimaryCta" class="dash-cta-btn">
+          Open Games Hub <span aria-hidden="true">↗</span>
+        </button>
+        <span class="dash-sr-only" id="dashThemeLabel">Nautilus Mint</span>
+        <span class="dash-sr-only" id="dashPinnedCount">0</span>
+        <span class="dash-sr-only" id="dashAchCount">0</span>
       </section>
 
-      <!-- App Organizer Section -->
       <section class="dash-organizer-section" aria-label="App Organizer">
         <div class="dash-filter-bar">
-          <div class="dash-filter-group">
-            <label class="dash-sr-only" for="dashCategory">Filter Category</label>
-            <select id="dashCategory" class="dash-select" aria-label="Filter apps by category">
-              <option value="all">All Apps</option>
-              <option value="pinned">Pinned Only</option>
-              <option value="games">Games &amp; Media</option>
-              <option value="social">Social &amp; Web</option>
-              <option value="tools">Tools &amp; System</option>
-            </select>
+          <label class="dash-filter-label" for="dashCategory">Show apps:</label>
+          <select id="dashCategory" class="dash-select" aria-label="Filter apps by category">
+            <option value="all">All apps</option>
+            <option value="pinned">Pinned</option>
+            <option value="games">Games and media</option>
+            <option value="social">Social and web</option>
+            <option value="tools">Tools and settings</option>
+          </select>
 
-            <div class="dash-search-wrap">
-              <i class="fa-solid fa-magnifying-glass"></i>
-              <input type="search" id="dashSearch" class="dash-search-input" placeholder="Search apps, games, tools..." autocomplete="off" aria-label="Search apps" />
-            </div>
-          </div>
+          <input type="search" id="dashSearch" class="dash-search-input" placeholder="Search apps..." autocomplete="off" aria-label="Search apps" />
 
-          <div class="dash-filter-actions">
-            <button type="button" id="dashPinToggle" class="dash-tool-btn" aria-expanded="false" aria-controls="dashPinPanel">
-              <i class="fa-solid fa-thumbtack"></i>
-              <span>Manage Pins</span>
-            </button>
-
-            <a href="./index.html?mode=desktop" id="dashOrganizerDesktopBtn" class="dash-mode-pill">
-              <i class="fa-solid fa-window-restore"></i>
-              <span>Switch to Desktop Mode</span>
-            </a>
-          </div>
+          <button type="button" id="dashPinToggle" class="dash-tool-btn" aria-expanded="false" aria-controls="dashPinPanel">
+            Manage pins
+          </button>
         </div>
 
-        <!-- Collapsible Pin Manager Panel -->
         <section id="dashPinPanel" class="dash-pin-panel" aria-label="Pin Manager" hidden>
-          <div class="dash-pin-panel-header">
-            <div>
-              <h2 class="dash-pin-panel-title">Pin Manager</h2>
-              <p class="dash-pin-panel-sub">Choose which apps appear first in your pinned dashboard view.</p>
-            </div>
-          </div>
+          <p class="dash-pin-panel-sub">Choose apps to pin to the front of your home screen.</p>
           <div id="dashPinList" class="dash-pin-list"></div>
         </section>
 
-        <!-- Responsive Glossy App Tiles Grid -->
-        <div id="dashAppGrid" class="dash-app-grid"></div>
+        <div id="dashAppGrid" class="dash-app-grid" aria-label="Apps"></div>
       </section>
     </main>
 

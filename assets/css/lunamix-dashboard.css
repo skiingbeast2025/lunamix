@@ -1,15 +1,14 @@
 /* ==========================================================================
    SPDX-License-Identifier: AGPL-3.0-or-later
-   Lunamix OS - Dashboard Mode Stylesheet
-   Uses Lunamix CSS variables exclusively so all 9+ themes (including light-frosted)
-   render with full contrast and visual consistency.
+   Lunamix OS - Simple HBU2-Style Dashboard Stylesheet
+   Uses Lunamix CSS variables exclusively so every startup/Settings theme
+   (including light-frosted) renders accurately with full contrast.
    ========================================================================== */
 
 body[data-lunamix-mode="dashboard"] {
   background-color: var(--bg-primary);
   background-image:
-    radial-gradient(circle at 16% 0%, color-mix(in srgb, var(--accent) 16%, transparent) 0%, transparent 44%),
-    radial-gradient(circle at 88% 14%, color-mix(in srgb, var(--accent) 10%, transparent) 0%, transparent 40%);
+    radial-gradient(circle at 50% 0%, color-mix(in srgb, var(--accent) 14%, transparent) 0%, transparent 55%);
   color: var(--text-primary);
   overflow: hidden;
 }
@@ -26,7 +25,6 @@ body[data-lunamix-mode="dashboard"] {
   border: 0;
 }
 
-/* Native [hidden] enforcement across flex/grid containers */
 #dashHome[hidden],
 #dashPinPanel[hidden],
 #dashWorkspace[hidden] {
@@ -51,21 +49,20 @@ body[data-lunamix-mode="dashboard"] {
 }
 
 /* ==========================================================================
-   2. Top Statusbar (HBU2-Inspired Frosted Header)
+   2. Simple Top Statusbar (HBU2 Style)
    ========================================================================== */
 .dash-statusbar {
-  height: 60px;
+  height: 54px;
   flex-shrink: 0;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 0.9rem;
-  padding: 0 clamp(0.85rem, 2.5vw, 1.75rem);
-  background: var(--glass-bg);
-  backdrop-filter: blur(28px) saturate(165%);
-  -webkit-backdrop-filter: blur(28px) saturate(165%);
+  gap: 12px;
+  padding: 0 20px;
+  background: color-mix(in srgb, var(--bg-primary) 72%, transparent);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
   border-bottom: 1px solid var(--glass-border);
-  box-shadow: var(--shadow-default);
   z-index: 40;
 }
 
@@ -73,97 +70,77 @@ body[data-lunamix-mode="dashboard"] {
 .dash-status-right {
   display: flex;
   align-items: center;
-  gap: 0.65rem;
+  gap: 10px;
   min-width: 0;
 }
 
 .dash-brand {
   display: inline-flex;
   align-items: center;
-  gap: 0.55rem;
-  padding: 0.3rem 0.65rem 0.3rem 0.35rem;
-  border-radius: 12px;
-  background: color-mix(in srgb, var(--text-primary) 5%, transparent);
-  border: 1px solid var(--glass-border);
+  gap: 8px;
 }
 
 .dash-brand-icon {
-  width: 30px;
-  height: 30px;
-  border-radius: 9px;
+  width: 28px;
+  height: 28px;
+  border-radius: 8px;
   display: inline-flex;
   align-items: center;
   justify-content: center;
   background: color-mix(in srgb, var(--accent) 18%, transparent);
-  border: 1px solid color-mix(in srgb, var(--accent) 42%, transparent);
   color: var(--accent);
-  font-size: 0.92rem;
+  font-size: 0.88rem;
 }
 
 .dash-brand-name {
-  font-weight: 800;
-  font-size: 0.86rem;
-  letter-spacing: 0.06em;
+  font-weight: 700;
+  font-size: 0.92rem;
   color: var(--text-primary);
   white-space: nowrap;
-}
-
-.dash-brand-pill {
-  font-size: 0.68rem;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-  padding: 0.14rem 0.48rem;
-  border-radius: 999px;
-  background: color-mix(in srgb, var(--accent) 16%, transparent);
-  color: var(--accent);
-  border: 1px solid color-mix(in srgb, var(--accent) 32%, transparent);
 }
 
 .dash-nav-btn {
   display: inline-flex;
   align-items: center;
-  gap: 0.45rem;
-  padding: 0.44rem 0.85rem;
-  border-radius: 10px;
+  gap: 6px;
+  padding: 5px 11px;
+  border-radius: 8px;
   font-size: 0.8rem;
   font-weight: 600;
   text-decoration: none;
-  color: var(--text-primary);
-  background: color-mix(in srgb, var(--text-primary) 6%, transparent);
+  color: var(--text-secondary);
+  background: transparent;
   border: 1px solid var(--glass-border);
-  transition: background var(--transition-fast), border-color var(--transition-fast), transform var(--transition-fast);
+  transition: color var(--transition-fast), border-color var(--transition-fast), background var(--transition-fast);
   white-space: nowrap;
 }
 
 .dash-nav-btn:hover {
-  background: color-mix(in srgb, var(--accent) 14%, transparent);
-  border-color: var(--accent);
   color: var(--accent);
-  transform: translateY(-1px);
+  border-color: var(--accent);
+  background: color-mix(in srgb, var(--accent) 10%, transparent);
 }
 
 .dash-icon-btn {
   position: relative;
-  width: 36px;
-  height: 36px;
-  border-radius: 10px;
+  width: 34px;
+  height: 34px;
+  border-radius: 8px;
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  font-size: 0.95rem;
+  font-size: 0.9rem;
   color: var(--text-secondary);
-  background: color-mix(in srgb, var(--text-primary) 5%, transparent);
+  background: transparent;
   border: 1px solid var(--glass-border);
-  transition: background var(--transition-fast), color var(--transition-fast), border-color var(--transition-fast), transform var(--transition-fast);
+  transition: color var(--transition-fast), border-color var(--transition-fast), background var(--transition-fast);
   flex-shrink: 0;
 }
 
 .dash-icon-btn:hover {
   color: var(--text-primary);
   border-color: var(--accent);
-  background: color-mix(in srgb, var(--accent) 14%, transparent);
-  transform: translateY(-1px);
+  background: color-mix(in srgb, var(--accent) 12%, transparent);
 }
 
 .dash-icon-btn.is-active,
@@ -176,408 +153,255 @@ body[data-lunamix-mode="dashboard"] {
 .dash-user-pill {
   display: inline-flex;
   align-items: center;
-  gap: 0.48rem;
-  padding: 0.25rem 0.35rem 0.25rem 0.55rem;
+  gap: 6px;
+  padding: 4px 10px 4px 6px;
   border-radius: 999px;
   background: color-mix(in srgb, var(--text-primary) 5%, transparent);
   border: 1px solid var(--glass-border);
+  color: var(--text-primary);
+  font-size: 0.8rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: border-color var(--transition-fast), background var(--transition-fast);
+}
+
+.dash-user-pill:hover {
+  border-color: var(--accent);
+  background: color-mix(in srgb, var(--accent) 12%, transparent);
 }
 
 .dash-user-avatar {
-  font-size: 1rem;
+  font-size: 0.95rem;
   line-height: 1;
 }
 
 .dash-user-name {
-  font-size: 0.82rem;
-  font-weight: 600;
-  color: var(--text-primary);
-  max-width: 120px;
+  max-width: 110px;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
 }
 
-.dash-switch-user-btn {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.32rem;
-  padding: 0.28rem 0.6rem;
-  border-radius: 999px;
-  font-size: 0.72rem;
-  font-weight: 600;
-  color: var(--text-secondary);
-  background: color-mix(in srgb, var(--text-primary) 7%, transparent);
-  border: 1px solid var(--glass-border);
-  transition: background var(--transition-fast), color var(--transition-fast), border-color var(--transition-fast);
-}
-
-.dash-switch-user-btn:hover {
-  color: var(--accent);
-  border-color: var(--accent);
-  background: color-mix(in srgb, var(--accent) 14%, transparent);
-}
-
 .dash-clock {
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 0.8rem;
-  font-weight: 600;
-  color: var(--text-primary);
-  padding: 0.38rem 0.68rem;
-  border-radius: 10px;
-  background: color-mix(in srgb, var(--text-primary) 5%, transparent);
-  border: 1px solid var(--glass-border);
+  font-size: 0.82rem;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+  color: var(--text-secondary);
   white-space: nowrap;
 }
 
 /* ==========================================================================
-   3. Dashboard Home & Hero Card
+   3. Centered Open Home Screen & Greeting (HBU2 Style)
    ========================================================================== */
 .dash-home {
   flex: 1;
-  min-height: 0;
   overflow-y: auto;
-  padding: clamp(1.25rem, 3vw, 2.25rem) clamp(1rem, 4vw, 3rem) 3.5rem;
+  overflow-x: hidden;
+  padding: 36px 20px 48px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 38px;
+  text-align: center;
 }
 
-.dash-hero,
-.dash-organizer-section {
-  max-width: 1280px;
-  width: 100%;
-  margin-inline: auto;
+.dash-home > :first-child {
+  margin-top: auto;
+}
+
+.dash-home > :last-child {
+  margin-bottom: auto;
 }
 
 .dash-hero {
-  position: relative;
-  border-radius: 24px;
-  padding: clamp(1.5rem, 3.2vw, 2.4rem);
-  margin-bottom: 1.75rem;
-  background:
-    radial-gradient(circle at 92% 18%, color-mix(in srgb, var(--accent) 20%, transparent) 0%, transparent 48%),
-    linear-gradient(145deg, color-mix(in srgb, var(--accent) 9%, var(--glass-bg)) 0%, var(--glass-bg) 62%, var(--bg-secondary) 100%);
-  border: 1px solid var(--glass-border);
-  box-shadow: var(--shadow-heavy);
-  backdrop-filter: blur(26px) saturate(160%);
-  -webkit-backdrop-filter: blur(26px) saturate(160%);
-  overflow: hidden;
-}
-
-.dash-hero-content {
-  position: relative;
-  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 720px;
 }
 
 .dash-hero-eyebrow {
   display: inline-flex;
   align-items: center;
-  gap: 0.45rem;
-  padding: 0.3rem 0.72rem;
-  border-radius: 999px;
-  font-size: 0.72rem;
+  gap: 6px;
+  font-size: 0.74rem;
   font-weight: 700;
-  letter-spacing: 0.1em;
+  letter-spacing: 0.14em;
   text-transform: uppercase;
   color: var(--accent);
-  background: color-mix(in srgb, var(--accent) 14%, transparent);
-  border: 1px solid color-mix(in srgb, var(--accent) 34%, transparent);
-  margin-bottom: 0.85rem;
 }
 
 .dash-hero-title {
-  font-size: clamp(1.7rem, 3.1vw, 2.5rem);
+  margin: 12px 0 10px;
+  font-size: clamp(2.35rem, 6.2vw, 4.1rem);
   font-weight: 800;
-  line-height: 1.15;
-  letter-spacing: -0.02em;
+  line-height: 1.06;
+  letter-spacing: -0.025em;
   color: var(--text-primary);
-  margin-bottom: 0.55rem;
+}
+
+.dash-hero-title span {
+  color: var(--accent);
 }
 
 .dash-hero-sub {
-  font-size: 0.96rem;
-  line-height: 1.55;
+  margin: 0 0 20px;
   color: var(--text-secondary);
-  margin-bottom: 1.4rem;
-  max-width: 680px;
-}
-
-.dash-theme-badge {
-  display: inline-flex;
-  align-items: center;
-  padding: 0.14rem 0.6rem;
-  border-radius: 999px;
-  font-size: 0.78rem;
-  font-weight: 700;
-  color: var(--accent);
-  background: color-mix(in srgb, var(--accent) 14%, transparent);
-  border: 1px solid color-mix(in srgb, var(--accent) 32%, transparent);
-  vertical-align: middle;
-}
-
-.dash-hero-actions {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 1rem;
-  flex-wrap: wrap;
+  font-size: 0.96rem;
 }
 
 .dash-cta-btn {
   display: inline-flex;
   align-items: center;
-  gap: 0.6rem;
-  padding: 0.78rem 1.35rem;
-  border-radius: 12px;
-  font-size: 0.92rem;
+  gap: 8px;
+  padding: 11px 22px;
+  border-radius: 999px;
+  font-size: 0.9rem;
   font-weight: 700;
   background: var(--accent);
   color: var(--bg-primary);
-  box-shadow: 0 8px 22px color-mix(in srgb, var(--accent) 28%, transparent);
+  box-shadow: 0 8px 24px color-mix(in srgb, var(--accent) 28%, transparent);
   transition: background var(--transition-fast), transform var(--transition-fast), box-shadow var(--transition-fast);
 }
 
 .dash-cta-btn:hover {
   background: var(--accent-hover);
   transform: translateY(-2px);
-  box-shadow: 0 12px 28px color-mix(in srgb, var(--accent) 36%, transparent);
-}
-
-.dash-stats-row {
-  display: flex;
-  align-items: center;
-  gap: 0.65rem;
-  flex-wrap: wrap;
-}
-
-.dash-stat-pill {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.45rem;
-  padding: 0.52rem 0.9rem;
-  border-radius: 12px;
-  font-size: 0.82rem;
-  color: var(--text-secondary);
-  background: color-mix(in srgb, var(--text-primary) 5%, var(--bg-secondary));
-  border: 1px solid var(--glass-border);
-}
-
-.dash-stat-pill i {
-  color: var(--accent);
-}
-
-.dash-stat-pill strong {
-  color: var(--text-primary);
-  font-weight: 700;
+  box-shadow: 0 12px 28px color-mix(in srgb, var(--accent) 38%, transparent);
 }
 
 /* ==========================================================================
-   4. App Organizer Filter Bar & Pin Panel
+   4. Simple App Organizer & Pin Panel
    ========================================================================== */
+.dash-organizer-section {
+  width: min(100%, 1080px);
+  display: grid;
+  justify-items: center;
+  gap: 20px;
+}
+
 .dash-filter-bar {
   display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 0.85rem;
   flex-wrap: wrap;
-  padding: 0.85rem 1rem;
-  margin-bottom: 1.25rem;
-  border-radius: 16px;
-  background: var(--glass-bg);
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.dash-filter-label {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+}
+
+.dash-select,
+.dash-search-input,
+.dash-tool-btn {
+  padding: 8px 12px;
   border: 1px solid var(--glass-border);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
-}
-
-.dash-filter-group,
-.dash-filter-actions {
-  display: flex;
-  align-items: center;
-  gap: 0.65rem;
-  flex-wrap: wrap;
-}
-
-.dash-filter-group {
-  flex: 1 1 360px;
+  border-radius: 10px;
+  font-size: 0.84rem;
+  color: var(--text-primary);
+  background: var(--bg-secondary);
+  transition: border-color var(--transition-fast), color var(--transition-fast), background var(--transition-fast);
 }
 
 .dash-select {
-  padding: 0.55rem 0.9rem;
-  border-radius: 10px;
-  font-size: 0.85rem;
   font-weight: 600;
-  color: var(--text-primary);
-  background: var(--bg-secondary);
-  border: 1px solid var(--glass-border);
-  outline: none;
   cursor: pointer;
-  transition: border-color var(--transition-fast);
-}
-
-.dash-select:focus,
-.dash-select:hover {
-  border-color: var(--accent);
-}
-
-.dash-search-wrap {
-  position: relative;
-  flex: 1 1 220px;
-  max-width: 380px;
-}
-
-.dash-search-wrap i {
-  position: absolute;
-  left: 0.85rem;
-  top: 50%;
-  transform: translateY(-50%);
-  color: var(--text-secondary);
-  font-size: 0.84rem;
-  pointer-events: none;
 }
 
 .dash-search-input {
-  width: 100%;
-  padding: 0.56rem 0.9rem 0.56rem 2.3rem;
-  border-radius: 10px;
-  font-size: 0.86rem;
-  color: var(--text-primary);
-  background: var(--bg-secondary);
-  border: 1px solid var(--glass-border);
+  width: 190px;
   outline: none;
-  transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
 }
 
 .dash-search-input::placeholder {
   color: var(--text-secondary);
 }
 
-.dash-search-input:focus {
+.dash-select:focus,
+.dash-select:hover,
+.dash-search-input:focus,
+.dash-tool-btn:hover {
   border-color: var(--accent);
-  box-shadow: 0 0 0 3px color-mix(in srgb, var(--accent) 18%, transparent);
 }
 
-.dash-tool-btn,
-.dash-mode-pill {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.48rem;
-  padding: 0.55rem 0.95rem;
-  border-radius: 10px;
-  font-size: 0.83rem;
+.dash-tool-btn {
   font-weight: 600;
-  text-decoration: none;
-  color: var(--text-primary);
-  background: color-mix(in srgb, var(--text-primary) 6%, var(--bg-secondary));
-  border: 1px solid var(--glass-border);
-  transition: background var(--transition-fast), border-color var(--transition-fast), color var(--transition-fast), transform var(--transition-fast);
-  white-space: nowrap;
-}
-
-.dash-tool-btn:hover,
-.dash-mode-pill:hover {
-  border-color: var(--accent);
-  color: var(--accent);
-  background: color-mix(in srgb, var(--accent) 14%, var(--bg-secondary));
-  transform: translateY(-1px);
+  cursor: pointer;
 }
 
 .dash-tool-btn[aria-expanded="true"],
 .dash-tool-btn.active {
-  background: color-mix(in srgb, var(--accent) 18%, var(--bg-secondary));
-  border-color: var(--accent);
   color: var(--accent);
+  border-color: var(--accent);
+  background: color-mix(in srgb, var(--accent) 14%, var(--bg-secondary));
 }
 
-/* Collapsible Pin Manager Panel */
 .dash-pin-panel {
-  border-radius: 18px;
-  padding: 1.2rem 1.3rem;
-  margin-bottom: 1.4rem;
-  background: var(--glass-bg);
+  width: min(100%, 720px);
+  padding: 14px 16px;
   border: 1px solid var(--glass-border);
-  backdrop-filter: blur(22px);
-  -webkit-backdrop-filter: blur(22px);
-  box-shadow: var(--shadow-default);
-}
-
-.dash-pin-panel-header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 1rem;
-  margin-bottom: 0.95rem;
-}
-
-.dash-pin-panel-title {
-  font-size: 0.98rem;
-  font-weight: 700;
-  color: var(--text-primary);
-  margin-bottom: 0.18rem;
+  border-radius: 14px;
+  background: var(--glass-bg);
+  text-align: left;
 }
 
 .dash-pin-panel-sub {
-  font-size: 0.8rem;
+  font-size: 0.82rem;
   color: var(--text-secondary);
+  margin: 0 0 12px;
+  text-align: center;
 }
 
 .dash-pin-list {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-  gap: 0.65rem;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 8px;
 }
 
 .dash-pin-item {
-  display: flex;
+  display: inline-flex;
   align-items: center;
-  justify-content: space-between;
-  gap: 0.65rem;
-  padding: 0.62rem 0.78rem;
-  border-radius: 12px;
-  background: color-mix(in srgb, var(--text-primary) 4%, var(--bg-secondary));
+  gap: 8px;
+  padding: 6px 10px;
+  border-radius: 10px;
+  background: var(--bg-secondary);
   border: 1px solid var(--glass-border);
-  transition: border-color var(--transition-fast), background var(--transition-fast);
-}
-
-.dash-pin-item.is-pinned {
-  border-color: color-mix(in srgb, var(--accent) 45%, transparent);
-  background: color-mix(in srgb, var(--accent) 10%, var(--bg-secondary));
-}
-
-.dash-pin-item-info {
-  display: flex;
-  align-items: center;
-  gap: 0.55rem;
-  min-width: 0;
-  font-size: 0.84rem;
-  font-weight: 600;
+  font-size: 0.8rem;
   color: var(--text-primary);
 }
 
-.dash-pin-item-info span {
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
+.dash-pin-item.is-pinned {
+  border-color: var(--accent);
+  background: color-mix(in srgb, var(--accent) 12%, var(--bg-secondary));
+}
+
+.dash-pin-item-info {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-weight: 600;
 }
 
 .dash-pin-item input[type="checkbox"] {
-  width: 16px;
-  height: 16px;
   accent-color: var(--accent);
   cursor: pointer;
-  flex-shrink: 0;
 }
 
 .dash-pin-toggle-btn {
-  padding: 0.28rem 0.62rem;
-  border-radius: 8px;
-  font-size: 0.74rem;
+  padding: 2px 8px;
+  border-radius: 6px;
+  font-size: 0.72rem;
   font-weight: 700;
   color: var(--text-secondary);
   background: color-mix(in srgb, var(--text-primary) 7%, transparent);
   border: 1px solid var(--glass-border);
-  transition: all var(--transition-fast);
-  flex-shrink: 0;
 }
 
-.dash-pin-toggle-btn:hover,
 .dash-pin-toggle-btn.is-pinned {
   color: var(--bg-primary);
   background: var(--accent);
@@ -585,152 +409,90 @@ body[data-lunamix-mode="dashboard"] {
 }
 
 /* ==========================================================================
-   5. Responsive Glossy App Tiles Grid
+   5. HBU2-Style Centered Squircle App Grid
    ========================================================================== */
 .dash-app-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(235px, 1fr));
-  gap: 1.05rem;
+  width: min(100%, 960px);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 20px 18px;
 }
 
-.dash-app-card,
 .dash-app-tile {
-  position: relative;
+  width: 92px;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
-  gap: 0.9rem;
-  padding: 1.2rem;
-  border-radius: 18px;
-  background:
-    linear-gradient(165deg, color-mix(in srgb, var(--text-primary) 5%, transparent) 0%, transparent 48%),
-    var(--glass-bg);
-  border: 1px solid var(--glass-border);
-  box-shadow: var(--shadow-default);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
+  align-items: center;
+  gap: 8px;
+  padding: 6px 4px;
+  border: none;
+  border-radius: 14px;
+  background: transparent;
+  color: var(--text-primary);
   cursor: pointer;
-  outline: none;
-  transition: transform var(--transition-fast), border-color var(--transition-fast), box-shadow var(--transition-fast), background var(--transition-fast);
+  transition: transform var(--transition-fast);
 }
 
-.dash-app-card:hover,
-.dash-app-card:focus-visible,
 .dash-app-tile:hover,
 .dash-app-tile:focus-visible {
   transform: translateY(-4px);
-  border-color: var(--accent);
-  box-shadow: 0 14px 30px color-mix(in srgb, var(--accent) 18%, rgba(0, 0, 0, 0.3));
-}
-
-.dash-app-card.is-pinned,
-.dash-app-tile.is-pinned {
-  border-color: color-mix(in srgb, var(--accent) 36%, var(--glass-border));
-}
-
-.dash-card-top {
-  display: flex;
-  align-items: flex-start;
-  justify-content: space-between;
-  gap: 0.75rem;
+  outline: none;
 }
 
 .dash-app-icon {
-  width: 48px;
-  height: 48px;
-  border-radius: 14px;
-  display: inline-flex;
+  width: clamp(54px, 5.5vw, 68px);
+  height: clamp(54px, 5.5vw, 68px);
+  border-radius: 18px;
+  display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 1.35rem;
-  background: color-mix(in srgb, var(--accent) 14%, var(--bg-secondary));
-  border: 1px solid color-mix(in srgb, var(--accent) 28%, var(--glass-border));
-  box-shadow: inset 0 1px 0 color-mix(in srgb, var(--text-primary) 12%, transparent);
-  flex-shrink: 0;
+  font-size: clamp(1.35rem, 2.2vw, 1.75rem);
+  color: var(--app-color, var(--accent));
+  background: linear-gradient(
+    145deg,
+    color-mix(in srgb, var(--app-color, var(--accent)) 24%, var(--bg-secondary)),
+    color-mix(in srgb, var(--app-color, var(--accent)) 10%, var(--bg-primary))
+  );
+  border: 1px solid color-mix(in srgb, var(--app-color, var(--accent)) 36%, var(--glass-border));
+  box-shadow: 0 10px 22px color-mix(in srgb, var(--app-color, var(--accent)) 16%, rgba(0, 0, 0, 0.25));
+  transition: border-color var(--transition-fast), box-shadow var(--transition-fast), transform var(--transition-fast);
 }
 
-.dash-card-pin-btn {
-  width: 30px;
-  height: 30px;
-  border-radius: 9px;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 0.8rem;
-  color: var(--text-secondary);
-  background: color-mix(in srgb, var(--text-primary) 5%, transparent);
-  border: 1px solid var(--glass-border);
-  transition: all var(--transition-fast);
-}
-
-.dash-card-pin-btn:hover,
-.dash-card-pin-btn.is-pinned {
-  color: var(--bg-primary);
-  background: var(--accent);
+.dash-app-tile:hover .dash-app-icon,
+.dash-app-tile:focus-visible .dash-app-icon {
   border-color: var(--accent);
+  box-shadow: 0 12px 26px color-mix(in srgb, var(--app-color, var(--accent)) 30%, rgba(0, 0, 0, 0.35));
+  transform: scale(1.04);
 }
 
 .dash-app-title {
-  font-size: 1rem;
-  font-weight: 700;
+  display: block;
+  width: 100%;
+  font-size: 0.78rem;
+  font-weight: 600;
+  line-height: 1.25;
   color: var(--text-primary);
-  margin-bottom: 0.25rem;
-}
-
-.dash-app-desc {
-  font-size: 0.82rem;
-  line-height: 1.45;
-  color: var(--text-secondary);
-  display: -webkit-box;
-  -webkit-line-clamp: 2;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
-}
-
-.dash-card-footer {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 0.5rem;
-  padding-top: 0.65rem;
-  border-top: 1px solid var(--glass-border);
-}
-
-.dash-app-tag {
-  font-size: 0.7rem;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-  padding: 0.18rem 0.52rem;
-  border-radius: 999px;
-  color: var(--text-secondary);
-  background: color-mix(in srgb, var(--text-primary) 6%, transparent);
-  border: 1px solid var(--glass-border);
-}
-
-.dash-launch-hint {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.35rem;
-  font-size: 0.76rem;
-  font-weight: 700;
-  color: var(--accent);
+  text-align: center;
+  overflow-wrap: anywhere;
 }
 
 .dash-empty-state {
-  grid-column: 1 / -1;
+  width: 100%;
+  max-width: 440px;
   text-align: center;
-  padding: 3rem 1.5rem;
-  border-radius: 18px;
+  padding: 2rem 1.25rem;
+  border-radius: 14px;
   background: var(--glass-bg);
   border: 1px dashed var(--glass-border);
   color: var(--text-secondary);
 }
 
 .dash-empty-state i {
-  font-size: 2rem;
+  font-size: 1.75rem;
   color: var(--accent);
-  margin-bottom: 0.75rem;
+  margin-bottom: 0.6rem;
 }
 
 /* ==========================================================================
@@ -752,11 +514,11 @@ body[data-lunamix-mode="dashboard"] {
   align-items: center;
   justify-content: space-between;
   gap: 0.85rem;
-  padding: 0 clamp(0.85rem, 2.2vw, 1.5rem);
+  padding: 0 18px;
   background: var(--window-header-bg);
   border-bottom: 1px solid var(--glass-border);
-  backdrop-filter: blur(22px);
-  -webkit-backdrop-filter: blur(22px);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
 }
 
 .dash-ws-left,
@@ -772,8 +534,8 @@ body[data-lunamix-mode="dashboard"] {
   display: inline-flex;
   align-items: center;
   gap: 0.45rem;
-  padding: 0.42rem 0.85rem;
-  border-radius: 10px;
+  padding: 0.4rem 0.85rem;
+  border-radius: 9px;
   font-size: 0.8rem;
   font-weight: 600;
   color: var(--text-primary);
@@ -793,8 +555,8 @@ body[data-lunamix-mode="dashboard"] {
 .dash-ws-title {
   display: inline-flex;
   align-items: center;
-  gap: 0.55rem;
-  font-size: 0.96rem;
+  gap: 0.5rem;
+  font-size: 0.94rem;
   font-weight: 700;
   color: var(--text-primary);
   overflow: hidden;
@@ -862,10 +624,10 @@ body[data-lunamix-mode="dashboard"] {
    ========================================================================== */
 body[data-lunamix-mode="dashboard"] #notificationCenter,
 body[data-lunamix-mode="dashboard"] #quickActions {
-  top: 68px;
+  top: 62px;
   bottom: auto;
   right: 18px;
-  max-height: calc(100vh - 88px);
+  max-height: calc(100vh - 82px);
 }
 
 body[data-lunamix-mode="dashboard"] #toastContainer {
@@ -876,25 +638,20 @@ body[data-lunamix-mode="dashboard"] #toastContainer {
 /* ==========================================================================
    8. Responsive Adjustments
    ========================================================================== */
-@media (max-width: 900px) {
-  .dash-brand-pill,
+@media (max-width: 780px) {
   .dash-user-name,
-  .dash-switch-user-btn span,
   .dash-nav-btn span {
     display: none;
   }
 
-  .dash-statusbar {
-    gap: 0.5rem;
+  .dash-search-input {
+    width: 150px;
   }
 }
 
-@media (max-width: 640px) {
+@media (max-width: 560px) {
   .dash-statusbar {
-    height: auto;
-    min-height: 56px;
-    padding: 0.45rem 0.75rem;
-    flex-wrap: wrap;
+    padding: 0 12px;
   }
 
   .dash-ws-newtab-btn span,
@@ -902,7 +659,7 @@ body[data-lunamix-mode="dashboard"] #toastContainer {
     display: none;
   }
 
-  .dash-app-grid {
-    grid-template-columns: 1fr;
+  .dash-app-tile {
+    width: 82px;
   }
 }

@@ -345,7 +345,7 @@
     const avatar = (acct && acct.avatar) || '🚀';
 
     const heroTitle = document.getElementById('dashHeroTitle');
-    if (heroTitle) heroTitle.textContent = 'Welcome, ' + username;
+    if (heroTitle) heroTitle.innerHTML = 'Welcome,<br><span>' + escapeHtml(username) + '.</span>';
 
     const userNameEl = document.getElementById('dashUserName');
     if (userNameEl) userNameEl.textContent = username;
@@ -634,33 +634,19 @@
       .map((appId) => {
         const app = apps[appId];
         const cat = getCategoryForApp(appId);
-        const catLabel = CATEGORY_LABELS[cat] || 'Tools';
         const isPinned = pinnedSet.has(appId);
-        const desc = APP_DESCRIPTIONS[appId] || app.desc || 'Launch inside Lunamix Dashboard.';
         const safeId = escapeHtml(appId);
         const safeName = escapeHtml(app.name || appId);
         const safeIcon = escapeHtml(sanitizeIconClass(app.icon));
         const safeColor = escapeHtml(sanitizeColor(app.color));
 
         return `
-          <div class="dash-app-card dash-app-tile ${isPinned ? 'is-pinned' : ''}" role="button" tabindex="0" data-app="${safeId}" data-category="${escapeHtml(cat)}">
-            <div class="dash-card-top">
-              <div class="dash-app-icon" style="color: ${safeColor};">
-                <i class="fa-solid ${safeIcon}"></i>
-              </div>
-              <button type="button" class="dash-card-pin-btn ${isPinned ? 'is-pinned' : ''}" data-pin-toggle="${safeId}" title="${isPinned ? 'Unpin app' : 'Pin app'}" aria-label="${isPinned ? 'Unpin' : 'Pin'} ${safeName}" aria-pressed="${isPinned ? 'true' : 'false'}">
-                <i class="fa-solid fa-thumbtack"></i>
-              </button>
-            </div>
-            <div>
-              <div class="dash-app-title">${safeName}</div>
-              <div class="dash-app-desc">${escapeHtml(desc)}</div>
-            </div>
-            <div class="dash-card-footer">
-              <span class="dash-app-tag">${escapeHtml(catLabel)}</span>
-              <span class="dash-launch-hint">Launch <i class="fa-solid fa-arrow-right"></i></span>
-            </div>
-          </div>
+          <button type="button" class="dash-app-card dash-app-tile ${isPinned ? 'is-pinned' : ''}" data-app="${safeId}" data-category="${escapeHtml(cat)}" title="${safeName}">
+            <span class="dash-app-icon" style="--app-color: ${safeColor};">
+              <i class="fa-solid ${safeIcon}" aria-hidden="true"></i>
+            </span>
+            <span class="dash-app-title">${safeName}</span>
+          </button>
         `;
       })
       .join('');
