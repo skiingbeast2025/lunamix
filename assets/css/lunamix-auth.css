@@ -342,6 +342,66 @@
   text-decoration: underline;
 }
 
+/* Mode Toggle Launcher (when Accounts Disabled) */
+.login-mode-toggle {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.75rem;
+  margin-bottom: 1rem;
+}
+
+.login-mode-option {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.95rem 0.75rem;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1.5px solid rgba(255, 255, 255, 0.12);
+  color: var(--text-primary);
+  cursor: pointer;
+  text-align: center;
+  transition: all 0.16s ease;
+}
+
+.login-mode-option:hover {
+  border-color: var(--accent);
+  background: rgba(255, 255, 255, 0.09);
+}
+
+.login-mode-option.selected {
+  border-color: var(--accent);
+  background: color-mix(in srgb, var(--accent) 18%, transparent);
+  box-shadow: 0 0 0 1px var(--accent);
+}
+
+.login-mode-option i {
+  font-size: 1.35rem;
+  color: var(--accent);
+  margin-bottom: 0.1rem;
+}
+
+.login-mode-name {
+  font-size: 0.86rem;
+  font-weight: 700;
+}
+
+.login-mode-desc {
+  font-size: 0.72rem;
+  color: var(--text-secondary);
+  line-height: 1.3;
+}
+
+body.lm-accounts-disabled #startSwitchUserBtn,
+body.lm-accounts-disabled #startLockBtn,
+body.lm-accounts-disabled #startLogoutBtn,
+body.lm-accounts-disabled #dashSwitchUserBtn,
+body.lm-accounts-disabled #lmQaLockBtn {
+  display: none !important;
+}
+
 /* ==========================================================================
    4. 4-Step Account Creation Setup Wizard
    ========================================================================== */

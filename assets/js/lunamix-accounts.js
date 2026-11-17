@@ -7,6 +7,28 @@
 (function (window, document) {
   'use strict';
 
+  // Feature Flag: Change ACCOUNTS_ENABLED_DEFAULT to true (or run
+  // AccountManager.setEnabled(true) / localStorage.setItem('lunamix_accounts_enabled', 'true'))
+  // to re-enable multi-account login & setup wizard.
+  const ACCOUNTS_ENABLED_DEFAULT = false;
+
+  function isAccountsEnabled() {
+    try {
+      const override = localStorage.getItem('lunamix_accounts_enabled');
+      if (override === 'true') return true;
+      if (override === 'false') return false;
+    } catch (e) {}
+    return typeof window.LUNAMIX_ACCOUNTS_ENABLED === 'boolean'
+      ? window.LUNAMIX_ACCOUNTS_ENABLED
+      : ACCOUNTS_ENABLED_DEFAULT;
+  }
+
+  function syncAccountsDisabledClass() {
+    if (document.body) {
+      document.body.classList.toggle('lm-accounts-disabled', !isAccountsEnabled());
+    }
+  }
+
   const ACCOUNTS_KEY = 'lunamix_accounts_v2';
   const CURRENT_ACCOUNT_KEY = 'lunamix_current_account_v2';
   const BOOT_SETTINGS_KEY = 'lunamix_boot_settings_v2';
@@ -269,6 +291,54 @@
   // ==========================================================================
   const AccountManager = {
     STORAGE_KEY: ACCOUNTS_KEY,
+
+    isEnabled() {
+      return isAccountsEnabled();
+    },
+
+    setEnabled(enabled) {
+      if (enabled === null || enabled === undefined) {
+        localStorage.removeItem('lunamix_accounts_enabled');
+      } else {
+        localStorage.setItem('lunamix_accounts_enabled', String(Boolean(enabled)));
+      }
+      syncAccountsDisabledClass();
+      return isAccountsEnabled();
+    },
+
+    ensureDefaultSession() {
+      syncAccountsDisabledClass();
+      const savedTheme = sanitizeTheme(localStorage.getItem('nautilus_theme') || 'nautilus');
+      const allDefaultApps = [
+        'games', 'chat', 'browser', 'fern', 'creator', 'terminal',
+        'eaglercraft', 'emulator', 'files', 'calculator', 'cloak',
+        'settings', 'about', 'appstore', 'achievements', 'notes', 'music', 'mediaviewer'
+      ];
+      let accounts = readAccountsRaw();
+      let existing = accounts.find((a) => a.username === 'User') || accounts[0];
+      if (!existing) {
+        existing = sanitizeAccount({
+          username: 'User',
+          avatar: '🚀',
+          role: 'student',
+          passwordHash: null,
+          starterApps: allDefaultApps,
+          theme: savedTheme,
+          isGuest: true,
+          createdAt: Date.now(),
+          lastLoginAt: Date.now()
+        });
+        accounts.push(existing);
+        writeAccountsRaw(accounts);
+      } else {
+        existing.theme = sanitizeTheme(localStorage.getItem('nautilus_theme') || existing.theme);
+        existing.role = 'student';
+      }
+      localStorage.setItem(CURRENT_ACCOUNT_KEY, existing.username);
+      localStorage.setItem('lunamix_username', existing.username);
+      document.documentElement.setAttribute('data-theme', savedTheme);
+      return publicAccount(existing);
+    },
 
     getAccounts() {
       return readAccountsRaw().map(publicAccount);
@@ -570,12 +640,25 @@
       this.booted = true;
       this.selectedMode = 'standard';
       localStorage.removeItem('lunamix_silent_mode');
+      syncAccountsDisabledClass();
 
       const bootloader = document.getElementById('bootloader');
       if (bootloader) {
         bootloader.classList.add('hidden');
         bootloader.classList.remove('active');
         bootloader.style.setProperty('display', 'none', 'important');
+      }
+
+      if (!isAccountsEnabled()) {
+        const defaultAcc = AccountManager.ensureDefaultSession();
+        const params = new URLSearchParams(window.location.search);
+        if (params.get('mode') === 'desktop' || params.get('entered') === '1' || params.get('app')) {
+          revealDesktop();
+          applySessionToDesktop(defaultAcc);
+        } else {
+          LunamixLogin.open();
+        }
+        return;
       }
 
       // Go straight to Setup Wizard if 0 accounts exist, otherwise Login Screen
@@ -776,9 +859,11 @@
   // ==========================================================================
   const LunamixLogin = {
     selectedUsername: null,
+    selectedLayout: 'desktop',
     clockInterval: null,
 
     open(preselectUsername) {
+      syncAccountsDisabledClass();
       const login = document.getElementById('login');
       const setup = document.getElementById('setup');
       const dashShell = document.getElementById('dashShell');
@@ -801,7 +886,121 @@
 
       this.bindEvents();
       this.startClock();
-      this.renderAccounts(preselectUsername);
+
+      if (!isAccountsEnabled()) {
+        AccountManager.ensureDefaultSession();
+        this.renderModePicker();
+      } else {
+        const modeWrap = document.getElementById('loginModeToggleWrap');
+        if (modeWrap) modeWrap.style.display = 'none';
+        const actionsRow = login.querySelector('.login-actions-row');
+        if (actionsRow) actionsRow.style.display = '';
+        this.renderAccounts(preselectUsername);
+      }
+    },
+
+    renderModePicker() {
+      const isDashPage = Boolean(document.body && document.body.dataset && document.body.dataset.lunamixMode === 'dashboard');
+      const savedPref = localStorage.getItem('lunamix_default_layout');
+      this.selectedLayout = savedPref === 'dashboard' || (isDashPage && savedPref !== 'desktop') ? 'dashboard' : 'desktop';
+
+      const avatarEl = document.getElementById('loginAvatar');
+      const titleEl = document.getElementById('loginTitle');
+      const subtitleEl = document.getElementById('loginSubtitle');
+      const switcherEl = document.getElementById('loginAccountSwitcher');
+      const passInput = document.getElementById('loginPasswordInput');
+      const loginBtn = document.getElementById('loginBtn');
+      const loginEl = document.getElementById('login');
+      const actionsRow = loginEl ? loginEl.querySelector('.login-actions-row') : null;
+      const container = loginEl ? loginEl.querySelector('.login-container') : null;
+
+      if (avatarEl) {
+        avatarEl.innerHTML = '<i class="fa-solid fa-cube"></i>';
+      }
+      if (titleEl) titleEl.textContent = 'Lunamix OS';
+      if (subtitleEl) subtitleEl.textContent = 'Choose how you want to launch';
+      if (switcherEl) switcherEl.style.display = 'none';
+      if (passInput) passInput.style.display = 'none';
+      if (actionsRow) actionsRow.style.display = 'none';
+      this.hideError();
+
+      if (container && loginBtn) {
+        let modeWrap = document.getElementById('loginModeToggleWrap');
+        if (!modeWrap) {
+          modeWrap = document.createElement('div');
+          modeWrap.id = 'loginModeToggleWrap';
+          modeWrap.className = 'login-mode-toggle';
+          modeWrap.setAttribute('role', 'radiogroup');
+          modeWrap.setAttribute('aria-label', 'Choose layout mode');
+          modeWrap.innerHTML = `
+            <button type="button" class="login-mode-option" id="modeOptDesktop" data-layout="desktop" role="radio">
+              <i class="fa-solid fa-desktop"></i>
+              <span class="login-mode-name">Standard Desktop</span>
+              <span class="login-mode-desc">Windows, dock &amp; icons</span>
+            </button>
+            <button type="button" class="login-mode-option" id="modeOptDashboard" data-layout="dashboard" role="radio">
+              <i class="fa-solid fa-table-columns"></i>
+              <span class="login-mode-name">Dashboard</span>
+              <span class="login-mode-desc">Simple app grid view</span>
+            </button>
+          `;
+          container.insertBefore(modeWrap, loginBtn);
+
+          modeWrap.querySelectorAll('.login-mode-option').forEach((optBtn) => {
+            optBtn.addEventListener('click', () => {
+              this.selectedLayout = optBtn.getAttribute('data-layout') === 'dashboard' ? 'dashboard' : 'desktop';
+              this.syncModePickerUI();
+            });
+            optBtn.addEventListener('dblclick', () => {
+              this.selectedLayout = optBtn.getAttribute('data-layout') === 'dashboard' ? 'dashboard' : 'desktop';
+              this.launchSelectedLayout();
+            });
+          });
+        }
+        modeWrap.style.display = 'grid';
+      }
+
+      this.syncModePickerUI();
+    },
+
+    syncModePickerUI() {
+      const optDesk = document.getElementById('modeOptDesktop');
+      const optDash = document.getElementById('modeOptDashboard');
+      const loginBtn = document.getElementById('loginBtn');
+      const isDash = this.selectedLayout === 'dashboard';
+
+      if (optDesk) {
+        optDesk.classList.toggle('selected', !isDash);
+        optDesk.setAttribute('aria-checked', String(!isDash));
+      }
+      if (optDash) {
+        optDash.classList.toggle('selected', isDash);
+        optDash.setAttribute('aria-checked', String(isDash));
+      }
+      if (loginBtn) {
+        loginBtn.textContent = isDash ? 'Enter Dashboard' : 'Enter Standard Desktop';
+      }
+    },
+
+    launchSelectedLayout() {
+      const isDash = this.selectedLayout === 'dashboard';
+      const onDashPage = Boolean(document.body && document.body.dataset && document.body.dataset.lunamixMode === 'dashboard');
+      const currentAcc = AccountManager.ensureDefaultSession();
+      if (isDash) {
+        if (onDashPage) {
+          revealDesktop();
+          applySessionToDesktop(currentAcc);
+        } else {
+          window.location.href = './dashboard.html?entered=1';
+        }
+      } else {
+        if (onDashPage) {
+          window.location.href = './index.html?mode=desktop';
+        } else {
+          revealDesktop();
+          applySessionToDesktop(currentAcc);
+        }
+      }
     },
 
     show(preselectUsername) {
@@ -830,7 +1029,13 @@
       const createBtn = document.getElementById('loginCreateAccountBtn');
 
       if (loginBtn) {
-        loginBtn.addEventListener('click', () => this.attemptLogin());
+        loginBtn.addEventListener('click', () => {
+          if (!isAccountsEnabled()) {
+            this.launchSelectedLayout();
+          } else {
+            this.attemptLogin();
+          }
+        });
       }
       if (passInput) {
         passInput.addEventListener('keydown', (e) => {

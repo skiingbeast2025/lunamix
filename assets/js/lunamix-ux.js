@@ -1241,7 +1241,7 @@
         if (window.LunamixOS && typeof window.LunamixOS.switchLayout === 'function') {
           window.LunamixOS.switchLayout(isDashboard ? 'desktop' : 'dashboard');
         } else {
-          window.location.href = isDashboard ? './index.html?mode=desktop' : './dashboard.html';
+          window.location.href = isDashboard ? './index.html?mode=desktop' : './dashboard.html?entered=1';
         }
       });
 

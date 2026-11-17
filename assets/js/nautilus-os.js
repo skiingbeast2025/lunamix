@@ -37,7 +37,10 @@
     const appParam = urlParams.get('app');
     let targetUrl;
     if (targetMode === 'dashboard') {
-      targetUrl = './dashboard.html' + (appParam ? '?app=' + encodeURIComponent(appParam) : '');
+      const nextParams = new URLSearchParams();
+      nextParams.set('entered', '1');
+      if (appParam) nextParams.set('app', appParam);
+      targetUrl = './dashboard.html?' + nextParams.toString();
     } else {
       const nextParams = new URLSearchParams();
       nextParams.set('mode', 'desktop');
