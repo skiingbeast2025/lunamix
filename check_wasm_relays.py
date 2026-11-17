@@ -19,6 +19,7 @@ import argparse
 import asyncio
 import base64
 import fnmatch
+import functools
 import hashlib
 import ipaddress
 import json
@@ -26,9 +27,11 @@ import os
 import re
 import socket
 import ssl
+import subprocess
 import sys
 import tempfile
 import time
+from collections import Counter
 from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any
@@ -448,6 +451,79 @@ async def open_socket_with_fallback(
     raise last_exc
 
 
+@functools.lru_cache(maxsize=1)
+def get_verified_ssl_context() -> ssl.SSLContext:
+    """
+    Build a verified TLS context, falling back to system/macOS/certifi CA stores
+    when python.org installers (notably on macOS) have no default CA bundle.
+    """
+    ctx = ssl.create_default_context()
+    paths = ssl.get_default_verify_paths()
+    has_default_store = bool(
+        (paths.cafile and Path(paths.cafile).is_file())
+        or (paths.capath and Path(paths.capath).is_dir() and any(Path(paths.capath).iterdir()))
+    )
+    if has_default_store or ctx.cert_store_stats().get("x509_ca", 0) > 0:
+        return ctx
+
+    # Try certifi if available in the environment.
+    try:
+        import certifi  # type: ignore[import-not-found]
+
+        cafile = certifi.where()
+        if cafile and Path(cafile).is_file():
+            ctx.load_verify_locations(cafile=cafile)
+            return ctx
+    except Exception:  # noqa: BLE001
+        pass
+
+    # Try well-known OS CA bundle paths (including macOS LibreSSL /etc/ssl/cert.pem).
+    for candidate in (
+        "/etc/ssl/cert.pem",
+        "/opt/homebrew/etc/ca-certificates/cert.pem",
+        "/usr/local/etc/ca-certificates/cert.pem",
+        "/etc/ssl/certs/ca-certificates.crt",
+        "/etc/pki/tls/certs/ca-bundle.crt",
+    ):
+        if Path(candidate).is_file():
+            try:
+                ctx.load_verify_locations(cafile=candidate)
+                if ctx.cert_store_stats().get("x509_ca", 0) > 0:
+                    return ctx
+            except Exception:  # noqa: BLE001
+                pass
+
+    # Last-resort macOS lookup: export Apple's SystemRootCertificates keychain.
+    if sys.platform == "darwin":
+        try:
+            proc = subprocess.run(
+                [
+                    "security",
+                    "find-certificate",
+                    "-a",
+                    "-p",
+                    "/System/Library/Keychains/SystemRootCertificates.keychain",
+                ],
+                capture_output=True,
+                text=True,
+                timeout=5,
+                check=False,
+            )
+            if proc.returncode == 0 and "BEGIN CERTIFICATE" in proc.stdout:
+                ctx.load_verify_locations(cadata=proc.stdout)
+                if ctx.cert_store_stats().get("x509_ca", 0) > 0:
+                    return ctx
+        except Exception:  # noqa: BLE001
+            pass
+
+    print(
+        "Warning: Python has no root CA certificates configured; TLS checks may fail. "
+        "On macOS run 'Install Certificates.command' or pass --insecure.",
+        file=sys.stderr,
+    )
+    return ctx
+
+
 async def send_probe_and_read(
     addrs: list[tuple[int, str]],
     port: int,
@@ -467,7 +543,7 @@ async def send_probe_and_read(
     ssl_ctx: ssl.SSLContext | None = None
     if use_tls:
         if verify_tls:
-            ssl_ctx = ssl.create_default_context()
+            ssl_ctx = get_verified_ssl_context()
         else:
             ssl_ctx = ssl.SSLContext(ssl.PROTOCOL_TLS_CLIENT)
             ssl_ctx.check_hostname = False
@@ -508,7 +584,11 @@ async def send_probe_and_read(
             pass
 
 
-async def probe_relay(relay: dict[str, Any], timeout: float) -> dict[str, Any]:
+async def probe_relay(
+    relay: dict[str, Any],
+    timeout: float,
+    insecure: bool = False,
+) -> dict[str, Any]:
     """Probe a single relay entry and return updated relay metadata."""
     updated = dict(relay)
     raw_url = str(relay.get("url", "")).strip()
@@ -560,7 +640,7 @@ async def probe_relay(relay: dict[str, Any], timeout: float) -> dict[str, Any]:
             addrs=addrs,
             port=port,
             use_tls=use_tls,
-            verify_tls=True,
+            verify_tls=not insecure,
             host=host,
             host_header=host_header,
             path=path,
@@ -570,7 +650,7 @@ async def probe_relay(relay: dict[str, Any], timeout: float) -> dict[str, Any]:
         )
         latency_ms = round((time.monotonic() - start) * 1000.0, 1)
 
-        if cert_kw:
+        if cert_kw and not insecure:
             updated.update(
                 {
                     "status": "blocked",
@@ -600,7 +680,7 @@ async def probe_relay(relay: dict[str, Any], timeout: float) -> dict[str, Any]:
                         addrs=addrs,
                         port=port,
                         use_tls=use_tls,
-                        verify_tls=True,
+                        verify_tls=not insecure,
                         host=host,
                         host_header=host_header,
                         path=path,
@@ -794,6 +874,7 @@ def compute_summary(relays: list[dict[str, Any]]) -> dict[str, int]:
 def atomic_write_json(path: Path, data: dict[str, Any]) -> None:
     """Atomically write ``data`` as pretty JSON to ``path``."""
     path.parent.mkdir(parents=True, exist_ok=True)
+    target_mode = (path.stat().st_mode & 0o777) if path.exists() else 0o644
     fd, tmp_name = tempfile.mkstemp(
         prefix=f".{path.name}.",
         suffix=".tmp",
@@ -806,6 +887,7 @@ def atomic_write_json(path: Path, data: dict[str, Any]) -> None:
             handle.write("\n")
             handle.flush()
             os.fsync(handle.fileno())
+        os.chmod(tmp_path, target_mode)
         os.replace(tmp_path, path)
     except Exception:
         try:
@@ -874,6 +956,7 @@ async def check_all_relays(
     concurrency: int,
     timeout: float,
     quiet: bool,
+    insecure: bool = False,
 ) -> list[dict[str, Any]]:
     """Probe all relays concurrently bounded by ``concurrency``."""
     sem = asyncio.Semaphore(max(1, concurrency))
@@ -884,7 +967,7 @@ async def check_all_relays(
     async def worker(idx: int, relay: dict[str, Any]) -> None:
         nonlocal completed
         async with sem:
-            res = await probe_relay(relay, timeout=timeout)
+            res = await probe_relay(relay, timeout=timeout, insecure=insecure)
             results[idx] = res
             completed += 1
             if not quiet:
@@ -966,6 +1049,11 @@ def build_parser() -> argparse.ArgumentParser:
         action="store_true",
         help="Suppress per-relay progress output",
     )
+    parser.add_argument(
+        "--insecure",
+        action="store_true",
+        help="Skip TLS certificate verification if your Python environment lacks root CAs",
+    )
     return parser
 
 
@@ -1019,6 +1107,7 @@ def main(argv: list[str] | None = None) -> int:
                 concurrency=args.concurrency,
                 timeout=args.timeout,
                 quiet=args.quiet or args.only_working,
+                insecure=args.insecure,
             )
         )
         data["relays"] = relays
@@ -1039,6 +1128,15 @@ def main(argv: list[str] | None = None) -> int:
             f"unreachable: {s['unreachable']}, "
             f"unchecked: {s['unchecked']}"
         )
+        if s["unreachable"] > 0 and not args.quiet:
+            top_reasons = Counter(
+                str(r.get("reason") or "Unknown")
+                for r in relays
+                if r.get("status") == "unreachable"
+            ).most_common(3)
+            if top_reasons:
+                joined = "; ".join(f"{reason} (x{count})" for reason, count in top_reasons)
+                print(f"Top unreachable reasons: {joined}", file=sys.stderr)
     return 0
 
 

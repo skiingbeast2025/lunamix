@@ -1,11 +1,11 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-11-17T19:09:39Z",
+  "updatedAt": "2026-11-17T20:30:21Z",
   "summary": {
     "total": 302,
-    "reachable": 61,
-    "blocked": 161,
-    "unreachable": 80,
+    "reachable": 62,
+    "blocked": 170,
+    "unreachable": 70,
     "unchecked": 0
   },
   "relays": [
@@ -16,9 +16,9 @@
       "status": "unreachable",
       "blocked": false,
       "httpStatus": 404,
-      "latencyMs": 124.2,
+      "latencyMs": 94.6,
       "reason": "HTTP 404 Not Found",
-      "checkedAt": "2026-11-17T19:09:24Z"
+      "checkedAt": "2026-11-17T20:30:04Z"
     },
     {
       "url": "wss://eagler-minecraft-relay.u2471966200.workers.dev/",
@@ -27,9 +27,9 @@
       "status": "reachable",
       "blocked": false,
       "httpStatus": 101,
-      "latencyMs": 597.7,
+      "latencyMs": 3891.7,
       "reason": "WebSocket 101 Switching Protocols",
-      "checkedAt": "2026-11-17T19:09:24Z"
+      "checkedAt": "2026-11-17T20:30:04Z"
     },
     {
       "url": "wss://eaglerrelay.glitch.me/",
@@ -38,9 +38,9 @@
       "status": "blocked",
       "blocked": true,
       "httpStatus": 308,
-      "latencyMs": 73.9,
+      "latencyMs": 47.9,
       "reason": "HTTP 308 redirect -> wss://eaglerrelay.installgentoo.com/",
-      "checkedAt": "2026-11-17T19:09:24Z"
+      "checkedAt": "2026-11-17T20:30:04Z"
     },
     {
       "url": "wss://eaglerrelay.lioxryt.repl.co/",
@@ -51,7 +51,7 @@
       "httpStatus": null,
       "latencyMs": null,
       "reason": "DNS NXDOMAIN / sinkhole ([Errno -2] Name or service not known)",
-      "checkedAt": "2026-11-17T19:09:24Z"
+      "checkedAt": "2026-11-17T20:30:04Z"
     },
     {
       "url": "wss://oxer-26-2-relay-c5f9ad499e09.herokuapp.com/",
@@ -60,9 +60,9 @@
       "status": "unreachable",
       "blocked": false,
       "httpStatus": 401,
-      "latencyMs": 352.7,
+      "latencyMs": 355.9,
       "reason": "HTTP 401 Unauthorized",
-      "checkedAt": "2026-11-17T19:09:24Z"
+      "checkedAt": "2026-11-17T20:30:04Z"
     },
     {
       "url": "wss://reading-relay.q13x.com/",
@@ -73,7 +73,7 @@
       "httpStatus": null,
       "latencyMs": null,
       "reason": "DNS NXDOMAIN / sinkhole ([Errno -5] No address associated with hostname)",
-      "checkedAt": "2026-11-17T19:09:24Z"
+      "checkedAt": "2026-11-17T20:30:04Z"
     },
     {
       "url": "wss://reborn-relay.otterdev.repl.co/",
@@ -84,7 +84,7 @@
       "httpStatus": null,
       "latencyMs": null,
       "reason": "DNS NXDOMAIN / sinkhole ([Errno -2] Name or service not known)",
-      "checkedAt": "2026-11-17T19:09:24Z"
+      "checkedAt": "2026-11-17T20:30:04Z"
     },
     {
       "url": "wss://relay.deev.is/",
@@ -93,20 +93,20 @@
       "status": "unreachable",
       "blocked": false,
       "httpStatus": 502,
-      "latencyMs": 379.5,
+      "latencyMs": 326.9,
       "reason": "HTTP 502 Bad Gateway",
-      "checkedAt": "2026-11-17T19:09:24Z"
+      "checkedAt": "2026-11-17T20:30:04Z"
     },
     {
       "url": "wss://relay.eaglercraft.centralmacatuba.qzz.io/",
       "type": "eaglercraft-relay",
       "source": "github:centralmacatuba/centralmacatuba.github.io",
-      "status": "reachable",
+      "status": "unreachable",
       "blocked": false,
-      "httpStatus": 101,
-      "latencyMs": 119.7,
-      "reason": "WebSocket 101 Switching Protocols",
-      "checkedAt": "2026-11-17T19:09:24Z"
+      "httpStatus": null,
+      "latencyMs": null,
+      "reason": "Timeout after 8.0s",
+      "checkedAt": "2026-11-17T20:30:04Z"
     },
     {
       "url": "wss://relay.eaglercraft.com/",
@@ -117,7 +117,7 @@
       "httpStatus": null,
       "latencyMs": null,
       "reason": "DNS NXDOMAIN / sinkhole ([Errno -2] Name or service not known)",
-      "checkedAt": "2026-11-17T19:09:24Z"
+      "checkedAt": "2026-11-17T20:30:04Z"
     },
     {
       "url": "wss://relay.eaglercraft.net/",
@@ -126,9 +126,9 @@
       "status": "reachable",
       "blocked": false,
       "httpStatus": 101,
-      "latencyMs": 294.7,
+      "latencyMs": 2009.4,
       "reason": "WebSocket 101 Switching Protocols",
-      "checkedAt": "2026-11-17T19:09:24Z"
+      "checkedAt": "2026-11-17T20:30:04Z"
     },
     {
       "url": "wss://relay.lax1dude.net/",
@@ -137,20 +137,20 @@
       "status": "unreachable",
       "blocked": false,
       "httpStatus": 502,
-      "latencyMs": 336.0,
+      "latencyMs": 3789.6,
       "reason": "HTTP 502 Bad Gateway",
-      "checkedAt": "2026-11-17T19:09:24Z"
+      "checkedAt": "2026-11-17T20:30:04Z"
     },
     {
       "url": "wss://relay.ram-craft.net/",
       "type": "eaglercraft-relay",
       "source": "github:AtlasStudioMC/LadueClient",
-      "status": "unreachable",
+      "status": "reachable",
       "blocked": false,
-      "httpStatus": 521,
-      "latencyMs": 831.8,
-      "reason": "HTTP 521 <none>",
-      "checkedAt": "2026-11-17T19:09:24Z"
+      "httpStatus": 101,
+      "latencyMs": 2542.2,
+      "reason": "WebSocket 101 Switching Protocols",
+      "checkedAt": "2026-11-17T20:30:04Z"
     },
     {
       "url": "wss://relay.shhnowisnottheti.me/",
@@ -159,9 +159,9 @@
       "status": "reachable",
       "blocked": false,
       "httpStatus": 101,
-      "latencyMs": 231.4,
+      "latencyMs": 2148.9,
       "reason": "WebSocket 101 Switching Protocols",
-      "checkedAt": "2026-11-17T19:09:24Z"
+      "checkedAt": "2026-11-17T20:30:04Z"
     },
     {
       "url": "wss://relay.theludos.com/",
@@ -170,9 +170,9 @@
       "status": "unreachable",
       "blocked": false,
       "httpStatus": 502,
-      "latencyMs": 240.8,
+      "latencyMs": 1220.3,
       "reason": "HTTP 502 Bad Gateway",
-      "checkedAt": "2026-11-17T19:09:24Z"
+      "checkedAt": "2026-11-17T20:30:04Z"
     },
     {
       "url": "wss://relay.webmc.fun/",
@@ -181,9 +181,9 @@
       "status": "reachable",
       "blocked": false,
       "httpStatus": 101,
-      "latencyMs": 283.1,
+      "latencyMs": 3820.1,
       "reason": "WebSocket 101 Switching Protocols",
-      "checkedAt": "2026-11-17T19:09:24Z"
+      "checkedAt": "2026-11-17T20:30:04Z"
     },
     {
       "url": "wss://relay.webmc.xyz/",
@@ -192,9 +192,9 @@
       "status": "reachable",
       "blocked": false,
       "httpStatus": 101,
-      "latencyMs": 355.2,
+      "latencyMs": 2178.6,
       "reason": "WebSocket 101 Switching Protocols",
-      "checkedAt": "2026-11-17T19:09:24Z"
+      "checkedAt": "2026-11-17T20:30:04Z"
     },
     {
       "url": "wss://wise-sunset-mojoceratops.glitch.me/",
@@ -203,9 +203,9 @@
       "status": "unreachable",
       "blocked": false,
       "httpStatus": 410,
-      "latencyMs": 105.8,
+      "latencyMs": 63.5,
       "reason": "HTTP 410 Gone",
-      "checkedAt": "2026-11-17T19:09:24Z"
+      "checkedAt": "2026-11-17T20:30:04Z"
     },
     {
       "url": "wss://0.catclass.net/wisp/",
@@ -214,9 +214,9 @@
       "status": "unreachable",
       "blocked": false,
       "httpStatus": 404,
-      "latencyMs": 154.0,
+      "latencyMs": 159.8,
       "reason": "HTTP 404 Not Found",
-      "checkedAt": "2026-11-17T19:09:24Z"
+      "checkedAt": "2026-11-17T20:30:04Z"
     },
     {
       "url": "wss://217.197.100.13:8000/",
@@ -227,7 +227,7 @@
       "httpStatus": null,
       "latencyMs": null,
       "reason": "Connection refused",
-      "checkedAt": "2026-11-17T19:09:24Z"
+      "checkedAt": "2026-11-17T20:30:04Z"
     },
     {
       "url": "wss://217.197.100.249:8000/",
@@ -238,7 +238,7 @@
       "httpStatus": null,
       "latencyMs": null,
       "reason": "Timeout after 8.0s",
-      "checkedAt": "2026-11-17T19:09:24Z"
+      "checkedAt": "2026-11-17T20:30:04Z"
     },
     {
       "url": "wss://55gms.com/wisp/",
@@ -247,9 +247,9 @@
       "status": "reachable",
       "blocked": false,
       "httpStatus": 101,
-      "latencyMs": 226.2,
+      "latencyMs": 3593.8,
       "reason": "WebSocket 101 Switching Protocols",
-      "checkedAt": "2026-11-17T19:09:24Z"
+      "checkedAt": "2026-11-17T20:30:04Z"
     },
     {
       "url": "wss://admin.proxy.hydrovolter.com/scramjet/wisp/",
@@ -258,9 +258,9 @@
       "status": "reachable",
       "blocked": false,
       "httpStatus": 101,
-      "latencyMs": 252.1,
+      "latencyMs": 262.3,
       "reason": "WebSocket 101 Switching Protocols",
-      "checkedAt": "2026-11-17T19:09:24Z"
+      "checkedAt": "2026-11-17T20:30:04Z"
     },
     {
       "url": "wss://adoptmy.baby/",
@@ -271,7 +271,7 @@
       "httpStatus": null,
       "latencyMs": null,
       "reason": "DNS NXDOMAIN / sinkhole ([Errno -2] Name or service not known)",
-      "checkedAt": "2026-11-17T19:09:24Z"
+      "checkedAt": "2026-11-17T20:30:04Z"
     },
     {
       "url": "wss://altior-browser.onrender.com/wisp/",
@@ -280,9 +280,9 @@
       "status": "unreachable",
       "blocked": false,
       "httpStatus": 404,
-      "latencyMs": 317.0,
+      "latencyMs": 300.6,
       "reason": "HTTP 404 Not Found",
-      "checkedAt": "2026-11-17T19:09:24Z"
+      "checkedAt": "2026-11-17T20:30:04Z"
     },
     {
       "url": "wss://aluu.xyz/wisp/",
@@ -293,7 +293,7 @@
       "httpStatus": null,
       "latencyMs": null,
       "reason": "Timeout after 8.0s",
-      "checkedAt": "2026-11-17T19:09:24Z"
+      "checkedAt": "2026-11-17T20:30:04Z"
     },
     {
       "url": "wss://anura.mercurywork.shop/",
@@ -304,29 +304,29 @@
       "httpStatus": null,
       "latencyMs": null,
       "reason": "DNS NXDOMAIN / sinkhole ([Errno -2] Name or service not known)",
-      "checkedAt": "2026-11-17T19:09:24Z"
+      "checkedAt": "2026-11-17T20:30:04Z"
     },
     {
       "url": "wss://anura.pro/",
       "type": "wisp",
       "source": "gust.html",
-      "status": "unreachable",
+      "status": "reachable",
       "blocked": false,
-      "httpStatus": 525,
-      "latencyMs": 366.4,
-      "reason": "HTTP 525 <none>",
-      "checkedAt": "2026-11-17T19:09:24Z"
+      "httpStatus": 101,
+      "latencyMs": 3154.5,
+      "reason": "WebSocket 101 Switching Protocols",
+      "checkedAt": "2026-11-17T20:30:04Z"
     },
     {
       "url": "wss://anura.pro/wisp/",
       "type": "wisp",
       "source": "github:brysona320-coder/webvm2.0/wisp-network.js",
-      "status": "unreachable",
+      "status": "reachable",
       "blocked": false,
-      "httpStatus": 500,
-      "latencyMs": 426.4,
-      "reason": "HTTP 500 Internal Server Error",
-      "checkedAt": "2026-11-17T19:09:24Z"
+      "httpStatus": 101,
+      "latencyMs": 962.9,
+      "reason": "WebSocket 101 Switching Protocols",
+      "checkedAt": "2026-11-17T20:30:04Z"
     },
     {
       "url": "wss://arctic.lat/wisp/",
@@ -335,9 +335,9 @@
       "status": "reachable",
       "blocked": false,
       "httpStatus": 101,
-      "latencyMs": 372.4,
+      "latencyMs": 3404.0,
       "reason": "WebSocket 101 Switching Protocols",
-      "checkedAt": "2026-11-17T19:09:24Z"
+      "checkedAt": "2026-11-17T20:30:04Z"
     },
     {
       "url": "wss://area.forwardersoft.com/",
@@ -348,7 +348,7 @@
       "httpStatus": null,
       "latencyMs": null,
       "reason": "DNS NXDOMAIN / sinkhole ([Errno -2] Name or service not known)",
-      "checkedAt": "2026-11-17T19:09:24Z"
+      "checkedAt": "2026-11-17T20:30:04Z"
     },
     {
       "url": "wss://area.forwardersoft.com/wisp/",
@@ -359,7 +359,7 @@
       "httpStatus": null,
       "latencyMs": null,
       "reason": "DNS NXDOMAIN / sinkhole ([Errno -2] Name or service not known)",
-      "checkedAt": "2026-11-17T19:09:24Z"
+      "checkedAt": "2026-11-17T20:30:04Z"
     },
     {
       "url": "wss://arsenic.smartfoloo.space/wisp/",
@@ -368,9 +368,9 @@
       "status": "reachable",
       "blocked": false,
       "httpStatus": 101,
-      "latencyMs": 171.5,
+      "latencyMs": 197.8,
       "reason": "WebSocket 101 Switching Protocols",
-      "checkedAt": "2026-11-17T19:09:24Z"
+      "checkedAt": "2026-11-17T20:30:04Z"
     },
     {
       "url": "wss://athollcottage.com/connection/",
@@ -379,9 +379,9 @@
       "status": "reachable",
       "blocked": false,
       "httpStatus": 101,
-      "latencyMs": 243.5,
+      "latencyMs": 2947.2,
       "reason": "WebSocket 101 Switching Protocols",
-      "checkedAt": "2026-11-17T19:09:24Z"
+      "checkedAt": "2026-11-17T20:30:04Z"
     },
     {
       "url": "wss://atlas.titaniumnet.work/wisp/",
@@ -392,7 +392,7 @@
       "httpStatus": null,
       "latencyMs": null,
       "reason": "Timeout after 8.0s",
-      "checkedAt": "2026-11-17T19:09:24Z"
+      "checkedAt": "2026-11-17T20:30:04Z"
     },
     {
       "url": "wss://bare-server.fly.dev/wisp/",
@@ -401,9 +401,9 @@
       "status": "reachable",
       "blocked": false,
       "httpStatus": 101,
-      "latencyMs": 117.1,
+      "latencyMs": 620.6,
       "reason": "WebSocket 101 Switching Protocols",
-      "checkedAt": "2026-11-17T19:09:24Z"
+      "checkedAt": "2026-11-17T20:30:04Z"
     },
     {
       "url": "wss://boltunblocker.bot.nu/wisp/",
@@ -414,7 +414,7 @@
       "httpStatus": null,
       "latencyMs": null,
       "reason": "DNS NXDOMAIN / sinkhole ([Errno -2] Name or service not known)",
-      "checkedAt": "2026-11-17T19:09:24Z"
+      "checkedAt": "2026-11-17T20:30:04Z"
     },
     {
       "url": "wss://boltunblocker.com/wisp/",
@@ -425,7 +425,7 @@
       "httpStatus": null,
       "latencyMs": null,
       "reason": "Timeout after 8.0s",
-      "checkedAt": "2026-11-17T19:09:24Z"
+      "checkedAt": "2026-11-17T20:30:04Z"
     },
     {
       "url": "wss://canvaslogin.org/wisp/",
@@ -436,7 +436,7 @@
       "httpStatus": null,
       "latencyMs": null,
       "reason": "DNS NXDOMAIN / sinkhole ([Errno -2] Name or service not known)",
-      "checkedAt": "2026-11-17T19:09:24Z"
+      "checkedAt": "2026-11-17T20:30:04Z"
     },
     {
       "url": "wss://catclass.net/wisp/",
@@ -445,9 +445,9 @@
       "status": "unreachable",
       "blocked": false,
       "httpStatus": 502,
-      "latencyMs": 192.3,
+      "latencyMs": 161.9,
       "reason": "HTTP 502 Bad Gateway",
-      "checkedAt": "2026-11-17T19:09:24Z"
+      "checkedAt": "2026-11-17T20:30:04Z"
     },
     {
       "url": "wss://cdn.clearfieldswimming.com/",
@@ -455,10 +455,10 @@
       "source": "github:Jxoj/SuperUser/assets/backend/opium.json",
       "status": "unreachable",
       "blocked": false,
-      "httpStatus": 523,
-      "latencyMs": 2272.3,
-      "reason": "HTTP 523 <none>",
-      "checkedAt": "2026-11-17T19:09:24Z"
+      "httpStatus": null,
+      "latencyMs": null,
+      "reason": "Timeout after 8.0s",
+      "checkedAt": "2026-11-17T20:30:04Z"
     },
     {
       "url": "wss://cdn.goaplytexas.org/",
@@ -467,9 +467,9 @@
       "status": "unreachable",
       "blocked": false,
       "httpStatus": 523,
-      "latencyMs": 4661.9,
+      "latencyMs": 2770.4,
       "reason": "HTTP 523 <none>",
-      "checkedAt": "2026-11-17T19:09:24Z"
+      "checkedAt": "2026-11-17T20:30:04Z"
     },
     {
       "url": "wss://cdn.kcchallengevbc.com/",
@@ -477,10 +477,10 @@
       "source": "github:Jxoj/SuperUser/assets/backend/opium.json",
       "status": "unreachable",
       "blocked": false,
-      "httpStatus": 523,
-      "latencyMs": 2255.1,
-      "reason": "HTTP 523 <none>",
-      "checkedAt": "2026-11-17T19:09:24Z"
+      "httpStatus": null,
+      "latencyMs": null,
+      "reason": "Timeout after 8.0s",
+      "checkedAt": "2026-11-17T20:30:04Z"
     },
     {
       "url": "wss://cdn.northstreetumc.org/",
@@ -489,9 +489,9 @@
       "status": "unreachable",
       "blocked": false,
       "httpStatus": 523,
-      "latencyMs": 3751.8,
+      "latencyMs": 7645.7,
       "reason": "HTTP 523 <none>",
-      "checkedAt": "2026-11-17T19:09:24Z"
+      "checkedAt": "2026-11-17T20:30:04Z"
     },
     {
       "url": "wss://cdn.pcesc.org/",
@@ -499,10 +499,10 @@
       "source": "github:Jxoj/SuperUser/assets/backend/opium.json",
       "status": "unreachable",
       "blocked": false,
-      "httpStatus": 523,
-      "latencyMs": 2260.6,
-      "reason": "HTTP 523 <none>",
-      "checkedAt": "2026-11-17T19:09:24Z"
+      "httpStatus": null,
+      "latencyMs": null,
+      "reason": "Timeout after 8.0s",
+      "checkedAt": "2026-11-17T20:30:04Z"
     },
     {
       "url": "wss://cdn.richardacademy.cfd/",
@@ -510,10 +510,10 @@
       "source": "github:Jxoj/SuperUser/assets/backend/opium.json",
       "status": "unreachable",
       "blocked": false,
-      "httpStatus": 523,
-      "latencyMs": 3747.2,
-      "reason": "HTTP 523 <none>",
-      "checkedAt": "2026-11-17T19:09:24Z"
+      "httpStatus": null,
+      "latencyMs": null,
+      "reason": "Timeout after 8.0s",
+      "checkedAt": "2026-11-17T20:30:04Z"
     },
     {
       "url": "wss://cdn.slcbmooc.org/",
@@ -521,10 +521,10 @@
       "source": "github:Jxoj/SuperUser/assets/backend/opium.json",
       "status": "unreachable",
       "blocked": false,
-      "httpStatus": 523,
-      "latencyMs": 2723.3,
-      "reason": "HTTP 523 <none>",
-      "checkedAt": "2026-11-17T19:09:24Z"
+      "httpStatus": null,
+      "latencyMs": null,
+      "reason": "Timeout after 8.0s",
+      "checkedAt": "2026-11-17T20:30:04Z"
     },
     {
       "url": "wss://cdn.topstargym.net/",
@@ -533,9 +533,9 @@
       "status": "unreachable",
       "blocked": false,
       "httpStatus": 523,
-      "latencyMs": 2490.2,
+      "latencyMs": 5614.2,
       "reason": "HTTP 523 <none>",
-      "checkedAt": "2026-11-17T19:09:24Z"
+      "checkedAt": "2026-11-17T20:30:04Z"
     },
     {
       "url": "wss://cdn.vipersfutbol.com/",
@@ -544,9 +544,9 @@
       "status": "unreachable",
       "blocked": false,
       "httpStatus": 523,
-      "latencyMs": 3745.5,
+      "latencyMs": 6226.0,
       "reason": "HTTP 523 <none>",
-      "checkedAt": "2026-11-17T19:09:24Z"
+      "checkedAt": "2026-11-17T20:30:04Z"
     },
     {
       "url": "wss://celestial.press/wisp/",
@@ -557,7 +557,7 @@
       "httpStatus": null,
       "latencyMs": null,
       "reason": "Timeout after 8.0s",
-      "checkedAt": "2026-11-17T19:09:24Z"
+      "checkedAt": "2026-11-17T20:30:04Z"
     },
     {
       "url": "wss://civil.quartinal.me/wisp/",
@@ -566,9 +566,9 @@
       "status": "reachable",
       "blocked": false,
       "httpStatus": 101,
-      "latencyMs": 423.1,
+      "latencyMs": 436.0,
       "reason": "WebSocket 101 Switching Protocols",
-      "checkedAt": "2026-11-17T19:09:24Z"
+      "checkedAt": "2026-11-17T20:30:04Z"
     },
     {
       "url": "wss://coding.class.cthulhu.li/wisp/",
@@ -577,9 +577,9 @@
       "status": "unreachable",
       "blocked": false,
       "httpStatus": null,
-      "latencyMs": 80.8,
+      "latencyMs": 65.8,
       "reason": "TLS verification failed: self-signed certificate",
-      "checkedAt": "2026-11-17T19:09:24Z"
+      "checkedAt": "2026-11-17T20:30:04Z"
     },
     {
       "url": "wss://construction.services.codd70.ru/socket/",
@@ -590,7 +590,7 @@
       "httpStatus": null,
       "latencyMs": null,
       "reason": "DNS NXDOMAIN / sinkhole ([Errno -2] Name or service not known)",
-      "checkedAt": "2026-11-17T19:09:24Z"
+      "checkedAt": "2026-11-17T20:30:04Z"
     },
     {
       "url": "wss://dash.goip.de/wisp/",
@@ -601,7 +601,7 @@
       "httpStatus": null,
       "latencyMs": null,
       "reason": "DNS NXDOMAIN / sinkhole ([Errno -2] Name or service not known)",
-      "checkedAt": "2026-11-17T19:09:24Z"
+      "checkedAt": "2026-11-17T20:30:04Z"
     },
     {
       "url": "wss://daydreamx.pro/wisp/",
@@ -610,9 +610,9 @@
       "status": "reachable",
       "blocked": false,
       "httpStatus": 101,
-      "latencyMs": 129.8,
+      "latencyMs": 124.2,
       "reason": "WebSocket 101 Switching Protocols",
-      "checkedAt": "2026-11-17T19:09:24Z"
+      "checkedAt": "2026-11-17T20:30:04Z"
     },
     {
       "url": "wss://definitelyscience.com/",
@@ -621,9 +621,9 @@
       "status": "unreachable",
       "blocked": false,
       "httpStatus": 520,
-      "latencyMs": 220.0,
+      "latencyMs": 1967.9,
       "reason": "HTTP 520 <none>",
-      "checkedAt": "2026-11-17T19:09:24Z"
+      "checkedAt": "2026-11-17T20:30:04Z"
     },
     {
       "url": "wss://definitelyscience.com/wisp/",
@@ -632,9 +632,9 @@
       "status": "reachable",
       "blocked": false,
       "httpStatus": 101,
-      "latencyMs": 524.5,
+      "latencyMs": 2714.3,
       "reason": "WebSocket 101 Switching Protocols",
-      "checkedAt": "2026-11-17T19:09:24Z"
+      "checkedAt": "2026-11-17T20:30:04Z"
     },
     {
       "url": "wss://defschoolwork.kutakutik.or.id/wisp/",
@@ -645,7 +645,7 @@
       "httpStatus": null,
       "latencyMs": null,
       "reason": "DNS NXDOMAIN / sinkhole ([Errno -2] Name or service not known)",
-      "checkedAt": "2026-11-17T19:09:24Z"
+      "checkedAt": "2026-11-17T20:30:04Z"
     },
     {
       "url": "wss://degloved.net/",
@@ -654,9 +654,9 @@
       "status": "reachable",
       "blocked": false,
       "httpStatus": 200,
-      "latencyMs": 1192.4,
+      "latencyMs": 1211.9,
       "reason": "HTTP 200 OK",
-      "checkedAt": "2026-11-17T19:09:24Z"
+      "checkedAt": "2026-11-17T20:30:04Z"
     },
     {
       "url": "wss://e.space.blocksi.lol.cdn.cloudflare.net/wisp/",
@@ -667,7 +667,7 @@
       "httpStatus": null,
       "latencyMs": null,
       "reason": "DNS NXDOMAIN / sinkhole ([Errno -5] No address associated with hostname)",
-      "checkedAt": "2026-11-17T19:09:24Z"
+      "checkedAt": "2026-11-17T20:30:04Z"
     },
     {
       "url": "wss://edu.info.east-kazakhstan.su.cdn.cloudflare.net/wisp/",
@@ -678,7 +678,7 @@
       "httpStatus": null,
       "latencyMs": null,
       "reason": "DNS NXDOMAIN / sinkhole ([Errno -5] No address associated with hostname)",
-      "checkedAt": "2026-11-17T19:09:24Z"
+      "checkedAt": "2026-11-17T20:30:04Z"
     },
     {
       "url": "wss://edushasta.lol/wisp/",
@@ -687,9 +687,9 @@
       "status": "reachable",
       "blocked": false,
       "httpStatus": 101,
-      "latencyMs": 489.4,
+      "latencyMs": 2693.2,
       "reason": "WebSocket 101 Switching Protocols",
-      "checkedAt": "2026-11-17T19:09:24Z"
+      "checkedAt": "2026-11-17T20:30:04Z"
     },
     {
       "url": "wss://english.algebra.teacher.vocabulary.homework.forwardersoft.com/",
@@ -700,7 +700,7 @@
       "httpStatus": null,
       "latencyMs": null,
       "reason": "DNS NXDOMAIN / sinkhole ([Errno -2] Name or service not known)",
-      "checkedAt": "2026-11-17T19:09:24Z"
+      "checkedAt": "2026-11-17T20:30:05Z"
     },
     {
       "url": "wss://english.algebra.teacher.vocabulary.homework.forwardersoft.com/wisp/",
@@ -711,7 +711,7 @@
       "httpStatus": null,
       "latencyMs": null,
       "reason": "DNS NXDOMAIN / sinkhole ([Errno -2] Name or service not known)",
-      "checkedAt": "2026-11-17T19:09:24Z"
+      "checkedAt": "2026-11-17T20:30:05Z"
     },
     {
       "url": "wss://english.geniuslecture.club/wisp/",
@@ -722,7 +722,7 @@
       "httpStatus": null,
       "latencyMs": null,
       "reason": "DNS NXDOMAIN / sinkhole ([Errno -2] Name or service not known)",
-      "checkedAt": "2026-11-17T19:09:24Z"
+      "checkedAt": "2026-11-17T20:30:05Z"
     },
     {
       "url": "wss://eu-central.wisp.q13x.com/",
@@ -731,20 +731,20 @@
       "status": "reachable",
       "blocked": false,
       "httpStatus": 101,
-      "latencyMs": 363.5,
+      "latencyMs": 416.0,
       "reason": "WebSocket 101 Switching Protocols",
-      "checkedAt": "2026-11-17T19:09:24Z"
+      "checkedAt": "2026-11-17T20:30:05Z"
     },
     {
       "url": "wss://explorechemistry.online/wisp/",
       "type": "wisp",
       "source": "github:verdjs/site/pages/settings.html",
-      "status": "unreachable",
-      "blocked": false,
-      "httpStatus": null,
-      "latencyMs": null,
-      "reason": "Timeout after 8.0s",
-      "checkedAt": "2026-11-17T19:09:24Z"
+      "status": "blocked",
+      "blocked": true,
+      "httpStatus": 302,
+      "latencyMs": 251.6,
+      "reason": "HTTP 302 redirect -> https://ww38.explorechemistry.online/wisp/",
+      "checkedAt": "2026-11-17T20:30:05Z"
     },
     {
       "url": "wss://explorer.athom.lol/wisp/",
@@ -753,9 +753,9 @@
       "status": "reachable",
       "blocked": false,
       "httpStatus": 101,
-      "latencyMs": 433.3,
+      "latencyMs": 435.4,
       "reason": "WebSocket 101 Switching Protocols",
-      "checkedAt": "2026-11-17T19:09:24Z"
+      "checkedAt": "2026-11-17T20:30:05Z"
     },
     {
       "url": "wss://fastforwarder.org/wisp/",
@@ -764,9 +764,9 @@
       "status": "unreachable",
       "blocked": false,
       "httpStatus": 404,
-      "latencyMs": 485.4,
+      "latencyMs": 473.0,
       "reason": "HTTP 404 Not Found",
-      "checkedAt": "2026-11-17T19:09:24Z"
+      "checkedAt": "2026-11-17T20:30:05Z"
     },
     {
       "url": "wss://fern.best/",
@@ -775,9 +775,9 @@
       "status": "reachable",
       "blocked": false,
       "httpStatus": 200,
-      "latencyMs": 228.0,
+      "latencyMs": 253.5,
       "reason": "HTTP 200 OK",
-      "checkedAt": "2026-11-17T19:09:24Z"
+      "checkedAt": "2026-11-17T20:30:05Z"
     },
     {
       "url": "wss://fern.best/wisp/",
@@ -786,20 +786,20 @@
       "status": "reachable",
       "blocked": false,
       "httpStatus": 101,
-      "latencyMs": 189.0,
+      "latencyMs": 258.3,
       "reason": "WebSocket 101 Switching Protocols",
-      "checkedAt": "2026-11-17T19:09:24Z"
+      "checkedAt": "2026-11-17T20:30:05Z"
     },
     {
       "url": "wss://freemathhw.xyz/wisp/",
       "type": "wisp",
       "source": "github:verdjs/site/pages/settings.html",
-      "status": "unreachable",
-      "blocked": false,
-      "httpStatus": null,
-      "latencyMs": null,
-      "reason": "Timeout after 8.0s",
-      "checkedAt": "2026-11-17T19:09:24Z"
+      "status": "blocked",
+      "blocked": true,
+      "httpStatus": 302,
+      "latencyMs": 262.1,
+      "reason": "HTTP 302 redirect -> https://ww38.freemathhw.xyz/wisp/",
+      "checkedAt": "2026-11-17T20:30:05Z"
     },
     {
       "url": "wss://g.cirsius.net/",
@@ -810,7 +810,7 @@
       "httpStatus": null,
       "latencyMs": null,
       "reason": "Connection refused",
-      "checkedAt": "2026-11-17T19:09:24Z"
+      "checkedAt": "2026-11-17T20:30:05Z"
     },
     {
       "url": "wss://g.eaglymc.online/",
@@ -821,7 +821,7 @@
       "httpStatus": null,
       "latencyMs": null,
       "reason": "Connection refused",
-      "checkedAt": "2026-11-17T19:09:24Z"
+      "checkedAt": "2026-11-17T20:30:05Z"
     },
     {
       "url": "wss://g.imgeeked.lol/",
@@ -832,7 +832,7 @@
       "httpStatus": null,
       "latencyMs": null,
       "reason": "Connection refused",
-      "checkedAt": "2026-11-17T19:09:24Z"
+      "checkedAt": "2026-11-17T20:30:05Z"
     },
     {
       "url": "wss://g.tuffis.online/",
@@ -841,9 +841,9 @@
       "status": "unreachable",
       "blocked": false,
       "httpStatus": null,
-      "latencyMs": 72.1,
+      "latencyMs": 153.0,
       "reason": "TLS verification failed: unable to get local issuer certificate",
-      "checkedAt": "2026-11-17T19:09:24Z"
+      "checkedAt": "2026-11-17T20:30:05Z"
     },
     {
       "url": "wss://galxy.it.com/wisp/",
@@ -852,9 +852,9 @@
       "status": "unreachable",
       "blocked": false,
       "httpStatus": 502,
-      "latencyMs": 73.0,
+      "latencyMs": 76.0,
       "reason": "HTTP 502 Bad Gateway",
-      "checkedAt": "2026-11-17T19:09:24Z"
+      "checkedAt": "2026-11-17T20:30:05Z"
     },
     {
       "url": "wss://gay.ajswags.xyz/",
@@ -863,9 +863,9 @@
       "status": "unreachable",
       "blocked": false,
       "httpStatus": null,
-      "latencyMs": 155.6,
+      "latencyMs": 224.1,
       "reason": "Connection reset/closed (ConnectionResetError)",
-      "checkedAt": "2026-11-17T19:09:24Z"
+      "checkedAt": "2026-11-17T20:30:05Z"
     },
     {
       "url": "wss://girlspreples.org/wi/",
@@ -874,9 +874,9 @@
       "status": "reachable",
       "blocked": false,
       "httpStatus": 101,
-      "latencyMs": 455.1,
+      "latencyMs": 1056.1,
       "reason": "WebSocket 101 Switching Protocols",
-      "checkedAt": "2026-11-17T19:09:24Z"
+      "checkedAt": "2026-11-17T20:30:05Z"
     },
     {
       "url": "wss://glseries.net/",
@@ -885,9 +885,9 @@
       "status": "reachable",
       "blocked": false,
       "httpStatus": 200,
-      "latencyMs": 281.9,
+      "latencyMs": 228.2,
       "reason": "HTTP 200 OK",
-      "checkedAt": "2026-11-17T19:09:24Z"
+      "checkedAt": "2026-11-17T20:30:05Z"
     },
     {
       "url": "wss://glseries.net/wisp/",
@@ -896,9 +896,9 @@
       "status": "unreachable",
       "blocked": false,
       "httpStatus": 404,
-      "latencyMs": 231.8,
+      "latencyMs": 225.2,
       "reason": "HTTP 404 Not Found",
-      "checkedAt": "2026-11-17T19:09:24Z"
+      "checkedAt": "2026-11-17T20:30:05Z"
     },
     {
       "url": "wss://gointerstellar.app/wisp/",
@@ -907,9 +907,9 @@
       "status": "unreachable",
       "blocked": false,
       "httpStatus": 502,
-      "latencyMs": 357.7,
+      "latencyMs": 3478.4,
       "reason": "HTTP 502 Bad Gateway",
-      "checkedAt": "2026-11-17T19:09:24Z"
+      "checkedAt": "2026-11-17T20:30:05Z"
     },
     {
       "url": "wss://gointospace.app/wisp/",
@@ -918,9 +918,9 @@
       "status": "reachable",
       "blocked": false,
       "httpStatus": 101,
-      "latencyMs": 74.8,
+      "latencyMs": 93.6,
       "reason": "WebSocket 101 Switching Protocols",
-      "checkedAt": "2026-11-17T19:09:24Z"
+      "checkedAt": "2026-11-17T20:30:05Z"
     },
     {
       "url": "wss://homework--spmspy0800.replit.app/wisp/",
@@ -929,9 +929,9 @@
       "status": "unreachable",
       "blocked": false,
       "httpStatus": 404,
-      "latencyMs": 98.1,
+      "latencyMs": 96.8,
       "reason": "HTTP 404 Not Found",
-      "checkedAt": "2026-11-17T19:09:24Z"
+      "checkedAt": "2026-11-17T20:30:05Z"
     },
     {
       "url": "wss://hurt-agata-liventcord-api-7072e9a6.koyeb.app/",
@@ -940,9 +940,9 @@
       "status": "reachable",
       "blocked": false,
       "httpStatus": 101,
-      "latencyMs": 221.4,
+      "latencyMs": 621.4,
       "reason": "WebSocket 101 Switching Protocols",
-      "checkedAt": "2026-11-17T19:09:24Z"
+      "checkedAt": "2026-11-17T20:30:05Z"
     },
     {
       "url": "wss://i-ready.math.bostoncareercounselor.com/wisp/",
@@ -953,7 +953,7 @@
       "httpStatus": null,
       "latencyMs": null,
       "reason": "DNS NXDOMAIN / sinkhole ([Errno -2] Name or service not known)",
-      "checkedAt": "2026-11-17T19:09:24Z"
+      "checkedAt": "2026-11-17T20:30:05Z"
     },
     {
       "url": "wss://incog.works/wisp/",
@@ -962,9 +962,9 @@
       "status": "blocked",
       "blocked": true,
       "httpStatus": 301,
-      "latencyMs": 413.2,
+      "latencyMs": 82.0,
       "reason": "HTTP 301 redirect -> https://expireddomains.com/domain/incog.works?utm_source=redi",
-      "checkedAt": "2026-11-17T19:09:24Z"
+      "checkedAt": "2026-11-17T20:30:05Z"
     },
     {
       "url": "wss://inkmath.adijaya.id/wisp/",
@@ -973,9 +973,9 @@
       "status": "reachable",
       "blocked": false,
       "httpStatus": 101,
-      "latencyMs": 169.3,
+      "latencyMs": 141.1,
       "reason": "WebSocket 101 Switching Protocols",
-      "checkedAt": "2026-11-17T19:09:24Z"
+      "checkedAt": "2026-11-17T20:30:05Z"
     },
     {
       "url": "wss://invisibridge.com/wisp/",
@@ -986,7 +986,7 @@
       "httpStatus": null,
       "latencyMs": null,
       "reason": "Timeout after 8.0s",
-      "checkedAt": "2026-11-17T19:09:24Z"
+      "checkedAt": "2026-11-17T20:30:05Z"
     },
     {
       "url": "wss://invisiproxy.com/",
@@ -995,9 +995,9 @@
       "status": "blocked",
       "blocked": true,
       "httpStatus": 200,
-      "latencyMs": 270.0,
+      "latencyMs": 4744.1,
       "reason": "Blocked by filter keyword 'web filter' (HTTP 200)",
-      "checkedAt": "2026-11-17T19:09:24Z"
+      "checkedAt": "2026-11-17T20:30:05Z"
     },
     {
       "url": "wss://invisiproxy.com/wisp/",
@@ -1006,9 +1006,9 @@
       "status": "reachable",
       "blocked": false,
       "httpStatus": 101,
-      "latencyMs": 273.0,
+      "latencyMs": 4357.1,
       "reason": "WebSocket 101 Switching Protocols",
-      "checkedAt": "2026-11-17T19:09:24Z"
+      "checkedAt": "2026-11-17T20:30:05Z"
     },
     {
       "url": "wss://ishotupa.school/w/",
@@ -1017,9 +1017,9 @@
       "status": "unreachable",
       "blocked": false,
       "httpStatus": 404,
-      "latencyMs": 530.1,
+      "latencyMs": 2373.8,
       "reason": "HTTP 404 Not Found",
-      "checkedAt": "2026-11-17T19:09:24Z"
+      "checkedAt": "2026-11-17T20:30:05Z"
     },
     {
       "url": "wss://jrdn.calculra.store/wisp/",
@@ -1028,9 +1028,9 @@
       "status": "reachable",
       "blocked": false,
       "httpStatus": 101,
-      "latencyMs": 863.0,
+      "latencyMs": 4570.5,
       "reason": "WebSocket 101 Switching Protocols",
-      "checkedAt": "2026-11-17T19:09:24Z"
+      "checkedAt": "2026-11-17T20:30:05Z"
     },
     {
       "url": "wss://kidsprepnest.org/vi/",
@@ -1039,9 +1039,9 @@
       "status": "reachable",
       "blocked": false,
       "httpStatus": 101,
-      "latencyMs": 398.0,
+      "latencyMs": 2462.6,
       "reason": "WebSocket 101 Switching Protocols",
-      "checkedAt": "2026-11-17T19:09:24Z"
+      "checkedAt": "2026-11-17T20:30:06Z"
     },
     {
       "url": "wss://learnmath.themathdoctors.org/w/",
@@ -1052,7 +1052,7 @@
       "httpStatus": null,
       "latencyMs": null,
       "reason": "DNS NXDOMAIN / sinkhole ([Errno -2] Name or service not known)",
-      "checkedAt": "2026-11-17T19:09:24Z"
+      "checkedAt": "2026-11-17T20:30:06Z"
     },
     {
       "url": "wss://lichology.com/",
@@ -1061,9 +1061,9 @@
       "status": "unreachable",
       "blocked": false,
       "httpStatus": 520,
-      "latencyMs": 294.0,
+      "latencyMs": 4447.0,
       "reason": "HTTP 520 <none>",
-      "checkedAt": "2026-11-17T19:09:24Z"
+      "checkedAt": "2026-11-17T20:30:06Z"
     },
     {
       "url": "wss://lichology.com/wisp/",
@@ -1072,9 +1072,9 @@
       "status": "reachable",
       "blocked": false,
       "httpStatus": 101,
-      "latencyMs": 233.3,
+      "latencyMs": 1407.6,
       "reason": "WebSocket 101 Switching Protocols",
-      "checkedAt": "2026-11-17T19:09:24Z"
+      "checkedAt": "2026-11-17T20:30:06Z"
     },
     {
       "url": "wss://linuxontab-net.fly.dev/wisp/",
@@ -1083,9 +1083,9 @@
       "status": "reachable",
       "blocked": false,
       "httpStatus": 101,
-      "latencyMs": 659.1,
+      "latencyMs": 656.4,
       "reason": "WebSocket 101 Switching Protocols",
-      "checkedAt": "2026-11-17T19:09:24Z"
+      "checkedAt": "2026-11-17T20:30:06Z"
     },
     {
       "url": "wss://linuxontab.com/wisp/",
@@ -1094,9 +1094,9 @@
       "status": "unreachable",
       "blocked": false,
       "httpStatus": 404,
-      "latencyMs": 65.0,
+      "latencyMs": 66.3,
       "reason": "HTTP 404 Not Found",
-      "checkedAt": "2026-11-17T19:09:24Z"
+      "checkedAt": "2026-11-17T20:30:06Z"
     },
     {
       "url": "wss://lucideon.top/ws/",
@@ -1104,10 +1104,10 @@
       "source": "github:Kitaylena/Citasune/scripts/main/proxybrowser.js",
       "status": "unreachable",
       "blocked": false,
-      "httpStatus": 502,
-      "latencyMs": 1691.7,
-      "reason": "HTTP 502 Bad Gateway",
-      "checkedAt": "2026-11-17T19:09:24Z"
+      "httpStatus": null,
+      "latencyMs": null,
+      "reason": "Connection refused",
+      "checkedAt": "2026-11-17T20:30:06Z"
     },
     {
       "url": "wss://luna.loan/wisp/",
@@ -1116,9 +1116,9 @@
       "status": "reachable",
       "blocked": false,
       "httpStatus": 200,
-      "latencyMs": 211.6,
+      "latencyMs": 181.2,
       "reason": "HTTP 200 OK",
-      "checkedAt": "2026-11-17T19:09:24Z"
+      "checkedAt": "2026-11-17T20:30:06Z"
     },
     {
       "url": "wss://lunarrr.eminescusm.ro/w/",
@@ -1129,7 +1129,7 @@
       "httpStatus": null,
       "latencyMs": null,
       "reason": "DNS NXDOMAIN / sinkhole ([Errno -2] Name or service not known)",
-      "checkedAt": "2026-11-17T19:09:24Z"
+      "checkedAt": "2026-11-17T20:30:06Z"
     },
     {
       "url": "wss://mages.io/",
@@ -1138,9 +1138,9 @@
       "status": "unreachable",
       "blocked": false,
       "httpStatus": 520,
-      "latencyMs": 276.3,
+      "latencyMs": 2173.7,
       "reason": "HTTP 520 <none>",
-      "checkedAt": "2026-11-17T19:09:24Z"
+      "checkedAt": "2026-11-17T20:30:06Z"
     },
     {
       "url": "wss://mages.io/wisp/",
@@ -1149,9 +1149,9 @@
       "status": "reachable",
       "blocked": false,
       "httpStatus": 101,
-      "latencyMs": 211.5,
+      "latencyMs": 4719.2,
       "reason": "WebSocket 101 Switching Protocols",
-      "checkedAt": "2026-11-17T19:09:24Z"
+      "checkedAt": "2026-11-17T20:30:07Z"
     },
     {
       "url": "wss://math.2805hammandrive.shop/cdn-cgi/p/",
@@ -1162,7 +1162,7 @@
       "httpStatus": null,
       "latencyMs": null,
       "reason": "DNS NXDOMAIN / sinkhole ([Errno -2] Name or service not known)",
-      "checkedAt": "2026-11-17T19:09:24Z"
+      "checkedAt": "2026-11-17T20:30:07Z"
     },
     {
       "url": "wss://math.815moniquelane.cfd/cdn-cgi/p/",
@@ -1173,7 +1173,7 @@
       "httpStatus": null,
       "latencyMs": null,
       "reason": "DNS NXDOMAIN / sinkhole ([Errno -2] Name or service not known)",
-      "checkedAt": "2026-11-17T19:09:24Z"
+      "checkedAt": "2026-11-17T20:30:07Z"
     },
     {
       "url": "wss://math.akanesucks.cfd/cdn-cgi/p/",
@@ -1182,9 +1182,9 @@
       "status": "blocked",
       "blocked": true,
       "httpStatus": 403,
-      "latencyMs": 1103.4,
+      "latencyMs": 1083.1,
       "reason": "HTTP 403 Forbidden",
-      "checkedAt": "2026-11-17T19:09:24Z"
+      "checkedAt": "2026-11-17T20:30:07Z"
     },
     {
       "url": "wss://math.allofthisisfortheotherclassmatesbtw.cfd/cdn-cgi/p/",
@@ -1193,20 +1193,20 @@
       "status": "blocked",
       "blocked": true,
       "httpStatus": 403,
-      "latencyMs": 1102.9,
+      "latencyMs": 1094.0,
       "reason": "HTTP 403 Forbidden",
-      "checkedAt": "2026-11-17T19:09:24Z"
+      "checkedAt": "2026-11-17T20:30:07Z"
     },
     {
       "url": "wss://math.americahistory.online/wisp/",
       "type": "wisp",
       "source": "github:verdjs/site/pages/settings.html",
-      "status": "unreachable",
-      "blocked": false,
-      "httpStatus": null,
-      "latencyMs": null,
-      "reason": "Timeout after 8.0s",
-      "checkedAt": "2026-11-17T19:09:24Z"
+      "status": "blocked",
+      "blocked": true,
+      "httpStatus": 302,
+      "latencyMs": 249.9,
+      "reason": "HTTP 302 redirect -> https://ww38.americahistory.online/wisp/",
+      "checkedAt": "2026-11-17T20:30:07Z"
     },
     {
       "url": "wss://math.app-design.cfd/cdn-cgi/p/",
@@ -1215,9 +1215,9 @@
       "status": "blocked",
       "blocked": true,
       "httpStatus": 403,
-      "latencyMs": 1098.6,
+      "latencyMs": 1087.5,
       "reason": "HTTP 403 Forbidden",
-      "checkedAt": "2026-11-17T19:09:24Z"
+      "checkedAt": "2026-11-17T20:30:07Z"
     },
     {
       "url": "wss://math.bellschedule.lol/cdn-cgi/p/",
@@ -1226,9 +1226,9 @@
       "status": "blocked",
       "blocked": true,
       "httpStatus": 403,
-      "latencyMs": 1099.6,
+      "latencyMs": 1086.8,
       "reason": "HTTP 403 Forbidden",
-      "checkedAt": "2026-11-17T19:09:24Z"
+      "checkedAt": "2026-11-17T20:30:07Z"
     },
     {
       "url": "wss://math.betterthancbmagic.life/cdn-cgi/p/",
@@ -1237,9 +1237,9 @@
       "status": "blocked",
       "blocked": true,
       "httpStatus": 403,
-      "latencyMs": 1097.8,
+      "latencyMs": 1082.5,
       "reason": "HTTP 403 Forbidden",
-      "checkedAt": "2026-11-17T19:09:24Z"
+      "checkedAt": "2026-11-17T20:30:07Z"
     },
     {
       "url": "wss://math.bigdih.cfd/cdn-cgi/p/",
@@ -1250,7 +1250,7 @@
       "httpStatus": null,
       "latencyMs": null,
       "reason": "DNS NXDOMAIN / sinkhole ([Errno -2] Name or service not known)",
-      "checkedAt": "2026-11-17T19:09:24Z"
+      "checkedAt": "2026-11-17T20:30:07Z"
     },
     {
       "url": "wss://math.bigdih.shop/cdn-cgi/p/",
@@ -1261,7 +1261,7 @@
       "httpStatus": null,
       "latencyMs": null,
       "reason": "DNS NXDOMAIN / sinkhole ([Errno -2] Name or service not known)",
-      "checkedAt": "2026-11-17T19:09:24Z"
+      "checkedAt": "2026-11-17T20:30:07Z"
     },
     {
       "url": "wss://math.bog-bot.cfd/cdn-cgi/p/",
@@ -1272,7 +1272,7 @@
       "httpStatus": null,
       "latencyMs": null,
       "reason": "DNS NXDOMAIN / sinkhole ([Errno -2] Name or service not known)",
-      "checkedAt": "2026-11-17T19:09:24Z"
+      "checkedAt": "2026-11-17T20:30:07Z"
     },
     {
       "url": "wss://math.bogbot.shop/cdn-cgi/p/",
@@ -1283,7 +1283,7 @@
       "httpStatus": null,
       "latencyMs": null,
       "reason": "DNS NXDOMAIN / sinkhole ([Errno -2] Name or service not known)",
-      "checkedAt": "2026-11-17T19:09:24Z"
+      "checkedAt": "2026-11-17T20:30:07Z"
     },
     {
       "url": "wss://math.boydingles.cfd/cdn-cgi/p/",
@@ -1294,7 +1294,7 @@
       "httpStatus": 403,
       "latencyMs": 1089.5,
       "reason": "HTTP 403 Forbidden",
-      "checkedAt": "2026-11-17T19:09:24Z"
+      "checkedAt": "2026-11-17T20:30:07Z"
     },
     {
       "url": "wss://math.cbmagicisfullofskids.buzz/cdn-cgi/p/",
@@ -1303,9 +1303,9 @@
       "status": "blocked",
       "blocked": true,
       "httpStatus": 403,
-      "latencyMs": 1123.8,
+      "latencyMs": 1086.7,
       "reason": "HTTP 403 Forbidden",
-      "checkedAt": "2026-11-17T19:09:24Z"
+      "checkedAt": "2026-11-17T20:30:07Z"
     },
     {
       "url": "wss://math.cbmagicisfullofskids.cfd/cdn-cgi/p/",
@@ -1314,9 +1314,9 @@
       "status": "blocked",
       "blocked": true,
       "httpStatus": 403,
-      "latencyMs": 1108.5,
+      "latencyMs": 1080.5,
       "reason": "HTTP 403 Forbidden",
-      "checkedAt": "2026-11-17T19:09:24Z"
+      "checkedAt": "2026-11-17T20:30:07Z"
     },
     {
       "url": "wss://math.cloudmoon.cfd/cdn-cgi/p/",
@@ -1325,9 +1325,9 @@
       "status": "blocked",
       "blocked": true,
       "httpStatus": 403,
-      "latencyMs": 1097.7,
+      "latencyMs": 1089.9,
       "reason": "HTTP 403 Forbidden",
-      "checkedAt": "2026-11-17T19:09:24Z"
+      "checkedAt": "2026-11-17T20:30:07Z"
     },
     {
       "url": "wss://math.deltarune.cfd/cdn-cgi/p/",
@@ -1336,9 +1336,9 @@
       "status": "blocked",
       "blocked": true,
       "httpStatus": 403,
-      "latencyMs": 1096.1,
+      "latencyMs": 1079.1,
       "reason": "HTTP 403 Forbidden",
-      "checkedAt": "2026-11-17T19:09:24Z"
+      "checkedAt": "2026-11-17T20:30:07Z"
     },
     {
       "url": "wss://math.diddy.men/cdn-cgi/p/",
@@ -1349,7 +1349,7 @@
       "httpStatus": null,
       "latencyMs": null,
       "reason": "DNS NXDOMAIN / sinkhole ([Errno -2] Name or service not known)",
-      "checkedAt": "2026-11-17T19:09:24Z"
+      "checkedAt": "2026-11-17T20:30:08Z"
     },
     {
       "url": "wss://math.diddy.mom/cdn-cgi/p/",
@@ -1360,7 +1360,7 @@
       "httpStatus": null,
       "latencyMs": null,
       "reason": "DNS NXDOMAIN / sinkhole ([Errno -2] Name or service not known)",
-      "checkedAt": "2026-11-17T19:09:24Z"
+      "checkedAt": "2026-11-17T20:30:08Z"
     },
     {
       "url": "wss://math.dih.hair/cdn-cgi/p/",
@@ -1371,7 +1371,7 @@
       "httpStatus": null,
       "latencyMs": null,
       "reason": "DNS NXDOMAIN / sinkhole ([Errno -2] Name or service not known)",
-      "checkedAt": "2026-11-17T19:09:24Z"
+      "checkedAt": "2026-11-17T20:30:08Z"
     },
     {
       "url": "wss://math.dylanis.online/cdn-cgi/p/",
@@ -1382,7 +1382,7 @@
       "httpStatus": null,
       "latencyMs": null,
       "reason": "DNS NXDOMAIN / sinkhole ([Errno -2] Name or service not known)",
-      "checkedAt": "2026-11-17T19:09:24Z"
+      "checkedAt": "2026-11-17T20:30:08Z"
     },
     {
       "url": "wss://math.dylanisdead.cfd/cdn-cgi/p/",
@@ -1391,9 +1391,9 @@
       "status": "blocked",
       "blocked": true,
       "httpStatus": 403,
-      "latencyMs": 1100.9,
+      "latencyMs": 1080.7,
       "reason": "HTTP 403 Forbidden",
-      "checkedAt": "2026-11-17T19:09:24Z"
+      "checkedAt": "2026-11-17T20:30:08Z"
     },
     {
       "url": "wss://math.dylanmcisass.cfd/cdn-cgi/p/",
@@ -1404,7 +1404,7 @@
       "httpStatus": null,
       "latencyMs": null,
       "reason": "DNS NXDOMAIN / sinkhole ([Errno -2] Name or service not known)",
-      "checkedAt": "2026-11-17T19:09:24Z"
+      "checkedAt": "2026-11-17T20:30:08Z"
     },
     {
       "url": "wss://math.dylanwantspay.cfd/cdn-cgi/p/",
@@ -1413,9 +1413,9 @@
       "status": "blocked",
       "blocked": true,
       "httpStatus": 403,
-      "latencyMs": 1110.0,
+      "latencyMs": 1086.5,
       "reason": "HTTP 403 Forbidden",
-      "checkedAt": "2026-11-17T19:09:24Z"
+      "checkedAt": "2026-11-17T20:30:08Z"
     },
     {
       "url": "wss://math.dylanwuzhere.cfd/cdn-cgi/p/",
@@ -1426,7 +1426,7 @@
       "httpStatus": null,
       "latencyMs": null,
       "reason": "DNS NXDOMAIN / sinkhole ([Errno -2] Name or service not known)",
-      "checkedAt": "2026-11-17T19:09:24Z"
+      "checkedAt": "2026-11-17T20:30:08Z"
     },
     {
       "url": "wss://math.educationpinata.com/cdn-cgi/p/",
@@ -1435,9 +1435,9 @@
       "status": "blocked",
       "blocked": true,
       "httpStatus": 403,
-      "latencyMs": 1094.2,
+      "latencyMs": 1088.7,
       "reason": "HTTP 403 Forbidden",
-      "checkedAt": "2026-11-17T19:09:24Z"
+      "checkedAt": "2026-11-17T20:30:08Z"
     },
     {
       "url": "wss://math.englishtutoring.cfd/cdn-cgi/p/",
@@ -1448,7 +1448,7 @@
       "httpStatus": null,
       "latencyMs": null,
       "reason": "DNS NXDOMAIN / sinkhole ([Errno -2] Name or service not known)",
-      "checkedAt": "2026-11-17T19:09:24Z"
+      "checkedAt": "2026-11-17T20:30:08Z"
     },
     {
       "url": "wss://math.fasterspeeds.cfd/cdn-cgi/p/",
@@ -1457,9 +1457,9 @@
       "status": "blocked",
       "blocked": true,
       "httpStatus": 403,
-      "latencyMs": 1099.7,
+      "latencyMs": 1089.0,
       "reason": "HTTP 403 Forbidden",
-      "checkedAt": "2026-11-17T19:09:24Z"
+      "checkedAt": "2026-11-17T20:30:08Z"
     },
     {
       "url": "wss://math.finalexam.shop/cdn-cgi/p/",
@@ -1468,9 +1468,9 @@
       "status": "blocked",
       "blocked": true,
       "httpStatus": 403,
-      "latencyMs": 1097.3,
+      "latencyMs": 1089.6,
       "reason": "HTTP 403 Forbidden",
-      "checkedAt": "2026-11-17T19:09:24Z"
+      "checkedAt": "2026-11-17T20:30:08Z"
     },
     {
       "url": "wss://math.freemathpracticetest.com/cdn-cgi/p/",
@@ -1479,9 +1479,9 @@
       "status": "blocked",
       "blocked": true,
       "httpStatus": 403,
-      "latencyMs": 1093.1,
+      "latencyMs": 1086.4,
       "reason": "HTTP 403 Forbidden",
-      "checkedAt": "2026-11-17T19:09:24Z"
+      "checkedAt": "2026-11-17T20:30:08Z"
     },
     {
       "url": "wss://math.frogette.cfd/cdn-cgi/p/",
@@ -1492,7 +1492,7 @@
       "httpStatus": null,
       "latencyMs": null,
       "reason": "DNS NXDOMAIN / sinkhole ([Errno -2] Name or service not known)",
-      "checkedAt": "2026-11-17T19:09:25Z"
+      "checkedAt": "2026-11-17T20:30:08Z"
     },
     {
       "url": "wss://math.frogiee1.cfd/cdn-cgi/p/",
@@ -1501,9 +1501,9 @@
       "status": "blocked",
       "blocked": true,
       "httpStatus": 403,
-      "latencyMs": 1080.6,
+      "latencyMs": 1083.7,
       "reason": "HTTP 403 Forbidden",
-      "checkedAt": "2026-11-17T19:09:25Z"
+      "checkedAt": "2026-11-17T20:30:08Z"
     },
     {
       "url": "wss://math.frogieelikesboys.cfd/cdn-cgi/p/",
@@ -1514,7 +1514,7 @@
       "httpStatus": null,
       "latencyMs": null,
       "reason": "DNS NXDOMAIN / sinkhole ([Errno -2] Name or service not known)",
-      "checkedAt": "2026-11-17T19:09:25Z"
+      "checkedAt": "2026-11-17T20:30:08Z"
     },
     {
       "url": "wss://math.frogiesrcade.cfd/cdn-cgi/p/",
@@ -1523,9 +1523,9 @@
       "status": "blocked",
       "blocked": true,
       "httpStatus": 403,
-      "latencyMs": 1083.9,
+      "latencyMs": 1091.2,
       "reason": "HTTP 403 Forbidden",
-      "checkedAt": "2026-11-17T19:09:25Z"
+      "checkedAt": "2026-11-17T20:30:08Z"
     },
     {
       "url": "wss://math.frogsareamazing.shop/cdn-cgi/p/",
@@ -1534,9 +1534,9 @@
       "status": "blocked",
       "blocked": true,
       "httpStatus": 403,
-      "latencyMs": 1089.4,
+      "latencyMs": 1094.5,
       "reason": "HTTP 403 Forbidden",
-      "checkedAt": "2026-11-17T19:09:25Z"
+      "checkedAt": "2026-11-17T20:30:08Z"
     },
     {
       "url": "wss://math.frogseducation.com/cdn-cgi/p/",
@@ -1545,9 +1545,9 @@
       "status": "blocked",
       "blocked": true,
       "httpStatus": 403,
-      "latencyMs": 1102.3,
+      "latencyMs": 1092.1,
       "reason": "HTTP 403 Forbidden",
-      "checkedAt": "2026-11-17T19:09:25Z"
+      "checkedAt": "2026-11-17T20:30:08Z"
     },
     {
       "url": "wss://math.frogseducation.life/cdn-cgi/p/",
@@ -1556,9 +1556,9 @@
       "status": "blocked",
       "blocked": true,
       "httpStatus": 403,
-      "latencyMs": 1094.8,
+      "latencyMs": 1079.5,
       "reason": "HTTP 403 Forbidden",
-      "checkedAt": "2026-11-17T19:09:25Z"
+      "checkedAt": "2026-11-17T20:30:08Z"
     },
     {
       "url": "wss://math.fucksolo.cfd/cdn-cgi/p/",
@@ -1569,7 +1569,7 @@
       "httpStatus": null,
       "latencyMs": null,
       "reason": "DNS NXDOMAIN / sinkhole ([Errno -2] Name or service not known)",
-      "checkedAt": "2026-11-17T19:09:25Z"
+      "checkedAt": "2026-11-17T20:30:08Z"
     },
     {
       "url": "wss://math.fucksolo.shop/cdn-cgi/p/",
@@ -1578,9 +1578,9 @@
       "status": "blocked",
       "blocked": true,
       "httpStatus": 403,
-      "latencyMs": 1104.4,
+      "latencyMs": 1092.2,
       "reason": "HTTP 403 Forbidden",
-      "checkedAt": "2026-11-17T19:09:25Z"
+      "checkedAt": "2026-11-17T20:30:08Z"
     },
     {
       "url": "wss://math.genizy.cfd/cdn-cgi/p/",
@@ -1589,9 +1589,9 @@
       "status": "blocked",
       "blocked": true,
       "httpStatus": 403,
-      "latencyMs": 1093.4,
+      "latencyMs": 1094.3,
       "reason": "HTTP 403 Forbidden",
-      "checkedAt": "2026-11-17T19:09:25Z"
+      "checkedAt": "2026-11-17T20:30:08Z"
     },
     {
       "url": "wss://math.gimmemoney.online/cdn-cgi/p/",
@@ -1600,9 +1600,9 @@
       "status": "blocked",
       "blocked": true,
       "httpStatus": 403,
-      "latencyMs": 1099.8,
+      "latencyMs": 1089.8,
       "reason": "HTTP 403 Forbidden",
-      "checkedAt": "2026-11-17T19:09:25Z"
+      "checkedAt": "2026-11-17T20:30:08Z"
     },
     {
       "url": "wss://math.gn-math.best/cdn-cgi/p/",
@@ -1611,9 +1611,9 @@
       "status": "blocked",
       "blocked": true,
       "httpStatus": 403,
-      "latencyMs": 1099.8,
+      "latencyMs": 1083.8,
       "reason": "HTTP 403 Forbidden",
-      "checkedAt": "2026-11-17T19:09:25Z"
+      "checkedAt": "2026-11-17T20:30:08Z"
     },
     {
       "url": "wss://math.gn-math.cc/cdn-cgi/p/",
@@ -1622,9 +1622,9 @@
       "status": "blocked",
       "blocked": true,
       "httpStatus": 403,
-      "latencyMs": 1099.1,
+      "latencyMs": 1089.7,
       "reason": "HTTP 403 Forbidden",
-      "checkedAt": "2026-11-17T19:09:25Z"
+      "checkedAt": "2026-11-17T20:30:08Z"
     },
     {
       "url": "wss://math.gn-math.cfd/cdn-cgi/p/",
@@ -1633,9 +1633,9 @@
       "status": "blocked",
       "blocked": true,
       "httpStatus": 403,
-      "latencyMs": 1094.8,
+      "latencyMs": 1084.8,
       "reason": "HTTP 403 Forbidden",
-      "checkedAt": "2026-11-17T19:09:25Z"
+      "checkedAt": "2026-11-17T20:30:09Z"
     },
     {
       "url": "wss://math.gn-math.works/cdn-cgi/p/",
@@ -1644,9 +1644,9 @@
       "status": "blocked",
       "blocked": true,
       "httpStatus": 403,
-      "latencyMs": 1107.4,
+      "latencyMs": 1088.7,
       "reason": "HTTP 403 Forbidden",
-      "checkedAt": "2026-11-17T19:09:25Z"
+      "checkedAt": "2026-11-17T20:30:09Z"
     },
     {
       "url": "wss://math.goguardian.cfd/cdn-cgi/p/",
@@ -1657,7 +1657,7 @@
       "httpStatus": null,
       "latencyMs": null,
       "reason": "DNS NXDOMAIN / sinkhole ([Errno -2] Name or service not known)",
-      "checkedAt": "2026-11-17T19:09:25Z"
+      "checkedAt": "2026-11-17T20:30:09Z"
     },
     {
       "url": "wss://math.goguardiansucks.cfd/cdn-cgi/p/",
@@ -1666,9 +1666,9 @@
       "status": "blocked",
       "blocked": true,
       "httpStatus": 403,
-      "latencyMs": 1095.7,
+      "latencyMs": 1090.4,
       "reason": "HTTP 403 Forbidden",
-      "checkedAt": "2026-11-17T19:09:25Z"
+      "checkedAt": "2026-11-17T20:30:09Z"
     },
     {
       "url": "wss://math.goguardiansucks.shop/cdn-cgi/p/",
@@ -1677,9 +1677,9 @@
       "status": "blocked",
       "blocked": true,
       "httpStatus": 403,
-      "latencyMs": 1091.8,
+      "latencyMs": 1089.5,
       "reason": "HTTP 403 Forbidden",
-      "checkedAt": "2026-11-17T19:09:25Z"
+      "checkedAt": "2026-11-17T20:30:09Z"
     },
     {
       "url": "wss://math.goon.hair/cdn-cgi/p/",
@@ -1690,7 +1690,7 @@
       "httpStatus": null,
       "latencyMs": null,
       "reason": "DNS NXDOMAIN / sinkhole ([Errno -2] Name or service not known)",
-      "checkedAt": "2026-11-17T19:09:25Z"
+      "checkedAt": "2026-11-17T20:30:09Z"
     },
     {
       "url": "wss://math.gooningfor.life/cdn-cgi/p/",
@@ -1699,9 +1699,9 @@
       "status": "blocked",
       "blocked": true,
       "httpStatus": 403,
-      "latencyMs": 1111.9,
+      "latencyMs": 1101.0,
       "reason": "HTTP 403 Forbidden",
-      "checkedAt": "2026-11-17T19:09:25Z"
+      "checkedAt": "2026-11-17T20:30:09Z"
     },
     {
       "url": "wss://math.has-a-small-dih.cfd/cdn-cgi/p/",
@@ -1712,7 +1712,7 @@
       "httpStatus": null,
       "latencyMs": null,
       "reason": "DNS NXDOMAIN / sinkhole ([Errno -2] Name or service not known)",
-      "checkedAt": "2026-11-17T19:09:26Z"
+      "checkedAt": "2026-11-17T20:30:09Z"
     },
     {
       "url": "wss://math.hi-ms-sailer.lol/cdn-cgi/p/",
@@ -1721,9 +1721,9 @@
       "status": "blocked",
       "blocked": true,
       "httpStatus": 403,
-      "latencyMs": 1106.5,
+      "latencyMs": 1091.4,
       "reason": "HTTP 403 Forbidden",
-      "checkedAt": "2026-11-17T19:09:26Z"
+      "checkedAt": "2026-11-17T20:30:09Z"
     },
     {
       "url": "wss://math.hiluminal.cfd/cdn-cgi/p/",
@@ -1732,9 +1732,9 @@
       "status": "blocked",
       "blocked": true,
       "httpStatus": 403,
-      "latencyMs": 1097.1,
+      "latencyMs": 1102.7,
       "reason": "HTTP 403 Forbidden",
-      "checkedAt": "2026-11-17T19:09:26Z"
+      "checkedAt": "2026-11-17T20:30:09Z"
     },
     {
       "url": "wss://math.hitthestarlightsoutofhim.shop/cdn-cgi/p/",
@@ -1743,9 +1743,9 @@
       "status": "blocked",
       "blocked": true,
       "httpStatus": 403,
-      "latencyMs": 1104.4,
+      "latencyMs": 1091.3,
       "reason": "HTTP 403 Forbidden",
-      "checkedAt": "2026-11-17T19:09:26Z"
+      "checkedAt": "2026-11-17T20:30:09Z"
     },
     {
       "url": "wss://math.hpsschools.org/cdn-cgi/p/",
@@ -1754,9 +1754,9 @@
       "status": "blocked",
       "blocked": true,
       "httpStatus": 403,
-      "latencyMs": 1101.3,
+      "latencyMs": 1081.7,
       "reason": "HTTP 403 Forbidden",
-      "checkedAt": "2026-11-17T19:09:26Z"
+      "checkedAt": "2026-11-17T20:30:09Z"
     },
     {
       "url": "wss://math.ilovesupxr.cfd/cdn-cgi/p/",
@@ -1765,9 +1765,9 @@
       "status": "blocked",
       "blocked": true,
       "httpStatus": 403,
-      "latencyMs": 1091.0,
+      "latencyMs": 1090.4,
       "reason": "HTTP 403 Forbidden",
-      "checkedAt": "2026-11-17T19:09:26Z"
+      "checkedAt": "2026-11-17T20:30:09Z"
     },
     {
       "url": "wss://math.ilovewydrob.cfd/cdn-cgi/p/",
@@ -1776,9 +1776,9 @@
       "status": "blocked",
       "blocked": true,
       "httpStatus": 403,
-      "latencyMs": 1101.5,
+      "latencyMs": 1095.9,
       "reason": "HTTP 403 Forbidden",
-      "checkedAt": "2026-11-17T19:09:26Z"
+      "checkedAt": "2026-11-17T20:30:09Z"
     },
     {
       "url": "wss://math.ithinkimgoinginsane.shop/cdn-cgi/p/",
@@ -1787,9 +1787,9 @@
       "status": "blocked",
       "blocked": true,
       "httpStatus": 403,
-      "latencyMs": 1098.5,
+      "latencyMs": 1081.3,
       "reason": "HTTP 403 Forbidden",
-      "checkedAt": "2026-11-17T19:09:26Z"
+      "checkedAt": "2026-11-17T20:30:09Z"
     },
     {
       "url": "wss://math.jollyliteracy123.com/cdn-cgi/p/",
@@ -1798,9 +1798,9 @@
       "status": "blocked",
       "blocked": true,
       "httpStatus": 403,
-      "latencyMs": 1095.7,
+      "latencyMs": 1079.6,
       "reason": "HTTP 403 Forbidden",
-      "checkedAt": "2026-11-17T19:09:26Z"
+      "checkedAt": "2026-11-17T20:30:09Z"
     },
     {
       "url": "wss://math.kalaniis.gay/cdn-cgi/p/",
@@ -1809,9 +1809,9 @@
       "status": "blocked",
       "blocked": true,
       "httpStatus": 403,
-      "latencyMs": 1100.8,
+      "latencyMs": 1087.5,
       "reason": "HTTP 403 Forbidden",
-      "checkedAt": "2026-11-17T19:09:26Z"
+      "checkedAt": "2026-11-17T20:30:09Z"
     },
     {
       "url": "wss://math.larperschools.com/cdn-cgi/p/",
@@ -1820,9 +1820,9 @@
       "status": "blocked",
       "blocked": true,
       "httpStatus": 403,
-      "latencyMs": 1094.3,
+      "latencyMs": 1091.2,
       "reason": "HTTP 403 Forbidden",
-      "checkedAt": "2026-11-17T19:09:26Z"
+      "checkedAt": "2026-11-17T20:30:09Z"
     },
     {
       "url": "wss://math.lightspeedisass.shop/cdn-cgi/p/",
@@ -1833,7 +1833,7 @@
       "httpStatus": null,
       "latencyMs": null,
       "reason": "DNS NXDOMAIN / sinkhole ([Errno -2] Name or service not known)",
-      "checkedAt": "2026-11-17T19:09:26Z"
+      "checkedAt": "2026-11-17T20:30:10Z"
     },
     {
       "url": "wss://math.lightspeedisgay.cfd/cdn-cgi/p/",
@@ -1844,7 +1844,7 @@
       "httpStatus": null,
       "latencyMs": null,
       "reason": "DNS NXDOMAIN / sinkhole ([Errno -2] Name or service not known)",
-      "checkedAt": "2026-11-17T19:09:26Z"
+      "checkedAt": "2026-11-17T20:30:10Z"
     },
     {
       "url": "wss://math.lightspeedsucks.cfd/cdn-cgi/p/",
@@ -1855,7 +1855,7 @@
       "httpStatus": null,
       "latencyMs": null,
       "reason": "DNS NXDOMAIN / sinkhole ([Errno -2] Name or service not known)",
-      "checkedAt": "2026-11-17T19:09:26Z"
+      "checkedAt": "2026-11-17T20:30:10Z"
     },
     {
       "url": "wss://math.linewize.cfd/cdn-cgi/p/",
@@ -1866,7 +1866,7 @@
       "httpStatus": null,
       "latencyMs": null,
       "reason": "DNS NXDOMAIN / sinkhole ([Errno -2] Name or service not known)",
-      "checkedAt": "2026-11-17T19:09:26Z"
+      "checkedAt": "2026-11-17T20:30:10Z"
     },
     {
       "url": "wss://math.linewizeisass.life/cdn-cgi/p/",
@@ -1875,9 +1875,9 @@
       "status": "blocked",
       "blocked": true,
       "httpStatus": 403,
-      "latencyMs": 1089.0,
+      "latencyMs": 1098.2,
       "reason": "HTTP 403 Forbidden",
-      "checkedAt": "2026-11-17T19:09:26Z"
+      "checkedAt": "2026-11-17T20:30:10Z"
     },
     {
       "url": "wss://math.luminal.cfd/cdn-cgi/p/",
@@ -1888,7 +1888,7 @@
       "httpStatus": null,
       "latencyMs": null,
       "reason": "DNS NXDOMAIN / sinkhole ([Errno -2] Name or service not known)",
-      "checkedAt": "2026-11-17T19:09:26Z"
+      "checkedAt": "2026-11-17T20:30:10Z"
     },
     {
       "url": "wss://math.luminal.click/cdn-cgi/p/",
@@ -1899,7 +1899,7 @@
       "httpStatus": null,
       "latencyMs": null,
       "reason": "DNS NXDOMAIN / sinkhole ([Errno -2] Name or service not known)",
-      "checkedAt": "2026-11-17T19:09:26Z"
+      "checkedAt": "2026-11-17T20:30:10Z"
     },
     {
       "url": "wss://math.luminal.lol/cdn-cgi/p/",
@@ -1908,9 +1908,9 @@
       "status": "blocked",
       "blocked": true,
       "httpStatus": 403,
-      "latencyMs": 1101.5,
+      "latencyMs": 1098.3,
       "reason": "HTTP 403 Forbidden",
-      "checkedAt": "2026-11-17T19:09:26Z"
+      "checkedAt": "2026-11-17T20:30:10Z"
     },
     {
       "url": "wss://math.luminal.shop/cdn-cgi/p/",
@@ -1921,7 +1921,7 @@
       "httpStatus": null,
       "latencyMs": null,
       "reason": "DNS NXDOMAIN / sinkhole ([Errno -2] Name or service not known)",
-      "checkedAt": "2026-11-17T19:09:26Z"
+      "checkedAt": "2026-11-17T20:30:10Z"
     },
     {
       "url": "wss://math.luminal.store/cdn-cgi/p/",
@@ -1932,7 +1932,7 @@
       "httpStatus": null,
       "latencyMs": null,
       "reason": "DNS NXDOMAIN / sinkhole ([Errno -2] Name or service not known)",
-      "checkedAt": "2026-11-17T19:09:26Z"
+      "checkedAt": "2026-11-17T20:30:10Z"
     },
     {
       "url": "wss://math.luminalontop.cfd/cdn-cgi/p/",
@@ -1943,7 +1943,7 @@
       "httpStatus": null,
       "latencyMs": null,
       "reason": "DNS NXDOMAIN / sinkhole ([Errno -2] Name or service not known)",
-      "checkedAt": "2026-11-17T19:09:26Z"
+      "checkedAt": "2026-11-17T20:30:10Z"
     },
     {
       "url": "wss://math.luminalos.cfd/cdn-cgi/p/",
@@ -1954,7 +1954,7 @@
       "httpStatus": null,
       "latencyMs": null,
       "reason": "DNS NXDOMAIN / sinkhole ([Errno -2] Name or service not known)",
-      "checkedAt": "2026-11-17T19:09:26Z"
+      "checkedAt": "2026-11-17T20:30:10Z"
     },
     {
       "url": "wss://math.luminalos.click/cdn-cgi/p/",
@@ -1965,7 +1965,7 @@
       "httpStatus": null,
       "latencyMs": null,
       "reason": "DNS NXDOMAIN / sinkhole ([Errno -2] Name or service not known)",
-      "checkedAt": "2026-11-17T19:09:26Z"
+      "checkedAt": "2026-11-17T20:30:10Z"
     },
     {
       "url": "wss://math.luminalos.com/cdn-cgi/p/",
@@ -1974,9 +1974,9 @@
       "status": "blocked",
       "blocked": true,
       "httpStatus": 403,
-      "latencyMs": 1090.6,
+      "latencyMs": 1091.0,
       "reason": "HTTP 403 Forbidden",
-      "checkedAt": "2026-11-17T19:09:26Z"
+      "checkedAt": "2026-11-17T20:30:10Z"
     },
     {
       "url": "wss://math.luminalos.shop/cdn-cgi/p/",
@@ -1987,7 +1987,7 @@
       "httpStatus": null,
       "latencyMs": null,
       "reason": "DNS NXDOMAIN / sinkhole ([Errno -2] Name or service not known)",
-      "checkedAt": "2026-11-17T19:09:26Z"
+      "checkedAt": "2026-11-17T20:30:10Z"
     },
     {
       "url": "wss://math.luminalv2when.cfd/cdn-cgi/p/",
@@ -1996,9 +1996,9 @@
       "status": "blocked",
       "blocked": true,
       "httpStatus": 403,
-      "latencyMs": 1095.5,
+      "latencyMs": 1080.9,
       "reason": "HTTP 403 Forbidden",
-      "checkedAt": "2026-11-17T19:09:26Z"
+      "checkedAt": "2026-11-17T20:30:10Z"
     },
     {
       "url": "wss://math.mathematicaloffice.com/cdn-cgi/p/",
@@ -2007,20 +2007,20 @@
       "status": "blocked",
       "blocked": true,
       "httpStatus": 403,
-      "latencyMs": 1091.0,
+      "latencyMs": 1094.7,
       "reason": "HTTP 403 Forbidden",
-      "checkedAt": "2026-11-17T19:09:26Z"
+      "checkedAt": "2026-11-17T20:30:10Z"
     },
     {
       "url": "wss://math.mathpuns.lol/wisp/",
       "type": "wisp",
       "source": "github:verdjs/site/pages/settings.html",
-      "status": "unreachable",
-      "blocked": false,
-      "httpStatus": null,
-      "latencyMs": null,
-      "reason": "Timeout after 8.0s",
-      "checkedAt": "2026-11-17T19:09:26Z"
+      "status": "blocked",
+      "blocked": true,
+      "httpStatus": 302,
+      "latencyMs": 256.6,
+      "reason": "HTTP 302 redirect -> https://ww38.mathpuns.lol/wisp/",
+      "checkedAt": "2026-11-17T20:30:10Z"
     },
     {
       "url": "wss://math.mathsjunction.in/cdn-cgi/p/",
@@ -2029,9 +2029,9 @@
       "status": "unreachable",
       "blocked": false,
       "httpStatus": null,
-      "latencyMs": 458.5,
+      "latencyMs": 463.9,
       "reason": "Connection reset/closed (ConnectionResetError)",
-      "checkedAt": "2026-11-17T19:09:26Z"
+      "checkedAt": "2026-11-17T20:30:10Z"
     },
     {
       "url": "wss://math.mathtutoring.cfd/cdn-cgi/p/",
@@ -2042,7 +2042,7 @@
       "httpStatus": null,
       "latencyMs": null,
       "reason": "DNS NXDOMAIN / sinkhole ([Errno -2] Name or service not known)",
-      "checkedAt": "2026-11-17T19:09:26Z"
+      "checkedAt": "2026-11-17T20:30:10Z"
     },
     {
       "url": "wss://math.merrychristmas.cfd/cdn-cgi/p/",
@@ -2051,9 +2051,9 @@
       "status": "blocked",
       "blocked": true,
       "httpStatus": 403,
-      "latencyMs": 1100.5,
+      "latencyMs": 1084.7,
       "reason": "HTTP 403 Forbidden",
-      "checkedAt": "2026-11-17T19:09:26Z"
+      "checkedAt": "2026-11-17T20:30:10Z"
     },
     {
       "url": "wss://math.mrphonk.life/cdn-cgi/p/",
@@ -2062,9 +2062,9 @@
       "status": "blocked",
       "blocked": true,
       "httpStatus": 403,
-      "latencyMs": 1090.9,
+      "latencyMs": 1090.7,
       "reason": "HTTP 403 Forbidden",
-      "checkedAt": "2026-11-17T19:09:27Z"
+      "checkedAt": "2026-11-17T20:30:10Z"
     },
     {
       "url": "wss://math.mydih.shop/cdn-cgi/p/",
@@ -2075,7 +2075,7 @@
       "httpStatus": null,
       "latencyMs": null,
       "reason": "DNS NXDOMAIN / sinkhole ([Errno -2] Name or service not known)",
-      "checkedAt": "2026-11-17T19:09:27Z"
+      "checkedAt": "2026-11-17T20:30:10Z"
     },
     {
       "url": "wss://math.myslaves.shop/cdn-cgi/p/",
@@ -2086,7 +2086,7 @@
       "httpStatus": null,
       "latencyMs": null,
       "reason": "DNS NXDOMAIN / sinkhole ([Errno -2] Name or service not known)",
-      "checkedAt": "2026-11-17T19:09:27Z"
+      "checkedAt": "2026-11-17T20:30:10Z"
     },
     {
       "url": "wss://math.mysweat.shop/cdn-cgi/p/",
@@ -2097,7 +2097,7 @@
       "httpStatus": null,
       "latencyMs": null,
       "reason": "DNS NXDOMAIN / sinkhole ([Errno -2] Name or service not known)",
-      "checkedAt": "2026-11-17T19:09:27Z"
+      "checkedAt": "2026-11-17T20:30:10Z"
     },
     {
       "url": "wss://math.nowgg.cfd/cdn-cgi/p/",
@@ -2108,7 +2108,7 @@
       "httpStatus": null,
       "latencyMs": null,
       "reason": "DNS NXDOMAIN / sinkhole ([Errno -2] Name or service not known)",
-      "checkedAt": "2026-11-17T19:09:27Z"
+      "checkedAt": "2026-11-17T20:30:10Z"
     },
     {
       "url": "wss://math.nowgg.shop/cdn-cgi/p/",
@@ -2119,7 +2119,7 @@
       "httpStatus": null,
       "latencyMs": null,
       "reason": "DNS NXDOMAIN / sinkhole ([Errno -2] Name or service not known)",
-      "checkedAt": "2026-11-17T19:09:27Z"
+      "checkedAt": "2026-11-17T20:30:10Z"
     },
     {
       "url": "wss://math.omniman.cfd/cdn-cgi/p/",
@@ -2128,9 +2128,9 @@
       "status": "blocked",
       "blocked": true,
       "httpStatus": 403,
-      "latencyMs": 1108.3,
+      "latencyMs": 1096.9,
       "reason": "HTTP 403 Forbidden",
-      "checkedAt": "2026-11-17T19:09:27Z"
+      "checkedAt": "2026-11-17T20:30:10Z"
     },
     {
       "url": "wss://math.onlyforschoolnerds.shop/cdn-cgi/p/",
@@ -2139,9 +2139,9 @@
       "status": "blocked",
       "blocked": true,
       "httpStatus": 403,
-      "latencyMs": 1108.1,
+      "latencyMs": 1089.7,
       "reason": "HTTP 403 Forbidden",
-      "checkedAt": "2026-11-17T19:09:27Z"
+      "checkedAt": "2026-11-17T20:30:10Z"
     },
     {
       "url": "wss://math.ownserver.cfd/cdn-cgi/p/",
@@ -2150,9 +2150,9 @@
       "status": "blocked",
       "blocked": true,
       "httpStatus": 403,
-      "latencyMs": 1107.0,
+      "latencyMs": 1098.3,
       "reason": "HTTP 403 Forbidden",
-      "checkedAt": "2026-11-17T19:09:27Z"
+      "checkedAt": "2026-11-17T20:30:10Z"
     },
     {
       "url": "wss://math.recat.cfd/cdn-cgi/p/",
@@ -2161,9 +2161,9 @@
       "status": "blocked",
       "blocked": true,
       "httpStatus": 403,
-      "latencyMs": 1106.9,
+      "latencyMs": 1102.2,
       "reason": "HTTP 403 Forbidden",
-      "checkedAt": "2026-11-17T19:09:27Z"
+      "checkedAt": "2026-11-17T20:30:10Z"
     },
     {
       "url": "wss://math.recat.life/cdn-cgi/p/",
@@ -2172,9 +2172,9 @@
       "status": "blocked",
       "blocked": true,
       "httpStatus": 403,
-      "latencyMs": 1106.2,
+      "latencyMs": 1099.2,
       "reason": "HTTP 403 Forbidden",
-      "checkedAt": "2026-11-17T19:09:27Z"
+      "checkedAt": "2026-11-17T20:30:10Z"
     },
     {
       "url": "wss://math.recat.shop/cdn-cgi/p/",
@@ -2183,9 +2183,9 @@
       "status": "blocked",
       "blocked": true,
       "httpStatus": 403,
-      "latencyMs": 1104.2,
+      "latencyMs": 1091.7,
       "reason": "HTTP 403 Forbidden",
-      "checkedAt": "2026-11-17T19:09:27Z"
+      "checkedAt": "2026-11-17T20:30:10Z"
     },
     {
       "url": "wss://math.renmin.site/cdn-cgi/p/",
@@ -2196,7 +2196,7 @@
       "httpStatus": null,
       "latencyMs": null,
       "reason": "DNS NXDOMAIN / sinkhole ([Errno -2] Name or service not known)",
-      "checkedAt": "2026-11-17T19:09:27Z"
+      "checkedAt": "2026-11-17T20:30:10Z"
     },
     {
       "url": "wss://math.riversideacademy.shop/cdn-cgi/p/",
@@ -2205,9 +2205,9 @@
       "status": "blocked",
       "blocked": true,
       "httpStatus": 403,
-      "latencyMs": 1103.2,
+      "latencyMs": 1094.8,
       "reason": "HTTP 403 Forbidden",
-      "checkedAt": "2026-11-17T19:09:27Z"
+      "checkedAt": "2026-11-17T20:30:10Z"
     },
     {
       "url": "wss://math.scramsoon.cfd/cdn-cgi/p/",
@@ -2216,9 +2216,9 @@
       "status": "blocked",
       "blocked": true,
       "httpStatus": 403,
-      "latencyMs": 1102.5,
+      "latencyMs": 1086.7,
       "reason": "HTTP 403 Forbidden",
-      "checkedAt": "2026-11-17T19:09:27Z"
+      "checkedAt": "2026-11-17T20:30:10Z"
     },
     {
       "url": "wss://math.scramupdate.cfd/cdn-cgi/p/",
@@ -2227,9 +2227,9 @@
       "status": "blocked",
       "blocked": true,
       "httpStatus": 403,
-      "latencyMs": 1089.9,
+      "latencyMs": 1090.7,
       "reason": "HTTP 403 Forbidden",
-      "checkedAt": "2026-11-17T19:09:27Z"
+      "checkedAt": "2026-11-17T20:30:10Z"
     },
     {
       "url": "wss://math.sealiee.click/cdn-cgi/p/",
@@ -2240,7 +2240,7 @@
       "httpStatus": null,
       "latencyMs": null,
       "reason": "DNS NXDOMAIN / sinkhole ([Errno -2] Name or service not known)",
-      "checkedAt": "2026-11-17T19:09:27Z"
+      "checkedAt": "2026-11-17T20:30:10Z"
     },
     {
       "url": "wss://math.sealiee.shop/cdn-cgi/p/",
@@ -2251,7 +2251,7 @@
       "httpStatus": null,
       "latencyMs": null,
       "reason": "DNS NXDOMAIN / sinkhole ([Errno -2] Name or service not known)",
-      "checkedAt": "2026-11-17T19:09:27Z"
+      "checkedAt": "2026-11-17T20:30:10Z"
     },
     {
       "url": "wss://math.sealieeistuff.cfd/cdn-cgi/p/",
@@ -2262,7 +2262,7 @@
       "httpStatus": null,
       "latencyMs": null,
       "reason": "DNS NXDOMAIN / sinkhole ([Errno -2] Name or service not known)",
-      "checkedAt": "2026-11-17T19:09:27Z"
+      "checkedAt": "2026-11-17T20:30:10Z"
     },
     {
       "url": "wss://math.sealieeon.top/cdn-cgi/p/",
@@ -2273,7 +2273,7 @@
       "httpStatus": null,
       "latencyMs": null,
       "reason": "DNS NXDOMAIN / sinkhole ([Errno -2] Name or service not known)",
-      "checkedAt": "2026-11-17T19:09:27Z"
+      "checkedAt": "2026-11-17T20:30:10Z"
     },
     {
       "url": "wss://math.sealieestopstalking.me/cdn-cgi/p/",
@@ -2282,9 +2282,9 @@
       "status": "blocked",
       "blocked": true,
       "httpStatus": 403,
-      "latencyMs": 1099.7,
+      "latencyMs": 1104.6,
       "reason": "HTTP 403 Forbidden",
-      "checkedAt": "2026-11-17T19:09:27Z"
+      "checkedAt": "2026-11-17T20:30:10Z"
     },
     {
       "url": "wss://math.sealiesarcade.cfd/cdn-cgi/p/",
@@ -2293,9 +2293,9 @@
       "status": "blocked",
       "blocked": true,
       "httpStatus": 403,
-      "latencyMs": 1092.4,
+      "latencyMs": 1090.6,
       "reason": "HTTP 403 Forbidden",
-      "checkedAt": "2026-11-17T19:09:27Z"
+      "checkedAt": "2026-11-17T20:30:10Z"
     },
     {
       "url": "wss://math.soloandszvyarediddybluds.shop/cdn-cgi/p/",
@@ -2304,9 +2304,9 @@
       "status": "blocked",
       "blocked": true,
       "httpStatus": 403,
-      "latencyMs": 1101.9,
+      "latencyMs": 1089.4,
       "reason": "HTTP 403 Forbidden",
-      "checkedAt": "2026-11-17T19:09:27Z"
+      "checkedAt": "2026-11-17T20:30:10Z"
     },
     {
       "url": "wss://math.steveniskinda.gay/cdn-cgi/p/",
@@ -2317,7 +2317,7 @@
       "httpStatus": null,
       "latencyMs": null,
       "reason": "DNS NXDOMAIN / sinkhole ([Errno -2] Name or service not known)",
-      "checkedAt": "2026-11-17T19:09:27Z"
+      "checkedAt": "2026-11-17T20:30:10Z"
     },
     {
       "url": "wss://math.teachings.life/cdn-cgi/p/",
@@ -2326,9 +2326,9 @@
       "status": "blocked",
       "blocked": true,
       "httpStatus": 403,
-      "latencyMs": 1099.6,
+      "latencyMs": 1086.7,
       "reason": "HTTP 403 Forbidden",
-      "checkedAt": "2026-11-17T19:09:27Z"
+      "checkedAt": "2026-11-17T20:30:10Z"
     },
     {
       "url": "wss://math.theultimatetest.life/cdn-cgi/p/",
@@ -2337,9 +2337,9 @@
       "status": "blocked",
       "blocked": true,
       "httpStatus": 403,
-      "latencyMs": 1090.0,
+      "latencyMs": 1092.1,
       "reason": "HTTP 403 Forbidden",
-      "checkedAt": "2026-11-17T19:09:27Z"
+      "checkedAt": "2026-11-17T20:30:10Z"
     },
     {
       "url": "wss://math.thewhitedoveschools.org/cdn-cgi/p/",
@@ -2348,9 +2348,9 @@
       "status": "blocked",
       "blocked": true,
       "httpStatus": 403,
-      "latencyMs": 1082.6,
+      "latencyMs": 1111.2,
       "reason": "HTTP 403 Forbidden",
-      "checkedAt": "2026-11-17T19:09:27Z"
+      "checkedAt": "2026-11-17T20:30:11Z"
     },
     {
       "url": "wss://math.turxngadvxsory.cfd/cdn-cgi/p/",
@@ -2359,9 +2359,9 @@
       "status": "blocked",
       "blocked": true,
       "httpStatus": 403,
-      "latencyMs": 1094.3,
+      "latencyMs": 1093.8,
       "reason": "HTTP 403 Forbidden",
-      "checkedAt": "2026-11-17T19:09:27Z"
+      "checkedAt": "2026-11-17T20:30:11Z"
     },
     {
       "url": "wss://math.v2.quest/cdn-cgi/p/",
@@ -2370,9 +2370,9 @@
       "status": "blocked",
       "blocked": true,
       "httpStatus": 403,
-      "latencyMs": 1099.0,
+      "latencyMs": 1082.5,
       "reason": "HTTP 403 Forbidden",
-      "checkedAt": "2026-11-17T19:09:27Z"
+      "checkedAt": "2026-11-17T20:30:11Z"
     },
     {
       "url": "wss://math.vacte.org/cdn-cgi/p/",
@@ -2383,7 +2383,7 @@
       "httpStatus": null,
       "latencyMs": null,
       "reason": "DNS NXDOMAIN / sinkhole ([Errno -2] Name or service not known)",
-      "checkedAt": "2026-11-17T19:09:27Z"
+      "checkedAt": "2026-11-17T20:30:11Z"
     },
     {
       "url": "wss://math.whatislovequestionmark.cfd/cdn-cgi/p/",
@@ -2392,9 +2392,9 @@
       "status": "blocked",
       "blocked": true,
       "httpStatus": 403,
-      "latencyMs": 1091.3,
+      "latencyMs": 1090.8,
       "reason": "HTTP 403 Forbidden",
-      "checkedAt": "2026-11-17T19:09:27Z"
+      "checkedAt": "2026-11-17T20:30:11Z"
     },
     {
       "url": "wss://mexicoon.top/",
@@ -2405,7 +2405,7 @@
       "httpStatus": null,
       "latencyMs": null,
       "reason": "DNS NXDOMAIN / sinkhole ([Errno -2] Name or service not known)",
-      "checkedAt": "2026-11-17T19:09:27Z"
+      "checkedAt": "2026-11-17T20:30:11Z"
     },
     {
       "url": "wss://motor-cycle-part.org/",
@@ -2414,9 +2414,9 @@
       "status": "reachable",
       "blocked": false,
       "httpStatus": 200,
-      "latencyMs": 173.2,
+      "latencyMs": 281.5,
       "reason": "HTTP 200 OK",
-      "checkedAt": "2026-11-17T19:09:27Z"
+      "checkedAt": "2026-11-17T20:30:11Z"
     },
     {
       "url": "wss://motor-cycle-part.org/wisp/",
@@ -2425,9 +2425,9 @@
       "status": "reachable",
       "blocked": false,
       "httpStatus": 101,
-      "latencyMs": 124.8,
+      "latencyMs": 261.3,
       "reason": "WebSocket 101 Switching Protocols",
-      "checkedAt": "2026-11-17T19:09:27Z"
+      "checkedAt": "2026-11-17T20:30:11Z"
     },
     {
       "url": "wss://nebulabridge.io/wisp/",
@@ -2438,7 +2438,7 @@
       "httpStatus": null,
       "latencyMs": null,
       "reason": "DNS NXDOMAIN / sinkhole ([Errno -2] Name or service not known)",
-      "checkedAt": "2026-11-17T19:09:27Z"
+      "checkedAt": "2026-11-17T20:30:11Z"
     },
     {
       "url": "wss://nebulaproxy.io/",
@@ -2449,7 +2449,7 @@
       "httpStatus": null,
       "latencyMs": null,
       "reason": "Timeout after 8.0s",
-      "checkedAt": "2026-11-17T19:09:27Z"
+      "checkedAt": "2026-11-17T20:30:11Z"
     },
     {
       "url": "wss://nebulaproxy.io/wisp/",
@@ -2460,7 +2460,7 @@
       "httpStatus": null,
       "latencyMs": null,
       "reason": "Timeout after 8.0s",
-      "checkedAt": "2026-11-17T19:09:27Z"
+      "checkedAt": "2026-11-17T20:30:11Z"
     },
     {
       "url": "wss://nebulaservices.org/wisp/",
@@ -2471,7 +2471,7 @@
       "httpStatus": null,
       "latencyMs": null,
       "reason": "DNS NXDOMAIN / sinkhole ([Errno -5] No address associated with hostname)",
-      "checkedAt": "2026-11-17T19:09:27Z"
+      "checkedAt": "2026-11-17T20:30:11Z"
     },
     {
       "url": "wss://ns514995.ip-167-114-208.net/api/",
@@ -2480,9 +2480,9 @@
       "status": "reachable",
       "blocked": false,
       "httpStatus": 101,
-      "latencyMs": 134.9,
+      "latencyMs": 122.0,
       "reason": "WebSocket 101 Switching Protocols",
-      "checkedAt": "2026-11-17T19:09:27Z"
+      "checkedAt": "2026-11-17T20:30:11Z"
     },
     {
       "url": "wss://onebigorange-tmm.tbt.mx/websocket/",
@@ -2493,7 +2493,7 @@
       "httpStatus": null,
       "latencyMs": null,
       "reason": "DNS NXDOMAIN / sinkhole ([Errno -2] Name or service not known)",
-      "checkedAt": "2026-11-17T19:09:27Z"
+      "checkedAt": "2026-11-17T20:30:11Z"
     },
     {
       "url": "wss://onlinegames.ro/wisp/",
@@ -2502,9 +2502,9 @@
       "status": "reachable",
       "blocked": false,
       "httpStatus": 200,
-      "latencyMs": 185.6,
+      "latencyMs": 5144.7,
       "reason": "HTTP 200 OK",
-      "checkedAt": "2026-11-17T19:09:27Z"
+      "checkedAt": "2026-11-17T20:30:11Z"
     },
     {
       "url": "wss://onlineosdev.nl/",
@@ -2515,7 +2515,7 @@
       "httpStatus": null,
       "latencyMs": null,
       "reason": "DNS NXDOMAIN / sinkhole ([Errno -2] Name or service not known)",
-      "checkedAt": "2026-11-17T19:09:27Z"
+      "checkedAt": "2026-11-17T20:30:11Z"
     },
     {
       "url": "wss://onyxv1.ai.studio/wisp/",
@@ -2524,9 +2524,9 @@
       "status": "unreachable",
       "blocked": false,
       "httpStatus": 404,
-      "latencyMs": 57.9,
+      "latencyMs": 67.0,
       "reason": "HTTP 404 Not Found",
-      "checkedAt": "2026-11-17T19:09:27Z"
+      "checkedAt": "2026-11-17T20:30:11Z"
     },
     {
       "url": "wss://openbare.xyz/wisp/",
@@ -2535,9 +2535,9 @@
       "status": "unreachable",
       "blocked": false,
       "httpStatus": 404,
-      "latencyMs": 216.2,
+      "latencyMs": 3334.6,
       "reason": "HTTP 404 Not Found",
-      "checkedAt": "2026-11-17T19:09:27Z"
+      "checkedAt": "2026-11-17T20:30:11Z"
     },
     {
       "url": "wss://pgis-wisp-2.onrender.com/",
@@ -2546,9 +2546,9 @@
       "status": "unreachable",
       "blocked": false,
       "httpStatus": 503,
-      "latencyMs": 153.9,
+      "latencyMs": 145.6,
       "reason": "HTTP 503 Service Unavailable",
-      "checkedAt": "2026-11-17T19:09:27Z"
+      "checkedAt": "2026-11-17T20:30:11Z"
     },
     {
       "url": "wss://pgis-wisp-3.onrender.com/",
@@ -2557,9 +2557,9 @@
       "status": "unreachable",
       "blocked": false,
       "httpStatus": 503,
-      "latencyMs": 834.4,
+      "latencyMs": 792.1,
       "reason": "HTTP 503 Service Unavailable",
-      "checkedAt": "2026-11-17T19:09:27Z"
+      "checkedAt": "2026-11-17T20:30:11Z"
     },
     {
       "url": "wss://pgis-wisp-4.onrender.com/",
@@ -2568,9 +2568,9 @@
       "status": "unreachable",
       "blocked": false,
       "httpStatus": 503,
-      "latencyMs": 326.7,
+      "latencyMs": 347.7,
       "reason": "HTTP 503 Service Unavailable",
-      "checkedAt": "2026-11-17T19:09:27Z"
+      "checkedAt": "2026-11-17T20:30:11Z"
     },
     {
       "url": "wss://pgis-wisp.onrender.com/",
@@ -2579,9 +2579,9 @@
       "status": "unreachable",
       "blocked": false,
       "httpStatus": 503,
-      "latencyMs": 388.3,
+      "latencyMs": 354.2,
       "reason": "HTTP 503 Service Unavailable",
-      "checkedAt": "2026-11-17T19:09:27Z"
+      "checkedAt": "2026-11-17T20:30:11Z"
     },
     {
       "url": "wss://pgis.x10.mx/wisp/",
@@ -2590,9 +2590,9 @@
       "status": "unreachable",
       "blocked": false,
       "httpStatus": 404,
-      "latencyMs": 143.9,
+      "latencyMs": 142.8,
       "reason": "HTTP 404 Not Found",
-      "checkedAt": "2026-11-17T19:09:27Z"
+      "checkedAt": "2026-11-17T20:30:11Z"
     },
     {
       "url": "wss://phantom.lol/wisp/",
@@ -2601,20 +2601,20 @@
       "status": "reachable",
       "blocked": false,
       "httpStatus": 101,
-      "latencyMs": 99.8,
+      "latencyMs": 102.0,
       "reason": "WebSocket 101 Switching Protocols",
-      "checkedAt": "2026-11-17T19:09:28Z"
+      "checkedAt": "2026-11-17T20:30:11Z"
     },
     {
       "url": "wss://pigclass.org/api/",
       "type": "wisp",
       "source": "github:Jxoj/SuperUser/assets/backend/onyx.json",
-      "status": "reachable",
+      "status": "unreachable",
       "blocked": false,
-      "httpStatus": 101,
-      "latencyMs": 247.2,
-      "reason": "WebSocket 101 Switching Protocols",
-      "checkedAt": "2026-11-17T19:09:28Z"
+      "httpStatus": null,
+      "latencyMs": 4073.0,
+      "reason": "Connection reset/closed (ConnectionResetError)",
+      "checkedAt": "2026-11-17T20:30:11Z"
     },
     {
       "url": "wss://probuildingsupplies.com/w/",
@@ -2623,20 +2623,20 @@
       "status": "unreachable",
       "blocked": false,
       "httpStatus": 502,
-      "latencyMs": 318.9,
+      "latencyMs": 2409.8,
       "reason": "HTTP 502 Bad Gateway",
-      "checkedAt": "2026-11-17T19:09:28Z"
+      "checkedAt": "2026-11-17T20:30:11Z"
     },
     {
       "url": "wss://quantumchemistry.club/wisp/",
       "type": "wisp",
       "source": "github:verdjs/site/pages/settings.html",
-      "status": "unreachable",
-      "blocked": false,
-      "httpStatus": null,
-      "latencyMs": null,
-      "reason": "Timeout after 8.0s",
-      "checkedAt": "2026-11-17T19:09:28Z"
+      "status": "blocked",
+      "blocked": true,
+      "httpStatus": 302,
+      "latencyMs": 264.3,
+      "reason": "HTTP 302 redirect -> https://ww38.quantumchemistry.club/wisp/",
+      "checkedAt": "2026-11-17T20:30:11Z"
     },
     {
       "url": "wss://radiusowski.site/adblock/",
@@ -2645,9 +2645,9 @@
       "status": "unreachable",
       "blocked": false,
       "httpStatus": 404,
-      "latencyMs": 2410.8,
+      "latencyMs": 2425.4,
       "reason": "HTTP 404 Not Found",
-      "checkedAt": "2026-11-17T19:09:28Z"
+      "checkedAt": "2026-11-17T20:30:11Z"
     },
     {
       "url": "wss://radiusowski.site/wisp/",
@@ -2655,10 +2655,10 @@
       "source": "github:verdjs/site/pages/settings.html",
       "status": "unreachable",
       "blocked": false,
-      "httpStatus": null,
-      "latencyMs": 1501.9,
-      "reason": "Connection reset/closed (ConnectionResetError)",
-      "checkedAt": "2026-11-17T19:09:28Z"
+      "httpStatus": 404,
+      "latencyMs": 4180.8,
+      "reason": "HTTP 404 Not Found",
+      "checkedAt": "2026-11-17T20:30:11Z"
     },
     {
       "url": "wss://radiusproxy.app/adblock/",
@@ -2669,7 +2669,7 @@
       "httpStatus": null,
       "latencyMs": null,
       "reason": "DNS NXDOMAIN / sinkhole ([Errno -2] Name or service not known)",
-      "checkedAt": "2026-11-17T19:09:28Z"
+      "checkedAt": "2026-11-17T20:30:11Z"
     },
     {
       "url": "wss://radiusproxy.app/wisp/",
@@ -2680,7 +2680,7 @@
       "httpStatus": null,
       "latencyMs": null,
       "reason": "DNS NXDOMAIN / sinkhole ([Errno -2] Name or service not known)",
-      "checkedAt": "2026-11-17T19:09:28Z"
+      "checkedAt": "2026-11-17T20:30:11Z"
     },
     {
       "url": "wss://register.goip.it/wisp/",
@@ -2691,7 +2691,7 @@
       "httpStatus": null,
       "latencyMs": null,
       "reason": "DNS NXDOMAIN / sinkhole ([Errno -2] Name or service not known)",
-      "checkedAt": "2026-11-17T19:09:28Z"
+      "checkedAt": "2026-11-17T20:30:12Z"
     },
     {
       "url": "wss://relay.linuxontab.com/wisp/",
@@ -2700,20 +2700,20 @@
       "status": "reachable",
       "blocked": false,
       "httpStatus": 101,
-      "latencyMs": 184.4,
+      "latencyMs": 3589.0,
       "reason": "WebSocket 101 Switching Protocols",
-      "checkedAt": "2026-11-17T19:09:28Z"
+      "checkedAt": "2026-11-17T20:30:12Z"
     },
     {
       "url": "wss://relay.ram-craft.net/wisp/",
       "type": "wisp",
       "source": "github:AtlasStudioMC/LadueClient/src/build263.js",
-      "status": "unreachable",
+      "status": "reachable",
       "blocked": false,
-      "httpStatus": 521,
-      "latencyMs": 729.7,
-      "reason": "HTTP 521 <none>",
-      "checkedAt": "2026-11-17T19:09:28Z"
+      "httpStatus": 101,
+      "latencyMs": 4396.6,
+      "reason": "WebSocket 101 Switching Protocols",
+      "checkedAt": "2026-11-17T20:30:12Z"
     },
     {
       "url": "wss://relay.widgetry.org/",
@@ -2722,9 +2722,9 @@
       "status": "reachable",
       "blocked": false,
       "httpStatus": 101,
-      "latencyMs": 332.5,
+      "latencyMs": 399.0,
       "reason": "WebSocket 101 Switching Protocols",
-      "checkedAt": "2026-11-17T19:09:28Z"
+      "checkedAt": "2026-11-17T20:30:12Z"
     },
     {
       "url": "wss://reverse.myapl.org/wisp/",
@@ -2735,7 +2735,7 @@
       "httpStatus": null,
       "latencyMs": null,
       "reason": "DNS NXDOMAIN / sinkhole ([Errno -2] Name or service not known)",
-      "checkedAt": "2026-11-17T19:09:28Z"
+      "checkedAt": "2026-11-17T20:30:12Z"
     },
     {
       "url": "wss://ruby.rubynetwork.co/wisp/",
@@ -2746,7 +2746,7 @@
       "httpStatus": null,
       "latencyMs": null,
       "reason": "Timeout after 8.0s",
-      "checkedAt": "2026-11-17T19:09:28Z"
+      "checkedAt": "2026-11-17T20:30:12Z"
     },
     {
       "url": "wss://safari-b2-wisp.onrender.com/wisp/",
@@ -2755,9 +2755,9 @@
       "status": "unreachable",
       "blocked": false,
       "httpStatus": 404,
-      "latencyMs": 296.4,
+      "latencyMs": 281.1,
       "reason": "HTTP 404 Not Found",
-      "checkedAt": "2026-11-17T19:09:28Z"
+      "checkedAt": "2026-11-17T20:30:12Z"
     },
     {
       "url": "wss://schoolhelp.tozsugianto.com/w/",
@@ -2766,9 +2766,9 @@
       "status": "unreachable",
       "blocked": false,
       "httpStatus": 502,
-      "latencyMs": 147.3,
+      "latencyMs": 80.4,
       "reason": "HTTP 502 Bad Gateway",
-      "checkedAt": "2026-11-17T19:09:28Z"
+      "checkedAt": "2026-11-17T20:30:12Z"
     },
     {
       "url": "wss://schoolrocks.lwledu.hk/w/",
@@ -2779,7 +2779,7 @@
       "httpStatus": null,
       "latencyMs": null,
       "reason": "DNS NXDOMAIN / sinkhole ([Errno -2] Name or service not known)",
-      "checkedAt": "2026-11-17T19:09:28Z"
+      "checkedAt": "2026-11-17T20:30:12Z"
     },
     {
       "url": "wss://scram.owoellen.rocks/wisp/",
@@ -2790,7 +2790,7 @@
       "httpStatus": null,
       "latencyMs": null,
       "reason": "DNS NXDOMAIN / sinkhole ([Errno -2] Name or service not known)",
-      "checkedAt": "2026-11-17T19:09:28Z"
+      "checkedAt": "2026-11-17T20:30:12Z"
     },
     {
       "url": "wss://scramjet.mercurywork.shop/wisp/",
@@ -2799,9 +2799,9 @@
       "status": "unreachable",
       "blocked": false,
       "httpStatus": 404,
-      "latencyMs": 72.2,
+      "latencyMs": 95.4,
       "reason": "HTTP 404 Not Found",
-      "checkedAt": "2026-11-17T19:09:28Z"
+      "checkedAt": "2026-11-17T20:30:12Z"
     },
     {
       "url": "wss://se-asia.wisp.q13x.com/",
@@ -2810,9 +2810,9 @@
       "status": "reachable",
       "blocked": false,
       "httpStatus": 101,
-      "latencyMs": 919.3,
+      "latencyMs": 857.4,
       "reason": "WebSocket 101 Switching Protocols",
-      "checkedAt": "2026-11-17T19:09:28Z"
+      "checkedAt": "2026-11-17T20:30:12Z"
     },
     {
       "url": "wss://seminar.drama.english.assignment.literature.homebrewer.org/wisp/",
@@ -2823,7 +2823,7 @@
       "httpStatus": null,
       "latencyMs": null,
       "reason": "DNS NXDOMAIN / sinkhole ([Errno -2] Name or service not known)",
-      "checkedAt": "2026-11-17T19:09:28Z"
+      "checkedAt": "2026-11-17T20:30:12Z"
     },
     {
       "url": "wss://service.khanacademyy.org/socket/",
@@ -2832,20 +2832,20 @@
       "status": "reachable",
       "blocked": false,
       "httpStatus": 101,
-      "latencyMs": 260.6,
+      "latencyMs": 2311.5,
       "reason": "WebSocket 101 Switching Protocols",
-      "checkedAt": "2026-11-17T19:09:28Z"
+      "checkedAt": "2026-11-17T20:30:12Z"
     },
     {
       "url": "wss://sg.zadmin.xyz/wisp/",
       "type": "wisp",
       "source": "github:PsychoSmiley/NPCAgent/index.html",
-      "status": "unreachable",
-      "blocked": false,
+      "status": "blocked",
+      "blocked": true,
       "httpStatus": null,
       "latencyMs": null,
-      "reason": "Timeout after 8.0s",
-      "checkedAt": "2026-11-17T19:09:28Z"
+      "reason": "DNS NXDOMAIN / sinkhole ([Errno -5] No address associated with hostname)",
+      "checkedAt": "2026-11-17T20:30:12Z"
     },
     {
       "url": "wss://shadow-3.swanndvr.net/wisp/",
@@ -2854,9 +2854,9 @@
       "status": "reachable",
       "blocked": false,
       "httpStatus": 101,
-      "latencyMs": 118.8,
+      "latencyMs": 81.8,
       "reason": "WebSocket 101 Switching Protocols",
-      "checkedAt": "2026-11-17T19:09:28Z"
+      "checkedAt": "2026-11-17T20:30:12Z"
     },
     {
       "url": "wss://shadow.curesoutpost.com/wisp/",
@@ -2865,9 +2865,9 @@
       "status": "reachable",
       "blocked": false,
       "httpStatus": 101,
-      "latencyMs": 108.2,
+      "latencyMs": 78.7,
       "reason": "WebSocket 101 Switching Protocols",
-      "checkedAt": "2026-11-17T19:09:28Z"
+      "checkedAt": "2026-11-17T20:30:12Z"
     },
     {
       "url": "wss://shadow.letsendobesity.org/wisp/",
@@ -2878,7 +2878,7 @@
       "httpStatus": null,
       "latencyMs": null,
       "reason": "DNS NXDOMAIN / sinkhole ([Errno -2] Name or service not known)",
-      "checkedAt": "2026-11-17T19:09:28Z"
+      "checkedAt": "2026-11-17T20:30:12Z"
     },
     {
       "url": "wss://shasta-dtg.pages.dev/wisp/",
@@ -2887,9 +2887,9 @@
       "status": "reachable",
       "blocked": false,
       "httpStatus": 101,
-      "latencyMs": 409.0,
+      "latencyMs": 423.4,
       "reason": "WebSocket 101 Switching Protocols",
-      "checkedAt": "2026-11-17T19:09:28Z"
+      "checkedAt": "2026-11-17T20:30:12Z"
     },
     {
       "url": "wss://ssh-proxy.terbiumon.top/",
@@ -2900,7 +2900,7 @@
       "httpStatus": null,
       "latencyMs": null,
       "reason": "Timeout after 8.0s",
-      "checkedAt": "2026-11-17T19:09:28Z"
+      "checkedAt": "2026-11-17T20:30:12Z"
     },
     {
       "url": "wss://stellite.games/wisp/",
@@ -2909,9 +2909,9 @@
       "status": "reachable",
       "blocked": false,
       "httpStatus": 101,
-      "latencyMs": 347.0,
+      "latencyMs": 2082.7,
       "reason": "WebSocket 101 Switching Protocols",
-      "checkedAt": "2026-11-17T19:09:28Z"
+      "checkedAt": "2026-11-17T20:30:12Z"
     },
     {
       "url": "wss://stickers.coolsite.cv/wisp/",
@@ -2920,9 +2920,9 @@
       "status": "blocked",
       "blocked": true,
       "httpStatus": 403,
-      "latencyMs": 290.6,
+      "latencyMs": 877.1,
       "reason": "HTTP 403 Forbidden",
-      "checkedAt": "2026-11-17T19:09:28Z"
+      "checkedAt": "2026-11-17T20:30:12Z"
     },
     {
       "url": "wss://streamamethyst.org/w/",
@@ -2933,7 +2933,7 @@
       "httpStatus": null,
       "latencyMs": null,
       "reason": "DNS NXDOMAIN / sinkhole ([Errno -2] Name or service not known)",
-      "checkedAt": "2026-11-17T19:09:28Z"
+      "checkedAt": "2026-11-17T20:30:12Z"
     },
     {
       "url": "wss://studyworkandmore.uk/wisp/",
@@ -2942,9 +2942,9 @@
       "status": "reachable",
       "blocked": false,
       "httpStatus": 101,
-      "latencyMs": 306.8,
+      "latencyMs": 1057.7,
       "reason": "WebSocket 101 Switching Protocols",
-      "checkedAt": "2026-11-17T19:09:28Z"
+      "checkedAt": "2026-11-17T20:30:12Z"
     },
     {
       "url": "wss://superuser-wisp.wasmer.app/",
@@ -2953,20 +2953,20 @@
       "status": "reachable",
       "blocked": false,
       "httpStatus": 101,
-      "latencyMs": 927.4,
+      "latencyMs": 1152.8,
       "reason": "WebSocket 101 Switching Protocols",
-      "checkedAt": "2026-11-17T19:09:28Z"
+      "checkedAt": "2026-11-17T20:30:12Z"
     },
     {
       "url": "wss://swordartii.online/",
       "type": "wisp",
       "source": "github:raven580/fred/public/proxy_lists/list3.txt",
-      "status": "unreachable",
-      "blocked": false,
-      "httpStatus": null,
-      "latencyMs": null,
-      "reason": "Timeout after 8.0s",
-      "checkedAt": "2026-11-17T19:09:28Z"
+      "status": "blocked",
+      "blocked": true,
+      "httpStatus": 302,
+      "latencyMs": 247.6,
+      "reason": "HTTP 302 redirect -> https://ww38.swordartii.online/",
+      "checkedAt": "2026-11-17T20:30:12Z"
     },
     {
       "url": "wss://symbolic-jocelyne-jxo-prod-c0e42749.apps.mistral.run/",
@@ -2975,9 +2975,9 @@
       "status": "reachable",
       "blocked": false,
       "httpStatus": 101,
-      "latencyMs": 260.5,
+      "latencyMs": 393.8,
       "reason": "WebSocket 101 Switching Protocols",
-      "checkedAt": "2026-11-17T19:09:28Z"
+      "checkedAt": "2026-11-17T20:30:12Z"
     },
     {
       "url": "wss://task4z.com/api/",
@@ -2986,9 +2986,9 @@
       "status": "reachable",
       "blocked": false,
       "httpStatus": 101,
-      "latencyMs": 154.8,
+      "latencyMs": 142.6,
       "reason": "WebSocket 101 Switching Protocols",
-      "checkedAt": "2026-11-17T19:09:28Z"
+      "checkedAt": "2026-11-17T20:30:12Z"
     },
     {
       "url": "wss://terbiumon.top/wisp/",
@@ -2997,9 +2997,9 @@
       "status": "reachable",
       "blocked": false,
       "httpStatus": 101,
-      "latencyMs": 95.3,
+      "latencyMs": 69.2,
       "reason": "WebSocket 101 Switching Protocols",
-      "checkedAt": "2026-11-17T19:09:28Z"
+      "checkedAt": "2026-11-17T20:30:12Z"
     },
     {
       "url": "wss://thoughts.forwardersoft.com/",
@@ -3010,7 +3010,7 @@
       "httpStatus": null,
       "latencyMs": null,
       "reason": "DNS NXDOMAIN / sinkhole ([Errno -2] Name or service not known)",
-      "checkedAt": "2026-11-17T19:09:28Z"
+      "checkedAt": "2026-11-17T20:30:12Z"
     },
     {
       "url": "wss://thoughts.forwardersoft.com/wisp/",
@@ -3021,7 +3021,7 @@
       "httpStatus": null,
       "latencyMs": null,
       "reason": "DNS NXDOMAIN / sinkhole ([Errno -2] Name or service not known)",
-      "checkedAt": "2026-11-17T19:09:28Z"
+      "checkedAt": "2026-11-17T20:30:12Z"
     },
     {
       "url": "wss://tinf0il.site/wisp/",
@@ -3030,20 +3030,20 @@
       "status": "reachable",
       "blocked": false,
       "httpStatus": 101,
-      "latencyMs": 78.4,
+      "latencyMs": 75.9,
       "reason": "WebSocket 101 Switching Protocols",
-      "checkedAt": "2026-11-17T19:09:28Z"
+      "checkedAt": "2026-11-17T20:30:12Z"
     },
     {
       "url": "wss://tnlnda.xyz/wisp/",
       "type": "wisp",
       "source": "github:verdjs/site/pages/settings.html",
-      "status": "unreachable",
-      "blocked": false,
-      "httpStatus": null,
-      "latencyMs": null,
-      "reason": "Timeout after 8.0s",
-      "checkedAt": "2026-11-17T19:09:28Z"
+      "status": "blocked",
+      "blocked": true,
+      "httpStatus": 302,
+      "latencyMs": 265.1,
+      "reason": "HTTP 302 redirect -> https://ww38.tnlnda.xyz/wisp/",
+      "checkedAt": "2026-11-17T20:30:12Z"
     },
     {
       "url": "wss://tomp.app/wisp/",
@@ -3052,9 +3052,9 @@
       "status": "unreachable",
       "blocked": false,
       "httpStatus": 502,
-      "latencyMs": 70.9,
+      "latencyMs": 81.8,
       "reason": "HTTP 502 Bad Gateway",
-      "checkedAt": "2026-11-17T19:09:28Z"
+      "checkedAt": "2026-11-17T20:30:12Z"
     },
     {
       "url": "wss://truf.the-nest.at/",
@@ -3065,7 +3065,7 @@
       "httpStatus": null,
       "latencyMs": null,
       "reason": "DNS NXDOMAIN / sinkhole ([Errno -2] Name or service not known)",
-      "checkedAt": "2026-11-17T19:09:28Z"
+      "checkedAt": "2026-11-17T20:30:12Z"
     },
     {
       "url": "wss://truf.the-nest.at/wisp/",
@@ -3076,7 +3076,7 @@
       "httpStatus": null,
       "latencyMs": null,
       "reason": "DNS NXDOMAIN / sinkhole ([Errno -2] Name or service not known)",
-      "checkedAt": "2026-11-17T19:09:28Z"
+      "checkedAt": "2026-11-17T20:30:12Z"
     },
     {
       "url": "wss://truffled.lol/wisp/",
@@ -3085,9 +3085,9 @@
       "status": "reachable",
       "blocked": false,
       "httpStatus": 101,
-      "latencyMs": 101.8,
+      "latencyMs": 97.0,
       "reason": "WebSocket 101 Switching Protocols",
-      "checkedAt": "2026-11-17T19:09:28Z"
+      "checkedAt": "2026-11-17T20:30:12Z"
     },
     {
       "url": "wss://tungtung.best/wisp/",
@@ -3096,9 +3096,9 @@
       "status": "reachable",
       "blocked": false,
       "httpStatus": 101,
-      "latencyMs": 377.8,
+      "latencyMs": 3671.4,
       "reason": "WebSocket 101 Switching Protocols",
-      "checkedAt": "2026-11-17T19:09:28Z"
+      "checkedAt": "2026-11-17T20:30:12Z"
     },
     {
       "url": "wss://updaown-2.koyeb.app/wisp/",
@@ -3107,9 +3107,9 @@
       "status": "unreachable",
       "blocked": false,
       "httpStatus": 404,
-      "latencyMs": 160.7,
+      "latencyMs": 278.7,
       "reason": "HTTP 404 Not Found",
-      "checkedAt": "2026-11-17T19:09:28Z"
+      "checkedAt": "2026-11-17T20:30:12Z"
     },
     {
       "url": "wss://us-east.wisp.q13x.com/",
@@ -3118,9 +3118,9 @@
       "status": "reachable",
       "blocked": false,
       "httpStatus": 101,
-      "latencyMs": 121.5,
+      "latencyMs": 112.3,
       "reason": "WebSocket 101 Switching Protocols",
-      "checkedAt": "2026-11-17T19:09:28Z"
+      "checkedAt": "2026-11-17T20:30:12Z"
     },
     {
       "url": "wss://uv.holyubofficial.net/wisp/",
@@ -3131,7 +3131,7 @@
       "httpStatus": null,
       "latencyMs": null,
       "reason": "DNS NXDOMAIN / sinkhole ([Errno -2] Name or service not known)",
-      "checkedAt": "2026-11-17T19:09:28Z"
+      "checkedAt": "2026-11-17T20:30:12Z"
     },
     {
       "url": "wss://uv.studentportal.lol/wisp/",
@@ -3142,7 +3142,7 @@
       "httpStatus": null,
       "latencyMs": null,
       "reason": "DNS NXDOMAIN / sinkhole ([Errno -2] Name or service not known)",
-      "checkedAt": "2026-11-17T19:09:28Z"
+      "checkedAt": "2026-11-17T20:30:12Z"
     },
     {
       "url": "wss://v2.quest/cdn-cgi/p/",
@@ -3151,20 +3151,20 @@
       "status": "blocked",
       "blocked": true,
       "httpStatus": 403,
-      "latencyMs": 1109.3,
+      "latencyMs": 1086.6,
       "reason": "HTTP 403 Forbidden",
-      "checkedAt": "2026-11-17T19:09:28Z"
+      "checkedAt": "2026-11-17T20:30:12Z"
     },
     {
       "url": "wss://wallstjournal.click/",
       "type": "wisp",
       "source": "github:verdjs/site/pages/settings.html",
-      "status": "unreachable",
-      "blocked": false,
-      "httpStatus": null,
-      "latencyMs": null,
-      "reason": "Timeout after 8.0s",
-      "checkedAt": "2026-11-17T19:09:28Z"
+      "status": "blocked",
+      "blocked": true,
+      "httpStatus": 302,
+      "latencyMs": 267.6,
+      "reason": "HTTP 302 redirect -> https://ww38.wallstjournal.click/",
+      "checkedAt": "2026-11-17T20:30:12Z"
     },
     {
       "url": "wss://webmath.help/wisp/",
@@ -3175,7 +3175,7 @@
       "httpStatus": null,
       "latencyMs": null,
       "reason": "DNS NXDOMAIN / sinkhole ([Errno -2] Name or service not known)",
-      "checkedAt": "2026-11-17T19:09:28Z"
+      "checkedAt": "2026-11-17T20:30:12Z"
     },
     {
       "url": "wss://wisp.43059.lrga.space/",
@@ -3186,7 +3186,7 @@
       "httpStatus": null,
       "latencyMs": null,
       "reason": "Network error: Network is unreachable",
-      "checkedAt": "2026-11-17T19:09:28Z"
+      "checkedAt": "2026-11-17T20:30:12Z"
     },
     {
       "url": "wss://wisp.artclass-eta.vercel.app/",
@@ -3195,9 +3195,9 @@
       "status": "unreachable",
       "blocked": false,
       "httpStatus": null,
-      "latencyMs": 968.4,
+      "latencyMs": 917.5,
       "reason": "Connection reset/closed (ConnectionResetError)",
-      "checkedAt": "2026-11-17T19:09:28Z"
+      "checkedAt": "2026-11-17T20:30:12Z"
     },
     {
       "url": "wss://wisp.classroom.lat/",
@@ -3208,7 +3208,7 @@
       "httpStatus": null,
       "latencyMs": null,
       "reason": "DNS NXDOMAIN / sinkhole ([Errno -2] Name or service not known)",
-      "checkedAt": "2026-11-17T19:09:28Z"
+      "checkedAt": "2026-11-17T20:30:12Z"
     },
     {
       "url": "wss://wisp.gointerstellar.app/",
@@ -3219,7 +3219,7 @@
       "httpStatus": null,
       "latencyMs": null,
       "reason": "DNS NXDOMAIN / sinkhole ([Errno -2] Name or service not known)",
-      "checkedAt": "2026-11-17T19:09:28Z"
+      "checkedAt": "2026-11-17T20:30:12Z"
     },
     {
       "url": "wss://wisp.lrga.space/",
@@ -3228,9 +3228,9 @@
       "status": "unreachable",
       "blocked": false,
       "httpStatus": 520,
-      "latencyMs": 262.7,
+      "latencyMs": 691.6,
       "reason": "HTTP 520 <none>",
-      "checkedAt": "2026-11-17T19:09:28Z"
+      "checkedAt": "2026-11-17T20:30:12Z"
     },
     {
       "url": "wss://wisp.mercurywork.shop/",
@@ -3239,9 +3239,9 @@
       "status": "reachable",
       "blocked": false,
       "httpStatus": 101,
-      "latencyMs": 332.5,
+      "latencyMs": 2266.5,
       "reason": "WebSocket 101 Switching Protocols",
-      "checkedAt": "2026-11-17T19:09:28Z"
+      "checkedAt": "2026-11-17T20:30:12Z"
     },
     {
       "url": "wss://wisp.mercurywork.shop/wisp/",
@@ -3250,9 +3250,9 @@
       "status": "reachable",
       "blocked": false,
       "httpStatus": 101,
-      "latencyMs": 344.4,
+      "latencyMs": 1156.0,
       "reason": "WebSocket 101 Switching Protocols",
-      "checkedAt": "2026-11-17T19:09:28Z"
+      "checkedAt": "2026-11-17T20:30:13Z"
     },
     {
       "url": "wss://wisp.rhw.one/",
@@ -3263,7 +3263,7 @@
       "httpStatus": null,
       "latencyMs": null,
       "reason": "Timeout after 8.0s",
-      "checkedAt": "2026-11-17T19:09:28Z"
+      "checkedAt": "2026-11-17T20:30:13Z"
     },
     {
       "url": "wss://wisp.rhw.one/wisp/",
@@ -3274,7 +3274,7 @@
       "httpStatus": null,
       "latencyMs": null,
       "reason": "Timeout after 8.0s",
-      "checkedAt": "2026-11-17T19:09:28Z"
+      "checkedAt": "2026-11-17T20:30:13Z"
     },
     {
       "url": "wss://wisp.run/",
@@ -3285,7 +3285,7 @@
       "httpStatus": null,
       "latencyMs": null,
       "reason": "DNS NXDOMAIN / sinkhole ([Errno -5] No address associated with hostname)",
-      "checkedAt": "2026-11-17T19:09:28Z"
+      "checkedAt": "2026-11-17T20:30:13Z"
     },
     {
       "url": "wss://wisp.terbiumon.top/",
@@ -3294,9 +3294,9 @@
       "status": "reachable",
       "blocked": false,
       "httpStatus": 200,
-      "latencyMs": 199.8,
+      "latencyMs": 1237.5,
       "reason": "Valid HTTP/WISP response (HTTP 200)",
-      "checkedAt": "2026-11-17T19:09:28Z"
+      "checkedAt": "2026-11-17T20:30:13Z"
     },
     {
       "url": "wss://wisp.terbiumon.top/wisp/",
@@ -3305,20 +3305,20 @@
       "status": "reachable",
       "blocked": false,
       "httpStatus": 101,
-      "latencyMs": 154.3,
+      "latencyMs": 1624.6,
       "reason": "WebSocket 101 Switching Protocols",
-      "checkedAt": "2026-11-17T19:09:28Z"
+      "checkedAt": "2026-11-17T20:30:13Z"
     },
     {
       "url": "wss://wisp.webmc.fun/",
       "type": "wisp",
       "source": "github:mino-hobby-pro/MIN-Tube-Pro/proxy/embed.html",
-      "status": "reachable",
+      "status": "unreachable",
       "blocked": false,
-      "httpStatus": 101,
-      "latencyMs": 287.7,
-      "reason": "WebSocket 101 Switching Protocols",
-      "checkedAt": "2026-11-17T19:09:28Z"
+      "httpStatus": null,
+      "latencyMs": 1212.4,
+      "reason": "Connection reset/closed (ConnectionResetError)",
+      "checkedAt": "2026-11-17T20:30:13Z"
     },
     {
       "url": "wss://wispserver.dev/wisp/",
@@ -3329,7 +3329,7 @@
       "httpStatus": null,
       "latencyMs": null,
       "reason": "DNS NXDOMAIN / sinkhole ([Errno -2] Name or service not known)",
-      "checkedAt": "2026-11-17T19:09:28Z"
+      "checkedAt": "2026-11-17T20:30:13Z"
     }
   ]
 }
