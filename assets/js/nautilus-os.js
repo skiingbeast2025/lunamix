@@ -3652,8 +3652,96 @@
   // --------------------------------------------------------------------------
   // App: Settings & Themes & Personalization
   // --------------------------------------------------------------------------
+  const WALLPAPER_PRESETS = [
+    { id: 'default', name: 'Theme Default', type: 'default', value: '' },
+    { id: 'aurora', name: 'Midnight Aurora', type: 'gradient', value: 'linear-gradient(135deg, #0b132b 0%, #1c2541 48%, #2e4a62 100%)' },
+    { id: 'nebula', name: 'Nebula Violet', type: 'gradient', value: 'radial-gradient(circle at 22% 18%, #4c1d95 0%, #1e1b4b 48%, #090d16 100%)' },
+    { id: 'abyssal', name: 'Deep Ocean', type: 'gradient', value: 'linear-gradient(160deg, #041c32 0%, #064663 55%, #04293a 100%)' },
+    { id: 'cyber', name: 'Cyber Teal', type: 'gradient', value: 'linear-gradient(135deg, #071917 0%, #0f3d3e 50%, #050a0e 100%)' },
+    { id: 'sunset', name: 'Sunset Dusk', type: 'gradient', value: 'linear-gradient(135deg, #2b0b1e 0%, #6b1d3a 52%, #b45309 100%)' },
+    { id: 'pine', name: 'Emerald Pine', type: 'gradient', value: 'linear-gradient(145deg, #022c22 0%, #064e3b 55%, #051614 100%)' },
+    { id: 'obsidian', name: 'Carbon Slate', type: 'gradient', value: 'radial-gradient(circle at 50% 0%, #27272a 0%, #18181b 50%, #09090b 100%)' }
+  ];
+
+  function sanitizeImageDataOrUrl(raw) {
+    if (!raw || typeof raw !== 'string') return '';
+    const trimmed = raw.trim();
+    if (!trimmed) return '';
+    if (/^data:image\/(png|jpeg|jpg|webp|gif);base64,[A-Za-z0-9+/=]+$/i.test(trimmed)) {
+      return trimmed;
+    }
+    return sanitizeUrl(trimmed);
+  }
+
+  function applyWallpaperConfig(cfg) {
+    const safeCfg = cfg && typeof cfg === 'object' ? cfg : { type: 'default', value: '' };
+    const desktopEl = document.getElementById('desktop');
+    const dashBody = isDashboardMode() ? document.body : null;
+    const targets = [desktopEl, dashBody].filter(Boolean);
+
+    targets.forEach((el) => {
+      el.style.background = '';
+      el.style.backgroundImage = '';
+      el.style.backgroundColor = '';
+      el.style.backgroundSize = '';
+      el.style.backgroundPosition = '';
+      el.style.backgroundRepeat = '';
+
+      if (safeCfg.type === 'gradient') {
+        const preset = WALLPAPER_PRESETS.find((p) => p.id === safeCfg.presetId || p.value === safeCfg.value);
+        if (preset && preset.value) {
+          el.style.background = preset.value;
+        }
+      } else if (safeCfg.type === 'color') {
+        if (/^#[0-9a-f]{3,8}$/i.test(String(safeCfg.value || ''))) {
+          el.style.background = 'none';
+          el.style.backgroundColor = safeCfg.value;
+        }
+      } else if (safeCfg.type === 'image') {
+        const safeImg = sanitizeImageDataOrUrl(safeCfg.value);
+        if (safeImg) {
+          el.style.backgroundColor = 'var(--bg-primary)';
+          el.style.backgroundImage = `url("${safeImg.replace(/["\\()]/g, '')}")`;
+          el.style.backgroundSize = 'cover';
+          el.style.backgroundPosition = 'center';
+          el.style.backgroundRepeat = 'no-repeat';
+        }
+      }
+    });
+
+    const watermark = document.querySelector('#desktop .wallpaper');
+    if (watermark) {
+      watermark.style.display = safeCfg.hideWatermark ? 'none' : '';
+    }
+  }
+
+  function getSavedWallpaperConfig() {
+    try {
+      const raw = localStorage.getItem('lunamix_wallpaper');
+      if (raw) {
+        const parsed = JSON.parse(raw);
+        if (parsed && typeof parsed === 'object' && !Array.isArray(parsed)) {
+          return parsed;
+        }
+      }
+    } catch (e) {}
+    return { type: 'default', value: '', presetId: 'default', hideWatermark: false };
+  }
+
+  function saveAndApplyWallpaper(cfg) {
+    try {
+      localStorage.setItem('lunamix_wallpaper', JSON.stringify(cfg));
+    } catch (e) {}
+    applyWallpaperConfig(cfg);
+  }
+
+  function loadAndApplyWallpaper() {
+    applyWallpaperConfig(getSavedWallpaperConfig());
+  }
+
   function renderSettingsApp(container, winObj) {
     const currentTheme = document.documentElement.getAttribute('data-theme') || 'nautilus';
+    const currentWallpaper = getSavedWallpaperConfig();
     const isFullDock = localStorage.getItem('nautilus_dock_mode') === 'full';
     const iconsGrid = document.getElementById('desktopIcons');
     const iconsVisible = !iconsGrid || iconsGrid.style.display !== 'none';
@@ -3718,6 +3806,57 @@
                       <div style="font-size: 0.8rem; font-weight: 600;">${t.name}</div>
                     </div>
                   `).join('')}
+                </div>
+              </div>
+
+              <div style="${cardStyle}">
+                <div style="display: flex; justify-content: space-between; align-items: center; gap: 0.5rem; flex-wrap: wrap; margin-bottom: 0.3rem;">
+                  <h3 style="font-size: 0.95rem; font-weight: 700; margin: 0;">Background &amp; Wallpaper</h3>
+                  <button type="button" id="setBgResetBtn" style="padding: 0.3rem 0.7rem; border-radius: 7px; border: 1px solid rgba(255,255,255,0.14); background: rgba(255,255,255,0.06); color: var(--text-secondary); font-size: 0.74rem; font-weight: 600; cursor: pointer;">Reset Default</button>
+                </div>
+                <p style="font-size: 0.78rem; color: var(--text-secondary); margin-bottom: 0.9rem;">Applies across both Standard Desktop and Dashboard views.</p>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(115px, 1fr)); gap: 0.6rem; margin-bottom: 1rem;">
+                  ${WALLPAPER_PRESETS.map(p => {
+                    const isActive = (currentWallpaper.presetId || currentWallpaper.type) === p.id;
+                    const previewStyle = p.type === 'default'
+                      ? 'background: radial-gradient(circle at 50% 20%, #151b2b 0%, #080c16 80%);'
+                      : `background: ${p.value};`;
+                    return `
+                      <button type="button" class="wallpaper-preset-tile" data-wallpaper-id="${p.id}" style="padding: 0.45rem; border-radius: 9px; border: 1.5px solid ${isActive ? 'var(--accent)' : 'rgba(255,255,255,0.1)'}; background: ${isActive ? 'rgba(255,255,255,0.06)' : 'transparent'}; cursor: pointer; text-align: center; color: var(--text-primary);">
+                        <div style="height: 36px; border-radius: 6px; margin-bottom: 0.35rem; ${previewStyle} border: 1px solid rgba(255,255,255,0.08);"></div>
+                        <div style="font-size: 0.74rem; font-weight: 600;">${p.name}</div>
+                      </button>
+                    `;
+                  }).join('')}
+                </div>
+
+                <div style="${rowStyle}">
+                  <div>
+                    <div style="font-size: 0.84rem; font-weight: 600;">Solid Custom Color</div>
+                    <div style="font-size: 0.75rem; color: var(--text-secondary);">Pick any solid background color</div>
+                  </div>
+                  <input type="color" id="setBgColorInput" value="${escapeHtml(currentWallpaper.type === 'color' && /^#[0-9a-f]{6}$/i.test(currentWallpaper.value || '') ? currentWallpaper.value : '#0b132b')}" style="width: 44px; height: 30px; padding: 2px; border-radius: 6px; border: 1px solid rgba(255,255,255,0.2); background: var(--bg-secondary); cursor: pointer;" />
+                </div>
+
+                <div style="${rowStyle} flex-wrap: wrap;">
+                  <div style="width: 100%; font-size: 0.84rem; font-weight: 600; margin-bottom: 0.35rem;">Custom Image URL or Upload</div>
+                  <div style="display: flex; gap: 0.5rem; width: 100%; flex-wrap: wrap;">
+                    <input type="url" id="setBgImageUrlInput" value="${escapeHtml(currentWallpaper.type === 'image' && /^https?:/i.test(currentWallpaper.value || '') ? currentWallpaper.value : '')}" placeholder="https://example.com/wallpaper.jpg" style="flex: 1; min-width: 180px; padding: 0.45rem 0.7rem; background: var(--bg-secondary); border: 1px solid var(--glass-border); border-radius: 8px; color: var(--text-primary); font-size: 0.8rem;" />
+                    <button type="button" id="setBgImageApplyBtn" style="padding: 0.45rem 0.85rem; background: var(--accent); color: var(--bg-primary); border: none; border-radius: 8px; font-size: 0.78rem; font-weight: 700; cursor: pointer;">Apply URL</button>
+                    <label for="setBgImageFileInput" style="padding: 0.45rem 0.85rem; background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.16); border-radius: 8px; color: var(--text-primary); font-size: 0.78rem; font-weight: 600; cursor: pointer; display: inline-flex; align-items: center; gap: 0.35rem;">
+                      <i class="fa-solid fa-upload"></i> Upload
+                    </label>
+                    <input type="file" id="setBgImageFileInput" accept="image/png,image/jpeg,image/webp,image/gif" style="display: none;" />
+                  </div>
+                  <div id="setBgStatusMsg" style="display: none; font-size: 0.75rem; margin-top: 0.45rem;"></div>
+                </div>
+
+                <div style="${rowStyle} border-bottom: none; padding-bottom: 0;">
+                  <div>
+                    <div style="font-size: 0.84rem; font-weight: 600;">Hide Center Logo Watermark</div>
+                    <div style="font-size: 0.75rem; color: var(--text-secondary);">Hide the faint Lunamix OS emblem behind desktop icons</div>
+                  </div>
+                  ${toggleSwitchHtml('setBgHideWatermarkToggle', Boolean(currentWallpaper.hideWatermark))}
                 </div>
               </div>
 
@@ -3938,6 +4077,123 @@
       });
     });
 
+    // Wallpaper / Background Switcher
+    const showBgStatus = (msg, ok = true) => {
+      const el = container.querySelector('#setBgStatusMsg');
+      if (!el) return;
+      el.textContent = msg;
+      el.style.color = ok ? '#4ade80' : '#f87171';
+      el.style.display = 'block';
+    };
+
+    const syncPresetSelection = (activeId) => {
+      container.querySelectorAll('.wallpaper-preset-tile').forEach((btn) => {
+        const match = btn.getAttribute('data-wallpaper-id') === activeId;
+        btn.style.borderColor = match ? 'var(--accent)' : 'rgba(255,255,255,0.1)';
+        btn.style.background = match ? 'rgba(255,255,255,0.06)' : 'transparent';
+      });
+    };
+
+    container.querySelectorAll('.wallpaper-preset-tile').forEach((btn) => {
+      btn.addEventListener('click', () => {
+        const id = btn.getAttribute('data-wallpaper-id');
+        const preset = WALLPAPER_PRESETS.find((p) => p.id === id) || WALLPAPER_PRESETS[0];
+        const prev = getSavedWallpaperConfig();
+        saveAndApplyWallpaper({
+          type: preset.type,
+          value: preset.value,
+          presetId: preset.id,
+          hideWatermark: Boolean(prev.hideWatermark)
+        });
+        syncPresetSelection(preset.id);
+        SoundFX.click();
+      });
+    });
+
+    container.querySelector('#setBgColorInput')?.addEventListener('input', (e) => {
+      const hex = e.target.value;
+      if (/^#[0-9a-f]{3,8}$/i.test(hex)) {
+        const prev = getSavedWallpaperConfig();
+        saveAndApplyWallpaper({
+          type: 'color',
+          value: hex,
+          presetId: '',
+          hideWatermark: Boolean(prev.hideWatermark)
+        });
+        syncPresetSelection('');
+      }
+    });
+
+    container.querySelector('#setBgImageApplyBtn')?.addEventListener('click', () => {
+      const rawUrl = container.querySelector('#setBgImageUrlInput')?.value || '';
+      const safeUrl = sanitizeUrl(rawUrl);
+      if (!safeUrl) {
+        showBgStatus('Please enter a valid http:// or https:// image URL.', false);
+        return;
+      }
+      const prev = getSavedWallpaperConfig();
+      saveAndApplyWallpaper({
+        type: 'image',
+        value: safeUrl,
+        presetId: '',
+        hideWatermark: Boolean(prev.hideWatermark)
+      });
+      syncPresetSelection('');
+      showBgStatus('Background image applied!');
+      SoundFX.click();
+    });
+
+    container.querySelector('#setBgImageFileInput')?.addEventListener('change', (e) => {
+      const file = e.target.files && e.target.files[0];
+      if (!file) return;
+      if (file.size > 3 * 1024 * 1024) {
+        showBgStatus('Image file must be under 3 MB.', false);
+        return;
+      }
+      const reader = new FileReader();
+      reader.onload = () => {
+        const res = typeof reader.result === 'string' ? reader.result : '';
+        const safeData = sanitizeImageDataOrUrl(res);
+        if (!safeData) {
+          showBgStatus('Unsupported image format.', false);
+          return;
+        }
+        const prev = getSavedWallpaperConfig();
+        saveAndApplyWallpaper({
+          type: 'image',
+          value: safeData,
+          presetId: '',
+          hideWatermark: Boolean(prev.hideWatermark)
+        });
+        syncPresetSelection('');
+        showBgStatus('Uploaded wallpaper applied!');
+        SoundFX.click();
+      };
+      reader.readAsDataURL(file);
+    });
+
+    container.querySelector('#setBgResetBtn')?.addEventListener('click', () => {
+      saveAndApplyWallpaper({ type: 'default', value: '', presetId: 'default', hideWatermark: false });
+      syncPresetSelection('default');
+      const urlInp = container.querySelector('#setBgImageUrlInput');
+      if (urlInp) urlInp.value = '';
+      const wmToggle = container.querySelector('#setBgHideWatermarkToggle');
+      if (wmToggle && wmToggle.checked) {
+        wmToggle.checked = false;
+        const track = wmToggle.nextElementSibling;
+        const knob = track?.firstElementChild;
+        if (track) track.style.background = 'rgba(255,255,255,0.16)';
+        if (knob) { knob.style.left = '3px'; knob.style.background = '#fff'; }
+      }
+      showBgStatus('Background reset to default.');
+      SoundFX.click();
+    });
+
+    wireToggle('setBgHideWatermarkToggle', (checked) => {
+      const prev = getSavedWallpaperConfig();
+      saveAndApplyWallpaper({ ...prev, hideWatermark: checked });
+    });
+
     // Appearance & Behavior toggles
     const taskbarEl = document.querySelector('.taskbar');
     wireToggle('setDockFullToggle', (checked) => {
@@ -4128,9 +4384,10 @@
       return;
     }
 
-    // Restore Saved Theme
+    // Restore Saved Theme & Background
     const savedTheme = localStorage.getItem('nautilus_theme') || 'nautilus';
     document.documentElement.setAttribute('data-theme', savedTheme);
+    loadAndApplyWallpaper();
 
     // Restore Dock Mode (Desktop only)
     if (!isDashboardMode()) {
@@ -4166,6 +4423,7 @@
       focusApp: (id) => WindowManager.focus(id),
       isDashboardMode,
       switchLayout: navigateToLayout,
+      applyWallpaper: loadAndApplyWallpaper,
       apps: APPS
     };
   }
