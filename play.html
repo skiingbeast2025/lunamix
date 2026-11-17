@@ -815,7 +815,7 @@
             };
           }
         } catch (e) {
-          console.warn(`Could not load ./games/${letter}/${slug}/game.json:`, e);
+          console.warn('Could not load game.json:', letter, slug, e);
         }
 
         if (!gameData) {
@@ -944,8 +944,18 @@
 
       // Resolve direct game URL (bypassing any StrongDog wrapper)
       let targetUrl = gameData.url;
-      if (targetUrl && targetUrl.includes('iloveshorty.github.io') && targetUrl.endsWith('/index.html') && !targetUrl.includes('/game/')) {
-        targetUrl = targetUrl.replace(/\/index\.html$/, '/game/index.html');
+      if (targetUrl) {
+        try {
+          const parsedTarget = new URL(targetUrl, window.location.origin);
+          if (
+            parsedTarget.hostname === 'iloveshorty.github.io' &&
+            parsedTarget.pathname.endsWith('/index.html') &&
+            !parsedTarget.pathname.includes('/game/')
+          ) {
+            parsedTarget.pathname = parsedTarget.pathname.replace(/\/index\.html$/, '/game/index.html');
+            targetUrl = parsedTarget.toString();
+          }
+        } catch (e) {}
       }
 
       // Populate UI

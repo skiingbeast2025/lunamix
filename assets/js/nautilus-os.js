@@ -318,6 +318,7 @@
 
     open(appId, customOpts = {}) {
       SoundFX.open();
+      if (!Object.prototype.hasOwnProperty.call(APPS, appId)) return;
       const app = APPS[appId];
       if (!app) return;
 
@@ -386,7 +387,7 @@
             </button>
           </div>
         </div>
-        <div class="window-content" id="win-body-${appId}"></div>
+        <div class="window-content" id="win-body-${escapeHtml(appId)}"></div>
         <!-- 8 Resizing Handles -->
         <div class="win-resize-handle r" data-handle="r"></div>
         <div class="win-resize-handle l" data-handle="l"></div>
