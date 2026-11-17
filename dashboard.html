@@ -320,24 +320,39 @@
        3. Dashboard Mode Shell (Hidden Until Auth Unlocks)
        ====================================================================== -->
   <div id="dashShell" class="dash-shell">
-    <!-- Top Statusbar (HBU2 Minimal Style) -->
+    <!-- Top Statusbar (HBU2 Minimal Style + Merged Workspace Controls) -->
     <header class="dash-statusbar" id="dashStatusbar">
       <div class="dash-status-left">
-        <div class="dash-brand">
+        <div class="dash-brand" id="dashBrand">
           <span class="dash-brand-icon" aria-hidden="true">
             <i class="fa-solid fa-cube"></i>
           </span>
           <span class="dash-brand-name">Lunamix OS</span>
         </div>
+
+        <button type="button" id="dashBackBtn" class="dash-back-btn" hidden>
+          <i class="fa-solid fa-arrow-left"></i>
+          <span>Back</span>
+        </button>
+
+        <div id="dashWsTitle" class="dash-ws-title" hidden>App</div>
       </div>
 
       <div class="dash-status-right">
+        <div id="dashWsActions" class="dash-ws-actions" hidden></div>
+
+        <button type="button" id="dashWsNewTabBtn" class="dash-icon-btn" title="Open This App in New Tab" hidden>
+          <i class="fa-solid fa-up-right-from-square"></i>
+        </button>
+
+        <div class="dash-ws-divider" id="dashWsDivider" hidden></div>
+
         <a href="./index.html?mode=desktop" id="dashSwitchDesktopBtn" class="dash-nav-btn" title="Switch to Desktop Mode">
           <i class="fa-solid fa-desktop"></i>
           <span>Desktop</span>
         </a>
 
-        <button type="button" class="dash-icon-btn lm-newtab-toggle" id="trayNewTabBtn" title="Open Everything in New Tab: Off" aria-pressed="false">
+        <button type="button" class="dash-icon-btn lm-newtab-toggle" id="trayNewTabBtn" title="Auto Open All Apps in New Tab: Off" aria-pressed="false">
           <i class="fa-solid fa-arrow-up-right-from-square"></i>
         </button>
 
@@ -406,24 +421,6 @@
 
     <!-- Full-Screen App Workspace Pane -->
     <section id="dashWorkspace" class="dash-workspace" aria-label="App Workspace" hidden>
-      <header id="dashWorkspaceBar" class="dash-workspace-bar">
-        <div class="dash-ws-left">
-          <button type="button" id="dashBackBtn" class="dash-back-btn">
-            <i class="fa-solid fa-arrow-left"></i>
-            <span>Back to Dashboard</span>
-          </button>
-          <div id="dashWsTitle" class="dash-ws-title">App</div>
-        </div>
-
-        <div class="dash-ws-right">
-          <div id="dashWsActions" class="dash-ws-actions"></div>
-          <button type="button" id="dashWsNewTabBtn" class="dash-ws-newtab-btn" title="Open in New Tab">
-            <i class="fa-solid fa-arrow-up-right-from-square"></i>
-            <span>Open in New Tab</span>
-          </button>
-        </div>
-      </header>
-
       <div id="dashWorkspaceBody" class="dash-workspace-body"></div>
     </section>
   </div>

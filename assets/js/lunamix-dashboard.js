@@ -437,6 +437,29 @@
     }
   }
 
+  function setWorkspaceHeaderState(isOpen) {
+    const brandEl = document.getElementById('dashBrand');
+    const backBtn = document.getElementById('dashBackBtn');
+    const titleEl = document.getElementById('dashWsTitle');
+    const actionsEl = document.getElementById('dashWsActions');
+    const newTabBtn = document.getElementById('dashWsNewTabBtn');
+    const dividerEl = document.getElementById('dashWsDivider');
+
+    if (brandEl) brandEl.hidden = isOpen;
+    if (backBtn) backBtn.hidden = !isOpen;
+    if (titleEl) titleEl.hidden = !isOpen;
+    if (actionsEl) actionsEl.hidden = !isOpen;
+    if (dividerEl) dividerEl.hidden = !isOpen;
+    if (newTabBtn) {
+      if (!isOpen) {
+        newTabBtn.hidden = true;
+      } else {
+        const hasExtBtn = Boolean(actionsEl && actionsEl.querySelector('.fa-arrow-up-right-from-square'));
+        newTabBtn.hidden = hasExtBtn;
+      }
+    }
+  }
+
   function closeWorkspace(arg) {
     if (typeof arg === 'string' && (!activeWinObj || activeWinObj.id !== resolveAppId(arg))) {
       return;
@@ -457,6 +480,7 @@
       const homeEl = document.getElementById('dashHome');
       if (workspaceEl) workspaceEl.hidden = true;
       if (homeEl) homeEl.hidden = false;
+      setWorkspaceHeaderState(false);
       window.SoundFX?.close?.();
       syncAchievementsCount();
       renderOrganizer();
@@ -547,6 +571,7 @@
       app.render(bodyEl, winObj, opts);
     }
 
+    setWorkspaceHeaderState(true);
     window.LunamixAchievements?.trackAppOpen?.(resolvedId);
     syncAchievementsCount();
 

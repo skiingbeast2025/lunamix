@@ -25,10 +25,19 @@ body[data-lunamix-mode="dashboard"] {
   border: 0;
 }
 
+#dashShell [hidden],
 #dashHome[hidden],
 #dashPinPanel[hidden],
 #dashWorkspace[hidden] {
   display: none !important;
+}
+
+.dash-ws-divider {
+  width: 1px;
+  height: 20px;
+  background: var(--glass-border);
+  margin: 0 2px;
+  flex-shrink: 0;
 }
 
 /* ==========================================================================
