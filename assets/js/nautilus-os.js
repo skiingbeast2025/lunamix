@@ -27,6 +27,30 @@
   const OS_VERSION = 'v2.0.0';
   window.LUNAMIX_VERSION = OS_VERSION;
 
+  function isDashboardMode() {
+    return Boolean(document.body && document.body.dataset && document.body.dataset.lunamixMode === 'dashboard');
+  }
+
+  function navigateToLayout(mode, opts = {}) {
+    const targetMode = mode === 'dashboard' ? 'dashboard' : 'desktop';
+    const urlParams = new URLSearchParams(window.location.search);
+    const appParam = urlParams.get('app');
+    let targetUrl;
+    if (targetMode === 'dashboard') {
+      targetUrl = './dashboard.html' + (appParam ? '?app=' + encodeURIComponent(appParam) : '');
+    } else {
+      const nextParams = new URLSearchParams();
+      nextParams.set('mode', 'desktop');
+      if (appParam) nextParams.set('app', appParam);
+      targetUrl = './index.html?' + nextParams.toString();
+    }
+    if (opts.replace) {
+      window.location.replace(targetUrl);
+    } else {
+      window.location.href = targetUrl;
+    }
+  }
+
   // ==========================================================================
   // 1. Audio System (Gentle UI sound effects via Web Audio API)
   // ==========================================================================
@@ -300,6 +324,7 @@
     container: null,
 
     init() {
+      if (isDashboardMode()) return;
       this.container = document.getElementById('desktop');
       if (!this.container) return;
 
@@ -317,6 +342,9 @@
     },
 
     open(appId, customOpts = {}) {
+      if (isDashboardMode() && window.LunamixDashboard && typeof window.LunamixDashboard.launchApp === 'function') {
+        return window.LunamixDashboard.launchApp(appId, customOpts);
+      }
       SoundFX.open();
       if (!Object.prototype.hasOwnProperty.call(APPS, appId)) return;
       const app = APPS[appId];
@@ -340,6 +368,11 @@
         }
         return null;
       }
+
+      if (!this.container) {
+        this.container = document.getElementById('desktop');
+      }
+      if (!this.container) return null;
 
       // If already open, restore/unminimize & focus
       if (this.windows[appId]) {
@@ -768,11 +801,22 @@
     quickActionsOpen: false,
 
     init() {
-      this.bindDesktopIcons();
-      this.bindTaskbar();
-      this.bindStartMenu();
-      this.bindContextMenu();
-      this.bindQuickActions();
+      const dashboardMode = isDashboardMode();
+      if (!dashboardMode && document.querySelector('.desktop-icon')) {
+        this.bindDesktopIcons();
+      }
+      if (!dashboardMode && document.querySelector('.taskbar')) {
+        this.bindTaskbar();
+      }
+      if (!dashboardMode && document.getElementById('startMenu')) {
+        this.bindStartMenu();
+      }
+      if (!dashboardMode && document.getElementById('contextMenu') && document.getElementById('desktop')) {
+        this.bindContextMenu();
+      }
+      if (!dashboardMode) {
+        this.bindQuickActions();
+      }
       this.bindClock();
       this.bindKeyboardShortcuts();
     },
@@ -860,6 +904,15 @@
       const switchBtn = document.getElementById('startSwitchUserBtn');
       const lockBtn = document.getElementById('startLockBtn');
       const logoutBtn = document.getElementById('startLogoutBtn');
+      const dashboardBtn = document.getElementById('startDashboardBtn');
+
+      if (dashboardBtn) {
+        dashboardBtn.addEventListener('click', (e) => {
+          e.stopPropagation();
+          this.closeStartMenu();
+          navigateToLayout('dashboard');
+        });
+      }
 
       if (switchBtn) {
         switchBtn.addEventListener('click', (e) => {
@@ -1139,7 +1192,7 @@
 
       document.addEventListener('keydown', (e) => {
         // Meta/Windows key toggles Start Menu
-        if (e.key === 'Meta' && kbOn('lunamix_kb_meta')) {
+        if (!isDashboardMode() && e.key === 'Meta' && kbOn('lunamix_kb_meta')) {
           this.toggleStartMenu();
         }
         // Alt + T: Open Terminal
@@ -1161,6 +1214,7 @@
         if (e.key === 'Escape' && kbOn('lunamix_kb_esc')) {
           this.closeStartMenu();
           this.closeQuickActions();
+          window.LunamixQuickActions?.close?.();
           window.LunamixNotifications?.close();
           const cm = document.getElementById('contextMenu');
           if (cm) cm.style.display = 'none';
@@ -3599,6 +3653,8 @@
     const snapEnabled = localStorage.getItem('lunamix_snap_enabled') !== 'false';
     const soundEnabled = window.LunamixQuickActions ? !window.LunamixQuickActions.isMuted() : true;
     const newTabEnabled = localStorage.getItem('lunamix_open_new_tab') === 'true';
+    const preferredLayout = localStorage.getItem('lunamix_default_layout') === 'dashboard' ? 'dashboard' : 'desktop';
+    const onDashboard = isDashboardMode();
     const kbMaster = localStorage.getItem('lunamix_keybinds_enabled') !== 'false';
     const kbBool = (k) => localStorage.getItem(k) !== 'false';
 
@@ -3686,6 +3742,26 @@
 
             <!-- TAB: BEHAVIOR -->
             <div class="lm-set-pane" data-pane="behavior" style="display: none;">
+              <div style="${cardStyle}">
+                <h3 style="font-size: 0.95rem; font-weight: 700; margin-bottom: 0.3rem;">Layout &amp; Mode</h3>
+                <div style="${rowStyle} border-bottom: none; padding-bottom: 0; flex-wrap: wrap;">
+                  <div style="flex: 1; min-width: 200px;">
+                    <div style="font-size: 0.85rem; font-weight: 600;">Preferred Layout Mode</div>
+                    <div style="font-size: 0.76rem; color: var(--text-secondary);">Choose whether Lunamix OS opens in Desktop Mode or Dashboard Mode (HBU2 Layout)</div>
+                  </div>
+                  <div style="display: flex; align-items: center; gap: 0.5rem; flex-wrap: wrap;">
+                    <select id="setPreferredLayoutSelect" style="padding: 0.42rem 0.65rem; background: var(--bg-secondary); border: 1px solid var(--glass-border); border-radius: 8px; color: var(--text-primary); font-size: 0.8rem; font-weight: 600; cursor: pointer;">
+                      <option value="desktop" ${preferredLayout === 'desktop' ? 'selected' : ''}>Desktop Mode</option>
+                      <option value="dashboard" ${preferredLayout === 'dashboard' ? 'selected' : ''}>Dashboard Mode (HBU2 Layout)</option>
+                    </select>
+                    <button type="button" id="setSwitchLayoutNowBtn" title="${onDashboard ? 'Switch to Desktop Mode' : 'Switch to Dashboard Mode'}" style="padding: 0.42rem 0.85rem; background: var(--accent); color: var(--bg-primary); border: none; border-radius: 8px; font-size: 0.8rem; font-weight: 700; cursor: pointer; display: inline-flex; align-items: center; gap: 0.4rem;">
+                      <i class="fa-solid ${onDashboard ? 'fa-desktop' : 'fa-table-columns'}"></i>
+                      <span>Switch Now</span>
+                    </button>
+                  </div>
+                </div>
+              </div>
+
               <div style="${cardStyle}">
                 <h3 style="font-size: 0.95rem; font-weight: 700; margin-bottom: 0.3rem;">Navigation &amp; Windows</h3>
                 <div style="${rowStyle}">
@@ -3838,6 +3914,8 @@
         const t = tile.getAttribute('data-theme');
         if (window.LunamixAppStore && typeof window.LunamixAppStore.setTheme === 'function') {
           window.LunamixAppStore.setTheme(t);
+        } else if (window.LunamixAppStore && typeof window.LunamixAppStore.applyTheme === 'function') {
+          window.LunamixAppStore.applyTheme(t);
         } else {
           document.documentElement.setAttribute('data-theme', t);
           localStorage.setItem('nautilus_theme', t);
@@ -3880,6 +3958,22 @@
       if (window.LunamixQuickActions?.setMuted) {
         window.LunamixQuickActions.setMuted(!checked);
       }
+    });
+
+    const layoutSelect = container.querySelector('#setPreferredLayoutSelect');
+    if (layoutSelect) {
+      layoutSelect.addEventListener('change', () => {
+        const val = layoutSelect.value === 'dashboard' ? 'dashboard' : 'desktop';
+        localStorage.setItem('lunamix_default_layout', val);
+        SoundFX.click();
+      });
+    }
+    container.querySelector('#setSwitchLayoutNowBtn')?.addEventListener('click', () => {
+      SoundFX.click();
+      const selected = layoutSelect ? layoutSelect.value : preferredLayout;
+      const currentMode = isDashboardMode() ? 'dashboard' : 'desktop';
+      const targetMode = selected !== currentMode ? selected : (currentMode === 'dashboard' ? 'desktop' : 'dashboard');
+      navigateToLayout(targetMode);
     });
 
     // Keybinds toggles
@@ -4020,15 +4114,24 @@
   // 7. Initial Bootstrap
   // ==========================================================================
   function bootstrap() {
+    // Redirect to Dashboard Mode if preferred and not explicitly overridden by ?mode=desktop
+    const urlParams = new URLSearchParams(window.location.search);
+    if (!isDashboardMode() && urlParams.get('mode') !== 'desktop' && localStorage.getItem('lunamix_default_layout') === 'dashboard') {
+      navigateToLayout('dashboard', { replace: true });
+      return;
+    }
+
     // Restore Saved Theme
     const savedTheme = localStorage.getItem('nautilus_theme') || 'nautilus';
     document.documentElement.setAttribute('data-theme', savedTheme);
 
-    // Restore Dock Mode
-    const dockMode = localStorage.getItem('nautilus_dock_mode');
-    const taskbar = document.querySelector('.taskbar');
-    if (taskbar && dockMode === 'full') {
-      taskbar.classList.add('full-mode');
+    // Restore Dock Mode (Desktop only)
+    if (!isDashboardMode()) {
+      const dockMode = localStorage.getItem('nautilus_dock_mode');
+      const taskbar = document.querySelector('.taskbar');
+      if (taskbar && dockMode === 'full') {
+        taskbar.classList.add('full-mode');
+      }
     }
 
     // Initialize Subsystems
@@ -4040,10 +4143,22 @@
     // Expose Global API for buttons or extensions
     window.SoundFX = SoundFX;
     window.LunamixOS = {
-      openApp: (id, opts) => WindowManager.open(id, opts),
-      closeApp: (id) => WindowManager.close(id),
+      openApp: (id, opts) => {
+        if (isDashboardMode() && window.LunamixDashboard && typeof window.LunamixDashboard.launchApp === 'function') {
+          return window.LunamixDashboard.launchApp(id, opts);
+        }
+        return WindowManager.open(id, opts);
+      },
+      closeApp: (id) => {
+        if (isDashboardMode() && window.LunamixDashboard && typeof window.LunamixDashboard.closeWorkspace === 'function') {
+          return window.LunamixDashboard.closeWorkspace(id);
+        }
+        return WindowManager.close(id);
+      },
       minimizeApp: (id) => WindowManager.minimize(id),
       focusApp: (id) => WindowManager.focus(id),
+      isDashboardMode,
+      switchLayout: navigateToLayout,
       apps: APPS
     };
   }

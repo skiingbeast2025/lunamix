@@ -230,12 +230,44 @@
       description: 'Abyssal blue backdrop with sky-cyan controls.'
     },
     {
+      id: 'forest',
+      name: 'Forest Mint',
+      accent: '#34d399',
+      bg: '#061611',
+      text: '#ecfdf5',
+      description: 'Woodland dark slate with bright forest mint accents.'
+    },
+    {
       id: 'emerald',
       name: 'Emerald Forest',
       accent: '#10b981',
       bg: '#061611',
       text: '#ecfdf5',
       description: 'Rich pine glass with vibrant emerald accents.'
+    },
+    {
+      id: 'sunset',
+      name: 'Sunset Gold',
+      accent: '#f59e0b',
+      bg: '#160e06',
+      text: '#fef3c7',
+      description: 'Warm amber twilight with golden highlights.'
+    },
+    {
+      id: 'obsidian',
+      name: 'Obsidian Cyber',
+      accent: '#ff5252',
+      bg: '#12080a',
+      text: '#fee2e2',
+      description: 'Stealth obsidian dark mode with neon red accents.'
+    },
+    {
+      id: 'matrix',
+      name: 'Matrix Green',
+      accent: '#00ff88',
+      bg: '#04120a',
+      text: '#dcfce7',
+      description: 'Phosphor terminal green over deep void black.'
     },
     {
       id: 'crimson',
@@ -426,6 +458,10 @@
 
     getTheme() {
       return document.documentElement.getAttribute('data-theme') || 'nautilus';
+    },
+
+    setTheme(themeId, opts = {}) {
+      return this.applyTheme(themeId, opts);
     },
 
     applyTheme(themeId, opts = {}) {
@@ -654,6 +690,10 @@
 
     init() {
       if (this._initialized) return;
+      if (document.body && document.body.dataset && document.body.dataset.lunamixMode === 'dashboard') {
+        this._initialized = true;
+        return;
+      }
       this._initialized = true;
       this._ensurePreviewEl();
 
@@ -814,7 +854,7 @@
       this.render();
 
       document.addEventListener('click', (e) => {
-        const trigger = e.target.closest('#trayNotifBtn, #notifBtn');
+        const trigger = e.target.closest('#trayNotifBtn, #notifBtn, #dashNotifBtn');
         if (trigger) {
           e.stopPropagation();
           playClickSound();
@@ -993,7 +1033,7 @@
       }
 
       document.addEventListener('pointerdown', (e) => {
-        if (this._isOpen && !e.target.closest('#quickActions') && !e.target.closest('#trayActionsBtn')) {
+        if (this._isOpen && !e.target.closest('#quickActions') && !e.target.closest('#trayActionsBtn, #dashActionsBtn')) {
           this.close();
         }
       });
@@ -1125,6 +1165,7 @@
       const muted = this.isMuted();
       const newTabOn = this.isNewTabMode();
       const isFs = Boolean(document.fullscreenElement);
+      const isDashboard = Boolean(document.body && document.body.dataset && document.body.dataset.lunamixMode === 'dashboard');
       const activeTheme = THEMES_CATALOG.find((t) => t.id === LunamixAppStore.getTheme()) || THEMES_CATALOG[0];
 
       el.innerHTML = `
@@ -1149,9 +1190,13 @@
             <i class="fa-solid ${isFs ? 'fa-compress' : 'fa-expand'}"></i>
             <span>${isFs ? 'Exit Fullscreen' : 'Fullscreen'}</span>
           </button>
-          <button class="lm-qa-tile" id="lmQaLockBtn" style="grid-column: span 2;">
+          <button class="lm-qa-tile" id="lmQaLockBtn">
             <i class="fa-solid fa-lock"></i>
             <span>Lock Screen</span>
+          </button>
+          <button class="lm-qa-tile ${isDashboard ? 'is-active' : ''}" id="lmQaModeBtn">
+            <i class="fa-solid ${isDashboard ? 'fa-desktop' : 'fa-table-columns'}"></i>
+            <span>${isDashboard ? 'Switch to Desktop' : 'Switch to Dashboard'}</span>
           </button>
         </div>
         <button class="lm-qa-panic-btn" id="lmQaPanicBtn">
@@ -1189,6 +1234,17 @@
         this.lockScreen();
       });
 
+      el.querySelector('#lmQaModeBtn')?.addEventListener('click', (e) => {
+        e.stopPropagation();
+        playClickSound();
+        this.close();
+        if (window.LunamixOS && typeof window.LunamixOS.switchLayout === 'function') {
+          window.LunamixOS.switchLayout(isDashboard ? 'desktop' : 'dashboard');
+        } else {
+          window.location.href = isDashboard ? './index.html?mode=desktop' : './dashboard.html';
+        }
+      });
+
       el.querySelector('#lmQaPanicBtn')?.addEventListener('click', (e) => {
         e.stopPropagation();
         this.triggerPanic();
@@ -1209,6 +1265,10 @@
 
     init() {
       if (this._initialized) return;
+      if (document.body && document.body.dataset && document.body.dataset.lunamixMode === 'dashboard') {
+        this._initialized = true;
+        return;
+      }
       this._initialized = true;
 
       const grid = document.getElementById('desktopIcons');

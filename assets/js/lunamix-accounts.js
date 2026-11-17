@@ -11,7 +11,7 @@
   const CURRENT_ACCOUNT_KEY = 'lunamix_current_account_v2';
   const BOOT_SETTINGS_KEY = 'lunamix_boot_settings_v2';
 
-  const VALID_THEMES = ['nautilus', 'midnight', 'ocean', 'forest', 'sunset', 'obsidian', 'matrix'];
+  const VALID_THEMES = ['nautilus', 'midnight', 'ocean', 'forest', 'emerald', 'sunset', 'obsidian', 'matrix', 'crimson', 'light-frosted'];
   const DEFAULT_APPS = ['games', 'chat', 'proxy', 'notes', 'music', 'appstore', 'achievements'];
   const AVATAR_CHOICES = ['🚀', '🌙', '🦊', '🐱', '🐼', '🎮', '🎧', '⚡', '🌊', '🌲', '✨', '🛸'];
 
@@ -206,6 +206,7 @@
     if (startUser) startUser.textContent = account.username;
 
     window.dispatchEvent(new CustomEvent('lunamix-account-changed', { detail: { account: publicAccount(account) } }));
+    window.dispatchEvent(new CustomEvent('lunamix-theme-changed', { detail: { theme } }));
     window.dispatchEvent(new CustomEvent('lunamix-apps-updated', { detail: { apps: account.starterApps } }));
   }
 
@@ -226,6 +227,7 @@
 
   function revealDesktop() {
     const desktop = document.getElementById('desktop');
+    const dashShell = document.getElementById('dashShell');
     const bootloader = document.getElementById('bootloader');
     const login = document.getElementById('login');
     const setup = document.getElementById('setup');
@@ -246,6 +248,19 @@
     if (desktop) {
       desktop.style.display = 'block';
     }
+    if (dashShell) {
+      dashShell.classList.add('active');
+      dashShell.style.display = 'flex';
+    }
+
+    const currentAcc = AccountManager.getCurrentAccount();
+    const theme = sanitizeTheme(
+      (currentAcc && currentAcc.theme) || localStorage.getItem('nautilus_theme') || 'nautilus'
+    );
+    document.documentElement.setAttribute('data-theme', theme);
+    localStorage.setItem('nautilus_theme', theme);
+    window.dispatchEvent(new CustomEvent('lunamix-theme-changed', { detail: { theme } }));
+
     LunamixLogin.stopClock();
   }
 
@@ -766,11 +781,19 @@
     open(preselectUsername) {
       const login = document.getElementById('login');
       const setup = document.getElementById('setup');
+      const dashShell = document.getElementById('dashShell');
       if (setup) {
         setup.classList.remove('active');
         setup.style.display = 'none';
       }
-      if (!login) return;
+      if (dashShell) {
+        dashShell.classList.remove('active');
+        dashShell.style.display = 'none';
+      }
+      if (!login) {
+        revealDesktop();
+        return;
+      }
 
       login.classList.add('active');
       login.style.setProperty('display', 'flex', 'important');
@@ -957,12 +980,20 @@
     open() {
       const setup = document.getElementById('setup');
       const login = document.getElementById('login');
+      const dashShell = document.getElementById('dashShell');
       LunamixLogin.stopClock();
       if (login) {
         login.classList.remove('active');
         login.style.setProperty('display', 'none', 'important');
       }
-      if (!setup) return;
+      if (dashShell) {
+        dashShell.classList.remove('active');
+        dashShell.style.display = 'none';
+      }
+      if (!setup) {
+        revealDesktop();
+        return;
+      }
 
       this.currentStep = 1;
       this.selectedAvatar = '🚀';
@@ -988,7 +1019,30 @@
       setup.classList.add('active');
 
       this.bindEvents();
+      this.syncSelectionsUI();
       this.renderStep();
+    },
+
+    syncSelectionsUI() {
+      const avatarGrid = document.getElementById('setupAvatarGrid');
+      if (avatarGrid) {
+        avatarGrid.querySelectorAll('.setup-avatar-option').forEach((btn) => {
+          btn.classList.toggle('selected', btn.textContent === this.selectedAvatar);
+        });
+      }
+      const appsGrid = document.getElementById('setupAppsGrid');
+      if (appsGrid) {
+        appsGrid.querySelectorAll('.setup-app-card').forEach((card) => {
+          const appId = card.getAttribute('data-app');
+          card.classList.toggle('selected', this.selectedApps.includes(appId));
+        });
+      }
+      const themeGrid = document.getElementById('setupThemeGrid');
+      if (themeGrid) {
+        themeGrid.querySelectorAll('.setup-theme-card').forEach((card) => {
+          card.classList.toggle('selected', card.getAttribute('data-theme') === this.selectedTheme);
+        });
+      }
     },
 
     bindEvents() {
@@ -1119,6 +1173,7 @@
             themeGrid.querySelectorAll('.setup-theme-card').forEach((c) => c.classList.remove('selected'));
             card.classList.add('selected');
             document.documentElement.setAttribute('data-theme', this.selectedTheme);
+            localStorage.setItem('nautilus_theme', this.selectedTheme);
           });
         });
       }

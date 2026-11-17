@@ -1,0 +1,606 @@
+<!DOCTYPE html>
+<!-- SPDX-License-Identifier: AGPL-3.0-or-later -->
+<html lang="en" data-theme="nautilus">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Lunamix OS | Dashboard</title>
+  <meta name="description" content="Lunamix OS Dashboard Mode. Launch 1,072+ unblocked games, multi-channel chat, Proxy Hub, web app creator, and retro emulators.">
+  <meta name="google-site-verification" content="9gcLHnT_jGP9RU4-Xe0kHbZEUVnZnGssskO0wYWx9oI" />
+  <link rel="canonical" href="https://skiingbeast2025.github.io/lunamix/dashboard.html">
+  <meta name="keywords" content="Lunamix, WebOS, Dashboard, unblocked games, Proxy Hub, Eaglercraft, Retro Emulator, browser games">
+
+  <!-- Open Graph / SEO -->
+  <meta property="og:title" content="Lunamix OS | Dashboard">
+  <meta property="og:description" content="Sleek WebOS Dashboard Launcher with pinned apps, full-screen workspace, and instant Desktop Mode switching.">
+  <meta property="og:url" content="https://skiingbeast2025.github.io/lunamix/dashboard.html">
+  <meta property="og:type" content="website">
+
+  <!-- Early Theme Initialization (before first paint) -->
+  <script>
+    (function () {
+      try {
+        var savedTheme = localStorage.getItem('nautilus_theme');
+        var curUser = localStorage.getItem('lunamix_current_account_v2');
+        if (curUser) {
+          var rawAccounts = localStorage.getItem('lunamix_accounts_v2');
+          if (rawAccounts) {
+            var accounts = JSON.parse(rawAccounts);
+            if (Array.isArray(accounts)) {
+              for (var i = 0; i < accounts.length; i++) {
+                var acc = accounts[i];
+                if (acc && typeof acc.username === 'string' && acc.username.toLowerCase() === curUser.toLowerCase() && acc.theme) {
+                  savedTheme = acc.theme;
+                  break;
+                }
+              }
+            }
+          }
+        }
+        if (savedTheme && /^[a-z0-9-]+$/i.test(savedTheme)) {
+          document.documentElement.setAttribute('data-theme', savedTheme);
+        }
+      } catch (e) {}
+    })();
+  </script>
+
+  <!-- Favicon -->
+  <link rel="shortcut icon" href="./assets/logos/favicon.svg" type="image/svg+xml">
+
+  <!-- Google Fonts: Inter & JetBrains Mono -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Font Awesome 6 Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <!-- NautilusOS & Lunamix Design System Stylesheets -->
+  <link rel="stylesheet" href="./assets/css/nautilus.css">
+  <link rel="stylesheet" href="./assets/css/lunamix-auth.css">
+  <link rel="stylesheet" href="./assets/css/lunamix-ux.css">
+  <link rel="stylesheet" href="./assets/css/lunamix-apps-v2.css">
+  <link rel="stylesheet" href="./assets/css/lunamix-dashboard.css">
+</head>
+<body data-lunamix-mode="dashboard">
+
+  <!-- ======================================================================
+       1. BIOS Settings Modal
+       ====================================================================== -->
+  <div id="biosModal" role="dialog" aria-modal="true" aria-labelledby="biosModalTitle">
+    <div class="bios-dialog">
+      <div class="bios-header">
+        <div class="bios-header-title" id="biosModalTitle">
+          <i class="fa-solid fa-microchip"></i>
+          <span>LUNAMIX BIOS / UEFI SETUP</span>
+        </div>
+        <button id="biosCloseBtn" class="bios-close-btn" aria-label="Close BIOS">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+      </div>
+      <div class="bios-body">
+        <div class="bios-section">
+          <div class="bios-section-title">Boot Configuration</div>
+          <div class="bios-row">
+            <label for="biosBootDelaySelect">Bootloader Countdown Delay</label>
+            <select id="biosBootDelaySelect" class="bios-select">
+              <option value="1">1 Second</option>
+              <option value="3" selected>3 Seconds (Default)</option>
+              <option value="5">5 Seconds</option>
+              <option value="10">10 Seconds</option>
+            </select>
+          </div>
+        </div>
+        <div class="bios-section">
+          <div class="bios-section-title">System Diagnostics</div>
+          <div class="bios-diag-grid">
+            <div class="bios-diag-item">
+              <span class="bios-diag-label">Local Accounts</span>
+              <span class="bios-diag-value" id="biosDiagAccounts">0</span>
+            </div>
+            <div class="bios-diag-item">
+              <span class="bios-diag-label">Storage Usage</span>
+              <span class="bios-diag-value" id="biosDiagStorage">Checking...</span>
+            </div>
+            <div class="bios-diag-item">
+              <span class="bios-diag-label">Platform</span>
+              <span class="bios-diag-value" id="biosDiagPlatform">Web</span>
+            </div>
+            <div class="bios-diag-item">
+              <span class="bios-diag-label">Stealth Engine</span>
+              <span class="bios-diag-value" id="biosDiagStealth">Ready</span>
+            </div>
+          </div>
+        </div>
+        <div class="bios-section">
+          <div class="bios-section-title">Account Maintenance</div>
+          <div class="bios-row">
+            <span>Clear all local student accounts</span>
+            <button id="biosResetAccountsBtn" class="bios-danger-btn">Reset Accounts</button>
+          </div>
+        </div>
+      </div>
+      <div class="bios-footer">
+        <button id="biosSaveBtn" class="boot-btn-primary">Save &amp; Resume Boot</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ======================================================================
+       2. Login / Lock Screen
+       ====================================================================== -->
+  <div id="login">
+    <div class="login-wrapper">
+      <div class="login-left">
+        <div>
+          <div class="login-time-main" id="loginClock">12:00</div>
+          <div class="login-time-date" id="loginDate">Monday, November 5</div>
+        </div>
+
+        <div class="login-info-card">
+          <div class="info-card-title">
+            <i class="fa-solid fa-gauge-high"></i>
+            <span>System Hardware Status</span>
+          </div>
+          <div class="info-stat">
+            <span class="info-stat-label"><i class="fa-solid fa-laptop" style="color: var(--accent);"></i> Your Device</span>
+            <span class="info-stat-value" id="hwDevice">Detecting...</span>
+          </div>
+          <div class="info-stat">
+            <span class="info-stat-label"><i class="fa-solid fa-battery-three-quarters" style="color: #4ade80;"></i> Battery &amp; Power</span>
+            <span class="info-stat-value" id="hwBattery">Detecting...</span>
+          </div>
+          <div class="info-stat">
+            <span class="info-stat-label"><i class="fa-solid fa-wifi" style="color: #38bdf8;"></i> Network Latency</span>
+            <span class="info-stat-value" id="hwPing" style="color: #4ade80;">Measuring...</span>
+          </div>
+          <div class="info-stat">
+            <span class="info-stat-label"><i class="fa-solid fa-gamepad" style="color: #f59e0b;"></i> Graphics &amp; 3D</span>
+            <span class="info-stat-value" id="hwGfx">WebGL 2.0</span>
+          </div>
+          <div class="info-stat">
+            <span class="info-stat-label"><i class="fa-solid fa-hard-drive" style="color: #a855f7;"></i> Save Storage</span>
+            <span class="info-stat-value" id="hwStorage">Checking quota...</span>
+          </div>
+          <div class="info-stat">
+            <span class="info-stat-label"><i class="fa-solid fa-shield-halved" style="color: #f43f5e;"></i> Stealth Defense</span>
+            <span class="info-stat-value" id="hwStealth" style="color: var(--accent);">Panic [~] Active</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="login-container">
+        <div class="login-avatar" id="loginAvatar">🚀</div>
+        <h2 class="login-title" id="loginTitle">Welcome</h2>
+        <p class="login-subtitle" id="loginSubtitle">Sign in to continue</p>
+
+        <div class="login-account-switcher" id="loginAccountSwitcher"></div>
+
+        <div class="login-error" id="loginError"></div>
+        <input type="password" id="loginPasswordInput" class="login-input" placeholder="Password" autocomplete="current-password" />
+        <button id="loginBtn" class="login-btn">Sign In</button>
+
+        <div class="login-actions-row">
+          <button type="button" class="login-link-btn" id="loginCreateAccountBtn">
+            <i class="fa-solid fa-user-plus"></i> Create Account
+          </button>
+          <button type="button" class="login-link-btn" id="guestLoginBtn">
+            Continue as Guest
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ======================================================================
+       2b. 4-Step Account Creation Wizard
+       ====================================================================== -->
+  <div id="setup" role="dialog" aria-modal="true" aria-labelledby="setupBrandTitle">
+    <div class="setup-card">
+      <div class="setup-header">
+        <div class="setup-brand" id="setupBrandTitle">
+          <i class="fa-solid fa-cube"></i>
+          <span>Lunamix OS Setup</span>
+        </div>
+        <div class="setup-steps-indicator">
+          <div class="setup-step-pip active" id="setupPip1"></div>
+          <div class="setup-step-pip" id="setupPip2"></div>
+          <div class="setup-step-pip" id="setupPip3"></div>
+          <div class="setup-step-pip" id="setupPip4"></div>
+        </div>
+      </div>
+
+      <div class="setup-body">
+        <!-- Step 1: Welcome, Username & Avatar -->
+        <div class="setup-step-pane active" id="setupStep1">
+          <div class="setup-heading">Create Your Student Account</div>
+          <div class="setup-subheading">Choose a display username and avatar for your Lunamix workspace.</div>
+          <label class="setup-label" for="setupUsernameInput">Username</label>
+          <input type="text" id="setupUsernameInput" class="setup-input" placeholder="e.g. Alex" maxlength="24" autocomplete="off" />
+          <label class="setup-label">Pick an Avatar</label>
+          <div class="setup-avatar-grid" id="setupAvatarGrid"></div>
+        </div>
+
+        <!-- Step 2: Security & Import -->
+        <div class="setup-step-pane" id="setupStep2">
+          <div class="setup-heading">Account Security</div>
+          <div class="setup-subheading">Set a local password or enable 1-click passwordless sign-in.</div>
+          <label class="setup-checkbox-row">
+            <input type="checkbox" id="setupPasswordlessCheck" />
+            <span>Passwordless (1-click sign-in on this device)</span>
+          </label>
+          <label class="setup-label" for="setupPasswordInput">Password</label>
+          <input type="password" id="setupPasswordInput" class="setup-input" placeholder="At least 4 characters..." autocomplete="new-password" />
+          <label class="setup-label" for="setupConfirmInput">Confirm Password</label>
+          <input type="password" id="setupConfirmInput" class="setup-input" placeholder="Re-enter password..." autocomplete="new-password" />
+          <div class="setup-import-box">
+            <div>
+              <div style="font-weight: 600; font-size: 0.86rem;">Have an exported profile?</div>
+              <div style="font-size: 0.76rem; color: var(--text-secondary);">Import a Lunamix JSON profile (student role enforced)</div>
+            </div>
+            <button type="button" id="setupImportBtn" class="boot-btn-secondary">Import Profile JSON</button>
+            <input type="file" id="setupImportFile" accept="application/json,.json" style="display: none;" />
+          </div>
+        </div>
+
+        <!-- Step 3: Starter Apps -->
+        <div class="setup-step-pane" id="setupStep3">
+          <div class="setup-heading">Choose Starter Apps</div>
+          <div class="setup-subheading">Select the apps you want ready on your dashboard.</div>
+          <div class="setup-apps-grid" id="setupAppsGrid">
+            <div class="setup-app-card selected" data-app="games"><i class="fa-solid fa-gamepad"></i><span>Games Hub</span></div>
+            <div class="setup-app-card selected" data-app="chat"><i class="fa-solid fa-comments"></i><span>Lunamix Chat</span></div>
+            <div class="setup-app-card selected" data-app="proxy"><i class="fa-solid fa-globe"></i><span>Proxy Hub</span></div>
+            <div class="setup-app-card selected" data-app="notes"><i class="fa-solid fa-note-sticky"></i><span>Notes</span></div>
+            <div class="setup-app-card selected" data-app="music"><i class="fa-solid fa-music"></i><span>Music Player</span></div>
+            <div class="setup-app-card selected" data-app="appstore"><i class="fa-solid fa-store"></i><span>App Store</span></div>
+            <div class="setup-app-card selected" data-app="achievements"><i class="fa-solid fa-trophy"></i><span>Achievements</span></div>
+          </div>
+        </div>
+
+        <!-- Step 4: Theme Picker -->
+        <div class="setup-step-pane" id="setupStep4">
+          <div class="setup-heading">Pick Your Theme</div>
+          <div class="setup-subheading">Personalize your Lunamix OS accent palette.</div>
+          <div class="setup-theme-grid" id="setupThemeGrid">
+            <div class="setup-theme-card selected" data-theme="nautilus">
+              <div class="setup-theme-swatch" style="background: #7dd3c0;"></div>
+              <span>Nautilus Mint</span>
+            </div>
+            <div class="setup-theme-card" data-theme="midnight">
+              <div class="setup-theme-swatch" style="background: #a855f7;"></div>
+              <span>Midnight Purple</span>
+            </div>
+            <div class="setup-theme-card" data-theme="ocean">
+              <div class="setup-theme-swatch" style="background: #38bdf8;"></div>
+              <span>Ocean Glacial</span>
+            </div>
+            <div class="setup-theme-card" data-theme="emerald">
+              <div class="setup-theme-swatch" style="background: #10b981;"></div>
+              <span>Emerald Forest</span>
+            </div>
+            <div class="setup-theme-card" data-theme="crimson">
+              <div class="setup-theme-swatch" style="background: #f43f5e;"></div>
+              <span>Crimson Dusk</span>
+            </div>
+            <div class="setup-theme-card" data-theme="obsidian">
+              <div class="setup-theme-swatch" style="background: #ff5252;"></div>
+              <span>Obsidian Cyber</span>
+            </div>
+            <div class="setup-theme-card" data-theme="matrix">
+              <div class="setup-theme-swatch" style="background: #00ff88;"></div>
+              <span>Matrix Green</span>
+            </div>
+            <div class="setup-theme-card" data-theme="sunset">
+              <div class="setup-theme-swatch" style="background: #f59e0b;"></div>
+              <span>Sunset Gold</span>
+            </div>
+            <div class="setup-theme-card" data-theme="light-frosted">
+              <div class="setup-theme-swatch" style="background: #0284c7;"></div>
+              <span>Light Frosted</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="setup-error" id="setupError"></div>
+      </div>
+
+      <div class="setup-footer">
+        <button type="button" id="setupBackBtn" class="boot-btn-secondary">Back</button>
+        <span id="setupStepLabel" style="font-size: 0.8rem; color: var(--text-secondary);">Step 1 of 4</span>
+        <div>
+          <button type="button" id="setupNextBtn" class="boot-btn-primary">Next</button>
+          <button type="button" id="setupFinishBtn" class="boot-btn-primary" style="display: none;">Finish &amp; Launch</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ======================================================================
+       3. Dashboard Mode Shell (Hidden Until Auth Unlocks)
+       ====================================================================== -->
+  <div id="dashShell" class="dash-shell">
+    <!-- Top Statusbar -->
+    <header class="dash-statusbar" id="dashStatusbar">
+      <div class="dash-status-left">
+        <div class="dash-brand">
+          <span class="dash-brand-icon" aria-hidden="true">
+            <i class="fa-solid fa-cube"></i>
+          </span>
+          <span class="dash-brand-name">LUNAMIX OS</span>
+          <span class="dash-brand-pill">Dashboard</span>
+        </div>
+
+        <a href="./index.html?mode=desktop" id="dashSwitchDesktopBtn" class="dash-nav-btn" title="Switch to Desktop Mode">
+          <i class="fa-solid fa-desktop"></i>
+          <span>Desktop Mode</span>
+        </a>
+      </div>
+
+      <div class="dash-status-right">
+        <button type="button" class="dash-icon-btn lm-newtab-toggle" id="trayNewTabBtn" title="Open Everything in New Tab: Off" aria-pressed="false">
+          <i class="fa-solid fa-arrow-up-right-from-square"></i>
+        </button>
+
+        <button type="button" class="dash-icon-btn" id="dashMuteBtn" title="Toggle Sound" aria-pressed="false">
+          <i class="fa-solid fa-volume-high"></i>
+        </button>
+
+        <button type="button" class="dash-icon-btn lm-notif-trigger" id="trayNotifBtn" title="Notifications">
+          <i class="fa-solid fa-bell"></i>
+          <span class="lm-notif-badge is-empty" id="notifBadge">0</span>
+        </button>
+
+        <button type="button" class="dash-icon-btn" id="trayActionsBtn" title="Quick Actions Flyout">
+          <i class="fa-solid fa-sliders"></i>
+        </button>
+
+        <div class="dash-user-pill">
+          <span class="dash-user-avatar" id="dashUserAvatar">🚀</span>
+          <span class="dash-user-name" id="dashUserName">User</span>
+          <button type="button" id="dashSwitchUserBtn" class="dash-switch-user-btn" title="Switch User">
+            <i class="fa-solid fa-right-left"></i>
+            <span>Switch</span>
+          </button>
+        </div>
+
+        <div class="dash-clock" id="dashClock">12:00 PM</div>
+      </div>
+    </header>
+
+    <!-- Main Dashboard Home View -->
+    <main class="dash-home" id="dashHome">
+      <!-- Hero Greeting Section -->
+      <section class="dash-hero" aria-labelledby="dashHeroTitle">
+        <div class="dash-hero-content">
+          <div class="dash-hero-eyebrow">
+            <i class="fa-solid fa-sparkles"></i>
+            <span>LUNAMIX WEBOS</span>
+          </div>
+          <h1 class="dash-hero-title" id="dashHeroTitle">Welcome, User</h1>
+          <p class="dash-hero-sub">
+            Ready to launch apps, games, and tools in full-screen clarity. Active Theme:
+            <span class="dash-theme-badge" id="dashThemeLabel">Nautilus Mint</span>
+          </p>
+
+          <div class="dash-hero-actions">
+            <button type="button" id="dashPrimaryCta" class="dash-cta-btn">
+              <i class="fa-solid fa-gamepad"></i>
+              <span>Open Games Hub</span>
+            </button>
+
+            <div class="dash-stats-row">
+              <div class="dash-stat-pill">
+                <i class="fa-solid fa-thumbtack"></i>
+                <span>Pinned:</span>
+                <strong id="dashPinnedCount">0</strong>
+              </div>
+              <div class="dash-stat-pill">
+                <i class="fa-solid fa-trophy"></i>
+                <span>Achievements:</span>
+                <strong id="dashAchCount">0</strong>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- App Organizer Section -->
+      <section class="dash-organizer-section" aria-label="App Organizer">
+        <div class="dash-filter-bar">
+          <div class="dash-filter-group">
+            <label class="dash-sr-only" for="dashCategory">Filter Category</label>
+            <select id="dashCategory" class="dash-select" aria-label="Filter apps by category">
+              <option value="all">All Apps</option>
+              <option value="pinned">Pinned Only</option>
+              <option value="games">Games &amp; Media</option>
+              <option value="social">Social &amp; Web</option>
+              <option value="tools">Tools &amp; System</option>
+            </select>
+
+            <div class="dash-search-wrap">
+              <i class="fa-solid fa-magnifying-glass"></i>
+              <input type="search" id="dashSearch" class="dash-search-input" placeholder="Search apps, games, tools..." autocomplete="off" aria-label="Search apps" />
+            </div>
+          </div>
+
+          <div class="dash-filter-actions">
+            <button type="button" id="dashPinToggle" class="dash-tool-btn" aria-expanded="false" aria-controls="dashPinPanel">
+              <i class="fa-solid fa-thumbtack"></i>
+              <span>Manage Pins</span>
+            </button>
+
+            <a href="./index.html?mode=desktop" id="dashOrganizerDesktopBtn" class="dash-mode-pill">
+              <i class="fa-solid fa-window-restore"></i>
+              <span>Switch to Desktop Mode</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- Collapsible Pin Manager Panel -->
+        <section id="dashPinPanel" class="dash-pin-panel" aria-label="Pin Manager" hidden>
+          <div class="dash-pin-panel-header">
+            <div>
+              <h2 class="dash-pin-panel-title">Pin Manager</h2>
+              <p class="dash-pin-panel-sub">Choose which apps appear first in your pinned dashboard view.</p>
+            </div>
+          </div>
+          <div id="dashPinList" class="dash-pin-list"></div>
+        </section>
+
+        <!-- Responsive Glossy App Tiles Grid -->
+        <div id="dashAppGrid" class="dash-app-grid"></div>
+      </section>
+    </main>
+
+    <!-- Full-Screen App Workspace Pane -->
+    <section id="dashWorkspace" class="dash-workspace" aria-label="App Workspace" hidden>
+      <header id="dashWorkspaceBar" class="dash-workspace-bar">
+        <div class="dash-ws-left">
+          <button type="button" id="dashBackBtn" class="dash-back-btn">
+            <i class="fa-solid fa-arrow-left"></i>
+            <span>Back to Dashboard</span>
+          </button>
+          <div id="dashWsTitle" class="dash-ws-title">App</div>
+        </div>
+
+        <div class="dash-ws-right">
+          <div id="dashWsActions" class="dash-ws-actions"></div>
+          <button type="button" id="dashWsNewTabBtn" class="dash-ws-newtab-btn" title="Open in New Tab">
+            <i class="fa-solid fa-arrow-up-right-from-square"></i>
+            <span>Open in New Tab</span>
+          </button>
+        </div>
+      </header>
+
+      <div id="dashWorkspaceBody" class="dash-workspace-body"></div>
+    </section>
+  </div>
+
+  <!-- ======================================================================
+       4. Shared UX Overlays (Notifications, Quick Actions, Toasts)
+       ====================================================================== -->
+  <div id="notificationCenter"></div>
+  <div id="quickActions"></div>
+  <div id="toastContainer" aria-live="polite"></div>
+
+  <!-- ======================================================================
+       5. Core Engines & Dashboard Scripts
+       ====================================================================== -->
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.js"></script>
+  <script src="./assets/js/lunamix-core.js"></script>
+  <script src="./assets/js/lunamix-accounts.js"></script>
+  <script src="./assets/js/lunamix-ux.js"></script>
+  <script src="./assets/js/lunamix-apps-v2.js"></script>
+  <script src="./assets/js/nautilus-os.js"></script>
+  <script src="./assets/js/lunamix-dashboard.js"></script>
+
+  <script>
+    // Real-Time Hardware & System Diagnostics for Login Screen
+    (async function initHardwareDiagnostics() {
+      const devEl = document.getElementById('hwDevice');
+      if (devEl) {
+        const ua = navigator.userAgent;
+        let d = 'Personal Computer';
+        if (/CrOS/.test(ua)) d = 'Chromebook';
+        else if (/Macintosh|Mac OS X/.test(ua)) d = 'Mac';
+        else if (/Windows/.test(ua)) d = 'Windows PC';
+        else if (/Android/.test(ua)) d = 'Android';
+        else if (/iPhone|iPad|iPod/.test(ua)) d = 'iOS Device';
+        else if (/Linux/.test(ua)) d = 'Linux PC';
+        devEl.textContent = `${d}, ${window.screen.width}x${window.screen.height}`;
+      }
+
+      const batEl = document.getElementById('hwBattery');
+      if (batEl) {
+        if ('getBattery' in navigator) {
+          try {
+            const battery = await navigator.getBattery();
+            const updateBat = () => {
+              const pct = Math.round(battery.level * 100);
+              batEl.textContent = `${pct}% ${battery.charging ? '(Charging)' : '(Battery)'}`;
+              batEl.style.color = pct < 20 && !battery.charging ? '#ef4444' : '#4ade80';
+            };
+            updateBat();
+            battery.addEventListener('levelchange', updateBat);
+            battery.addEventListener('chargingchange', updateBat);
+          } catch (e) {
+            batEl.textContent = 'AC Power Connected';
+          }
+        } else {
+          batEl.textContent = 'AC Power / Standard';
+        }
+      }
+
+      const pingEl = document.getElementById('hwPing');
+      if (pingEl) {
+        const checkPing = async () => {
+          const t0 = performance.now();
+          try {
+            await fetch('./assets/logos/favicon.svg?ping=' + Date.now(), { method: 'HEAD', cache: 'no-store' });
+            const ms = Math.max(1, Math.round(performance.now() - t0));
+            if (ms < 50) {
+              pingEl.textContent = `${ms}ms (Low Latency)`;
+              pingEl.style.color = '#4ade80';
+            } else if (ms < 120) {
+              pingEl.textContent = `${ms}ms (Normal)`;
+              pingEl.style.color = '#7dd3c0';
+            } else {
+              pingEl.textContent = `${ms}ms (High)`;
+              pingEl.style.color = '#f59e0b';
+            }
+          } catch (e) {
+            pingEl.textContent = 'Connected (Filter Safe)';
+            pingEl.style.color = '#4ade80';
+          }
+        };
+        checkPing();
+        setInterval(checkPing, 10000);
+      }
+
+      const gfxEl = document.getElementById('hwGfx');
+      if (gfxEl) {
+        try {
+          const c = document.createElement('canvas');
+          const gl = c.getContext('webgl2') || c.getContext('webgl');
+          if (gl) {
+            const ext = gl.getExtension('WEBGL_debug_renderer_info');
+            const ren = ext ? gl.getParameter(ext.UNMASKED_RENDERER_WEBGL) : '';
+            if (/NVIDIA/i.test(ren)) gfxEl.textContent = 'NVIDIA GPU (WebGL 2)';
+            else if (/AMD|Radeon/i.test(ren)) gfxEl.textContent = 'AMD GPU (WebGL 2)';
+            else if (/Apple/i.test(ren)) gfxEl.textContent = 'Apple Metal (WebGL 2)';
+            else if (/Intel/i.test(ren)) gfxEl.textContent = 'Intel HD/Iris (WebGL 2)';
+            else gfxEl.textContent = 'Hardware Accelerated';
+          } else {
+            gfxEl.textContent = 'Canvas 2D Ready';
+          }
+        } catch (e) {
+          gfxEl.textContent = 'Hardware Accelerated';
+        }
+      }
+
+      const storageEl = document.getElementById('hwStorage');
+      if (storageEl) {
+        if (navigator.storage && navigator.storage.estimate) {
+          try {
+            const est = await navigator.storage.estimate();
+            const freeBytes = (est.quota || 0) - (est.usage || 0);
+            const freeGB = Math.max(0, freeBytes / (1024 * 1024 * 1024)).toFixed(1);
+            storageEl.textContent = `${freeGB} GB Available`;
+          } catch (e) {
+            storageEl.textContent = 'Persistent Local';
+          }
+        } else {
+          storageEl.textContent = 'Persistent Local';
+        }
+      }
+
+      const stealthEl = document.getElementById('hwStealth');
+      if (stealthEl) {
+        const pk = window.LunamixPanic?.panicKey || '`';
+        stealthEl.textContent = `Panic [${pk}] / Cloak Ready`;
+      }
+    })();
+  </script>
+</body>
+</html>

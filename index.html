@@ -4,6 +4,18 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
   <title>Lunamix OS</title>
+  <script>
+    (function () {
+      try {
+        var params = new URLSearchParams(window.location.search);
+        if (params.get('mode') !== 'desktop' && localStorage.getItem('lunamix_default_layout') === 'dashboard') {
+          var appParam = params.get('app');
+          var target = './dashboard.html' + (appParam ? '?app=' + encodeURIComponent(appParam) : '');
+          window.location.replace(target);
+        }
+      } catch (e) {}
+    })();
+  </script>
   <meta name="description" content="Lunamix OS - WebOS. Includes 1,072+ unblocked games, multi-channel chat, Proxy Hub, web app creator, and retro emulators.">
   <meta name="google-site-verification" content="9gcLHnT_jGP9RU4-Xe0kHbZEUVnZnGssskO0wYWx9oI" />
   <link rel="canonical" href="https://skiingbeast2025.github.io/lunamix/">
@@ -426,6 +438,7 @@
           <button type="button" id="startSwitchUserBtn" class="start-acct-btn" title="Switch User" style="font-size: 0.68rem; padding: 0.15rem 0.45rem; border-radius: 5px; background: rgba(255,255,255,0.07); border: 1px solid rgba(255,255,255,0.12); color: var(--text-secondary); cursor: pointer;">Switch User</button>
           <button type="button" id="startLockBtn" class="start-acct-btn" title="Lock Screen" style="font-size: 0.68rem; padding: 0.15rem 0.45rem; border-radius: 5px; background: rgba(255,255,255,0.07); border: 1px solid rgba(255,255,255,0.12); color: var(--text-secondary); cursor: pointer;">Lock</button>
           <button type="button" id="startLogoutBtn" class="start-acct-btn" title="Logout" style="font-size: 0.68rem; padding: 0.15rem 0.45rem; border-radius: 5px; background: rgba(239,68,68,0.14); border: 1px solid rgba(239,68,68,0.28); color: #fca5a5; cursor: pointer;">Logout</button>
+          <button type="button" id="startDashboardBtn" class="start-acct-btn" title="Switch to Dashboard Mode" style="font-size: 0.68rem; padding: 0.15rem 0.45rem; border-radius: 5px; background: rgba(125,211,192,0.14); border: 1px solid rgba(125,211,192,0.3); color: var(--accent); cursor: pointer;"><i class="fa-solid fa-table-columns"></i> Dashboard Mode</button>
         </div>
       </div>
       <button class="start-power-btn" id="startPowerBtn" title="Reboot OS" onclick="window.location.reload();">

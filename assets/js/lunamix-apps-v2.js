@@ -59,7 +59,11 @@
 
   function isMuted() {
     try {
+      if (window.LunamixQuickActions && typeof window.LunamixQuickActions.isMuted === 'function') {
+        if (window.LunamixQuickActions.isMuted()) return true;
+      }
       if (window.LunamixSettings && window.LunamixSettings.muted === true) return true;
+      if (localStorage.getItem('lunamix_sound_muted') === 'true') return true;
       if (localStorage.getItem('lunamix_muted') === 'true') return true;
     } catch (_) {
       // Ignore storage errors
@@ -423,7 +427,14 @@
 
       render();
 
-      const onUnlock = () => render();
+      const onUnlock = () => {
+        if (!document.body.contains(winBody)) {
+          window.removeEventListener('lunamix:achievement-unlocked', onUnlock);
+          window.removeEventListener('lunamix-account-changed', onUnlock);
+          return;
+        }
+        render();
+      };
       window.addEventListener('lunamix:achievement-unlocked', onUnlock);
       window.addEventListener('lunamix-account-changed', onUnlock);
       if (winObj) {
@@ -768,6 +779,10 @@
 
     function scheduleTick() {
       if (!isPlaying || !audioCtx) return;
+      if (!document.body.contains(winBody)) {
+        stopPlayback();
+        return;
+      }
       const track = SYNTH_TRACKS[trackIndex];
       const chordIdx = Math.floor(stepCount / 4) % track.chords.length;
       const chord = track.chords[chordIdx];
@@ -830,6 +845,10 @@
 
     function animateVisualizer() {
       if (!isPlaying || !analyser) return;
+      if (!document.body.contains(winBody)) {
+        stopPlayback();
+        return;
+      }
       const bars = winBody.querySelectorAll('.lm-music-bar');
       const data = new Uint8Array(analyser.frequencyBinCount);
       analyser.getByteFrequencyData(data);
