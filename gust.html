@@ -12717,7 +12717,7 @@ let activeTabId = 1;
                     const title = tabEl.querySelector('.tab-title')?.textContent || '';
                     ghostEl.innerHTML =
                         `<span style="font-size:14px;color:var(--ac);flex-shrink:0;display:flex;align-items:center;">${icon}</span>` +
-                        `<span style="flex:1;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;">${title}</span>`;
+                        `<span style="flex:1;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;">${escapeHtml(title)}</span>`;
                     ghostEl.style.left = (cursorX - cursorOffX) + 'px';
                     ghostEl.style.top  = ghostY + 'px';
                     document.body.appendChild(ghostEl);
@@ -12950,8 +12950,9 @@ let activeTabId = 1;
                 }, 400);
             }
             function getPageLS(origin) { return pageLS[origin] || {}; }
-            function setPageLSItem(origin, k, v) { (pageLS[origin] = pageLS[origin] || {})[String(k)] = String(v); savePageLS(); }
-            function removePageLSItem(origin, k) { if (pageLS[origin]) { delete pageLS[origin][String(k)]; savePageLS(); } }
+            function isSafeLSKey(s) { return s !== "__proto__" && s !== "constructor" && s !== "prototype"; }
+            function setPageLSItem(origin, k, v) { const o = String(origin), key = String(k); if (!isSafeLSKey(o) || !isSafeLSKey(key)) return; (pageLS[o] = pageLS[o] || Object.create(null))[key] = String(v); savePageLS(); }
+            function removePageLSItem(origin, k) { const o = String(origin), key = String(k); if (!isSafeLSKey(o) || !isSafeLSKey(key)) return; if (pageLS[o]) { delete pageLS[o][key]; savePageLS(); } }
             function clearPageLS(origin) { if (pageLS[origin]) { delete pageLS[origin]; savePageLS(); } }
 
             function splitSetCookie(header) {
@@ -13302,7 +13303,7 @@ let activeTabId = 1;
                     btn.innerHTML = `
             ${faviconHtml}
             <i class="fas fa-globe" style="display: inline-block; font-size: 12px; color: var(--tx2);"></i>
-            <span>${bm.name}</span>
+            <span>${escapeHtml(bm.name)}</span>
             <button class="bookmark-delete" title="Remove bookmark">
                 <i class="fas fa-times"></i>
             </button>
@@ -14650,9 +14651,7 @@ let activeTabId = 1;
                 const ts = now.toLocaleTimeString('en-US', { hour12: false, hour: '2-digit', minute: '2-digit', second: '2-digit' });
 
                 // Plain-text version for dedup key and search
-                const tempDiv = document.createElement('div');
-                tempDiv.innerHTML = msg;
-                const plainText = tempDiv.textContent || msg;
+                const plainText = String(msg ?? "");
                 d.dataset.text = plainText.toLowerCase();
 
                 const msgKey = msg.slice(0, 500);
@@ -14689,7 +14688,7 @@ let activeTabId = 1;
 
                 const msgSpan = document.createElement('span');
                 msgSpan.className = 'log-msg';
-                msgSpan.innerHTML = msg.slice(0, 500);
+                msgSpan.textContent = String(msg ?? "").slice(0, 500);
 
                 d.appendChild(tsSpan);
                 d.appendChild(msgSpan);
@@ -18322,8 +18321,12 @@ parent.postMessage({ t: 'ready' }, '*');
                             href = URL.createObjectURL(blob);
                             revoke = href;
                         }
+                        const parsedHref = new URL(href, window.location.origin);
+                        if (!['http:', 'https:', 'blob:'].includes(parsedHref.protocol)) {
+                            throw new Error('Blocked unsafe download URL scheme');
+                        }
                         const a = document.createElement('a');
-                        a.href = href;
+                        a.href = parsedHref.href;
                         a.download = d.name || 'download';
                         a.rel = 'noopener';
                         document.body.appendChild(a);
@@ -21956,7 +21959,7 @@ _VIEWER_DL_JS +
                     const html = (r && r.buf && r.buf.byteLength) ? new TextDecoder('utf-8').decode(new Uint8Array(r.buf)) : '';
                     const items = parseStoreHtml(html);
                     if (items.length) renderStoreGrid(items);
-                    else if (query) grid.innerHTML = '<div class="xs-empty">No results parsed for "' + query + '".<br>The store may have withheld data — paste the extension\'s URL / ID above to install it directly.</div>';
+                    else if (query) grid.innerHTML = '<div class="xs-empty">No results parsed for "' + escapeHtml(query) + '".<br>The store may have withheld data — paste the extension\'s URL / ID above to install it directly.</div>';
                     // no query + parse empty → keep the seed grid already shown
                 } catch (e) {
                     if (token !== _xsLoadToken) return;
