@@ -10,6 +10,7 @@
   const CINNY_CHAT_URL = 'https://skiingbeast2025.github.io/cinny/';
   const PROXY_LIST_URL = 'https://yourworstnightmare1.github.io/proxy-list/';
   const FERN_PROXY_URL = 'https://s3.amazonaws.com/deaganfern/index.html';
+  const GUST_PROXY_URL = './gust.html';
   const WEBRETRO_EMULATOR_URL = 'https://skiingbeast2025.github.io/webretro/';
 
   const DEFAULT_PINS = ['games', 'chat', 'browser', 'eaglercraft', 'notes', 'appstore'];
@@ -407,6 +408,7 @@
       chat: CINNY_CHAT_URL,
       browser: PROXY_LIST_URL,
       fern: FERN_PROXY_URL,
+      gust: GUST_PROXY_URL,
       eaglercraft: eaglerUrl,
       emulator: WEBRETRO_EMULATOR_URL
     };

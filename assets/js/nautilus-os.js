@@ -160,6 +160,17 @@
       minHeight: 360,
       render: (container, winObj) => renderProxyHubApp(container, winObj, 'fern')
     },
+    gust: {
+      id: 'gust',
+      name: 'GUST',
+      icon: 'fa-wind',
+      color: '#38bdf8',
+      width: 1020,
+      height: 650,
+      minWidth: 440,
+      minHeight: 360,
+      render: (container, winObj) => renderProxyHubApp(container, winObj, 'gust')
+    },
     creator: {
       id: 'creator',
       name: 'Web App Creator',
@@ -2708,13 +2719,53 @@
   }
 
   // --------------------------------------------------------------------------
-  // App: Proxy Hub (Multi-Tab: Proxy List & Fern Proxy)
+  // App: Proxy Hub (Multi-Tab: Proxy List, Fern Proxy & GUST)
   // --------------------------------------------------------------------------
   const PROXY_LIST_URL = 'https://yourworstnightmare1.github.io/proxy-list/';
   const FERN_PROXY_URL = 'https://s3.amazonaws.com/deaganfern/index.html';
+  const GUST_PROXY_URL = './gust.html';
+
+  const PROXY_HUB_TABS = {
+    list: {
+      id: 'list',
+      label: 'Proxy List',
+      title: 'Open Proxy List in New Tab',
+      icon: 'fa-list-ul',
+      color: '#a855f7',
+      iframeId: 'proxyListIframe',
+      url: PROXY_LIST_URL,
+      allow: 'autoplay; fullscreen; clipboard-read; clipboard-write; focus-without-user-activation *',
+      sandbox: 'allow-scripts allow-same-origin allow-forms allow-popups allow-modals',
+      lazy: false
+    },
+    fern: {
+      id: 'fern',
+      label: 'Fern Proxy',
+      title: 'Open Fern Proxy in New Tab',
+      icon: 'fa-leaf',
+      color: '#10b981',
+      iframeId: 'fernProxyIframe',
+      url: FERN_PROXY_URL,
+      allow: 'autoplay; fullscreen; clipboard-read; clipboard-write; focus-without-user-activation *',
+      sandbox: 'allow-scripts allow-same-origin allow-forms allow-popups allow-modals',
+      lazy: false
+    },
+    gust: {
+      id: 'gust',
+      label: 'GUST',
+      title: 'Open GUST in New Tab',
+      icon: 'fa-wind',
+      color: '#38bdf8',
+      iframeId: 'gustProxyIframe',
+      url: GUST_PROXY_URL,
+      allow: 'autoplay; fullscreen; clipboard-read; clipboard-write; focus-without-user-activation *',
+      sandbox: 'allow-scripts allow-same-origin allow-forms allow-popups allow-modals allow-downloads',
+      lazy: true
+    }
+  };
 
   function renderProxyHubApp(container, winObj, initialTab = 'list') {
-    let activeTab = initialTab === 'fern' ? 'fern' : 'list';
+    let activeTab = Object.prototype.hasOwnProperty.call(PROXY_HUB_TABS, initialTab) ? initialTab : 'list';
     let extLinkBtn = null;
 
     if (winObj && typeof winObj.addHeaderButton === 'function') {
@@ -2722,57 +2773,57 @@
         icon: 'fa-rotate-right',
         title: 'Reload Active Proxy',
         onClick: () => {
-          const iframe = activeTab === 'fern'
-            ? container.querySelector('#fernProxyIframe')
-            : container.querySelector('#proxyListIframe');
-          if (iframe) {
-            const currentSrc = iframe.src;
+          const tabMeta = PROXY_HUB_TABS[activeTab];
+          const iframe = tabMeta ? container.querySelector(`#${tabMeta.iframeId}`) : null;
+          if (iframe && tabMeta) {
+            const targetSrc = iframe.getAttribute('src');
+            const nextSrc = (targetSrc && targetSrc !== 'about:blank') ? targetSrc : tabMeta.url;
             iframe.src = 'about:blank';
-            setTimeout(() => { iframe.src = currentSrc; }, 50);
+            setTimeout(() => { iframe.src = nextSrc; }, 50);
           }
         }
       });
+      const initMeta = PROXY_HUB_TABS[activeTab];
       extLinkBtn = winObj.addHeaderButton({
         icon: 'fa-arrow-up-right-from-square',
-        title: activeTab === 'fern' ? 'Open Fern Proxy in New Tab' : 'Open Proxy List in New Tab',
-        href: activeTab === 'fern' ? FERN_PROXY_URL : PROXY_LIST_URL
+        title: initMeta.title,
+        href: initMeta.url
       });
     }
+
+    const tabsList = Object.values(PROXY_HUB_TABS);
 
     container.innerHTML = `
       <div class="proxy-window-container">
         <div class="proxy-tab-bar" role="tablist">
-          <button type="button" class="proxy-tab-btn ${activeTab === 'list' ? 'active' : ''}" data-tab="list" role="tab" aria-selected="${activeTab === 'list'}">
-            <i class="fa-solid fa-list-ul" style="color: #a855f7;"></i>
-            <span>Proxy List</span>
-          </button>
-          <button type="button" class="proxy-tab-btn ${activeTab === 'fern' ? 'active' : ''}" data-tab="fern" role="tab" aria-selected="${activeTab === 'fern'}">
-            <i class="fa-solid fa-leaf" style="color: #10b981;"></i>
-            <span>Fern Proxy</span>
-          </button>
+          ${tabsList.map(tab => `
+            <button type="button" class="proxy-tab-btn ${activeTab === tab.id ? 'active' : ''}" data-tab="${tab.id}" role="tab" aria-selected="${activeTab === tab.id}">
+              <i class="fa-solid ${tab.icon}" style="color: ${tab.color};"></i>
+              <span>${tab.label}</span>
+            </button>
+          `).join('')}
         </div>
         <div class="proxy-tab-viewport">
-          <iframe src="${PROXY_LIST_URL}" id="proxyListIframe"
-            style="display: ${activeTab === 'list' ? 'block' : 'none'};"
-            allow="autoplay; fullscreen; clipboard-read; clipboard-write; focus-without-user-activation *"
-            sandbox="allow-scripts allow-same-origin allow-forms allow-popups allow-modals">
-          </iframe>
-          <iframe src="${FERN_PROXY_URL}" id="fernProxyIframe"
-            style="display: ${activeTab === 'fern' ? 'block' : 'none'};"
-            allow="autoplay; fullscreen; clipboard-read; clipboard-write; focus-without-user-activation *"
-            sandbox="allow-scripts allow-same-origin allow-forms allow-popups allow-modals">
-          </iframe>
+          ${tabsList.map(tab => {
+            const initialSrc = (!tab.lazy || activeTab === tab.id) ? tab.url : 'about:blank';
+            return `
+              <iframe src="${initialSrc}" id="${tab.iframeId}" data-tab="${tab.id}"
+                style="display: ${activeTab === tab.id ? 'block' : 'none'};"
+                allow="${tab.allow}"
+                sandbox="${tab.sandbox}">
+              </iframe>
+            `;
+          }).join('')}
         </div>
       </div>
     `;
 
     const tabButtons = container.querySelectorAll('.proxy-tab-btn');
-    const proxyListIframe = container.querySelector('#proxyListIframe');
-    const fernProxyIframe = container.querySelector('#fernProxyIframe');
 
     function switchTab(newTab) {
-      if (activeTab === newTab) return;
+      if (!Object.prototype.hasOwnProperty.call(PROXY_HUB_TABS, newTab) || activeTab === newTab) return;
       activeTab = newTab;
+      const tabMeta = PROXY_HUB_TABS[activeTab];
 
       tabButtons.forEach(btn => {
         const isActive = btn.dataset.tab === activeTab;
@@ -2780,16 +2831,19 @@
         btn.setAttribute('aria-selected', String(isActive));
       });
 
-      if (proxyListIframe) {
-        proxyListIframe.style.display = activeTab === 'list' ? 'block' : 'none';
-      }
-      if (fernProxyIframe) {
-        fernProxyIframe.style.display = activeTab === 'fern' ? 'block' : 'none';
-      }
+      tabsList.forEach(tab => {
+        const frame = container.querySelector(`#${tab.iframeId}`);
+        if (!frame) return;
+        const isActive = tab.id === activeTab;
+        frame.style.display = isActive ? 'block' : 'none';
+        if (isActive && (!frame.getAttribute('src') || frame.getAttribute('src') === 'about:blank')) {
+          frame.src = tab.url;
+        }
+      });
 
-      if (extLinkBtn) {
-        extLinkBtn.href = activeTab === 'fern' ? FERN_PROXY_URL : PROXY_LIST_URL;
-        extLinkBtn.title = activeTab === 'fern' ? 'Open Fern Proxy in New Tab' : 'Open Proxy List in New Tab';
+      if (extLinkBtn && tabMeta) {
+        extLinkBtn.href = tabMeta.url;
+        extLinkBtn.title = tabMeta.title;
       }
     }
 
