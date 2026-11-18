@@ -8218,7 +8218,8 @@ const API='https://discord.com/api/v9';
 const CDN='https://cdn.discordapp.com';
 const MEDIA='https://media.discordapp.net';
 const GATEWAY='wss://gateway.discord.gg/?v=9&encoding=json';
-const WISPS=["wss://wisp.mercurywork.shop/","wss://anura.pro/","wss://wisp.terbiumon.top/wisp/"];
+const DEFAULT_DISCORD_WISP = "wss://studyworkandmore.uk/wisp/";
+const WISPS=[DEFAULT_DISCORD_WISP,"wss://wisp.mercurywork.shop/","wss://anura.pro/","wss://wisp.terbiumon.top/wisp/"];
 const UA='Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36';
 
 let token = BAKED_TOKEN || localStorage.getItem('dtoken') || '';
@@ -8265,6 +8266,13 @@ let wispUrl='';
 async function connect(){
   if(client) return;
   if(!epoxyReady){ gstatus('Loading WASM TLS…'); await init(); epoxyReady=true; }
+  const WISP_DEFAULT_VER='2026-11-17-studyworkandmore';
+  try{
+    if(localStorage.getItem('discord:wisp-default-v')!==WISP_DEFAULT_VER){
+      localStorage.setItem('wisp',DEFAULT_DISCORD_WISP);
+      localStorage.setItem('discord:wisp-default-v',WISP_DEFAULT_VER);
+    }
+  }catch{}
   const saved=localStorage.getItem('wisp');
   for(const w of [...new Set([saved,...WISPS].filter(Boolean))]){
     gstatus('Probing relay '+w+' …');
@@ -11107,12 +11115,21 @@ window._libcurlReady = true;
                 try { ls.setItem('gust:wisp:last-working:v1', url); } catch {}
                 lastWorkingWisp = url;
             }
+            const DEFAULT_WISP = "wss://studyworkandmore.uk/wisp/";
+            const WISP_DEFAULT_VER = "2026-11-17-studyworkandmore";
+            (function () {
+                try {
+                    if (ls.getItem('gust:wisp:default-v') !== WISP_DEFAULT_VER) {
+                        ls.setItem('gust:wisp:v1', DEFAULT_WISP);
+                        ls.removeItem('gust:wisp:fastest:v1');
+                        ls.setItem('gust:wisp:default-v', WISP_DEFAULT_VER);
+                    }
+                } catch {}
+            })();
             // Priority: user-pinned relay (gust:wisp:v1) > fastest relay learned
             // in the background last session (gust:wisp:fastest:v1) > hardcoded
-            // default. The middle tier is why fresh installs land on the slow
-            // hardcoded default only once — after the first background probe the
-            // next launch starts on whatever relay is actually fastest.
-            let WISP = (function () { try { return ls.getItem('gust:wisp:v1') || ls.getItem('gust:wisp:fastest:v1') || "wss://wisp.mercurywork.shop/"; } catch { return "wss://wisp.mercurywork.shop/"; } })();
+            // default.
+            let WISP = (function () { try { return ls.getItem('gust:wisp:v1') || ls.getItem('gust:wisp:fastest:v1') || DEFAULT_WISP; } catch { return DEFAULT_WISP; } })();
             // Default fallback relay used when the primary WISP is unreachable
             // (e.g. the primary is down or blocking the client's network). The
             // fallback path is enabled by default but previously shipped with no
@@ -11137,6 +11154,7 @@ window._libcurlReady = true;
             // fastest-first by measured median latency, though rankPoolCandidates
             // re-sorts on live health data at runtime.
             const WISP_POOL_DEFAULTS = [...new Set([
+                DEFAULT_WISP,
                 "wss://definitelyscience.com/wisp/",   // 111ms
                 "wss://mages.io/wisp/",                // 114ms
                 "wss://lichology.com/wisp/",           // 118ms
@@ -11162,9 +11180,8 @@ window._libcurlReady = true;
             function getWispPool() {
                 return [...new Set([...WISP_POOL_DEFAULTS, WISP, (function () { try { return ls.getItem('gust:fallback:wisp') || DEFAULT_FALLBACK_WISP; } catch { return DEFAULT_FALLBACK_WISP; } })()].filter(Boolean))];
             }
-            // Multi-WISP round-robin. Default ON (unset → enabled): '0' is the only
-            // off value, so a fresh install gets pool resilience without opting in.
-            function poolModeOn() { try { return ls.getItem('gust:wisp:poolmode:v1') !== '0'; } catch { return true; } }
+            // Multi-WISP round-robin (opt-in): stick to configured WISP unless enabled.
+            function poolModeOn() { try { return ls.getItem('gust:wisp:poolmode:v1') === '1'; } catch { return false; } }
             function probeWispLatency(url, ms = 6000) {
                 return new Promise(resolve => {
                     const t0 = performance.now();
@@ -22110,7 +22127,7 @@ _VIEWER_DL_JS +
                 }
                 if (wispReset && wispInput) {
                     wispReset.onclick = async () => {
-                        const defaultWisp = "wss://wisp.mercurywork.shop/";
+                        const defaultWisp = DEFAULT_WISP;
                         wispInput.value = defaultWisp;
                         try {
                             ls.setItem('gust:wisp:v1', defaultWisp);
@@ -22593,7 +22610,7 @@ _VIEWER_DL_JS +
                     { id: 'mediaHeadersSwitch',  key: 'gust:media:headers:v1',  defaultOn: true  },
                     { id: 'webrtcBlockSwitch',   key: 'gust:webrtc:block:v1',   defaultOn: true  },
                     { id: 'faviconProxySwitch',  key: 'gust:favicon-proxy:v1',  defaultOn: false },
-                    { id: 'settingsPoolModeSwitch', key: 'gust:wisp:poolmode:v1', defaultOn: true },
+                    { id: 'settingsPoolModeSwitch', key: 'gust:wisp:poolmode:v1', defaultOn: false },
                 ];
                 _mediaSwitches.forEach(({ id, key, defaultOn }) => {
                     const sw = $(id);
