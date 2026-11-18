@@ -111,13 +111,6 @@
       icon: 'fa-power-off',
       xp: 10
     },
-    account_created: {
-      id: 'account_created',
-      title: 'Identity Established',
-      desc: 'Create or sign in to a Lunamix OS account.',
-      icon: 'fa-user-check',
-      xp: 20
-    },
     app_installer: {
       id: 'app_installer',
       title: 'App Collector',
@@ -452,6 +445,13 @@
   window.renderAchievementsApp = function (winBody, winObj) {
     LunamixAchievements.renderAchievementsApp(winBody, winObj);
   };
+  setTimeout(() => {
+    const desk = document.getElementById('desktop');
+    const dash = document.getElementById('dashShell');
+    if ((desk && desk.style.display === 'block') || (dash && dash.classList.contains('active'))) {
+      LunamixAchievements.unlock('first_boot');
+    }
+  }, 50);
 
   // ==========================================================================
   // 2. Notes / Text Editor App (renderNotesApp)

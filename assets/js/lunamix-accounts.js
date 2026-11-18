@@ -283,6 +283,12 @@
     localStorage.setItem('nautilus_theme', theme);
     window.dispatchEvent(new CustomEvent('lunamix-theme-changed', { detail: { theme } }));
 
+    if (window.LunamixAchievements && typeof window.LunamixAchievements.unlock === 'function') {
+      try {
+        window.LunamixAchievements.unlock('first_boot');
+      } catch (e) {}
+    }
+
     LunamixLogin.stopClock();
   }
 
@@ -1455,7 +1461,6 @@
       if (window.LunamixAchievements && typeof window.LunamixAchievements.unlockAchievement === 'function') {
         try {
           window.LunamixAchievements.unlockAchievement('first_boot');
-          window.LunamixAchievements.unlockAchievement('account_created');
         } catch (e) {
           // Ignore achievement hook errors if not yet initialized
         }
