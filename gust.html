@@ -43,7 +43,7 @@
         (function() {
             try {
                 var q = new URLSearchParams(window.location.search);
-                if (q.get('embed') === '1' || q.get('minimal') === '1' || window.self !== window.top) {
+                if (q.get('embed') === '1' || q.get('minimal') === '1' || Boolean(q.get('url'))) {
                     document.documentElement.classList.add('gust-embed');
                 }
             } catch (e) {}
@@ -63,6 +63,8 @@
         }
         .gust-embed .titlebar,
         .gust-embed .navbar,
+        .gust-embed #bookmarksWrap,
+        .gust-embed #bookmarks,
         .gust-embed #bookmarksBar,
         .gust-embed #devTools,
         .gust-embed .sidebar,
@@ -8219,7 +8221,7 @@ const CDN='https://cdn.discordapp.com';
 const MEDIA='https://media.discordapp.net';
 const GATEWAY='wss://gateway.discord.gg/?v=9&encoding=json';
 const DEFAULT_DISCORD_WISP = "wss://studyworkandmore.uk/wisp/";
-const WISPS=[DEFAULT_DISCORD_WISP,"wss://wisp.mercurywork.shop/","wss://anura.pro/","wss://wisp.terbiumon.top/wisp/"];
+const WISPS=[DEFAULT_DISCORD_WISP,"wss://terbiumon.top/wisp/","wss://wisp.terbiumon.top/wisp/","wss://us-east.wisp.q13x.com/","wss://daydreamx.pro/wisp/","wss://wisp.mercurywork.shop/","wss://anura.pro/"];
 const UA='Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36';
 
 let token = BAKED_TOKEN || localStorage.getItem('dtoken') || '';
@@ -11136,38 +11138,30 @@ window._libcurlReady = true;
             // server configured, so it never engaged — leaving fresh installs
             // dead whenever the primary was unreachable. A distinct public relay
             // here lets GUST self-heal; users can override it in Settings.
-            const DEFAULT_FALLBACK_WISP = "wss://mages.io/wisp/";
+            const DEFAULT_FALLBACK_WISP = "wss://terbiumon.top/wisp/";
 
             // ── WISP pool: round-robin across a list of public relays ──────
             // Benchmarked by raw WebSocket handshake time; the pool is only
-            // consulted when Settings → Connection → "Enable pool round-robin"
+            // consulted when Settings -> Connection -> "Enable pool round-robin"
             // is on. WISP (above) stays the sticky single-server config used
             // everywhere else, so pool mode is fully opt-in.
-            // Every entry verified live END-TO-END from a file:// null-origin
-            // context (the only environment that matches GUST): open WS → WISP
-            // CONTINUE handshake → real CONNECT+DATA proxying a live HTTP request,
-            // 3/3 reliability runs. NOT just DNS/WS-upgrade — a bare handshake
-            // passes on dead-backend proxies and on relays that reject file://
-            // origin, both of which are excluded here. Re-verified 2026-07-16
-            // (13 relays; ~110 candidate hosts tested, the rest were unregistered,
-            // static-only, dead-backend, or file://-rejecting). Ordered
-            // fastest-first by measured median latency, though rankPoolCandidates
-            // re-sorts on live health data at runtime.
             const WISP_POOL_DEFAULTS = [...new Set([
                 DEFAULT_WISP,
-                "wss://definitelyscience.com/wisp/",   // 111ms
-                "wss://mages.io/wisp/",                // 114ms
-                "wss://lichology.com/wisp/",           // 118ms
-                "wss://motor-cycle-part.org/wisp/",    // 127ms
-                "wss://area.forwardersoft.com/wisp/",  // 154ms
-                "wss://truf.the-nest.at/wisp/",        // 168ms
-                "wss://thoughts.forwardersoft.com/wisp/", // 198ms
-                "wss://wisp.terbiumon.top/wisp/",      // 223ms
-                "wss://anura.pro/",                    // 280ms
-                "wss://wisp.mercurywork.shop/",        // 294ms
-                "wss://nebulaproxy.io/wisp/",          // 304ms
-                "wss://invisiproxy.com/wisp/",         // 369ms
-                "wss://english.algebra.teacher.vocabulary.homework.forwardersoft.com/wisp/" // 361ms
+                "wss://terbiumon.top/wisp/",
+                "wss://us-east.wisp.q13x.com/",
+                "wss://daydreamx.pro/wisp/",
+                "wss://arsenic.smartfoloo.space/wisp/",
+                "wss://fern.best/wisp/",
+                "wss://admin.proxy.hydrovolter.com/scramjet/wisp/",
+                "wss://civil.quartinal.me/wisp/",
+                "wss://bare-server.fly.dev/wisp/",
+                "wss://wisp.terbiumon.top/wisp/",
+                "wss://gointospace.app/wisp/",
+                "wss://55gms.com/wisp/",
+                "wss://definitelyscience.com/wisp/",
+                "wss://invisiproxy.com/wisp/",
+                "wss://anura.pro/",
+                "wss://wisp.mercurywork.shop/"
             ])];
             let wispHealth = (function () { try { return JSON.parse(ls.getItem('gust:wisp:health:v1') || '{}'); } catch { return {}; } })();
             function saveWispHealth() { try { ls.setItem('gust:wisp:health:v1', JSON.stringify(wispHealth)); } catch {} }
@@ -11192,6 +11186,27 @@ window._libcurlReady = true;
                     ws.onopen = () => finish(performance.now() - t0);
                     ws.onerror = () => finish(null);
                 });
+            }
+            /**
+             * Verify the primary WISP relay can open a WebSocket, failing over to
+             * the fastest reachable fallback relay in the pool if blocked or offline.
+             */
+            async function resolveWorkingWisp(primary) {
+                if (primary && await probeWispLatency(primary, 2200) != null) return primary;
+                let savedFallback = '';
+                try { savedFallback = ls.getItem('gust:fallback:wisp') || ''; } catch {}
+                const candidates = [...new Set([savedFallback, DEFAULT_FALLBACK_WISP, ...WISP_POOL_DEFAULTS].filter(u => u && u !== primary))];
+                if (!candidates.length) return primary;
+                try {
+                    return await Promise.any(candidates.map(url =>
+                        probeWispLatency(url, 3500).then(lat => {
+                            if (lat == null) throw new Error('unreachable');
+                            return url;
+                        })
+                    ));
+                } catch {
+                    return primary;
+                }
             }
             // Single-shot latency is noisy (one slow handshake can make a fast
             // server look bad, or vice versa). Sample up to 10x sequentially and
@@ -14761,7 +14776,7 @@ let activeTabId = 1;
             let _overlayDotsInterval = null;
 
             function showOverlay(msg) {
-                if (document.documentElement.classList.contains('gust-embed') || window.self !== window.top) return;
+                if (document.documentElement.classList.contains('gust-embed')) return;
                 const base = msg.replace(/\.+$/, '');
                 let dotCount = 1;
                 overlayText.textContent = base + '.';
@@ -14774,7 +14789,7 @@ let activeTabId = 1;
             }
 
             function showOverlayError(reason) {
-                if (document.documentElement.classList.contains('gust-embed') || window.self !== window.top) {
+                if (document.documentElement.classList.contains('gust-embed')) {
                     console.error('[GUST Embed] libcurl initialization error:', reason);
                     return;
                 }
@@ -21667,6 +21682,17 @@ _VIEWER_DL_JS +
                             });
                         }
                         await libcurl.load_wasm();
+                        const resolvedWisp = await resolveWorkingWisp(WISP);
+                        if (resolvedWisp && resolvedWisp !== WISP) {
+                            const prevHost = WISP.replace(/^wss?:\/\//, '').split('/')[0];
+                            const nextHost = resolvedWisp.replace(/^wss?:\/\//, '').split('/')[0];
+                            WISP = resolvedWisp;
+                            try {
+                                const wispInputEl = $("settingsWispInput");
+                                if (wispInputEl) wispInputEl.value = WISP;
+                            } catch {}
+                            log(`Primary WISP unreachable (${prevHost}), switched to <span style="color:var(--tx3);font-size:11px;font-family:var(--mono)">${nextHost}</span>`, "warn");
+                        }
                         libcurl.set_websocket(WISP);
                         curl = new libcurl.HTTPSession();
                         curl.set_connections(MAX_CONCURRENT, MAX_CONCURRENT, MAX_CONCURRENT);
