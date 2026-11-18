@@ -787,7 +787,7 @@
         el.style.left = '0px';
         el.style.top = '0px';
         el.style.width = '100vw';
-        el.style.height = height;
+        el.style.height = '100vh';
       }
       el.classList.add('active');
     },
@@ -812,6 +812,7 @@
           } catch (e) {}
           delete winEl.dataset.preSnapBounds;
         }
+        this._syncWindowMaximizeState(winEl, false);
         return;
       }
 
@@ -827,15 +828,37 @@
       winEl.classList.remove('snapped-left', 'snapped-right', 'maximized');
       if (mode === 'left') {
         winEl.classList.add('snapped-left');
+        this._syncWindowMaximizeState(winEl, false);
       } else if (mode === 'right') {
         winEl.classList.add('snapped-right');
+        this._syncWindowMaximizeState(winEl, false);
       } else if (mode === 'max') {
         winEl.classList.add('maximized');
+        this._syncWindowMaximizeState(winEl, true);
       }
       if (mode === 'left' || mode === 'right' || mode === 'max') {
         try {
           window.LunamixAchievements?.unlock('window_snapper');
         } catch (e) {}
+      }
+    },
+
+    _syncWindowMaximizeState(winEl, isMax) {
+      const wm = window.WindowManager;
+      if (wm && wm.windows && winEl.dataset && winEl.dataset.app && wm.windows[winEl.dataset.app]) {
+        wm.windows[winEl.dataset.app].isMaximized = isMax;
+      }
+      const maxIcon = winEl.querySelector('[data-action="maximize"] i');
+      if (maxIcon) {
+        maxIcon.className = isMax ? 'fa-solid fa-window-restore' : 'fa-solid fa-square';
+      }
+      if (wm && typeof wm.syncDockVisibility === 'function') {
+        wm.syncDockVisibility();
+      } else if (document.body) {
+        const hasMax = Boolean(
+          document.querySelector('.window.maximized:not(.minimized):not(.closing), .os-window.maximized:not(.minimized):not(.closing)')
+        );
+        document.body.classList.toggle('lm-has-maximized', hasMax);
       }
     }
   };

@@ -544,13 +544,12 @@ button {
 }
 
 .window.maximized {
-  inset: 0 0 74px 0 !important;
+  inset: 0 !important;
   width: 100% !important;
-  height: calc(100vh - 74px) !important;
+  height: 100vh !important;
+  height: 100dvh !important;
   border-radius: 0 !important;
-  border-left: none;
-  border-right: none;
-  border-top: none;
+  border: none;
 }
 
 .window-header {
@@ -667,6 +666,25 @@ button {
   border-right: none;
   border-bottom: none;
   padding: 0.25rem 1rem;
+}
+
+body.lm-has-maximized .taskbar,
+html:has(.window.maximized:not(.minimized):not(.closing)) .taskbar,
+html:has(.os-window.maximized:not(.minimized):not(.closing)) .taskbar,
+html:has(.window:fullscreen) .taskbar,
+html:has(.os-window:fullscreen) .taskbar {
+  opacity: 0 !important;
+  visibility: hidden !important;
+  pointer-events: none !important;
+  transform: translateX(-50%) translateY(96px) !important;
+}
+
+body.lm-has-maximized .taskbar.full-mode,
+html:has(.window.maximized:not(.minimized):not(.closing)) .taskbar.full-mode,
+html:has(.os-window.maximized:not(.minimized):not(.closing)) .taskbar.full-mode,
+html:has(.window:fullscreen) .taskbar.full-mode,
+html:has(.os-window:fullscreen) .taskbar.full-mode {
+  transform: translateY(100%) !important;
 }
 
 .taskbar-divider {
@@ -1778,6 +1796,13 @@ button {
     height: calc(100vh - 65px) !important;
     border-radius: 0 !important;
   }
+  .window.maximized {
+    inset: 0 !important;
+    width: 100% !important;
+    height: 100vh !important;
+    height: 100dvh !important;
+    border-radius: 0 !important;
+  }
   .taskbar {
     width: 100%;
     bottom: 0;
@@ -1788,6 +1813,11 @@ button {
     border-right: none;
     border-bottom: none;
     justify-content: space-around;
+  }
+  body.lm-has-maximized .taskbar,
+  html:has(.window.maximized:not(.minimized):not(.closing)) .taskbar,
+  html:has(.os-window.maximized:not(.minimized):not(.closing)) .taskbar {
+    transform: translateY(100%) !important;
   }
   .chat-sidebar {
     width: 160px;

@@ -526,6 +526,9 @@
       const win = this.windows[appId];
       if (!win) return;
 
+      win.element.classList.add('closing');
+      this.syncDockVisibility();
+
       win.element.style.animation = 'none';
       win.element.style.opacity = '0';
       win.element.style.transform = 'scale(0.92) translateY(12px)';
@@ -781,7 +784,19 @@
       });
     },
 
+    syncDockVisibility() {
+      if (!document.body) return;
+      const hasMax = Boolean(
+        document.querySelector('.window.maximized:not(.minimized):not(.closing), .os-window.maximized:not(.minimized):not(.closing)')
+      );
+      document.body.classList.toggle('lm-has-maximized', hasMax);
+      if (hasMax && typeof DesktopManager !== 'undefined' && DesktopManager.closeStartMenu) {
+        DesktopManager.closeStartMenu();
+      }
+    },
+
     updateTaskbar() {
+      this.syncDockVisibility();
       const icons = document.querySelectorAll('.taskbar-icon[data-app]');
       icons.forEach(btn => {
         const appId = btn.getAttribute('data-app');
@@ -4602,6 +4617,7 @@
 
     // Expose Global API for buttons or extensions
     window.SoundFX = SoundFX;
+    window.WindowManager = WindowManager;
     window.LunamixOS = {
       openApp: (id, opts) => {
         if (isDashboardMode() && window.LunamixDashboard && typeof window.LunamixDashboard.launchApp === 'function') {
