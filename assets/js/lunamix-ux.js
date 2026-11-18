@@ -288,6 +288,7 @@
   ];
 
   const DEFAULT_INSTALLED_IDS = APPS_CATALOG.map((a) => a.id);
+  const CORE_ALWAYS_VISIBLE = new Set(['settings', 'about', 'cloak', 'appstore', 'achievements']);
 
   const LunamixAppStore = {
     catalog: APPS_CATALOG,
@@ -392,6 +393,7 @@
     },
 
     uninstallApp(appId) {
+      if (CORE_ALWAYS_VISIBLE.has(appId)) return false;
       const entry = APPS_CATALOG.find((a) => a.id === appId);
       if (!entry) return false;
       const installed = this.getInstalledApps().filter((id) => id !== appId);
@@ -441,19 +443,21 @@
         });
       });
 
-      document.querySelectorAll('.desktop-icon[data-app]').forEach((el) => {
+      document.querySelectorAll('.desktop-icon[data-app], .start-menu .app-item[data-app]').forEach((el) => {
         const id = el.getAttribute('data-app');
-        if (Object.prototype.hasOwnProperty.call(aliasMap, id)) {
-          el.style.display = aliasMap[id] ? '' : 'none';
+        if (CORE_ALWAYS_VISIBLE.has(id)) {
+          el.style.display = '';
+          el.setAttribute('data-app-hidden', 'false');
+        } else if (Object.prototype.hasOwnProperty.call(aliasMap, id)) {
+          const visible = Boolean(aliasMap[id]);
+          el.style.display = visible ? '' : 'none';
+          el.setAttribute('data-app-hidden', visible ? 'false' : 'true');
         }
       });
 
-      document.querySelectorAll('.start-menu .app-item[data-app]').forEach((el) => {
-        const id = el.getAttribute('data-app');
-        if (Object.prototype.hasOwnProperty.call(aliasMap, id)) {
-          el.style.display = aliasMap[id] ? '' : 'none';
-        }
-      });
+      if (LunamixDesktopGrid && LunamixDesktopGrid._initialized) {
+        LunamixDesktopGrid.applyLayout();
+      }
     },
 
     getTheme() {

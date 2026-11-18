@@ -34,7 +34,7 @@
   const BOOT_SETTINGS_KEY = 'lunamix_boot_settings_v2';
 
   const VALID_THEMES = ['nautilus', 'midnight', 'ocean', 'forest', 'emerald', 'sunset', 'obsidian', 'matrix', 'crimson', 'light-frosted'];
-  const DEFAULT_APPS = ['games', 'chat', 'proxy', 'notes', 'music', 'appstore', 'achievements'];
+  const DEFAULT_APPS = ['games', 'chat', 'proxy', 'notes', 'music', 'settings', 'appstore', 'achievements'];
   const AVATAR_CHOICES = ['🚀', '🌙', '🦊', '🐱', '🐼', '🎮', '🎧', '⚡', '🌊', '🌲', '✨', '🛸'];
 
   const MIN_USERNAME_LENGTH = 2;
@@ -333,6 +333,9 @@
       } else {
         existing.theme = sanitizeTheme(localStorage.getItem('nautilus_theme') || existing.theme);
         existing.role = 'student';
+        if (Array.isArray(existing.starterApps) && !existing.starterApps.includes('settings')) {
+          existing.starterApps.push('settings');
+        }
         writeAccountsRaw(accounts);
       }
       localStorage.setItem(CURRENT_ACCOUNT_KEY, existing.username);
@@ -443,6 +446,9 @@
       } else {
         guest.role = 'student';
         guest.isGuest = true;
+        if (Array.isArray(guest.starterApps) && !guest.starterApps.includes('settings')) {
+          guest.starterApps.push('settings');
+        }
         guest.lastLoginAt = new Date().toISOString();
         writeAccountsRaw(accounts);
       }
