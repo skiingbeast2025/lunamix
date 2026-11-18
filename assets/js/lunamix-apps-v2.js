@@ -166,6 +166,55 @@
       desc: 'Launch the Games Hub from the desktop or dock.',
       icon: 'fa-gamepad',
       xp: 20
+    },
+    stealth_agent: {
+      id: 'stealth_agent',
+      title: 'Incognito',
+      desc: 'Apply a tab disguise cloak preset or custom cloak.',
+      icon: 'fa-shield-halved',
+      xp: 20
+    },
+    math_whiz: {
+      id: 'math_whiz',
+      title: 'Quick Maths',
+      desc: 'Solve an equation using the Calculator.',
+      icon: 'fa-calculator',
+      xp: 15
+    },
+    code_builder: {
+      id: 'code_builder',
+      title: 'Web Builder',
+      desc: 'Run custom code or a template in App Creator.',
+      icon: 'fa-code',
+      xp: 25
+    },
+    social_butterfly: {
+      id: 'social_butterfly',
+      title: 'Community Connected',
+      desc: 'Open Lunamix Chat from the desktop or dock.',
+      icon: 'fa-comments',
+      xp: 15
+    },
+    proxy_voyager: {
+      id: 'proxy_voyager',
+      title: 'Web Voyager',
+      desc: 'Open Proxy Hub, Fern, or GUST to browse the web.',
+      icon: 'fa-globe',
+      xp: 20
+    },
+    retro_gamer: {
+      id: 'retro_gamer',
+      title: 'Retro Legend',
+      desc: 'Launch Eaglercraft GX or the Retro Emulator.',
+      icon: 'fa-cube',
+      xp: 25
+    },
+    power_explorer: {
+      id: 'power_explorer',
+      title: 'Power User',
+      desc: 'Open 6 or more different apps in a session.',
+      icon: 'fa-bolt',
+      xp: 40
     }
   };
 
@@ -327,7 +376,15 @@
       sessionOpenedApps.add(appId);
       if (appId === 'games') this.unlock('gamer');
       if (appId === 'terminal') this.unlock('terminal_user');
+      if (appId === 'chat') this.unlock('social_butterfly');
+      if (appId === 'browser' || appId === 'proxy' || appId === 'fern' || appId === 'gust') {
+        this.unlock('proxy_voyager');
+      }
+      if (appId === 'eaglercraft' || appId === 'emulator') {
+        this.unlock('retro_gamer');
+      }
       if (sessionOpenedApps.size >= 3) this.unlock('explorer');
+      if (sessionOpenedApps.size >= 6) this.unlock('power_explorer');
     },
 
     renderAchievementsApp(winBody, winObj) {
@@ -445,6 +502,12 @@
   window.renderAchievementsApp = function (winBody, winObj) {
     LunamixAchievements.renderAchievementsApp(winBody, winObj);
   };
+  window.addEventListener('lunamix-cloak-changed', (e) => {
+    const preset = e && e.detail && e.detail.preset;
+    if (preset && preset !== 'default') {
+      LunamixAchievements.unlock('stealth_agent');
+    }
+  });
   setTimeout(() => {
     const desk = document.getElementById('desktop');
     const dash = document.getElementById('dashShell');

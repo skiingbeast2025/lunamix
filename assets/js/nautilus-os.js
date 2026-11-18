@@ -3009,13 +3009,19 @@
       previewFrame.srcdoc = code;
     }
 
-    if (runBtn) runBtn.addEventListener('click', executeCode);
+    if (runBtn) {
+      runBtn.addEventListener('click', () => {
+        executeCode();
+        window.LunamixAchievements?.unlock('code_builder');
+      });
+    }
     if (tmplSelect) {
       tmplSelect.addEventListener('change', (e) => {
         const val = e.target.value;
         if (templates[val]) {
           codeArea.value = templates[val];
           executeCode();
+          window.LunamixAchievements?.unlock('code_builder');
         }
       });
     }
@@ -3399,6 +3405,9 @@
         } else if (v === '=') {
           try {
             expr = String(Function(`'use strict'; return (${expr})`)());
+            if (expr !== 'Error' && expr !== 'NaN') {
+              window.LunamixAchievements?.unlock('math_whiz');
+            }
           } catch (e) {
             expr = 'Error';
           }
