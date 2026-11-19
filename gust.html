@@ -12586,7 +12586,7 @@ let activeTabId = 1;
                             ? '<i class="fas fa-gear"></i>'
                             : (isInvalidInternal(tab.url) || tab.hasError)
                                 ? '<i class="fas fa-circle-xmark" style="color: var(--err);"></i>'
-                                : `<img data-favicon-url="${faviconFor(tab.url)}" style="display: none; width: 16px; height: 16px; border-radius: 3px; margin: 0 1px;" /><i class="fas fa-globe"></i>`;
+                                : `<img class="tab-favicon" style="display: none; width: 16px; height: 16px; border-radius: 3px; margin: 0 1px;" /><i class="fas fa-globe"></i>`;
 
                     // Escape tab.title — it comes from doc.title which is page-controlled
                     // and injecting it raw into innerHTML is an XSS vector.
@@ -12602,21 +12602,14 @@ let activeTabId = 1;
                     if (tab.muted) tabEl.classList.add('muted');
                     if (tab.hasAudio && !tab.muted) tabEl.classList.add('audio-playing');
 
-                    // Resolve proxy favicons asynchronously
-                    const faviconImg = tabEl.querySelector('img[data-favicon-url]');
+                    // Resolve proxy favicons asynchronously without DOM attribute round-trips
+                    const faviconImg = tabEl.querySelector('img.tab-favicon');
                     if (faviconImg) {
-                        const faviconUrl = faviconImg.getAttribute('data-favicon-url');
-                        resolveFaviconSrc(faviconUrl).then(src => {
-                            if (!src) return;
-                            // Only swap globe→favicon once the image actually decodes;
-                            // a bare src="" or failed blob keeps the globe visible.
-                            faviconImg.onload = () => {
-                                faviconImg.style.display = '';
-                                const globe = faviconImg.nextElementSibling;
-                                if (globe) globe.style.display = 'none';
-                            };
-                            if (typeof src === "string" && (/^(https?:|blob:)/i.test(src) || /^data:image\/(png|jpeg|jpg|gif|webp|x-icon|vnd\.microsoft\.icon);/i.test(src))) faviconImg.src = src;
-                        }).catch(() => {});
+                        applyResolvedFavicon(faviconImg, faviconFor(tab.url), (img) => {
+                            img.style.display = '';
+                            const globe = img.nextElementSibling;
+                            if (globe) globe.style.display = 'none';
+                        });
                     }
 
                     const isNewTab = pendingNewTabIds.has(tab.id);
@@ -13315,6 +13308,19 @@ let activeTabId = 1;
                 return p;
             }
 
+            function applyResolvedFavicon(imgEl, url, onReady) {
+                if (!imgEl || !url) return;
+                resolveFaviconSrc(url).then(src => {
+                    if (!src || typeof src !== 'string') return;
+                    const isSafe = /^(https?:|blob:)/i.test(src) || /^data:image\/(png|jpeg|jpg|gif|webp|x-icon|vnd\.microsoft\.icon);/i.test(src);
+                    if (!isSafe) return;
+                    if (onReady) {
+                        imgEl.onload = () => onReady(imgEl);
+                    }
+                    imgEl.src = src;
+                }).catch(() => {});
+            }
+
             function renderBookmarks() {
                 if (!bookmarksEl) return;
                 const toggle = bookmarksEl.querySelector('.bookmarks-toggle');
@@ -13329,7 +13335,7 @@ let activeTabId = 1;
 
                     const faviconUrl = faviconFor(bm.url);
                     const faviconHtml = faviconUrl
-                        ? `<img data-favicon-url="${faviconUrl}" style="display: none;" alt="">`
+                        ? `<img class="bm-favicon" style="display: none;" alt="">`
                         : '';
 
                     btn.innerHTML = `
@@ -13341,17 +13347,13 @@ let activeTabId = 1;
             </button>
         `;
 
-                    const bmFavImg = btn.querySelector('img[data-favicon-url]');
+                    const bmFavImg = btn.querySelector('img.bm-favicon');
                     if (bmFavImg) {
-                        resolveFaviconSrc(bmFavImg.getAttribute('data-favicon-url')).then(src => {
-                            if (!src) return;
-                            bmFavImg.onload = () => {
-                                bmFavImg.style.display = '';
-                                const globe = bmFavImg.nextElementSibling;
-                                if (globe) globe.style.display = 'none';
-                            };
-                            if (typeof src === "string" && (/^(https?:|blob:)/i.test(src) || /^data:image\/(png|jpeg|jpg|gif|webp|x-icon|vnd\.microsoft\.icon);/i.test(src))) bmFavImg.src = src;
-                        }).catch(() => {});
+                        applyResolvedFavicon(bmFavImg, faviconUrl, (img) => {
+                            img.style.display = '';
+                            const globe = img.nextElementSibling;
+                            if (globe) globe.style.display = 'none';
+                        });
                     }
 
                     const bmNameEl = btn.querySelector('span');
@@ -13762,15 +13764,15 @@ let activeTabId = 1;
                         a.href = "#";
                         a.title = fav.url;
                         a.innerHTML = `
-                            <img alt="" data-favicon-url="${faviconFor(fav.url)}" src="">
+                            <img class="nt-fav-img" alt="" src="">
                             <button class="nt-fav-delete" title="Remove favorite">
                                 <i class="fas fa-trash"></i>
                             </button>
                         `;
 
-                        const favImg = a.querySelector('img[data-favicon-url]');
+                        const favImg = a.querySelector('img.nt-fav-img');
                         if (favImg) {
-                            resolveFaviconSrc(favImg.getAttribute('data-favicon-url')).then(src => { if (typeof src === "string" && (/^(https?:|blob:)/i.test(src) || /^data:image\/(png|jpeg|jpg|gif|webp|x-icon|vnd\.microsoft\.icon);/i.test(src))) favImg.src = src; }).catch(() => {});
+                            applyResolvedFavicon(favImg, faviconFor(fav.url));
                         }
 
                         const titleSpan = document.createElement("span");
