@@ -34,7 +34,11 @@
   const BOOT_SETTINGS_KEY = 'lunamix_boot_settings_v2';
 
   const VALID_THEMES = ['nautilus', 'midnight', 'ocean', 'forest', 'emerald', 'sunset', 'obsidian', 'matrix', 'crimson', 'light-frosted'];
-  const DEFAULT_APPS = ['games', 'chat', 'proxy', 'notes', 'music', 'settings', 'appstore', 'achievements'];
+  const DEFAULT_APPS = [
+    'games', 'chat', 'proxy', 'emulator', 'notes', 'music',
+    'achievements', 'mediaviewer', 'terminal', 'files', 'settings',
+    'webappcreator', 'eaglercraft', 'calculator', 'cloak', 'about', 'appstore'
+  ];
   const AVATAR_CHOICES = ['🚀', '🌙', '🦊', '🐱', '🐼', '🎮', '🎧', '⚡', '🌊', '🌲', '✨', '🛸'];
 
   const MIN_USERNAME_LENGTH = 2;
@@ -184,12 +188,19 @@
     if (!raw || typeof raw !== 'object' || Array.isArray(raw)) return null;
     const username = sanitizeUsername(raw.username);
     if (!username) return null;
+    const starterApps = sanitizeApps(raw.starterApps);
+    if (!raw.allDesktopAppsMigrated) {
+      DEFAULT_APPS.forEach((id) => {
+        if (!starterApps.includes(id)) starterApps.push(id);
+      });
+    }
     return {
       username: username,
       passwordHash: sanitizePasswordHash(raw.passwordHash),
       avatar: sanitizeAvatar(raw.avatar),
       role: 'student', // Strict security enforcement: never admin or sudo
-      starterApps: sanitizeApps(raw.starterApps),
+      starterApps: starterApps,
+      allDesktopAppsMigrated: true,
       theme: sanitizeTheme(raw.theme),
       isGuest: Boolean(raw.isGuest),
       createdAt: typeof raw.createdAt === 'string' && raw.createdAt ? raw.createdAt.slice(0, 64) : new Date().toISOString(),
@@ -315,11 +326,6 @@
     ensureDefaultSession() {
       syncAccountsDisabledClass();
       const savedTheme = sanitizeTheme(localStorage.getItem('nautilus_theme') || 'nautilus');
-      const allDefaultApps = [
-        'games', 'chat', 'browser', 'fern', 'creator', 'terminal',
-        'eaglercraft', 'emulator', 'files', 'calculator', 'cloak',
-        'settings', 'about', 'appstore', 'achievements', 'notes', 'music', 'mediaviewer'
-      ];
       let accounts = readAccountsRaw();
       let existing = accounts.find((a) => a.username === 'User') || accounts[0];
       if (!existing) {
@@ -328,7 +334,7 @@
           avatar: '🚀',
           role: 'student',
           passwordHash: null,
-          starterApps: allDefaultApps,
+          starterApps: DEFAULT_APPS.slice(),
           theme: savedTheme,
           isGuest: true,
           createdAt: Date.now(),
@@ -339,9 +345,6 @@
       } else {
         existing.theme = sanitizeTheme(localStorage.getItem('nautilus_theme') || existing.theme);
         existing.role = 'student';
-        if (Array.isArray(existing.starterApps) && !existing.starterApps.includes('settings')) {
-          existing.starterApps.push('settings');
-        }
         writeAccountsRaw(accounts);
       }
       localStorage.setItem(CURRENT_ACCOUNT_KEY, existing.username);
