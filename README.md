@@ -1,5 +1,13 @@
 # Lunamix
 
+[![Live Site](https://img.shields.io/website?url=https%3A%2F%2Fskiingbeast2025.github.io%2Flunamix%2F&up_message=online&label=Live%20Site&style=for-the-badge)](https://skiingbeast2025.github.io/lunamix/)
+[![GitHub Pages](https://img.shields.io/github/deployments/skiingbeast2025/lunamix/github-pages?label=Pages&style=for-the-badge)](https://skiingbeast2025.github.io/lunamix/)
+[![Sync GD](https://img.shields.io/github/actions/workflow/status/skiingbeast2025/lunamix/sync-gd.yml?branch=main&label=Sync%20GD&style=for-the-badge)](https://github.com/skiingbeast2025/lunamix/actions/workflows/sync-gd.yml)
+[![License: AGPL v3](https://img.shields.io/badge/License-AGPL_v3-blue.svg?style=for-the-badge)](https://github.com/skiingbeast2025/lunamix/blob/main/LICENSE)
+[![Last Commit](https://img.shields.io/github/last-commit/skiingbeast2025/lunamix?style=for-the-badge)](https://github.com/skiingbeast2025/lunamix/commits/main)
+[![GitHub stars](https://img.shields.io/github/stars/skiingbeast2025/lunamix?style=for-the-badge)](https://github.com/skiingbeast2025/lunamix/stargazers)
+[![GitHub issues](https://img.shields.io/github/issues/skiingbeast2025/lunamix?style=for-the-badge)](https://github.com/skiingbeast2025/lunamix/issues)
+
 Lunamix is a lightweight, high-performance static HTML5 web gaming platform. Built with clean, modern HTML, CSS, and Vanilla JavaScript, Lunamix runs entirely client-side without server dependencies, container runtimes, or database requirements.
 
 Live site: [https://skiingbeast2025.github.io/lunamix/](https://skiingbeast2025.github.io/lunamix/)
