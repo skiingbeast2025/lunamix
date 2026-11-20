@@ -1,9 +1,9 @@
 {
   "upstream": "https://github.com/skiingbeast2025/geometry-dash-wasm-proxy",
   "live_url": "https://skiingbeast2025.github.io/geometry-dash-wasm-proxy/",
-  "last_synced_sha": "e96cf4ad1393fc31dc5d2bc049a0f76a92add879",
-  "commit_message": "feat(network): add obscure non-blacklisted wisp endpoints to pool",
+  "last_synced_sha": "54f034142687a3ddb758a85306f9369017a8a46f",
+  "commit_message": "feat(network): set primary wisp relay to nightwisp cloudflare endpoint",
   "commit_author": "skiingbeast2025",
-  "commit_date": "2026-11-10T17:17:52Z",
+  "commit_date": "2026-11-19T20:13:16Z",
   "auto_sync_method": "Live GitHub Pages iframe proxy with repository_dispatch workflow"
 }
