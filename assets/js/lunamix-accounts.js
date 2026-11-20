@@ -36,7 +36,7 @@
   const VALID_THEMES = ['nautilus', 'midnight', 'ocean', 'forest', 'emerald', 'sunset', 'obsidian', 'matrix', 'crimson', 'light-frosted'];
   const DEFAULT_APPS = [
     'games', 'chat', 'proxy', 'emulator', 'notes', 'music',
-    'achievements', 'mediaviewer', 'terminal', 'files', 'settings',
+    'achievements', 'terminal', 'files', 'settings',
     'webappcreator', 'eaglercraft', 'calculator', 'cloak', 'about', 'appstore'
   ];
   const AVATAR_CHOICES = ['🚀', '🌙', '🦊', '🐱', '🐼', '🎮', '🎧', '⚡', '🌊', '🌲', '✨', '🛸'];

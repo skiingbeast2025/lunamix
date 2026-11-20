@@ -153,16 +153,6 @@
       description: 'Track unlocked milestones, XP progress, and account badges.'
     },
     {
-      id: 'mediaviewer',
-      launchId: 'mediaviewer',
-      aliases: ['mediaviewer'],
-      name: 'Media Viewer',
-      icon: 'fa-photo-film',
-      color: '#2dd4bf',
-      category: 'Media',
-      description: 'Preview images, screenshots, and video clips from your workspace.'
-    },
-    {
       id: 'terminal',
       launchId: 'terminal',
       aliases: ['terminal'],

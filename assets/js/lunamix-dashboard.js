@@ -21,7 +21,6 @@
     tools: [
       'notes',
       'music',
-      'mediaviewer',
       'creator',
       'terminal',
       'files',
@@ -49,7 +48,6 @@
     'fern',
     'notes',
     'music',
-    'mediaviewer',
     'creator',
     'terminal',
     'files',
@@ -83,7 +81,6 @@
     fern: 'Launch the Fern Proxy web portal inside your workspace.',
     notes: 'Write, search, and organize personal notes per account.',
     music: 'Listen to ambient synth tracks with built-in visualizer.',
-    mediaviewer: 'Preview local images, audio, and video clips cleanly.',
     creator: 'Code and preview custom HTML, CSS, and JS mini web apps.',
     terminal: 'Run Lunamix shell commands and inspect system diagnostics.',
     files: 'Manage virtual files, folders, and quick text documents.',

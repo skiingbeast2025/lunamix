@@ -315,17 +315,6 @@
       minWidth: 380,
       minHeight: 440,
       render: (container, winObj) => window.renderMusicApp?.(container, winObj)
-    },
-    mediaviewer: {
-      id: 'mediaviewer',
-      name: 'Media Viewer',
-      icon: 'fa-image',
-      color: '#38bdf8',
-      width: 820,
-      height: 580,
-      minWidth: 440,
-      minHeight: 360,
-      render: (container, winObj) => window.renderMediaViewerApp?.(container, winObj)
     }
   };
 
