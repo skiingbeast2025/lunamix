@@ -8220,7 +8220,7 @@ const API='https://discord.com/api/v9';
 const CDN='https://cdn.discordapp.com';
 const MEDIA='https://media.discordapp.net';
 const GATEWAY='wss://gateway.discord.gg/?v=9&encoding=json';
-const DEFAULT_DISCORD_WISP = "wss://studyworkandmore.uk/wisp/";
+const DEFAULT_DISCORD_WISP = "wss://7x0pkhvh21mi0001.nightwisp.me.cdn.cloudflare.net/wisp/";
 const WISPS=[DEFAULT_DISCORD_WISP,"wss://terbiumon.top/wisp/","wss://wisp.terbiumon.top/wisp/","wss://us-east.wisp.q13x.com/","wss://daydreamx.pro/wisp/","wss://wisp.mercurywork.shop/","wss://anura.pro/"];
 const UA='Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36';
 
@@ -8268,7 +8268,7 @@ let wispUrl='';
 async function connect(){
   if(client) return;
   if(!epoxyReady){ gstatus('Loading WASM TLS…'); await init(); epoxyReady=true; }
-  const WISP_DEFAULT_VER='2026-11-17-studyworkandmore';
+  const WISP_DEFAULT_VER='2026-11-20-nightwisp';
   try{
     if(localStorage.getItem('discord:wisp-default-v')!==WISP_DEFAULT_VER){
       localStorage.setItem('wisp',DEFAULT_DISCORD_WISP);
@@ -11117,8 +11117,8 @@ window._libcurlReady = true;
                 try { ls.setItem('gust:wisp:last-working:v1', url); } catch {}
                 lastWorkingWisp = url;
             }
-            const DEFAULT_WISP = "wss://studyworkandmore.uk/wisp/";
-            const WISP_DEFAULT_VER = "2026-11-17-studyworkandmore";
+            const DEFAULT_WISP = "wss://7x0pkhvh21mi0001.nightwisp.me.cdn.cloudflare.net/wisp/";
+            const WISP_DEFAULT_VER = "2026-11-20-nightwisp";
             (function () {
                 try {
                     if (ls.getItem('gust:wisp:default-v') !== WISP_DEFAULT_VER) {
