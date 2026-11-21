@@ -554,10 +554,12 @@ button {
 
 .window-header {
   background: var(--window-header-bg);
-  padding: 0.65rem 1rem;
+  padding: 0.45rem 0.75rem;
+  min-height: 44px;
   display: flex;
   align-items: center;
   justify-content: space-between;
+  gap: 0.65rem;
   cursor: grab;
   user-select: none;
   border-bottom: 1px solid rgba(255, 255, 255, 0.08);
@@ -571,13 +573,89 @@ button {
 .window-title {
   display: flex;
   align-items: center;
-  gap: 0.6rem;
+  gap: 0.55rem;
   font-weight: 700;
-  font-size: 0.88rem;
+  font-size: 0.86rem;
   color: var(--text-primary);
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
+  flex-shrink: 0;
+}
+
+.window-header-slot {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+
+.window-header-slot::-webkit-scrollbar {
+  display: none;
+}
+
+.window-header-slot:empty {
+  display: none;
+}
+
+.window-header-slot .proxy-tab-bar {
+  background: transparent;
+  border-bottom: none;
+  padding: 0;
+  gap: 0.3rem;
+}
+
+.window-header-slot .proxy-tab-btn {
+  padding: 0.28rem 0.65rem;
+  font-size: 0.78rem;
+  border-radius: 7px;
+  white-space: nowrap;
+}
+
+.window-header-slot .lm-store-tabs {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  flex-shrink: 0;
+}
+
+.window-header-slot .lm-store-tab {
+  padding: 0.28rem 0.65rem;
+  font-size: 0.76rem;
+  white-space: nowrap;
+}
+
+.window-header-slot .lm-store-search {
+  flex: 1;
+  min-width: 140px;
+  max-width: 240px;
+  margin-left: auto;
+}
+
+.window-header-slot .lm-store-search input {
+  padding: 0.28rem 0.6rem 0.28rem 1.85rem;
+  font-size: 0.78rem;
+}
+
+.window-header-slot .lm-notes-title-input {
+  flex: 1;
+  min-width: 120px;
+  padding: 0.28rem 0.6rem;
+  font-size: 0.82rem;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 7px;
+  color: var(--text-primary);
+}
+
+.window-header-slot .lm-notes-action-btn {
+  padding: 0.28rem 0.6rem;
+  font-size: 0.76rem;
+  white-space: nowrap;
+  flex-shrink: 0;
 }
 
 .window-title i {

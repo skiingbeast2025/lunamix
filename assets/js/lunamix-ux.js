@@ -508,13 +508,15 @@
 
     refreshUI() {
       if (this._activeWinBody && document.body.contains(this._activeWinBody)) {
-        this.renderAppStoreApp(this._activeWinBody);
+        this.renderAppStoreApp(this._activeWinBody, this._activeWinObj);
       }
     },
 
-    renderAppStoreApp(winBody) {
+    renderAppStoreApp(winBody, winObj) {
       if (!winBody) return;
       this._activeWinBody = winBody;
+      if (winObj) this._activeWinObj = winObj;
+      const activeWinObj = this._activeWinObj;
 
       const installed = this.getInstalledApps();
       const currentTheme = this.getTheme();
@@ -593,26 +595,35 @@
         `;
       }).join('');
 
+      const storeControlsHtml = `
+        <div class="lm-store-tabs">
+          <button class="lm-store-tab ${this._activeTab === 'apps' ? 'active' : ''}" data-tab="apps">
+            <i class="fa-solid fa-cubes"></i> Apps (${installed.length}/${APPS_CATALOG.length})
+          </button>
+          <button class="lm-store-tab ${this._activeTab === 'themes' ? 'active' : ''}" data-tab="themes">
+            <i class="fa-solid fa-palette"></i> Themes (${THEMES_CATALOG.length})
+          </button>
+        </div>
+        <div class="lm-store-search">
+          <i class="fa-solid fa-magnifying-glass"></i>
+          <input type="text" id="lmStoreSearchInput" placeholder="Search apps or themes..." value="${escapeHtml(this._searchQuery)}" />
+        </div>
+      `;
+      const headerSlot = activeWinObj && typeof activeWinObj.setHeaderContent === 'function'
+        ? activeWinObj.setHeaderContent(storeControlsHtml)
+        : null;
+
       winBody.innerHTML = `
         <div class="lm-store">
+          ${headerSlot ? '' : `
           <div class="lm-store-header">
             <div class="lm-store-title">
               <i class="fa-solid fa-bag-shopping"></i>
               <span>Lunamix App Store</span>
             </div>
-            <div class="lm-store-tabs">
-              <button class="lm-store-tab ${this._activeTab === 'apps' ? 'active' : ''}" data-tab="apps">
-                <i class="fa-solid fa-cubes"></i> Apps (${installed.length}/${APPS_CATALOG.length})
-              </button>
-              <button class="lm-store-tab ${this._activeTab === 'themes' ? 'active' : ''}" data-tab="themes">
-                <i class="fa-solid fa-palette"></i> Themes (${THEMES_CATALOG.length})
-              </button>
-            </div>
-            <div class="lm-store-search">
-              <i class="fa-solid fa-magnifying-glass"></i>
-              <input type="text" id="lmStoreSearchInput" placeholder="Search apps or themes..." value="${escapeHtml(this._searchQuery)}" />
-            </div>
+            ${storeControlsHtml}
           </div>
+          `}
           <div class="lm-store-body">
             <div class="lm-store-grid">
               ${this._activeTab === 'apps'
@@ -623,23 +634,26 @@
         </div>
       `;
 
+      const controlsScope = headerSlot || winBody;
+
       // Bind Tabs
-      winBody.querySelectorAll('.lm-store-tab').forEach((btn) => {
+      controlsScope.querySelectorAll('.lm-store-tab').forEach((btn) => {
         btn.addEventListener('click', () => {
           playClickSound();
           this._activeTab = btn.getAttribute('data-tab') || 'apps';
-          this.renderAppStoreApp(winBody);
+          this.renderAppStoreApp(winBody, activeWinObj);
         });
       });
 
       // Bind Search
-      const searchInput = winBody.querySelector('#lmStoreSearchInput');
+      const searchInput = controlsScope.querySelector('#lmStoreSearchInput');
       if (searchInput) {
         searchInput.addEventListener('input', (e) => {
           this._searchQuery = e.target.value;
           const pos = e.target.selectionStart;
-          this.renderAppStoreApp(winBody);
-          const nextInput = winBody.querySelector('#lmStoreSearchInput');
+          this.renderAppStoreApp(winBody, activeWinObj);
+          const nextScope = (activeWinObj && typeof activeWinObj.getHeaderSlot === 'function' && activeWinObj.getHeaderSlot()) || winBody;
+          const nextInput = nextScope.querySelector('#lmStoreSearchInput');
           if (nextInput) {
             nextInput.focus();
             if (typeof pos === 'number') {

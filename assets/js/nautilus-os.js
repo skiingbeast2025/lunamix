@@ -281,7 +281,7 @@
       height: 640,
       minWidth: 460,
       minHeight: 380,
-      render: (container) => window.LunamixAppStore?.renderAppStoreApp?.(container)
+      render: (container, winObj) => window.LunamixAppStore?.renderAppStoreApp?.(container, winObj)
     },
     achievements: {
       id: 'achievements',
@@ -412,6 +412,7 @@
             <i class="fa-solid ${escapeHtml(app.icon)}" style="color: ${escapeHtml(app.color)};"></i>
             <span>${escapeHtml(customOpts.title || app.name)}</span>
           </div>
+          <div class="window-header-slot"></div>
           <div class="window-controls">
             <button class="window-btn minimize" title="Minimize" data-action="minimize">
               <i class="fa-solid fa-minus"></i>
@@ -444,6 +445,22 @@
         app: app,
         prevBounds: null,
         isMaximized: false,
+        getHeaderSlot: function() {
+          return winEl.querySelector('.window-header-slot');
+        },
+        setHeaderContent: function(content) {
+          const slot = winEl.querySelector('.window-header-slot');
+          if (!slot) return null;
+          if (typeof content === 'string') {
+            slot.innerHTML = content;
+          } else if (content instanceof Node) {
+            slot.innerHTML = '';
+            slot.appendChild(content);
+          } else {
+            slot.innerHTML = '';
+          }
+          return slot;
+        },
         addHeaderButton: function({ icon, title, onClick, href, className = '' }) {
           const controls = winEl.querySelector('.window-controls');
           if (!controls) return null;
@@ -641,7 +658,7 @@
       let startX, startY, origLeft, origTop;
 
       const onPointerDown = (e) => {
-        if (e.target.closest('.window-controls') || e.target.closest('button') || e.target.closest('input')) return;
+        if (e.target.closest('.window-controls, button, input, select, a, label')) return;
         if (winObj.isMaximized) return;
 
         isDragging = true;
@@ -2781,17 +2798,23 @@
     }
 
     const tabsList = Object.values(PROXY_HUB_TABS);
+    const tabBarHtml = `
+      <div class="proxy-tab-bar" role="tablist">
+        ${tabsList.map(tab => `
+          <button type="button" class="proxy-tab-btn ${activeTab === tab.id ? 'active' : ''}" data-tab="${tab.id}" role="tab" aria-selected="${activeTab === tab.id}">
+            <i class="fa-solid ${tab.icon}" style="color: ${tab.color};"></i>
+            <span>${tab.label}</span>
+          </button>
+        `).join('')}
+      </div>
+    `;
+    const headerSlot = winObj && typeof winObj.setHeaderContent === 'function'
+      ? winObj.setHeaderContent(tabBarHtml)
+      : null;
 
     container.innerHTML = `
       <div class="proxy-window-container">
-        <div class="proxy-tab-bar" role="tablist">
-          ${tabsList.map(tab => `
-            <button type="button" class="proxy-tab-btn ${activeTab === tab.id ? 'active' : ''}" data-tab="${tab.id}" role="tab" aria-selected="${activeTab === tab.id}">
-              <i class="fa-solid ${tab.icon}" style="color: ${tab.color};"></i>
-              <span>${tab.label}</span>
-            </button>
-          `).join('')}
-        </div>
+        ${headerSlot ? '' : tabBarHtml}
         <div class="proxy-tab-viewport">
           ${tabsList.map(tab => {
             const initialSrc = (!tab.lazy || activeTab === tab.id) ? tab.url : 'about:blank';
@@ -2807,7 +2830,7 @@
       </div>
     `;
 
-    const tabButtons = container.querySelectorAll('.proxy-tab-btn');
+    const tabButtons = (headerSlot || container).querySelectorAll('.proxy-tab-btn');
 
     function switchTab(newTab) {
       if (!Object.prototype.hasOwnProperty.call(PROXY_HUB_TABS, newTab) || activeTab === newTab) return;
@@ -2955,29 +2978,34 @@
 </html>`
     };
 
+    const toolbarHtml = `
+      <div style="display: flex; align-items: center; gap: 0.4rem; width: 100%; justify-content: space-between;">
+        <select id="creatorTemplateSelect" style="background: rgba(30,35,48,0.85); border: 1px solid rgba(255,255,255,0.15); border-radius: 6px; padding: 0.25rem 0.5rem; font-size: 0.78rem; color: var(--text-primary);">
+          <option value="balls">Template: Neon Balls Canvas</option>
+          <option value="snake">Template: Mini Snake Game</option>
+          <option value="matrix">Template: Matrix Digital Rain</option>
+        </select>
+        <div style="display: flex; align-items: center; gap: 0.35rem;">
+          <button id="creatorRunBtn" style="padding: 0.28rem 0.7rem; background: var(--accent); color: var(--bg-primary); font-weight: 700; border-radius: 6px; font-size: 0.78rem;">
+            <i class="fa-solid fa-play"></i> Run
+          </button>
+          <button id="creatorExportBtn" style="padding: 0.28rem 0.55rem; background: rgba(255,255,255,0.1); color: var(--text-primary); border-radius: 6px; font-size: 0.78rem;" title="Download HTML">
+            <i class="fa-solid fa-download"></i>
+          </button>
+          <button id="creatorStealthBtn" style="padding: 0.28rem 0.55rem; background: rgba(255,255,255,0.1); color: var(--text-primary); border-radius: 6px; font-size: 0.78rem;" title="Open in Stealth Tab">
+            <i class="fa-solid fa-arrow-up-right-from-square"></i>
+          </button>
+        </div>
+      </div>
+    `;
+    const headerSlot = winObj && typeof winObj.setHeaderContent === 'function'
+      ? winObj.setHeaderContent(toolbarHtml)
+      : null;
+
     container.innerHTML = `
       <div class="creator-container">
         <div class="creator-editor-pane">
-          <div class="creator-toolbar">
-            <div style="display: flex; align-items: center; gap: 0.5rem;">
-              <select id="creatorTemplateSelect" style="background: rgba(30,35,48,0.8); border: 1px solid rgba(255,255,255,0.15); border-radius: 6px; padding: 0.35rem 0.6rem; font-size: 0.8rem; color: var(--text-primary);">
-                <option value="balls">Template: Neon Balls Canvas</option>
-                <option value="snake">Template: Mini Snake Game</option>
-                <option value="matrix">Template: Matrix Digital Rain</option>
-              </select>
-            </div>
-            <div style="display: flex; align-items: center; gap: 0.4rem;">
-              <button id="creatorRunBtn" style="padding: 0.4rem 0.85rem; background: var(--accent); color: var(--bg-primary); font-weight: 700; border-radius: 6px; font-size: 0.82rem;">
-                <i class="fa-solid fa-play"></i> Run Code
-              </button>
-              <button id="creatorExportBtn" style="padding: 0.4rem 0.65rem; background: rgba(255,255,255,0.1); color: var(--text-primary); border-radius: 6px; font-size: 0.82rem;" title="Download HTML">
-                <i class="fa-solid fa-download"></i>
-              </button>
-              <button id="creatorStealthBtn" style="padding: 0.4rem 0.65rem; background: rgba(255,255,255,0.1); color: var(--text-primary); border-radius: 6px; font-size: 0.82rem;" title="Open in Stealth Tab">
-                <i class="fa-solid fa-arrow-up-right-from-square"></i>
-              </button>
-            </div>
-          </div>
+          ${headerSlot ? '' : `<div class="creator-toolbar">${toolbarHtml}</div>`}
           <textarea class="creator-code-area" id="creatorCode">${templates.balls}</textarea>
         </div>
         <div class="creator-preview-pane">
@@ -2986,12 +3014,13 @@
       </div>
     `;
 
+    const scope = headerSlot || container;
     const codeArea = container.querySelector('#creatorCode');
     const previewFrame = container.querySelector('#creatorPreview');
-    const runBtn = container.querySelector('#creatorRunBtn');
-    const tmplSelect = container.querySelector('#creatorTemplateSelect');
-    const exportBtn = container.querySelector('#creatorExportBtn');
-    const stealthBtn = container.querySelector('#creatorStealthBtn');
+    const runBtn = scope.querySelector('#creatorRunBtn');
+    const tmplSelect = scope.querySelector('#creatorTemplateSelect');
+    const exportBtn = scope.querySelector('#creatorExportBtn');
+    const stealthBtn = scope.querySelector('#creatorStealthBtn');
 
     function executeCode() {
       const code = codeArea.value;
@@ -3250,40 +3279,45 @@
     let files = JSON.parse(localStorage.getItem('lunamix_virtual_files') || 'null') || defaultFiles;
     let activeFile = 'readme.txt';
 
+    const filesHeaderHtml = `
+      <div style="display: flex; align-items: center; justify-content: space-between; width: 100%; gap: 0.5rem;">
+        <span id="filesCurrentName" style="font-weight: 600; font-size: 0.82rem; color: var(--accent); overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">readme.txt</span>
+        <div style="display: flex; align-items: center; gap: 0.35rem; flex-shrink: 0;">
+          <button id="filesNewBtn" title="New Note" style="padding: 0.25rem 0.55rem; background: rgba(255,255,255,0.08); color: var(--text-primary); border-radius: 6px; font-size: 0.76rem;">
+            <i class="fa-solid fa-plus"></i> New
+          </button>
+          <button id="filesSaveBtn" style="padding: 0.25rem 0.65rem; background: var(--accent); color: var(--bg-primary); font-weight: 700; border-radius: 6px; font-size: 0.76rem;">
+            <i class="fa-solid fa-floppy-disk"></i> Save
+          </button>
+          <button id="filesDeleteBtn" style="padding: 0.25rem 0.5rem; background: rgba(239, 68, 68, 0.15); color: #ef4444; border-radius: 6px; font-size: 0.76rem;" title="Delete File">
+            <i class="fa-solid fa-trash"></i>
+          </button>
+        </div>
+      </div>
+    `;
+    const headerSlot = winObj && typeof winObj.setHeaderContent === 'function'
+      ? winObj.setHeaderContent(filesHeaderHtml)
+      : null;
+
     container.innerHTML = `
       <div style="display: flex; height: 100%; background: #0a0e1a;">
-        <div style="width: 220px; background: #0f1422; border-right: 1px solid rgba(255,255,255,0.08); display: flex; flex-direction: column;">
-          <div style="padding: 0.8rem; border-bottom: 1px solid rgba(255,255,255,0.08); display: flex; align-items: center; justify-content: space-between;">
-            <span style="font-weight: 700; font-size: 0.85rem;">Documents</span>
-            <button id="filesNewBtn" title="New Note" style="color: var(--accent); padding: 2px 6px; font-size: 0.85rem;">
-              <i class="fa-solid fa-plus"></i>
-            </button>
-          </div>
-          <div id="filesList" style="flex: 1; overflow-y: auto; padding: 0.5rem; display: flex; flex-direction: column; gap: 2px;"></div>
+        <div style="width: 210px; background: #0f1422; border-right: 1px solid rgba(255,255,255,0.08); display: flex; flex-direction: column;">
+          <div id="filesList" style="flex: 1; overflow-y: auto; padding: 0.6rem; display: flex; flex-direction: column; gap: 2px;"></div>
         </div>
         <div style="flex: 1; display: flex; flex-direction: column;">
-          <div style="height: 42px; background: #121826; border-bottom: 1px solid rgba(255,255,255,0.08); display: flex; align-items: center; justify-content: space-between; padding: 0 1rem;">
-            <span id="filesCurrentName" style="font-weight: 600; font-size: 0.88rem; color: var(--accent);">readme.txt</span>
-            <div style="display: flex; gap: 0.5rem;">
-              <button id="filesSaveBtn" style="padding: 0.3rem 0.8rem; background: var(--accent); color: var(--bg-primary); font-weight: 700; border-radius: 6px; font-size: 0.8rem;">
-                <i class="fa-solid fa-floppy-disk"></i> Save
-              </button>
-              <button id="filesDeleteBtn" style="padding: 0.3rem 0.6rem; background: rgba(239, 68, 68, 0.15); color: #ef4444; border-radius: 6px; font-size: 0.8rem;" title="Delete File">
-                <i class="fa-solid fa-trash"></i>
-              </button>
-            </div>
-          </div>
+          ${headerSlot ? '' : `<div style="height: 42px; background: #121826; border-bottom: 1px solid rgba(255,255,255,0.08); display: flex; align-items: center; padding: 0 1rem;">${filesHeaderHtml}</div>`}
           <textarea id="filesEditor" style="flex: 1; width: 100%; border: none; outline: none; background: #0a0e1a; color: var(--text-primary); font-family: 'JetBrains Mono', monospace; font-size: 0.88rem; padding: 1rem; resize: none; line-height: 1.5;"></textarea>
         </div>
       </div>
     `;
 
+    const scope = headerSlot || container;
     const listEl = container.querySelector('#filesList');
     const editor = container.querySelector('#filesEditor');
-    const nameEl = container.querySelector('#filesCurrentName');
-    const saveBtn = container.querySelector('#filesSaveBtn');
-    const delBtn = container.querySelector('#filesDeleteBtn');
-    const newBtn = container.querySelector('#filesNewBtn');
+    const nameEl = scope.querySelector('#filesCurrentName');
+    const saveBtn = scope.querySelector('#filesSaveBtn');
+    const delBtn = scope.querySelector('#filesDeleteBtn');
+    const newBtn = scope.querySelector('#filesNewBtn');
 
     function renderFileList() {
       listEl.innerHTML = '';
@@ -3552,25 +3586,21 @@
     const currentTitle = document.title || 'Lunamix OS';
     const currentFavicon = (document.querySelector("link[rel*='icon']")?.href) || './assets/logos/favicon.svg';
 
-    container.innerHTML = `
-      <div style="height: 100%; overflow-y: auto; padding: 1.5rem; background: #0a0e1a; color: var(--text-primary); font-family: 'Inter', -apple-system, sans-serif;">
-        <div style="max-width: 680px; margin: 0 auto; display: flex; flex-direction: column; gap: 1.25rem;">
+    const cloakHeaderHtml = `
+      <div style="display: flex; align-items: center; justify-content: flex-end; width: 100%;">
+        <button id="cloakQuickResetBtn" style="padding: 0.28rem 0.65rem; background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.12); border-radius: 6px; font-size: 0.76rem; color: var(--text-primary); cursor: pointer; display: flex; align-items: center; gap: 0.35rem;">
+          <i class="fa-solid fa-rotate-left"></i> Reset Default
+        </button>
+      </div>
+    `;
+    const headerSlot = winObj && typeof winObj.setHeaderContent === 'function'
+      ? winObj.setHeaderContent(cloakHeaderHtml)
+      : null;
 
-          <!-- Header -->
-          <div style="display: flex; align-items: center; justify-content: space-between; border-bottom: 1px solid rgba(255,255,255,0.08); padding-bottom: 1rem;">
-            <div style="display: flex; align-items: center; gap: 0.75rem;">
-              <div style="width: 40px; height: 40px; border-radius: 10px; background: rgba(56, 189, 248, 0.15); border: 1px solid rgba(56, 189, 248, 0.3); display: flex; align-items: center; justify-content: center; font-size: 1.25rem; color: #38bdf8;">
-                <i class="fa-solid fa-shield-halved"></i>
-              </div>
-              <div>
-                <h2 style="font-size: 1.15rem; font-weight: 700; margin: 0; color: var(--text-primary);">Tab Disguise & Cloak Settings</h2>
-                <div style="font-size: 0.78rem; color: var(--text-secondary); margin-top: 2px;">Disguise your browser tab title and favicon as school apps or keep it uncloaked.</div>
-              </div>
-            </div>
-            <button id="cloakQuickResetBtn" style="padding: 0.45rem 0.85rem; background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.12); border-radius: 8px; font-size: 0.78rem; color: var(--text-primary); cursor: pointer; display: flex; align-items: center; gap: 0.4rem;">
-              <i class="fa-solid fa-rotate-left"></i> Reset Default
-            </button>
-          </div>
+    container.innerHTML = `
+      <div style="height: 100%; overflow-y: auto; padding: 1.25rem; background: #0a0e1a; color: var(--text-primary); font-family: 'Inter', -apple-system, sans-serif;">
+        <div style="max-width: 680px; margin: 0 auto; display: flex; flex-direction: column; gap: 1.25rem;">
+          ${headerSlot ? '' : cloakHeaderHtml}
 
           <!-- Live Mock Browser Tab Preview -->
           <div style="background: rgba(20, 25, 38, 0.7); border: 1px solid rgba(255,255,255,0.08); border-radius: 12px; padding: 1.25rem;">
@@ -3726,7 +3756,7 @@
     });
 
     // Quick Reset
-    container.querySelector('#cloakQuickResetBtn')?.addEventListener('click', () => {
+    (headerSlot || container).querySelector('#cloakQuickResetBtn')?.addEventListener('click', () => {
       if (window.LunamixCloak) {
         window.LunamixCloak.reset();
         const p = presets.default;
@@ -3885,20 +3915,21 @@
     const rowStyle = 'display: flex; align-items: center; justify-content: space-between; gap: 1rem; padding: 0.75rem 0; border-bottom: 1px solid rgba(255,255,255,0.06);';
     const cardStyle = 'background: rgba(20, 25, 38, 0.7); border: 1px solid rgba(255,255,255,0.08); border-radius: 12px; padding: 1.15rem; margin-bottom: 1rem;';
 
+    const settingsTabsHtml = `
+      <div style="display: flex; gap: 0.35rem; align-items: center;">
+        <button class="lm-set-tab active" data-tab="appearance" style="padding: 0.28rem 0.65rem; border-radius: 7px; border: 1px solid var(--accent); background: rgba(125,211,192,0.16); color: var(--accent); font-size: 0.76rem; font-weight: 600; cursor: pointer; white-space: nowrap;">Themes &amp; UI</button>
+        <button class="lm-set-tab" data-tab="behavior" style="padding: 0.28rem 0.65rem; border-radius: 7px; border: 1px solid rgba(255,255,255,0.1); background: rgba(255,255,255,0.04); color: var(--text-secondary); font-size: 0.76rem; font-weight: 600; cursor: pointer; white-space: nowrap;">Behavior</button>
+        <button class="lm-set-tab" data-tab="keybinds" style="padding: 0.28rem 0.65rem; border-radius: 7px; border: 1px solid rgba(255,255,255,0.1); background: rgba(255,255,255,0.04); color: var(--text-secondary); font-size: 0.76rem; font-weight: 600; cursor: pointer; white-space: nowrap;">Keybinds</button>
+        <button class="lm-set-tab" data-tab="stealth" style="padding: 0.28rem 0.65rem; border-radius: 7px; border: 1px solid rgba(255,255,255,0.1); background: rgba(255,255,255,0.04); color: var(--text-secondary); font-size: 0.76rem; font-weight: 600; cursor: pointer; white-space: nowrap;">Stealth</button>
+      </div>
+    `;
+    const headerSlot = winObj && typeof winObj.setHeaderContent === 'function'
+      ? winObj.setHeaderContent(settingsTabsHtml)
+      : null;
+
     container.innerHTML = `
       <div style="height: 100%; display: flex; flex-direction: column; background: #0a0e1a; color: var(--text-primary);">
-        <div style="display: flex; align-items: center; justify-content: space-between; padding: 1rem 1.25rem; border-bottom: 1px solid rgba(255,255,255,0.08); flex-wrap: wrap; gap: 0.75rem;">
-          <div style="display: flex; align-items: center; gap: 0.6rem; font-size: 1.05rem; font-weight: 700;">
-            <i class="fa-solid fa-gear" style="color: var(--accent);"></i>
-            <span>Settings</span>
-          </div>
-          <div style="display: flex; gap: 0.4rem; flex-wrap: wrap;">
-            <button class="lm-set-tab active" data-tab="appearance" style="padding: 0.4rem 0.8rem; border-radius: 8px; border: 1px solid var(--accent); background: rgba(125,211,192,0.16); color: var(--accent); font-size: 0.8rem; font-weight: 600; cursor: pointer;">Themes &amp; UI</button>
-            <button class="lm-set-tab" data-tab="behavior" style="padding: 0.4rem 0.8rem; border-radius: 8px; border: 1px solid rgba(255,255,255,0.1); background: rgba(255,255,255,0.04); color: var(--text-secondary); font-size: 0.8rem; font-weight: 600; cursor: pointer;">Behavior</button>
-            <button class="lm-set-tab" data-tab="keybinds" style="padding: 0.4rem 0.8rem; border-radius: 8px; border: 1px solid rgba(255,255,255,0.1); background: rgba(255,255,255,0.04); color: var(--text-secondary); font-size: 0.8rem; font-weight: 600; cursor: pointer;">Keybinds</button>
-            <button class="lm-set-tab" data-tab="stealth" style="padding: 0.4rem 0.8rem; border-radius: 8px; border: 1px solid rgba(255,255,255,0.1); background: rgba(255,255,255,0.04); color: var(--text-secondary); font-size: 0.8rem; font-weight: 600; cursor: pointer;">Stealth</button>
-          </div>
-        </div>
+        ${headerSlot ? '' : `<div style="display: flex; align-items: center; justify-content: flex-end; padding: 0.75rem 1.25rem; border-bottom: 1px solid rgba(255,255,255,0.08);">${settingsTabsHtml}</div>`}
 
         <div style="flex: 1; overflow-y: auto; padding: 1.25rem;">
           <div style="max-width: 680px; margin: 0 auto;">
@@ -4170,10 +4201,11 @@
     };
 
     // Tab switching
-    container.querySelectorAll('.lm-set-tab').forEach(tabBtn => {
+    const tabScope = headerSlot || container;
+    tabScope.querySelectorAll('.lm-set-tab').forEach(tabBtn => {
       tabBtn.addEventListener('click', () => {
         const target = tabBtn.getAttribute('data-tab');
-        container.querySelectorAll('.lm-set-tab').forEach(b => {
+        tabScope.querySelectorAll('.lm-set-tab').forEach(b => {
           const active = b.getAttribute('data-tab') === target;
           b.style.borderColor = active ? 'var(--accent)' : 'rgba(255,255,255,0.1)';
           b.style.background = active ? 'rgba(125,211,192,0.16)' : 'rgba(255,255,255,0.04)';

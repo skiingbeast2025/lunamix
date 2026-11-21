@@ -639,6 +639,20 @@
     function render() {
       const activeNote = notes.find((n) => n.id === activeId) || null;
       const counts = activeNote ? getCounts(activeNote.content) : { words: 0, chars: 0 };
+      const notesToolbarHtml = activeNote
+        ? `
+          <input class="lm-notes-title-input" type="text" value="${escapeHtml(activeNote.title)}" placeholder="Note title..." />
+          <button class="lm-notes-action-btn" data-action="export" type="button" title="Export as .txt">
+            <i class="fa-solid fa-download"></i> Export .txt
+          </button>
+          <button class="lm-notes-action-btn danger" data-action="delete" type="button" title="Delete note">
+            <i class="fa-solid fa-trash"></i>
+          </button>
+        `
+        : '';
+      const headerSlot = winObj && typeof winObj.setHeaderContent === 'function'
+        ? winObj.setHeaderContent(notesToolbarHtml)
+        : null;
 
       winBody.innerHTML = `
         <div class="lm-notes-app">
@@ -655,15 +669,7 @@
             ${
               activeNote
                 ? `
-              <div class="lm-notes-toolbar">
-                <input class="lm-notes-title-input" type="text" value="${escapeHtml(activeNote.title)}" placeholder="Note title..." />
-                <button class="lm-notes-action-btn" data-action="export" type="button" title="Export as .txt">
-                  <i class="fa-solid fa-download"></i> Export .txt
-                </button>
-                <button class="lm-notes-action-btn danger" data-action="delete" type="button" title="Delete note">
-                  <i class="fa-solid fa-trash"></i>
-                </button>
-              </div>
+              ${headerSlot ? '' : `<div class="lm-notes-toolbar">${notesToolbarHtml}</div>`}
               <textarea class="lm-notes-textarea" placeholder="Start typing your note...">${escapeHtml(activeNote.content)}</textarea>
               <div class="lm-notes-footer">
                 <span class="lm-notes-counts">${counts.words} words | ${counts.chars} characters</span>
@@ -691,7 +697,8 @@
       });
 
       if (activeNote) {
-        const titleInput = winBody.querySelector('.lm-notes-title-input');
+        const toolbarScope = headerSlot || winBody;
+        const titleInput = toolbarScope.querySelector('.lm-notes-title-input');
         const textarea = winBody.querySelector('.lm-notes-textarea');
         const countsEl = winBody.querySelector('.lm-notes-counts');
         const savedEl = winBody.querySelector('.lm-notes-saved');
@@ -716,8 +723,8 @@
           renderListOnly();
         });
 
-        winBody.querySelector('[data-action="export"]').addEventListener('click', exportActiveNote);
-        winBody.querySelector('[data-action="delete"]').addEventListener('click', () => {
+        toolbarScope.querySelector('[data-action="export"]').addEventListener('click', exportActiveNote);
+        toolbarScope.querySelector('[data-action="delete"]').addEventListener('click', () => {
           deleteNote(activeNote.id);
         });
       }
