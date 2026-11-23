@@ -1758,7 +1758,7 @@
         const kbEnabled = localStorage.getItem('lunamix_keybinds_enabled') !== 'false';
         bodyHtml = `
           <h2 class="lm-onboard-heading">You Are All Set!</h2>
-          <p class="lm-onboard-sub">Step 6: Review your Lunamix OS preferences before launching.</p>
+          <p class="lm-onboard-sub">Step 6: Review your Lunamix OS preferences before launching. You can always change any of these settings later in Settings.</p>
           <div class="lm-onboard-grid-2">
             <div class="lm-onboard-choice">
               <span style="font-size:0.74rem;color:var(--text-secondary);">Layout</span>
@@ -1804,6 +1804,7 @@
           <div class="lm-onboard-body">${bodyHtml}</div>
           <div class="lm-onboard-footer">
             <button type="button" class="lm-onboard-btn ghost" id="onboardSkipBtn">Skip Setup</button>
+            <span style="font-size:0.75rem;color:var(--text-secondary);text-align:center;">You can always change these settings later in Settings.</span>
             <div style="display:flex;gap:0.5rem;">
               <button type="button" class="lm-onboard-btn" id="onboardBackBtn" ${this.step === 1 ? 'disabled' : ''}>Back</button>
               ${this.step < total
