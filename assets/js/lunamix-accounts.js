@@ -47,6 +47,16 @@
   const MAX_PROFILE_JSON_BYTES = 65536;
   const DANGEROUS_KEYS = new Set(['__proto__', 'constructor', 'prototype']);
 
+  function escapeHtml(str) {
+    if (str === null || str === undefined) return '';
+    return String(str)
+      .replace(/&/g, '&amp;')
+      .replace(/</g, '&lt;')
+      .replace(/>/g, '&gt;')
+      .replace(/"/g, '&quot;')
+      .replace(/'/g, '&#39;');
+  }
+
   function safeJsonParse(jsonString) {
     return JSON.parse(jsonString, (key, value) => {
       if (DANGEROUS_KEYS.has(key)) return undefined;
@@ -671,6 +681,8 @@
         if (params.get('mode') === 'desktop' || params.get('entered') === '1' || params.get('app')) {
           revealDesktop();
           applySessionToDesktop(defaultAcc);
+        } else if (localStorage.getItem('lunamix_onboarding_done') !== '1') {
+          LunamixOnboarding.open();
         } else {
           LunamixLogin.open();
         }
@@ -974,6 +986,22 @@
           });
         }
         modeWrap.style.display = 'grid';
+
+        let relaunchBtn = document.getElementById('loginRelaunchSetupBtn');
+        if (!relaunchBtn) {
+          relaunchBtn = document.createElement('button');
+          relaunchBtn.type = 'button';
+          relaunchBtn.id = 'loginRelaunchSetupBtn';
+          relaunchBtn.className = 'login-relaunch-setup-btn';
+          relaunchBtn.textContent = 'Run Step-by-Step Setup';
+          loginBtn.insertAdjacentElement('afterend', relaunchBtn);
+          relaunchBtn.addEventListener('click', () => {
+            loginEl.classList.remove('active');
+            loginEl.style.display = 'none';
+            LunamixOnboarding.open();
+          });
+        }
+        relaunchBtn.style.display = 'inline-block';
       }
 
       this.syncModePickerUI();
@@ -1499,11 +1527,386 @@
     }
   };
 
+  // ==========================================================================
+  // 5. 6-Step Guided Onboarding Wizard (Layout, Theme, Cloak, Keybinds, Chat)
+  // ==========================================================================
+  const ONBOARDING_THEMES = [
+    { id: 'nautilus', name: 'Nautilus Mint', color: '#7dd3c0' },
+    { id: 'midnight', name: 'Midnight Purple', color: '#a855f7' },
+    { id: 'ocean', name: 'Ocean Glacial', color: '#38bdf8' },
+    { id: 'emerald', name: 'Emerald Forest', color: '#10b981' },
+    { id: 'crimson', name: 'Crimson Dusk', color: '#f43f5e' },
+    { id: 'obsidian', name: 'Obsidian Cyber', color: '#ff5252' },
+    { id: 'matrix', name: 'Matrix Green', color: '#00ff88' },
+    { id: 'sunset', name: 'Sunset Gold', color: '#f59e0b' },
+    { id: 'light-frosted', name: 'Light Frosted', color: '#0ea5e9' }
+  ];
+
+  const ONBOARDING_CLOAKS = [
+    { id: 'default', name: 'None (Lunamix OS)', title: 'Lunamix OS', favicon: './assets/logos/favicon.svg' },
+    { id: 'classroom', name: 'Google Classroom', title: 'Classes', favicon: 'https://ssl.gstatic.com/classroom/favicon.png' },
+    { id: 'drive', name: 'Google Drive', title: 'My Drive - Google Drive', favicon: 'https://ssl.gstatic.com/images/branding/product/1x/drive_2020q4_32dp.png' },
+    { id: 'canvas', name: 'Canvas LMS', title: 'Dashboard', favicon: 'https://du11hjcvx0uqb.cloudfront.net/dist/images/favicon-e10d657a73.ico' },
+    { id: 'docs', name: 'Google Docs', title: 'Google Docs', favicon: 'https://ssl.gstatic.com/docs/documents/images/kix-favicon7.ico' },
+    { id: 'khan', name: 'Khan Academy', title: 'Dashboard | Khan Academy', favicon: 'https://www.khanacademy.org/favicon.ico' },
+    { id: 'wikipedia', name: 'Wikipedia', title: 'Wikipedia, the free encyclopedia', favicon: 'https://en.wikipedia.org/static/favicon/wikipedia.ico' }
+  ];
+
+  const ONBOARDING_KEYBINDS = [
+    { key: 'lunamix_keybinds_enabled', label: 'Master Keyboard Shortcuts', shortcut: 'All', def: true },
+    { key: 'lunamix_kb_games', label: 'Open Games Hub', shortcut: 'Alt + G', def: true },
+    { key: 'lunamix_kb_chat', label: 'Open Lunamix Chat', shortcut: 'Alt + C', def: true },
+    { key: 'lunamix_kb_terminal', label: 'Open Terminal', shortcut: 'Alt + T', def: true },
+    { key: 'lunamix_kb_esc', label: 'Close Active Window', shortcut: 'Escape', def: true },
+    { key: 'lunamix_kb_meta', label: 'App Launcher Menu', shortcut: 'Alt + Space', def: true }
+  ];
+
+  const ONBOARDING_STEP_NAMES = ['Layout', 'Theme', 'Cloaking', 'Keybinds', 'Chat', 'Launch'];
+
+  const LunamixOnboarding = {
+    step: 1,
+    layout: 'desktop',
+    theme: 'nautilus',
+    cloak: 'default',
+    chatMode: 'register',
+
+    _ensureOverlay() {
+      let el = document.getElementById('lunamixOnboarding');
+      if (!el) {
+        el = document.createElement('div');
+        el.id = 'lunamixOnboarding';
+        el.setAttribute('role', 'dialog');
+        el.setAttribute('aria-modal', 'true');
+        el.setAttribute('aria-label', 'Lunamix OS Onboarding');
+        document.body.appendChild(el);
+      }
+      return el;
+    },
+
+    open() {
+      AccountManager.ensureDefaultSession();
+      this.step = 1;
+      this.layout = localStorage.getItem('lunamix_default_layout') === 'dashboard' ? 'dashboard' : 'desktop';
+      this.theme = localStorage.getItem('nautilus_theme') || document.documentElement.getAttribute('data-theme') || 'nautilus';
+      this.cloak = localStorage.getItem('lunamix_cloak_preset') || 'default';
+      this.chatMode = 'register';
+
+      const login = document.getElementById('login');
+      if (login) {
+        login.classList.remove('active');
+        login.style.display = 'none';
+      }
+
+      const el = this._ensureOverlay();
+      el.classList.add('active');
+      el.style.display = 'flex';
+      this.render();
+    },
+
+    applyThemeChoice(themeId) {
+      this.theme = themeId;
+      if (window.LunamixAppStore && typeof window.LunamixAppStore.setTheme === 'function') {
+        window.LunamixAppStore.setTheme(themeId);
+      } else {
+        document.documentElement.setAttribute('data-theme', themeId);
+        localStorage.setItem('nautilus_theme', themeId);
+      }
+      const cur = AccountManager.getCurrentAccount();
+      if (cur && cur.username) {
+        try { AccountManager.updateAccount(cur.username, { theme: themeId }); } catch (e) {}
+      }
+    },
+
+    applyCloakChoice(presetId) {
+      this.cloak = presetId;
+      if (presetId === 'default') {
+        if (window.LunamixCloak && typeof window.LunamixCloak.reset === 'function') {
+          window.LunamixCloak.reset();
+        } else {
+          localStorage.setItem('lunamix_cloak_preset', 'default');
+          document.title = 'Lunamix OS';
+        }
+      } else if (window.LunamixCloak && typeof window.LunamixCloak.apply === 'function') {
+        window.LunamixCloak.apply(presetId, true);
+      } else {
+        const match = ONBOARDING_CLOAKS.find((c) => c.id === presetId);
+        localStorage.setItem('lunamix_cloak_preset', presetId);
+        if (match) document.title = match.title;
+      }
+    },
+
+    finish(skip) {
+      localStorage.setItem('lunamix_onboarding_done', '1');
+      if (!skip) {
+        localStorage.setItem('lunamix_default_layout', this.layout);
+      }
+      const el = document.getElementById('lunamixOnboarding');
+      if (el) {
+        el.classList.remove('active');
+        el.style.display = 'none';
+      }
+      LunamixLogin.selectedLayout = this.layout;
+      LunamixLogin.launchSelectedLayout();
+    },
+
+    render() {
+      const el = this._ensureOverlay();
+      const total = ONBOARDING_STEP_NAMES.length;
+      const pct = Math.round((this.step / total) * 100);
+      const activeCloak = ONBOARDING_CLOAKS.find((c) => c.id === this.cloak) || ONBOARDING_CLOAKS[0];
+      const activeTheme = ONBOARDING_THEMES.find((t) => t.id === this.theme) || ONBOARDING_THEMES[0];
+      const panicKey = (window.LunamixPanic && window.LunamixPanic.panicKey) || localStorage.getItem('lunamix_panic_key') || '`';
+      const panicUrl = (window.LunamixPanic && window.LunamixPanic.panicUrl) || localStorage.getItem('lunamix_panic_url') || 'https://www.apsva.us/parentvue-canvas/#canvas';
+      const chatUrl = this.chatMode === 'login'
+        ? 'https://skiingbeast2025.github.io/cinny/#/login/vn-rtmessaging.rtcenter.org'
+        : 'https://skiingbeast2025.github.io/cinny/#/register/vn-rtmessaging.rtcenter.org';
+
+      let bodyHtml = '';
+      if (this.step === 1) {
+        bodyHtml = `
+          <h2 class="lm-onboard-heading">Welcome to Lunamix OS</h2>
+          <p class="lm-onboard-sub">Step 1: Choose how you want Lunamix to look when you launch it.</p>
+          <div class="lm-onboard-grid-2">
+            <button type="button" class="lm-onboard-choice ${this.layout === 'desktop' ? 'selected' : ''}" data-onboard-layout="desktop">
+              <i class="fa-solid fa-desktop" style="font-size:1.4rem;color:var(--accent);"></i>
+              <strong>Standard Desktop</strong>
+              <span style="font-size:0.78rem;color:var(--text-secondary);">Floating draggable windows, dock, desktop icons, and Start Menu.</span>
+            </button>
+            <button type="button" class="lm-onboard-choice ${this.layout === 'dashboard' ? 'selected' : ''}" data-onboard-layout="dashboard">
+              <i class="fa-solid fa-table-columns" style="font-size:1.4rem;color:var(--accent);"></i>
+              <strong>Dashboard</strong>
+              <span style="font-size:0.78rem;color:var(--text-secondary);">Clean, fast full-screen app grid with instant launch cards.</span>
+            </button>
+          </div>
+        `;
+      } else if (this.step === 2) {
+        bodyHtml = `
+          <h2 class="lm-onboard-heading">Choose Your Theme</h2>
+          <p class="lm-onboard-sub">Step 2: Pick an accent palette and glass theme. Clicking any theme previews it live.</p>
+          <div class="lm-onboard-theme-grid">
+            ${ONBOARDING_THEMES.map((t) => `
+              <button type="button" class="lm-onboard-choice lm-onboard-theme-card ${this.theme === t.id ? 'selected' : ''}" data-onboard-theme="${t.id}">
+                <span class="lm-onboard-swatch" style="background:${t.color};"></span>
+                <strong style="font-size:0.8rem;">${t.name}</strong>
+              </button>
+            `).join('')}
+          </div>
+        `;
+      } else if (this.step === 3) {
+        bodyHtml = `
+          <h2 class="lm-onboard-heading">Tab Cloaking &amp; Disguise</h2>
+          <p class="lm-onboard-sub">Step 3: Disguise your browser tab title and icon as a school or productivity app.</p>
+          <div class="lm-onboard-tab-preview">
+            <img src="${escapeHtml(activeCloak.favicon)}" alt="" onerror="this.src='./assets/logos/favicon.svg';" />
+            <span style="font-size:0.84rem;font-weight:600;">${escapeHtml(activeCloak.title)}</span>
+          </div>
+          <div class="lm-onboard-theme-grid">
+            ${ONBOARDING_CLOAKS.map((c) => `
+              <button type="button" class="lm-onboard-choice ${this.cloak === c.id ? 'selected' : ''}" data-onboard-cloak="${c.id}">
+                <img src="${escapeHtml(c.favicon)}" alt="" style="width:20px;height:20px;border-radius:4px;" onerror="this.src='./assets/logos/favicon.svg';" />
+                <strong style="font-size:0.8rem;">${escapeHtml(c.name)}</strong>
+              </button>
+            `).join('')}
+          </div>
+        `;
+      } else if (this.step === 4) {
+        bodyHtml = `
+          <h2 class="lm-onboard-heading">Keybinds &amp; Panic Shortcut</h2>
+          <p class="lm-onboard-sub">Step 4: Customize quick keyboard shortcuts and your instant panic redirect key.</p>
+          <div>
+            ${ONBOARDING_KEYBINDS.map((kb) => {
+              const raw = localStorage.getItem(kb.key);
+              const checked = raw === null ? kb.def : raw !== 'false';
+              return `
+                <label class="lm-onboard-kb-row" style="cursor:pointer;">
+                  <div>
+                    <div style="font-size:0.84rem;font-weight:700;">${kb.label}</div>
+                    <div style="font-size:0.74rem;color:var(--text-secondary);">Shortcut: <code>${kb.shortcut}</code></div>
+                  </div>
+                  <input type="checkbox" class="lm-onboard-kb-check" data-kb-key="${kb.key}" ${checked ? 'checked' : ''} style="width:18px;height:18px;accent-color:var(--accent);" />
+                </label>
+              `;
+            }).join('')}
+          </div>
+          <div style="display:flex;gap:0.65rem;margin-top:0.8rem;flex-wrap:wrap;align-items:center;">
+            <label style="font-size:0.78rem;color:var(--text-secondary);display:flex;align-items:center;gap:0.4rem;">
+              Panic Key:
+              <input type="text" id="onboardPanicKey" value="${escapeHtml(panicKey)}" maxlength="12" style="width:68px;padding:0.4rem 0.5rem;border-radius:8px;border:1px solid rgba(255,255,255,0.16);background:#090d16;color:var(--accent);font-weight:700;text-align:center;" />
+            </label>
+            <label style="flex:1;min-width:210px;font-size:0.78rem;color:var(--text-secondary);display:flex;align-items:center;gap:0.4rem;">
+              Panic URL:
+              <input type="url" id="onboardPanicUrl" value="${escapeHtml(panicUrl)}" style="flex:1;padding:0.4rem 0.6rem;border-radius:8px;border:1px solid rgba(255,255,255,0.16);background:#090d16;color:var(--text-primary);font-size:0.8rem;" />
+            </label>
+          </div>
+        `;
+      } else if (this.step === 5) {
+        bodyHtml = `
+          <div style="display:flex;align-items:center;justify-content:space-between;gap:0.75rem;flex-wrap:wrap;margin-bottom:0.6rem;">
+            <div>
+              <h2 class="lm-onboard-heading" style="margin-bottom:0.15rem;">Log Into Lunamix Chat</h2>
+              <p class="lm-onboard-sub" style="margin-bottom:0;">Step 5: Create an account or sign in on <code>vn-rtmessaging.rtcenter.org</code> (no email or CAPTCHA needed), or skip for later.</p>
+            </div>
+            <div style="display:flex;gap:0.35rem;">
+              <button type="button" class="lm-onboard-btn ${this.chatMode === 'register' ? 'primary' : ''}" data-onboard-chat-mode="register">Create Account</button>
+              <button type="button" class="lm-onboard-btn ${this.chatMode === 'login' ? 'primary' : ''}" data-onboard-chat-mode="login">Sign In</button>
+              <a class="lm-onboard-btn" href="${chatUrl}" target="_blank" rel="noopener noreferrer" style="text-decoration:none;">New Tab</a>
+            </div>
+          </div>
+          <iframe class="lm-onboard-chat-frame" id="onboardChatFrame" src="${chatUrl}" title="Lunamix Chat Setup"></iframe>
+        `;
+      } else {
+        const kbEnabled = localStorage.getItem('lunamix_keybinds_enabled') !== 'false';
+        bodyHtml = `
+          <h2 class="lm-onboard-heading">You Are All Set!</h2>
+          <p class="lm-onboard-sub">Step 6: Review your Lunamix OS preferences before launching.</p>
+          <div class="lm-onboard-grid-2">
+            <div class="lm-onboard-choice">
+              <span style="font-size:0.74rem;color:var(--text-secondary);">Layout</span>
+              <strong>${this.layout === 'dashboard' ? 'Dashboard' : 'Standard Desktop'}</strong>
+            </div>
+            <div class="lm-onboard-choice">
+              <span style="font-size:0.74rem;color:var(--text-secondary);">Theme</span>
+              <strong>${escapeHtml(activeTheme.name)}</strong>
+            </div>
+            <div class="lm-onboard-choice">
+              <span style="font-size:0.74rem;color:var(--text-secondary);">Tab Cloak</span>
+              <strong>${escapeHtml(activeCloak.name)}</strong>
+            </div>
+            <div class="lm-onboard-choice">
+              <span style="font-size:0.74rem;color:var(--text-secondary);">Keybinds &amp; Panic Key</span>
+              <strong>${kbEnabled ? 'Enabled' : 'Disabled'} (Panic: ${escapeHtml(panicKey)})</strong>
+            </div>
+          </div>
+        `;
+      }
+
+      el.innerHTML = `
+        <div class="lm-onboard-card">
+          <div class="lm-onboard-header">
+            <div class="lm-onboard-top">
+              <div class="lm-onboard-brand">
+                <i class="fa-solid fa-cube"></i>
+                <span>Lunamix OS Setup</span>
+              </div>
+              <span class="lm-onboard-step-label">Step ${this.step} of ${total}</span>
+            </div>
+            <div class="lm-onboard-progress">
+              <div class="lm-onboard-progress-fill" style="width:${pct}%;"></div>
+            </div>
+            <div class="lm-onboard-steps">
+              ${ONBOARDING_STEP_NAMES.map((name, idx) => {
+                const n = idx + 1;
+                const cls = n === this.step ? 'active' : n < this.step ? 'done' : '';
+                return `<button type="button" class="lm-onboard-step-pill ${cls}" data-onboard-jump="${n}">${n}. ${name}</button>`;
+              }).join('')}
+            </div>
+          </div>
+          <div class="lm-onboard-body">${bodyHtml}</div>
+          <div class="lm-onboard-footer">
+            <button type="button" class="lm-onboard-btn ghost" id="onboardSkipBtn">Skip Setup</button>
+            <div style="display:flex;gap:0.5rem;">
+              <button type="button" class="lm-onboard-btn" id="onboardBackBtn" ${this.step === 1 ? 'disabled' : ''}>Back</button>
+              ${this.step < total
+                ? `<button type="button" class="lm-onboard-btn primary" id="onboardNextBtn">Next</button>`
+                : `<button type="button" class="lm-onboard-btn primary" id="onboardFinishBtn">Launch Lunamix OS</button>`}
+            </div>
+          </div>
+        </div>
+      `;
+
+      el.querySelectorAll('[data-onboard-jump]').forEach((btn) => {
+        btn.addEventListener('click', () => {
+          this.step = Number(btn.getAttribute('data-onboard-jump')) || 1;
+          this.render();
+        });
+      });
+
+      el.querySelectorAll('[data-onboard-layout]').forEach((btn) => {
+        btn.addEventListener('click', () => {
+          this.layout = btn.getAttribute('data-onboard-layout') === 'dashboard' ? 'dashboard' : 'desktop';
+          localStorage.setItem('lunamix_default_layout', this.layout);
+          this.render();
+        });
+      });
+
+      el.querySelectorAll('[data-onboard-theme]').forEach((btn) => {
+        btn.addEventListener('click', () => {
+          this.applyThemeChoice(btn.getAttribute('data-onboard-theme'));
+          this.render();
+        });
+      });
+
+      el.querySelectorAll('[data-onboard-cloak]').forEach((btn) => {
+        btn.addEventListener('click', () => {
+          this.applyCloakChoice(btn.getAttribute('data-onboard-cloak'));
+          this.render();
+        });
+      });
+
+      el.querySelectorAll('.lm-onboard-kb-check').forEach((chk) => {
+        chk.addEventListener('change', () => {
+          localStorage.setItem(chk.getAttribute('data-kb-key'), String(chk.checked));
+        });
+      });
+
+      const pKeyEl = el.querySelector('#onboardPanicKey');
+      if (pKeyEl) {
+        pKeyEl.addEventListener('change', () => {
+          const val = pKeyEl.value.trim();
+          if (val) {
+            if (window.LunamixPanic && typeof window.LunamixPanic.setKey === 'function') {
+              window.LunamixPanic.setKey(val);
+            } else {
+              localStorage.setItem('lunamix_panic_key', val);
+            }
+          }
+        });
+      }
+
+      const pUrlEl = el.querySelector('#onboardPanicUrl');
+      if (pUrlEl) {
+        pUrlEl.addEventListener('change', () => {
+          const val = pUrlEl.value.trim();
+          if (/^https?:\/\//i.test(val)) {
+            if (window.LunamixPanic && typeof window.LunamixPanic.setUrl === 'function') {
+              window.LunamixPanic.setUrl(val);
+            } else {
+              localStorage.setItem('lunamix_panic_url', val);
+            }
+          }
+        });
+      }
+
+      el.querySelectorAll('[data-onboard-chat-mode]').forEach((btn) => {
+        btn.addEventListener('click', () => {
+          this.chatMode = btn.getAttribute('data-onboard-chat-mode') === 'login' ? 'login' : 'register';
+          this.render();
+        });
+      });
+
+      el.querySelector('#onboardSkipBtn')?.addEventListener('click', () => this.finish(true));
+      el.querySelector('#onboardBackBtn')?.addEventListener('click', () => {
+        if (this.step > 1) {
+          this.step -= 1;
+          this.render();
+        }
+      });
+      el.querySelector('#onboardNextBtn')?.addEventListener('click', () => {
+        if (this.step < total) {
+          this.step += 1;
+          this.render();
+        }
+      });
+      el.querySelector('#onboardFinishBtn')?.addEventListener('click', () => this.finish(false));
+    }
+  };
+
   // Expose Globals
   window.AccountManager = AccountManager;
   window.LunamixBoot = LunamixBoot;
   window.LunamixLogin = LunamixLogin;
   window.LunamixSetup = LunamixSetup;
+  window.LunamixOnboarding = LunamixOnboarding;
 
   // Auto-initialize bootloader on DOM ready
   if (document.readyState === 'loading') {
